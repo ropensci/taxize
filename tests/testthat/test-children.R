@@ -135,3 +135,24 @@ test_that("warn on mismatch 'db'", {
         get_uid("Chironomus riparius", messages = FALSE), db = "itis"))
   })
 })
+
+test_that("works with source bold", {
+  skip_on_cran()
+  vcr::use_cassette("children_bold", {
+    x_id <- children("88899", db = "bold", messages = FALSE)
+    x_from_get <- children(get_boldid("Momotus", messages = FALSE))
+  })
+
+  expect_named(x_id, "88899")
+  expect_named(x_from_get, 'species')
+
+  expect_is(x_id, "children")
+  expect_is(x_id[[1]], "data.frame")
+  expect_is(x_id[[1]]$name, "character")
+  expect_match(x_id[[1]]$name, "Momotus")
+
+  expect_is(x_from_get, "children")
+  expect_is(x_from_get[[1]], "data.frame")
+  expect_is(x_from_get[[1]]$name, "character")
+  expect_match(x_from_get[[1]]$name, "Momotus")
+})

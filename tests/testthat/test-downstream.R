@@ -3,7 +3,7 @@ context("downstream")
 test_that("downstream basic usage works", {
   skip_on_cran()
   vcr::use_cassette("downstream", {
-    cc <- downstream("Ursus", db = "gbif", downto = "Species", 
+    cc <- downstream("Ursus", db = "gbif", downto = "Species",
       messages = FALSE)
   }, preserve_exact_body_bytes = TRUE)
 
@@ -15,7 +15,7 @@ test_that("downstream basic usage works", {
 test_that("downstream - taxonomic id input", {
   skip_on_cran()
   vcr::use_cassette("downstream_id_input", {
-    aa <- downstream(get_gbifid("Ursus", messages = FALSE), 
+    aa <- downstream(get_gbifid("Ursus", messages = FALSE),
       db = "gbif", downto = "Species")
   }, preserve_exact_body_bytes = TRUE)
 
@@ -27,7 +27,7 @@ test_that("downstream - taxonomic id input", {
 test_that("downstream - multiple data sources", {
   skip_on_cran()
   vcr::use_cassette("downstream_multiple_data_sources", {
-    ids <- sw(get_ids("Ursus", db = c("gbif", 'itis'), rows = 1, 
+    ids <- sw(get_ids("Ursus", db = c("gbif", 'itis'), rows = 1,
       messages = FALSE, suppress = TRUE))
     aa <- downstream(ids, downto = "Species")
   }, preserve_exact_body_bytes = TRUE)
@@ -40,7 +40,7 @@ test_that("downstream - multiple data sources", {
 test_that("downstream - Use the rows parameter", {
   skip_on_cran()
   vcr::use_cassette("downstream_rows_param", {
-    aa <- downstream("Hereroa", db = 'gbif', downto = "species", 
+    aa <- downstream("Hereroa", db = 'gbif', downto = "species",
       rows = 1, messages = FALSE)
   })
 
@@ -66,4 +66,16 @@ test_that("warn on mismatch 'db'", {
         get_gbifid('Apis', messages = FALSE, rows = 1), downto = "species",
         db = "itis"))
   })
+})
+
+test_that("downstream basic usage works", {
+  skip_on_cran()
+  vcr::use_cassette("downstream_bold", {
+    cc <- downstream("Ursus", db = "bold", downto = "species",
+      messages = FALSE)
+  }, preserve_exact_body_bytes = TRUE)
+
+  expect_is(cc, "downstream")
+  expect_named(cc, "Ursus")
+  expect_is(cc$Ursus$rank, "character")
 })

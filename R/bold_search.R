@@ -84,7 +84,7 @@ bold_search <- function(name = NULL, id = NULL, fuzzy = FALSE,
 #'
 #' @export
 #' @keywords internal
-#' @param id (integer) A BOLD taxonomic identifier
+#' @param id (integer) A BOLD taxonomic identifier. length=1. required
 #' @param ... named curl options passed on to [crul::verb-GET]
 #' debugging
 #' @return list of data.frame's
@@ -107,6 +107,7 @@ bold_search <- function(name = NULL, id = NULL, fuzzy = FALSE,
 #' bold_children(id = 4952)
 #' }
 bold_children <- function(id, ...) {
+  stopifnot(length(id) == 1)
   x <- crul::HttpClient$new("https://v4.boldsystems.org", opts = list(...))
   res <- x$get("index.php/Taxbrowser_Taxonpage", query = list(taxid = id))
   res$raise_for_status()
@@ -115,7 +116,7 @@ bold_children <- function(id, ...) {
     '//div[@class = "row"]//div[@class = "ibox float-e-margins"]//ol')
   if (length(nodes) == 0) {
     message("no children found")
-    return(tibble::tibble())
+    return(list(tibble::tibble()))
   }
   group_nmz <- xml2::xml_find_all(html,
     '//div[@class = "row"]//div[@class = "ibox float-e-margins"]//lh')

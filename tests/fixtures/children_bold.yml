@@ -1,0 +1,888 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://v4.boldsystems.org/index.php/Taxbrowser_Taxonpage?taxid=88899
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: 'HTTP/2 200 '
+      server: nginx
+      date: Tue, 21 Apr 2020 19:02:38 GMT
+      content-type: text/html; charset=utf-8
+      x-powered-by: PHP/5.3.15
+      set-cookie: session=jifr9ipop32dca2nsrp75fktq2; path=/
+      x-frame-options: SAMEORIGIN
+      x-content-type-options: nosniff
+      x-xss-protection: 1; mode=block
+    body:
+      encoding: UTF-8
+      file: no
+      string: "<!DOCTYPE HTML>\n<html>\n<head>\n\t<meta charset=\"utf-8\" />\n<meta
+        http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\">\n\n<title>Momotus
+        | Taxonomy Browser | BOLDSYSTEMS</title>\n\n<meta name=\"keywords\" content=\"\"
+        />\n<meta name=\"description\" content=\"\" />\n<link rel=\"shortcut icon\"
+        type=\"image/x-icon\" href=\"/favicon.ico\" />\n<link rel=\"apple-touch-icon\"
+        href=\"/favicons/apple-icon.png\"/>\n<link rel=\"apple-touch-icon\" sizes=\"57x57\"
+        href=\"/favicons/apple-icon-57x57.png\"/>\n<link rel=\"apple-touch-icon\"
+        sizes=\"60x60\" href=\"/favicons/apple-icon-60x60.png\"/>\n<link rel=\"apple-touch-icon\"
+        sizes=\"72x72\" href=\"/favicons/apple-icon-72x72.png\"/>\n<link rel=\"apple-touch-icon\"
+        sizes=\"76x76\" href=\"/favicons/apple-icon-76x76.png\"/>\n<link rel=\"apple-touch-icon\"
+        sizes=\"114x114\" href=\"/favicons/apple-icon-114x114.png\"/>\n<link rel=\"apple-touch-icon\"
+        sizes=\"120x120\" href=\"/favicons/apple-icon-120x120.png\"/>\n<link rel=\"apple-touch-icon\"
+        sizes=\"144x144\" href=\"/favicons/apple-icon-144x144.png\"/>\n<link rel=\"apple-touch-icon\"
+        sizes=\"152x152\" href=\"/favicons/apple-icon-152x152.png\"/>\n<link rel=\"apple-touch-icon\"
+        sizes=\"180x180\" href=\"/favicons/apple-icon-180x180.png\"/>\n<meta name=\"viewport\"
+        content=\"width=device-width, initial-scale=1, user-scalable=0\" />\n\n<link
+        href=\"/libhtml_v4/css/bootstrap.css\" rel=\"stylesheet\" />\n<link href=\"/libhtml_v4/css/style.css\"
+        rel=\"stylesheet\" />\n<link href=\"/libhtml_v4/css/animate.css\" rel=\"stylesheet\"
+        />\n<link href=\"/libhtml_v4/css/ionicons.min.css\" rel=\"stylesheet\" />\n<!--<link
+        href=\"/libhtml_v4/css/font-awesome.min.css\" rel=\"stylesheet\" />-->\n<link
+        href=\"/libhtml_v3/font-awesome/css/font-awesome.css\" rel=\"stylesheet\">\n<link
+        href=\"https://fonts.googleapis.com/css?family=Open+Sans:400,600,800&amp;subset=latin,latin-ext\"
+        rel=\"stylesheet\" />\n<link href=\"/libhtml_v4/css/print.css\" rel=\"stylesheet\"
+        />\n\n<script src=\"/libhtml_v4/js/modernizr-custom.min.js\"></script>\n<script
+        src=\"/libhtml_v4/js/jquery-2.1.0.min.js\"></script>\n<script src=\"/libhtml_v4/js/bootstrap.js\"></script>\n<script
+        src=\"/libhtml_v4/js/plugins/toastr/toastr.min.js\"></script>\n<script type=\"text/javascript\"
+        src=\"/libhtml_v3/js/modalWaitingBox.js\"></script>\n<script>\n\t(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){\n\t(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new
+        Date();a=s.createElement(o),\n\tm=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)\n\t})(window,document,'script','//www.google-analytics.com/analytics.js','ga');\n\n\tga('create',
+        'UA-372370-4', 'auto');\n\tga('send', 'pageview');\n\n</script>\n<script language=\"javascript\">\n\t//
+        Loading page complete\n$(window).load(function()\n{\n\tcheckHero(); // Check
+        hero height is correct\n\tanimateWhenVisible();  // Activate animation when
+        visible\n});\n\n\n// Page ready\n$(document).ready(function()\n{\n\tif (Modernizr.mq('(min-width:
+        768px)')) {\n\t\t$('#promo').animate({ height: '408px' }, 600);\n\t\t$('#lead-in').animate({
+        height: '220px' }, 800);\n\t}\n\n\t$('.hero').css('height', $(window).height()+'px');
+        // Set initial hero height\n\t$('#scroll-hero').click(function()\n\t{\n\t\t$('html,body').animate({scrollTop:
+        $(\"#hero-bloc\").height()}, 'slow');\n\t});\n\n\tsetUpLightBox(); // Add
+        lightbox Support\n\n\t$(\"button#printBtn\").click(function (e){\n\t\twindow.print();\n\t});\n\n});\n\n//
+        Window resize\n$(window).resize(function()\n{\n\t$('.hero').css('height',getHeroHeight()+'px');
+        // Refresh hero height\n});\n\n// Get Hero Height\nfunction getHeroHeight()\n{\n\tvar
+        H = $(window).height(); // Window height\n\tif (window.hasOwnProperty('heroBodyH')){\n\t\tif(H
+        < heroBodyH) {// If window height is less than content height\n\t\t\tH = heroBodyH+100;\n\t\t}\n\t}\n\treturn
+        H\n}\n\n// Check hero height\nfunction checkHero()\n{\n\tif($('#hero-bloc').length)\n\t{\n\t\tP
+        = parseInt($('.hero-nav').css('padding-top'))*2\n\t\twindow.heroBodyH = $('.hero-nav').outerHeight()+P+$('.vc-content').outerHeight()+50;
+        // Set hero body height\n\t\t$('.hero').css('height', getHeroHeight() + 'px');
+        // Set hero to fill page height\n\t}\n}\n\n// Scroll to target\nfunction scrollToTarget(D)\n{\n\tif(D
+        == 1) // Top of page\n\t{\n\t\tD = 0;\n\t}\n\telse if(D == 2) // Bottom of
+        page\n\t{\n\t\tD = $(document).height();\n\t}\n\telse // Specific Bloc\n\t{\n\t\tD
+        = $(D).offset().top;\n\t\tif($('.sticky-nav').length) // Sticky Nav in use\n\t\t{\n\t\t\tD
+        = D-100;\n\t\t}\n\t}\n\n\t$('html,body').animate({scrollTop:D}, 'slow');\n}\n\n//
+        Initial tooltips\n$(function()\n{\n  $('[data-toggle=\"tooltip\"]').tooltip()\n})\n\n\n//
+        Animate when visible\nfunction animateWhenVisible()\n{\n\thideAll(); // Hide
+        all animation elements\n\tinViewCheck(); // Initail check on page load\n\n\t$(window).scroll(function()\n\t{\n\t\tinViewCheck();
+        // Check object visability on page scroll\n\t\tscrollToTopView(); // ScrollToTop
+        button visability toggle\n\t\tstickyNavToggle(); // Sticky nav toggle\n\t});\n};\n\n//
+        Hide all animation elements\nfunction stickyNavToggle()\n{\n\tvar V = 0; //
+        offset Value\n\tvar C = \"sticky\"; // Classes\n\n\tif($('.sticky-nav').parent().is('#hero-bloc'))
+        // If nav is in hero animate in\n\t{\n\t\tV = $('.sticky-nav').height();\n\t\tC
+        = \"sticky animated fadeInDown\";\n\t}\n\n\tif($(window).scrollTop() > V)\n\t{\n\t\t$('.sticky-nav').addClass(C);\n\n\t\tif(C
+        == \"sticky\")\n\t\t{\n\t\t\t$('.page-container').css('padding-top',$('.sticky-nav').height());\n\t\t}\n\t}\n\telse\n\t{\n\t\t$('.sticky-nav').removeClass(C);\n\t\t$('.page-container').removeAttr('style');\n\t}\n}\n\n//
+        Hide all animation elements\nfunction hideAll()\n{\n\t$('.animated').each(function(i)\n\t{\n\t\tif(!$(this).closest('.hero').length)
+        // Dont hide hero object\n\t\t{\n\t\t\t$(this).removeClass('animated').addClass('hideMe');\n\t\t}\n\t});\n}\n\n//
+        Check if object is inView\nfunction inViewCheck()\n{\n\t$($(\".hideMe\").get().reverse()).each(function(i)\n\t{\n\t\tvar
+        target = jQuery(this);\n\t\tvar a = target.offset().top + target.height();\n\t\tvar
+        b = $(window).scrollTop() + $(window).height();\n\n\t\tif(target.height()
+        > $(window).height()) // If object height is greater than window height\n\t\t{\n\t\t\ta
+        = target.offset().top;\n\t\t}\n\n\t\tif (a < b)\n\t\t{\n\t\t\tvar objectClass
+        = target.attr('class').replace('hideMe' , 'animated');\n\t\t\ttarget.css('visibility','hidden').removeAttr('class');\n\t\t\tsetTimeout(function(){target.attr('class',objectClass).css('visibility','visible');},0.01);\n\t\t}\n\t});\n};\n\n//
+        ScrollToTop button toggle\nfunction scrollToTopView()\n{\n\tif($(window).scrollTop()
+        > $(window).height()/3)\n\t{\n\t\tif(!$('.scrollToTop').hasClass('showScrollTop'))\n\t\t{\n\t\t\t$('.scrollToTop').addClass('showScrollTop');\n\t\t}\n\t}\n\telse\n\t{\n\t\t$('.scrollToTop').removeClass('showScrollTop');\n\t}\n};\n\n//
+        Light box support\nfunction setUpLightBox()\n{\n\twindow.targetLightbox;\n\n\t$(document).on('click',
+        '[data-lightbox]', function(e) // Create Lightbox Modal\n\t{\n\t\te.preventDefault();\n\t\ttargetLightbox
+        = $(this);\n\t\tvar captionData ='<p class=\"lightbox-caption\">'+$(this).attr('data-caption')+'</p>';\n\t\tif(!$(this).attr('data-caption'))
+        // No caption caption data\n\t\t{\n\t\t\tcaptionData = '';\n\t\t}\n\n\t\tvar
+        customModal = $('<div id=\"lightbox-modal\" class=\"modal fade\"><div class=\"modal-dialog\"><div
+        class=\"modal-content '+$(this).attr('data-frame')+'\"><button type=\"button\"
+        class=\"close close-lightbox\" data-dismiss=\"modal\" aria-label=\"Close\"><span
+        aria-hidden=\"true\">&times;</span></button><div class=\"modal-body\"><a href=\"#\"
+        class=\"prev-lightbox\" aria-label=\"prev\"></a><a href=\"#\" class=\"next-lightbox\"
+        aria-label=\"next\"></a><img id=\"lightbox-image\" class=\"img-responsive\"
+        src=\"'+$(this).attr('data-lightbox')+'\">'+captionData+'</div></div></div></div>');\n\t\t$('body').append(customModal);\n\t\t$('#lightbox-modal').modal('show');\n\n\t\t//
+        Handle navigation buttons (next - prev)\n\t\tif($('a[data-lightbox]').index(targetLightbox)
+        == 0)\n\t\t{\n\t\t\t$('.prev-lightbox').hide();\n\t\t}\n\t\tif($('a[data-lightbox]').index(targetLightbox)
+        == $('a[data-lightbox]').length-1)\n\t\t{\n\t\t\t$('.next-lightbox').hide();\n\t\t}\n\t}\n\t).on('hidden.bs.modal',
+        '#lightbox-modal', function () // Handle destroy modal\n\t{\n\t\t$('#lightbox-modal').remove();\n\t})\n\n\t$(document).on('click',
+        '.next-lightbox, .prev-lightbox', function(e)\n\t{\n\t\te.preventDefault();\n\t\tvar
+        idx = $('a[data-lightbox]').index(targetLightbox);\n\t\tvar next = $('a[data-lightbox]').eq(idx+1)
+        // Next\n\n\t\tif($(this).hasClass('prev-lightbox'))\n\t\t{\n\t\t\tnext =
+        $('a[data-lightbox]').eq(idx-1) // Prev\n\t\t}\n\t\t$('#lightbox-image').attr('src',next.attr('data-lightbox'));\n\t\t$('.lightbox-caption').html(next.attr('data-caption'));\n\t\ttargetLightbox
+        = next;\n\n\t\t// Handle navigation buttons (next - prev)\n\t\t$('.next-lightbox,
+        .prev-lightbox').hide();\n\n\t\tif($('a[data-lightbox]').index(next) != $('a[data-lightbox]').length-1)\n\t\t{\n\t\t\t$('.next-lightbox').show();\n\t\t}\n\t\tif($('a[data-lightbox]').index(next)
+        > 0)\n\t\t{\n\t\t\t$('.prev-lightbox').show();\n\t\t}\n\t});\n}\n\nfunction
+        submitSearch(){\n\t//search box\n\n\t\tif (document.searchForm.searchMenu.value==\"taxonomy\")
+        {\n\t\t\tdocument.searchForm.taxon.value = document.searchForm.query.value;
+        \ //temp fix for now.\n\t\t\tdocument.searchForm.action=\"/index.php/Taxbrowser_Taxonpage?taxon=\"+document.searchForm.query.value+\"&debug=1\";\n\t\t}
+        else if (document.searchForm.searchMenu.value==\"records\") {\n\t\t\tdocument.searchForm.action=\"/index.php/Public_SearchTerms?\";\n\t\t}
+        else if (document.searchForm.searchMenu.value==\"bins\") {\n\t\t\tdocument.searchForm.action=\"/index.php/Public_BINSearch?\";\n\t\t}\n\n}\n\n</script>\n<style>\n\t.ui-autocomplete
+        {\n\t\tposition: absolute;\n\t\ttop: 100%;\n\t\tleft: 0;\n\t\tz-index: 1000;\n\t\tfloat:
+        left;\n\t\tdisplay: none;\n\t\tmin-width: 160px;\n\t\t_width: 160px;\n\t\tpadding:
+        4px 0;\n\t\tmargin: 2px 0 0 0;\n\t\tlist-style: none;\n\t\tbackground-color:
+        #ffffff;\n\t\tborder-color: #ccc;\n\t\tborder-color: rgba(0, 0, 0, 0.2);\n\t\tborder-style:
+        solid;\n\t\tborder-width: 1px;\n\t\t-webkit-border-radius: 5px;\n\t\t-moz-border-radius:
+        5px;\n\t\tborder-radius: 5px;\n\t\t-webkit-box-shadow: 0 5px 10px rgba(0,
+        0, 0, 0.2);\n\t\t-moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);\n\t\tbox-shadow:
+        0 5px 10px rgba(0, 0, 0, 0.2);\n\t\t-webkit-background-clip: padding-box;\n\t\t-moz-background-clip:
+        padding;\n\t\tbackground-clip: padding-box;\n\t\t*border-right-width: 2px;\n\t\t*border-bottom-width:
+        2px;\n\n\t\t.ui-menu-item > a.ui-corner-all {\n\t\t\tdisplay: block;\n\t\t\tpadding:
+        3px 15px;\n\t\t\tclear: both;\n\t\t\tfont-weight: normal;\n\t\t\tline-height:
+        18px;\n\t\t\tcolor: #555555;\n\t\t\twhite-space: nowrap;\n\n\t\t\t&.ui-state-hover,
+        &.ui-state-active &.ui-state-focus{\n\t\t\t\tcolor: #ffffff;\n\t\t\t\ttext-decoration:
+        none;\n\t\t\t\tbackground-color: #0088cc !important;\n\t\t\t\tborder-radius:
+        0px;\n\t\t\t\t-webkit-border-radius: 0px;\n\t\t\t\t-moz-border-radius: 0px;\n\t\t\t\tbackground-image:
+        none;\n\t\t\t}\n\t\t}\n\t}\n\t.ui-helper-hidden-accessible{\n\t\tdisplay:none;\n\t}\n</style>\t<link
+        rel=\"stylesheet\" type=\"text/css\" href=\"/libhtml/highslide/highslide.css\"
+        />\n\t<script type=\"text/javascript\" src=\"/libhtml/highslide/highslide-full.js\"></script>\n\t<!--
+        ChartJS-->\n\t<script src=\"/libhtml_v4/js/plugins/chartjs/Chart.js\"></script>\n\t<script
+        src=\"/libhtml_v3/js/plugins/sparkline/jquery.sparkline.min.js\"></script>\n\n<!--
+        SCRIPT FROM TAXONPAGENEW -->\n<script type=\"text/javascript\">\n\t\t\tmaxColWidth
+        = 2250;\n\t\t\tmaxColHeight = 1125;\n\t\t\ths.graphicsDir = '/libhtml/highslide/graphics/';\n\t\t\ths.showCredits
+        = false;\n\t\t\ths.captionEval= 'this.thumb.title';\n\t\t\ths.enableKeyListener
+        = false;\n\t\t\ths.width = 400;\n\t\t\ths.height = 360;\n\t\t\ths.allowMultipleInstances
+        = false;\n\t\t\ths.useBox = true;\n\t\t\ths.enableKeyListener = true;\n\t\t\ths.dimmingOpacity=0.1;\n\t\t\ths.outlineType
+        = 'custom';\n\t\t\ths.align='center';\n\t\t\ths.registerOverlay({\n\t\t\t\t\thtml:
+        '<div class=\"closebutton\" onclick=\"return hs.close(this)\" title=\"Close\"></div>',\n\t\t\t\t\tposition:
+        'top right',\n\t\t\t\t\tuseOnHtml: true,\n\t\t\t\t\tfade: 2 // fading the
+        semi-transparent overlay looks bad in IE\n\t\t\t});\n\n</script>\n\t<script
+        language=\"javascript\">\n\t\t\tvar allCountriesData = {\"Brazil\":4,\"Colombia\":2,\"Mexico\":2,\"Panama\":10,\"Guatemala\":1,\"Peru\":17,\"Bolivia\":6,\"Ecuador\":2};\n\n\t\t\t$(document).ready(function()
+        {\n\t\t\t\t//Taxonomy Search event handler\n\t\t\t\t$('button[name=\"searchTax\"]').click(function
+        () {\n\t\t\t\t\twindow.location = \"/index.php/Taxbrowser_Taxonpage?taxon=\"+
+        $('input[name=\"taxon\"]').val();\n\t\t\t\t});\n\t\t\t\t//Species Summary
+        event handler\n\t\t\t\t$('button[name=\"speciesSummaryOpen\"]').on(\"click\",function
+        () {\n\t\t\t\t\topenSpeciesSummary();\n\t\t\t\t});\n\t\t\t\t//Access Published
+        & Released Data event handler\n\t\t\t\t$('button[name=\"accessPublishedData\"]').on(\"click\",function
+        () {\n\t\t\t\t\twindow.location = \"/index.php/Public_SearchTerms?query=Momotus[tax]\";\n\t\t\t\t});\n\n\t\t\t\t$('a.popup-medium').click(function
+        (ev) {\n\t\t\t\t\twindow.open(this.href,'popup', 'scrollbars=yes,width=780,height=690');\n\t\t\t\t\tev.preventDefault();\n\t\t\t\t});\n\n\t\t\t\twikiRetrieve('Momotus',
+        '14');\n\n\t\t\t\t//setup breadcrumbs\n\t\t\t\tvar taxonBreadcrumbs = [\"<a
+        class =\\\"link\\\" title=\\\"phylum\\\"href=\\\"\\/index.php\\/TaxBrowser_Taxonpage?taxid=18\\\">Chordata<\\/a>\",\"<a
+        class =\\\"link\\\" title=\\\"class\\\"href=\\\"\\/index.php\\/TaxBrowser_Taxonpage?taxid=51\\\">Aves<\\/a>\",\"<a
+        class =\\\"link\\\" title=\\\"order\\\"href=\\\"\\/index.php\\/TaxBrowser_Taxonpage?taxid=339\\\">Coraciiformes<\\/a>\",\"<a
+        class =\\\"link\\\" title=\\\"family\\\"href=\\\"\\/index.php\\/TaxBrowser_Taxonpage?taxid=88898\\\">Momotidae<\\/a>\",\"Momotus\"];\n\t\t\t\tsetupBreadcrumbs(taxonBreadcrumbs);\n\n\n\t\t\t\tvar
+        selector = \"#countries-summary\";\n\t\t\t\tcountriesRepresentation(selector,
+        allCountriesData);\n\n\t\t\t\t$('form[name=\"searchForm\"]').submit(function
+        (e) {\n\t\t\t\t\tif (document.searchForm.searchMenu.value==\"taxonomy\") {\n\t\t\t\t\t\tdocument.searchForm.taxon.value
+        = document.searchForm.query.value;  //temp fix for now.\n\t\t\t\t\t\tdocument.searchForm.action=\"/index.php/Taxbrowser_Taxonpage?taxon=\"+document.searchForm.query.value+\"&debug=1\";\n\t\t\t\t\t}
+        else if (document.searchForm.searchMenu.value==\"records\") {\n\t\t\t\t\t\tdocument.searchForm.action=\"/index.php/Public_SearchTerms?\";\n\t\t\t\t\t}
+        else if (document.searchForm.searchMenu.value==\"bins\") {\n\t\t\t\t\t\tdocument.searchForm.action=\"/index.php/Public_BINSearch?\";\n\t\t\t\t\t}\n\t\t\t\t});\n\n\t\t\t});\n\n\t\t\tfunction
+        setupBreadcrumbs(taxonBreadcrumbs) {\n\t\t\t\tvar selector = \"#taxonBreadcrumbs\";\n\t\t\t\tfor
+        (var i = 0; i < taxonBreadcrumbs.length; i++) {\n\t\t\t\t\tvar crumb;\n\t\t\t\t\tif
+        (i == taxonBreadcrumbs.length - 1) {\n\t\t\t\t\t\tcrumb = $(\"<li>\", {class:\"active\"}).append(taxonBreadcrumbs[i]);\n\t\t\t\t\t}
+        else {\n\t\t\t\t\t\tcrumb = $(\"<li>\").append(taxonBreadcrumbs[i]);\n\t\t\t\t\t}\n\t\t\t\t\t$(selector).append(crumb);\n\t\t\t\t}\n\t\t\t}\n\n\t\t\tfunction
+        openSpeciesSummary(ev) {\n\t\t\t\tvar page=\"speciesSummary\";\n\t\t\t\tPopup=window.open('/index.php/Working',page,'scrollbars=yes,resizable=yes,width=900,height=700');\n\t\t\t\tsetTimeout(function(){\n\t\t\t\t\t\t\t\t$('form[name=\"actionRequest\"]').attr('target',
+        page);\n\t\t\t\t\t\t\t\t$('form[name=\"actionRequest\"]').submit();\n\t\t\t\t\t\t\t\tPopup.focus();},\n\t\t\t\t\t\t\t\t450);\n\n\t\t\t\tev.preventDefault();\n\n\t\t\t}\n\n\t\t\tfunction
+        countriesRepresentation(selector,data){\n\t\t\t\tvar totalSpecimenCount =
+        Object.keys(data)\n\t\t\t\t\t.reduce(function(sum, key) {\n\t\t\t\t\t\treturn
+        sum + data[key];\n\t\t\t\t\t}, 0);\n\n\t\t\t\t //sort countries\n\t\t\t\tvar
+        sortedCountries = sortCountries();\n\n\t\t\t\t//only draw 5\n\t\t\t\tvar globalCounter
+        = 0;\n\t\t\t\tvar countrySelectorID = 1;\n\t\t\t\tfor (var j =0; j < 6 ; j++)
+        {\n\n\t\t\t\t\tvar countrySelector = \"country-summary\" + countrySelectorID;\n\t\t\t\t\t$(selector).append($(\"<div>\",
+        {class:\"col-lg-2 col-md-6\"}).append(\n\t\t\t\t\t\t\t\t$(\"<div>\", {class:\"ibox\"}\n\t\t\t\t\t\t\t\t).append(\n\t\t\t\t\t\t\t\t\t$(\"<div>\",
+        {class:\"ibox-content\"})\n\t\t\t\t\t\t\t\t).append(\n\t\t\t\t\t\t\t\t\t$(\"<div>\",
+        {id:countrySelector})\n\t\t\t\t\t\t\t\t)\n\t\t\t\t\t\t\t));\n\t\t\t\t\tvar
+        counter = 1;\n\t\t\t\t\tfor (globalCounter; globalCounter < sortedCountries.length;
+        globalCounter++) {\n\t\t\t\t\t\tvar newWidth = progressValue(sortedCountries[globalCounter][1],totalSpecimenCount);\n\t\t\t\t\t\t$(\"#\"+countrySelector).append($(\"<div>\").append(\n\t\t\t\t\t\t\t\t$(\"<span>\").text(sortedCountries[globalCounter][0]+\":\")\n\t\t\t\t\t\t\t).append(\n\t\t\t\t\t\t\t\t$(\"<span>\",{class:\"pull-right\"}).text(sortedCountries[globalCounter][1]
+        )\n\t\t\t\t\t\t\t).append(\n\t\t\t\t\t\t\t\t$(\"<div>\",{class:\"progress
+        progress-small\"}).append(\n\t\t\t\t\t\t\t\t\t$(\"<div>\",{class:\"progress-bar\",width:newWidth+\"%\"})\n\t\t\t\t\t\t\t\t)\n\t\t\t\t\t\t\t)\n\t\t\t\t\t\t);\n\t\t\t\t\t\tif
+        (counter == 2){\n\t\t\t\t\t\t\tbreak;\n\t\t\t\t\t\t}\n\t\t\t\t\t\tif (globalCounter
+        == 12){\n\t\t\t\t\t\t\tbreak;\n\t\t\t\t\t\t}\n\t\t\t\t\t\tcounter++;\n\t\t\t\t\t}\n\t\t\t\t\tglobalCounter++;\n\n\t\t\t\t\tcountrySelectorID++;\n\t\t\t\t}\n\n\t\t\t}\n\n\n\t\t\tfunction
+        sortCountries(){\n\t\t\t\tvar sortedCountries=[];\n\t\t\t\t//transform object
+        to array\n\t\t\t\tObject.keys(allCountriesData)\n\t\t\t\t   .map(function(
+        key) {\n\t\t\t\t\t   sortedCountries.push([key, allCountriesData[key]]);\n\t\t\t\t
+        \  });\n\t\t\t\t//sort items by value\n\t\t\t\tsortedCountries = sortedCountries.sort(function(a,
+        b){\n\t\t\t\t\treturn b[1] - a[1];\n\t\t\t\t});\n\t\t\t\treturn sortedCountries;\n\t\t\t}\n\n\n\t\t\tfunction
+        populateAllCountries(){\n\t\t\t\tvar sortedCountries = sortCountries();\n\t\t\t\tvar
+        i,j;\n\t\t\t\tvar temparray=[];\n\t\t\t\tvar chunk = Math.ceil(sortedCountries.length
+        / 4);\n\t\t\t\tfor (i=0,j = sortedCountries.length; i < j; i+=chunk) {\n\t\t\t\t\ttemparray.push(sortedCountries.slice(i,
+        i+chunk));\n\t\t\t\t}\n\n\t\t\t\tvar table = $(\"#dialogTable\");\n\t\t\t\t$(\"#dialogTable
+        tr\").remove();\n\t\t\t\tfor (var i =0; i < temparray[0].length; i++) {\n\t\t\t\t\tvar
+        newRow = $(\"<tr>\");\n\n\t\t\t\t\t//code will be cleaned up\n\t\t\t\t\tnewRow.append($(\"<td>\",
+        {style: \"width='10px'\"}).text(temparray[0][i][0]));\n\t\t\t\t\tnewRow.append($(\"<td>\",
+        {style: \"width='10px'\"}).text(temparray[0][i][1]));\n\t\t\t\t\tif (1 in
+        temparray && temparray[1][i] != undefined) {\n\t\t\t\t\t\tnewRow.append($(\"<td>\",
+        {style: \"width='10px'\"}).text(temparray[1][i][0]));\n\t\t\t\t\t\tnewRow.append($(\"<td>\",
+        {style: \"width='10px'\"}).text(temparray[1][i][1]));\n\t\t\t\t\t}\n\t\t\t\t\tif
+        (2 in temparray && temparray[2][i] != undefined) {\n\t\t\t\t\t\tnewRow.append($(\"<td>\",
+        {style: \"width='10px'\"}).text(temparray[2][i][0]));\n\t\t\t\t\t\tnewRow.append($(\"<td>\",
+        {style: \"width='10px'\"}).text(temparray[2][i][1]));\n\t\t\t\t\t}\n\t\t\t\t\tif
+        (3 in temparray && temparray[3][i] != undefined) {\n\t\t\t\t\t\tnewRow.append($(\"<td>\",
+        {style: \"width='10px'\"}).text(temparray[3][i][0]));\n\t\t\t\t\t\tnewRow.append($(\"<td>\",
+        {style: \"width='10px'\"}).text(temparray[3][i][1]));\n\t\t\t\t\t}\n\t\t\t\t\ttable.append(newRow);\n\t\t\t\t}\n\t\t\t\ttable.show();\n\t\t\t\t$(\"#alldatadialog\").modal('show');\n\t\t\t}\n\n\n\t\t\tfunction
+        progressValue(dividend, divisor) {\n\t\t\t\tif (dividend <= 0) {\n\t\t\t\t\treturn
+        0;\n\t\t\t\t} else {\n\t\t\t\t\tquotient = (dividend / parseFloat(divisor))
+        * 100.0 ;\n\t\t\t\t\treturn Math.max(1, parseInt(quotient));\n\t\t\t\t}\n\t\t\t}\n\n\t\t\tfunction
+        wikiRetrieve(name, rank) {\n\t\t\t\tvar url = \"/index.php/MAS_Ajax_WikiRetriever?name=\"
+        + name + '&url=true';\n\t\t\t\t$.ajax({\n\t\t\t\t\ttype:\"GET\",\n\t\t\t\t\turl:
+        url,\n\t\t\t\t\tdata: {rank: rank},\n\t\t\t\t\tdataType: 'json',\n\t\t\t\t\tsuccess:
+        function(data){\n\n\t\t\t\t\t\tif(data && data['text']) {\n\t\t\t\t\t\t\t$('#rowTaxon').show();\n\t\t\t\t\t\t\t$('#pTaxon').prepend(data['text']);\n\t\t\t\t\t\t\tif(data['url'])
+        {\n\t\t\t\t\t\t\t\t$('#pTaxon a').attr('href', 'http://en.wikipedia.org/wiki/'
+        + data['url']);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t} else {\n\t\t\t\t\t\t\t$('#rowTaxon').hide();\n\t\t\t\t\t\t}\n\t\t\t\t\t},\n\t\t\t\t\terror:
+        function(){\n\t\t\t\t\t\t$('#rowTaxon').hide();\n\t\t\t\t\t}\n\t\t\t\t});\n\t\t\t}\n\n\n\t\t\tfunction
+        buildChart(url,suffix){\n\t\t\t\t$.get(url,{\"taxid\":\"88899\"}).done(function(data){\n\t\t\t\t\tvar
+        doughnutOptions = {\n\t\t\t\t\t\tsegmentShowStroke: true,\n\t\t\t\t\t\tsegmentStrokeColor:
+        \"#fff\",\n\t\t\t\t\t\tsegmentStrokeWidth: 2,\n\t\t\t\t\t\tpercentageInnerCutout:
+        45, // This is 0 for Pie charts\n\t\t\t\t\t\tanimationSteps: 100,\n\t\t\t\t\t\tanimationEasing:
+        \"easeOutBounce\",\n\t\t\t\t\t\tanimateRotate: true,\n\t\t\t\t\t\tanimateScale:
+        false,\n\t\t\t\t\t\tresponsive: true,\n\t\t\t\t\t\tlegendTemplate : '<ul class=\"list-unstyled\">'+'<%
+        for (var i=0; i<segments.length; i++) { %>'+'<li>'+'<span style=\"-moz-border-radius:7px
+        7px 7px 7px; border-radius:7px 7px 7px 7px; margin-right:10px;width:15px;height:15px;display:inline-block;background-color:<%=segments[i].fillColor%>\">
+        </span>'+'<% if (segments[i].label) { %><%= segments[i].label %><% } %>'+'</li>'+'<%
+        } %>'+'</ul>'\n\t\t\t\t\t};\n\t\t\t\t\tjsonObj = JSON.parse(data);\n\t\t\t\t\tchartColours
+        = [\"#93C3DE\",\"#A2E6C6\",\"#A8EF8D\",\"#F0E287\",\"#DEB483\",\"#DE9E93\",\"#DAA1DE\",\"#BCB2F4\",\"#DEDEDE\",\"#B4B4B4\"];\n\t\t\t\t\thighlightColour
+        = \"#1ab394\";\n\t\t\t\t\tchartData = [];\n\t\t\t\t\tchartColourIndex = 0;\n\n\t\t\t\t\tfor
+        (i=jsonObj.data.length-1;i>=0;i--){\n\t\t\t\t\t\tchartLabel = jsonObj.labels[i];\n\t\t\t\t\t\tchartVal
+        = jsonObj.data[i];\n\t\t\t\t\t\tchartData.push({\n\t\t\t\t\t\t\tvalue:chartVal,\n\t\t\t\t\t\t\tcolor:chartColours[chartColourIndex],\n\t\t\t\t\t\t\thighlight:
+        highlightColour,\n\t\t\t\t\t\t\tlabel:chartLabel\n\t\t\t\t\t\t});\n\t\t\t\t\t\tchartColourIndex
+        += 1;\n\t\t\t\t\t\tif (chartColourIndex == chartColours.length){//for now
+        ;loop through the colour\n\t\t\t\t\t\t\tchartColourIndex = 0;\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t\tvar
+        ctx = document.getElementById(\"chart\"+suffix).getContext(\"2d\");\n\t\t\t\t\tvar
+        tgChart = new Chart(ctx).Doughnut(chartData, doughnutOptions);\n\t\t\t\t\t$(\"#legend\"+suffix).html(tgChart.generateLegend());\n\t\t\t\t});\n\t\t\t}\n\n\t\t\t$(document).ready(function()
+        {\n\t\t\t\t\t\t\t\tbuildChart('/index.php/TaxBrowser_Charts_institutionsrcdata','Depositry');\n\t\t\t\t\t\t\t\t\t\t\t\tbuildChart('/index.php/TaxBrowser_Charts_institutionsrcdata/sequencinglabs','Sequence');\n\t\t\t\t\t\t\t});\n\t</script>\n\n\t<style
+        type=\"text/css\">\n\n\t\t.highslide-heading {\n\t\t\tcolor:#dedede;\n\t\t}\n\t\t.highslide-caption{\n\t\t\tfont-size:10pt
+        !important;\n\t\t}\n\t\t.imagegallery_preview {\n\t\t\tbackground-color: #FFFFFF;\n\t\t\tmargin:
+        8px;\n\t\t\tborder: 1px solid #111111;\n\t\t\tpadding: 0px;\n\t\t\twidth:400px;\n\t\t\ttext-align:
+        center;\n\t\t\tfloat:right;\n\t\t}\n\n\t\t.alignTop, .alignTop td{\n\t\t\tvertical-align:
+        top;\n\t\t}\n\t\t.legendFont {\n\t\t\tfont-size: 12px;\n\t\t}\n\t\t.scrollPortlet{\n\t\t\tmax-height:
+        400px;\n\t\t\toverflow-y: auto;\n\t\t}\n\t\t.progress {\n\t\t\theight: 10px;\n\t\t}\n\t\t.modal-dialog
+        \ {width:1000px;}\n\n\t\t.breadcrumb {\n\t\t\tpadding: 0px;\n\t\t\tpadding-left:15px;\n\t\t\tbackground-color:
+        transparent;\n\t\t}\n\t\t.l-bloc a.link{\n\t\t\tcolor: #337ab7 ;\n\t\t}\n\t\t.highslide-caption
+        a {\n\t\t\tcolor: #ff9400;\n\t\t\tfont-size: 10pt !important;\n\t\t\tfont-weight:
+        bold;\n\t\t\tpadding: 2px;\n\t\t}\n\n\t</style>\n</head>\n<body>\n\t<div class=\"page-container\">\n\t\t<div
+        class=\"bloc sticky-nav bgc-dark-jungle-green d-bloc\">\n\t\t\t<div class=\"container
+        bloc-xs\">\n\t\t\t\t<nav class=\"navbar row\">\n\t\t\t\t\t<div class=\"navbar-header\">\n\t\t\t\t\t\t<a
+        class=\"navbar-brand\" href=\"/index.php\">\n\t\t\t\t\t\t\t<img src=\"/libhtml_v4/images/BOLDlogo.png\"
+        alt=\"logo\" />\n\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t<button id=\"nav-toggle\"
+        type=\"button\" class=\"ui-navbar-toggle navbar-toggle\" data-toggle=\"collapse\"
+        data-target=\".navbar-1\">\n\t\t\t\t\t\t\t<span class=\"sr-only\">Toggle navigation</span>\n\t\t\t\t\t\t\t<span
+        class=\"icon-bar\"></span>\n\t\t\t\t\t\t\t<span class=\"icon-bar\"></span>\n\t\t\t\t\t\t\t<span
+        class=\"icon-bar\"></span>\n\t\t\t\t\t\t</button>\n\n\t\t\t\t\t\t<a href=\"#\"
+        class=\"search-toggle\" data-toggle=\"collapse\" data-target=\".search-wrap\">\n\t\t\t\t\t\t\t<span
+        class=\"fa fa-search fa-lg\"></span>\n\t\t\t\t\t\t</a>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div
+        class=\"collapse navbar-collapse navbar-1\">\n\t\t\t\t\t\t<ul class=\"site-navigation
+        nav navbar-nav\">\n\t\t\t\t\t\t\t<li><a href=\"/index.php/databases\">Databases</a></li>\n\t\t\t\t\t\t\t<li><a
+        href=\"/index.php/IDS_OpenIdEngine\">Identification</a></li>\n\t\t\t\t\t\t\t<li><a
+        href=\"/index.php/TaxBrowser_Home\">Taxonomy</a></li>\n\t\t\t\t\t\t\t<li><a
+        href=\"/index.php/MAS_Management_UserConsole\">Workbench</a></li>\n\t\t\t\t\t\t\t<li><a
+        href=\"/index.php/Resources\">Resources</a></li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li><a
+        href=\"/index.php/MAS_Management_UserConsole\">Login</a></li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li
+        class=\"nav-search\">\n\t\t\t\t\t\t\t\t<a href=\"#\" data-toggle=\"collapse\"
+        data-target=\".search-wrap\">\n\t\t\t\t\t\t\t\t\t<span class=\"fa fa-search
+        icon-sm\"></span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t</nav>\n\t\t\t</div>\n\n\t\t\t<div
+        class=\"search-wrap collapse\">\n\t\t\t\t<form id=\"site-search\" name =\"searchForm\"
+        onSubmit=\"submitSearch();\">\n\t\t\t\t\t<div class=\"col-sm-3 col-md-2\">\n\t\t\t\t\t\t<label
+        class=\"sr-only\" for=\"search_type\">Type</label>\n\t\t\t\t\t\t<select id=\"search_type\"
+        class=\"form-control\" name=\"searchMenu\">\n\t\t\t\t\t\t\t<option value=\"taxonomy\">Taxonomy</option>\n\t\t\t\t\t\t\t<option
+        value=\"records\">Public Data</option>\n\t\t\t\t\t\t\t<option value=\"bins\">BINs</option>\n\t\t\t\t\t\t</select>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div
+        class=\"col-sm-9 col-md-10\">\n\t\t\t\t\t\t<label class=\"sr-only\" for=\"search_keyword\">Keyword</label>\n\t\t\t\t\t\t<input
+        id=\"query\" class=\"form-control\" name=\"query\"  placeholder=\"Search\"
+        />\n\t\t\t\t\t\t<input type=\"hidden\" name=\"taxon\"/>\n\t\t\t\t\t</div>\n\t\t\t\t</form>\n\t\t\t</div>\n\t\t</div><!--
+        /.sticky-nav -->\n\n<div class=\"bloc bgc-cadet-blue d-bloc\" id=\"lead-in\">\n
+        \   <div class=\"container bloc-md\">\n\n        <div class=\"row\">\n            <div
+        class=\"col-sm-12\">\n                <h3>TAXONOMY BROWSER: Momotus</h3>\n\t\t\t\t
+        <p>Genus : Momotus</p>\n\n            </div>\n        </div>\n    </div>\n</div>\n\n<div
+        class=\"bloc l-bloc bgc-white\">\n    <div class=\"container bloc-md\" style=\"padding:10px;\">\n
+        \       <div class=\"row\">\n\t\t\t <ol class=\"breadcrumb\" id=\"taxonBreadcrumbs\">\n\t\t\t</ol>\n\t\t</div>\n\t\t<div
+        class=\"row\">\n\t\t\t<div class=\"col-lg-6 col-md-6\">\n\t\t\t\t<div class=\"ibox\">\n\t\t\t\t\t<div
+        class=\"ibox-content\">\n\t\t\t\t\t\t<div class=\"ibox float-e-margins\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div
+        class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-xs-12 text-left\" style=\"margin-top:0px;margin-bottom:0px;\"><img
+        class=\"img-responsive\" src=\"/pics/FRGUY/GUY0173%2B1234014162.JPG\"  border=\"0\"
+        title=\"sample id:GUY0173-EP\"></div>\n\t\t\t\t\t\t\t<div class=\"col-xs-12
+        text-right\" style=\"margin-top:0px;margin-bottom:0px;\">\t\t\t\t\t\t\t\t<div
+        class=\"row\">\n\t\t\t\t\t\t\t\t\t<div class=\"col-xs-8 text-left\" style=\"margin-top:0px;margin-bottom:0px;\"><i
+        class=\"fa fa-copyright\" aria-hidden=\"true\"></i> Unspecified (default):
+        All Rights Reserved\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<i class=\"fa
+        fa-user\" aria-hidden=\"true\"></i> No Rights Reserved\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div
+        class=\"col-xs-4 text-right\" style=\"margin-top:0px;margin-bottom:0px;\">\n\t\t\t\t\t\t\t\t\t\t\tImage
+        of  <a class=\"link\" href=\"/index.php/TaxBrowser_Taxonpage?taxid=88900\">Momotus
+        momota</a> \t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div><!--
+        END OF ROW -->\n\t\t\t\t\t\t\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div
+        class=\"col-lg-6 col-md-6\">\n\t\t\t<div class=\"ibox\">\n\t\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t\t<h2>Taxon
+        Description (Wikipedia)</h2>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ibox-content\">\n\t\t\t\t\t<div
+        class=\"ibox float-e-margins\">\n\t\t\t\t\t\t<p id=\"pTaxon\">\n\t\t\t\t\t\t\t<a
+        class=\"link popup-medium\" href=\"http://en.wikipedia.org/wiki/Momotus\">full
+        article at Wikipedia</a>\n\t\t\t\t\t\t</p>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\n\n\n\n\n\t</div>
+        <!-- End of 1st row -->\n\n\t<div class =\"row\">\n\n\n\t\t<div class=\"col-lg-4
+        col-md-6\">\n\t\t\t<div class=\"ibox\">\n\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t<h2>Statistics</h2>\n\t\t\t\t</div>\n\t\t\t\t<div
+        class=\"ibox-content\">\n\t\t\t\t<div class=\"ibox float-e-margins\">\n\t\t\t\t\t<table
+        class=\"table table-striped noborder\">\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td
+        width=\"41%\">Specimen Records:</td>\n\t\t\t\t\t\t\t<td width=\"17%\">82</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Specimens
+        with Sequences:</td>\n\t\t\t\t\t\t\t<td>65</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Specimens
+        with Barcodes:</td>\n\t\t\t\t\t\t\t<td><specimendataforlivestats/>59<specimendataforlivestats/></td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Species:</td>\n\t\t\t\t\t\t\t<td>3</td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Species
+        With Barcodes:</td>\n\t\t\t\t\t\t\t<td>3</td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td
+        width=\"60%\">Public Records:</td>\n\t\t\t\t\t\t\t<td width=\"40%\">39</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Public
+        Species:</td>\n\t\t\t\t\t\t\t<td>2</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Public
+        BINs:</td>\n\t\t\t\t\t\t\t<td>8</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td><button
+        class=\"btn btn-sm btn-info\" name=\"speciesSummaryOpen\"> Species List  </button></td>\n\t\t\t\t\t\t\t<td><button
+        class=\"btn btn-sm btn-info\" name=\"accessPublishedData\">Public Data</button></td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</table>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t\t</div>\n\n\n\t\t<div
+        class=\"col-lg-4 col-md-6\">\n\t\t\t<div class=\"ibox\">\n\t\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t\t<h2>Specimen
+        Depositories</h2>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ibox-content\">\n\t\t\t\t\t<div
+        class=\"ibox float-e-margins\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div id=\"divDepositry\"><canvas
+        id=\"chartDepositry\"></canvas></div>\n\t\t\t\t\t\t<div id=\"legendDepositry\"
+        class=\"legendFont\"></div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div id=\"institutionsList2\"></div>\n\t\t\t\t\t\t\t<script
+        language=\"javascript\">\n\t\t\t\t\t\t\tvar institutionsReduced=true;\n\t\t\t\t\t\t\tfunction
+        institutionsExpandReduce() {\n\t\t\t\t\t\t\t\tif (institutionsReduced==true)
+        {\n\t\t\t\t\t\t\t\t\tdocument.getElementById('institutionsList').innerHTML=\"\";\n\t\t\t\t\t\t\t\t\tdocument.getElementById('institutionsExpandReduceLink').innerHTML=\"Collapse\";\n\t\t\t\t\t\t\t\t\tinstitutionsReduced=false;\n\t\t\t\t\t\t\t\t}
+        else {\n\t\t\t\t\t\t\t\t\tdocument.getElementById('institutionsList').innerHTML=\"\";\n\t\t\t\t\t\t\t\t\tdocument.getElementById('institutionsExpandReduceLink').innerHTML=\"Expand\";\n\t\t\t\t\t\t\t\t\tinstitutionsReduced=true;\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t}\n\n\t\t\t\t\t\t\t</script>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div
+        class=\"col-lg-4 col-md-6\">\n\t\t\t<div class=\"ibox\">\n\t\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t\t<h2>Sequencing
+        Labs</h2>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ibox-content\">\n\t\t\t\t\t<div
+        class=\"ibox float-e-margins\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div id=\"divSequence\"><canvas
+        id=\"chartSequence\" height=\"140\"></canvas></div>\n\t\t\t\t\t\t<div id=\"legendSequence\"
+        class=\"legendFont\"></div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>
+        <!--END OF third ROW --->\n\n\n\t<div class=\"row\">\n\t\t<div class=\"col-lg-12
+        col-md-6\">\n\t\t\t<div class=\"ibox\">\n\t\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t\t<h2>Collection
+        Sites</h2>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ibox-content\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a
+        class=\"highslide\" onclick=\"return hs.expand(this,{width:maxColWidth,height:maxColHeight})\"
+        href=\"/index.php/TaxBrowser_Maps_CollectionSites?taxid=88899\" ><img border=\"0\"
+        width=\"100%\" src=\"/index.php/TaxBrowser_Maps_CollectionSites?taxid=88899\"></img></a>\n\t\t\t\t\t\t\t\t</br>\n\t\t\t\t\t\t\t\t<img
+        src=\"/libhtml/icons/mapScale_BOLD.png\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t</div>
+        <!-- END OF FIFTH ROW -->\n\n\t<div class=\"row\">\n\t\t<div class=\"col-lg-12\">\n\t\t\t<div
+        class=\"ibox\">\n\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t<h2>Countries</h2>\n\t\t\t\t\t<span>Collected
+        from <strong>8</strong> countries. </span> <a class=\"link\" onClick = \"populateAllCountries();\">
+        Show all countries</a>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t<div
+        class =\"row\" id =\"countries-summary\">\n\n\t</div><!--END OF ROW-->\n\n\n\t<div
+        class =\"row\">\n\t\t\t\t<div class=\"col-md-6\">\n\t\t\t<div class=\"ibox\">\n\t\t\t\t\t<div
+        class=\"ibox-title\">\n\t\t\t\t\t\t<h2>Sub-Taxa</h2>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div
+        class=\"ibox-content\">\n\t\t\t\t\t<!-- Left Menu START-->\n\t\t\t\t\t<div
+        class=\"ibox float-e-margins\">\n\n\t\t\t\t\t\t\t<lh>Species (3) </lh><ol><li><a
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=115130\">Momotus aequatorialis
+        [5]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=106839\">Momotus
+        mexicanus [24]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=88900\">Momotus
+        momota [53]</a></li></ol>\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t</div>\n\t\t
+        <!-- Left Menu END -->\n\t\t<div class=\"col-md-6\">\n\t\t\t\t\t\t\t\t<div
+        class=\"ibox float-e-margins\">\n\t\t\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t\t\t<h2>Imagery</h2>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div
+        class=\"ibox-content\">\n\t\t\t\t\t\t<i> Images representing subtaxa of Momotus</i>
+        <div class=\"row\"><div class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return
+        hs.expand(this,{width:500, height:118} )\" href=\"//v4.boldsystems.org/pics/AVIPE/MHNSM_MUSM-Orn-22421a.jpg%2B1430161804.JPG\"><img
+        title=\" (Momotus aequatorialis - MUSM-Orn-22421a)  Copyright - All Rights
+        Reserved (2014)  \" alt=\" (Momotus aequatorialis - MUSM-Orn-22421a)  @11
+        [ ] Copyright - All Rights Reserved (2014) Unspecified Museo de Historia Natural\"
+        \ src=\"//v4.boldsystems.org/pics/_w300/AVIPE/MHNSM_MUSM-Orn-22421a.jpg%2B1430161804.JPG\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=115130\">Momotus aequatorialis</a></div></div><div
+        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
+        height:667} )\" href=\"//v4.boldsystems.org/pics/FRGUY/GUY0173%2B1234014162.JPG\"><img
+        title=\" (Momotus momota - GUY0173-EP)  Unspecified (default): All Rights
+        Reserved  No Rights Reserved \" alt=\" (Momotus momota - GUY0173-EP)  @14
+        [ ] Unspecified (default): All Rights Reserved  No Rights Reserved Unspecified\"
+        \ src=\"//v4.boldsystems.org/pics/_w300/FRGUY/GUY0173%2B1234014162.JPG\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=88900\">Momotus momota</a></div></div></div></div>\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t</div>
+        <!-- END OF FOURTH ROW -->\n\n\t<!-- MODAL DIALOG FOR COUNTRIES -->\n\t<div
+        id=\"alldatadialog\" class=\"modal fade\" role=\"dialog\" data-keyboard=\"false\"
+        data-backdrop=\"static\">\n\t\t<div class=\"modal-dialog\" >\n\t\t\t<div class=\"modal-content\">\n\t\t\t\t<div
+        class=\"modal-header\">\n\t\t\t\t\t<button type=\"button\" class=\"close\"
+        data-dismiss=\"modal\">&times;</button>\n\t\t\t\t\t<h4 class=\"modal-title
+        \" id =\"dialogTitle\" >All Countries</h4>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"modal-body\"
+        >\n\n\t\t\t\t\t<table id=\"dialogTable\"  class=\"table table-striped\" style=\"width:100%;\"
+        border=\"0\" cellpadding=\"1\" cellspacing=\"10\" >\n\n\t\t\t\t\t</table>\n\t\t\t</div>\n\t\t\t<div
+        class=\"modal-footer\">\n\t\t\t\t<button id = \"closeDialog\" name = \"closeDialog\"
+        \ data-dismiss=\"modal\" class=\"btn btn-primary btn-sm\" >Close</button>\n\t\t\t</div>\n\t\t</div>\n\t\t</div>\n\t</div>\n\t<form
+        name=\"actionRequest\" action=\"/index.php/TaxBrowser_TaxonPage/SpeciesSummary\"
+        method=\"GET\">\n\t\t<input type=\"hidden\" name=\"taxid\" value=\"88899\">\n\t</form>\n\n\n
+        \       </div>\n    </div>\n</div>\n\t\t\t\t<div class=\"bloc bgc-platinum
+        l-bloc\" id=\"footer\">\n\t\t\t<div class=\"container bloc-md\">\n\t\t\t\t<div
+        class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t<h3 class=\"mg-md\">Databases</h3>\n\t\t\t\t\t\t<ul
+        class=\"list-unstyled\">\n\t\t\t\t\t\t\t<li><a href=\"/index.php/Public_BINSearch?searchtype=records\">Public
+        Data Portal</a></li>\n\t\t\t\t\t\t\t<li><a href=\"/index.php/TaxBrowser_Home\">Taxonomy
+        Browser</a></li>\n\t\t\t\t\t\t\t<li><a href=\"/index.php/Public_Publication_BibliographySearch\">Publications</a></li>\n\t\t\t\t\t\t\t<li><a
+        href=\"/index.php/Public_Primer_PrimerSearch\">Primers</a></li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div
+        class=\"col-sm-3\">\n\t\t\t\t\t\t<h3 class=\"mg-md\">Resources</h3>\n\t\t\t\t\t\t<ul
+        class=\"list-unstyled\">\n\t\t\t\t\t\t  <!--<li><a href=\"/index.php/resources/handbook?chapter=1_gettingstarted.html\">Documentation</a></li>-->\n\t\t\t\t\t\t
+        \ <li><a href=\"/libhtml/docs/bold.pdf\">Citing BOLD</a></li>\n\t\t\t\t\t\t
+        \ <li><a href=\"/index.php/NewsFeed\">News and Events</a></li>\n\t\t\t\t\t\t
+        \ <li><a href=\"/index.php/datarelease\">Data Releases</a></li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div
+        class=\"col-sm-3\">\n\t\t\t\t\t\t<h3 class=\"mg-md\">Organization</h3>\n\t\t\t\t\t\t<ul
+        class=\"list-unstyled\">\n\t\t\t\t\t\t  <li><a href=\"/index.php/Resources/whatIsBOLD\">About
+        Us</a></li>\n\t\t\t\t\t\t  <li><a href=\"/index.php/Resources/ContactUs\">Contact
+        Us</a></li>\n\t\t\t\t\t\t  <li><a href=\"/index.php/NewsFeed\">News &amp;
+        Events</a></li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t<h3
+        class=\"mg-md\">Partners</h3>\n\t\t\t\t\t\t<ul class=\"list-unstyled\">\n\t\t\t\t\t\t
+        \ <li><a href=\"http://www.ibol.org\">iBOL</a></li>\n\t\t\t\t\t\t  <li><a
+        href=\"http://biodiversitygenomics.net/\">CBG</a></li>\n\t\t\t\t\t\t  <li><a
+        href=\"http://ccdb.ca\">CCDB</a></li>\n\t\t\t\t\t\t  <li><a href=\"http://www.ncbi.nlm.nih.gov\">GenBank</a></li>\n\t\t\t\t\t\t
+        \ <li><a href=\"http://www.eol.org\">EOL</a></li>\n\t\t\t\t\t\t  <li><a href=\"http://www.gbif.org\">GBIF</a></li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div
+        class=\"bloc bgc-floral-white l-bloc\" id=\"affiliates\">\n\t\t\t<div class=\"container
+        bloc-md\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-2\">\n\t\t\t\t\t\t<img
+        class=\"img-responsive center-block\" style=\"margin-top:20px\" src=\"/libhtml_v4/img/ibol-50v.png\"
+        />\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-2\">\n\t\t\t\t\t\t<img
+        class=\"img-responsive center-block\" style=\"margin-top:20px\" src=\"/libhtml_v4/img/CFREF.png\"
+        />\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-2\">\n\t\t\t\t\t\t<img
+        class=\"img-responsive center-block\" src=\"/libhtml_v4/img/MRI_logo.png\"
+        />\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-2\">\n\t\t\t\t\t\t<img
+        \ class=\"img-responsive center-block\" style=\"margin-top:20px\" src=\"/libhtml_v4/img/CFINN.png\"/>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div
+        class=\"col-sm-2\">\n\t\t\t\t\t\t<img class=\"img-responsive center-block\"
+        style=\"margin-top:20px\" src=\"/libhtml_v4/img/NSERC.png\" />\n\t\t\t\t\t</div>\n\t\t\t\t\t<div
+        class=\"col-sm-2\">\n\t\t\t\t\t\t<img class=\"img-responsive center-block\"
+        src=\"/libhtml_v4/img/UoGuelph_image18-100x100.png\" />\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div
+        class=\"row\">\n\t\t\t\t\t<div class=\"col-xs-12\"><br/><h5><small><strong>Copyright</strong>
+        BOLD &copy; 2014-2020</small></h5></div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t</body>\n</html>\n"
+  recorded_at: 2020-04-21 19:02:40 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2
+- request:
+    method: get
+    uri: https://v4.boldsystems.org/index.php/API_Tax/TaxonSearch?taxName=Momotus
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: 'HTTP/2 200 '
+      server: nginx
+      date: Tue, 21 Apr 2020 19:02:39 GMT
+      content-type: text/html; charset=utf-8
+      content-length: '191'
+      x-powered-by: PHP/5.3.15
+      x-frame-options: SAMEORIGIN
+      x-content-type-options: nosniff
+      x-xss-protection: 1; mode=block
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"top_matched_names":[{"taxid":88899,"taxon":"Momotus","tax_rank":"genus","tax_division":"Animalia","parentid":88898,"parentname":"Momotidae","specimenrecords":"82"}],"total_matched_names":1}'
+  recorded_at: 2020-04-21 19:02:40 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2
+- request:
+    method: get
+    uri: https://v4.boldsystems.org/index.php/Taxbrowser_Taxonpage?taxid=88899
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: 'HTTP/2 200 '
+      server: nginx
+      date: Tue, 21 Apr 2020 19:02:42 GMT
+      content-type: text/html; charset=utf-8
+      x-powered-by: PHP/5.3.15
+      set-cookie: session=fqkacetfhobrk71i4eff2l4nc6; path=/
+      x-frame-options: SAMEORIGIN
+      x-content-type-options: nosniff
+      x-xss-protection: 1; mode=block
+    body:
+      encoding: UTF-8
+      file: no
+      string: "<!DOCTYPE HTML>\n<html>\n<head>\n\t<meta charset=\"utf-8\" />\n<meta
+        http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\">\n\n<title>Momotus
+        | Taxonomy Browser | BOLDSYSTEMS</title>\n\n<meta name=\"keywords\" content=\"\"
+        />\n<meta name=\"description\" content=\"\" />\n<link rel=\"shortcut icon\"
+        type=\"image/x-icon\" href=\"/favicon.ico\" />\n<link rel=\"apple-touch-icon\"
+        href=\"/favicons/apple-icon.png\"/>\n<link rel=\"apple-touch-icon\" sizes=\"57x57\"
+        href=\"/favicons/apple-icon-57x57.png\"/>\n<link rel=\"apple-touch-icon\"
+        sizes=\"60x60\" href=\"/favicons/apple-icon-60x60.png\"/>\n<link rel=\"apple-touch-icon\"
+        sizes=\"72x72\" href=\"/favicons/apple-icon-72x72.png\"/>\n<link rel=\"apple-touch-icon\"
+        sizes=\"76x76\" href=\"/favicons/apple-icon-76x76.png\"/>\n<link rel=\"apple-touch-icon\"
+        sizes=\"114x114\" href=\"/favicons/apple-icon-114x114.png\"/>\n<link rel=\"apple-touch-icon\"
+        sizes=\"120x120\" href=\"/favicons/apple-icon-120x120.png\"/>\n<link rel=\"apple-touch-icon\"
+        sizes=\"144x144\" href=\"/favicons/apple-icon-144x144.png\"/>\n<link rel=\"apple-touch-icon\"
+        sizes=\"152x152\" href=\"/favicons/apple-icon-152x152.png\"/>\n<link rel=\"apple-touch-icon\"
+        sizes=\"180x180\" href=\"/favicons/apple-icon-180x180.png\"/>\n<meta name=\"viewport\"
+        content=\"width=device-width, initial-scale=1, user-scalable=0\" />\n\n<link
+        href=\"/libhtml_v4/css/bootstrap.css\" rel=\"stylesheet\" />\n<link href=\"/libhtml_v4/css/style.css\"
+        rel=\"stylesheet\" />\n<link href=\"/libhtml_v4/css/animate.css\" rel=\"stylesheet\"
+        />\n<link href=\"/libhtml_v4/css/ionicons.min.css\" rel=\"stylesheet\" />\n<!--<link
+        href=\"/libhtml_v4/css/font-awesome.min.css\" rel=\"stylesheet\" />-->\n<link
+        href=\"/libhtml_v3/font-awesome/css/font-awesome.css\" rel=\"stylesheet\">\n<link
+        href=\"https://fonts.googleapis.com/css?family=Open+Sans:400,600,800&amp;subset=latin,latin-ext\"
+        rel=\"stylesheet\" />\n<link href=\"/libhtml_v4/css/print.css\" rel=\"stylesheet\"
+        />\n\n<script src=\"/libhtml_v4/js/modernizr-custom.min.js\"></script>\n<script
+        src=\"/libhtml_v4/js/jquery-2.1.0.min.js\"></script>\n<script src=\"/libhtml_v4/js/bootstrap.js\"></script>\n<script
+        src=\"/libhtml_v4/js/plugins/toastr/toastr.min.js\"></script>\n<script type=\"text/javascript\"
+        src=\"/libhtml_v3/js/modalWaitingBox.js\"></script>\n<script>\n\t(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){\n\t(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new
+        Date();a=s.createElement(o),\n\tm=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)\n\t})(window,document,'script','//www.google-analytics.com/analytics.js','ga');\n\n\tga('create',
+        'UA-372370-4', 'auto');\n\tga('send', 'pageview');\n\n</script>\n<script language=\"javascript\">\n\t//
+        Loading page complete\n$(window).load(function()\n{\n\tcheckHero(); // Check
+        hero height is correct\n\tanimateWhenVisible();  // Activate animation when
+        visible\n});\n\n\n// Page ready\n$(document).ready(function()\n{\n\tif (Modernizr.mq('(min-width:
+        768px)')) {\n\t\t$('#promo').animate({ height: '408px' }, 600);\n\t\t$('#lead-in').animate({
+        height: '220px' }, 800);\n\t}\n\n\t$('.hero').css('height', $(window).height()+'px');
+        // Set initial hero height\n\t$('#scroll-hero').click(function()\n\t{\n\t\t$('html,body').animate({scrollTop:
+        $(\"#hero-bloc\").height()}, 'slow');\n\t});\n\n\tsetUpLightBox(); // Add
+        lightbox Support\n\n\t$(\"button#printBtn\").click(function (e){\n\t\twindow.print();\n\t});\n\n});\n\n//
+        Window resize\n$(window).resize(function()\n{\n\t$('.hero').css('height',getHeroHeight()+'px');
+        // Refresh hero height\n});\n\n// Get Hero Height\nfunction getHeroHeight()\n{\n\tvar
+        H = $(window).height(); // Window height\n\tif (window.hasOwnProperty('heroBodyH')){\n\t\tif(H
+        < heroBodyH) {// If window height is less than content height\n\t\t\tH = heroBodyH+100;\n\t\t}\n\t}\n\treturn
+        H\n}\n\n// Check hero height\nfunction checkHero()\n{\n\tif($('#hero-bloc').length)\n\t{\n\t\tP
+        = parseInt($('.hero-nav').css('padding-top'))*2\n\t\twindow.heroBodyH = $('.hero-nav').outerHeight()+P+$('.vc-content').outerHeight()+50;
+        // Set hero body height\n\t\t$('.hero').css('height', getHeroHeight() + 'px');
+        // Set hero to fill page height\n\t}\n}\n\n// Scroll to target\nfunction scrollToTarget(D)\n{\n\tif(D
+        == 1) // Top of page\n\t{\n\t\tD = 0;\n\t}\n\telse if(D == 2) // Bottom of
+        page\n\t{\n\t\tD = $(document).height();\n\t}\n\telse // Specific Bloc\n\t{\n\t\tD
+        = $(D).offset().top;\n\t\tif($('.sticky-nav').length) // Sticky Nav in use\n\t\t{\n\t\t\tD
+        = D-100;\n\t\t}\n\t}\n\n\t$('html,body').animate({scrollTop:D}, 'slow');\n}\n\n//
+        Initial tooltips\n$(function()\n{\n  $('[data-toggle=\"tooltip\"]').tooltip()\n})\n\n\n//
+        Animate when visible\nfunction animateWhenVisible()\n{\n\thideAll(); // Hide
+        all animation elements\n\tinViewCheck(); // Initail check on page load\n\n\t$(window).scroll(function()\n\t{\n\t\tinViewCheck();
+        // Check object visability on page scroll\n\t\tscrollToTopView(); // ScrollToTop
+        button visability toggle\n\t\tstickyNavToggle(); // Sticky nav toggle\n\t});\n};\n\n//
+        Hide all animation elements\nfunction stickyNavToggle()\n{\n\tvar V = 0; //
+        offset Value\n\tvar C = \"sticky\"; // Classes\n\n\tif($('.sticky-nav').parent().is('#hero-bloc'))
+        // If nav is in hero animate in\n\t{\n\t\tV = $('.sticky-nav').height();\n\t\tC
+        = \"sticky animated fadeInDown\";\n\t}\n\n\tif($(window).scrollTop() > V)\n\t{\n\t\t$('.sticky-nav').addClass(C);\n\n\t\tif(C
+        == \"sticky\")\n\t\t{\n\t\t\t$('.page-container').css('padding-top',$('.sticky-nav').height());\n\t\t}\n\t}\n\telse\n\t{\n\t\t$('.sticky-nav').removeClass(C);\n\t\t$('.page-container').removeAttr('style');\n\t}\n}\n\n//
+        Hide all animation elements\nfunction hideAll()\n{\n\t$('.animated').each(function(i)\n\t{\n\t\tif(!$(this).closest('.hero').length)
+        // Dont hide hero object\n\t\t{\n\t\t\t$(this).removeClass('animated').addClass('hideMe');\n\t\t}\n\t});\n}\n\n//
+        Check if object is inView\nfunction inViewCheck()\n{\n\t$($(\".hideMe\").get().reverse()).each(function(i)\n\t{\n\t\tvar
+        target = jQuery(this);\n\t\tvar a = target.offset().top + target.height();\n\t\tvar
+        b = $(window).scrollTop() + $(window).height();\n\n\t\tif(target.height()
+        > $(window).height()) // If object height is greater than window height\n\t\t{\n\t\t\ta
+        = target.offset().top;\n\t\t}\n\n\t\tif (a < b)\n\t\t{\n\t\t\tvar objectClass
+        = target.attr('class').replace('hideMe' , 'animated');\n\t\t\ttarget.css('visibility','hidden').removeAttr('class');\n\t\t\tsetTimeout(function(){target.attr('class',objectClass).css('visibility','visible');},0.01);\n\t\t}\n\t});\n};\n\n//
+        ScrollToTop button toggle\nfunction scrollToTopView()\n{\n\tif($(window).scrollTop()
+        > $(window).height()/3)\n\t{\n\t\tif(!$('.scrollToTop').hasClass('showScrollTop'))\n\t\t{\n\t\t\t$('.scrollToTop').addClass('showScrollTop');\n\t\t}\n\t}\n\telse\n\t{\n\t\t$('.scrollToTop').removeClass('showScrollTop');\n\t}\n};\n\n//
+        Light box support\nfunction setUpLightBox()\n{\n\twindow.targetLightbox;\n\n\t$(document).on('click',
+        '[data-lightbox]', function(e) // Create Lightbox Modal\n\t{\n\t\te.preventDefault();\n\t\ttargetLightbox
+        = $(this);\n\t\tvar captionData ='<p class=\"lightbox-caption\">'+$(this).attr('data-caption')+'</p>';\n\t\tif(!$(this).attr('data-caption'))
+        // No caption caption data\n\t\t{\n\t\t\tcaptionData = '';\n\t\t}\n\n\t\tvar
+        customModal = $('<div id=\"lightbox-modal\" class=\"modal fade\"><div class=\"modal-dialog\"><div
+        class=\"modal-content '+$(this).attr('data-frame')+'\"><button type=\"button\"
+        class=\"close close-lightbox\" data-dismiss=\"modal\" aria-label=\"Close\"><span
+        aria-hidden=\"true\">&times;</span></button><div class=\"modal-body\"><a href=\"#\"
+        class=\"prev-lightbox\" aria-label=\"prev\"></a><a href=\"#\" class=\"next-lightbox\"
+        aria-label=\"next\"></a><img id=\"lightbox-image\" class=\"img-responsive\"
+        src=\"'+$(this).attr('data-lightbox')+'\">'+captionData+'</div></div></div></div>');\n\t\t$('body').append(customModal);\n\t\t$('#lightbox-modal').modal('show');\n\n\t\t//
+        Handle navigation buttons (next - prev)\n\t\tif($('a[data-lightbox]').index(targetLightbox)
+        == 0)\n\t\t{\n\t\t\t$('.prev-lightbox').hide();\n\t\t}\n\t\tif($('a[data-lightbox]').index(targetLightbox)
+        == $('a[data-lightbox]').length-1)\n\t\t{\n\t\t\t$('.next-lightbox').hide();\n\t\t}\n\t}\n\t).on('hidden.bs.modal',
+        '#lightbox-modal', function () // Handle destroy modal\n\t{\n\t\t$('#lightbox-modal').remove();\n\t})\n\n\t$(document).on('click',
+        '.next-lightbox, .prev-lightbox', function(e)\n\t{\n\t\te.preventDefault();\n\t\tvar
+        idx = $('a[data-lightbox]').index(targetLightbox);\n\t\tvar next = $('a[data-lightbox]').eq(idx+1)
+        // Next\n\n\t\tif($(this).hasClass('prev-lightbox'))\n\t\t{\n\t\t\tnext =
+        $('a[data-lightbox]').eq(idx-1) // Prev\n\t\t}\n\t\t$('#lightbox-image').attr('src',next.attr('data-lightbox'));\n\t\t$('.lightbox-caption').html(next.attr('data-caption'));\n\t\ttargetLightbox
+        = next;\n\n\t\t// Handle navigation buttons (next - prev)\n\t\t$('.next-lightbox,
+        .prev-lightbox').hide();\n\n\t\tif($('a[data-lightbox]').index(next) != $('a[data-lightbox]').length-1)\n\t\t{\n\t\t\t$('.next-lightbox').show();\n\t\t}\n\t\tif($('a[data-lightbox]').index(next)
+        > 0)\n\t\t{\n\t\t\t$('.prev-lightbox').show();\n\t\t}\n\t});\n}\n\nfunction
+        submitSearch(){\n\t//search box\n\n\t\tif (document.searchForm.searchMenu.value==\"taxonomy\")
+        {\n\t\t\tdocument.searchForm.taxon.value = document.searchForm.query.value;
+        \ //temp fix for now.\n\t\t\tdocument.searchForm.action=\"/index.php/Taxbrowser_Taxonpage?taxon=\"+document.searchForm.query.value+\"&debug=1\";\n\t\t}
+        else if (document.searchForm.searchMenu.value==\"records\") {\n\t\t\tdocument.searchForm.action=\"/index.php/Public_SearchTerms?\";\n\t\t}
+        else if (document.searchForm.searchMenu.value==\"bins\") {\n\t\t\tdocument.searchForm.action=\"/index.php/Public_BINSearch?\";\n\t\t}\n\n}\n\n</script>\n<style>\n\t.ui-autocomplete
+        {\n\t\tposition: absolute;\n\t\ttop: 100%;\n\t\tleft: 0;\n\t\tz-index: 1000;\n\t\tfloat:
+        left;\n\t\tdisplay: none;\n\t\tmin-width: 160px;\n\t\t_width: 160px;\n\t\tpadding:
+        4px 0;\n\t\tmargin: 2px 0 0 0;\n\t\tlist-style: none;\n\t\tbackground-color:
+        #ffffff;\n\t\tborder-color: #ccc;\n\t\tborder-color: rgba(0, 0, 0, 0.2);\n\t\tborder-style:
+        solid;\n\t\tborder-width: 1px;\n\t\t-webkit-border-radius: 5px;\n\t\t-moz-border-radius:
+        5px;\n\t\tborder-radius: 5px;\n\t\t-webkit-box-shadow: 0 5px 10px rgba(0,
+        0, 0, 0.2);\n\t\t-moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);\n\t\tbox-shadow:
+        0 5px 10px rgba(0, 0, 0, 0.2);\n\t\t-webkit-background-clip: padding-box;\n\t\t-moz-background-clip:
+        padding;\n\t\tbackground-clip: padding-box;\n\t\t*border-right-width: 2px;\n\t\t*border-bottom-width:
+        2px;\n\n\t\t.ui-menu-item > a.ui-corner-all {\n\t\t\tdisplay: block;\n\t\t\tpadding:
+        3px 15px;\n\t\t\tclear: both;\n\t\t\tfont-weight: normal;\n\t\t\tline-height:
+        18px;\n\t\t\tcolor: #555555;\n\t\t\twhite-space: nowrap;\n\n\t\t\t&.ui-state-hover,
+        &.ui-state-active &.ui-state-focus{\n\t\t\t\tcolor: #ffffff;\n\t\t\t\ttext-decoration:
+        none;\n\t\t\t\tbackground-color: #0088cc !important;\n\t\t\t\tborder-radius:
+        0px;\n\t\t\t\t-webkit-border-radius: 0px;\n\t\t\t\t-moz-border-radius: 0px;\n\t\t\t\tbackground-image:
+        none;\n\t\t\t}\n\t\t}\n\t}\n\t.ui-helper-hidden-accessible{\n\t\tdisplay:none;\n\t}\n</style>\t<link
+        rel=\"stylesheet\" type=\"text/css\" href=\"/libhtml/highslide/highslide.css\"
+        />\n\t<script type=\"text/javascript\" src=\"/libhtml/highslide/highslide-full.js\"></script>\n\t<!--
+        ChartJS-->\n\t<script src=\"/libhtml_v4/js/plugins/chartjs/Chart.js\"></script>\n\t<script
+        src=\"/libhtml_v3/js/plugins/sparkline/jquery.sparkline.min.js\"></script>\n\n<!--
+        SCRIPT FROM TAXONPAGENEW -->\n<script type=\"text/javascript\">\n\t\t\tmaxColWidth
+        = 2250;\n\t\t\tmaxColHeight = 1125;\n\t\t\ths.graphicsDir = '/libhtml/highslide/graphics/';\n\t\t\ths.showCredits
+        = false;\n\t\t\ths.captionEval= 'this.thumb.title';\n\t\t\ths.enableKeyListener
+        = false;\n\t\t\ths.width = 400;\n\t\t\ths.height = 360;\n\t\t\ths.allowMultipleInstances
+        = false;\n\t\t\ths.useBox = true;\n\t\t\ths.enableKeyListener = true;\n\t\t\ths.dimmingOpacity=0.1;\n\t\t\ths.outlineType
+        = 'custom';\n\t\t\ths.align='center';\n\t\t\ths.registerOverlay({\n\t\t\t\t\thtml:
+        '<div class=\"closebutton\" onclick=\"return hs.close(this)\" title=\"Close\"></div>',\n\t\t\t\t\tposition:
+        'top right',\n\t\t\t\t\tuseOnHtml: true,\n\t\t\t\t\tfade: 2 // fading the
+        semi-transparent overlay looks bad in IE\n\t\t\t});\n\n</script>\n\t<script
+        language=\"javascript\">\n\t\t\tvar allCountriesData = {\"Brazil\":4,\"Colombia\":2,\"Mexico\":2,\"Panama\":10,\"Guatemala\":1,\"Peru\":17,\"Bolivia\":6,\"Ecuador\":2};\n\n\t\t\t$(document).ready(function()
+        {\n\t\t\t\t//Taxonomy Search event handler\n\t\t\t\t$('button[name=\"searchTax\"]').click(function
+        () {\n\t\t\t\t\twindow.location = \"/index.php/Taxbrowser_Taxonpage?taxon=\"+
+        $('input[name=\"taxon\"]').val();\n\t\t\t\t});\n\t\t\t\t//Species Summary
+        event handler\n\t\t\t\t$('button[name=\"speciesSummaryOpen\"]').on(\"click\",function
+        () {\n\t\t\t\t\topenSpeciesSummary();\n\t\t\t\t});\n\t\t\t\t//Access Published
+        & Released Data event handler\n\t\t\t\t$('button[name=\"accessPublishedData\"]').on(\"click\",function
+        () {\n\t\t\t\t\twindow.location = \"/index.php/Public_SearchTerms?query=Momotus[tax]\";\n\t\t\t\t});\n\n\t\t\t\t$('a.popup-medium').click(function
+        (ev) {\n\t\t\t\t\twindow.open(this.href,'popup', 'scrollbars=yes,width=780,height=690');\n\t\t\t\t\tev.preventDefault();\n\t\t\t\t});\n\n\t\t\t\twikiRetrieve('Momotus',
+        '14');\n\n\t\t\t\t//setup breadcrumbs\n\t\t\t\tvar taxonBreadcrumbs = [\"<a
+        class =\\\"link\\\" title=\\\"phylum\\\"href=\\\"\\/index.php\\/TaxBrowser_Taxonpage?taxid=18\\\">Chordata<\\/a>\",\"<a
+        class =\\\"link\\\" title=\\\"class\\\"href=\\\"\\/index.php\\/TaxBrowser_Taxonpage?taxid=51\\\">Aves<\\/a>\",\"<a
+        class =\\\"link\\\" title=\\\"order\\\"href=\\\"\\/index.php\\/TaxBrowser_Taxonpage?taxid=339\\\">Coraciiformes<\\/a>\",\"<a
+        class =\\\"link\\\" title=\\\"family\\\"href=\\\"\\/index.php\\/TaxBrowser_Taxonpage?taxid=88898\\\">Momotidae<\\/a>\",\"Momotus\"];\n\t\t\t\tsetupBreadcrumbs(taxonBreadcrumbs);\n\n\n\t\t\t\tvar
+        selector = \"#countries-summary\";\n\t\t\t\tcountriesRepresentation(selector,
+        allCountriesData);\n\n\t\t\t\t$('form[name=\"searchForm\"]').submit(function
+        (e) {\n\t\t\t\t\tif (document.searchForm.searchMenu.value==\"taxonomy\") {\n\t\t\t\t\t\tdocument.searchForm.taxon.value
+        = document.searchForm.query.value;  //temp fix for now.\n\t\t\t\t\t\tdocument.searchForm.action=\"/index.php/Taxbrowser_Taxonpage?taxon=\"+document.searchForm.query.value+\"&debug=1\";\n\t\t\t\t\t}
+        else if (document.searchForm.searchMenu.value==\"records\") {\n\t\t\t\t\t\tdocument.searchForm.action=\"/index.php/Public_SearchTerms?\";\n\t\t\t\t\t}
+        else if (document.searchForm.searchMenu.value==\"bins\") {\n\t\t\t\t\t\tdocument.searchForm.action=\"/index.php/Public_BINSearch?\";\n\t\t\t\t\t}\n\t\t\t\t});\n\n\t\t\t});\n\n\t\t\tfunction
+        setupBreadcrumbs(taxonBreadcrumbs) {\n\t\t\t\tvar selector = \"#taxonBreadcrumbs\";\n\t\t\t\tfor
+        (var i = 0; i < taxonBreadcrumbs.length; i++) {\n\t\t\t\t\tvar crumb;\n\t\t\t\t\tif
+        (i == taxonBreadcrumbs.length - 1) {\n\t\t\t\t\t\tcrumb = $(\"<li>\", {class:\"active\"}).append(taxonBreadcrumbs[i]);\n\t\t\t\t\t}
+        else {\n\t\t\t\t\t\tcrumb = $(\"<li>\").append(taxonBreadcrumbs[i]);\n\t\t\t\t\t}\n\t\t\t\t\t$(selector).append(crumb);\n\t\t\t\t}\n\t\t\t}\n\n\t\t\tfunction
+        openSpeciesSummary(ev) {\n\t\t\t\tvar page=\"speciesSummary\";\n\t\t\t\tPopup=window.open('/index.php/Working',page,'scrollbars=yes,resizable=yes,width=900,height=700');\n\t\t\t\tsetTimeout(function(){\n\t\t\t\t\t\t\t\t$('form[name=\"actionRequest\"]').attr('target',
+        page);\n\t\t\t\t\t\t\t\t$('form[name=\"actionRequest\"]').submit();\n\t\t\t\t\t\t\t\tPopup.focus();},\n\t\t\t\t\t\t\t\t450);\n\n\t\t\t\tev.preventDefault();\n\n\t\t\t}\n\n\t\t\tfunction
+        countriesRepresentation(selector,data){\n\t\t\t\tvar totalSpecimenCount =
+        Object.keys(data)\n\t\t\t\t\t.reduce(function(sum, key) {\n\t\t\t\t\t\treturn
+        sum + data[key];\n\t\t\t\t\t}, 0);\n\n\t\t\t\t //sort countries\n\t\t\t\tvar
+        sortedCountries = sortCountries();\n\n\t\t\t\t//only draw 5\n\t\t\t\tvar globalCounter
+        = 0;\n\t\t\t\tvar countrySelectorID = 1;\n\t\t\t\tfor (var j =0; j < 6 ; j++)
+        {\n\n\t\t\t\t\tvar countrySelector = \"country-summary\" + countrySelectorID;\n\t\t\t\t\t$(selector).append($(\"<div>\",
+        {class:\"col-lg-2 col-md-6\"}).append(\n\t\t\t\t\t\t\t\t$(\"<div>\", {class:\"ibox\"}\n\t\t\t\t\t\t\t\t).append(\n\t\t\t\t\t\t\t\t\t$(\"<div>\",
+        {class:\"ibox-content\"})\n\t\t\t\t\t\t\t\t).append(\n\t\t\t\t\t\t\t\t\t$(\"<div>\",
+        {id:countrySelector})\n\t\t\t\t\t\t\t\t)\n\t\t\t\t\t\t\t));\n\t\t\t\t\tvar
+        counter = 1;\n\t\t\t\t\tfor (globalCounter; globalCounter < sortedCountries.length;
+        globalCounter++) {\n\t\t\t\t\t\tvar newWidth = progressValue(sortedCountries[globalCounter][1],totalSpecimenCount);\n\t\t\t\t\t\t$(\"#\"+countrySelector).append($(\"<div>\").append(\n\t\t\t\t\t\t\t\t$(\"<span>\").text(sortedCountries[globalCounter][0]+\":\")\n\t\t\t\t\t\t\t).append(\n\t\t\t\t\t\t\t\t$(\"<span>\",{class:\"pull-right\"}).text(sortedCountries[globalCounter][1]
+        )\n\t\t\t\t\t\t\t).append(\n\t\t\t\t\t\t\t\t$(\"<div>\",{class:\"progress
+        progress-small\"}).append(\n\t\t\t\t\t\t\t\t\t$(\"<div>\",{class:\"progress-bar\",width:newWidth+\"%\"})\n\t\t\t\t\t\t\t\t)\n\t\t\t\t\t\t\t)\n\t\t\t\t\t\t);\n\t\t\t\t\t\tif
+        (counter == 2){\n\t\t\t\t\t\t\tbreak;\n\t\t\t\t\t\t}\n\t\t\t\t\t\tif (globalCounter
+        == 12){\n\t\t\t\t\t\t\tbreak;\n\t\t\t\t\t\t}\n\t\t\t\t\t\tcounter++;\n\t\t\t\t\t}\n\t\t\t\t\tglobalCounter++;\n\n\t\t\t\t\tcountrySelectorID++;\n\t\t\t\t}\n\n\t\t\t}\n\n\n\t\t\tfunction
+        sortCountries(){\n\t\t\t\tvar sortedCountries=[];\n\t\t\t\t//transform object
+        to array\n\t\t\t\tObject.keys(allCountriesData)\n\t\t\t\t   .map(function(
+        key) {\n\t\t\t\t\t   sortedCountries.push([key, allCountriesData[key]]);\n\t\t\t\t
+        \  });\n\t\t\t\t//sort items by value\n\t\t\t\tsortedCountries = sortedCountries.sort(function(a,
+        b){\n\t\t\t\t\treturn b[1] - a[1];\n\t\t\t\t});\n\t\t\t\treturn sortedCountries;\n\t\t\t}\n\n\n\t\t\tfunction
+        populateAllCountries(){\n\t\t\t\tvar sortedCountries = sortCountries();\n\t\t\t\tvar
+        i,j;\n\t\t\t\tvar temparray=[];\n\t\t\t\tvar chunk = Math.ceil(sortedCountries.length
+        / 4);\n\t\t\t\tfor (i=0,j = sortedCountries.length; i < j; i+=chunk) {\n\t\t\t\t\ttemparray.push(sortedCountries.slice(i,
+        i+chunk));\n\t\t\t\t}\n\n\t\t\t\tvar table = $(\"#dialogTable\");\n\t\t\t\t$(\"#dialogTable
+        tr\").remove();\n\t\t\t\tfor (var i =0; i < temparray[0].length; i++) {\n\t\t\t\t\tvar
+        newRow = $(\"<tr>\");\n\n\t\t\t\t\t//code will be cleaned up\n\t\t\t\t\tnewRow.append($(\"<td>\",
+        {style: \"width='10px'\"}).text(temparray[0][i][0]));\n\t\t\t\t\tnewRow.append($(\"<td>\",
+        {style: \"width='10px'\"}).text(temparray[0][i][1]));\n\t\t\t\t\tif (1 in
+        temparray && temparray[1][i] != undefined) {\n\t\t\t\t\t\tnewRow.append($(\"<td>\",
+        {style: \"width='10px'\"}).text(temparray[1][i][0]));\n\t\t\t\t\t\tnewRow.append($(\"<td>\",
+        {style: \"width='10px'\"}).text(temparray[1][i][1]));\n\t\t\t\t\t}\n\t\t\t\t\tif
+        (2 in temparray && temparray[2][i] != undefined) {\n\t\t\t\t\t\tnewRow.append($(\"<td>\",
+        {style: \"width='10px'\"}).text(temparray[2][i][0]));\n\t\t\t\t\t\tnewRow.append($(\"<td>\",
+        {style: \"width='10px'\"}).text(temparray[2][i][1]));\n\t\t\t\t\t}\n\t\t\t\t\tif
+        (3 in temparray && temparray[3][i] != undefined) {\n\t\t\t\t\t\tnewRow.append($(\"<td>\",
+        {style: \"width='10px'\"}).text(temparray[3][i][0]));\n\t\t\t\t\t\tnewRow.append($(\"<td>\",
+        {style: \"width='10px'\"}).text(temparray[3][i][1]));\n\t\t\t\t\t}\n\t\t\t\t\ttable.append(newRow);\n\t\t\t\t}\n\t\t\t\ttable.show();\n\t\t\t\t$(\"#alldatadialog\").modal('show');\n\t\t\t}\n\n\n\t\t\tfunction
+        progressValue(dividend, divisor) {\n\t\t\t\tif (dividend <= 0) {\n\t\t\t\t\treturn
+        0;\n\t\t\t\t} else {\n\t\t\t\t\tquotient = (dividend / parseFloat(divisor))
+        * 100.0 ;\n\t\t\t\t\treturn Math.max(1, parseInt(quotient));\n\t\t\t\t}\n\t\t\t}\n\n\t\t\tfunction
+        wikiRetrieve(name, rank) {\n\t\t\t\tvar url = \"/index.php/MAS_Ajax_WikiRetriever?name=\"
+        + name + '&url=true';\n\t\t\t\t$.ajax({\n\t\t\t\t\ttype:\"GET\",\n\t\t\t\t\turl:
+        url,\n\t\t\t\t\tdata: {rank: rank},\n\t\t\t\t\tdataType: 'json',\n\t\t\t\t\tsuccess:
+        function(data){\n\n\t\t\t\t\t\tif(data && data['text']) {\n\t\t\t\t\t\t\t$('#rowTaxon').show();\n\t\t\t\t\t\t\t$('#pTaxon').prepend(data['text']);\n\t\t\t\t\t\t\tif(data['url'])
+        {\n\t\t\t\t\t\t\t\t$('#pTaxon a').attr('href', 'http://en.wikipedia.org/wiki/'
+        + data['url']);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t} else {\n\t\t\t\t\t\t\t$('#rowTaxon').hide();\n\t\t\t\t\t\t}\n\t\t\t\t\t},\n\t\t\t\t\terror:
+        function(){\n\t\t\t\t\t\t$('#rowTaxon').hide();\n\t\t\t\t\t}\n\t\t\t\t});\n\t\t\t}\n\n\n\t\t\tfunction
+        buildChart(url,suffix){\n\t\t\t\t$.get(url,{\"taxid\":\"88899\"}).done(function(data){\n\t\t\t\t\tvar
+        doughnutOptions = {\n\t\t\t\t\t\tsegmentShowStroke: true,\n\t\t\t\t\t\tsegmentStrokeColor:
+        \"#fff\",\n\t\t\t\t\t\tsegmentStrokeWidth: 2,\n\t\t\t\t\t\tpercentageInnerCutout:
+        45, // This is 0 for Pie charts\n\t\t\t\t\t\tanimationSteps: 100,\n\t\t\t\t\t\tanimationEasing:
+        \"easeOutBounce\",\n\t\t\t\t\t\tanimateRotate: true,\n\t\t\t\t\t\tanimateScale:
+        false,\n\t\t\t\t\t\tresponsive: true,\n\t\t\t\t\t\tlegendTemplate : '<ul class=\"list-unstyled\">'+'<%
+        for (var i=0; i<segments.length; i++) { %>'+'<li>'+'<span style=\"-moz-border-radius:7px
+        7px 7px 7px; border-radius:7px 7px 7px 7px; margin-right:10px;width:15px;height:15px;display:inline-block;background-color:<%=segments[i].fillColor%>\">
+        </span>'+'<% if (segments[i].label) { %><%= segments[i].label %><% } %>'+'</li>'+'<%
+        } %>'+'</ul>'\n\t\t\t\t\t};\n\t\t\t\t\tjsonObj = JSON.parse(data);\n\t\t\t\t\tchartColours
+        = [\"#93C3DE\",\"#A2E6C6\",\"#A8EF8D\",\"#F0E287\",\"#DEB483\",\"#DE9E93\",\"#DAA1DE\",\"#BCB2F4\",\"#DEDEDE\",\"#B4B4B4\"];\n\t\t\t\t\thighlightColour
+        = \"#1ab394\";\n\t\t\t\t\tchartData = [];\n\t\t\t\t\tchartColourIndex = 0;\n\n\t\t\t\t\tfor
+        (i=jsonObj.data.length-1;i>=0;i--){\n\t\t\t\t\t\tchartLabel = jsonObj.labels[i];\n\t\t\t\t\t\tchartVal
+        = jsonObj.data[i];\n\t\t\t\t\t\tchartData.push({\n\t\t\t\t\t\t\tvalue:chartVal,\n\t\t\t\t\t\t\tcolor:chartColours[chartColourIndex],\n\t\t\t\t\t\t\thighlight:
+        highlightColour,\n\t\t\t\t\t\t\tlabel:chartLabel\n\t\t\t\t\t\t});\n\t\t\t\t\t\tchartColourIndex
+        += 1;\n\t\t\t\t\t\tif (chartColourIndex == chartColours.length){//for now
+        ;loop through the colour\n\t\t\t\t\t\t\tchartColourIndex = 0;\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t\tvar
+        ctx = document.getElementById(\"chart\"+suffix).getContext(\"2d\");\n\t\t\t\t\tvar
+        tgChart = new Chart(ctx).Doughnut(chartData, doughnutOptions);\n\t\t\t\t\t$(\"#legend\"+suffix).html(tgChart.generateLegend());\n\t\t\t\t});\n\t\t\t}\n\n\t\t\t$(document).ready(function()
+        {\n\t\t\t\t\t\t\t\tbuildChart('/index.php/TaxBrowser_Charts_institutionsrcdata','Depositry');\n\t\t\t\t\t\t\t\t\t\t\t\tbuildChart('/index.php/TaxBrowser_Charts_institutionsrcdata/sequencinglabs','Sequence');\n\t\t\t\t\t\t\t});\n\t</script>\n\n\t<style
+        type=\"text/css\">\n\n\t\t.highslide-heading {\n\t\t\tcolor:#dedede;\n\t\t}\n\t\t.highslide-caption{\n\t\t\tfont-size:10pt
+        !important;\n\t\t}\n\t\t.imagegallery_preview {\n\t\t\tbackground-color: #FFFFFF;\n\t\t\tmargin:
+        8px;\n\t\t\tborder: 1px solid #111111;\n\t\t\tpadding: 0px;\n\t\t\twidth:400px;\n\t\t\ttext-align:
+        center;\n\t\t\tfloat:right;\n\t\t}\n\n\t\t.alignTop, .alignTop td{\n\t\t\tvertical-align:
+        top;\n\t\t}\n\t\t.legendFont {\n\t\t\tfont-size: 12px;\n\t\t}\n\t\t.scrollPortlet{\n\t\t\tmax-height:
+        400px;\n\t\t\toverflow-y: auto;\n\t\t}\n\t\t.progress {\n\t\t\theight: 10px;\n\t\t}\n\t\t.modal-dialog
+        \ {width:1000px;}\n\n\t\t.breadcrumb {\n\t\t\tpadding: 0px;\n\t\t\tpadding-left:15px;\n\t\t\tbackground-color:
+        transparent;\n\t\t}\n\t\t.l-bloc a.link{\n\t\t\tcolor: #337ab7 ;\n\t\t}\n\t\t.highslide-caption
+        a {\n\t\t\tcolor: #ff9400;\n\t\t\tfont-size: 10pt !important;\n\t\t\tfont-weight:
+        bold;\n\t\t\tpadding: 2px;\n\t\t}\n\n\t</style>\n</head>\n<body>\n\t<div class=\"page-container\">\n\t\t<div
+        class=\"bloc sticky-nav bgc-dark-jungle-green d-bloc\">\n\t\t\t<div class=\"container
+        bloc-xs\">\n\t\t\t\t<nav class=\"navbar row\">\n\t\t\t\t\t<div class=\"navbar-header\">\n\t\t\t\t\t\t<a
+        class=\"navbar-brand\" href=\"/index.php\">\n\t\t\t\t\t\t\t<img src=\"/libhtml_v4/images/BOLDlogo.png\"
+        alt=\"logo\" />\n\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t<button id=\"nav-toggle\"
+        type=\"button\" class=\"ui-navbar-toggle navbar-toggle\" data-toggle=\"collapse\"
+        data-target=\".navbar-1\">\n\t\t\t\t\t\t\t<span class=\"sr-only\">Toggle navigation</span>\n\t\t\t\t\t\t\t<span
+        class=\"icon-bar\"></span>\n\t\t\t\t\t\t\t<span class=\"icon-bar\"></span>\n\t\t\t\t\t\t\t<span
+        class=\"icon-bar\"></span>\n\t\t\t\t\t\t</button>\n\n\t\t\t\t\t\t<a href=\"#\"
+        class=\"search-toggle\" data-toggle=\"collapse\" data-target=\".search-wrap\">\n\t\t\t\t\t\t\t<span
+        class=\"fa fa-search fa-lg\"></span>\n\t\t\t\t\t\t</a>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div
+        class=\"collapse navbar-collapse navbar-1\">\n\t\t\t\t\t\t<ul class=\"site-navigation
+        nav navbar-nav\">\n\t\t\t\t\t\t\t<li><a href=\"/index.php/databases\">Databases</a></li>\n\t\t\t\t\t\t\t<li><a
+        href=\"/index.php/IDS_OpenIdEngine\">Identification</a></li>\n\t\t\t\t\t\t\t<li><a
+        href=\"/index.php/TaxBrowser_Home\">Taxonomy</a></li>\n\t\t\t\t\t\t\t<li><a
+        href=\"/index.php/MAS_Management_UserConsole\">Workbench</a></li>\n\t\t\t\t\t\t\t<li><a
+        href=\"/index.php/Resources\">Resources</a></li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li><a
+        href=\"/index.php/MAS_Management_UserConsole\">Login</a></li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li
+        class=\"nav-search\">\n\t\t\t\t\t\t\t\t<a href=\"#\" data-toggle=\"collapse\"
+        data-target=\".search-wrap\">\n\t\t\t\t\t\t\t\t\t<span class=\"fa fa-search
+        icon-sm\"></span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t</nav>\n\t\t\t</div>\n\n\t\t\t<div
+        class=\"search-wrap collapse\">\n\t\t\t\t<form id=\"site-search\" name =\"searchForm\"
+        onSubmit=\"submitSearch();\">\n\t\t\t\t\t<div class=\"col-sm-3 col-md-2\">\n\t\t\t\t\t\t<label
+        class=\"sr-only\" for=\"search_type\">Type</label>\n\t\t\t\t\t\t<select id=\"search_type\"
+        class=\"form-control\" name=\"searchMenu\">\n\t\t\t\t\t\t\t<option value=\"taxonomy\">Taxonomy</option>\n\t\t\t\t\t\t\t<option
+        value=\"records\">Public Data</option>\n\t\t\t\t\t\t\t<option value=\"bins\">BINs</option>\n\t\t\t\t\t\t</select>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div
+        class=\"col-sm-9 col-md-10\">\n\t\t\t\t\t\t<label class=\"sr-only\" for=\"search_keyword\">Keyword</label>\n\t\t\t\t\t\t<input
+        id=\"query\" class=\"form-control\" name=\"query\"  placeholder=\"Search\"
+        />\n\t\t\t\t\t\t<input type=\"hidden\" name=\"taxon\"/>\n\t\t\t\t\t</div>\n\t\t\t\t</form>\n\t\t\t</div>\n\t\t</div><!--
+        /.sticky-nav -->\n\n<div class=\"bloc bgc-cadet-blue d-bloc\" id=\"lead-in\">\n
+        \   <div class=\"container bloc-md\">\n\n        <div class=\"row\">\n            <div
+        class=\"col-sm-12\">\n                <h3>TAXONOMY BROWSER: Momotus</h3>\n\t\t\t\t
+        <p>Genus : Momotus</p>\n\n            </div>\n        </div>\n    </div>\n</div>\n\n<div
+        class=\"bloc l-bloc bgc-white\">\n    <div class=\"container bloc-md\" style=\"padding:10px;\">\n
+        \       <div class=\"row\">\n\t\t\t <ol class=\"breadcrumb\" id=\"taxonBreadcrumbs\">\n\t\t\t</ol>\n\t\t</div>\n\t\t<div
+        class=\"row\">\n\t\t\t<div class=\"col-lg-6 col-md-6\">\n\t\t\t\t<div class=\"ibox\">\n\t\t\t\t\t<div
+        class=\"ibox-content\">\n\t\t\t\t\t\t<div class=\"ibox float-e-margins\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div
+        class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-xs-12 text-left\" style=\"margin-top:0px;margin-bottom:0px;\"><img
+        class=\"img-responsive\" src=\"/pics/FRGUY/GUY0173%2B1234014162.JPG\"  border=\"0\"
+        title=\"sample id:GUY0173-EP\"></div>\n\t\t\t\t\t\t\t<div class=\"col-xs-12
+        text-right\" style=\"margin-top:0px;margin-bottom:0px;\">\t\t\t\t\t\t\t\t<div
+        class=\"row\">\n\t\t\t\t\t\t\t\t\t<div class=\"col-xs-8 text-left\" style=\"margin-top:0px;margin-bottom:0px;\"><i
+        class=\"fa fa-copyright\" aria-hidden=\"true\"></i> Unspecified (default):
+        All Rights Reserved\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<i class=\"fa
+        fa-user\" aria-hidden=\"true\"></i> No Rights Reserved\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div
+        class=\"col-xs-4 text-right\" style=\"margin-top:0px;margin-bottom:0px;\">\n\t\t\t\t\t\t\t\t\t\t\tImage
+        of  <a class=\"link\" href=\"/index.php/TaxBrowser_Taxonpage?taxid=88900\">Momotus
+        momota</a> \t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div><!--
+        END OF ROW -->\n\t\t\t\t\t\t\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div
+        class=\"col-lg-6 col-md-6\">\n\t\t\t<div class=\"ibox\">\n\t\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t\t<h2>Taxon
+        Description (Wikipedia)</h2>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ibox-content\">\n\t\t\t\t\t<div
+        class=\"ibox float-e-margins\">\n\t\t\t\t\t\t<p id=\"pTaxon\">\n\t\t\t\t\t\t\t<a
+        class=\"link popup-medium\" href=\"http://en.wikipedia.org/wiki/Momotus\">full
+        article at Wikipedia</a>\n\t\t\t\t\t\t</p>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\n\n\n\n\n\t</div>
+        <!-- End of 1st row -->\n\n\t<div class =\"row\">\n\n\n\t\t<div class=\"col-lg-4
+        col-md-6\">\n\t\t\t<div class=\"ibox\">\n\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t<h2>Statistics</h2>\n\t\t\t\t</div>\n\t\t\t\t<div
+        class=\"ibox-content\">\n\t\t\t\t<div class=\"ibox float-e-margins\">\n\t\t\t\t\t<table
+        class=\"table table-striped noborder\">\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td
+        width=\"41%\">Specimen Records:</td>\n\t\t\t\t\t\t\t<td width=\"17%\">82</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Specimens
+        with Sequences:</td>\n\t\t\t\t\t\t\t<td>65</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Specimens
+        with Barcodes:</td>\n\t\t\t\t\t\t\t<td><specimendataforlivestats/>59<specimendataforlivestats/></td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Species:</td>\n\t\t\t\t\t\t\t<td>3</td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Species
+        With Barcodes:</td>\n\t\t\t\t\t\t\t<td>3</td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td
+        width=\"60%\">Public Records:</td>\n\t\t\t\t\t\t\t<td width=\"40%\">39</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Public
+        Species:</td>\n\t\t\t\t\t\t\t<td>2</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Public
+        BINs:</td>\n\t\t\t\t\t\t\t<td>8</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td><button
+        class=\"btn btn-sm btn-info\" name=\"speciesSummaryOpen\"> Species List  </button></td>\n\t\t\t\t\t\t\t<td><button
+        class=\"btn btn-sm btn-info\" name=\"accessPublishedData\">Public Data</button></td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</table>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t\t</div>\n\n\n\t\t<div
+        class=\"col-lg-4 col-md-6\">\n\t\t\t<div class=\"ibox\">\n\t\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t\t<h2>Specimen
+        Depositories</h2>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ibox-content\">\n\t\t\t\t\t<div
+        class=\"ibox float-e-margins\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div id=\"divDepositry\"><canvas
+        id=\"chartDepositry\"></canvas></div>\n\t\t\t\t\t\t<div id=\"legendDepositry\"
+        class=\"legendFont\"></div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div id=\"institutionsList2\"></div>\n\t\t\t\t\t\t\t<script
+        language=\"javascript\">\n\t\t\t\t\t\t\tvar institutionsReduced=true;\n\t\t\t\t\t\t\tfunction
+        institutionsExpandReduce() {\n\t\t\t\t\t\t\t\tif (institutionsReduced==true)
+        {\n\t\t\t\t\t\t\t\t\tdocument.getElementById('institutionsList').innerHTML=\"\";\n\t\t\t\t\t\t\t\t\tdocument.getElementById('institutionsExpandReduceLink').innerHTML=\"Collapse\";\n\t\t\t\t\t\t\t\t\tinstitutionsReduced=false;\n\t\t\t\t\t\t\t\t}
+        else {\n\t\t\t\t\t\t\t\t\tdocument.getElementById('institutionsList').innerHTML=\"\";\n\t\t\t\t\t\t\t\t\tdocument.getElementById('institutionsExpandReduceLink').innerHTML=\"Expand\";\n\t\t\t\t\t\t\t\t\tinstitutionsReduced=true;\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t}\n\n\t\t\t\t\t\t\t</script>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div
+        class=\"col-lg-4 col-md-6\">\n\t\t\t<div class=\"ibox\">\n\t\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t\t<h2>Sequencing
+        Labs</h2>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ibox-content\">\n\t\t\t\t\t<div
+        class=\"ibox float-e-margins\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div id=\"divSequence\"><canvas
+        id=\"chartSequence\" height=\"140\"></canvas></div>\n\t\t\t\t\t\t<div id=\"legendSequence\"
+        class=\"legendFont\"></div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>
+        <!--END OF third ROW --->\n\n\n\t<div class=\"row\">\n\t\t<div class=\"col-lg-12
+        col-md-6\">\n\t\t\t<div class=\"ibox\">\n\t\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t\t<h2>Collection
+        Sites</h2>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ibox-content\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a
+        class=\"highslide\" onclick=\"return hs.expand(this,{width:maxColWidth,height:maxColHeight})\"
+        href=\"/index.php/TaxBrowser_Maps_CollectionSites?taxid=88899\" ><img border=\"0\"
+        width=\"100%\" src=\"/index.php/TaxBrowser_Maps_CollectionSites?taxid=88899\"></img></a>\n\t\t\t\t\t\t\t\t</br>\n\t\t\t\t\t\t\t\t<img
+        src=\"/libhtml/icons/mapScale_BOLD.png\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t</div>
+        <!-- END OF FIFTH ROW -->\n\n\t<div class=\"row\">\n\t\t<div class=\"col-lg-12\">\n\t\t\t<div
+        class=\"ibox\">\n\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t<h2>Countries</h2>\n\t\t\t\t\t<span>Collected
+        from <strong>8</strong> countries. </span> <a class=\"link\" onClick = \"populateAllCountries();\">
+        Show all countries</a>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t<div
+        class =\"row\" id =\"countries-summary\">\n\n\t</div><!--END OF ROW-->\n\n\n\t<div
+        class =\"row\">\n\t\t\t\t<div class=\"col-md-6\">\n\t\t\t<div class=\"ibox\">\n\t\t\t\t\t<div
+        class=\"ibox-title\">\n\t\t\t\t\t\t<h2>Sub-Taxa</h2>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div
+        class=\"ibox-content\">\n\t\t\t\t\t<!-- Left Menu START-->\n\t\t\t\t\t<div
+        class=\"ibox float-e-margins\">\n\n\t\t\t\t\t\t\t<lh>Species (3) </lh><ol><li><a
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=115130\">Momotus aequatorialis
+        [5]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=106839\">Momotus
+        mexicanus [24]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=88900\">Momotus
+        momota [53]</a></li></ol>\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t</div>\n\t\t
+        <!-- Left Menu END -->\n\t\t<div class=\"col-md-6\">\n\t\t\t\t\t\t\t\t<div
+        class=\"ibox float-e-margins\">\n\t\t\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t\t\t<h2>Imagery</h2>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div
+        class=\"ibox-content\">\n\t\t\t\t\t\t<i> Images representing subtaxa of Momotus</i>
+        <div class=\"row\"><div class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return
+        hs.expand(this,{width:500, height:118} )\" href=\"//v4.boldsystems.org/pics/AVIPE/MHNSM_MUSM-Orn-22421a.jpg%2B1430161804.JPG\"><img
+        title=\" (Momotus aequatorialis - MUSM-Orn-22421a)  Copyright - All Rights
+        Reserved (2014)  \" alt=\" (Momotus aequatorialis - MUSM-Orn-22421a)  @11
+        [ ] Copyright - All Rights Reserved (2014) Unspecified Museo de Historia Natural\"
+        \ src=\"//v4.boldsystems.org/pics/_w300/AVIPE/MHNSM_MUSM-Orn-22421a.jpg%2B1430161804.JPG\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=115130\">Momotus aequatorialis</a></div></div><div
+        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
+        height:667} )\" href=\"//v4.boldsystems.org/pics/FRGUY/GUY0173%2B1234014162.JPG\"><img
+        title=\" (Momotus momota - GUY0173-EP)  Unspecified (default): All Rights
+        Reserved  No Rights Reserved \" alt=\" (Momotus momota - GUY0173-EP)  @14
+        [ ] Unspecified (default): All Rights Reserved  No Rights Reserved Unspecified\"
+        \ src=\"//v4.boldsystems.org/pics/_w300/FRGUY/GUY0173%2B1234014162.JPG\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=88900\">Momotus momota</a></div></div></div></div>\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t</div>
+        <!-- END OF FOURTH ROW -->\n\n\t<!-- MODAL DIALOG FOR COUNTRIES -->\n\t<div
+        id=\"alldatadialog\" class=\"modal fade\" role=\"dialog\" data-keyboard=\"false\"
+        data-backdrop=\"static\">\n\t\t<div class=\"modal-dialog\" >\n\t\t\t<div class=\"modal-content\">\n\t\t\t\t<div
+        class=\"modal-header\">\n\t\t\t\t\t<button type=\"button\" class=\"close\"
+        data-dismiss=\"modal\">&times;</button>\n\t\t\t\t\t<h4 class=\"modal-title
+        \" id =\"dialogTitle\" >All Countries</h4>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"modal-body\"
+        >\n\n\t\t\t\t\t<table id=\"dialogTable\"  class=\"table table-striped\" style=\"width:100%;\"
+        border=\"0\" cellpadding=\"1\" cellspacing=\"10\" >\n\n\t\t\t\t\t</table>\n\t\t\t</div>\n\t\t\t<div
+        class=\"modal-footer\">\n\t\t\t\t<button id = \"closeDialog\" name = \"closeDialog\"
+        \ data-dismiss=\"modal\" class=\"btn btn-primary btn-sm\" >Close</button>\n\t\t\t</div>\n\t\t</div>\n\t\t</div>\n\t</div>\n\t<form
+        name=\"actionRequest\" action=\"/index.php/TaxBrowser_TaxonPage/SpeciesSummary\"
+        method=\"GET\">\n\t\t<input type=\"hidden\" name=\"taxid\" value=\"88899\">\n\t</form>\n\n\n
+        \       </div>\n    </div>\n</div>\n\t\t\t\t<div class=\"bloc bgc-platinum
+        l-bloc\" id=\"footer\">\n\t\t\t<div class=\"container bloc-md\">\n\t\t\t\t<div
+        class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t<h3 class=\"mg-md\">Databases</h3>\n\t\t\t\t\t\t<ul
+        class=\"list-unstyled\">\n\t\t\t\t\t\t\t<li><a href=\"/index.php/Public_BINSearch?searchtype=records\">Public
+        Data Portal</a></li>\n\t\t\t\t\t\t\t<li><a href=\"/index.php/TaxBrowser_Home\">Taxonomy
+        Browser</a></li>\n\t\t\t\t\t\t\t<li><a href=\"/index.php/Public_Publication_BibliographySearch\">Publications</a></li>\n\t\t\t\t\t\t\t<li><a
+        href=\"/index.php/Public_Primer_PrimerSearch\">Primers</a></li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div
+        class=\"col-sm-3\">\n\t\t\t\t\t\t<h3 class=\"mg-md\">Resources</h3>\n\t\t\t\t\t\t<ul
+        class=\"list-unstyled\">\n\t\t\t\t\t\t  <!--<li><a href=\"/index.php/resources/handbook?chapter=1_gettingstarted.html\">Documentation</a></li>-->\n\t\t\t\t\t\t
+        \ <li><a href=\"/libhtml/docs/bold.pdf\">Citing BOLD</a></li>\n\t\t\t\t\t\t
+        \ <li><a href=\"/index.php/NewsFeed\">News and Events</a></li>\n\t\t\t\t\t\t
+        \ <li><a href=\"/index.php/datarelease\">Data Releases</a></li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div
+        class=\"col-sm-3\">\n\t\t\t\t\t\t<h3 class=\"mg-md\">Organization</h3>\n\t\t\t\t\t\t<ul
+        class=\"list-unstyled\">\n\t\t\t\t\t\t  <li><a href=\"/index.php/Resources/whatIsBOLD\">About
+        Us</a></li>\n\t\t\t\t\t\t  <li><a href=\"/index.php/Resources/ContactUs\">Contact
+        Us</a></li>\n\t\t\t\t\t\t  <li><a href=\"/index.php/NewsFeed\">News &amp;
+        Events</a></li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t<h3
+        class=\"mg-md\">Partners</h3>\n\t\t\t\t\t\t<ul class=\"list-unstyled\">\n\t\t\t\t\t\t
+        \ <li><a href=\"http://www.ibol.org\">iBOL</a></li>\n\t\t\t\t\t\t  <li><a
+        href=\"http://biodiversitygenomics.net/\">CBG</a></li>\n\t\t\t\t\t\t  <li><a
+        href=\"http://ccdb.ca\">CCDB</a></li>\n\t\t\t\t\t\t  <li><a href=\"http://www.ncbi.nlm.nih.gov\">GenBank</a></li>\n\t\t\t\t\t\t
+        \ <li><a href=\"http://www.eol.org\">EOL</a></li>\n\t\t\t\t\t\t  <li><a href=\"http://www.gbif.org\">GBIF</a></li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div
+        class=\"bloc bgc-floral-white l-bloc\" id=\"affiliates\">\n\t\t\t<div class=\"container
+        bloc-md\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-2\">\n\t\t\t\t\t\t<img
+        class=\"img-responsive center-block\" style=\"margin-top:20px\" src=\"/libhtml_v4/img/ibol-50v.png\"
+        />\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-2\">\n\t\t\t\t\t\t<img
+        class=\"img-responsive center-block\" style=\"margin-top:20px\" src=\"/libhtml_v4/img/CFREF.png\"
+        />\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-2\">\n\t\t\t\t\t\t<img
+        class=\"img-responsive center-block\" src=\"/libhtml_v4/img/MRI_logo.png\"
+        />\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-2\">\n\t\t\t\t\t\t<img
+        \ class=\"img-responsive center-block\" style=\"margin-top:20px\" src=\"/libhtml_v4/img/CFINN.png\"/>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div
+        class=\"col-sm-2\">\n\t\t\t\t\t\t<img class=\"img-responsive center-block\"
+        style=\"margin-top:20px\" src=\"/libhtml_v4/img/NSERC.png\" />\n\t\t\t\t\t</div>\n\t\t\t\t\t<div
+        class=\"col-sm-2\">\n\t\t\t\t\t\t<img class=\"img-responsive center-block\"
+        src=\"/libhtml_v4/img/UoGuelph_image18-100x100.png\" />\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div
+        class=\"row\">\n\t\t\t\t\t<div class=\"col-xs-12\"><br/><h5><small><strong>Copyright</strong>
+        BOLD &copy; 2014-2020</small></h5></div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t</body>\n</html>\n"
+  recorded_at: 2020-04-21 19:02:40 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2
