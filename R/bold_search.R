@@ -83,6 +83,7 @@ bold_search <- function(name = NULL, id = NULL, fuzzy = FALSE,
 #' https://github.com/ropensci/taxize/issues
 #'
 #' @export
+#' @keywords internal
 #' @param id (integer) A BOLD taxonomic identifier
 #' @param ... named curl options passed on to [crul::verb-GET]
 #' debugging
