@@ -48,13 +48,12 @@ test_that("do_approximate_matching works correctly", {
   expect_is(aa, "data.frame")
   expect_equal(aa$unique_name, "Nautilus")
 
-  # FIXME: this used to work, bug in rotl::tnrs_match_names
-  #   for do_approximate_matching param=FALSE
-  #   re-instate when new rotl on CRAN
-  # expect_error(
-  #   tol_resolve("Nautilas", do_approximate_matching = FALSE),
-  #   "No matches for any of the provided taxa"
-  # )
+  vcr::use_cassette("tol_resolve_do_approximate_matching_false", {
+    expect_error(
+      tol_resolve("Nautilas", do_approximate_matching = FALSE),
+      "No matches for any of the provided taxa"
+    )
+  })
 })
 
 test_that("fails well", {
