@@ -6,8 +6,8 @@
 #' [eol_pages()] to find the actual taxon IDs.
 #'
 #' @export
-#' @param sciname character; scientific name. Or, a `taxon_state`
-#' object (see [taxon-state])
+#' @param sciname character; one or more scientific or common names. Or,
+#' a `taxon_state` object (see [taxon-state])
 #' @param ask logical; should get_eolid be run in interactive mode?
 #' If TRUE and more than one ID is found for the species, the user is asked for
 #' input. If FALSE NA is returned for multiple matches.

@@ -2,7 +2,7 @@
 #'
 #' @importFrom bold bold_tax_name bold_tax_id
 #' @export
-#' @param searchterm character; A vector of common or scientific names. Or,
+#' @param searchterm character; A vector of scientific names. Or,
 #' a `taxon_state` object (see [taxon-state])
 #' @param fuzzy (logical) Whether to use fuzzy search or not (default: FALSE).
 #' @param dataTypes (character) Specifies the datatypes that will be returned.

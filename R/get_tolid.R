@@ -4,7 +4,7 @@
 #' OpenTreeOfLife
 #'
 #' @export
-#' @param sciname character; scientific name. Or, a `taxon_state`
+#' @param sciname character; one or more scientific names. Or, a `taxon_state`
 #' object (see [taxon-state])
 #' @param ask logical; should `get_tolid` be run in interactive mode?
 #' If `TRUE` and more than one TOL is found for the species, the user is

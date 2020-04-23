@@ -39,8 +39,8 @@ as.eolid(x, check = TRUE)
 get_eolid_(sciname, messages = TRUE, rows = NA, ...)
 }
 \arguments{
-\item{sciname}{character; scientific name. Or, a \code{taxon_state}
-object (see \link{taxon-state})}
+\item{sciname}{character; one or more scientific or common names. Or,
+a \code{taxon_state} object (see \link{taxon-state})}
 
 \item{ask}{logical; should get_eolid be run in interactive mode?
 If TRUE and more than one ID is found for the species, the user is asked for

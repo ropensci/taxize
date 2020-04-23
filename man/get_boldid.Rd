@@ -51,7 +51,7 @@ get_boldid_(
 )
 }
 \arguments{
-\item{searchterm}{character; A vector of common or scientific names. Or,
+\item{searchterm}{character; A vector of scientific names. Or,
 a \code{taxon_state} object (see \link{taxon-state})}
 
 \item{fuzzy}{(logical) Whether to use fuzzy search or not (default: FALSE).}

@@ -31,7 +31,7 @@ as.tolid(x, check = TRUE)
 get_tolid_(sciname, messages = TRUE, rows = NA)
 }
 \arguments{
-\item{sciname}{character; scientific name. Or, a \code{taxon_state}
+\item{sciname}{character; one or more scientific names. Or, a \code{taxon_state}
 object (see \link{taxon-state})}
 
 \item{ask}{logical; should \code{get_tolid} be run in interactive mode?

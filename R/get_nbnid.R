@@ -1,8 +1,8 @@
 #' Get the UK National Biodiversity Network ID from taxonomic names.
 #'
 #' @export
-#' @param name character; scientific name. Or, a `taxon_state`
-#' object (see [taxon-state])
+#' @param name character; a vector of common or scientific names. Or, a
+#' `taxon_state` object (see [taxon-state])
 #' @param ask logical; should get_nbnid be run in interactive mode?
 #' If TRUE and more than one ID is found for the species, the user is asked for
 #' input. If FALSE NA is returned for multiple matches.

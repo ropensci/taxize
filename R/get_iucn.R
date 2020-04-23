@@ -1,7 +1,7 @@
 #' Get a IUCN Redlist taxon
 #'
 #' @export
-#' @param x (character) A vector of common or scientific names. Or, a
+#' @param x (character) A vector of scientific names. Or, a
 #' `taxon_state` object (see [taxon-state])
 #' @param messages logical; should progress be printed?
 #' @param key (character) required. you IUCN Redlist API key. See

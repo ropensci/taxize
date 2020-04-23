@@ -43,8 +43,8 @@ get_nbnid_(
 )
 }
 \arguments{
-\item{name}{character; scientific name. Or, a \code{taxon_state}
-object (see \link{taxon-state})}
+\item{name}{character; a vector of common or scientific names. Or, a
+\code{taxon_state} object (see \link{taxon-state})}
 
 \item{ask}{logical; should get_nbnid be run in interactive mode?
 If TRUE and more than one ID is found for the species, the user is asked for
