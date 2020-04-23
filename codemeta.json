@@ -10,14 +10,14 @@
   "codeRepository": "https://github.com/ropensci/taxize",
   "issueTracker": "https://github.com/ropensci/taxize/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.9.94",
+  "version": "0.9.95",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "version": "3.6.3",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 3.6.3 Patched (2020-02-29 r77909)",
+  "runtimePlatform": "R version 3.6.3 Patched (2020-03-11 r78281)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -447,10 +447,13 @@
       "sameAs": "https://CRAN.R-project.org/package=phangorn"
     }
   ],
-  "contIntegration": ["https://travis-ci.org/ropensci/taxize", "https://ci.appveyor.com/project/sckott/taxize-175/branch/master"],
+  "contIntegration": [
+    "https://travis-ci.org/ropensci/taxize",
+    "https://ci.appveyor.com/project/sckott/taxize-175/branch/master"
+  ],
   "releaseNotes": "https://github.com/ropensci/taxize/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/taxize/blob/master/README.md",
-  "fileSize": "1581.347KB",
+  "fileSize": "1835.786KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",
@@ -563,7 +566,7 @@
       ],
       "name": "taxize: Taxonomic information from around the web",
       "url": "https://github.com/ropensci/taxize",
-      "description": "R package version 0.9.92"
+      "description": "R package version 0.9.95"
     }
   ],
   "applicationCategory": "Taxonomy",
