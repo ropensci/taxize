@@ -1,7 +1,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://v4.boldsystems.org/index.php/API_Tax/TaxonSearch?taxName=Apis
+    uri: http://v4.boldsystems.org/index.php/API_Tax/TaxonSearch?taxName=Apis
     body:
       encoding: ''
       string: ''
@@ -15,11 +15,12 @@ http_interactions:
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: 'HTTP/2 200 '
+      status: HTTP/1.1 200 OK
       server: nginx
-      date: Mon, 20 Apr 2020 17:54:48 GMT
+      date: Thu, 23 Apr 2020 22:29:41 GMT
       content-type: text/html; charset=utf-8
       content-length: '289'
+      connection: keep-alive
       x-powered-by: PHP/5.3.15
       x-frame-options: SAMEORIGIN
       x-content-type-options: nosniff
@@ -28,11 +29,11 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '{"top_matched_names":[{"taxid":1937,"taxon":"Apis","tax_rank":"genus","tax_division":"Animalia","parentid":2183,"parentname":"Apinae","taxonrep":"Apis","representitive_image":{"image":"BOFTH\/B3265-E08+1262794266.jpg","apectratio":1.362},"specimenrecords":"3567"}],"total_matched_names":1}'
-  recorded_at: 2020-04-20 17:54:57 GMT
+  recorded_at: 2020-04-23 22:29:51 GMT
   recorded_with: vcr/0.5.4, webmockr/0.6.2
 - request:
     method: get
-    uri: https://v4.boldsystems.org/index.php/API_Tax/TaxonSearch?taxName=Aga&fuzzy=true
+    uri: http://v4.boldsystems.org/index.php/API_Tax/TaxonSearch?taxName=Aga&fuzzy=true
     body:
       encoding: ''
       string: ''
@@ -46,10 +47,12 @@ http_interactions:
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: 'HTTP/2 200 '
+      status: HTTP/1.1 200 OK
       server: nginx
-      date: Mon, 20 Apr 2020 17:54:55 GMT
+      date: Thu, 23 Apr 2020 22:29:50 GMT
       content-type: text/html; charset=utf-8
+      transfer-encoding: chunked
+      connection: keep-alive
       x-powered-by: PHP/5.3.15
       x-frame-options: SAMEORIGIN
       x-content-type-options: nosniff
@@ -477,7 +480,7 @@ http_interactions:
         sp. MB 6316","tax_rank":"species","tax_division":"Animalia","parentid":504837,"parentname":"Agametrus","specimenrecords":"1"},{"taxid":917865,"taxon":"Agametrus
         sp. MB 6317","tax_rank":"species","tax_division":"Animalia","parentid":504837,"parentname":"Agametrus","specimenrecords":"1"},{"taxid":504838,"taxon":"Agametrus
         sp. MB649","tax_rank":"species","tax_division":"Animalia","parentid":504837,"parentname":"Agametrus","specimenrecords":"1"},{"taxid":90166,"taxon":"Agamia","tax_rank":"genus","tax_division":"Animalia","parentid":1444,"parentname":"Ardeidae","specimenrecords":"5"},{"taxid":90167,"taxon":"Agamia
-        agami","tax_rank":"species","tax_division":"Animalia","parentid":90166,"parentname":"Agamia","specimenrecords":"5"},{"taxid":615,"taxon":"Agamidae","tax_rank":"family","tax_division":"Animalia","parentid":367,"parentname":"Squamata","taxonrep":"Agamidae","representitive_image":{"image":"BIFZH\/_MG_4288+1415524576.jpg","apectratio":0.667},"specimenrecords":"1838"},{"taxid":79901,"taxon":"Agaminae","tax_rank":"subfamily","tax_division":"Animalia","parentid":615,"parentname":"Agamidae","specimenrecords":"1062"},{"taxid":382744,"taxon":"Agamopus","tax_rank":"genus","tax_division":"Animalia","parentid":2775,"parentname":"Scarabaeinae","specimenrecords":"5"},{"taxid":382745,"taxon":"Agamopus
+        agami","tax_rank":"species","tax_division":"Animalia","parentid":90166,"parentname":"Agamia","specimenrecords":"5"},{"taxid":615,"taxon":"Agamidae","tax_rank":"family","tax_division":"Animalia","parentid":367,"parentname":"Squamata","taxonrep":"Agamidae","representitive_image":{"image":"BIFZH\/_MG_4288+1415524576.jpg","apectratio":0.667},"specimenrecords":"1858"},{"taxid":79901,"taxon":"Agaminae","tax_rank":"subfamily","tax_division":"Animalia","parentid":615,"parentname":"Agamidae","specimenrecords":"1062"},{"taxid":382744,"taxon":"Agamopus","tax_rank":"genus","tax_division":"Animalia","parentid":2775,"parentname":"Scarabaeinae","specimenrecords":"5"},{"taxid":382745,"taxon":"Agamopus
         lampros","tax_rank":"species","tax_division":"Animalia","parentid":382744,"parentname":"Agamopus","taxonrep":"Agamopus
         lampros","specimenrecords":"5"},{"taxid":87971,"taxon":"Agamura","tax_rank":"genus","tax_division":"Animalia","parentid":22582,"parentname":"Gekkonidae","specimenrecords":"9"},{"taxid":87972,"taxon":"Agamura
         persica","tax_rank":"species","tax_division":"Animalia","parentid":87971,"parentname":"Agamura","taxonrep":"Agamura
@@ -567,7 +570,7 @@ http_interactions:
         hosseana","tax_rank":"species","tax_division":"Plantae","parentid":279249,"parentname":"Agapetes","specimenrecords":"1"},{"taxid":279250,"taxon":"Agapetes
         meiniana","tax_rank":"species","tax_division":"Plantae","parentid":279249,"parentname":"Agapetes","taxonrep":"Agapetes
         meiniana","specimenrecords":"6"},{"taxid":425268,"taxon":"Agapetes scortechinii","tax_rank":"species","tax_division":"Plantae","parentid":279249,"parentname":"Agapetes","specimenrecords":"1"},{"taxid":425267,"taxon":"Agapetes
-        serpens","tax_rank":"species","tax_division":"Plantae","parentid":279249,"parentname":"Agapetes","specimenrecords":"1"},{"taxid":95630,"taxon":"Agapetinae","tax_rank":"subfamily","tax_division":"Animalia","parentid":1652,"parentname":"Glossosomatidae","taxonrep":"Agapetinae","representitive_image":{"image":"HMCAD\/hmcad-0183+1238162922.JPG","apectratio":1.333},"specimenrecords":"751"},{"taxid":5541,"taxon":"Agapetus","tax_rank":"genus","tax_division":"Animalia","parentid":95630,"parentname":"Agapetinae","taxonrep":"Agapetus","representitive_image":{"image":"HMCAD\/hmcad-0183+1238162922.JPG","apectratio":1.333},"specimenrecords":"720"},{"taxid":300069,"taxon":"Agapetus
+        serpens","tax_rank":"species","tax_division":"Plantae","parentid":279249,"parentname":"Agapetes","specimenrecords":"1"},{"taxid":95630,"taxon":"Agapetinae","tax_rank":"subfamily","tax_division":"Animalia","parentid":1652,"parentname":"Glossosomatidae","taxonrep":"Agapetinae","representitive_image":{"image":"HMCAD\/hmcad-0183+1238162922.JPG","apectratio":1.333},"specimenrecords":"756"},{"taxid":5541,"taxon":"Agapetus","tax_rank":"genus","tax_division":"Animalia","parentid":95630,"parentname":"Agapetinae","taxonrep":"Agapetus","representitive_image":{"image":"HMCAD\/hmcad-0183+1238162922.JPG","apectratio":1.333},"specimenrecords":"725"},{"taxid":300069,"taxon":"Agapetus
         CJG sp. IN2","tax_rank":"species","tax_division":"Animalia","parentid":5541,"parentname":"Agapetus","taxonrep":"Agapetus
         CJG sp. IN2","representitive_image":{"image":"INCAD\/04incad-0128+1269530108.JPG","apectratio":1.333},"specimenrecords":"9"},{"taxid":491840,"taxon":"Agapetus
         CJGsp IQ1","tax_rank":"species","tax_division":"Animalia","parentid":5541,"parentname":"Agapetus","taxonrep":"Agapetus
@@ -688,9 +691,9 @@ http_interactions:
         walkeri","specimenrecords":"16"},{"taxid":128692,"taxon":"Agapetus zniachtl","tax_rank":"species","tax_division":"Animalia","parentid":5541,"parentname":"Agapetus","specimenrecords":"1"},{"taxid":965653,"taxon":"Agapophyta","tax_rank":"genus","tax_division":"Animalia","parentid":170934,"parentname":"Tessaratomidae","taxonrep":"Agapophyta","representitive_image":{"image":"SICOE\/CCDB-33590-C11+1573574244.jpg","apectratio":1.333},"specimenrecords":"2"},{"taxid":748416,"taxon":"Agapophytinae","tax_rank":"subfamily","tax_division":"Animalia","parentid":176372,"parentname":"Therevidae","representitive_image":{"image":"GCQT\/gvcT10155+1503340712.jpg","apectratio":1.333},"specimenrecords":"101"},{"taxid":723447,"taxon":"Agapophytus","tax_rank":"genus","tax_division":"Animalia","parentid":748416,"parentname":"Agapophytinae","representitive_image":{"image":"GMCWO\/BIOUG25073-A08+1442503910.jpg","apectratio":1.333},"specimenrecords":"2"},{"taxid":918889,"taxon":"Agapophytus
         albobasalis","tax_rank":"species","tax_division":"Animalia","parentid":723447,"parentname":"Agapophytus","specimenrecords":"1"},{"taxid":723448,"taxon":"Agapophytus
         yeatesi","tax_rank":"species","tax_division":"Animalia","parentid":723447,"parentname":"Agapophytus","taxonrep":"Agapophytus
-        yeatesi","representitive_image":{"image":"GMCWO\/BIOUG25073-A08+1442503910.jpg","apectratio":1.333},"specimenrecords":"1"},{"taxid":91332,"taxon":"Agapornis","tax_rank":"genus","tax_division":"Animalia","parentid":743432,"parentname":"Psittaculidae","specimenrecords":"14"},{"taxid":113969,"taxon":"Agapornis
+        yeatesi","representitive_image":{"image":"GMCWO\/BIOUG25073-A08+1442503910.jpg","apectratio":1.333},"specimenrecords":"1"},{"taxid":91332,"taxon":"Agapornis","tax_rank":"genus","tax_division":"Animalia","parentid":743432,"parentname":"Psittaculidae","specimenrecords":"28"},{"taxid":113969,"taxon":"Agapornis
         canus","tax_rank":"species","tax_division":"Animalia","parentid":91332,"parentname":"Agapornis","specimenrecords":"2"},{"taxid":113970,"taxon":"Agapornis
-        fischeri","tax_rank":"species","tax_division":"Animalia","parentid":91332,"parentname":"Agapornis","specimenrecords":"3"},{"taxid":113973,"taxon":"Agapornis
+        fischeri","tax_rank":"species","tax_division":"Animalia","parentid":91332,"parentname":"Agapornis","specimenrecords":"4"},{"taxid":113973,"taxon":"Agapornis
         personatus","tax_rank":"species","tax_division":"Animalia","parentid":91332,"parentname":"Agapornis","specimenrecords":"2"},{"taxid":91333,"taxon":"Agapornis
         roseicollis","tax_rank":"species","tax_division":"Animalia","parentid":91332,"parentname":"Agapornis","specimenrecords":"5"},{"taxid":961753,"taxon":"Agapornis
         sp","tax_rank":"species","tax_division":"Animalia","parentid":91332,"parentname":"Agapornis","specimenrecords":"2"},{"taxid":165560,"taxon":"Agaporomorphus","tax_rank":"genus","tax_division":"Animalia","parentid":456888,"parentname":"Copelatinae","representitive_image":{"image":"ANDYT\/7952+1542203234.jpg","apectratio":0.464},"specimenrecords":"8"},{"taxid":916077,"taxon":"Agaporomorphus
@@ -1119,9 +1122,9 @@ http_interactions:
         turneri","tax_rank":"species","tax_division":"Protista","parentid":78804,"parentname":"Agarum","specimenrecords":"1"},{"taxid":305134,"taxon":"Agasicles","tax_rank":"genus","tax_division":"Animalia","parentid":371911,"parentname":"Alticini","representitive_image":{"image":"BBCCA\/BIOUG02058-H05+1339602688.jpg","apectratio":1.499},"specimenrecords":"28"},{"taxid":305135,"taxon":"Agasicles
         conexa","tax_rank":"species","tax_division":"Animalia","parentid":305134,"parentname":"Agasicles","specimenrecords":"2"},{"taxid":397808,"taxon":"Agasicles
         hygrophila","tax_rank":"species","tax_division":"Animalia","parentid":305134,"parentname":"Agasicles","taxonrep":"Agasicles
-        hygrophila","representitive_image":{"image":"BBCCA\/BIOUG02058-H05+1339602688.jpg","apectratio":1.499},"specimenrecords":"26"},{"taxid":371332,"taxon":"Agassizia","tax_rank":"genus","tax_division":"Animalia","parentid":371331,"parentname":"Prenasteridae","representitive_image":{"image":"ECHCA\/CCDB-25432_A11+1527610770.jpg","apectratio":1.4},"specimenrecords":"8"},{"taxid":371333,"taxon":"Agassizia
+        hygrophila","representitive_image":{"image":"BBCCA\/BIOUG02058-H05+1339602688.jpg","apectratio":1.499},"specimenrecords":"26"},{"taxid":371332,"taxon":"Agassizia","tax_rank":"genus","tax_division":"Animalia","parentid":371331,"parentname":"Prenasteridae","representitive_image":{"image":"ECHCA\/CCDB-25432_A11+1527610770.jpg","apectratio":1.4},"specimenrecords":"10"},{"taxid":371333,"taxon":"Agassizia
         scrobiculata","tax_rank":"species","tax_division":"Animalia","parentid":371332,"parentname":"Agassizia","taxonrep":"Agassizia
-        scrobiculata","representitive_image":{"image":"ECHCA\/CCDB-25432_A11+1527610770.jpg","apectratio":1.4},"specimenrecords":"8"},{"taxid":495548,"taxon":"Agassiziella","tax_rank":"genus","tax_division":"Animalia","parentid":70753,"parentname":"Acentropinae","specimenrecords":"1"},{"taxid":495549,"taxon":"Agassiziella
+        scrobiculata","representitive_image":{"image":"ECHCA\/CCDB-25432_A11+1527610770.jpg","apectratio":1.4},"specimenrecords":"10"},{"taxid":495548,"taxon":"Agassiziella","tax_rank":"genus","tax_division":"Animalia","parentid":70753,"parentname":"Acentropinae","specimenrecords":"1"},{"taxid":495549,"taxon":"Agassiziella
         kwangtungiale","tax_rank":"species","tax_division":"Animalia","parentid":495548,"parentname":"Agassiziella","taxonrep":"Agassiziella
         kwangtungiale","specimenrecords":"1"},{"taxid":921798,"taxon":"Agasta","tax_rank":"genus","tax_division":"Animalia","parentid":5944,"parentname":"Chrysomelinae","representitive_image":{"image":"SICOC\/CCDB-32966-C04+1550678280.jpg","apectratio":1.333},"specimenrecords":"2"},{"taxid":921799,"taxon":"Agasta
         formosa","tax_rank":"species","tax_division":"Animalia","parentid":921798,"parentname":"Agasta","taxonrep":"Agasta
@@ -1941,16 +1944,16 @@ http_interactions:
         acupunctatus","representitive_image":{"image":"USCOL\/IMG_0080+1250863668.JPG","apectratio":1.485},"specimenrecords":"41"},{"taxid":91716,"taxon":"Sphyraena
         flavicauda","tax_rank":"species","tax_division":"Animalia","parentid":3662,"parentname":"Sphyraena","taxonrep":"Sphyraena
         flavicauda","representitive_image":{"image":"TZSAL\/E_III_A2A+1447858556.jpg","apectratio":3.028},"specimenrecords":"24"},{"taxid":192561,"taxon":"agaJanzen01","tax_rank":"genus","tax_division":"Animalia","parentid":2209,"parentname":"Agathidinae","specimenrecords":"3"},{"taxid":192562,"taxon":"agaJanzen01
-        Janzen01","tax_rank":"species","tax_division":"Animalia","parentid":192561,"parentname":"agaJanzen01","specimenrecords":"3"},{"taxid":951761,"taxon":"agaMalaise01","tax_rank":"genus","tax_division":"Animalia","parentid":2209,"parentname":"Agathidinae","specimenrecords":"1"},{"taxid":951762,"taxon":"agaMalaise01
-        Malaise490","tax_rank":"species","tax_division":"Animalia","parentid":951761,"parentname":"agaMalaise01","specimenrecords":"1"},{"taxid":451149,"taxon":"agaonJanzen01","tax_rank":"genus","tax_division":"Animalia","parentid":103315,"parentname":"Agaonidae","specimenrecords":"2"},{"taxid":718007,"taxon":"agaonJanzen01
+        Janzen01","tax_rank":"species","tax_division":"Animalia","parentid":192561,"parentname":"agaJanzen01","specimenrecords":"3"},{"taxid":951761,"taxon":"agaMalaise01","tax_rank":"genus","tax_division":"Animalia","parentid":2209,"parentname":"Agathidinae"},{"taxid":951762,"taxon":"agaMalaise01
+        Malaise490","tax_rank":"species","tax_division":"Animalia","parentid":951761,"parentname":"agaMalaise01"},{"taxid":451149,"taxon":"agaonJanzen01","tax_rank":"genus","tax_division":"Animalia","parentid":103315,"parentname":"Agaonidae","specimenrecords":"2"},{"taxid":718007,"taxon":"agaonJanzen01
         Janzen02","tax_rank":"species","tax_division":"Animalia","parentid":451149,"parentname":"agaonJanzen01","specimenrecords":"1"},{"taxid":718008,"taxon":"agaonJanzen01
-        Janzen03","tax_rank":"species","tax_division":"Animalia","parentid":451149,"parentname":"agaonJanzen01","specimenrecords":"1"},{"taxid":251750,"taxon":"agathJanzen01","tax_rank":"genus","tax_division":"Animalia","parentid":2209,"parentname":"Agathidinae","specimenrecords":"81"},{"taxid":251751,"taxon":"agathJanzen01
-        Janzen01","tax_rank":"species","tax_division":"Animalia","parentid":251750,"parentname":"agathJanzen01","specimenrecords":"81"}],"total_matched_names":1391}'
-  recorded_at: 2020-04-20 17:54:57 GMT
+        Janzen03","tax_rank":"species","tax_division":"Animalia","parentid":451149,"parentname":"agaonJanzen01","specimenrecords":"1"},{"taxid":251750,"taxon":"agathJanzen01","tax_rank":"genus","tax_division":"Animalia","parentid":2209,"parentname":"Agathidinae","specimenrecords":"56"},{"taxid":251751,"taxon":"agathJanzen01
+        Janzen01","tax_rank":"species","tax_division":"Animalia","parentid":251750,"parentname":"agathJanzen01","specimenrecords":"56"}],"total_matched_names":1391}'
+  recorded_at: 2020-04-23 22:29:51 GMT
   recorded_with: vcr/0.5.4, webmockr/0.6.2
 - request:
     method: get
-    uri: https://v4.boldsystems.org/index.php/API_Tax/TaxonSearch?taxName=Apis
+    uri: http://v4.boldsystems.org/index.php/API_Tax/TaxonSearch?taxName=Apis
     body:
       encoding: ''
       string: ''
@@ -1964,11 +1967,12 @@ http_interactions:
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: 'HTTP/2 200 '
+      status: HTTP/1.1 200 OK
       server: nginx
-      date: Mon, 20 Apr 2020 17:54:56 GMT
+      date: Thu, 23 Apr 2020 22:29:51 GMT
       content-type: text/html; charset=utf-8
       content-length: '289'
+      connection: keep-alive
       x-powered-by: PHP/5.3.15
       x-frame-options: SAMEORIGIN
       x-content-type-options: nosniff
@@ -1977,11 +1981,11 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '{"top_matched_names":[{"taxid":1937,"taxon":"Apis","tax_rank":"genus","tax_division":"Animalia","parentid":2183,"parentname":"Apinae","taxonrep":"Apis","representitive_image":{"image":"BOFTH\/B3265-E08+1262794266.jpg","apectratio":1.362},"specimenrecords":"3567"}],"total_matched_names":1}'
-  recorded_at: 2020-04-20 17:54:57 GMT
+  recorded_at: 2020-04-23 22:29:51 GMT
   recorded_with: vcr/0.5.4, webmockr/0.6.2
 - request:
     method: get
-    uri: https://v4.boldsystems.org/index.php/API_Tax/TaxonSearch?taxName=Puma%20concolor
+    uri: http://v4.boldsystems.org/index.php/API_Tax/TaxonSearch?taxName=Puma%20concolor
     body:
       encoding: ''
       string: ''
@@ -1995,11 +1999,12 @@ http_interactions:
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: 'HTTP/2 200 '
+      status: HTTP/1.1 200 OK
       server: nginx
-      date: Mon, 20 Apr 2020 17:54:57 GMT
+      date: Thu, 23 Apr 2020 22:29:51 GMT
       content-type: text/html; charset=utf-8
       content-length: '314'
+      connection: keep-alive
       x-powered-by: PHP/5.3.15
       x-frame-options: SAMEORIGIN
       x-content-type-options: nosniff
@@ -2009,11 +2014,11 @@ http_interactions:
       file: no
       string: '{"top_matched_names":[{"taxid":12521,"taxon":"Puma concolor","tax_rank":"species","tax_division":"Animalia","parentid":4372,"parentname":"Puma","taxonrep":"Puma
         concolor","representitive_image":{"image":"FCMUN\/IBUNAM_CNMA_1314+1276871340.JPG","apectratio":1.493},"specimenrecords":"358"}],"total_matched_names":1}'
-  recorded_at: 2020-04-20 17:54:57 GMT
+  recorded_at: 2020-04-23 22:29:51 GMT
   recorded_with: vcr/0.5.4, webmockr/0.6.2
 - request:
     method: get
-    uri: https://v4.boldsystems.org/index.php/API_Tax/TaxonData?taxId=88899&dataTypes=basic
+    uri: http://v4.boldsystems.org/index.php/API_Tax/TaxonData?taxId=88899&dataTypes=basic
     body:
       encoding: ''
       string: ''
@@ -2027,11 +2032,12 @@ http_interactions:
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: 'HTTP/2 200 '
+      status: HTTP/1.1 200 OK
       server: nginx
-      date: Mon, 20 Apr 2020 17:54:57 GMT
+      date: Thu, 23 Apr 2020 22:29:51 GMT
       content-type: text/html; charset=utf-8
       content-length: '120'
+      connection: keep-alive
       x-powered-by: PHP/5.3.15
       x-frame-options: SAMEORIGIN
       x-content-type-options: nosniff
@@ -2040,5 +2046,5 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '{"taxid":88899,"taxon":"Momotus","tax_rank":"genus","tax_division":"Animalia","parentid":88898,"parentname":"Momotidae"}'
-  recorded_at: 2020-04-20 17:54:57 GMT
+  recorded_at: 2020-04-23 22:29:51 GMT
   recorded_with: vcr/0.5.4, webmockr/0.6.2

@@ -17,10 +17,10 @@ http_interactions:
     headers:
       status: 'HTTP/2 200 '
       server: nginx
-      date: Tue, 21 Apr 2020 19:02:38 GMT
+      date: Thu, 23 Apr 2020 22:30:50 GMT
       content-type: text/html; charset=utf-8
       x-powered-by: PHP/5.3.15
-      set-cookie: session=jifr9ipop32dca2nsrp75fktq2; path=/
+      set-cookie: session=h86i6uhipgl1okcc468p0evk55; path=/
       x-frame-options: SAMEORIGIN
       x-content-type-options: nosniff
       x-xss-protection: 1; mode=block
@@ -425,11 +425,11 @@ http_interactions:
         src=\"/libhtml_v4/img/UoGuelph_image18-100x100.png\" />\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div
         class=\"row\">\n\t\t\t\t\t<div class=\"col-xs-12\"><br/><h5><small><strong>Copyright</strong>
         BOLD &copy; 2014-2020</small></h5></div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t</body>\n</html>\n"
-  recorded_at: 2020-04-21 19:02:40 GMT
+  recorded_at: 2020-04-23 22:30:54 GMT
   recorded_with: vcr/0.5.4, webmockr/0.6.2
 - request:
     method: get
-    uri: https://v4.boldsystems.org/index.php/API_Tax/TaxonSearch?taxName=Momotus
+    uri: http://v4.boldsystems.org/index.php/API_Tax/TaxonSearch?taxName=Momotus
     body:
       encoding: ''
       string: ''
@@ -443,11 +443,12 @@ http_interactions:
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: 'HTTP/2 200 '
+      status: HTTP/1.1 200 OK
       server: nginx
-      date: Tue, 21 Apr 2020 19:02:39 GMT
+      date: Thu, 23 Apr 2020 22:30:50 GMT
       content-type: text/html; charset=utf-8
       content-length: '191'
+      connection: keep-alive
       x-powered-by: PHP/5.3.15
       x-frame-options: SAMEORIGIN
       x-content-type-options: nosniff
@@ -456,7 +457,7 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '{"top_matched_names":[{"taxid":88899,"taxon":"Momotus","tax_rank":"genus","tax_division":"Animalia","parentid":88898,"parentname":"Momotidae","specimenrecords":"82"}],"total_matched_names":1}'
-  recorded_at: 2020-04-21 19:02:40 GMT
+  recorded_at: 2020-04-23 22:30:54 GMT
   recorded_with: vcr/0.5.4, webmockr/0.6.2
 - request:
     method: get
@@ -476,10 +477,10 @@ http_interactions:
     headers:
       status: 'HTTP/2 200 '
       server: nginx
-      date: Tue, 21 Apr 2020 19:02:42 GMT
+      date: Thu, 23 Apr 2020 22:30:53 GMT
       content-type: text/html; charset=utf-8
       x-powered-by: PHP/5.3.15
-      set-cookie: session=fqkacetfhobrk71i4eff2l4nc6; path=/
+      set-cookie: session=088p5uraeugcgm5psb97qsitp5; path=/
       x-frame-options: SAMEORIGIN
       x-content-type-options: nosniff
       x-xss-protection: 1; mode=block
@@ -884,5 +885,5 @@ http_interactions:
         src=\"/libhtml_v4/img/UoGuelph_image18-100x100.png\" />\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div
         class=\"row\">\n\t\t\t\t\t<div class=\"col-xs-12\"><br/><h5><small><strong>Copyright</strong>
         BOLD &copy; 2014-2020</small></h5></div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t</body>\n</html>\n"
-  recorded_at: 2020-04-21 19:02:40 GMT
+  recorded_at: 2020-04-23 22:30:54 GMT
   recorded_with: vcr/0.5.4, webmockr/0.6.2

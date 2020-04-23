@@ -17,10 +17,10 @@ http_interactions:
     headers:
       status: 'HTTP/2 200 '
       server: nginx
-      date: Tue, 21 Apr 2020 18:54:19 GMT
+      date: Thu, 23 Apr 2020 22:35:43 GMT
       content-type: text/html; charset=utf-8
       x-powered-by: PHP/5.3.15
-      set-cookie: session=7gjeui5ab7ukrdpin9n5mch2a6; path=/
+      set-cookie: session=vh95ps3e78e7u82rj56th181r1; path=/
       x-frame-options: SAMEORIGIN
       x-content-type-options: nosniff
       x-xss-protection: 1; mode=block
@@ -425,7 +425,7 @@ http_interactions:
         src=\"/libhtml_v4/img/UoGuelph_image18-100x100.png\" />\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div
         class=\"row\">\n\t\t\t\t\t<div class=\"col-xs-12\"><br/><h5><small><strong>Copyright</strong>
         BOLD &copy; 2014-2020</small></h5></div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t</body>\n</html>\n"
-  recorded_at: 2020-04-21 18:54:24 GMT
+  recorded_at: 2020-04-23 22:35:50 GMT
   recorded_with: vcr/0.5.4, webmockr/0.6.2
 - request:
     method: get
@@ -445,10 +445,10 @@ http_interactions:
     headers:
       status: 'HTTP/2 200 '
       server: nginx
-      date: Tue, 21 Apr 2020 18:54:22 GMT
+      date: Thu, 23 Apr 2020 22:35:46 GMT
       content-type: text/html; charset=utf-8
       x-powered-by: PHP/5.3.15
-      set-cookie: session=6lvn7ghkc32nqi98ku8m6611c0; path=/
+      set-cookie: session=o5jk9qqgcqjc3nraj32e6cj4b5; path=/
       x-frame-options: SAMEORIGIN
       x-content-type-options: nosniff
       x-xss-protection: 1; mode=block
@@ -845,7 +845,7 @@ http_interactions:
         src=\"/libhtml_v4/img/UoGuelph_image18-100x100.png\" />\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div
         class=\"row\">\n\t\t\t\t\t<div class=\"col-xs-12\"><br/><h5><small><strong>Copyright</strong>
         BOLD &copy; 2014-2020</small></h5></div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t</body>\n</html>\n"
-  recorded_at: 2020-04-21 18:54:24 GMT
+  recorded_at: 2020-04-23 22:35:50 GMT
   recorded_with: vcr/0.5.4, webmockr/0.6.2
 - request:
     method: get
@@ -865,10 +865,10 @@ http_interactions:
     headers:
       status: 'HTTP/2 200 '
       server: nginx
-      date: Tue, 21 Apr 2020 18:54:25 GMT
+      date: Thu, 23 Apr 2020 22:35:49 GMT
       content-type: text/html; charset=utf-8
       x-powered-by: PHP/5.3.15
-      set-cookie: session=8hpisf5729ie06llbbk3p0rrg7; path=/
+      set-cookie: session=jmkbtvskdvgthq1t4fs2jjt2t1; path=/
       x-frame-options: SAMEORIGIN
       x-content-type-options: nosniff
       x-xss-protection: 1; mode=block
@@ -1169,8 +1169,8 @@ http_interactions:
         class=\"ibox-content\">\n\t\t\t\t<div class=\"ibox float-e-margins\">\n\t\t\t\t\t<table
         class=\"table table-striped noborder\">\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td
         width=\"41%\">Specimen Records:</td>\n\t\t\t\t\t\t\t<td width=\"17%\">13,060</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Specimens
-        with Sequences:</td>\n\t\t\t\t\t\t\t<td>11,461</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Specimens
-        with Barcodes:</td>\n\t\t\t\t\t\t\t<td><specimendataforlivestats/>10,296<specimendataforlivestats/></td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Species:</td>\n\t\t\t\t\t\t\t<td>1,956</td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Species
+        with Sequences:</td>\n\t\t\t\t\t\t\t<td>11,492</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Specimens
+        with Barcodes:</td>\n\t\t\t\t\t\t\t<td><specimendataforlivestats/>10,326<specimendataforlivestats/></td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Species:</td>\n\t\t\t\t\t\t\t<td>1,956</td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Species
         With Barcodes:</td>\n\t\t\t\t\t\t\t<td>1,564</td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td
         width=\"60%\">Public Records:</td>\n\t\t\t\t\t\t\t<td width=\"40%\">5,325</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Public
         Species:</td>\n\t\t\t\t\t\t\t<td>858</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Public
@@ -1796,5 +1796,5 @@ http_interactions:
         src=\"/libhtml_v4/img/UoGuelph_image18-100x100.png\" />\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div
         class=\"row\">\n\t\t\t\t\t<div class=\"col-xs-12\"><br/><h5><small><strong>Copyright</strong>
         BOLD &copy; 2014-2020</small></h5></div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t</body>\n</html>\n"
-  recorded_at: 2020-04-21 18:54:24 GMT
+  recorded_at: 2020-04-23 22:35:50 GMT
   recorded_with: vcr/0.5.4, webmockr/0.6.2

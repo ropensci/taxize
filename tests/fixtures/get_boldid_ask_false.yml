@@ -1,7 +1,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://v4.boldsystems.org/index.php/API_Tax/TaxonSearch?taxName=adsf%20asdf%20asdf
+    uri: http://v4.boldsystems.org/index.php/API_Tax/TaxonSearch?taxName=adsf%20asdf%20asdf
     body:
       encoding: ''
       string: ''
@@ -15,11 +15,12 @@ http_interactions:
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: 'HTTP/2 200 '
+      status: HTTP/1.1 200 OK
       server: nginx
-      date: Mon, 20 Apr 2020 17:55:32 GMT
+      date: Thu, 23 Apr 2020 22:31:49 GMT
       content-type: text/html; charset=utf-8
       content-length: '48'
+      connection: keep-alive
       x-powered-by: PHP/5.3.15
       x-frame-options: SAMEORIGIN
       x-content-type-options: nosniff
@@ -28,5 +29,5 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '{"top_matched_names":[],"total_matched_names":0}'
-  recorded_at: 2020-04-20 17:55:33 GMT
+  recorded_at: 2020-04-23 22:31:49 GMT
   recorded_with: vcr/0.5.4, webmockr/0.6.2

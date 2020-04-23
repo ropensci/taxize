@@ -1,7 +1,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://v4.boldsystems.org/index.php/API_Tax/TaxonSearch?taxName=Chordata
+    uri: http://v4.boldsystems.org/index.php/API_Tax/TaxonSearch?taxName=Chordata
     body:
       encoding: ''
       string: ''
@@ -15,11 +15,12 @@ http_interactions:
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: 'HTTP/2 200 '
+      status: HTTP/1.1 200 OK
       server: nginx
-      date: Mon, 20 Apr 2020 17:55:33 GMT
+      date: Thu, 23 Apr 2020 22:31:50 GMT
       content-type: text/html; charset=utf-8
       content-length: '271'
+      connection: keep-alive
       x-powered-by: PHP/5.3.15
       x-frame-options: SAMEORIGIN
       x-content-type-options: nosniff
@@ -27,6 +28,6 @@ http_interactions:
     body:
       encoding: UTF-8
       file: no
-      string: '{"top_matched_names":[{"taxid":18,"taxon":"Chordata","tax_rank":"phylum","tax_division":"Animalia","parentid":1,"taxonrep":"Chordata","representitive_image":{"image":"GBMA\/sheep005+1357763501.jpg","apectratio":1.506},"specimenrecords":"784824"}],"total_matched_names":1}'
-  recorded_at: 2020-04-20 17:55:33 GMT
+      string: '{"top_matched_names":[{"taxid":18,"taxon":"Chordata","tax_rank":"phylum","tax_division":"Animalia","parentid":1,"taxonrep":"Chordata","representitive_image":{"image":"GBMA\/sheep005+1357763501.jpg","apectratio":1.506},"specimenrecords":"797347"}],"total_matched_names":1}'
+  recorded_at: 2020-04-23 22:31:50 GMT
   recorded_with: vcr/0.5.4, webmockr/0.6.2

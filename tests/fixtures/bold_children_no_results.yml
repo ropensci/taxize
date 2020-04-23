@@ -17,10 +17,10 @@ http_interactions:
     headers:
       status: 'HTTP/2 200 '
       server: nginx
-      date: Tue, 21 Apr 2020 18:54:26 GMT
+      date: Thu, 23 Apr 2020 22:35:50 GMT
       content-type: text/html; charset=utf-8
       x-powered-by: PHP/5.3.15
-      set-cookie: session=fcuqm3gr8c7cpl9mgn0r260qn3; path=/
+      set-cookie: session=v6jmpdgkhe3qr0b8eto5cuuv71; path=/
       x-frame-options: SAMEORIGIN
       x-content-type-options: nosniff
       x-xss-protection: 1; mode=block
@@ -213,5 +213,5 @@ http_interactions:
         src=\"/libhtml_v4/img/UoGuelph_image18-100x100.png\" />\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div
         class=\"row\">\n\t\t\t\t\t<div class=\"col-xs-12\"><br/><h5><small><strong>Copyright</strong>
         BOLD &copy; 2014-2020</small></h5></div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</body>\r\n</html>"
-  recorded_at: 2020-04-21 18:54:25 GMT
+  recorded_at: 2020-04-23 22:35:50 GMT
   recorded_with: vcr/0.5.4, webmockr/0.6.2
