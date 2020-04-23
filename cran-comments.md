@@ -16,7 +16,7 @@ there were no errors.
 
 ------
 
-This version includes a few bug fixes, a fix for a non-ASCII string in one of the package datasets, and the package gains a new S3 method.
+This version includes a fix for a test that was failing on CRAN recently, and a couple of new functions.
 
 Thanks!
 Scott Chamberlain

@@ -1,3 +1,15 @@
+taxize 0.9.95
+=============
+
+### NEW FEATURES
+
+* gains new functions: `bold_children()`, `bold_downstream()` and new S3 methods for `boldid`: `children.boldid` and `downstream.boldid`. Beware that these new methods are built on top of a function that scrapes BOLD's website - their API doesn't provide access to taxonomic children (only parents) - so we've taken the liberty of trying to liberate that data and make it easy to access (#817)
+
+### MINOR IMPROVEMENTS
+
+* fix to a failing `tol_resolve()` test - upstream package rotl had the bug; told maintainer about it and he'll submit a new version soon; affected commented out for now  (#814)
+
+
 taxize 0.9.94
 =============
 
