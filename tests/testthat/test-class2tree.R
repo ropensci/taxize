@@ -11,6 +11,32 @@ spnames <- c("Klattia flava", "Trollius sibiricus", "Arachis paraguariensis",
 dupnames <- c("Mus musculus", "Escherichia coli",
               "Haloferax denitrificans", "Mus musculus")
 
+test_that("internal functions of class2tree", {
+  skip_on_cran() # uses secrets
+  vcr::use_cassette("class2tree_classification_call", {
+    out <- classification(spnames, db = "ncbi", messages = FALSE)
+  })
+  
+  rankList <- taxize:::dt2df(lapply(out, taxize:::get_rank), idcol = FALSE)
+  expect_equal(nrow(rankList), 17)
+  
+  nameList <- taxize:::dt2df(lapply(out, taxize:::get_name), idcol = FALSE)
+  expect_true(identical(colnames(nameList), colnames(rankList)))
+  
+  strainIndex <- grep("norank", rankList$X1)
+  rankList$X1[strainIndex] <- "strain"
+  nameList$X1[strainIndex] <- 
+    gsub("norank_[[:digit:]]+", "strain", nameList$X1[strainIndex])
+  expect_true(length(grep("norank", rankList$X1)) == 0)
+  
+  indexedRank <- taxize:::rank_indexing(rankList)
+  expect_true(tail(indexedRank, 1)$rank == "norank_131567")
+  
+  taxMatrix <- taxize:::taxonomy_table_creator(nameList, rankList)
+  expect_is(taxMatrix, "data.frame")
+  expect_true(nrow(taxMatrix) == 17)
+}) 
+
 test_that("class2tree returns the correct value and class", {
   skip_on_cran() # uses secrets
   vcr::use_cassette("class2tree_classification_call", {
