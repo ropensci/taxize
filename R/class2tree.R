@@ -293,7 +293,7 @@ rank_indexing <- function (rankList) {
               for (
                 r in ls(rank2index)[!(ls(rank2index) %in% ls(tmpEnv))]
               ) {
-                if (rank2index[[r]] >= currentIndex) {
+                if (rank2index[[r]] > currentIndex) {
                   tmpEnv[[r]] <- 
                     rank2index[[r]] + (tmpEnv[[iRank]] - rank2index[[iRank]])
                   flag <- 1
