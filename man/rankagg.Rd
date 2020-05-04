@@ -20,14 +20,14 @@ Genus, Tribe, etc.) (data.frame)}
 Aggregate data by given taxonomic rank
 }
 \examples{
-library("vegan")
-data(dune.taxon, package='vegan')
+if (require(vegan)) {
+data(dune.taxon, dune, package='vegan')
 dat <- dune.taxon
-set.seed(1234)
-dat$abundance <- round(rlnorm(n=nrow(dat),meanlog=5,sdlog=2),0)
+dat$abundance <- colSums(dune)
 rankagg(data=dat, datacol="abundance", rank="Genus")
 rankagg(data=dat, "abundance", rank="Family")
 rankagg(data=dat, "abundance", rank="Genus", fxn="mean")
 rankagg(data=dat, "abundance", rank="Subclass")
 rankagg(data=dat, "abundance", rank="Subclass", fxn="sd")
+}
 }
