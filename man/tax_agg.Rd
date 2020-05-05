@@ -46,19 +46,18 @@ is on higher taxonomic level this taxon is not aggregated.
 \dontrun{
 if (requireNamespace("vegan", quietly = TRUE)) {
   # use dune dataset
-  library("vegan")
   data(dune, package='vegan')
-  species <- c("Bellis perennis", "Empetrum nigrum", "Juncus bufonius",
-  "Juncus articulatus",
-  "Aira praecox", "Eleocharis parvula", "Rumex acetosa", "Vicia lathyroides",
-  "Brachythecium rutabulum", "Ranunculus flammula", "Cirsium arvense",
-  "Hypochaeris radicata", "Leontodon autumnalis", "Potentilla palustris",
-  "Poa pratensis", "Calliergonella cuspidata", "Trifolium pratense",
-  "Trifolium repens", "Anthoxanthum odoratum", "Salix repens", "Achillea
-  millefolium",
-  "Poa trivialis", "Chenopodium album", "Elymus repens", "Sagina procumbens",
-  "Plantago lanceolata", "Agrostis stolonifera", "Lolium perenne", "Alopecurus
-  geniculatus", "Bromus hordeaceus")
+  species <- c("Achillea millefolium", "Agrostis stolonifera",
+    "Aira praecox", "Alopecurus geniculatus", "Anthoxanthum odoratum",
+    "Bellis perennis", "Bromus hordeaceus", "Chenopodium album",
+    "Cirsium arvense", "Comarum palustre", "Eleocharis palustris",
+    "Elymus repens", "Empetrum nigrum", "Hypochaeris radicata",
+    "Juncus articulatus", "Juncus bufonius", "Lolium perenne",
+    "Plantago lanceolata", "Poa pratensis", "Poa trivialis",
+    "Ranunculus flammula", "Rumex acetosa", "Sagina procumbens",
+    "Salix repens", "Scorzoneroides autumnalis", "Trifolium pratense",
+    "Trifolium repens", "Vicia lathyroides", "Brachythecium rutabulum",
+    "Calliergonella cuspidata")
   colnames(dune) <- species
 
   # aggregate sample to families
