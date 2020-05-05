@@ -43,8 +43,7 @@ worms_downstream <- function(id, downto, intermediate = FALSE, start = 1,
   iter <- 0
   while (stop_ == "not") {
     iter <- iter + 1
-    temp <- dt2df(lapply(id, worms_info, ...), idcol = FALSE)
-    tt <- dt2df(lapply(temp$AphiaID, function(x)
+    tt <- dt2df(lapply(id, function(x)
       worms_children(x, start = start, ...)), idcol = FALSE)
     tt <- prune_too_low(tt, downto)
 
@@ -79,13 +78,6 @@ worms_downstream <- function(id, downto, intermediate = FALSE, start = 1,
   }
 }
 
-worms_info <- function(x, ...) {
-  tt <- worrms::wm_record(as.numeric(x), ...)
-  tt <- tt[sapply(tt, length) != 0]
-  data.frame(tt[c('scientificname', 'rank', 'AphiaID')], 
-    stringsAsFactors = FALSE)
-}
-
 worms_children <- function(x, start = 1, ...) {
   bb <- tryCatch(
     worrms::wm_children(id = as.numeric(x), offset = start, ...),
@@ -99,6 +91,13 @@ worms_children <- function(x, start = 1, ...) {
     bb <- merge(bb, taxize_ds$worrms_ranks, by.x = "taxonRankID", by.y = "id")
   }
   bb$rank <- tolower(bb$rank)
+  # clean up rank names
+  if (any(grepl("phylum \\(division", bb$rank))) {
+    bb$rank[grep("phylum \\(division", bb$rank)] <- "phylum"
+  }
+  if (any(grepl("subphylum \\(subdivision", bb$rank))) {
+    bb$rank[grep("subphylum \\(subdivision", bb$rank)] <- "subphylum"
+  }
   names(bb)[names(bb) %in% "AphiaID"] <- "id"
   names(bb)[names(bb) %in% "scientificname"] <- "name"
   bb[c('id', 'name', 'rank')]
