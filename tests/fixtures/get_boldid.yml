@@ -1,7 +1,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://v4.boldsystems.org/index.php/API_Tax/TaxonSearch?taxName=Helianthus
+    uri: https://v4.boldsystems.org/index.php/API_Tax/TaxonSearch?taxName=Helianthus
     body:
       encoding: ''
       string: ''
@@ -15,25 +15,22 @@ http_interactions:
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: HTTP/1.1 200 OK
+      status: 'HTTP/2 200 '
       server: nginx
-      date: Thu, 23 Apr 2020 22:31:46 GMT
+      date: Tue, 05 May 2020 01:00:22 GMT
       content-type: text/html; charset=utf-8
       content-length: '319'
-      connection: keep-alive
       x-powered-by: PHP/5.3.15
-      x-frame-options: SAMEORIGIN
-      x-content-type-options: nosniff
-      x-xss-protection: 1; mode=block
+      set-cookie: https=on;Path=/;Max-Age=3600;httponly;SameSite=Lax
     body:
       encoding: UTF-8
       file: no
       string: '{"top_matched_names":[{"taxid":125295,"taxon":"Helianthus","tax_rank":"genus","tax_division":"Plantae","parentid":151101,"parentname":"Asteroideae","taxonrep":"Helianthus","representitive_image":{"image":"SDH\/CCDB-24909-C11_h153421+1421197108.jpg","apectratio":0.688},"specimenrecords":"328"}],"total_matched_names":1}'
-  recorded_at: 2020-04-23 22:31:48 GMT
+  recorded_at: 2020-05-05 01:00:23 GMT
   recorded_with: vcr/0.5.4, webmockr/0.6.2
 - request:
     method: get
-    uri: http://v4.boldsystems.org/index.php/API_Tax/TaxonSearch?taxName=adsf%20asdf%20asdf
+    uri: https://v4.boldsystems.org/index.php/API_Tax/TaxonSearch?taxName=adsf%20asdf%20asdf
     body:
       encoding: ''
       string: ''
@@ -47,25 +44,22 @@ http_interactions:
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: HTTP/1.1 200 OK
+      status: 'HTTP/2 200 '
       server: nginx
-      date: Thu, 23 Apr 2020 22:31:47 GMT
+      date: Tue, 05 May 2020 01:00:22 GMT
       content-type: text/html; charset=utf-8
       content-length: '48'
-      connection: keep-alive
       x-powered-by: PHP/5.3.15
-      x-frame-options: SAMEORIGIN
-      x-content-type-options: nosniff
-      x-xss-protection: 1; mode=block
+      set-cookie: https=on;Path=/;Max-Age=3600;httponly;SameSite=Lax
     body:
       encoding: UTF-8
       file: no
       string: '{"top_matched_names":[],"total_matched_names":0}'
-  recorded_at: 2020-04-23 22:31:48 GMT
+  recorded_at: 2020-05-05 01:00:23 GMT
   recorded_with: vcr/0.5.4, webmockr/0.6.2
 - request:
     method: get
-    uri: http://v4.boldsystems.org/index.php/API_Tax/TaxonSearch?taxName=Helianthus%20excubitor
+    uri: https://v4.boldsystems.org/index.php/API_Tax/TaxonSearch?taxName=Helianthus%20excubitor
     body:
       encoding: ''
       string: ''
@@ -79,25 +73,22 @@ http_interactions:
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: HTTP/1.1 200 OK
+      status: 'HTTP/2 200 '
       server: nginx
-      date: Thu, 23 Apr 2020 22:31:48 GMT
+      date: Tue, 05 May 2020 01:00:22 GMT
       content-type: text/html; charset=utf-8
       content-length: '48'
-      connection: keep-alive
       x-powered-by: PHP/5.3.15
-      x-frame-options: SAMEORIGIN
-      x-content-type-options: nosniff
-      x-xss-protection: 1; mode=block
+      set-cookie: https=on;Path=/;Max-Age=3600;httponly;SameSite=Lax
     body:
       encoding: UTF-8
       file: no
       string: '{"top_matched_names":[],"total_matched_names":0}'
-  recorded_at: 2020-04-23 22:31:48 GMT
+  recorded_at: 2020-05-05 01:00:23 GMT
   recorded_with: vcr/0.5.4, webmockr/0.6.2
 - request:
     method: get
-    uri: http://v4.boldsystems.org/index.php/API_Tax/TaxonSearch?taxName=adsf%20asdf%20asdf
+    uri: https://v4.boldsystems.org/index.php/API_Tax/TaxonSearch?taxName=adsf%20asdf%20asdf
     body:
       encoding: ''
       string: ''
@@ -111,19 +102,16 @@ http_interactions:
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: HTTP/1.1 200 OK
+      status: 'HTTP/2 200 '
       server: nginx
-      date: Thu, 23 Apr 2020 22:31:48 GMT
+      date: Tue, 05 May 2020 01:00:23 GMT
       content-type: text/html; charset=utf-8
       content-length: '48'
-      connection: keep-alive
       x-powered-by: PHP/5.3.15
-      x-frame-options: SAMEORIGIN
-      x-content-type-options: nosniff
-      x-xss-protection: 1; mode=block
+      set-cookie: https=on;Path=/;Max-Age=3600;httponly;SameSite=Lax
     body:
       encoding: UTF-8
       file: no
       string: '{"top_matched_names":[],"total_matched_names":0}'
-  recorded_at: 2020-04-23 22:31:48 GMT
+  recorded_at: 2020-05-05 01:00:23 GMT
   recorded_with: vcr/0.5.4, webmockr/0.6.2
