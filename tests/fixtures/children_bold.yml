@@ -15,15 +15,14 @@ http_interactions:
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: 'HTTP/2 200 '
-      server: nginx
-      date: Thu, 23 Apr 2020 22:30:50 GMT
       content-type: text/html; charset=utf-8
+      date: Tue, 05 May 2020 00:16:49 GMT
+      server: nginx
+      set-cookie:
+      - session=sp8bhpf1m8vaa9eoocve0uoui0; path=/
+      - https=on;Path=/;Max-Age=3600;httponly;SameSite=Lax
+      status: 'HTTP/2 200 '
       x-powered-by: PHP/5.3.15
-      set-cookie: session=h86i6uhipgl1okcc468p0evk55; path=/
-      x-frame-options: SAMEORIGIN
-      x-content-type-options: nosniff
-      x-xss-protection: 1; mode=block
     body:
       encoding: UTF-8
       file: no
@@ -359,11 +358,11 @@ http_interactions:
         class=\"ibox float-e-margins\">\n\t\t\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t\t\t<h2>Imagery</h2>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div
         class=\"ibox-content\">\n\t\t\t\t\t\t<i> Images representing subtaxa of Momotus</i>
         <div class=\"row\"><div class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return
-        hs.expand(this,{width:500, height:118} )\" href=\"//v4.boldsystems.org/pics/AVIPE/MHNSM_MUSM-Orn-22421a.jpg%2B1430161804.JPG\"><img
-        title=\" (Momotus aequatorialis - MUSM-Orn-22421a)  Copyright - All Rights
-        Reserved (2014)  \" alt=\" (Momotus aequatorialis - MUSM-Orn-22421a)  @11
+        hs.expand(this,{width:500, height:125} )\" href=\"//v4.boldsystems.org/pics/AVIPE/MHNSM_MUSM-Orn-22421b.jpg%2B1430161804.JPG\"><img
+        title=\" (Momotus aequatorialis - MUSM-Orn-22421b)  Copyright - All Rights
+        Reserved (2014)  \" alt=\" (Momotus aequatorialis - MUSM-Orn-22421b)  @11
         [ ] Copyright - All Rights Reserved (2014) Unspecified Museo de Historia Natural\"
-        \ src=\"//v4.boldsystems.org/pics/_w300/AVIPE/MHNSM_MUSM-Orn-22421a.jpg%2B1430161804.JPG\"width=\"200\"
+        \ src=\"//v4.boldsystems.org/pics/_w300/AVIPE/MHNSM_MUSM-Orn-22421b.jpg%2B1430161804.JPG\"width=\"200\"
         class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
         auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
         href=\"/index.php/Taxbrowser_Taxonpage?taxid=115130\">Momotus aequatorialis</a></div></div><div
@@ -425,11 +424,11 @@ http_interactions:
         src=\"/libhtml_v4/img/UoGuelph_image18-100x100.png\" />\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div
         class=\"row\">\n\t\t\t\t\t<div class=\"col-xs-12\"><br/><h5><small><strong>Copyright</strong>
         BOLD &copy; 2014-2020</small></h5></div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t</body>\n</html>\n"
-  recorded_at: 2020-04-23 22:30:54 GMT
+  recorded_at: 2020-05-05 00:16:53 GMT
   recorded_with: vcr/0.5.4, webmockr/0.6.2
 - request:
     method: get
-    uri: http://v4.boldsystems.org/index.php/API_Tax/TaxonSearch?taxName=Momotus
+    uri: https://v4.boldsystems.org/index.php/API_Tax/TaxonSearch?taxName=Momotus
     body:
       encoding: ''
       string: ''
@@ -443,21 +442,18 @@ http_interactions:
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: HTTP/1.1 200 OK
+      status: 'HTTP/2 200 '
       server: nginx
-      date: Thu, 23 Apr 2020 22:30:50 GMT
+      date: Tue, 05 May 2020 00:16:50 GMT
       content-type: text/html; charset=utf-8
       content-length: '191'
-      connection: keep-alive
       x-powered-by: PHP/5.3.15
-      x-frame-options: SAMEORIGIN
-      x-content-type-options: nosniff
-      x-xss-protection: 1; mode=block
+      set-cookie: https=on;Path=/;Max-Age=3600;httponly;SameSite=Lax
     body:
       encoding: UTF-8
       file: no
       string: '{"top_matched_names":[{"taxid":88899,"taxon":"Momotus","tax_rank":"genus","tax_division":"Animalia","parentid":88898,"parentname":"Momotidae","specimenrecords":"82"}],"total_matched_names":1}'
-  recorded_at: 2020-04-23 22:30:54 GMT
+  recorded_at: 2020-05-05 00:16:53 GMT
   recorded_with: vcr/0.5.4, webmockr/0.6.2
 - request:
     method: get
@@ -475,15 +471,14 @@ http_interactions:
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: 'HTTP/2 200 '
-      server: nginx
-      date: Thu, 23 Apr 2020 22:30:53 GMT
       content-type: text/html; charset=utf-8
+      date: Tue, 05 May 2020 00:16:53 GMT
+      server: nginx
+      set-cookie:
+      - session=ihtpgl8lh8sb5959q5kfnujmn7; path=/
+      - https=on;Path=/;Max-Age=3600;httponly;SameSite=Lax
+      status: 'HTTP/2 200 '
       x-powered-by: PHP/5.3.15
-      set-cookie: session=088p5uraeugcgm5psb97qsitp5; path=/
-      x-frame-options: SAMEORIGIN
-      x-content-type-options: nosniff
-      x-xss-protection: 1; mode=block
     body:
       encoding: UTF-8
       file: no
@@ -819,11 +814,11 @@ http_interactions:
         class=\"ibox float-e-margins\">\n\t\t\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t\t\t<h2>Imagery</h2>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div
         class=\"ibox-content\">\n\t\t\t\t\t\t<i> Images representing subtaxa of Momotus</i>
         <div class=\"row\"><div class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return
-        hs.expand(this,{width:500, height:118} )\" href=\"//v4.boldsystems.org/pics/AVIPE/MHNSM_MUSM-Orn-22421a.jpg%2B1430161804.JPG\"><img
-        title=\" (Momotus aequatorialis - MUSM-Orn-22421a)  Copyright - All Rights
-        Reserved (2014)  \" alt=\" (Momotus aequatorialis - MUSM-Orn-22421a)  @11
+        hs.expand(this,{width:500, height:125} )\" href=\"//v4.boldsystems.org/pics/AVIPE/MHNSM_MUSM-Orn-22421b.jpg%2B1430161804.JPG\"><img
+        title=\" (Momotus aequatorialis - MUSM-Orn-22421b)  Copyright - All Rights
+        Reserved (2014)  \" alt=\" (Momotus aequatorialis - MUSM-Orn-22421b)  @11
         [ ] Copyright - All Rights Reserved (2014) Unspecified Museo de Historia Natural\"
-        \ src=\"//v4.boldsystems.org/pics/_w300/AVIPE/MHNSM_MUSM-Orn-22421a.jpg%2B1430161804.JPG\"width=\"200\"
+        \ src=\"//v4.boldsystems.org/pics/_w300/AVIPE/MHNSM_MUSM-Orn-22421b.jpg%2B1430161804.JPG\"width=\"200\"
         class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
         auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
         href=\"/index.php/Taxbrowser_Taxonpage?taxid=115130\">Momotus aequatorialis</a></div></div><div
@@ -885,5 +880,5 @@ http_interactions:
         src=\"/libhtml_v4/img/UoGuelph_image18-100x100.png\" />\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div
         class=\"row\">\n\t\t\t\t\t<div class=\"col-xs-12\"><br/><h5><small><strong>Copyright</strong>
         BOLD &copy; 2014-2020</small></h5></div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t</body>\n</html>\n"
-  recorded_at: 2020-04-23 22:30:54 GMT
+  recorded_at: 2020-05-05 00:16:53 GMT
   recorded_with: vcr/0.5.4, webmockr/0.6.2

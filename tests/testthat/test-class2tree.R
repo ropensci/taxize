@@ -13,7 +13,7 @@ dupnames <- c("Mus musculus", "Escherichia coli",
 
 test_that("internal functions of class2tree", {
   skip_on_cran() # uses secrets
-  vcr::use_cassette("class2tree_classification_call", {
+  vcr::use_cassette("class2tree_internal_fxns", {
     out <- classification(spnames, db = "ncbi", messages = FALSE)
   })
   

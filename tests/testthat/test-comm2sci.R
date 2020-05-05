@@ -55,9 +55,9 @@ test_that("comm2sci fails well", {
 
 test_that("warn on mismatch 'db'", {
   skip_on_cran()
-  vcr::use_cassette("children_warn_on_db_mismatch", {
+  vcr::use_cassette("comm2sci_warn_on_db_mismatch", {
     expect_warning(
-      children(
+      comm2sci(
         get_uid("Chironomus riparius", messages = FALSE), db = "itis"))
   })
 })

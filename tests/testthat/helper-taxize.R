@@ -12,6 +12,7 @@ invisible(vcr::vcr_configure(
     "<<natureserve_api_token>>" = Sys.getenv("NATURE_SERVE_KEY")
   )
 ))
+vcr::check_cassette_names()
 
 # suppress messages in progressor class in get_* fxns
 taxize_options(TRUE)
