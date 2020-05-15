@@ -90,7 +90,7 @@ Imports:
     rotl (>= 3.0.0),
     ritis (>= 0.7.6),
     worrms (>= 0.4.0),
-    natserv (>= 0.4.9.91),
+    natserv (>= 1.0.0),
     wikitaxa (>= 0.3.0),
     R6,
     crayon,
