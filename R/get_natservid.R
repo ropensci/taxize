@@ -9,39 +9,23 @@
 #' @param ask logical; should get_natservid be run in interactive mode?
 #' If `TRUE` and more than one wormsid is found for the species, the
 #' user is asked for input. If `FALSE` NA is returned for
-#' multiple matches.
-#' @param messages logical; should progress be printed?
+#' multiple matches. default: `TRUE`
+#' @param messages logical; should progress be printed? default: `TRUE`
 #' @param rows numeric; Any number from 1 to infinity. If the default NaN, all
 #' rows are considered. Note that this function still only gives back a
 #' natservid class object with one to many identifiers. See
-#' [get_natservid_()] to get back all, or a subset, of the raw
+#' `get_natservid_()` to get back all, or a subset, of the raw
 #' data that you are presented during the ask process.
-#' @param key (character) your NatureServe API key. Required. See
-#' **Authentication** below for more.
-#' @param x Input to as.natservid
-#' @param ... Ignored
+#' @param x Input to `as.natservid`
+#' @param ... curl options passed on to [crul::verb-POST]
 #' @param check logical; Check if ID matches any existing on the DB, only
 #' used in [as.natservid()]
 #' @template getreturn
-#'
 #' @family taxonomic-ids
 #' @seealso [classification()]
-#'
-#' @section Authentication:
-#' Get an API key from NatureServe at
-#' <https://services.natureserve.org/developer/index.jsp>.
-#' You can pass your token in as an argument or store it one of two places:
-
-#' * your .Rprofile file with an entry like
-#' `options(NatureServeKey = "your-natureserve-key")`
-#' * your .Renviron file with an entry like
-#' `NATURE_SERVE_KEY=your-natureserve-key`
-#'
-#' See [Startup] for information on how to create/find your
-#' .Rprofile and .Renviron files
-#'
+#' @note Authentication no longer required
 #' @examples \dontrun{
-#' (x <- get_natservid("Helianthus annuus"))
+#' (x <- get_natservid("Helianthus annuus", verbose = TRUE))
 #' attributes(x)
 #' attr(x, "match")
 #' attr(x, "multiple_matches")
@@ -63,33 +47,31 @@
 #'
 #' # Convert a natservid without class information to a natservid class
 #' # already a natservid, returns the same
-#' as.natservid(get_natservid('Gadus morhua'))
+#' as.natservid(get_natservid('Pomatomus saltatrix'))
 #' # same
 #' as.natservid(get_natservid(c('Gadus morhua', 'Pomatomus saltatrix')))
 #' # character
-#' as.natservid("ELEMENT_GLOBAL.2.101905")
+#' as.natservid(101905)
 #' # character vector, length > 1
-#' as.natservid(c("ELEMENT_GLOBAL.2.101905", "ELEMENT_GLOBAL.2.101998"))
+#' as.natservid(c(101905, 101998))
 #' # list, either numeric or character
-#' as.natservid(list("ELEMENT_GLOBAL.2.101905", "ELEMENT_GLOBAL.2.101998"))
+#' as.natservid(list(101905, 101998))
 #' ## dont check, much faster
-#' as.natservid("ELEMENT_GLOBAL.2.101905", check = FALSE)
-#' as.natservid(c("ELEMENT_GLOBAL.2.101905", "ELEMENT_GLOBAL.2.101998"),
-#'   check = FALSE)
-#' as.natservid(list("ELEMENT_GLOBAL.2.101905", "ELEMENT_GLOBAL.2.101998"),
-#'   check = FALSE)
+#' as.natservid(101905, check = FALSE)
+#' as.natservid(c(101905, 101998), check = FALSE)
+#' as.natservid(list(101905, 101998), check = FALSE)
 #'
-#' (out <- as.natservid(
-#'   c("ELEMENT_GLOBAL.2.101905", "ELEMENT_GLOBAL.2.101998")))
+#' (out <- as.natservid(c(101905, 101998), check = FALSE))
 #' data.frame(out)
 #' as.natservid( data.frame(out) )
 #'
 #' # Get all data back
-#' get_natservid_("Ruby*")
-#' get_natservid_("Ruby*", rows=1:3)
+#' get_natservid_("Helianthus")
+#' get_natservid_("Ruby*", searchtype = "common")
+#' get_natservid_("Ruby*", searchtype = "common", rows=1:3)
 #' }
 get_natservid <- function(query, searchtype = "scientific", ask = TRUE,
-                          messages = TRUE, rows = NA, key = NULL, ...) {
+                          messages = TRUE, rows = NA, ...) {
 
   assert(query, c("character", "taxon_state"))
   assert(ask, "logical")
@@ -122,7 +104,7 @@ get_natservid <- function(query, searchtype = "scientific", ask = TRUE,
         call. = FALSE)
     }
 
-    nsdf <- ns_worker(query[i], key, ...)
+    nsdf <- ns_worker(x = query[i], searchtype = searchtype, ...)
     mm <- NROW(nsdf) > 1
 
     if (!inherits(nsdf, "tbl_df") || NROW(nsdf) == 0) {
@@ -279,26 +261,39 @@ check_natservid <- function(x){
 
 #' @export
 #' @rdname get_natservid
-get_natservid_ <- function(query, messages = TRUE, rows = NA, key = NULL, ...) {
+get_natservid_ <- function(query, searchtype = "scientific", messages = TRUE,
+  rows = NA, ...) {
+
   stats::setNames(
-    lapply(query, get_natservid_help, messages = messages, rows = rows,
-           key = key, ...),
+    lapply(query, get_natservid_help, searchtype = searchtype,
+      messages = messages, rows = rows, ...),
     query
   )
 }
 
-get_natservid_help <- function(query, messages, rows, key, ...) {
+get_natservid_help <- function(query, searchtype, messages, rows, ...) {
   mssg(messages, "\nRetrieving data for taxon '", query, "'\n")
-  df <- ns_worker(query, key, ...)
+  df <- ns_worker(x = query, searchtype = searchtype, ...)
   sub_rows(df, rows)
 }
 
-ns_base_uri <- function() "http://explorer.natureserve.org/servlet/NatureServe?searchSpeciesUid=%s"
+ns_base_uri <- function() "https://explorer.natureserve.org/Taxon/ELEMENT_GLOBAL.2.%s"
 
-ns_worker <- function(x, key, ...) {
-  tmp <- tryCatch(natserv::ns_search(x = x, key = key, ...), error = function(e) e)
+# x = "Helianthus annuus"; searchtype = "scientific"
+# x = "Ruby*"; searchtype = "common"
+ns_worker <- function(x, searchtype, ...) {
+  query <- switch(searchtype,
+    scientific = list(searchToken=x, matchAgainst="allScientificNames", operator="similarTo"),
+    common = list(searchToken=x, matchAgainst="allCommonNames", operator="similarTo")
+  )
+  # FIXME: gotta have pagination, but results not returning as expected, look into natserv bug
+  tmp <- tryCatch(
+    # natserv::ns_search_spp(text_adv = query, page = 1, per_page = 2000L, ...),
+    natserv::ns_search_spp(text_adv = query, ...),
+    error = function(e) e)
   if (inherits(tmp, "error")) return(tibble::tibble())
-  tmp <- tmp[, c("globalSpeciesUid","jurisdictionScientificName","commonName","natureServeExplorerURI")]
+  if (NROW(tmp$results) == 0) return(tibble::tibble())
+  tmp <- tmp$results[, c("elementGlobalId", "scientificName", "primaryCommonName", "nsxUrl")]
   names(tmp) <- c('id', 'scientificname', 'commonname', 'uri')
   tmp
 }

@@ -19,6 +19,7 @@
 #' @seealso [classification()],[tax_name()]
 #' @examples \dontrun{
 #' tax_rank(x = "Helianthus annuus", db = "itis")
+#' tax_rank(x = "Helianthus annuus", db = "natserv")
 #' tax_rank(get_tsn("Helianthus annuus"))
 #' tax_rank(c("Helianthus", "Pinus", "Poa"), db = "itis")
 #'

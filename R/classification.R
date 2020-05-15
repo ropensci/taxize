@@ -79,7 +79,7 @@
 #' classification('Helianthus annuus', db = 'pow')
 #' classification('Helianthus', db = 'pow')
 #' classification('Asteraceae', db = 'pow')
-#' classification("ELEMENT_GLOBAL.2.134717", db = 'natserv')
+#' classification("134717", db = 'natserv')
 #' classification(c(2704179, 6162875, 8286319), db = 'gbif')
 #' classification(25509881, db = 'tropicos')
 #' classification("NBNSYS0000004786", db = 'nbn')
@@ -292,7 +292,6 @@ process_ids <- function(input, db, fxn, ...){
   if (
     inherits(g, "numeric") || # all others
     is.character(input) && all(grepl("N[HB]", input)) || # NBN
-    is.character(input) && all(grepl("ELEMENT_GLOBAL", input)) || # Natserv
     is.character(input) && all(grepl("urn:lsid", input)) # POW
   ) {
     as_fxn <- switch(db,
@@ -645,25 +644,33 @@ classification.natservid <- function(id, callopts = list(),
     if (is.na(x)) {
       out <- NA
     } else {
-      out <- tryCatch(natserv::ns_data(x), error = function(e) e)
+      out <- tryCatch(natserv::ns_id(paste0("ELEMENT_GLOBAL.2.", x)), error = function(e) e)
+      # out <- tryCatch(natserv::ns_data(x), error = function(e) e)
       if (inherits(out, "error")) {
         NA
       } else {
-        tmp <- out[[1]]$classification
-        if (is.null(tmp)) return(NA)
-        tmp <- tmp$taxonomy$formalTaxonomy
-        if (is.null(tmp)) return(NA)
-        tmp <- tmp[names(tmp) %in% c('kingdom', 'phylum',
-          'class', 'order', 'family', 'genus')]
-        df <- data.frame(scientificname = unname(unlist(tmp)),
-          rank = names(tmp), stringsAsFactors = FALSE)
-        rks <- c('kingdom', 'phylum', 'class', 'order',
-          'family', 'genus', 'species')
-        targ_taxon <- c(
-          out[[1]]$classification$names$scientificName$unformattedName[[1]],
-          rks[which(df$rank[length(df$rank)] == rks) + 1]
-        )
-        df <- rbind(df, targ_taxon)
+        zz <- c("kingdom", "phylum", "taxclass", "taxorder", "family", "genus")
+        if (is.null(out$speciesGlobal)) return(NA)
+        res <- tc(out$speciesGlobal[zz])
+        if (length(res) == 0) return(NA)
+        df <- data.frame(scientificname = unname(unlist(res)),
+          rank = gsub("tax", "", names(res)), stringsAsFactors = FALSE)
+        df <- rbind(df, c(out$scientificName, "species"))
+        # tmp <- out[[1]]$classification
+        # if (is.null(tmp)) return(NA)
+        # tmp <- tmp$taxonomy$formalTaxonomy
+        # if (is.null(tmp)) return(NA)
+        # tmp <- tmp[names(tmp) %in% c('kingdom', 'phylum',
+        #   'class', 'order', 'family', 'genus')]
+        # df <- data.frame(scientificname = unname(unlist(tmp)),
+        #   rank = names(tmp), stringsAsFactors = FALSE)
+        # rks <- c('kingdom', 'phylum', 'class', 'order',
+        #   'family', 'genus', 'species')
+        # targ_taxon <- c(
+        #   out[[1]]$classification$names$scientificName$unformattedName[[1]],
+        #   rks[which(df$rank[length(df$rank)] == rks) + 1]
+        # )
+        # df <- rbind(df, targ_taxon)
         return(df)
       }
     }
