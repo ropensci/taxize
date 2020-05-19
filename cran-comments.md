@@ -1,7 +1,7 @@
 ## Test environments
 
-* local OS X install, R 3.6.3 Patched
-* ubuntu 16.04 (on travis-ci), R 3.6.3
+* local OS X install, R 4.0.0
+* ubuntu 16.04 (on travis-ci), R 4.0.0
 * win-builder (devel and release)
 
 ## R CMD check results
@@ -12,11 +12,12 @@
 
 * I have run R CMD check on the 23 downstream dependencies
 (<https://github.com/ropensci/taxize/blob/master/revdep/README.md>);
-there were no errors.
+there were no errors related to taxize.
 
 ------
 
-This version includes a fix for a test that was failing on CRAN recently, and a couple of new functions.
+This version includes a number of bug fixes and integration of a new 
+package API in the natserv R package recently updated on CRAN.
 
 Thanks!
 Scott Chamberlain

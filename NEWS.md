@@ -1,3 +1,20 @@
+taxize 0.9.96
+=============
+
+### NEW FEATURES
+
+* NatureServe has a new API version; the package natserv (https://docs.ropensci.org/natserv/) has a complete overhaul for the new API - taxize interfaces to NatureServe updated. Only user facing change should be that we've moved to using just the final numeric part of the NatureServe taxonomic identifiers as `ELEMENT_GLOBAL.2.` part is redundant for every identifier (#823)
+
+### MINOR IMPROVEMENTS
+
+* `rankagg()` and `tax_agg()` fixes: `rankagg()` examples now conditional on availability of `vegan` as it should be, and now real abundance data are used in the example. `tax_agg()` fixes species name ordering in `dune` data  (#822) work by @jarioksa
+
+### BUG FIXES
+
+* fixed a bug in `class2tree()` (#818) (#820) thx to @adriangeerre for the report & the fix by @trvinh
+* fix to `worms_downstream()`: user encountered a rank name ("phylum (division)") we hadn't dealt with yet for worms (#821) thx @msweetlove for the report
+
+
 taxize 0.9.95
 =============
 
