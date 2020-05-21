@@ -1,9 +1,9 @@
 test_that("bold_search returns the correct value, dimensions, and classes", {
   skip_on_cran()
   vcr::use_cassette("bold_search", {
-    a <- bold_search(name = "Apis")
-    b <- bold_search(name = "Aga", fuzzy = TRUE)
-    c <- bold_search(name = c("Apis", "Puma concolor"))
+    a <- bold_search(sci = "Apis")
+    b <- bold_search(sci = "Aga", fuzzy = TRUE)
+    c <- bold_search(sci = c("Apis", "Puma concolor"))
     d <- bold_search(id = 88899)
   })
 
@@ -25,8 +25,8 @@ test_that("bold_search returns the correct value, dimensions, and classes", {
 test_that("bold_search is robust to user error", {
   skip_on_cran()
 
-  expect_is(bold_search(name = "asdfsdf"), "data.frame")
-  expect_is(bold_search(name = ""), "data.frame")
+  expect_is(bold_search(sci = "asdfsdf"), "data.frame")
+  expect_is(bold_search(sci = ""), "data.frame")
   expect_is(bold_search(id = "asdfsdf"), "data.frame")
   expect_error(bold_search())
 })

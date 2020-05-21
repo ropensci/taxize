@@ -13,7 +13,7 @@
 \title{Get the UID codes from NCBI for taxonomic names.}
 \usage{
 get_uid(
-  sciname,
+  sci_com,
   ask = TRUE,
   messages = TRUE,
   rows = NA,
@@ -22,6 +22,7 @@ get_uid(
   division_filter = NULL,
   rank_filter = NULL,
   key = NULL,
+  sciname = NULL,
   ...
 )
 
@@ -39,10 +40,10 @@ as.uid(x, check = TRUE)
 
 \method{as.data.frame}{uid}(x, ...)
 
-get_uid_(sciname, messages = TRUE, rows = NA, key = NULL, ...)
+get_uid_(sci_com, messages = TRUE, rows = NA, key = NULL, sciname = NULL, ...)
 }
 \arguments{
-\item{sciname}{character; scientific name. Or, a \code{taxon_state}
+\item{sci_com}{character; scientific or common name. Or, a \code{taxon_state}
 object (see \link{taxon-state})}
 
 \item{ask}{logical; should get_uid be run in interactive mode? If TRUE and
@@ -58,7 +59,7 @@ class object with one to many identifiers. See \code{\link[=get_uid_]{get_uid_()
 all, or a subset, of the raw data that you are presented during the ask
 process.}
 
-\item{modifier}{(character) A modifier to the \code{sciname} given. Options
+\item{modifier}{(character) A modifier to the \code{sci_com} given. Options
 include: Organism, Scientific Name, Common Name, All Names, Division,
 Filter, Lineage, GC, MGC, Name Tokens, Next Level, PGC, Properties, Rank,
 Subtree, Synonym, Text Word. These are not checked, so make sure they are
@@ -78,6 +79,8 @@ Though note that some data sources use atypical ranks, so inspect the data
 itself for options. Optional. See \code{Filtering} below.}
 
 \item{key}{(character) NCBI Entrez API key. optional. See Details.}
+
+\item{sciname}{Deprecated, see \code{sci_com}}
 
 \item{...}{Ignored}
 
@@ -154,12 +157,12 @@ get_uid(c("Chironomus riparius", "howdy"))
 # Narrow down results to a division or rank, or both
 ## By modifying the query
 ### w/ modifiers to the name
-get_uid(sciname = "Aratinga acuticauda", modifier = "Organism")
-get_uid(sciname = "bear", modifier = "Common Name")
+get_uid(sci_com = "Aratinga acuticauda", modifier = "Organism")
+get_uid(sci_com = "bear", modifier = "Common Name")
 
 ### w/ rank query
-get_uid(sciname = "Pinus", rank_query = "genus")
-get_uid(sciname = "Pinus", rank_query = "subgenus")
+get_uid(sci_com = "Pinus", rank_query = "genus")
+get_uid(sci_com = "Pinus", rank_query = "subgenus")
 ### division query doesn't really work, for unknown reasons, so not available
 
 ## By filtering the result
@@ -167,20 +170,20 @@ get_uid(sciname = "Pinus", rank_query = "subgenus")
 ### Results w/o narrowing
 get_uid("Echinacea")
 ### w/ division
-get_uid(sciname = "Echinacea", division_filter = "eudicots")
-get_uid(sciname = "Echinacea", division_filter = "sea urchins")
+get_uid(sci_com = "Echinacea", division_filter = "eudicots")
+get_uid(sci_com = "Echinacea", division_filter = "sea urchins")
 
 ## Satyrium example
 ### Results w/o narrowing
-get_uid(sciname = "Satyrium")
+get_uid(sci_com = "Satyrium")
 ### w/ division
-get_uid(sciname = "Satyrium", division_filter = "monocots")
-get_uid(sciname = "Satyrium", division_filter = "butterflies")
+get_uid(sci_com = "Satyrium", division_filter = "monocots")
+get_uid(sci_com = "Satyrium", division_filter = "butterflies")
 
 ## Rank example
-get_uid(sciname = "Pinus")
-get_uid(sciname = "Pinus", rank_filter = "genus")
-get_uid(sciname = "Pinus", rank_filter = "subgenus")
+get_uid(sci_com = "Pinus")
+get_uid(sci_com = "Pinus", rank_filter = "genus")
+get_uid(sci_com = "Pinus", rank_filter = "subgenus")
 
 # Fuzzy filter on any filtering fields
 ## uses grep on the inside

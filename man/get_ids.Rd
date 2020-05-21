@@ -6,16 +6,24 @@
 \title{Retrieve taxonomic identifiers for a given taxon name.}
 \usage{
 get_ids(
-  names,
+  sci_com,
   db = c("itis", "ncbi", "eol", "tropicos", "gbif", "nbn", "pow"),
   suppress = FALSE,
+  names = NULL,
   ...
 )
 
-get_ids_(names, db = get_ids_dbs, rows = NA, suppress = FALSE, ...)
+get_ids_(
+  sci_com,
+  db = get_ids_dbs,
+  rows = NA,
+  suppress = FALSE,
+  names = NULL,
+  ...
+)
 }
 \arguments{
-\item{names}{(character) Taxonomic name to query.}
+\item{sci_com}{(character) Taxonomic name to query.}
 
 \item{db}{(character) database to query. One or more of \code{ncbi}, \code{itis}, \code{eol},
 \code{tropicos}, \code{gbif}, \code{nbn}, or \code{pow}. By default db is set to search
@@ -27,6 +35,8 @@ see \link{taxize-authentication}}
 
 \item{suppress}{(logical) suppress \pkg{cli} separators with the database
 name being queried. default: \code{FALSE}}
+
+\item{names}{Deprecated, see \code{sci_com}}
 
 \item{...}{Other arguments passed to \code{\link[=get_tsn]{get_tsn()}}, \code{\link[=get_uid]{get_uid()}},
 \code{\link[=get_eolid]{get_eolid()}}, \code{\link[=get_tpsid]{get_tpsid()}}, \code{\link[=get_gbifid]{get_gbifid()}},
@@ -60,27 +70,27 @@ See \link{taxize-authentication} for help on authentication
 \dontrun{
 # Plug in taxon names directly
 ## By default you get ids for all data sources
-get_ids(names="Chironomus riparius")
+get_ids("Chironomus riparius")
 
 # specify rows to limit choices available
-get_ids(names="Poa annua", db="eol", rows=1)
-get_ids(names="Poa annua", db="eol", rows=1:2)
+get_ids("Poa annua", db="eol", rows=1)
+get_ids("Poa annua", db="eol", rows=1:2)
 
 ## Or you can specify which source you want via the db parameter
-get_ids(names="Chironomus riparius", db = 'ncbi')
-get_ids(names="Salvelinus fontinalis", db = 'nbn')
+get_ids("Chironomus riparius", db = 'ncbi')
+get_ids("Salvelinus fontinalis", db = 'nbn')
 
-get_ids(names=c("Chironomus riparius", "Pinus contorta"), db = 'ncbi')
-get_ids(names=c("Chironomus riparius", "Pinus contorta"),
+get_ids(c("Chironomus riparius", "Pinus contorta"), db = 'ncbi')
+get_ids(c("Chironomus riparius", "Pinus contorta"),
   db = c('ncbi','itis'))
-get_ids(names=c("Chironomus riparius", "Pinus contorta"),
+get_ids(c("Chironomus riparius", "Pinus contorta"),
   db = c('ncbi','itis'))
-get_ids(names="Pinus contorta",
+get_ids("Pinus contorta",
   db = c('ncbi','itis','eol','tropicos'))
-get_ids(names="ava avvva", db = c('ncbi','itis','eol','tropicos'))
+get_ids("ava avvva", db = c('ncbi','itis','eol','tropicos'))
 
 # Pass on to other functions
-out <- get_ids(names="Pinus contorta",
+out <- get_ids("Pinus contorta",
  db = c('ncbi','itis','eol','tropicos'))
 classification(out$itis)
 synonyms(out$tropicos)

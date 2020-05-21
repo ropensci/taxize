@@ -6,7 +6,7 @@
 #' [eol_pages()] to find the actual taxon IDs.
 #'
 #' @export
-#' @param sciname character; one or more scientific or common names. Or,
+#' @param sci_com character; one or more scientific or common names. Or,
 #' a `taxon_state` object (see [taxon-state])
 #' @param ask logical; should get_eolid be run in interactive mode?
 #' If TRUE and more than one ID is found for the species, the user is asked for
@@ -28,6 +28,7 @@
 #' @param x Input to [as.eolid()]
 #' @param check logical; Check if ID matches any existing on the DB, only
 #' used in [as.eolid()]
+#' @param sciname Deprecated, see `sci_com`
 #' @template getreturn
 #'
 #' @family taxonomic-ids
@@ -56,8 +57,8 @@
 #' removes the rest.
 #'
 #' @examples \dontrun{
-#' get_eolid(sciname='Pinus contorta')
-#' get_eolid(sciname='Puma concolor')
+#' get_eolid(sci_com='Pinus contorta')
+#' get_eolid(sci_com='Puma concolor')
 #'
 #' get_eolid(c("Puma concolor", "Pinus contorta"))
 #'
@@ -68,7 +69,7 @@
 #' get_eolid('Poa annua', rows=1:2)
 #'
 #' # When not found
-#' get_eolid(sciname="uaudnadndj")
+#' get_eolid(sci_com="uaudnadndj")
 #' get_eolid(c("Chironomus riparius", "uaudnadndj"))
 #'
 #' # filter results to a rank or data source, or both
@@ -110,24 +111,25 @@
 #' get_eolid_(c("asdfadfasd", "Pinus contorta"))
 #' }
 
-get_eolid <- function(sciname, ask = TRUE, messages = TRUE,
-  rows = NA, rank = NULL, data_source = NULL, ...) {
+get_eolid <- function(sci_com, ask = TRUE, messages = TRUE,
+  rows = NA, rank = NULL, data_source = NULL, sciname = NULL, ...) {
 
-  assert(sciname, c("character", "taxon_state"))
+  assert(sci_com, c("character", "taxon_state"))
   assert(ask, "logical")
   assert(messages, "logical")
   assert(rank, "character")
   assert(data_source, "character")
   assert_rows(rows)
+  pchk(sciname, "sci_com")
 
-  if (inherits(sciname, "character")) {
-    tstate <- taxon_state$new(class = "eolid", names = sciname)
-    items <- sciname
+  if (inherits(sci_com, "character")) {
+    tstate <- taxon_state$new(class = "eolid", names = sci_com)
+    items <- sci_com
   } else {
-    assert_state(sciname, "eolid")
-    tstate <- sciname
-    sciname <- tstate$taxa_remaining()
-    items <- c(sciname, tstate$taxa_completed())
+    assert_state(sci_com, "eolid")
+    tstate <- sci_com
+    sci_com <- tstate$taxa_remaining()
+    items <- c(sci_com, tstate$taxa_completed())
   }
 
   prog <- progressor$new(items = items, suppress = !messages)
@@ -135,10 +137,10 @@ get_eolid <- function(sciname, ask = TRUE, messages = TRUE,
   for (i in seq_along(done)) prog$completed(names(done)[i], done[[i]]$att)
   prog$prog_start()
 
-  for (i in seq_along(sciname)) {
+  for (i in seq_along(sci_com)) {
     direct <- FALSE
-    mssg(messages, "\nRetrieving data for taxon '", sciname[i], "'\n")
-    tmp <- eol_search(terms = sciname[i], ...)
+    mssg(messages, "\nRetrieving data for taxon '", sci_com[i], "'\n")
+    tmp <- eol_search(sci = sci_com[i], ...)
     datasource <- NA_character_
     if (all(is.na(tmp))) {
       mssg(messages, m_not_found_sp_altclass)
@@ -147,7 +149,7 @@ get_eolid <- function(sciname, ask = TRUE, messages = TRUE,
       att <- "not found"
       mm <- FALSE
     } else {
-      pageids <- tmp[grep(tolower(sciname[i]), tolower(tmp$name)), "pageid"]
+      pageids <- tmp[grep(tolower(sci_com[i]), tolower(tmp$name)), "pageid"]
 
       if (length(pageids) == 0) {
         if (nrow(tmp) > 0)
@@ -220,7 +222,7 @@ get_eolid <- function(sciname, ask = TRUE, messages = TRUE,
     }
 
     if (length(id) > 1) {
-      matchtmp <- df[tolower(df$name) %in% tolower(sciname[i]), ]
+      matchtmp <- df[tolower(df$name) %in% tolower(sci_com[i]), ]
       if (NROW(matchtmp) == 1) {
         id <- matchtmp$eolid
         direct <- TRUE
@@ -236,7 +238,7 @@ get_eolid <- function(sciname, ask = TRUE, messages = TRUE,
         rownames(df) <- 1:nrow(df)
         # prompt
         message("\n\n")
-        message("\nMore than one eolid found for taxon '", sciname[i], "'!\n
+        message("\nMore than one eolid found for taxon '", sci_com[i], "'!\n
             Enter rownumber of taxon (other inputs will return 'NA'):\n")
         print(df)
         take <- scan(n = 1, quiet = TRUE, what = "raw")
@@ -261,7 +263,7 @@ get_eolid <- function(sciname, ask = TRUE, messages = TRUE,
         }
       } else {
         if (length(id) != 1) {
-          warning(sprintf(m_more_than_one_found, "eolid", sciname[i]),
+          warning(sprintf(m_more_than_one_found, "eolid", sci_com[i]),
             call. = FALSE)
           id <- NA_character_
           page_id <- NA_character_
@@ -271,9 +273,9 @@ get_eolid <- function(sciname, ask = TRUE, messages = TRUE,
     }
     res <- list(id = as.character(id), page_id = page_id, source = datasource, 
       att = att, multiple = mm, direct = direct)
-    prog$completed(sciname[i], att)
+    prog$completed(sci_com[i], att)
     prog$prog(att)
-    tstate$add(sciname[i], res)
+    tstate$add(sci_com[i], res)
   }
   out <- tstate$get()
   page_ids <- pluck_un(out, "page_id", "")
@@ -387,19 +389,21 @@ get_eol_pageid <- function(x) {
 
 #' @export
 #' @rdname get_eolid
-get_eolid_ <- function(sciname, messages = TRUE, rows = NA, ...) {
-  stats::setNames(lapply(sciname, get_eolid_help, messages = messages,
-                  rows = rows, ...), sciname)
+get_eolid_ <- function(sci_com, messages = TRUE, rows = NA, sciname = NULL,
+  ...) {
+  pchk(sciname, "sci_com")
+  stats::setNames(lapply(sci_com, get_eolid_help, messages = messages,
+                  rows = rows, ...), sci_com)
 }
 
-get_eolid_help <- function(sciname, messages, rows, ...) {
-  mssg(messages, "\nRetrieving data for taxon '", sciname, "'\n")
-  tmp <- eol_search(terms = sciname, ...)
+get_eolid_help <- function(sci_com, messages, rows, ...) {
+  mssg(messages, "\nRetrieving data for taxon '", sci_com, "'\n")
+  tmp <- eol_search(terms = sci_com, ...)
 
   if (all(is.na(tmp))) {
     NULL
   } else {
-    pageids <- tmp[grep(tolower(sciname), tolower(tmp$name)), "pageid"]
+    pageids <- tmp[grep(tolower(sci_com), tolower(tmp$name)), "pageid"]
     if (length(pageids) == 0) {
       NULL
     } else {

@@ -28,7 +28,7 @@ test_that("get_natservid fails well", {
 
   expect_true(is.na(get_natservid("asdfadsf", messages = FALSE)))
 
-  expect_error(get_natservid(), "argument \"query\" is missing")
+  expect_error(get_natservid(), "argument \"sci_com\" is missing")
   expect_error(get_natservid("clam", 5),
                "searchtype must be of class character")
   expect_error(get_natservid("clam", "stuff", messages = FALSE),

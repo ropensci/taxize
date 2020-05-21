@@ -1,7 +1,7 @@
 #' Search for terms in EOL database.
 #'
 #' @export
-#' @param terms search terms (character)
+#' @param sci (character) scientific name
 #' @param page A maximum of 30 results are returned per page. This parameter
 #' allows you to fetch more pages of results if there are more than
 #' 30 matches (Default 1)
@@ -15,6 +15,7 @@
 #' and that matching page will be used as the taxonomic group against which
 #' to filter search results
 #' @param cache_ttl The number of seconds you wish to have the response cached.
+#' @param terms Deprecated, see `sci`
 #' @param ... Curl options passed on to [crul::HttpClient]
 #' @details It's possible to return JSON or XML with the EOL API. However,
 #' 		this function only returns JSON for now.
@@ -30,16 +31,17 @@
 #' in case some may find it useful
 #'
 #' @examples \dontrun{
-#' eol_search(terms='Homo')
-#' eol_search(terms='Salix', verbose = TRUE)
-#' eol_search(terms='Ursus americanus')
+#' eol_search(sci='Homo')
+#' eol_search(sci='Salix', verbose = TRUE)
+#' eol_search(sci='Ursus americanus')
 #' eol_search('Pinus contorta')
 #' }
 
-eol_search <- function(terms, page=1, exact=NULL, filter_tid=NULL,
-  filter_heid=NULL, filter_by_string=NULL, cache_ttl=NULL, ...) {
+eol_search <- function(sci, page=1, exact=NULL, filter_tid=NULL,
+  filter_heid=NULL, filter_by_string=NULL, cache_ttl=NULL, terms = NULL, ...) {
 
-	query <- gsub("\\s", "+", terms)
+  pchk(terms, "sci")
+	query <- gsub("\\s", "+", sci)
   args <- tc(list(q = query, page = page, exact = exact,
                   filter_by_taxon_concept_id = filter_tid,
                   filter_by_hierarchy_entry_id = filter_heid,

@@ -1,11 +1,12 @@
 #' Search Kew's Plants of the World
 #'
 #' @export
-#' @param q (character) query terms
+#' @param sci_com (character) query terms, scientific or common name
 #' @param limit (integer) Number of records to return. default: 100
 #' @param cursor (character) cursor string
 #' @param sort (character) The field to sort by and sort order separted with
 #' underscore, e.g., `sort="name_desc"`
+#' @param q Deprecated, see `sci_com`
 #' @param ... Further args passed on to [crul::HttpClient].
 #' @return a list with slots for metadata (`meta`) with list of response
 #' attributes, and data (`data`) with a data.frame of results
@@ -13,7 +14,7 @@
 #' @references <http://powo.science.kew.org/>
 #' @family pow
 #' @examples \dontrun{
-#' x <- pow_search(q = "Quercus")
+#' x <- pow_search(sci_com = "Quercus")
 #' x$meta
 #' x$meta$totalResults
 #' x$meta$perPage
@@ -23,23 +24,26 @@
 #' head(x$data)
 #'
 #' # pagination
-#' pow_search(q = "sunflower", limit = 2)
+#' pow_search(sci_com = "sunflower", limit = 2)
 #'
 #' # debug curl stuff
-#' invisible(pow_search(q = "Helianthus annuus", verbose = TRUE))
+#' invisible(pow_search(sci_com = "Helianthus annuus", verbose = TRUE))
 #'
 #' # sort
-#' desc <- pow_search(q = "Helianthus", sort = "name_desc")
+#' desc <- pow_search(sci_com = "Helianthus", sort = "name_desc")
 #' desc$data$name
-#' asc <- pow_search(q = "Helianthus", sort = "name_asc")
+#' asc <- pow_search(sci_com = "Helianthus", sort = "name_asc")
 #' asc$data$name
 #' }
-pow_search <- function(q, limit = 100, cursor = "*", sort = NULL, ...) {
-  assert(q, "character")
+pow_search <- function(sci_com, limit = 100, cursor = "*", sort = NULL,
+  q = NULL, ...) {
+
+  assert(sci_com, "character")
   assert(limit, c("integer", "numeric"))
   assert(cursor, "character")
   assert(sort, "character")
-  args <- tc(list(q = q, perPage = limit, cursor = cursor, sort = sort))
+  pchk(q, "sci_com")
+  args <- tc(list(q = sci_com, perPage = limit, cursor = cursor, sort = sort))
   pow_GET(file.path(pow_base(), "api/2", "search"), args, ...)
 }
 

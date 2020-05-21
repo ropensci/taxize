@@ -13,7 +13,7 @@
 \title{Get the BOLD (Barcode of Life) code for a search term.}
 \usage{
 get_boldid(
-  searchterm,
+  sci,
   fuzzy = FALSE,
   dataTypes = "basic",
   includeTree = FALSE,
@@ -23,6 +23,7 @@ get_boldid(
   rank = NULL,
   division = NULL,
   parent = NULL,
+  searchterm = NULL,
   ...
 )
 
@@ -41,17 +42,18 @@ as.boldid(x, check = TRUE)
 \method{as.data.frame}{boldid}(x, ...)
 
 get_boldid_(
-  searchterm,
+  sci,
   messages = TRUE,
   fuzzy = FALSE,
   dataTypes = "basic",
   includeTree = FALSE,
   rows = NA,
+  searchterm = NULL,
   ...
 )
 }
 \arguments{
-\item{searchterm}{character; A vector of scientific names. Or,
+\item{sci}{character; A vector of scientific names. Or,
 a \code{taxon_state} object (see \link{taxon-state})}
 
 \item{fuzzy}{(logical) Whether to use fuzzy search or not (default: FALSE).}
@@ -82,6 +84,8 @@ below.}
 
 \item{parent}{(character) A parent name (i.e., the parent of the target search
 taxon). Optional. See \code{Filtering} below.}
+
+\item{searchterm}{Deprecated, see \code{sci}}
 
 \item{...}{Curl options passed on to \code{\link[crul:verb-GET]{crul::verb-GET}}}
 
@@ -115,20 +119,20 @@ down to the set that matches your query, and removes the rest.
 
 \examples{
 \dontrun{
-get_boldid(searchterm = "Agapostemon")
-get_boldid(searchterm = "Chironomus riparius")
+get_boldid(sci = "Agapostemon")
+get_boldid(sci = "Chironomus riparius")
 get_boldid(c("Chironomus riparius","Quercus douglasii"))
 splist <- names_list('species')
 get_boldid(splist, messages=FALSE)
 
 # Fuzzy searching
-get_boldid(searchterm="Osmi", fuzzy=TRUE)
+get_boldid(sci="Osmi", fuzzy=TRUE)
 
 # Get back a subset
-get_boldid(searchterm="Osmi", fuzzy=TRUE, rows = 1)
-get_boldid(searchterm="Osmi", fuzzy=TRUE, rows = 1:10)
-get_boldid(searchterm=c("Osmi","Aga"), fuzzy=TRUE, rows = 1)
-get_boldid(searchterm=c("Osmi","Aga"), fuzzy=TRUE, rows = 1:3)
+get_boldid(sci="Osmi", fuzzy=TRUE, rows = 1)
+get_boldid(sci="Osmi", fuzzy=TRUE, rows = 1:10)
+get_boldid(sci=c("Osmi","Aga"), fuzzy=TRUE, rows = 1)
+get_boldid(sci=c("Osmi","Aga"), fuzzy=TRUE, rows = 1:3)
 
 # found
 get_boldid('Epicordulia princeps')

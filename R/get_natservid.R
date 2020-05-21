@@ -1,7 +1,7 @@
 #' Get NatureServe taxonomic ID for a taxon name
 #'
 #' @export
-#' @param query character; A vector of common or scientific names. Or, a
+#' @param sci_com character; A vector of common or scientific names. Or, a
 #' `taxon_state` object (see [taxon-state])
 #' @param searchtype character; One of 'scientific' (default) or 'common'.
 #' This doesn't affect the query to NatureServe - but rather affects what
@@ -17,6 +17,7 @@
 #' `get_natservid_()` to get back all, or a subset, of the raw
 #' data that you are presented during the ask process.
 #' @param x Input to `as.natservid`
+#' @param query Deprecated, see `sci_com`
 #' @param ... curl options passed on to [crul::verb-POST]
 #' @param check logical; Check if ID matches any existing on the DB, only
 #' used in [as.natservid()]
@@ -70,24 +71,25 @@
 #' get_natservid_("Ruby*", searchtype = "common")
 #' get_natservid_("Ruby*", searchtype = "common", rows=1:3)
 #' }
-get_natservid <- function(query, searchtype = "scientific", ask = TRUE,
-                          messages = TRUE, rows = NA, ...) {
+get_natservid <- function(sci_com, searchtype = "scientific", ask = TRUE,
+                          messages = TRUE, rows = NA, query = NULL, ...) {
 
-  assert(query, c("character", "taxon_state"))
+  assert(sci_com, c("character", "taxon_state"))
   assert(ask, "logical")
   assert(searchtype, "character")
   assert(ask, "logical")
   assert(messages, "logical")
   assert_rows(rows)
+  pchk(query, "sci_com")
 
-  if (inherits(query, "character")) {
-    tstate <- taxon_state$new(class = "natservid", names = query)
-    items <- query
+  if (inherits(sci_com, "character")) {
+    tstate <- taxon_state$new(class = "natservid", names = sci_com)
+    items <- sci_com
   } else {
-    assert_state(query, "natservid")
-    tstate <- query
-    query <- tstate$taxa_remaining()
-    items <- c(query, tstate$taxa_completed())
+    assert_state(sci_com, "natservid")
+    tstate <- sci_com
+    sci_com <- tstate$taxa_remaining()
+    items <- c(sci_com, tstate$taxa_completed())
   }
 
   prog <- progressor$new(items = items, suppress = !messages)
@@ -95,16 +97,16 @@ get_natservid <- function(query, searchtype = "scientific", ask = TRUE,
   for (i in seq_along(done)) prog$completed(names(done)[i], done[[i]]$att)
   prog$prog_start()
 
-  for (i in seq_along(query)) {
+  for (i in seq_along(sci_com)) {
     direct <- FALSE
-    mssg(messages, "\nRetrieving data for taxon '", query[i], "'\n")
+    mssg(messages, "\nRetrieving data for taxon '", sci_com[i], "'\n")
 
     if (!searchtype %in% c("scientific", "common")) {
       stop("'searchtype' must be one of 'scientific' or 'common'",
         call. = FALSE)
     }
 
-    nsdf <- ns_worker(x = query[i], searchtype = searchtype, ...)
+    nsdf <- ns_worker(x = sci_com[i], searchtype = searchtype, ...)
     mm <- NROW(nsdf) > 1
 
     if (!inherits(nsdf, "tbl_df") || NROW(nsdf) == 0) {
@@ -131,7 +133,7 @@ get_natservid <- function(query, searchtype = "scientific", ask = TRUE,
       if (nrow(nsdf) > 1) {
 
         names(nsdf)[grep(searchtype, names(nsdf))] <- "target"
-        direct <- match(tolower(nsdf$target), tolower(query[i]))
+        direct <- match(tolower(nsdf$target), tolower(sci_com[i]))
 
         if (length(direct) == 1) {
           if (!all(is.na(direct))) {
@@ -166,7 +168,7 @@ get_natservid <- function(query, searchtype = "scientific", ask = TRUE,
           message("\n\n")
           rownames(nsdf) <- seq_len(NROW(nsdf))
           print(nsdf)
-          message("\nMore than one NatureServe ID found for taxon '", query[i], "'!\n
+          message("\nMore than one NatureServe ID found for taxon '", sci_com[i], "'!\n
                   Enter rownumber of taxon (other inputs will return 'NA'):\n") # prompt
           take <- scan(n = 1, quiet = TRUE, what = 'raw')
 
@@ -186,7 +188,7 @@ get_natservid <- function(query, searchtype = "scientific", ask = TRUE,
           }
         } else {
           if (length(nsid) != 1) {
-            warning(sprintf(m_more_than_one_found, "NatureServe ID", query[i]),
+            warning(sprintf(m_more_than_one_found, "NatureServe ID", sci_com[i]),
               call. = FALSE)
             nsid <- NA_character_
             att <- m_na_ask_false
@@ -197,9 +199,9 @@ get_natservid <- function(query, searchtype = "scientific", ask = TRUE,
     }
     res <- list(id = as.character(nsid), att = att, multiple = mm,
       direct = direct)
-    prog$completed(query[i], att)
+    prog$completed(sci_com[i], att)
     prog$prog(att)
-    tstate$add(query[i], res)
+    tstate$add(sci_com[i], res)
   }
   out <- tstate$get()
   ids <- structure(as.character(unlist(pluck(out, "id"))), class = "natservid",
@@ -261,19 +263,20 @@ check_natservid <- function(x){
 
 #' @export
 #' @rdname get_natservid
-get_natservid_ <- function(query, searchtype = "scientific", messages = TRUE,
-  rows = NA, ...) {
+get_natservid_ <- function(sci_com, searchtype = "scientific", messages = TRUE,
+  rows = NA, query = NULL, ...) {
 
+  pchk(query, "sci_com")
   stats::setNames(
-    lapply(query, get_natservid_help, searchtype = searchtype,
+    lapply(sci_com, get_natservid_help, searchtype = searchtype,
       messages = messages, rows = rows, ...),
-    query
+    sci_com
   )
 }
 
-get_natservid_help <- function(query, searchtype, messages, rows, ...) {
-  mssg(messages, "\nRetrieving data for taxon '", query, "'\n")
-  df <- ns_worker(x = query, searchtype = searchtype, ...)
+get_natservid_help <- function(sci_com, searchtype, messages, rows, ...) {
+  mssg(messages, "\nRetrieving data for taxon '", sci_com, "'\n")
+  df <- ns_worker(x = sci_com, searchtype = searchtype, ...)
   sub_rows(df, rows)
 }
 

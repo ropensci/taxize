@@ -24,7 +24,7 @@ test_that("get_gbifid accepts ask-argument", {
 test_that("get_gbifid method parameter works", {
   skip_on_cran()
   vcr::use_cassette("get_gbifid_method_param", {
-    mod1 <- get_gbifid_(sciname = "Z*", method = "backbone", messages = FALSE, 
+    mod1 <- get_gbifid_(sci = "Z*", method = "backbone", messages = FALSE, 
       rows = 1:100)
     mod2 <- get_gbifid_("Z*", method = "lookup", messages = FALSE, 
       rows = 1:100)
@@ -54,8 +54,8 @@ test_that("get_gbifid phylum/class/order/family parameters work", {
 #   skip_on_cran()
 
 #   ## Rank example
-#   rf1 <- get_gbifid(sciname = "Bison", rank = "genus", rows = 1, messages = FALSE)
-#   rf2 <- get_gbifid(sciname = "Bison bison", rank = "species", rows = 1, messages = FALSE)
+#   rf1 <- get_gbifid(sci = "Bison", rank = "genus", rows = 1, messages = FALSE)
+#   rf2 <- get_gbifid(sci = "Bison bison", rank = "species", rows = 1, messages = FALSE)
 
 #   expect_is(rf1, "gbifid")
 #   expect_is(rf2, "gbifid")
@@ -80,7 +80,7 @@ test_that("works regardless of character or numeric GGBIF ID given back", {
 test_that("get_gbifid fails as expected", {
   skip_on_cran()
 
-  expect_error(get_gbifid(), "argument \"sciname\" is missing")
+  expect_error(get_gbifid(), "argument \"sci\" is missing")
   expect_error(get_gbifid('Poa annua', ask = 4, messages = FALSE),
                "ask must be of class logical")
   expect_error(

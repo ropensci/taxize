@@ -9,7 +9,7 @@ get_ids_dbs <- c(
 #' sources if you like.
 #'
 #' @export
-#' @param names (character) Taxonomic name to query.
+#' @param sci_com (character) Taxonomic name to query.
 #' @param db (character) database to query. One or more of `ncbi`, `itis`, `eol`,
 #' `tropicos`, `gbif`, `nbn`, or `pow`. By default db is set to search
 #' all data sources. Note that each taxonomic data source has their own
@@ -24,6 +24,7 @@ get_ids_dbs <- c(
 #' gives back a ids class object with one to many identifiers. See
 #' `get_ids_` to get back all, or a subset, of the raw data that you
 #' are presented during the ask process.
+#' @param names Deprecated, see `sci_com`
 #' @param ... Other arguments passed to [get_tsn()], [get_uid()],
 #' [get_eolid()], [get_tpsid()], [get_gbifid()],
 #' [get_nbnid()].
@@ -41,27 +42,27 @@ get_ids_dbs <- c(
 #' @examples \dontrun{
 #' # Plug in taxon names directly
 #' ## By default you get ids for all data sources
-#' get_ids(names="Chironomus riparius")
+#' get_ids("Chironomus riparius")
 #'
 #' # specify rows to limit choices available
-#' get_ids(names="Poa annua", db="eol", rows=1)
-#' get_ids(names="Poa annua", db="eol", rows=1:2)
+#' get_ids("Poa annua", db="eol", rows=1)
+#' get_ids("Poa annua", db="eol", rows=1:2)
 #'
 #' ## Or you can specify which source you want via the db parameter
-#' get_ids(names="Chironomus riparius", db = 'ncbi')
-#' get_ids(names="Salvelinus fontinalis", db = 'nbn')
+#' get_ids("Chironomus riparius", db = 'ncbi')
+#' get_ids("Salvelinus fontinalis", db = 'nbn')
 #'
-#' get_ids(names=c("Chironomus riparius", "Pinus contorta"), db = 'ncbi')
-#' get_ids(names=c("Chironomus riparius", "Pinus contorta"),
+#' get_ids(c("Chironomus riparius", "Pinus contorta"), db = 'ncbi')
+#' get_ids(c("Chironomus riparius", "Pinus contorta"),
 #'   db = c('ncbi','itis'))
-#' get_ids(names=c("Chironomus riparius", "Pinus contorta"),
+#' get_ids(c("Chironomus riparius", "Pinus contorta"),
 #'   db = c('ncbi','itis'))
-#' get_ids(names="Pinus contorta",
+#' get_ids("Pinus contorta",
 #'   db = c('ncbi','itis','eol','tropicos'))
-#' get_ids(names="ava avvva", db = c('ncbi','itis','eol','tropicos'))
+#' get_ids("ava avvva", db = c('ncbi','itis','eol','tropicos'))
 #'
 #' # Pass on to other functions
-#' out <- get_ids(names="Pinus contorta",
+#' out <- get_ids("Pinus contorta",
 #'  db = c('ncbi','itis','eol','tropicos'))
 #' classification(out$itis)
 #' synonyms(out$tropicos)
@@ -76,28 +77,28 @@ get_ids_dbs <- c(
 #' get_ids("Agapostemon", db = "ncbi", verbose = TRUE)
 #' }
 
-get_ids <- function(names,
+get_ids <- function(sci_com,
   db = c("itis", "ncbi", "eol", "tropicos", "gbif", "nbn",
-    "pow"), suppress = FALSE, ...) {
+    "pow"), suppress = FALSE, names = NULL, ...) {
   
   assert(suppress, "logical")
   if (is.null(db)) stop("Must specify one or more values for db!")
   db <- match.arg(db, choices = get_ids_dbs, several.ok = TRUE)
-  foo <- function(x, names, ...){
+  foo <- function(x, sci_com, ...){
     if (!suppress) cat_db(x)
     ids <- switch(x,
-                  itis = get_tsn(names, ...),
-                  ncbi = get_uid(names, ...),
-                  eol = get_eolid(names, ...),
-                  tropicos = get_tpsid(names, ...),
-                  gbif = get_gbifid(names, ...),
-                  nbn = get_nbnid(names, ...),
-                  pow = get_pow(names, ...))
-    names(ids) <- names
+                  itis = get_tsn(sci_com, ...),
+                  ncbi = get_uid(sci_com, ...),
+                  eol = get_eolid(sci_com, ...),
+                  tropicos = get_tpsid(sci_com, ...),
+                  gbif = get_gbifid(sci_com, ...),
+                  nbn = get_nbnid(sci_com, ...),
+                  pow = get_pow(sci_com, ...))
+    names(ids) <- sci_com
     return( ids )
   }
 
-  tmp <- lapply(db, function(x) foo(x, names = names, ...))
+  tmp <- lapply(db, function(x) foo(x, sci_com = sci_com, ...))
   names(tmp) <- db
   class(tmp) <- "ids"
   return( tmp )
@@ -105,24 +106,24 @@ get_ids <- function(names,
 
 #' @export
 #' @rdname get_ids
-get_ids_ <- function(names, db = get_ids_dbs, rows = NA,
-  suppress = FALSE, ...) {
+get_ids_ <- function(sci_com, db = get_ids_dbs, rows = NA,
+  suppress = FALSE, names = NULL, ...) {
 
   if (is.null(db)) stop("Must specify on or more values for db!")
   db <- match.arg(db, choices = get_ids_dbs, several.ok = TRUE)
-  foo <- function(x, names, rows, ...){
+  foo <- function(x, sci_com, rows, ...){
     if (!suppress) cat_db(x)
     ids <- switch(x,
-                  itis = get_tsn_(names, rows = rows, ...),
-                  ncbi = get_uid_(names, rows = rows, ...),
-                  eol = get_eolid_(names, rows = rows, ...),
-                  tropicos = get_tpsid_(names, rows = rows, ...),
-                  gbif = get_gbifid_(names, rows = rows, ...),
-                  nbn = get_nbnid_(names, rows = rows, ...))
-    stats::setNames(ids, names)
+                  itis = get_tsn_(sci_com, rows = rows, ...),
+                  ncbi = get_uid_(sci_com, rows = rows, ...),
+                  eol = get_eolid_(sci_com, rows = rows, ...),
+                  tropicos = get_tpsid_(sci_com, rows = rows, ...),
+                  gbif = get_gbifid_(sci_com, rows = rows, ...),
+                  nbn = get_nbnid_(sci_com, rows = rows, ...))
+    stats::setNames(ids, sci_com)
   }
   structure(stats::setNames(
-    lapply(db, function(x) foo(x, names = names, rows = rows, ...)), db),
+    lapply(db, function(x) foo(x, sci_com = sci_com, rows = rows, ...)), db),
   class = "ids")
 }
 

@@ -2,7 +2,7 @@ context("pow_search")
 test_that("pow_search returns the correct class", {
   skip_on_cran()
   vcr::use_cassette("pow_search", {
-    one <- pow_search(q = "Quercus")
+    one <- pow_search(sci_com = "Quercus")
   }, preserve_exact_body_bytes = TRUE)
 
   expect_is(one, "list")
@@ -15,8 +15,8 @@ test_that("pow_search returns the correct class", {
 test_that("pow_search fails well", {
   skip_on_cran()
 
-  expect_error(pow_search(), "\"q\" is missing")
-  expect_error(pow_search(4), "q must be of class")
+  expect_error(pow_search(), "\"sci_com\" is missing")
+  expect_error(pow_search(4), "sci_com must be of class")
   expect_error(pow_search("foo", "bar"), "limit must be of class")
   expect_error(pow_search("foo", 1, 5), "cursor must be of class")
   expect_error(pow_search("foo", 1, "bar", 5), "sort must be of class")

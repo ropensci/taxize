@@ -13,11 +13,12 @@
 \title{Get NatureServe taxonomic ID for a taxon name}
 \usage{
 get_natservid(
-  query,
+  sci_com,
   searchtype = "scientific",
   ask = TRUE,
   messages = TRUE,
   rows = NA,
+  query = NULL,
   ...
 )
 
@@ -36,15 +37,16 @@ as.natservid(x, check = TRUE)
 \method{as.data.frame}{natservid}(x, ...)
 
 get_natservid_(
-  query,
+  sci_com,
   searchtype = "scientific",
   messages = TRUE,
   rows = NA,
+  query = NULL,
   ...
 )
 }
 \arguments{
-\item{query}{character; A vector of common or scientific names. Or, a
+\item{sci_com}{character; A vector of common or scientific names. Or, a
 \code{taxon_state} object (see \link{taxon-state})}
 
 \item{searchtype}{character; One of 'scientific' (default) or 'common'.
@@ -63,6 +65,8 @@ rows are considered. Note that this function still only gives back a
 natservid class object with one to many identifiers. See
 \code{get_natservid_()} to get back all, or a subset, of the raw
 data that you are presented during the ask process.}
+
+\item{query}{Deprecated, see \code{sci_com}}
 
 \item{...}{curl options passed on to \link[crul:verb-POST]{crul::verb-POST}}
 

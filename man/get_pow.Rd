@@ -12,13 +12,14 @@
 \title{Get Kew's Plants of the World code for a taxon}
 \usage{
 get_pow(
-  x,
+  sci_com,
   accepted = FALSE,
   ask = TRUE,
   messages = TRUE,
   rows = NA,
   family_filter = NULL,
   rank_filter = NULL,
+  x = NULL,
   ...
 )
 
@@ -34,10 +35,10 @@ as.pow(x, check = TRUE)
 
 \method{as.data.frame}{pow}(x, ...)
 
-get_pow_(x, messages = TRUE, rows = NA, ...)
+get_pow_(sci_com, messages = TRUE, rows = NA, x = NULL, ...)
 }
 \arguments{
-\item{x}{character; A vector of common or scientific names. Or, a
+\item{sci_com}{character; A vector of common or scientific names. Or, a
 \code{taxon_state} object (see \link{taxon-state})}
 
 \item{accepted}{logical; If TRUE, removes names that are not accepted
@@ -63,6 +64,9 @@ data after retrieved from NCBI. Optional. See \code{Filtering} below.}
 retrieved from NCBI. See \code{\link[=rank_ref]{rank_ref()}} for possible options.
 Though note that some data sources use atypical ranks, so inspect the data
 itself for options. Optional. See \code{Filtering} below.}
+
+\item{x}{For \code{get_pow()}: deprecated, see \code{sci_com}. For \code{as.pow}, various,
+see examples}
 
 \item{...}{Curl options passed on to \link[crul:HttpClient]{crul::HttpClient}}
 
@@ -94,12 +98,12 @@ Filtering narrows down to the set that matches your query, and removes the rest.
 
 \examples{
 \dontrun{
-get_pow(x = "Helianthus")
+get_pow(sci_com="Helianthus")
 get_pow(c("Helianthus","Quercus douglasii"))
 
 # Get back a subset
-get_pow(x="Helianthus", rows = 1)
-get_pow(x="Helianthus", rows = 1:10)
+get_pow(sci_com="Helianthus", rows = 1)
+get_pow(sci_com="Helianthus", rows = 1:10)
 
 # When not found
 get_pow("howdy")

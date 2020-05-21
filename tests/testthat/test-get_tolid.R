@@ -28,7 +28,7 @@ test_that("get_tolid accepts ask-argument", {
 test_that("get_tolid fails as expected", {
   skip_on_cran()
 
-  expect_error(get_tolid(), "argument \"sciname\" is missing")
+  expect_error(get_tolid(), "argument \"sci\" is missing")
   expect_error(get_tolid("Satyrium", ask = 4, messages = FALSE),
                "ask must be of class logical")
 

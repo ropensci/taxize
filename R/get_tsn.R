@@ -3,7 +3,7 @@
 #' Retrieve the taxonomic serial numbers (TSN) of a taxon from ITIS.
 #'
 #' @export
-#' @param searchterm character; A vector of common or scientific names.
+#' @param sci_com character; A vector of common or scientific names.
 #' Or, a `taxon_state` object (see [taxon-state])
 #' @param searchtype character; One of 'scientific' or 'common', or any
 #' unique abbreviation
@@ -20,6 +20,7 @@
 #' [get_tsn_()] to get back all, or a subset, of the raw
 #' data that you are presented during the ask process.
 #' @param x Input to as.tsn
+#' @param searchterm Deprecated, see `sci_com`
 #' @param ... Ignored
 #' @param check logical; Check if ID matches any existing on the DB, only
 #' used in [as.tsn()]
@@ -46,7 +47,7 @@
 #' get_tsn(c("Chironomus riparius", "howdy"))
 #'
 #' # Using common names
-#' get_tsn(searchterm="black bear", searchtype="common")
+#' get_tsn("black bear", searchtype="common")
 #'
 #' # Convert a tsn without class information to a tsn class
 #' as.tsn(get_tsn("Quercus douglasii")) # already a tsn, returns the same
@@ -73,24 +74,25 @@
 #' get_tsn_(c("asdfadfasd","Pinus contorta"), rows=1:5)
 #' }
 
-get_tsn <- function(searchterm, searchtype = "scientific", accepted = FALSE,
-                    ask = TRUE, messages = TRUE, rows = NA, ...) {
+get_tsn <- function(sci_com, searchtype = "scientific", accepted = FALSE,
+  ask = TRUE, messages = TRUE, rows = NA, searchterm = NULL, ...) {
 
-  assert(searchterm, c("character", "taxon_state"))
+  assert(sci_com, c("character", "taxon_state"))
   assert(ask, "logical")
   assert(messages, "logical")
   assert(searchtype, "character")
   assert(accepted, "logical")
   assert_rows(rows)
+  pchk(searchterm, "sci_com")
 
-  if (inherits(searchterm, "character")) {
-    tstate <- taxon_state$new(class = "tsn", names = searchterm)
-    items <- searchterm
+  if (inherits(sci_com, "character")) {
+    tstate <- taxon_state$new(class = "tsn", names = sci_com)
+    items <- sci_com
   } else {
-    assert_state(searchterm, "tsn")
-    tstate <- searchterm
-    searchterm <- tstate$taxa_remaining()
-    items <- c(searchterm, tstate$taxa_completed())
+    assert_state(sci_com, "tsn")
+    tstate <- sci_com
+    sci_com <- tstate$taxa_remaining()
+    items <- c(sci_com, tstate$taxa_completed())
   }
 
   prog <- progressor$new(items = items, suppress = !messages)
@@ -98,12 +100,12 @@ get_tsn <- function(searchterm, searchtype = "scientific", accepted = FALSE,
   for (i in seq_along(done)) prog$completed(names(done)[i], done[[i]]$att)
   prog$prog_start()
 
-  for (i in seq_along(searchterm)) {
+  for (i in seq_along(sci_com)) {
     direct <- FALSE
-    mssg(messages, "\nRetrieving data for taxon '", searchterm[i], "'\n")
+    mssg(messages, "\nRetrieving data for taxon '", sci_com[i], "'\n")
 
     searchtype <- match.arg(searchtype, c("scientific", "common"))
-    tsn_df <- ritis::terms(searchterm[i], what = searchtype, ...)
+    tsn_df <- ritis::terms(sci_com[i], what = searchtype, ...)
     mm <- NROW(tsn_df) > 1
 
     if (!inherits(tsn_df, "tbl_df") || NROW(tsn_df) == 0) {
@@ -140,7 +142,7 @@ get_tsn <- function(searchterm, searchtype = "scientific", accepted = FALSE,
       if (NROW(tsn_df) > 1) {
         tsn_df <- data.frame(tsn_df, stringsAsFactors = FALSE)
         names(tsn_df)[grep(searchtype, names(tsn_df))] <- "target"
-        matchtmp <- tsn_df[tolower(tsn_df$target) %in% tolower(searchterm[i]), "tsn"]
+        matchtmp <- tsn_df[tolower(tsn_df$target) %in% tolower(sci_com[i]), "tsn"]
         if (length(matchtmp) == 1) {
           tsn <- matchtmp
           direct <- TRUE
@@ -167,7 +169,7 @@ get_tsn <- function(searchterm, searchtype = "scientific", accepted = FALSE,
           # prompt
           message("\n\n")
           print(tsn_df)
-          message("\nMore than one TSN found for taxon '", searchterm[i], "'!\n
+          message("\nMore than one TSN found for taxon '", sci_com[i], "'!\n
             Enter rownumber of taxon (other inputs will return 'NA'):\n")
           take <- scan(n = 1, quiet = TRUE, what = "raw")
 
@@ -188,7 +190,7 @@ get_tsn <- function(searchterm, searchtype = "scientific", accepted = FALSE,
           }
         } else {
           if (length(tsn) != 1) {
-            warning(sprintf(m_more_than_one_found, "tsn", searchterm[i]),
+            warning(sprintf(m_more_than_one_found, "tsn", sci_com[i]),
               call. = FALSE)
             tsn <- NA_character_
             att <- m_na_ask_false
@@ -200,9 +202,9 @@ get_tsn <- function(searchterm, searchtype = "scientific", accepted = FALSE,
 
     res <- list(id = as.character(tsn), att = att, multiple = mm,
       direct = direct)
-    prog$completed(searchterm[i], att)
+    prog$completed(sci_com[i], att)
     prog$prog(att)
-    tstate$add(searchterm[i], res)
+    tstate$add(sci_com[i], res)
   }
   out <- tstate$get()
   ids <- structure(as.character(unlist(pluck(out, "id"))), class = "tsn",
@@ -265,21 +267,22 @@ check_tsn <- function(x){
 
 #' @export
 #' @rdname get_tsn
-get_tsn_ <- function(searchterm, messages = TRUE, searchtype = "scientific",
-                     accepted = TRUE, rows = NA, ...) {
+get_tsn_ <- function(sci_com, messages = TRUE, searchtype = "scientific",
+                     accepted = TRUE, rows = NA, searchterm = NULL, ...) {
+  pchk(searchterm, "sci_com")
   stats::setNames(
-    lapply(searchterm, get_tsn_help, messages = messages,
+    lapply(sci_com, get_tsn_help, messages = messages,
            searchtype = searchtype, accepted = accepted, rows = rows, ...),
-    searchterm
+    sci_com
   )
 }
 
-get_tsn_help <- function(searchterm, messages, searchtype, accepted,
+get_tsn_help <- function(sci_com, messages, searchtype, accepted,
   rows, ...) {
 
-  mssg(messages, "\nRetrieving data for taxon '", searchterm, "'\n")
+  mssg(messages, "\nRetrieving data for taxon '", sci_com, "'\n")
   searchtype <- match.arg(searchtype, c("scientific", "common"))
-  df <- ritis::terms(searchterm, what = searchtype, ...)
+  df <- ritis::terms(sci_com, what = searchtype, ...)
   if (!inherits(df, "tbl_df") || NROW(df) == 0) {
     NULL
   } else {

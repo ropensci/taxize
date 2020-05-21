@@ -5,35 +5,34 @@
 \title{Search for taxonomic names using the Global Names Index}
 \usage{
 gni_search(
-  search_term = NULL,
+  sci,
   per_page = NULL,
   page = NULL,
   justtotal = FALSE,
   parse_names = FALSE,
+  search_term = NULL,
   ...
 )
 }
 \arguments{
-\item{search_term}{Name pattern you want to search for. WARNING: Does
-not work for vernacular/common names. Search term may include following
-options (Note: can, uni, gen, sp, ssp, au, yr work only for parsed names
+\item{sci}{(character) required. Name pattern you want to search
+for. WARNING: Does not work for common names. Search term may include
+following options (Note: can, uni, gen, sp, ssp, au, yr work only for
+parsed names)
 \itemize{
-\item 
-\itemize{
-\item wild card - Search by part of a word (E.g.: planta*)
-}
-\item exact exact match    - Search for exact match of a literal string
+\item \code{*}    wild card - Search by part of a word (E.g.: planta*)
+\item \code{exact} exact match    - Search for exact match of a literal string
 (E.g.: exact:Parus major)
-\item ns name string- Search for literal string from its beginning (other
+\item \code{ns} name string- Search for literal string from its beginning (other
 modifiers will be ignored) (E.g.: ns:parus maj*)
-\item can canonical form- Search name without authors (other modifiers will
+\item \code{can} canonical form- Search name without authors (other modifiers will
 be ignored)    (E.g.: can:parus major)
-\item uni uninomial- Search for higher taxa    (E.g.: uni:parus)
-\item gen genus - Search by genus epithet of species name (E.g.: gen:parus)
-\item sp species - Search by species epithet (E.g.: sp:major)
-\item ssp subspecies - Search by infraspecies epithet (E.g.: ssp:major)
-\item au author - Search by author word    (E.g.: au:Shipunov)
-\item yr year - Search by year (E.g.: yr:2005)
+\item \code{uni} uninomial- Search for higher taxa    (E.g.: uni:parus)
+\item \code{gen} genus - Search by genus epithet of species name (E.g.: gen:parus)
+\item \code{sp} species - Search by species epithet (E.g.: sp:major)
+\item \code{ssp} subspecies - Search by infraspecies epithet (E.g.: ssp:major)
+\item \code{au} author - Search by author word    (E.g.: au:Shipunov)
+\item \code{yr} year - Search by year (E.g.: yr:2005)
 }}
 
 \item{per_page}{Number of items per one page (numbers larger
@@ -45,6 +44,8 @@ than 1000 will be decreased to 1000) (default is 30).}
 
 \item{parse_names}{If \code{TRUE}, use \code{\link[=gni_parse]{gni_parse()}} to parse
 names. Default: \code{FALSE}}
+
+\item{search_term}{Deprecated, see \code{sci}}
 
 \item{...}{Curl options passed on to \link[crul:verb-GET]{crul::verb-GET}}
 }
@@ -60,15 +61,15 @@ asterisk to the end of a search term. See the first two examples below
 }
 \examples{
 \dontrun{
-gni_search(search_term = "ani*")
-gni_search(search_term = "ama*", per_page = 3, page = 21)
-gni_search(search_term = "animalia", per_page = 8, page = 1)
-gni_search(search_term = "animalia", per_page = 8, page = 1, justtotal=TRUE)
+gni_search(sci = "ani*")
+gni_search(sci = "ama*", per_page = 3, page = 21)
+gni_search(sci = "animalia", per_page = 8, page = 1)
+gni_search(sci = "animalia", per_page = 8, page = 1, justtotal=TRUE)
 
-gni_search(search_term = "Cyanistes caeruleus", parse_names=TRUE)
+gni_search(sci = "Cyanistes caeruleus", parse_names=TRUE)
 
 # pass on curl options
-gni_search(search_term = "ani*", verbose = TRUE)
+gni_search(sci = "ani*", verbose = TRUE)
 }
 }
 \references{
