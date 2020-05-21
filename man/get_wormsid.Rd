@@ -13,7 +13,7 @@
 \title{Get Worms ID for a taxon name}
 \usage{
 get_wormsid(
-  query,
+  sci_com,
   searchtype = "scientific",
   marine_only = TRUE,
   fuzzy = NULL,
@@ -21,6 +21,7 @@ get_wormsid(
   ask = TRUE,
   messages = TRUE,
   rows = NA,
+  query = NULL,
   ...
 )
 
@@ -39,18 +40,19 @@ as.wormsid(x, check = TRUE)
 \method{as.data.frame}{wormsid}(x, ...)
 
 get_wormsid_(
-  query,
+  sci_com,
   messages = TRUE,
   searchtype = "scientific",
   marine_only = TRUE,
   fuzzy = NULL,
   accepted = TRUE,
   rows = NA,
+  query = NULL,
   ...
 )
 }
 \arguments{
-\item{query}{character; A vector of common or scientific names. Or, a
+\item{sci_com}{character; A vector of common or scientific names. Or, a
 \code{taxon_state} object (see \link{taxon-state})}
 
 \item{searchtype}{character; One of 'scientific' or 'common', or any unique
@@ -81,9 +83,11 @@ class object with one to many identifiers. See \code{\link[=get_wormsid_]{get_wo
 all, or a subset, of the raw data that you are presented during the ask
 process.}
 
+\item{query}{Deprecated, see \code{sci_com}}
+
 \item{...}{Ignored}
 
-\item{x}{Input to as.wormsid}
+\item{x}{Input to \code{as.wormsid}}
 
 \item{check}{logical; Check if ID matches any existing on the DB, only
 used in \code{\link[=as.wormsid]{as.wormsid()}}}

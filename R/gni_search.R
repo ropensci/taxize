@@ -3,30 +3,32 @@
 #' @description Uses the Global Names Index, see http://gni.globalnames.org
 #'
 #' @export
-#' @param search_term Name pattern you want to search for. WARNING: Does
-#' not work for vernacular/common names. Search term may include following
-#' options (Note: can, uni, gen, sp, ssp, au, yr work only for parsed names
+#' @param sci (character) required. Name pattern you want to search
+#' for. WARNING: Does not work for common names. Search term may include
+#' following options (Note: can, uni, gen, sp, ssp, au, yr work only for
+#' parsed names)
 #'
-#' * *	wild card - Search by part of a word (E.g.: planta*)
-#' * exact exact match	- Search for exact match of a literal string
+#' * `*`	wild card - Search by part of a word (E.g.: planta*)
+#' * `exact` exact match	- Search for exact match of a literal string
 #'  (E.g.: exact:Parus major)
-#' * ns name string- Search for literal string from its beginning (other
+#' * `ns` name string- Search for literal string from its beginning (other
 #'  modifiers will be ignored) (E.g.: ns:parus maj*)
-#' * can canonical form- Search name without authors (other modifiers will
+#' * `can` canonical form- Search name without authors (other modifiers will
 #'  be ignored)	(E.g.: can:parus major)
-#' * uni uninomial- Search for higher taxa	(E.g.: uni:parus)
-#' * gen genus - Search by genus epithet of species name (E.g.: gen:parus)
-#' * sp species - Search by species epithet (E.g.: sp:major)
-#' * ssp subspecies - Search by infraspecies epithet (E.g.: ssp:major)
-#' * au author - Search by author word	(E.g.: au:Shipunov)
-#' * yr year - Search by year (E.g.: yr:2005)
+#' * `uni` uninomial- Search for higher taxa	(E.g.: uni:parus)
+#' * `gen` genus - Search by genus epithet of species name (E.g.: gen:parus)
+#' * `sp` species - Search by species epithet (E.g.: sp:major)
+#' * `ssp` subspecies - Search by infraspecies epithet (E.g.: ssp:major)
+#' * `au` author - Search by author word	(E.g.: au:Shipunov)
+#' * `yr` year - Search by year (E.g.: yr:2005)
 #'
 #' @param per_page Number of items per one page (numbers larger
-#' 		than 1000 will be decreased to 1000) (default is 30).
+#' than 1000 will be decreased to 1000) (default is 30).
 #' @param page Page number you want to see (default is 1).
 #' @param justtotal Return only the total results found.
 #' @param parse_names If `TRUE`, use [gni_parse()] to parse
 #' names. Default: `FALSE`
+#' @param search_term Deprecated, see `sci`
 #' @param ... Curl options passed on to [crul::verb-GET]
 #' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
 #' @return data.frame of results.
@@ -37,20 +39,21 @@
 #' @details Note that you can use fuzzy searching, e.g., by attaching an
 #' asterisk to the end of a search term. See the first two examples below
 #' @examples \dontrun{
-#' gni_search(search_term = "ani*")
-#' gni_search(search_term = "ama*", per_page = 3, page = 21)
-#' gni_search(search_term = "animalia", per_page = 8, page = 1)
-#' gni_search(search_term = "animalia", per_page = 8, page = 1, justtotal=TRUE)
+#' gni_search(sci = "ani*")
+#' gni_search(sci = "ama*", per_page = 3, page = 21)
+#' gni_search(sci = "animalia", per_page = 8, page = 1)
+#' gni_search(sci = "animalia", per_page = 8, page = 1, justtotal=TRUE)
 #'
-#' gni_search(search_term = "Cyanistes caeruleus", parse_names=TRUE)
+#' gni_search(sci = "Cyanistes caeruleus", parse_names=TRUE)
 #'
 #' # pass on curl options
-#' gni_search(search_term = "ani*", verbose = TRUE)
+#' gni_search(sci = "ani*", verbose = TRUE)
 #' }
-gni_search <- function(search_term = NULL, per_page = NULL, page = NULL,
-  justtotal = FALSE, parse_names = FALSE, ...) {
+gni_search <- function(sci, per_page = NULL, page = NULL,
+  justtotal = FALSE, parse_names = FALSE, search_term = NULL, ...) {
 
-	query <- tc(list(search_term = search_term, per_page = per_page,
+  pchk(search_term, "sci")
+	query <- tc(list(search_term = sci, per_page = per_page,
         page = page))
   cli <- crul::HttpClient$new(paste0(gni_base(), "name_strings.json"),
     headers = tx_ual, opts = list(...))

@@ -1,7 +1,7 @@
 #' Get Kew's Plants of the World code for a taxon
 #'
 #' @export
-#' @param x character; A vector of common or scientific names. Or, a
+#' @param sci_com character; A vector of common or scientific names. Or, a
 #' `taxon_state` object (see [taxon-state])
 #' @param accepted logical; If TRUE, removes names that are not accepted 
 #' valid names by ITIS. Set to `FALSE` (default) to give back both 
@@ -10,6 +10,8 @@
 #' If TRUE and more than one pow is found for teh species, the user is 
 #' asked for input. If FALSE NA is returned for multiple matches.
 #' @param messages logical; should progress be printed?
+#' @param x For `get_pow()`: deprecated, see `sci_com`. For `as.pow`, various,
+#' see examples
 #' @param ... Curl options passed on to [crul::HttpClient]
 #' @param rows numeric; Any number from 1 to infinity. If the default NA, 
 #' all rows are considered. Note that this function still only gives back 
@@ -39,12 +41,12 @@
 #' @seealso [classification()]
 #'
 #' @examples \dontrun{
-#' get_pow(x = "Helianthus")
+#' get_pow(sci_com="Helianthus")
 #' get_pow(c("Helianthus","Quercus douglasii"))
 #'
 #' # Get back a subset
-#' get_pow(x="Helianthus", rows = 1)
-#' get_pow(x="Helianthus", rows = 1:10)
+#' get_pow(sci_com="Helianthus", rows = 1)
+#' get_pow(sci_com="Helianthus", rows = 1:10)
 #'
 #' # When not found
 #' get_pow("howdy")
@@ -85,25 +87,26 @@
 #' get_pow_(c("Pinus", "Abies"), rows = 1:3)
 #' }
 
-get_pow <- function(x, accepted = FALSE, ask = TRUE, messages = TRUE,
-  rows = NA, family_filter = NULL, rank_filter = NULL, ...) {
+get_pow <- function(sci_com, accepted = FALSE, ask = TRUE, messages = TRUE,
+  rows = NA, family_filter = NULL, rank_filter = NULL, x = NULL, ...) {
 
-  assert(x, c("character", "taxon_state"))
+  assert(sci_com, c("character", "taxon_state"))
   assert(accepted, "logical")
   assert(ask, "logical")
   assert(messages, "logical")
   assert(family_filter, "character")
   assert(rank_filter, "character")
   assert_rows(rows)
+  pchk(x, "sci_com")
 
-  if (inherits(x, "character")) {
-    tstate <- taxon_state$new(class = "pow", names = x)
-    items <- x
+  if (inherits(sci_com, "character")) {
+    tstate <- taxon_state$new(class = "pow", names = sci_com)
+    items <- sci_com
   } else {
-    assert_state(x, "pow")
-    tstate <- x
-    x <- tstate$taxa_remaining()
-    items <- c(x, tstate$taxa_completed())
+    assert_state(sci_com, "pow")
+    tstate <- sci_com
+    sci_com <- tstate$taxa_remaining()
+    items <- c(sci_com, tstate$taxa_completed())
   }
 
   prog <- progressor$new(items = items, suppress = !messages)
@@ -111,10 +114,10 @@ get_pow <- function(x, accepted = FALSE, ask = TRUE, messages = TRUE,
   for (i in seq_along(done)) prog$completed(names(done)[i], done[[i]]$att)
   prog$prog_start()
 
-  for (i in seq_along(x)) {
+  for (i in seq_along(sci_com)) {
     direct <- FALSE
-    mssg(messages, "\nRetrieving data for taxon '", x[i], "'\n")
-    pow_df <- pow_search(q = x[i], ...)$data
+    mssg(messages, "\nRetrieving data for taxon '", sci_com[i], "'\n")
+    pow_df <- pow_search(sci_com = sci_com[i], ...)$data
     mm <- NROW(pow_df) > 1
 
     if (!inherits(pow_df, "data.frame")) {
@@ -142,7 +145,7 @@ get_pow <- function(x, accepted = FALSE, ask = TRUE, messages = TRUE,
       # check for direct match
       if (nrow(pow_df) > 1) {
         names(pow_df)[grep('name', names(pow_df))] <- "target"
-        di_rect <- pow_df[tolower(pow_df$target) %in% tolower(x[i]), "fqId"]
+        di_rect <- pow_df[tolower(pow_df$target) %in% tolower(sci_com[i]), "fqId"]
         if (length(di_rect) == 1) {
           pow <- di_rect
           direct <- TRUE
@@ -180,7 +183,7 @@ get_pow <- function(x, accepted = FALSE, ask = TRUE, messages = TRUE,
             # prompt
             message("\n\n")
             print(pow_df)
-            message("\nMore than one pow found for taxon '", x[i], "'!\n
+            message("\nMore than one pow found for taxon '", sci_com[i], "'!\n
           Enter rownumber of taxon (other inputs will return 'NA'):\n") # prompt
             take <- scan(n = 1, quiet = TRUE, what = 'raw')
 
@@ -203,7 +206,7 @@ get_pow <- function(x, accepted = FALSE, ask = TRUE, messages = TRUE,
           } else {
             warning(
               sprintf("More than one pow found for taxon '%s'; refine query or set ask=TRUE",
-                      x[i]),
+                      sci_com[i]),
               call. = FALSE
             )
             pow <- NA_character_
@@ -214,9 +217,9 @@ get_pow <- function(x, accepted = FALSE, ask = TRUE, messages = TRUE,
     }
     res <- list(id = as.character(pow), att = att, multiple = mm,
       direct = direct)
-    prog$completed(x[i], att)
+    prog$completed(sci_com[i], att)
     prog$prog(att)
-    tstate$add(x[i], res)
+    tstate$add(sci_com[i], res)
   }
   out <- tstate$get()
   ids <- structure(as.character(unlist(pluck(out, "id"))), class = "pow",
@@ -275,12 +278,14 @@ check_pow <- function(x){
 
 #' @export
 #' @rdname get_pow
-get_pow_ <- function(x, messages = TRUE, rows = NA, ...){
-  stats::setNames(lapply(x, get_pow_help, messages = messages, rows = rows, ...), x)
+get_pow_ <- function(sci_com, messages = TRUE, rows = NA, x = NULL, ...) {
+  pchk(x, "sci_com")
+  stats::setNames(lapply(sci_com, get_pow_help, messages = messages,
+    rows = rows, ...), sci_com)
 }
 
 get_pow_help <- function(x, messages, rows, ...){
   mssg(messages, "\nRetrieving data for taxon '", x, "'\n")
-  df <- pow_search(q = x, ...)$data
+  df <- pow_search(sci_com = x, ...)$data
   if (NROW(df) == 0) NULL else sub_rows(df, rows)
 }

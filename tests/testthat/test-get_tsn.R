@@ -23,11 +23,11 @@ test_that("get_tsn accepts ask and verbose arguments", {
 test_that("get_tsn fails as expected", {
   skip_on_cran()
 
-  expect_error(get_tsn(), "argument \"searchterm\" is missing")
+  expect_error(get_tsn(), "argument \"sci_com\" is missing")
   expect_error(get_tsn("Arni", ask = 4, messages = FALSE),
                "ask must be of class logical")
   expect_error(
-    get_tsn(searchterm="black bear", searchtype=5,
+    get_tsn(sci_com="black bear", searchtype=5,
             messages = FALSE),
     "searchtype must be of class character")
   expect_error(
@@ -37,7 +37,7 @@ test_that("get_tsn fails as expected", {
 
   # searchtype values
   expect_error(
-    get_tsn(searchterm="black bear", searchtype="asdfadf",
+    get_tsn(sci_com="black bear", searchtype="asdfadf",
             messages = FALSE),
     "'arg' should be one of")
 

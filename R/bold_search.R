@@ -1,7 +1,7 @@
 #' Search Barcode of Life for taxonomic IDs
 #'
 #' @export
-#' @param name (character) One or more scientific names.
+#' @param sci (character) One or more scientific names.
 #' @param id (integer) One or more BOLD taxonomic identifiers.
 #' @param fuzzy (logical) Whether to use fuzzy search or not (default: `FALSE`).
 #' Only used if `name` passed.
@@ -13,9 +13,10 @@
 #' passed.
 #' @param response (logical) Note that response is the object that returns from the
 #' curl call, useful for debugging, and getting detailed info on the API call.
+#' @param name Deprecated, see `sci`
 #' @param ... named curl options passed on to [crul::verb-GET]
-#' @details You must provide one of name or id to this function. The other
-#' parameters are optional. Note that when passing in `name`, `fuzzy` can be used
+#' @details You must provide one of `sci` or `id` to this function. The other
+#' parameters are optional. Note that when passing in `sci`, `fuzzy` can be used
 #' as well, while if `id` is passed, then `fuzzy` is ignored, and `dataTypes`
 #' `includeTree` can be used.
 #'
@@ -41,18 +42,18 @@
 #' @return A list of data.frame's.
 #' @examples \dontrun{
 #' # A basic example
-#' bold_search(name="Apis")
-#' bold_search(name="Agapostemon")
-#' bold_search(name="Poa")
+#' bold_search(sci="Apis")
+#' bold_search(sci="Agapostemon")
+#' bold_search(sci="Poa")
 #'
 #' # Fuzzy search
-#' head(bold_search(name="Po", fuzzy=TRUE))
-#' head(bold_search(name="Aga", fuzzy=TRUE))
+#' head(bold_search(sci="Po", fuzzy=TRUE))
+#' head(bold_search(sci="Aga", fuzzy=TRUE))
 #'
 #' # Many names
-#' bold_search(name=c("Apis","Puma concolor"))
+#' bold_search(sci=c("Apis","Puma concolor"))
 #' nms <- names_list('species')
-#' bold_search(name=nms)
+#' bold_search(sci=nms)
 #'
 #' # Searching by ID - dataTypes can be used, and includeTree can be used
 #' bold_search(id=88899)
@@ -61,14 +62,15 @@
 #' bold_search(id=88899, dataTypes="basic")
 #' bold_search(id=88899, includeTree=TRUE)
 #' }
+bold_search <- function(sci = NULL, id = NULL, fuzzy = FALSE,
+  dataTypes = 'basic', includeTree=FALSE, response=FALSE, name = NULL, ...) {
 
-bold_search <- function(name = NULL, id = NULL, fuzzy = FALSE,
-  dataTypes = 'basic', includeTree=FALSE, response=FALSE, ...) {
-
-  stopifnot(!is.null(name) | !is.null(id))
-  type <- if (is.null(name)) "id" else "name"
+  pchk(name, "sci")
+  if (!is.null(name)) sci <- name
+  stopifnot(!is.null(sci) | !is.null(id))
+  type <- if (is.null(sci)) "id" else "sci"
   tmp <- switch(type,
-         name = bold_tax_name(name = name, fuzzy = fuzzy, response = response, ...),
+         sci = bold_tax_name(name = sci, fuzzy = fuzzy, response = response, ...),
          id = bold_tax_id(id = id, dataTypes = dataTypes, includeTree = includeTree,
                           response = response, ...)
   )

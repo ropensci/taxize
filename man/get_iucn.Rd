@@ -11,7 +11,7 @@
 \alias{as.data.frame.iucn}
 \title{Get a IUCN Redlist taxon}
 \usage{
-get_iucn(x, messages = TRUE, key = NULL, ...)
+get_iucn(sci, messages = TRUE, key = NULL, x = NULL, ...)
 
 as.iucn(x, check = TRUE, key = NULL)
 
@@ -28,7 +28,7 @@ as.iucn(x, check = TRUE, key = NULL)
 \method{as.data.frame}{iucn}(x, ...)
 }
 \arguments{
-\item{x}{(character) A vector of scientific names. Or, a
+\item{sci}{(character) A vector of scientific names. Or, a
 \code{taxon_state} object (see \link{taxon-state})}
 
 \item{messages}{logical; should progress be printed?}
@@ -36,6 +36,9 @@ as.iucn(x, check = TRUE, key = NULL)
 \item{key}{(character) required. you IUCN Redlist API key. See
 \link[rredlist:rredlist-package]{rredlist::rredlist-package} for help on authenticating with
 IUCN Redlist}
+
+\item{x}{For \code{get_iucn()}: Deprecated, see \code{sci}. For \code{as.iucn()}, various,
+see examples}
 
 \item{...}{Ignored}
 
@@ -75,9 +78,9 @@ methods.
 }
 \examples{
 \dontrun{
-get_iucn(x = "Branta canadensis")
-get_iucn(x = "Branta bernicla")
-get_iucn(x = "Panthera uncia")
+get_iucn("Branta canadensis")
+get_iucn("Branta bernicla")
+get_iucn("Panthera uncia")
 
 # as coercion
 as.iucn(22732)

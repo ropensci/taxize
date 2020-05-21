@@ -71,7 +71,7 @@ test_that("get_wormsid fails well", {
   })
 
   skip_on_cran()
-  expect_error(get_wormsid(), "argument \"query\" is missing")
+  expect_error(get_wormsid(), "argument \"sci_com\" is missing")
   expect_error(get_wormsid("clam", 5, messages = FALSE),
                "searchtype must be of class character")
   expect_error(get_wormsid("clam", "stuff", messages = FALSE),

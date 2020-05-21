@@ -4,7 +4,7 @@
 #' OpenTreeOfLife
 #'
 #' @export
-#' @param sciname character; one or more scientific names. Or, a `taxon_state`
+#' @param sci character; one or more scientific names. Or, a `taxon_state`
 #' object (see [taxon-state])
 #' @param ask logical; should `get_tolid` be run in interactive mode?
 #' If `TRUE` and more than one TOL is found for the species, the user is
@@ -16,6 +16,7 @@
 #' to get back all, or a subset, of the raw data that you are presented during
 #' the ask process.
 #' @param x Input to `as.tolid`
+#' @param sciname Deprecated, see `sci`
 #' @param ... Ignored
 #' @param check logical; Check if ID matches any existing on the DB, only
 #' used in [as.tolid()]
@@ -25,8 +26,8 @@
 #' @seealso [classification()]
 #'
 #' @examples \dontrun{
-#' get_tolid(sciname = "Quercus douglasii")
-#' get_tolid(sciname = "Chironomus riparius")
+#' get_tolid(sci = "Quercus douglasii")
+#' get_tolid(sci = "Chironomus riparius")
 #' get_tolid(c("Chironomus riparius","Quercus douglasii"))
 #' splist <- c("annona cherimola", 'annona muricata', "quercus robur",
 #' 		"shorea robusta", "pandanus patina", "oryza sativa", "durio zibethinus")
@@ -60,30 +61,32 @@
 #' as.tolid( data.frame(out) )
 #'
 #' # Get all data back
-#' get_tolid_(sciname="Arni")
+#' get_tolid_("Arni")
 #' get_tolid_("Arni", rows=1)
 #' get_tolid_("Arni", rows=1:2)
 #' get_tolid_(c("asdfadfasd","Pinus contorta"))
 #' }
 
-get_tolid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA, ...) {
+get_tolid <- function(sci, ask = TRUE, messages = TRUE, rows = NA,
+  sciname = NULL, ...) {
 
-  assert(sciname, c("character", "taxon_state"))
+  assert(sci, c("character", "taxon_state"))
   assert(ask, "logical")
   assert(messages, "logical")
+  pchk(sciname, "sci")
   if (!all(is.na(rows))) {
     assert(rows, c("numeric", "integer"))
     stopifnot(rows > 0)
   }
 
-  if (inherits(sciname, "character")) {
-    tstate <- taxon_state$new(class = "tolid", names = sciname)
-    items <- sciname
+  if (inherits(sci, "character")) {
+    tstate <- taxon_state$new(class = "tolid", names = sci)
+    items <- sci
   } else {
-    assert_state(sciname, "tolid")
-    tstate <- sciname
-    sciname <- tstate$taxa_remaining()
-    items <- c(sciname, tstate$taxa_completed())
+    assert_state(sci, "tolid")
+    tstate <- sci
+    sci <- tstate$taxa_remaining()
+    items <- c(sci, tstate$taxa_completed())
   }
 
   prog <- progressor$new(items = items, suppress = !messages)
@@ -91,10 +94,10 @@ get_tolid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA, ...) {
   for (i in seq_along(done)) prog$completed(names(done)[i], done[[i]]$att)
   prog$prog_start()
 
-  for (i in seq_along(sciname)) {
-    mssg(messages, "\nRetrieving data for taxon '", sciname[i], "'\n")
+  for (i in seq_along(sci)) {
+    mssg(messages, "\nRetrieving data for taxon '", sci[i], "'\n")
 
-    tol_df <- tryCatch(tol_resolve(sciname[i], ...), error = function(e) e)
+    tol_df <- tryCatch(tol_resolve(sci[i], ...), error = function(e) e)
 
     if (
       !inherits(tol_df, "data.frame") ||
@@ -123,7 +126,7 @@ get_tolid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA, ...) {
       # more than one found -> user input
       if (NROW(tol_df) > 1) {
         # check for exact match
-        matchtmp <- tol_df[tolower(tol_df$unique_name) %in% tolower(sciname[i]), "ott_id"]
+        matchtmp <- tol_df[tolower(tol_df$unique_name) %in% tolower(sci[i]), "ott_id"]
         if (length(matchtmp) == 1) {
           id <- as.character(matchtmp)
           direct <- TRUE
@@ -145,7 +148,7 @@ get_tolid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA, ...) {
             if (ask) {
               # prompt
               message("\n\n")
-              message("\nMore than one ToL ID found for taxon '", sciname[i], "'!\n
+              message("\nMore than one ToL ID found for taxon '", sci[i], "'!\n
                       Enter rownumber of taxon (other inputs will return 'NA'):\n")
               rownames(tol_df) <- 1:nrow(tol_df)
               print(tol_df)
@@ -169,7 +172,7 @@ get_tolid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA, ...) {
             }
             else {
               if (length(id) != 1) {
-                warning(sprintf(m_more_than_one_found, "ToL ID", sciname[i]),
+                warning(sprintf(m_more_than_one_found, "ToL ID", sci[i]),
                   call. = FALSE)
                 id <- NA_character_
                 att <- m_na_ask_false
@@ -181,9 +184,9 @@ get_tolid <- function(sciname, ask = TRUE, messages = TRUE, rows = NA, ...) {
     }
     res <- list(id = as.character(id), att = att, multiple = FALSE,
       direct = FALSE)
-    prog$completed(sciname[i], att)
+    prog$completed(sci[i], att)
     prog$prog(att)
-    tstate$add(sciname[i], res)
+    tstate$add(sci[i], res)
   }
   out <- tstate$get()
   ids <- structure(as.character(unlist(pluck(out, "id"))), class = "tolid",
@@ -250,16 +253,17 @@ check_tolid <- function(x){
 
 #' @export
 #' @rdname get_tolid
-get_tolid_ <- function(sciname, messages = TRUE, rows = NA){
+get_tolid_ <- function(sci, messages = TRUE, rows = NA, sciname = NULL) {
+  pchk(sciname, "sci")
   stats::setNames(
-    lapply(sciname, get_tolid_help, messages = messages, rows = rows),
-    sciname
+    lapply(sci, get_tolid_help, messages = messages, rows = rows),
+    sci
   )
 }
 
-get_tolid_help <- function(sciname, messages, rows, ...){
-  mssg(messages, "\nRetrieving data for taxon '", sciname, "'\n")
-  tol_df <- tryCatch(tol_resolve(sciname, ...), error = function(e) e)
+get_tolid_help <- function(sci, messages, rows, ...){
+  mssg(messages, "\nRetrieving data for taxon '", sci, "'\n")
+  tol_df <- tryCatch(tol_resolve(sci, ...), error = function(e) e)
   if (!inherits(tol_df, "data.frame") || NROW(tol_df) == 0 || inherits(tol_df, "error")) {
     NULL
   } else {

@@ -12,7 +12,7 @@
 \alias{get_tolid_}
 \title{Get the OTT id for a search term}
 \usage{
-get_tolid(sciname, ask = TRUE, messages = TRUE, rows = NA, ...)
+get_tolid(sci, ask = TRUE, messages = TRUE, rows = NA, sciname = NULL, ...)
 
 as.tolid(x, check = TRUE)
 
@@ -28,10 +28,10 @@ as.tolid(x, check = TRUE)
 
 \method{as.data.frame}{tolid}(x, ...)
 
-get_tolid_(sciname, messages = TRUE, rows = NA)
+get_tolid_(sci, messages = TRUE, rows = NA, sciname = NULL)
 }
 \arguments{
-\item{sciname}{character; one or more scientific names. Or, a \code{taxon_state}
+\item{sci}{character; one or more scientific names. Or, a \code{taxon_state}
 object (see \link{taxon-state})}
 
 \item{ask}{logical; should \code{get_tolid} be run in interactive mode?
@@ -45,6 +45,8 @@ rows are considered. Note that this function still only gives back a tol
 class object with one to many identifiers. See \code{\link[=get_tolid_]{get_tolid_()}}
 to get back all, or a subset, of the raw data that you are presented during
 the ask process.}
+
+\item{sciname}{Deprecated, see \code{sci}}
 
 \item{...}{Ignored}
 
@@ -70,8 +72,8 @@ OpenTreeOfLife
 }
 \examples{
 \dontrun{
-get_tolid(sciname = "Quercus douglasii")
-get_tolid(sciname = "Chironomus riparius")
+get_tolid(sci = "Quercus douglasii")
+get_tolid(sci = "Chironomus riparius")
 get_tolid(c("Chironomus riparius","Quercus douglasii"))
 splist <- c("annona cherimola", 'annona muricata', "quercus robur",
 		"shorea robusta", "pandanus patina", "oryza sativa", "durio zibethinus")
@@ -105,7 +107,7 @@ data.frame(out)
 as.tolid( data.frame(out) )
 
 # Get all data back
-get_tolid_(sciname="Arni")
+get_tolid_("Arni")
 get_tolid_("Arni", rows=1)
 get_tolid_("Arni", rows=1:2)
 get_tolid_(c("asdfadfasd","Pinus contorta"))

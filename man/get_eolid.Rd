@@ -13,12 +13,13 @@
 \title{Get the EOL ID from Encyclopedia of Life from taxonomic names.}
 \usage{
 get_eolid(
-  sciname,
+  sci_com,
   ask = TRUE,
   messages = TRUE,
   rows = NA,
   rank = NULL,
   data_source = NULL,
+  sciname = NULL,
   ...
 )
 
@@ -36,10 +37,10 @@ as.eolid(x, check = TRUE)
 
 \method{as.data.frame}{eolid}(x, ...)
 
-get_eolid_(sciname, messages = TRUE, rows = NA, ...)
+get_eolid_(sci_com, messages = TRUE, rows = NA, sciname = NULL, ...)
 }
 \arguments{
-\item{sciname}{character; one or more scientific or common names. Or,
+\item{sci_com}{character; one or more scientific or common names. Or,
 a \code{taxon_state} object (see \link{taxon-state})}
 
 \item{ask}{logical; should get_eolid be run in interactive mode?
@@ -62,6 +63,8 @@ so inspect the data itself for options. Optional. See \code{Filtering} below.}
 \item{data_source}{(character) A data source inside of EOL. These are
 longish names like e.g., "Barcode of Life Data Systems" or
 "USDA PLANTS images". Optional. See \code{Filtering} below.}
+
+\item{sciname}{Deprecated, see \code{sci_com}}
 
 \item{...}{Further args passed on to \code{\link[=eol_search]{eol_search()}}}
 
@@ -112,8 +115,8 @@ removes the rest.
 
 \examples{
 \dontrun{
-get_eolid(sciname='Pinus contorta')
-get_eolid(sciname='Puma concolor')
+get_eolid(sci_com='Pinus contorta')
+get_eolid(sci_com='Puma concolor')
 
 get_eolid(c("Puma concolor", "Pinus contorta"))
 
@@ -124,7 +127,7 @@ get_eolid('Poa annua', rows=2)
 get_eolid('Poa annua', rows=1:2)
 
 # When not found
-get_eolid(sciname="uaudnadndj")
+get_eolid(sci_com="uaudnadndj")
 get_eolid(c("Chironomus riparius", "uaudnadndj"))
 
 # filter results to a rank or data source, or both

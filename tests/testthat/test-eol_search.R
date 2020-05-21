@@ -5,7 +5,7 @@ test_that("eol_search returns the correct value", {
   skip_on_cran()
 
   vcr::use_cassette("eol_search", {
-    aa <- eol_search(terms='Ursus americanus')
+    aa <- eol_search(sci='Ursus americanus')
   })
 
   expect_is(aa, "data.frame")

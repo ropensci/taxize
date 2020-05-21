@@ -13,13 +13,14 @@
 \title{Get the NameID codes from Tropicos for taxonomic names.}
 \usage{
 get_tpsid(
-  sciname,
+  sci,
   ask = TRUE,
   messages = TRUE,
   key = NULL,
   rows = NA,
   family = NULL,
   rank = NULL,
+  sciname = NULL,
   ...
 )
 
@@ -37,10 +38,10 @@ as.tpsid(x, check = TRUE)
 
 \method{as.data.frame}{tpsid}(x, ...)
 
-get_tpsid_(sciname, messages = TRUE, key = NULL, rows = NA, ...)
+get_tpsid_(sci, messages = TRUE, key = NULL, rows = NA, sciname = NULL, ...)
 }
 \arguments{
-\item{sciname}{(character) One or more scientific name's as a vector or list. Or,
+\item{sci}{(character) One or more scientific name's as a vector or list. Or,
 a \code{taxon_state} object (see \link{taxon-state})}
 
 \item{ask}{logical; should get_tpsid be run in interactive mode?
@@ -61,6 +62,8 @@ presented during the ask process.}
 \item{rank}{(character) A taxonomic rank name. See \code{\link[=rank_ref]{rank_ref()}} for possible
 options. Though note that some data sources use atypical ranks, so inspect the
 data itself for options. Optional. See \code{Filtering} below.}
+
+\item{sciname}{Deprecated, see \code{sci}}
 
 \item{...}{Other arguments passed to \code{\link[=tp_search]{tp_search()}}.}
 
@@ -94,8 +97,8 @@ Filtering narrows down to the set that matches your query, and removes the rest.
 
 \examples{
 \dontrun{
-get_tpsid(sciname='Poa annua')
-get_tpsid(sciname='Pinus contorta')
+get_tpsid(sci='Poa annua')
+get_tpsid(sci='Pinus contorta')
 
 get_tpsid(c("Poa annua", "Pinus contorta"))
 
@@ -129,7 +132,7 @@ get_tpsid("Poa", family = "orchidaceae")
 get_tpsid("Aga", fuzzy = TRUE, parent = "*idae")
 
 # pass to classification function to get a taxonomic hierarchy
-classification(get_tpsid(sciname='Poa annua'))
+classification(get_tpsid(sci='Poa annua'))
 
 # Convert a tpsid without class information to a tpsid class
 as.tpsid(get_tpsid("Pinus contorta")) # already a tpsid, returns the same

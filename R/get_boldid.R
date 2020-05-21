@@ -2,7 +2,7 @@
 #'
 #' @importFrom bold bold_tax_name bold_tax_id
 #' @export
-#' @param searchterm character; A vector of scientific names. Or,
+#' @param sci character; A vector of scientific names. Or,
 #' a `taxon_state` object (see [taxon-state])
 #' @param fuzzy (logical) Whether to use fuzzy search or not (default: FALSE).
 #' @param dataTypes (character) Specifies the datatypes that will be returned.
@@ -28,6 +28,7 @@
 #' data itself for options. Optional. See `Filtering` below.
 #' @param check logical; Check if ID matches any existing on the DB, only used in
 #' [as.boldid()]
+#' @param searchterm Deprecated, see `sci`
 #' @template getreturn
 #'
 #' @section Filtering:
@@ -41,20 +42,20 @@
 #' @seealso [classification()]
 #'
 #' @examples \dontrun{
-#' get_boldid(searchterm = "Agapostemon")
-#' get_boldid(searchterm = "Chironomus riparius")
+#' get_boldid(sci = "Agapostemon")
+#' get_boldid(sci = "Chironomus riparius")
 #' get_boldid(c("Chironomus riparius","Quercus douglasii"))
 #' splist <- names_list('species')
 #' get_boldid(splist, messages=FALSE)
 #'
 #' # Fuzzy searching
-#' get_boldid(searchterm="Osmi", fuzzy=TRUE)
+#' get_boldid(sci="Osmi", fuzzy=TRUE)
 #'
 #' # Get back a subset
-#' get_boldid(searchterm="Osmi", fuzzy=TRUE, rows = 1)
-#' get_boldid(searchterm="Osmi", fuzzy=TRUE, rows = 1:10)
-#' get_boldid(searchterm=c("Osmi","Aga"), fuzzy=TRUE, rows = 1)
-#' get_boldid(searchterm=c("Osmi","Aga"), fuzzy=TRUE, rows = 1:3)
+#' get_boldid(sci="Osmi", fuzzy=TRUE, rows = 1)
+#' get_boldid(sci="Osmi", fuzzy=TRUE, rows = 1:10)
+#' get_boldid(sci=c("Osmi","Aga"), fuzzy=TRUE, rows = 1)
+#' get_boldid(sci=c("Osmi","Aga"), fuzzy=TRUE, rows = 1:3)
 #'
 #' # found
 #' get_boldid('Epicordulia princeps')
@@ -107,12 +108,12 @@
 #' get_boldid_(c("Osmi","Aga"), fuzzy=TRUE, rows = 1:3)
 #' }
 
-get_boldid <- function(searchterm, fuzzy = FALSE, dataTypes = 'basic',
+get_boldid <- function(sci, fuzzy = FALSE, dataTypes = 'basic',
                        includeTree = FALSE, ask = TRUE, messages = TRUE,
                        rows = NA, rank = NULL, division = NULL,
-                       parent = NULL, ...) {
+                       parent = NULL, searchterm = NULL, ...) {
 
-  assert(searchterm, c("character", "taxon_state"))
+  assert(sci, c("character", "taxon_state"))
   assert(ask, "logical")
   assert(messages, "logical")
   assert(fuzzy, "logical")
@@ -122,15 +123,16 @@ get_boldid <- function(searchterm, fuzzy = FALSE, dataTypes = 'basic',
   assert(division, "character")
   assert(parent, "character")
   assert_rows(rows)
+  pchk(searchterm, "sci")
 
-  if (inherits(searchterm, "character")) {
-    tstate <- taxon_state$new(class = "boldid", names = searchterm)
-    items <- searchterm
+  if (inherits(sci, "character")) {
+    tstate <- taxon_state$new(class = "boldid", names = sci)
+    items <- sci
   } else {
-    assert_state(searchterm, "boldid")
-    tstate <- searchterm
-    searchterm <- tstate$taxa_remaining()
-    items <- c(searchterm, tstate$taxa_completed())
+    assert_state(sci, "boldid")
+    tstate <- sci
+    sci <- tstate$taxa_remaining()
+    items <- c(sci, tstate$taxa_completed())
   }
 
   prog <- progressor$new(items = items, suppress = !messages)
@@ -138,10 +140,10 @@ get_boldid <- function(searchterm, fuzzy = FALSE, dataTypes = 'basic',
   for (i in seq_along(done)) prog$completed(names(done)[i], done[[i]]$att)
   prog$prog_start()
 
-  for (i in seq_along(searchterm)) {
+  for (i in seq_along(sci)) {
     direct <- FALSE
-    mssg(messages, "\nRetrieving data for taxon '", searchterm[i], "'\n")
-    bold_df <- bold_search(name = searchterm[i], fuzzy = fuzzy,
+    mssg(messages, "\nRetrieving data for taxon '", sci[i], "'\n")
+    bold_df <- bold_search(sci = sci[i], fuzzy = fuzzy,
                            dataTypes = dataTypes,
                            includeTree = includeTree, ...)
     mm <- NROW(bold_df) > 1
@@ -182,7 +184,7 @@ get_boldid <- function(searchterm, fuzzy = FALSE, dataTypes = 'basic',
         # check for direct match
         if (nrow(bold_df) > 1) {
           names(bold_df)[grep('taxon', names(bold_df))] <- "target"
-          di_rect <- match(tolower(bold_df$target), tolower(searchterm[i]))
+          di_rect <- match(tolower(bold_df$target), tolower(sci[i]))
           if (length(di_rect) == 1) {
             if (!all(is.na(di_rect))) {
               boldid <- bold_df$taxid[!is.na(di_rect)]
@@ -237,7 +239,7 @@ get_boldid <- function(searchterm, fuzzy = FALSE, dataTypes = 'basic',
               # prompt
               message("\n\n")
               print(bold_df)
-              message("\nMore than one TSN found for taxon '", searchterm[i], "'!\n
+              message("\nMore than one TSN found for taxon '", sci[i], "'!\n
             Enter rownumber of taxon (other inputs will return 'NA'):\n") # prompt
               take <- scan(n = 1, quiet = TRUE, what = 'raw')
 
@@ -259,7 +261,7 @@ get_boldid <- function(searchterm, fuzzy = FALSE, dataTypes = 'basic',
             if (length(boldid) == 1) {
               att <- "found"
             } else {
-              warning(sprintf(m_more_than_one_found, "boldid", searchterm[i]),
+              warning(sprintf(m_more_than_one_found, "boldid", sci[i]),
                 call. = FALSE)
               boldid <- NA_character_
               att <- m_na_ask_false
@@ -270,9 +272,9 @@ get_boldid <- function(searchterm, fuzzy = FALSE, dataTypes = 'basic',
     }
     res <- list(id = as.character(boldid), att = att, multiple = mm,
       direct = direct)
-    prog$completed(searchterm[i], att)
+    prog$completed(sci[i], att)
     prog$prog(att)
-    tstate$add(searchterm[i], res)
+    tstate$add(sci[i], res)
   }
   out <- tstate$get()
   ids <- structure(as.character(unlist(pluck(out, "id"))), class = "boldid",
@@ -347,19 +349,20 @@ check_boldid <- function(x){
 
 #' @export
 #' @rdname get_boldid
-get_boldid_ <- function(searchterm, messages = TRUE, fuzzy = FALSE,
-  dataTypes='basic', includeTree=FALSE, rows = NA, ...) {
+get_boldid_ <- function(sci, messages = TRUE, fuzzy = FALSE,
+  dataTypes='basic', includeTree=FALSE, rows = NA, searchterm = NULL, ...) {
 
-  stats::setNames(lapply(searchterm, get_boldid_help, messages = messages,
+  pchk(searchterm, "sci")
+  stats::setNames(lapply(sci, get_boldid_help, messages = messages,
     fuzzy = fuzzy, dataTypes=dataTypes, includeTree=includeTree,
-    rows = rows, ...), searchterm)
+    rows = rows, ...), sci)
 }
 
-get_boldid_help <- function(searchterm, messages, fuzzy, dataTypes,
+get_boldid_help <- function(sci, messages, fuzzy, dataTypes,
   includeTree, rows, ...){
   
-  mssg(messages, "\nRetrieving data for taxon '", searchterm, "'\n")
-  df <- bold_search(name = searchterm, fuzzy = fuzzy, dataTypes = dataTypes,
+  mssg(messages, "\nRetrieving data for taxon '", sci, "'\n")
+  df <- bold_search(name = sci, fuzzy = fuzzy, dataTypes = dataTypes,
     includeTree = includeTree)
   if(NROW(df) == 0) NULL else sub_rows(df, rows)
 }
