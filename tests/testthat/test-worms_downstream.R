@@ -54,3 +54,19 @@ test_that("worms_downstream - start param", {
   expect_is(aa$name, "character")
   expect_match(bb$name[1], "Gadus")
 })
+
+test_that("worms_downstream - rank names that were previously unaccounted for", {
+  skip_on_cran()
+  vcr::use_cassette("worms_downstream_previously_unaccounted_for_ranks", {
+    # previously unaccounted for: supertribe 
+    aa <- suppressWarnings(worms_downstream(123165, downto = "genus"))
+    # previously unaccounted for: subterclass 
+    bb <- suppressWarnings(worms_downstream(1424949, downto = "order"))
+    # previously unaccounted for: subterclass 
+    cc <- suppressWarnings(worms_downstream(224570, downto = "order"))
+  })
+
+  expect_is(aa, "data.frame")
+  expect_is(bb, "data.frame")
+  expect_is(cc, "data.frame")
+})
