@@ -4,10 +4,10 @@
 \alias{resolve}
 \title{Resolve names from different data sources}
 \usage{
-resolve(query, db = "gnr", ...)
+resolve(sci, db = "gnr", query = NULL, ...)
 }
 \arguments{
-\item{query}{Vector of one or more taxonomic names (common names not
+\item{sci}{Vector of one or more taxonomic names (common names not
 supported)}
 
 \item{db}{Source to check names against. One of iplant, tnrs, or gnr.
@@ -15,6 +15,8 @@ Default: gnr. Note that each taxonomic data source has their own
 identifiers, so that if you provide the wrong \code{db} value for the
 identifier you could get a result, but it will likely be wrong (not
 what you were expecting).}
+
+\item{query}{Deprecated, see \code{sci}}
 
 \item{...}{Curl options passed on to \link[crul:verb-GET]{crul::verb-GET} or
 \link[crul:verb-POST]{crul::verb-POST}. In addition, further named args passed
@@ -31,12 +33,12 @@ Name Resolution Service (TNRS), and the Global Names Resolver (GNR)
 }
 \examples{
 \dontrun{
-resolve(query=c("Helianthus annuus", "Homo sapiens"))
-resolve(query="Quercus keloggii", db='gnr')
-resolve(query=c("Helianthus annuus", "Homo sapiens"), db='tnrs')
-resolve(query=c("Helianthus annuus", "Homo sapiens"), db=c('iplant', 'gnr'))
-resolve(query="Quercus keloggii", db=c('iplant', 'gnr'))
-resolve(query="Quercus keloggii", db=c('iplant', 'gnr', 'tnrs'))
+resolve(sci=c("Helianthus annuus", "Homo sapiens"))
+resolve(sci="Quercus keloggii", db='gnr')
+resolve(sci=c("Helianthus annuus", "Homo sapiens"), db='tnrs')
+resolve(sci=c("Helianthus annuus", "Homo sapiens"), db=c('iplant', 'gnr'))
+resolve(sci="Quercus keloggii", db=c('iplant', 'gnr'))
+resolve(sci="Quercus keloggii", db=c('iplant', 'gnr', 'tnrs'))
 
 # pass in options specific to each source
 resolve("Helianthus annuus", db = 'gnr', preferred_data_sources = c(3, 4))
@@ -55,6 +57,6 @@ identical(
 )
 
 # pass in curl options
-resolve(query="Qercuss", db = "iplant", verbose = TRUE)
+resolve(sci="Qercuss", db = "iplant", verbose = TRUE)
 }
 }

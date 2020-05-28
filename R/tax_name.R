@@ -1,7 +1,7 @@
 #' Get taxonomic names for a given rank
 #'
 #' @export
-#' @param query (character) Vector of taxonomic names to query. required.
+#' @param sci (character) Vector of taxonomic names to query. required.
 #' @param get (character) The ranks of the taxonomic name to get, see
 #' [rank_ref()]. required.
 #' @param db (character) The database to search from: 'itis', 'ncbi' or 'both'.
@@ -12,6 +12,7 @@
 #' Either 'ncbi' (default) or 'itis'. Currently not implemented.
 #' @param messages (logical) If `TRUE` the actual taxon queried is printed
 #' on the console.
+#' @param query Deprecated, see `sci`
 #' @param ... Other arguments passed to [get_tsn()] or
 #' [get_uid()].
 #'
@@ -29,29 +30,31 @@
 #'
 #' @examples \dontrun{
 #' # A case where itis and ncbi use the same names
-#' tax_name(query = "Helianthus annuus", get = "family", db = "itis")
-#' tax_name(query = "Helianthus annuus", get = "family", db = "ncbi")
-#' tax_name(query = "Helianthus annuus", get = c("genus","family","order"),
+#' tax_name(sci = "Helianthus annuus", get = "family", db = "itis")
+#' tax_name(sci = "Helianthus annuus", get = "family", db = "ncbi")
+#' tax_name(sci = "Helianthus annuus", get = c("genus","family","order"),
 #'   db = "ncbi")
 #'
 #' # Case where itis and ncbi use different names
-#' tax_name(query = "Helianthus annuus", get = "kingdom", db = "itis")
-#' tax_name(query = "Helianthus annuus", get = "kingdom", db = "ncbi")
+#' tax_name(sci = "Helianthus annuus", get = "kingdom", db = "itis")
+#' tax_name(sci = "Helianthus annuus", get = "kingdom", db = "ncbi")
 #'
 #' # multiple rank arguments
-#' tax_name(query = c("Helianthus annuus","Baetis rhodani"), get = c("genus",
+#' tax_name(sci = c("Helianthus annuus","Baetis rhodani"), get = c("genus",
 #' "kingdom"), db = "ncbi")
-#' tax_name(query = c("Helianthus annuus","Baetis rhodani"), get = c("genus",
+#' tax_name(sci = c("Helianthus annuus","Baetis rhodani"), get = c("genus",
 #' "kingdom"), db = "itis")
 #'
 #' # query both sources
-#' tax_name(query=c("Helianthus annuus", 'Baetis rhodani'), get=c("genus",
+#' tax_name(sci=c("Helianthus annuus", 'Baetis rhodani'), get=c("genus",
 #' "kingdom"), db="both")
 #' }
 
-tax_name <- function(query, get, db = "itis", pref = 'ncbi', messages = TRUE,
-                     ...) {
+tax_name <- function(sci, get, db = "itis", pref = 'ncbi', messages = TRUE,
+                     query = NULL, ...) {
 
+  pchk(query, "sci")
+  if (!is.null(query)) sci <- query
   if (missing(get)) stop("you must supply a 'get' value", call. = FALSE)
   db <- match.arg(db, c('itis', 'ncbi', 'both'))
   if (db == 'both' && !pref %in% c('ncbi', 'itis')) {
@@ -72,7 +75,7 @@ tax_name <- function(query, get, db = "itis", pref = 'ncbi', messages = TRUE,
                    stringsAsFactors = FALSE), c("db", "query", get))
     }
   }
-  tmp = lapply(query, fun, get = get, db = db, messages = messages, ...)
+  tmp = lapply(sci, fun, get = get, db = db, messages = messages, ...)
   dt2df(tmp, idcol = FALSE)
 }
 

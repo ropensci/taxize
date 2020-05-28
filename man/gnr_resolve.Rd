@@ -5,7 +5,7 @@
 \title{Resolve names using Global Names Resolver}
 \usage{
 gnr_resolve(
-  names,
+  sci,
   data_source_ids = NULL,
   resolve_once = FALSE,
   with_context = FALSE,
@@ -17,11 +17,12 @@ gnr_resolve(
   http = "get",
   cap_first = TRUE,
   fields = "minimal",
+  names = NULL,
   ...
 )
 }
 \arguments{
-\item{names}{character; taxonomic names to be resolved. Doesn't work for
+\item{sci}{character; taxonomic names to be resolved. Doesn't work for
 vernacular/common names.}
 
 \item{data_source_ids}{character; IDs to specify what data source
@@ -66,6 +67,8 @@ If \code{FALSE}, names are not modified. Default: \code{TRUE}}
 
 \item{fields}{(character) One of minimal (default) or all. Minimal gives
 back just four fields, whereas all gives all fields back.}
+
+\item{names}{Deprecated, see \code{sci}}
 
 \item{...}{Curl options passed on to \link[crul:HttpClient]{crul::HttpClient}}
 }
@@ -128,8 +131,8 @@ is returned - if it has any results.
 
 \examples{
 \dontrun{
-gnr_resolve(names = c("Helianthus annuus", "Homo sapiens"))
-gnr_resolve(names = c("Asteraceae", "Plantae"))
+gnr_resolve(sci = c("Helianthus annuus", "Homo sapiens"))
+gnr_resolve(sci = c("Asteraceae", "Plantae"))
 
 # Using data source 12 (Encyclopedia of Life)
 sources <- gnr_datasources()
@@ -139,18 +142,18 @@ gnr_resolve(names=c("Helianthos annuus","Homo sapians"), data_source_ids=eol)
 
 # Two species in the NE Brazil catalogue
 sps <- c('Justicia brasiliana','Schinopsis brasiliensis')
-gnr_resolve(names = sps, data_source_ids = 145)
+gnr_resolve(sci = sps, data_source_ids = 145)
 
 # Best match only, compare the two
-gnr_resolve(names = "Helianthus annuus", best_match_only = FALSE)
-gnr_resolve(names = "Helianthus annuus", best_match_only = TRUE)
+gnr_resolve(sci = "Helianthus annuus", best_match_only = FALSE)
+gnr_resolve(sci = "Helianthus annuus", best_match_only = TRUE)
 
 # Preferred data source
-gnr_resolve(names = "Helianthus annuus", preferred_data_sources = c(3,4))
+gnr_resolve(sci = "Helianthus annuus", preferred_data_sources = c(3,4))
 
 # Return canonical names - default is canonical=FALSE
-head(gnr_resolve(names = "Helianthus annuus"))
-head(gnr_resolve(names = "Helianthus annuus", canonical=TRUE))
+head(gnr_resolve(sci = "Helianthus annuus"))
+head(gnr_resolve(sci = "Helianthus annuus", canonical=TRUE))
 
 # Return canonical names with authority stripped but
 # ranks still present

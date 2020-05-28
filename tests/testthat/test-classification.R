@@ -91,7 +91,7 @@ test_that("passing in an id works", {
 test_that("rbind and cbind work correctly", {
   skip_on_cran() # uses secrets
   vcr::use_cassette("classification_cbind_rbind", {
-    out <- get_ids(names = c("Puma concolor", "Accipiter striatus"),
+    out <- get_ids(c("Puma concolor", "Accipiter striatus"),
                    db = 'ncbi', messages = FALSE, suppress = TRUE)
     cl <- classification(out)
   })
@@ -124,7 +124,7 @@ test_that("works on a variety of names", {
 test_that("queries with no results fail well", {
   skip_on_cran()
   vcr::use_cassette("classification_no_results", {
-    aa <- classification(x = "foobar", db = "itis", messages = FALSE)
+    aa <- classification("foobar", db = "itis", messages = FALSE)
     bb <- classification(get_tsn("foobar", messages = FALSE), messages = FALSE)
   })
 

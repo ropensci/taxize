@@ -1,8 +1,7 @@
 #' Retrieve synonyms from various sources given input taxonomic
 #' names or identifiers
 #'
-#' @param x Vector of taxa names (character) or IDs (character or numeric) to
-#' query.
+#' @param sci_id Vector of taxa names (character) or IDs (character or numeric)
 #' @param db character; database to query. either `itis`, `tropicos`,
 #' `nbn`, `worms`, or `pow`. Note that each taxonomic data source has their own
 #' identifiers, so that if you provide the wrong `db` value for the identifier
@@ -14,6 +13,8 @@
 #' @param rows (numeric) Any number from 1 to infinity. If the default NA, all
 #' rows are considered. Note that this parameter is ignored if you pass in a
 #' taxonomic id of any of the acceptable classes: tsn, tpsid, nbnid, ids.
+#' @param x For `synonyms()`: deprecated, see `sci_id`. For `synonyms_df()`, 
+#' the output of `synonyms()`
 #' @param ... Other passed arguments to internal functions `get_*()` and
 #' functions to gather synonyms.
 #'
@@ -111,38 +112,40 @@ synonyms <- function(...) {
 
 #' @export
 #' @rdname synonyms
-synonyms.default <- function(x, db = NULL, rows = NA, ...) {
+synonyms.default <- function(sci_id, db = NULL, rows = NA, x = NULL, ...) {
   nstop(db)
+  pchk(x, "sci")
+  if (!is.null(x)) sci_id <- x
   switch(
     db,
     itis = {
-      id <- process_syn_ids(x, db, get_tsn, rows = rows, ...)
-      structure(stats::setNames(synonyms(id, ...), x),
+      id <- process_syn_ids(sci_id, db, get_tsn, rows = rows, ...)
+      structure(stats::setNames(synonyms(id, ...), sci_id),
                 class = "synonyms", db = "itis")
     },
     tropicos = {
-      id <- process_syn_ids(x, db, get_tpsid, rows = rows, ...)
-      structure(stats::setNames(synonyms(id, ...), x),
+      id <- process_syn_ids(sci_id, db, get_tpsid, rows = rows, ...)
+      structure(stats::setNames(synonyms(id, ...), sci_id),
                 class = "synonyms", db = "tropicos")
     },
     nbn = {
-      id <- process_syn_ids(x, db, get_nbnid, rows = rows, ...)
-      structure(stats::setNames(synonyms(id, ...), x),
+      id <- process_syn_ids(sci_id, db, get_nbnid, rows = rows, ...)
+      structure(stats::setNames(synonyms(id, ...), sci_id),
                 class = "synonyms", db = "nbn")
     },
     worms = {
-      id <- process_syn_ids(x, db, get_wormsid, rows = rows, ...)
-      structure(stats::setNames(synonyms(id, ...), x),
+      id <- process_syn_ids(sci_id, db, get_wormsid, rows = rows, ...)
+      structure(stats::setNames(synonyms(id, ...), sci_id),
                 class = "synonyms", db = "worms")
     },
     iucn = {
-      id <- process_syn_ids(x, db, get_iucn, ...)
-      structure(stats::setNames(synonyms(id, ...), x),
+      id <- process_syn_ids(sci_id, db, get_iucn, ...)
+      structure(stats::setNames(synonyms(id, ...), sci_id),
                 class = "synonyms", db = "iucn")
     },
     pow = {
-      id <- process_syn_ids(x, db, get_pow, ...)
-      structure(stats::setNames(synonyms(id, ...), x),
+      id <- process_syn_ids(sci_id, db, get_pow, ...)
+      structure(stats::setNames(synonyms(id, ...), sci_id),
                 class = "synonyms", db = "pow")
     },
     stop("the provided db value was not recognised", call. = FALSE)

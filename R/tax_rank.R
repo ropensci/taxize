@@ -1,7 +1,7 @@
 #' Get rank for a given taxonomic name.
 #'
 #' @export
-#' @param x (character) Vector of one or more taxon names (character) or
+#' @param sci_id (character) Vector of one or more taxon names (character) or
 #' IDs (character or numeric) to query. Or objects returned from `get_*()`
 #' functions like [get_tsn()]
 #' @param db (character) database to query. either `ncbi`, `itis`, `eol`,
@@ -12,14 +12,15 @@
 #' recommend getting an API key; see [taxize-authentication]
 #' @param rows numeric; Any number from 1 to infinity. If the default NA, 
 #' all rows are considered. passed down to `get_*()` functions.
+#' @param x Deprecated, see `sci_id`
 #' @param ... Additional arguments to [classification()]
 #' @return A named list of character vectors with ranks (all lower-cased)
 #' @note While [tax_name()] returns the name of a specified
 #' rank, [tax_rank()] returns the actual rank of the taxon.
 #' @seealso [classification()],[tax_name()]
 #' @examples \dontrun{
-#' tax_rank(x = "Helianthus annuus", db = "itis")
-#' tax_rank(x = "Helianthus annuus", db = "natserv")
+#' tax_rank("Helianthus annuus", db = "itis")
+#' tax_rank("Helianthus annuus", db = "natserv")
 #' tax_rank(get_tsn("Helianthus annuus"))
 #' tax_rank(c("Helianthus", "Pinus", "Poa"), db = "itis")
 #'
@@ -37,48 +38,50 @@
 #' tax_rank(c("Gadus morhua", "Lichenopora neapolitana"),
 #'   db = "worms")
 #' }
-tax_rank <- function(x, db = NULL, rows = NA, ...) {
+tax_rank <- function(sci_id, db = NULL, rows = NA, x = NULL, ...) {
   UseMethod("tax_rank")
 }
 
 #' @export
-tax_rank.default <- function(x, db = NULL, rows = NA, ...) {
-  stats::setNames(tax_rank_(x, ...), x)
+tax_rank.default <- function(sci_id, db = NULL, rows = NA, x = NULL, ...) {
+  stats::setNames(tax_rank_(sci_id, ...), sci_id)
 }
 
 #' @export
-tax_rank.character <- function(x, db = NULL, rows = NA, ...) {
+tax_rank.character <- function(sci_id, db = NULL, rows = NA, x = NULL, ...) {
   nstop(db)
   stopifnot(length(db) == 1)
+  pchk(x, "sci_id")
+  if (!is.null(x)) sci_id <- x
   switch(
     db,
-    bold = stats::setNames(tax_rank_(process_ids(x, db, get_boldid,
-      rows = rows), ...), x),
-    eol = stats::setNames(tax_rank_(process_ids(x, db, get_eolid,
-      rows = rows), ...), x),
-    gbif = stats::setNames(tax_rank_(process_ids(x, db, get_gbifid,
-      rows = rows), ...), x),
-    natserv = stats::setNames(tax_rank_(process_ids(x, db, get_natservid,
-      rows = rows), ...), x),
-    nbn = stats::setNames(tax_rank_(process_ids(x, db, get_nbnid,
-      rows = rows), ...), x),
-    tol = stats::setNames(tax_rank_(process_ids(x, db, get_tolid,
-      rows = rows), ...), x),
-    tropicos = stats::setNames(tax_rank_(process_ids(x, db, get_tpsid,
-      rows = rows), ...), x),
-    itis = stats::setNames(tax_rank_(process_ids(x, db, get_tsn,
-      rows = rows), ...), x),
-    ncbi = stats::setNames(tax_rank_(process_ids(x, db, get_uid,
-      rows = rows), ...), x),
-    worms = stats::setNames(tax_rank_(process_ids(x, db, get_wormsid,
-      rows = rows), ...), x),
+    bold = stats::setNames(tax_rank_(process_ids(sci_id, db, get_boldid,
+      rows = rows), ...), sci_id),
+    eol = stats::setNames(tax_rank_(process_ids(sci_id, db, get_eolid,
+      rows = rows), ...), sci_id),
+    gbif = stats::setNames(tax_rank_(process_ids(sci_id, db, get_gbifid,
+      rows = rows), ...), sci_id),
+    natserv = stats::setNames(tax_rank_(process_ids(sci_id, db, get_natservid,
+      rows = rows), ...), sci_id),
+    nbn = stats::setNames(tax_rank_(process_ids(sci_id, db, get_nbnid,
+      rows = rows), ...), sci_id),
+    tol = stats::setNames(tax_rank_(process_ids(sci_id, db, get_tolid,
+      rows = rows), ...), sci_id),
+    tropicos = stats::setNames(tax_rank_(process_ids(sci_id, db, get_tpsid,
+      rows = rows), ...), sci_id),
+    itis = stats::setNames(tax_rank_(process_ids(sci_id, db, get_tsn,
+      rows = rows), ...), sci_id),
+    ncbi = stats::setNames(tax_rank_(process_ids(sci_id, db, get_uid,
+      rows = rows), ...), sci_id),
+    worms = stats::setNames(tax_rank_(process_ids(sci_id, db, get_wormsid,
+      rows = rows), ...), sci_id),
     stop("the provided db value was not recognised", call. = FALSE)
   )
 }
 
 #' @export
-tax_rank.numeric <- function(x, db = NULL, rows = NA, ...) {
-  tax_rank(as.character(x), db, rows, ...)
+tax_rank.numeric <- function(sci_id, db = NULL, rows = NA, ...) {
+  tax_rank(as.character(sci_id), db, rows, ...)
 }
 
 # ---------

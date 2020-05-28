@@ -29,7 +29,7 @@ test_that("missing/wrong data given returns result", {
   skip_on_cran()
 
   expect_error(id2name(), "Must specify db")
-  expect_error(id2name(db = "tol"), "argument \"x\" is missing")
+  expect_error(id2name(db = "tol"), "argument \"id\" is missing")
   expect_error(id2name(5, db = "stuff"), "'db' must be one of")
   # requires HTTP request
   expect_warning(id2name(55555555, db = "tol"), "Bad Request")

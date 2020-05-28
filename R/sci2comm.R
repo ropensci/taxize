@@ -1,7 +1,7 @@
 #' Get common names from scientific names.
 #'
 #' @export
-#' @param scinames character; One or more scientific names or partial names.
+#' @param sci character; One or more scientific names or partial names.
 #' @param db character; Data source, one of `"ncbi"` (default),
 #' `"itis"` `"eol"`, `"worms"`, or `"iucn"`. Note that
 #' each taxonomic data source has their own identifiers,  so that if you
@@ -13,6 +13,7 @@
 #' If FALSE, return variable formats from different sources, usually a
 #' data.frame. Only applies to eol and itis. Specify `FALSE` to obtain
 #' the language of each vernacular in the output for eol and itis.
+#' @param scinames Deprecated, see `sci`
 #' @param ... Further arguments passed on to functions [get_uid()],
 #' [get_tsn()].
 #' @param id character; identifiers, as returned by [get_tsn()],
@@ -33,11 +34,11 @@
 #' @author Scott Chamberlain (myrmecocystus@@gmail.com)
 #'
 #' @examples \dontrun{
-#' sci2comm(scinames='Helianthus annuus')
-#' sci2comm(scinames='Helianthus annuus', db='eol')
-#' sci2comm(scinames='Helianthus annuus', db='itis')
-#' sci2comm(scinames=c('Helianthus annuus', 'Poa annua'))
-#' sci2comm(scinames='Puma concolor', db='ncbi')
+#' sci2comm(sci='Helianthus annuus')
+#' sci2comm(sci='Helianthus annuus', db='eol')
+#' sci2comm(sci='Helianthus annuus', db='itis')
+#' sci2comm(sci=c('Helianthus annuus', 'Poa annua'))
+#' sci2comm(sci='Puma concolor', db='ncbi')
 #' sci2comm('Gadus morhua', db='worms')
 #' sci2comm('Pomatomus saltatrix', db='worms')
 #' sci2comm('Loxodonta africana', db='iucn')
@@ -63,9 +64,13 @@ sci2comm <- function(...){
 #' @method sci2comm default
 #' @export
 #' @rdname sci2comm
-sci2comm.default <- function(scinames, db='ncbi', simplify=TRUE, ...) {
-  temp <- lapply(scinames, getsci, db = db, simplify = simplify, ...)
-  stats::setNames(temp, scinames)
+sci2comm.default <- function(sci, db='ncbi', simplify=TRUE,
+  scinames = NULL, ...) {
+
+  pchk(scinames, "sci")
+  if (!is.null(scinames)) sci <- scinames 
+  temp <- lapply(sci, getsci, db = db, simplify = simplify, ...)
+  stats::setNames(temp, sci)
 }
 
 #' @export

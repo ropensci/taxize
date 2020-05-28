@@ -12,24 +12,24 @@
 \usage{
 children(...)
 
-\method{children}{default}(x, db = NULL, rows = NA, ...)
+\method{children}{default}(sci_id, db = NULL, rows = NA, x = NULL, ...)
 
-\method{children}{tsn}(x, db = NULL, ...)
+\method{children}{tsn}(sci_id, db = NULL, ...)
 
-\method{children}{wormsid}(x, db = NULL, ...)
+\method{children}{wormsid}(sci_id, db = NULL, ...)
 
-\method{children}{ids}(x, db = NULL, ...)
+\method{children}{ids}(sci_id, db = NULL, ...)
 
-\method{children}{uid}(x, db = NULL, ...)
+\method{children}{uid}(sci_id, db = NULL, ...)
 
-\method{children}{boldid}(x, db = NULL, ...)
+\method{children}{boldid}(sci_id, db = NULL, ...)
 }
 \arguments{
 \item{...}{Further args passed on to \code{\link[ritis:hierarchy_down]{ritis::hierarchy_down()}},
 \code{\link[=ncbi_children]{ncbi_children()}}, \code{\link[worrms:wm_children]{worrms::wm_children()}}, \code{\link[=bold_children]{bold_children()}}
 See those functions for what parameters can be passed on.}
 
-\item{x}{Vector of taxa names (character) or IDs (character or numeric)
+\item{sci_id}{Vector of taxa names (character) or IDs (character or numeric)
 to query.}
 
 \item{db}{character; database to query. One or more of \code{itis},
@@ -43,6 +43,8 @@ getting an API key; see \link{taxize-authentication}}
 rows are considered. Note that this parameter is ignored if you pass in a
 taxonomic id of any of the acceptable classes: tsn. NCBI has a
 method for this function but rows doesn't work.}
+
+\item{x}{Deprecated, see \code{sci_id}}
 }
 \value{
 A named list of data.frames with the children names of every
@@ -85,7 +87,7 @@ children("Salmo", db = 'worms')
 children("Salmo", db = 'bold')
 
 # Plug in IDs
-(id <- get_wormsid("Platanista"))
+(id <- get_wormsid("Gadus"))
 children(id)
 
 # Many taxa

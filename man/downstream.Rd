@@ -13,12 +13,20 @@
 \usage{
 downstream(...)
 
-\method{downstream}{default}(x, db = NULL, downto = NULL, intermediate = FALSE, rows = NA, ...)
+\method{downstream}{default}(
+  sci_id,
+  db = NULL,
+  downto = NULL,
+  intermediate = FALSE,
+  rows = NA,
+  x = NULL,
+  ...
+)
 
-\method{downstream}{tsn}(x, db = NULL, downto = NULL, intermediate = FALSE, ...)
+\method{downstream}{tsn}(sci_id, db = NULL, downto = NULL, intermediate = FALSE, ...)
 
 \method{downstream}{gbifid}(
-  x,
+  sci_id,
   db = NULL,
   downto = NULL,
   intermediate = FALSE,
@@ -27,20 +35,20 @@ downstream(...)
   ...
 )
 
-\method{downstream}{uid}(x, db = NULL, downto = NULL, intermediate = FALSE, ...)
+\method{downstream}{uid}(sci_id, db = NULL, downto = NULL, intermediate = FALSE, ...)
 
-\method{downstream}{wormsid}(x, db = NULL, downto = NULL, intermediate = FALSE, ...)
+\method{downstream}{wormsid}(sci_id, db = NULL, downto = NULL, intermediate = FALSE, ...)
 
-\method{downstream}{boldid}(x, db = NULL, downto = NULL, intermediate = FALSE, ...)
+\method{downstream}{boldid}(sci_id, db = NULL, downto = NULL, intermediate = FALSE, ...)
 
-\method{downstream}{ids}(x, db = NULL, downto = NULL, intermediate = FALSE, ...)
+\method{downstream}{ids}(sci_id, db = NULL, downto = NULL, intermediate = FALSE, ...)
 }
 \arguments{
 \item{...}{Further args passed on to \code{\link[=itis_downstream]{itis_downstream()}},
 \code{\link[=gbif_downstream]{gbif_downstream()}}, \code{\link[=ncbi_downstream]{ncbi_downstream()}},
 \code{\link[=worms_downstream]{worms_downstream()}}, or \code{\link[=bold_downstream]{bold_downstream()}}}
 
-\item{x}{Vector of taxa names (character) or IDs (character or numeric)
+\item{sci_id}{Vector of taxa names (character) or IDs (character or numeric)
 to query.}
 
 \item{db}{character; database to query. One or more of \code{itis}, \code{gbif},
@@ -66,6 +74,8 @@ intermediate taxonomic groups. Default: \code{FALSE}}
 \item{rows}{(numeric) Any number from 1 to infinity. If the default NA, all
 rows are considered. Note that this parameter is ignored if you pass in a
 taxonomic id of any of the acceptable classes: tsn.}
+
+\item{x}{Deprecated, see \code{sci_id}}
 
 \item{limit}{Number of records to return}
 

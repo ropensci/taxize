@@ -2,12 +2,30 @@
 % Please edit documentation in R/comm2sci.R
 \name{comm2sci}
 \alias{comm2sci}
+\alias{comm2sci.default}
+\alias{comm2sci.tsn}
+\alias{comm2sci.uid}
 \title{Get scientific names from common names.}
 \usage{
-comm2sci(commnames, db = "ncbi", itisby = "search", simplify = TRUE, ...)
+comm2sci(...)
+
+\method{comm2sci}{default}(
+  com,
+  db = "ncbi",
+  itisby = "search",
+  simplify = TRUE,
+  commnames = NULL,
+  ...
+)
+
+\method{comm2sci}{tsn}(id, db = "ncbi", itisby = "search", simplify = TRUE, ...)
+
+\method{comm2sci}{uid}(id, db = "ncbi", itisby = "search", simplify = TRUE, ...)
 }
 \arguments{
-\item{commnames}{One or more common names or partial names.}
+\item{...}{Further arguments passed on to internal methods.}
+
+\item{com}{One or more common names or partial names.}
 
 \item{db}{Data source, one of \emph{"ncbi"} (default), \emph{"itis"},
 \emph{"tropicos"}, \emph{"eol"}, or \emph{"worms"}. If using ncbi, we
@@ -20,7 +38,9 @@ at beginning of names (begin), or at end of names (end).}
 If \code{FALSE}, return variable formats from different sources, usually a
 data.frame.}
 
-\item{...}{Further arguments passed on to internal methods.}
+\item{commnames}{Deprecated, see \code{com}}
+
+\item{id}{taxon identifiers, as returned by \code{\link[=get_tsn]{get_tsn()}} or \code{\link[=get_uid]{get_uid()}}}
 }
 \value{
 If \code{simplify=TRUE}, a list of scientific names, with list
@@ -50,12 +70,12 @@ the Entrez API. See \code{curl::curl_symbols('CURL_HTTP_VERSION')}
 
 \examples{
 \dontrun{
-comm2sci(commnames='american black bear')
-comm2sci(commnames='american black bear', simplify = FALSE)
-comm2sci(commnames='black bear', db='itis')
-comm2sci(commnames='american black bear', db='itis')
-comm2sci(commnames='annual blue grass', db='tropicos')
-comm2sci(commnames=c('annual blue grass','tree of heaven'), db='tropicos')
+comm2sci(com='american black bear')
+comm2sci(com='american black bear', simplify = FALSE)
+comm2sci(com='black bear', db='itis')
+comm2sci(com='american black bear', db='itis')
+comm2sci(com='annual blue grass', db='tropicos')
+comm2sci(com=c('annual blue grass','tree of heaven'), db='tropicos')
 comm2sci('blue whale', db = "worms")
 comm2sci(c('blue whale', 'dwarf surfclam'), db = "worms")
 

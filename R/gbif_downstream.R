@@ -1,7 +1,7 @@
 #' Retrieve all taxa names downstream in hierarchy for GBIF
 #'
 #' @export
-#' @param key A taxonomic serial number.
+#' @param id A taxonomic serial number.
 #' @param downto The taxonomic level you want to go down to. See examples below.
 #' 		The taxonomic level IS case sensitive, and you do have to spell it
 #' 		correctly. See `data(rank_ref)` for spelling.
@@ -10,6 +10,7 @@
 #' intermediate taxonomic groups. Default: FALSE
 #' @param limit Number of records to return
 #' @param start Record number to start at
+#' @param key Deprecated, see `id`
 #' @param ... Further args passed on to [gbif_name_usage()]
 #' @return data.frame of taxonomic information downstream to family from e.g.,
 #' 		Order, Class, etc., or if `intermediated=TRUE`, list of length two,
@@ -20,33 +21,36 @@
 #' You can see the type of name colleceted in the column `name_type`
 #' @examples \dontrun{
 #' ## the plant class Bangiophyceae
-#' gbif_downstream(key = 198, downto="genus")
-#' gbif_downstream(key = 198, downto="genus", intermediate=TRUE)
+#' gbif_downstream(id = 198, downto="genus")
+#' gbif_downstream(id = 198, downto="genus", intermediate=TRUE)
 #'
 #' # families downstream from the family Strepsiptera (twisted wing parasites)
-#' gbif_downstream(key = 1227, "family")
+#' gbif_downstream(id = 1227, "family")
 #' ## here, intermediate leads to the same result as the target
-#' gbif_downstream(key = 1227, "family", intermediate=TRUE)
+#' gbif_downstream(id = 1227, "family", intermediate=TRUE)
 #'
 #' # Lepidoptera
-#' gbif_downstream(key = 797, "family")
+#' gbif_downstream(id = 797, "family")
 #'
 #' # get species downstream from the genus Ursus
-#' gbif_downstream(key = 2433406, "species")
+#' gbif_downstream(id = 2433406, "species")
 #'
 #' # get tribes down from the family Apidae
-#' gbif_downstream(key = 7799978, downto="species")
-#' gbif_downstream(key = 7799978, downto="species", intermediate=TRUE)
+#' gbif_downstream(id = 7799978, downto="species")
+#' gbif_downstream(id = 7799978, downto="species", intermediate=TRUE)
 #' 
 #' # names that don't have canonicalname entries for some results
 #' # Myosotis: key 2925668
 #' key <- 2925668
-#' res <- gbif_downstream(key, downto = "species")
+#' res <- gbif_downstream(id, downto = "species")
 #' res2 <- downstream(key, db = "gbif", downto = "species")
 #' }
 
-gbif_downstream <- function(key, downto, intermediate = FALSE, limit = 100,
-  start = NULL, ...) {
+gbif_downstream <- function(id, downto, intermediate = FALSE, limit = 100,
+  start = NULL, key = NULL, ...) {
+
+  pchk(key, "id")
+  if (!is.null(key)) id <- key
 
   should_be('intermediate', intermediate, 'logical')
 
@@ -65,7 +69,7 @@ gbif_downstream <- function(key, downto, intermediate = FALSE, limit = 100,
   iter <- 0
   while (stop_ == "not") {
     iter <- iter + 1
-    temp <- dt2df(lapply(key, function(x) gbif_name_usage_clean(x)),
+    temp <- dt2df(lapply(id, function(x) gbif_name_usage_clean(x)),
       idcol = FALSE)
     tt <- dt2df(lapply(temp$key, function(x) gbif_name_usage_children(x,
       limit = limit, start = start, ...)), idcol = FALSE)
@@ -87,7 +91,7 @@ gbif_downstream <- function(key, downto, intermediate = FALSE, limit = 100,
       if (all(notout$rank == downto)) {
         stop_ <- "fam"
       } else {
-        key <- notout$key
+        id <- notout$key
         stop_ <- "not"
       }
     }

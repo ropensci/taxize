@@ -1,13 +1,14 @@
 #' Taxonomic IDs to taxonomic names
 #'
 #' @export
-#' @param x vector of taxonomic IDs (character or numeric)
+#' @param id vector of taxonomic IDs (character or numeric)
 #' @param db (character) database to query. One or more of `tol`, `itis`,
 #' `ncbi`, `worms`, `gbif`, or `bold`. Note that each
 #' taxonomic data source has their own  identifiers, so that if you provide
 #' the wrong `db` value for the identifier you could get a result,
 #' but it will likely be wrong (not what you were expecting). If using ncbi
 #' we recommend getting API keys; see [taxize-authentication]
+#' @param x Deprecated, see `id`
 #' @param ... Further args passed on to `tol_id2name` or
 #' [itis_getrecord], or other internal functions.
 #' See those functions for what parameters can be passed on.
@@ -43,17 +44,19 @@
 #' # BOLD
 #' id2name(88899, db = "bold")
 #' }
-id2name <- function(x, db = NULL, ...) UseMethod("id2name")
+id2name <- function(id, db = NULL, x = NULL, ...) UseMethod("id2name")
 
 #' @export
 #' @rdname id2name
-id2name.default <- function(x, db = NULL, ...) {
+id2name.default <- function(id, db = NULL, x = NULL, ...) {
   nstop(db)
+  pchk(x, "sci")
+  if (!is.null(x)) id <- x
   if (!db %in% id2name_sources) {
     stop("'db' must be one of ", paste(id2name_sources, collapse = ", "))
   }
-  id <- process_idn_ids(x, db)
-  stats::setNames(id2name(id, ...), x)
+  w <- process_idn_ids(id, db)
+  stats::setNames(id2name(w, ...), id)
 }
 
 id2name_sources <- c('tol', 'itis', 'ncbi', 'worms', 'gbif', 'bold')
@@ -68,13 +71,13 @@ process_idn_ids <- function(input, db) {
 # TOL
 #' @export
 #' @rdname id2name
-id2name.tolid <- function(x, ...) {
+id2name.tolid <- function(id, ...) {
   warn_db(list(...), "tol")
   fun <- function(y) {
     if (is.na(y)) NA_character_ else tol_id2name(as.numeric(y))
   }
-  out <- lapply(x, fun, ...)
-  names(out) <- x
+  out <- lapply(id, fun, ...)
+  names(out) <- id
   class(out) <- 'id2name'
   attr(out, 'db') <- 'tol'
   return(out)
@@ -94,13 +97,13 @@ itis_id2name <- function(x, ...) {
 
 #' @export
 #' @rdname id2name
-id2name.tsn <- function(x, ...) {
+id2name.tsn <- function(id, ...) {
   warn_db(list(...), "itis")
   fun <- function(y) {
     if (is.na(y)) NA_character_ else itis_id2name(y, ...)
   }
-  out <- lapply(x, fun, ...)
-  names(out) <- x
+  out <- lapply(id, fun, ...)
+  names(out) <- id
   class(out) <- 'id2name'
   attr(out, 'db') <- 'tsn'
   return(out)
@@ -129,13 +132,13 @@ ncbi_id2name <- function(x, ...) {
 
 #' @export
 #' @rdname id2name
-id2name.uid <- function(x, ...) {
+id2name.uid <- function(id, ...) {
   warn_db(list(...), "ncbi")
   fun <- function(y, ...) {
     if (is.na(y)) NA_character_ else ncbi_id2name(y, ...)
   }
-  out <- lapply(x, fun, ...)
-  names(out) <- x
+  out <- lapply(id, fun, ...)
+  names(out) <- id
   class(out) <- 'id2name'
   attr(out, 'db') <- 'ncbi'
   return(out)
@@ -153,13 +156,13 @@ worms_id2name <- function(x, ...) {
 
 #' @export
 #' @rdname id2name
-id2name.wormsid <- function(x, ...) {
+id2name.wormsid <- function(id, ...) {
   warn_db(list(...), "worms")
   fun <- function(y) {
     if (is.na(y)) NA_character_ else worms_id2name(y, ...)
   }
-  out <- lapply(x, fun, ...)
-  names(out) <- x
+  out <- lapply(id, fun, ...)
+  names(out) <- id
   class(out) <- 'id2name'
   attr(out, 'db') <- 'worms'
   return(out)
@@ -177,13 +180,13 @@ gbif_id2name <- function(x, ...) {
 
 #' @export
 #' @rdname id2name
-id2name.gbifid <- function(x, ...) {
+id2name.gbifid <- function(id, ...) {
   warn_db(list(...), "gbif")
   fun <- function(y) {
     if (is.na(y)) NA_character_ else gbif_id2name(y, ...)
   }
-  out <- lapply(x, fun, ...)
-  names(out) <- x
+  out <- lapply(id, fun, ...)
+  names(out) <- id
   class(out) <- 'id2name'
   attr(out, 'db') <- 'gbif'
   return(out)
@@ -200,13 +203,13 @@ bold_id2name <- function(x, ...) {
 
 #' @export
 #' @rdname id2name
-id2name.boldid <- function(x, ...) {
+id2name.boldid <- function(id, ...) {
   warn_db(list(...), "bold")
   fun <- function(y) {
     if (is.na(y)) NA_character_ else bold_id2name(y, ...)
   }
-  out <- lapply(x, fun, ...)
-  names(out) <- x
+  out <- lapply(id, fun, ...)
+  names(out) <- id
   class(out) <- 'id2name'
   attr(out, 'db') <- 'bold'
   return(out)

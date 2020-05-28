@@ -37,7 +37,7 @@ test_that("works with get_*() input", {
 test_that("tax_rank fails well", {
   skip_on_cran()
 
-  expect_error(tax_rank(), "argument \"x\" is missing")
+  expect_error(tax_rank(), "argument \"sci_id\" is missing")
   expect_error(tax_rank("aadfd"), "Must specify db!")
   expect_error(tax_rank("Asdfadsf", db = "asdfd"),
                "the provided db value was not recognised")

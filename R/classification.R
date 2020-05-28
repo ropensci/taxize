@@ -1,7 +1,7 @@
 #' Retrieve the taxonomic hierarchy for a given taxon ID.
 #'
 #' @export
-#' @param x Vector of taxa names (character) or IDs (character or numeric)
+#' @param sci_id Vector of taxa names (character) or IDs (character or numeric)
 #' to query. For `db = "eol"`, EOL expects you to pass it a taxon id, called
 #' `eolid` in the output of [get_eolid()]. 
 #' @param db character; database to query. either `ncbi`, `itis`, `eol`,
@@ -32,6 +32,7 @@
 #'   lookup for each query.
 #' @param max_tries (numeric) For NCBI queries, the number of times a particular
 #'   query will be attempted, assuming the first does not work.
+#' @param x Deprecated, see `sci_id`
 #'
 #' @return A named list of data.frames with the taxonomic classification of
 #'    every supplied taxa.
@@ -220,68 +221,70 @@ classification <- function(...){
 
 #' @export
 #' @rdname classification
-classification.default <- function(x, db = NULL, callopts = list(),
-                                   return_id = TRUE, rows = NA, ...) {
+classification.default <- function(sci_id, db = NULL, callopts = list(),
+                                   return_id = TRUE, rows = NA, x = NULL, ...) {
   nstop(db)
+  pchk(x, "sci_id")
   switch(
     db,
     itis = {
-      id <- process_ids(x, db, get_tsn, rows = rows, ...)
-      stats::setNames(classification(id, return_id = return_id, ...), x)
+      id <- process_ids(sci_id, db, get_tsn, rows = rows, ...)
+      stats::setNames(classification(id, return_id = return_id, ...), sci_id)
     },
     ncbi = {
-      id <- process_ids(x, db, get_uid, rows = rows)
+      id <- process_ids(sci_id, db, get_uid, rows = rows)
       stats::setNames(classification(id, callopts = callopts,
-        return_id = return_id), x)
+        return_id = return_id), sci_id)
     },
     eol = {
-      id <- process_ids(x, db, get_eolid, rows = rows, ...)
+      id <- process_ids(sci_id, db, get_eolid, rows = rows, ...)
       stats::setNames(classification(id, callopts = callopts,
-        return_id = return_id, ...), x)
+        return_id = return_id, ...), sci_id)
     },
     tropicos = {
-      id <- process_ids(x, db, get_tpsid, rows = rows, ...)
+      id <- process_ids(sci_id, db, get_tpsid, rows = rows, ...)
       stats::setNames(classification(id, callopts = callopts,
-        return_id = return_id, ...), x)
+        return_id = return_id, ...), sci_id)
     },
     gbif = {
-      id <- process_ids(x, db, get_gbifid, rows = rows, ...)
+      id <- process_ids(sci_id, db, get_gbifid, rows = rows, ...)
       stats::setNames(classification(id, callopts = callopts,
-        return_id = return_id, ...), x)
+        return_id = return_id, ...), sci_id)
     },
     nbn = {
-      id <- process_ids(x, db, get_nbnid, rows = rows, ...)
+      id <- process_ids(sci_id, db, get_nbnid, rows = rows, ...)
       stats::setNames(classification(id, callopts = callopts,
-        return_id = return_id, ...), x)
+        return_id = return_id, ...), sci_id)
     },
     tol = {
-      id <- process_ids(x, db, get_tolid, rows = rows, ...)
+      id <- process_ids(sci_id, db, get_tolid, rows = rows, ...)
       stats::setNames(classification(id, callopts = callopts,
-        return_id = return_id, ...), x)
+        return_id = return_id, ...), sci_id)
     },
     worms = {
-      id <- process_ids(x, db, get_wormsid, rows = rows, ...)
+      id <- process_ids(sci_id, db, get_wormsid, rows = rows, ...)
       stats::setNames(classification(id, callopts = callopts,
-        return_id = return_id, ...), x)
+        return_id = return_id, ...), sci_id)
     },
     natserv = {
-      id <- process_ids(x, db, get_natservid, rows = rows, ...)
+      id <- process_ids(sci_id, db, get_natservid, rows = rows, ...)
       stats::setNames(classification(id, callopts = callopts,
-        return_id = return_id, ...), x)
+        return_id = return_id, ...), sci_id)
     },
     bold = {
-      id <- process_ids(x, db, get_boldid, rows = rows, ...)
+      id <- process_ids(sci_id, db, get_boldid, rows = rows, ...)
       stats::setNames(classification(id, callopts = callopts,
-        return_id = return_id, ...), x)
+        return_id = return_id, ...), sci_id)
     },
     wiki = {
-      id <- process_ids(x, db, get_wiki, rows = rows, ...)
+      id <- process_ids(sci_id, db, get_wiki, rows = rows, ...)
       stats::setNames(classification(id, callopts = callopts,
-        return_id = return_id, ...), x)
+        return_id = return_id, ...), sci_id)
     },
     pow = {
-      id <- process_ids(x, db, get_pow, rows = rows, ...)
-      stats::setNames(classification(id, callopts = callopts, return_id = return_id, ...), x)
+      id <- process_ids(sci_id, db, get_pow, rows = rows, ...)
+      stats::setNames(classification(id, callopts = callopts,
+        return_id = return_id, ...), sci_id)
     },
     stop("the provided db value was not recognised", call. = FALSE)
   )

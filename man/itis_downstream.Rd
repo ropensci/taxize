@@ -4,10 +4,10 @@
 \alias{itis_downstream}
 \title{Retrieve all taxa names or TSNs downstream in hierarchy from given TSN.}
 \usage{
-itis_downstream(tsns, downto, intermediate = FALSE, ...)
+itis_downstream(id, downto, intermediate = FALSE, tsns = NULL, ...)
 }
 \arguments{
-\item{tsns}{A taxonomic serial number.}
+\item{id}{A taxonomic serial number.}
 
 \item{downto}{The taxonomic level you want to go down to. See examples below.
 The taxonomic level IS case sensitive, and you do have to spell it
@@ -16,6 +16,8 @@ correctly. See \code{data(rank_ref)} for spelling.}
 \item{intermediate}{(logical) If TRUE, return a list of length two with target
 taxon rank names, with additional list of data.frame's of intermediate
 taxonomic groups. Default: FALSE}
+
+\item{tsns}{Deprecated, see \code{id}}
 
 \item{...}{Further args passed on to \code{\link[ritis:rank_name]{ritis::rank_name()}} and
 \code{\link[ritis:hierarchy_down]{ritis::hierarchy_down()}}}
@@ -31,23 +33,23 @@ Retrieve all taxa names or TSNs downstream in hierarchy from given TSN.
 \examples{
 \dontrun{
 ## the plant class Bangiophyceae, tsn 846509
-itis_downstream(tsns = 846509, downto="genus")
-itis_downstream(tsns = 846509, downto="genus", intermediate=TRUE)
+itis_downstream(id = 846509, downto="genus")
+itis_downstream(id = 846509, downto="genus", intermediate=TRUE)
 
 # get families downstream from Acridoidea
-itis_downstream(tsns = 650497, "family")
+itis_downstream(id = 650497, "family")
 ## here, intermediate leads to the same result as the target
-itis_downstream(tsns = 650497, "family", intermediate=TRUE)
+itis_downstream(id = 650497, "family", intermediate=TRUE)
 
 # get species downstream from Ursus
-itis_downstream(tsns = 180541, "species")
+itis_downstream(id = 180541, "species")
 
 # get orders down from the Division Rhodophyta (red algae)
-itis_downstream(tsns = 660046, "order")
-itis_downstream(tsns = 660046, "order", intermediate=TRUE)
+itis_downstream(id = 660046, "order")
+itis_downstream(id = 660046, "order", intermediate=TRUE)
 
 # get tribes down from the family Apidae
-itis_downstream(tsns = 154394, downto="tribe")
-itis_downstream(tsns = 154394, downto="tribe", intermediate=TRUE)
+itis_downstream(id = 154394, downto="tribe")
+itis_downstream(id = 154394, downto="tribe", intermediate=TRUE)
 }
 }
