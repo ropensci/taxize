@@ -4,7 +4,7 @@ test_that("iucn_getname returns the correct value", {
   skip_on_cran()
       
   vcr::use_cassette("iucn_getname", {
-    temp <- sm(iucn_getname(name = "Cyanistes caeruleus", verbose = FALSE))
+    temp <- sm(iucn_getname("Cyanistes caeruleus", verbose = FALSE))
   })
 
   expect_equal(temp, "Cyanistes caeruleus")

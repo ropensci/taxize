@@ -4,7 +4,7 @@ test_that("comm2sci returns the correct values and classes", {
   skip_on_cran()
 
   tt <- suppressMessages(comm2sci(commnames='american black bear'))
-  uu <- suppressMessages(comm2sci(commnames='annual blue grass', 
+  uu <- suppressMessages(comm2sci('annual blue grass', 
     db='tropicos'))
   zz <- suppressMessages(comm2sci(c('blue whale', 'dwarf surfclam'),
     db = "worms"))
