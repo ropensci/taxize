@@ -36,7 +36,7 @@ test_that("passing in an id works", {
 test_that("queries with no results fail well", {
   skip_on_cran() # uses secrets
   vcr::use_cassette("children_no_results", {
-    aa <- children(x = "Saurauia", db = "itis", verbose = FALSE)
+    aa <- children("Saurauia", db = "itis", verbose = FALSE)
   })
   expect_equal(NROW(aa[[1]]), 0)
 })

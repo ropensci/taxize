@@ -5,7 +5,7 @@
 #' accepted or not.
 #'
 #' @export
-#' @param query Vector of quoted taxonomic names to search (character).
+#' @param sci Vector of quoted taxonomic names to search (character).
 #' @param source Specify the source you want to match names against. Defaults
 #' 		to just retrieve data from all sources. Options: NCBI, iPlant_TNRS,
 #'   	or MSW3. Only available when using getpost="POST".
@@ -21,6 +21,7 @@
 #' 		seconds. Use when doing many calls in a for loop ar lapply type call.
 #' @param splitby Number by which to split species list for querying the TNRS.
 #' @param messages Verbosity or not (default `TRUE`)
+#' @param query Deprecated, see `sci`
 #' @param ... Curl options to pass in [crul::verb-GET] or [crul::verb-POST]
 #'
 #' @return data.frame of results from TNRS plus the name submitted, with
@@ -33,26 +34,26 @@
 #' queries have no indication of a taxonomic name's authority. So if there
 #' is any chance of a homonym, you probably want to send the authority as
 #' well, or use [gnr_resolve()]. For example,
-#' `tnrs(query="Jussiaea linearis", source="iPlant_TNRS")` gives result of
+#' `tnrs(sci="Jussiaea linearis", source="iPlant_TNRS")` gives result of
 #' *Jussiaea linearis (Willd.) Oliv. ex Kuntze*, but there is a
 #' homonym. If you do
-#' `tnrs(query="Jussiaea linearis Hochst.", source="iPlant_TNRS")` you
+#' `tnrs(sci="Jussiaea linearis Hochst.", source="iPlant_TNRS")` you
 #' get a direct match for that name. So, beware that there's no indication
 #' of homonyms.
 #' @references <http://taxosaurus.org/>
 #' @seealso [gnr_resolve()]
 #' @examples \dontrun{
 #' mynames <- c("Helianthus annuus", "Poa annua", "Mimulus bicolor")
-#' tnrs(query = mynames, source = "iPlant_TNRS")
+#' tnrs(sci = mynames, source = "iPlant_TNRS")
 #'
 #' # Specifying the nomenclatural code to match against
 #' mynames <- c("Helianthus annuus", "Poa annua")
-#' tnrs(query = mynames, code = "ICBN")
+#' tnrs(sci = mynames, code = "ICBN")
 #'
 #' # You can specify multiple sources, by comma-separating them
 #' mynames <- c("Panthera tigris", "Eutamias minimus", "Magnifera indica",
 #' "Humbert humbert")
-#' tnrs(query = mynames, source = "NCBI,MSW3")
+#' tnrs(sci = mynames, source = "NCBI,MSW3")
 #'
 #' mynames <- c("Panthera tigris", "Eutamias minimus", "Magnifera indica",
 #'    "Humbert humbert", "Helianthus annuus", "Pinus contorta", "Poa annua",
@@ -63,14 +64,16 @@
 #'
 #' # Pass on curl options
 #' mynames <- c("Helianthus annuus", "Poa annua", "Mimulus bicolor")
-#' tnrs(query = mynames, source = "iPlant_TNRS", verbose = TRUE)
+#' tnrs(sci = mynames, source = "iPlant_TNRS", verbose = TRUE)
 #' }
 
-tnrs <- function(query = NA, source = NULL, code = NULL, getpost = "POST",
-                 sleep = 0, splitby = 30, messages = TRUE, ...) {
+tnrs <- function(sci, source = NULL, code = NULL, getpost = "POST",
+                 sleep = 0, splitby = 30, messages = TRUE, query = NULL, ...) {
 
   getpost <- tolower(getpost)
   getpost <- match.arg(getpost, c('get', 'post'))
+  pchk(query, "sci")
+  if (!is.null(query)) sci <- query
 
   mainfunc <- function(x, ...) {
     cli <- crul::HttpClient$new(tnrs_url, headers = tx_ual, opts = list(...))
@@ -129,20 +132,20 @@ tnrs <- function(query = NA, source = NULL, code = NULL, getpost = "POST",
     }), stringsAsFactors = FALSE)
   }
 
-  if (length(query) < 1 || all(is.na(query)))
+  if (length(sci) < 1 || all(is.na(sci)))
     stop("Please supply at least one name", call. = FALSE)
 
   if (
-    getpost == "get" && length(query) > 75 ||
-    length(query) > 30 && getpost == "post"
+    getpost == "get" && length(sci) > 75 ||
+    length(sci) > 30 && getpost == "post"
   ) {
-    species_split <- slice(query, by = splitby)
+    species_split <- slice(sci, by = splitby)
     out <- lapply(species_split, function(x) mainfunc(x, ...))
     tmp <- data.frame(rbindlist(out), stringsAsFactors = FALSE)
   } else {
-    tmp <- mainfunc(query, ...)
+    tmp <- mainfunc(sci, ...)
   }
-  tmp <- tmp[match(query, gsub("\r", "", tmp$submittedName)), ]
+  tmp <- tmp[match(sci, gsub("\r", "", tmp$submittedName)), ]
   tmp <- na.omit(tmp)
   row.names(tmp) <- NULL
   stats::setNames(tmp, tolower(names(tmp)))

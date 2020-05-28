@@ -290,7 +290,7 @@ ncbi_rate_limit_pause <- function(key) {
 # bar(z = "adf")
 taxize_ck <- conditionz::ConditionKeeper$new(times = 1, condition = "warning")
 pchk <- function(from, to, pkg_version = "v0.9.97") {
-  assert(from, "character")
+  assert(deparse(substitute(from)), "character")
   assert(to, "character")
   assert(pkg_version, "character")
   # & will be removed in a future version

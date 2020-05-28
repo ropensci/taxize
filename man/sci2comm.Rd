@@ -11,7 +11,7 @@
 \usage{
 sci2comm(...)
 
-\method{sci2comm}{default}(scinames, db = "ncbi", simplify = TRUE, ...)
+\method{sci2comm}{default}(sci, db = "ncbi", simplify = TRUE, scinames = NULL, ...)
 
 \method{sci2comm}{uid}(id, ...)
 
@@ -25,7 +25,7 @@ sci2comm(...)
 \item{...}{Further arguments passed on to functions \code{\link[=get_uid]{get_uid()}},
 \code{\link[=get_tsn]{get_tsn()}}.}
 
-\item{scinames}{character; One or more scientific names or partial names.}
+\item{sci}{character; One or more scientific names or partial names.}
 
 \item{db}{character; Data source, one of \code{"ncbi"} (default),
 \code{"itis"} \code{"eol"}, \code{"worms"}, or \code{"iucn"}. Note that
@@ -39,6 +39,8 @@ see \link{taxize-authentication}}
 If FALSE, return variable formats from different sources, usually a
 data.frame. Only applies to eol and itis. Specify \code{FALSE} to obtain
 the language of each vernacular in the output for eol and itis.}
+
+\item{scinames}{Deprecated, see \code{sci}}
 
 \item{id}{character; identifiers, as returned by \code{\link[=get_tsn]{get_tsn()}},
 \code{\link[=get_uid]{get_uid()}}.}
@@ -63,11 +65,11 @@ the Entrez API. See \code{curl::curl_symbols('CURL_HTTP_VERSION')}
 
 \examples{
 \dontrun{
-sci2comm(scinames='Helianthus annuus')
-sci2comm(scinames='Helianthus annuus', db='eol')
-sci2comm(scinames='Helianthus annuus', db='itis')
-sci2comm(scinames=c('Helianthus annuus', 'Poa annua'))
-sci2comm(scinames='Puma concolor', db='ncbi')
+sci2comm(sci='Helianthus annuus')
+sci2comm(sci='Helianthus annuus', db='eol')
+sci2comm(sci='Helianthus annuus', db='itis')
+sci2comm(sci=c('Helianthus annuus', 'Poa annua'))
+sci2comm(sci='Puma concolor', db='ncbi')
 sci2comm('Gadus morhua', db='worms')
 sci2comm('Pomatomus saltatrix', db='worms')
 sci2comm('Loxodonta africana', db='iucn')

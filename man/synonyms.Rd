@@ -16,7 +16,7 @@ names or identifiers}
 \usage{
 synonyms(...)
 
-\method{synonyms}{default}(x, db = NULL, rows = NA, ...)
+\method{synonyms}{default}(sci_id, db = NULL, rows = NA, x = NULL, ...)
 
 \method{synonyms}{tsn}(id, ...)
 
@@ -38,8 +38,7 @@ synonyms_df(x)
 \item{...}{Other passed arguments to internal functions \verb{get_*()} and
 functions to gather synonyms.}
 
-\item{x}{Vector of taxa names (character) or IDs (character or numeric) to
-query.}
+\item{sci_id}{Vector of taxa names (character) or IDs (character or numeric)}
 
 \item{db}{character; database to query. either \code{itis}, \code{tropicos},
 \code{nbn}, \code{worms}, or \code{pow}. Note that each taxonomic data source has their own
@@ -51,6 +50,9 @@ see \link{taxize-authentication}}
 \item{rows}{(numeric) Any number from 1 to infinity. If the default NA, all
 rows are considered. Note that this parameter is ignored if you pass in a
 taxonomic id of any of the acceptable classes: tsn, tpsid, nbnid, ids.}
+
+\item{x}{For \code{synonyms()}: deprecated, see \code{sci_id}. For \code{synonyms_df()},
+the output of \code{synonyms()}}
 
 \item{id}{character; identifiers, returned by \code{\link[=get_tsn]{get_tsn()}}, \code{\link[=get_tpsid]{get_tpsid()}},
 \code{\link[=get_nbnid]{get_nbnid()}}, \code{\link[=get_wormsid]{get_wormsid()}}, \code{\link[=get_pow]{get_pow()}}}

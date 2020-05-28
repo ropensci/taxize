@@ -4,10 +4,10 @@
 \alias{tax_rank}
 \title{Get rank for a given taxonomic name.}
 \usage{
-tax_rank(x, db = NULL, rows = NA, ...)
+tax_rank(sci_id, db = NULL, rows = NA, x = NULL, ...)
 }
 \arguments{
-\item{x}{(character) Vector of one or more taxon names (character) or
+\item{sci_id}{(character) Vector of one or more taxon names (character) or
 IDs (character or numeric) to query. Or objects returned from \verb{get_*()}
 functions like \code{\link[=get_tsn]{get_tsn()}}}
 
@@ -20,6 +20,8 @@ recommend getting an API key; see \link{taxize-authentication}}
 
 \item{rows}{numeric; Any number from 1 to infinity. If the default NA,
 all rows are considered. passed down to \verb{get_*()} functions.}
+
+\item{x}{Deprecated, see \code{sci_id}}
 
 \item{...}{Additional arguments to \code{\link[=classification]{classification()}}}
 }
@@ -35,8 +37,8 @@ rank, \code{\link[=tax_rank]{tax_rank()}} returns the actual rank of the taxon.
 }
 \examples{
 \dontrun{
-tax_rank(x = "Helianthus annuus", db = "itis")
-tax_rank(x = "Helianthus annuus", db = "natserv")
+tax_rank("Helianthus annuus", db = "itis")
+tax_rank("Helianthus annuus", db = "natserv")
 tax_rank(get_tsn("Helianthus annuus"))
 tax_rank(c("Helianthus", "Pinus", "Poa"), db = "itis")
 

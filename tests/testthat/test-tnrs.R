@@ -4,7 +4,7 @@ test_that("tnrs works", {
   skip_on_cran()
   mynames <- c("Helianthus annuus", "Poa annua", "Mimulus bicolor")
   vcr::use_cassette("tnrs", {
-    out <- tnrs(query = mynames, source = "iPlant_TNRS", messages = FALSE)
+    out <- tnrs(mynames, source = "iPlant_TNRS", messages = FALSE)
   })
 
   expect_equal(ncol(out), 7)

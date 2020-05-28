@@ -68,7 +68,7 @@ test_that("works on a variety of names", {
 test_that("queries with no results fail well", {
   skip_on_cran()
   vcr::use_cassette("classification_pow_no_results", {
-    aa <- classification(x = "foobar", db = "pow", messages = FALSE)
+    aa <- classification("foobar", db = "pow", messages = FALSE)
     bb <- classification(get_pow("foobar", messages = FALSE), messages = FALSE)
   })
 

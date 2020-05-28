@@ -5,16 +5,17 @@
 \title{Retrieve all taxa names downstream in hierarchy for GBIF}
 \usage{
 gbif_downstream(
-  key,
+  id,
   downto,
   intermediate = FALSE,
   limit = 100,
   start = NULL,
+  key = NULL,
   ...
 )
 }
 \arguments{
-\item{key}{A taxonomic serial number.}
+\item{id}{A taxonomic serial number.}
 
 \item{downto}{The taxonomic level you want to go down to. See examples below.
 The taxonomic level IS case sensitive, and you do have to spell it
@@ -27,6 +28,8 @@ intermediate taxonomic groups. Default: FALSE}
 \item{limit}{Number of records to return}
 
 \item{start}{Record number to start at}
+
+\item{key}{Deprecated, see \code{id}}
 
 \item{...}{Further args passed on to \code{\link[=gbif_name_usage]{gbif_name_usage()}}}
 }
@@ -46,28 +49,28 @@ You can see the type of name colleceted in the column \code{name_type}
 \examples{
 \dontrun{
 ## the plant class Bangiophyceae
-gbif_downstream(key = 198, downto="genus")
-gbif_downstream(key = 198, downto="genus", intermediate=TRUE)
+gbif_downstream(id = 198, downto="genus")
+gbif_downstream(id = 198, downto="genus", intermediate=TRUE)
 
 # families downstream from the family Strepsiptera (twisted wing parasites)
-gbif_downstream(key = 1227, "family")
+gbif_downstream(id = 1227, "family")
 ## here, intermediate leads to the same result as the target
-gbif_downstream(key = 1227, "family", intermediate=TRUE)
+gbif_downstream(id = 1227, "family", intermediate=TRUE)
 
 # Lepidoptera
-gbif_downstream(key = 797, "family")
+gbif_downstream(id = 797, "family")
 
 # get species downstream from the genus Ursus
-gbif_downstream(key = 2433406, "species")
+gbif_downstream(id = 2433406, "species")
 
 # get tribes down from the family Apidae
-gbif_downstream(key = 7799978, downto="species")
-gbif_downstream(key = 7799978, downto="species", intermediate=TRUE)
+gbif_downstream(id = 7799978, downto="species")
+gbif_downstream(id = 7799978, downto="species", intermediate=TRUE)
 
 # names that don't have canonicalname entries for some results
 # Myosotis: key 2925668
 key <- 2925668
-res <- gbif_downstream(key, downto = "species")
+res <- gbif_downstream(id, downto = "species")
 res2 <- downstream(key, db = "gbif", downto = "species")
 }
 }

@@ -8,7 +8,7 @@
 #' ourselves here.
 #'
 #' @export
-#' @param x Vector of taxa names (character) or IDs (character or numeric)
+#' @param sci_id Vector of taxa names (character) or IDs (character or numeric)
 #' to query.
 #' @param db character; database to query. One or more of `itis`, `gbif`,
 #' `ncbi`, `worms`, or `bold`. Note that each taxonomic  data source has
@@ -32,6 +32,7 @@
 #' taxonomic id of any of the acceptable classes: tsn.
 #' @param limit Number of records to return
 #' @param start Record number to start at
+#' @param x Deprecated, see `sci_id`
 #' @param ... Further args passed on to [itis_downstream()],
 #' [gbif_downstream()], [ncbi_downstream()],
 #' [worms_downstream()], or [bold_downstream()]
@@ -93,36 +94,38 @@ downstream <- function(...){
 
 #' @export
 #' @rdname downstream
-downstream.default <- function(x, db = NULL, downto = NULL,
-                               intermediate = FALSE, rows=NA, ...) {
+downstream.default <- function(sci_id, db=NULL, downto=NULL,
+                               intermediate=FALSE, rows=NA, x=NULL, ...) {
   nstop(downto, "downto")
   nstop(db)
+  pchk(x, "sci_id")
+  if (!is.null(x)) sci_id <- x
   switch(
     db,
     itis = {
-      id <- process_stream_ids(x, db, get_tsn, rows = rows, ...)
+      id <- process_stream_ids(sci_id, db, get_tsn, rows = rows, ...)
       stats::setNames(downstream(id, downto = tolower(downto),
-                                 intermediate = intermediate, ...), x)
+                                 intermediate = intermediate, ...), sci_id)
     },
     gbif = {
-      id <- process_stream_ids(x, db, get_gbifid, rows = rows, ...)
+      id <- process_stream_ids(sci_id, db, get_gbifid, rows = rows, ...)
       stats::setNames(downstream(id, downto = tolower(downto),
-                                 intermediate = intermediate, ...), x)
+                                 intermediate = intermediate, ...), sci_id)
     },
     ncbi = {
-      id <- process_stream_ids(x, db, get_uid, rows = rows, ...)
+      id <- process_stream_ids(sci_id, db, get_uid, rows = rows, ...)
       stats::setNames(downstream(id, downto = tolower(downto),
-                                 intermediate = intermediate, ...), x)
+                                 intermediate = intermediate, ...), sci_id)
     },
     worms = {
-      id <- process_stream_ids(x, db, get_wormsid, rows = rows, ...)
+      id <- process_stream_ids(sci_id, db, get_wormsid, rows = rows, ...)
       stats::setNames(downstream(id, downto = tolower(downto),
-                                 intermediate = intermediate, ...), x)
+                                 intermediate = intermediate, ...), sci_id)
     },
     bold = {
-      id <- process_stream_ids(as.character(x), db, get_boldid, rows = rows, ...)
+      id <- process_stream_ids(as.character(sci_id), db, get_boldid, rows = rows, ...)
       stats::setNames(downstream(id, downto = tolower(downto),
-                                 intermediate = intermediate, ...), x)
+                                 intermediate = intermediate, ...), sci_id)
     },
     stop("the provided db value was not recognised/is not supported",
          call. = FALSE)
@@ -146,7 +149,7 @@ process_stream_ids <- function(input, db, fxn, ...){
 
 #' @export
 #' @rdname downstream
-downstream.tsn <- function(x, db = NULL, downto = NULL,
+downstream.tsn <- function(sci_id, db = NULL, downto = NULL,
                            intermediate = FALSE, ...) {
   warn_db(list(db = db), "itis")
   fun <- function(y, downto, intermediate, ...) {
@@ -154,17 +157,17 @@ downstream.tsn <- function(x, db = NULL, downto = NULL,
     if (is.na(y)) {
       NA
     } else {
-		  itis_downstream(tsns = y, downto = downto,
+		  itis_downstream(y, downto = downto,
 		                  intermediate = intermediate, ...)
     }
   }
-  out <- lapply(x, fun, downto = downto, intermediate = intermediate, ...)
-  structure(out, class = 'downstream', db = 'itis', .Names = x)
+  out <- lapply(sci_id, fun, downto = downto, intermediate = intermediate, ...)
+  structure(out, class = 'downstream', db = 'itis', .Names = sci_id)
 }
 
 #' @export
 #' @rdname downstream
-downstream.gbifid <- function(x, db = NULL, downto = NULL,
+downstream.gbifid <- function(sci_id, db = NULL, downto = NULL,
                               intermediate = FALSE, limit = 100,
                               start = NULL, ...) {
   warn_db(list(db = db), "gbif")
@@ -173,19 +176,19 @@ downstream.gbifid <- function(x, db = NULL, downto = NULL,
     if (is.na(y)) {
       NA
     } else {
-      gbif_downstream(key = y, downto = downto,
+      gbif_downstream(y, downto = downto,
                       intermediate = intermediate, limit = limit,
                       start = start, ...)
     }
   }
-  out <- lapply(x, fun, downto = downto, intermediate = intermediate,
+  out <- lapply(sci_id, fun, downto = downto, intermediate = intermediate,
     limit = limit, start = start, ...)
   structure(out, class = 'downstream', db = 'gbif')
 }
 
 #' @export
 #' @rdname downstream
-downstream.uid <- function(x, db = NULL, downto = NULL,
+downstream.uid <- function(sci_id, db = NULL, downto = NULL,
                               intermediate = FALSE, ...) {
   warn_db(list(db = db), "ncbi")
   fun <- function(y, downto, intermediate, ...){
@@ -197,13 +200,13 @@ downstream.uid <- function(x, db = NULL, downto = NULL,
                       intermediate = intermediate, ...)
     }
   }
-  out <- lapply(x, fun, downto = downto, intermediate = intermediate, ...)
+  out <- lapply(sci_id, fun, downto = downto, intermediate = intermediate, ...)
   structure(out, class = 'downstream', db = 'ncbi')
 }
 
 #' @export
 #' @rdname downstream
-downstream.wormsid <- function(x, db = NULL, downto = NULL,
+downstream.wormsid <- function(sci_id, db = NULL, downto = NULL,
                               intermediate = FALSE, ...) {
   warn_db(list(db = db), "worms")
   fun <- function(y, downto, intermediate, ...){
@@ -215,13 +218,13 @@ downstream.wormsid <- function(x, db = NULL, downto = NULL,
                       intermediate = intermediate, ...)
     }
   }
-  out <- lapply(x, fun, downto = downto, intermediate = intermediate, ...)
+  out <- lapply(sci_id, fun, downto = downto, intermediate = intermediate, ...)
   structure(out, class = 'downstream', db = 'worms')
 }
 
 #' @export
 #' @rdname downstream
-downstream.boldid <- function(x, db = NULL, downto = NULL,
+downstream.boldid <- function(sci_id, db = NULL, downto = NULL,
                               intermediate = FALSE, ...) {
   warn_db(list(db = db), "bold")
   fun <- function(y, downto, intermediate, ...){
@@ -233,13 +236,13 @@ downstream.boldid <- function(x, db = NULL, downto = NULL,
                       intermediate = intermediate, ...)
     }
   }
-  out <- lapply(x, fun, downto = downto, intermediate = intermediate, ...)
+  out <- lapply(sci_id, fun, downto = downto, intermediate = intermediate, ...)
   structure(out, class = 'downstream', db = 'bold')
 }
 
 #' @export
 #' @rdname downstream
-downstream.ids <- function(x, db = NULL, downto = NULL,
+downstream.ids <- function(sci_id, db = NULL, downto = NULL,
                            intermediate = FALSE, ...) {
   fun <- function(y, downto, intermediate, ...){
     # return NA if NA is supplied
@@ -249,7 +252,7 @@ downstream.ids <- function(x, db = NULL, downto = NULL,
       downstream(y, downto = downto, intermediate = intermediate, ...)
     }
   }
-  structure(lapply(x, fun, downto = downto, intermediate = intermediate, ...),
+  structure(lapply(sci_id, fun, downto = downto, intermediate = intermediate, ...),
             class = 'downstream_ids')
 }
 

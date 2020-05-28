@@ -4,13 +4,14 @@
 #' Name Resolution Service (TNRS), and the Global Names Resolver (GNR)
 #'
 #' @export
-#' @param query Vector of one or more taxonomic names (common names not 
+#' @param sci Vector of one or more taxonomic names (common names not 
 #' supported)
 #' @param db Source to check names against. One of iplant, tnrs, or gnr. 
 #' Default: gnr. Note that each taxonomic data source has their own 
 #' identifiers, so that if you provide the wrong `db` value for the 
 #' identifier you could get a result, but it will likely be wrong (not 
 #' what you were expecting).
+#' @param query Deprecated, see `sci`
 #' @param ... Curl options passed on to [crul::verb-GET] or 
 #' [crul::verb-POST]. In addition, further named args passed 
 #' on to  each respective function. See examples
@@ -18,12 +19,12 @@
 #' of sources requested), with each element being a data.frame or list 
 #' with results from that source.
 #' @examples \dontrun{
-#' resolve(query=c("Helianthus annuus", "Homo sapiens"))
-#' resolve(query="Quercus keloggii", db='gnr')
-#' resolve(query=c("Helianthus annuus", "Homo sapiens"), db='tnrs')
-#' resolve(query=c("Helianthus annuus", "Homo sapiens"), db=c('iplant', 'gnr'))
-#' resolve(query="Quercus keloggii", db=c('iplant', 'gnr'))
-#' resolve(query="Quercus keloggii", db=c('iplant', 'gnr', 'tnrs'))
+#' resolve(sci=c("Helianthus annuus", "Homo sapiens"))
+#' resolve(sci="Quercus keloggii", db='gnr')
+#' resolve(sci=c("Helianthus annuus", "Homo sapiens"), db='tnrs')
+#' resolve(sci=c("Helianthus annuus", "Homo sapiens"), db=c('iplant', 'gnr'))
+#' resolve(sci="Quercus keloggii", db=c('iplant', 'gnr'))
+#' resolve(sci="Quercus keloggii", db=c('iplant', 'gnr', 'tnrs'))
 #'
 #' # pass in options specific to each source
 #' resolve("Helianthus annuus", db = 'gnr', preferred_data_sources = c(3, 4))
@@ -42,20 +43,22 @@
 #' )
 #'
 #' # pass in curl options
-#' resolve(query="Qercuss", db = "iplant", verbose = TRUE)
+#' resolve(sci="Qercuss", db = "iplant", verbose = TRUE)
 #' }
-resolve <- function(query, db = 'gnr', ...) {
+resolve <- function(sci, db = 'gnr', query = NULL, ...) {
+  pchk(query, "sci")
+  if (!is.null(query)) sci <- query
   db <- match.arg(db, choices = c('iplant', 'gnr', 'tnrs'), 
     several.ok = TRUE)
   foo <- function(x, y, ...){
     res <- switch(x,
-      gnr = tryDefault(gnr_resolve(names = y, ...)),
-      tnrs = tryDefault(tnrs(query = y, ...)),
-      iplant = tryDefault(iplant_resolve(query = y, ...))
+      gnr = tryDefault(gnr_resolve(sci = y, ...)),
+      tnrs = tryDefault(tnrs(sci = y, ...)),
+      iplant = tryDefault(iplant_resolve(sci = y, ...))
     )
     if (is.null(res)) "Error: no data found" else res
   }
-  stats::setNames(lapply(db, function(z) foo(z, query, ...)), db)
+  stats::setNames(lapply(db, function(z) foo(z, sci, ...)), db)
 }
 
 tryDefault <- function(expr, default = NULL, quiet = TRUE) {

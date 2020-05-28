@@ -9,16 +9,16 @@
 \usage{
 upstream(...)
 
-\method{upstream}{default}(x, db = NULL, upto = NULL, rows = NA, ...)
+\method{upstream}{default}(sci_id, db = NULL, upto = NULL, rows = NA, x = NULL, ...)
 
-\method{upstream}{tsn}(x, db = NULL, upto = NULL, ...)
+\method{upstream}{tsn}(sci_id, db = NULL, upto = NULL, ...)
 
-\method{upstream}{ids}(x, db = NULL, upto = NULL, ...)
+\method{upstream}{ids}(sci_id, db = NULL, upto = NULL, ...)
 }
 \arguments{
 \item{...}{Further args passed on to \code{\link[=itis_downstream]{itis_downstream()}}}
 
-\item{x}{Vector of taxa names (character) or IDs (character or numeric) to
+\item{sci_id}{Vector of taxa names (character) or IDs (character or numeric) to
 query.}
 
 \item{db}{character; database to query. One or both of \code{itis}. Note
@@ -37,6 +37,8 @@ it will likely be wrong (not what you were expecting).}
 \item{rows}{(numeric) Any number from 1 to infinity. If the default NA, all
 rows are considered. Note that this parameter is ignored if you pass in a
 taxonomic id of any of the acceptable classes: tsn.}
+
+\item{x}{Deprecated, see \code{sci_id}}
 }
 \value{
 A named list of data.frames with the upstream names of every
@@ -51,6 +53,6 @@ the function.
 }
 \examples{
 \dontrun{
-upstream(x='Pinus contorta', db = 'itis', upto = 'genus')
+upstream('Pinus contorta', db = 'itis', upto = 'genus')
 }
 }
