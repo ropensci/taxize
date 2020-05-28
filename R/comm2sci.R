@@ -65,9 +65,9 @@ comm2sci.default <- function(commnames, db='ncbi', itisby='search',
 sci_from_comm <- function(nn, db, simplify, itisby, ...) {
   switch(
     db,
-    eol = c2s_eol(terms = nn, simplify, ...),
+    eol = c2s_eol(sci = nn, simplify, ...),
     itis = c2s_itis(nn, itisby, simplify, ...),
-    tropicos = c2s_tp(simplify, commonname = nn, ...),
+    tropicos = c2s_tp(simplify, com = nn, ...),
     ncbi = {
       ids <- get_uid(nn, modifier = "Common Name", ...)
       c2s_ncbi(ids, ...)
