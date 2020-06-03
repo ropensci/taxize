@@ -7,12 +7,15 @@
 apg_lookup(taxa, rank = "family")
 }
 \arguments{
-\item{taxa}{(character) Taxonomic name to lookup a synonym for in APGIII taxonomy.}
+\item{taxa}{(character) Taxonomic name to lookup a synonym for
+in APGIII taxonomy.}
 
-\item{rank}{(character) Taxonomic rank to lookup a synonym for. One of family or order.}
+\item{rank}{(character) Taxonomic rank to lookup a synonym for. One of
+family or order.}
 }
 \value{
-A APGIII family or order name, or the original name if no match.
+A APGIII family or order name, the original name if the name
+is the same as APG has, or NA if no match found
 }
 \description{
 Lookup in the APGIII taxonomy and replace family names
@@ -21,16 +24,25 @@ Lookup in the APGIII taxonomy and replace family names
 Internally in this function, we use the datasets \link{apg_families}
 and \link{apg_orders} - see their descriptions for the data in them.
 The functions \code{\link[=apgOrders]{apgOrders()}} \code{\link[=apgFamilies]{apgFamilies()}} are for scraping
-current content from the \url{http://www.mobot.org/MOBOT/research/APweb/} website.
+current content from the \url{http://www.mobot.org/MOBOT/research/APweb/}
+website
 
-BEWARE: The datasets used in this function are (I think) from Version 12 of the data
-on \url{http://www.mobot.org/MOBOT/research/APweb/} - I'll update data asap.
+The datasets used in this function are from the most recent version of
+APGIII, Version 14 (http://www.mobot.org/MOBOT/research/APweb/)
 }
 \examples{
 # New name found
 apg_lookup(taxa = "Hyacinthaceae", rank = "family")
+# Name is the same
 apg_lookup(taxa = "Poaceae", rank = "family")
-
-# Name not found
 apg_lookup(taxa = "Asteraceae", rank = "family")
+# Name not found
+apg_lookup(taxa = "Foobar", rank = "family")
+
+# New name found
+apg_lookup(taxa = "Acerales", rank = "order")
+# Name is the same
+apg_lookup(taxa = "Acorales", rank = "order")
+# Name not found
+apg_lookup(taxa = "Foobar", rank = "order")
 }

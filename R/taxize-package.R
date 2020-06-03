@@ -131,14 +131,23 @@ NULL
 #' Family names and their replacements from the Angiosperm Phylogeny
 #' Website system of flowering plant classification.
 #'
-#' This dataset is from Version 13, incorporated on 2015-04-29.
-#'
-#' @format A data frame with 1597 rows and 4 variables:
+#' This dataset is from Version 14, incorporated on 2020-06-03, 
+#' generated using [apgFamilies()]
 #' 
-#'   * `original` original data record from APG website
-#'   * `this` Order name
-#'   * `that` Replacement order name
-#'   * `order` Order name
+#' (update script in inst/ignore/apg_script.R)
+#'
+#' @format A data frame with 1705 rows and 6 variables:
+#' 
+#' * `family`: family name
+#' * `synonym`: if `accepted=FALSE`, this is the accepted name;
+#' if `accepted=TRUE`, this is `NA`, and the name in `family` is accepted
+#' * `order`: order name for the family
+#' * `accepted`: logical, if name in `family` column is accepted or not
+#' * `original`: original data record from APG website, mapping
+#' name in `family` column to a new name, if there is one
+#' * `accepted_name`: accepted name. accepted names, combining those that
+#' are accepted from `family` column, with the new name from `synonym`
+#' if applicable
 #' 
 #' @source <http://www.mobot.org/MOBOT/research/APweb/>
 #' @name apg_families
@@ -151,13 +160,22 @@ NULL
 #' Order names and their replacements from the Angiosperm Phylogeny
 #' Website system of flowering plant classification.
 #'
-#' This dataset is from Version 13, incorporated on 2015-04-29.
-#'
-#' @format A data frame with 494 rows and 3 variables:
+#' This dataset is from Version 14, incorporated on 2020-06-03, 
+#' generated using [apgOrders()]
 #' 
-#'   * `original` original data record from APG website
-#'   * `this` Order name
-#'   * `that` Replacement order name
+#' (update script in inst/ignore/apg_script.R)
+#'
+#' @format A data frame with 576 rows and 5 variables:
+#' 
+#' * `order`: order name
+#' * `synonym`: if `accepted=FALSE`, this is the accepted name;
+#' if `accepted=TRUE`, this is `NA`, and the name in `order` is accepted
+#' * `accepted`: logical, if name in `order` column is accepted or not
+#' * `original`: original data record from APG website, mapping
+#' name in `order` column to a new name, if there is one
+#' * `accepted_name`: accepted name. accepted names, combining those that
+#' are accepted from `order` column, with the new name from `synonym`
+#' if applicable
 #' 
 #' @source <http://www.mobot.org/MOBOT/research/APweb/>
 #' @name apg_orders
