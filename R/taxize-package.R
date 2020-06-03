@@ -133,6 +133,8 @@ NULL
 #'
 #' This dataset is from Version 14, incorporated on 2020-06-03, 
 #' generated using [apgFamilies()]
+#' 
+#' (update script in inst/ignore/apg_script.R)
 #'
 #' @format A data frame with 1705 rows and 6 variables:
 #' 
@@ -160,6 +162,8 @@ NULL
 #'
 #' This dataset is from Version 14, incorporated on 2020-06-03, 
 #' generated using [apgOrders()]
+#' 
+#' (update script in inst/ignore/apg_script.R)
 #'
 #' @format A data frame with 576 rows and 5 variables:
 #' 
