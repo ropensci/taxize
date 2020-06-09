@@ -43,7 +43,7 @@ Advanced users can also download and install the latest development copy from [G
 This is a common task in biology. We often have a list of species names and we want to know a) if we have the most up to date names, b) if our names are spelled correctly, and c) the scientific name for a common name. One way to resolve names is via the Global Names Resolver (GNR) service provided by the [Encyclopedia of Life][eol]. Here, we are searching for two misspelled names:
 
 ```{r resolvenames}
-temp <- gnr_resolve(names = c("Helianthos annus", "Homo saapiens"))
+temp <- gnr_resolve(c("Helianthos annus", "Homo saapiens"))
 head(temp)
 ```
 
@@ -52,7 +52,7 @@ The correct spellings are *Helianthus annuus* and *Homo sapiens*. Another approa
 ```{r tnrs, cache=TRUE}
 mynames <- c("Helianthus annuus", "Pinus contort", "Poa anua", "Abis magnifica",
   	"Rosa california", "Festuca arundinace", "Sorbus occidentalos","Madia sateva")
-tnrs(query = mynames, source = "iPlant_TNRS")[ , -c(5:7)]
+tnrs(mynames, source = "iPlant_TNRS")[ , -c(5:7)]
 ```
 
 It turns out there are a few corrections: e.g., *Madia sateva* should be *Madia sativa*, and *Rosa california* should be *Rosa californica*. Note that this search worked because fuzzy matching was employed to retrieve names that were close, but not exact matches. Fuzzy matching is only available for plants in the TNRS service, so we advise using EOL's Global Names Resolver if you need to resolve animal names.
@@ -83,7 +83,7 @@ It turns out both species are in the family Pinaceae. You can also get this type
 Instead of a full classification, you may only want a single name, say a family name for your species of interest. The function `tax_name` is built just for this purpose. As with the `classification` function you can specify the data source with the `db` argument, either ITIS or NCBI.
 
 ```{r taxname, eval=TRUE,cache=TRUE}
-tax_name(query = "Helianthus annuus", get = "family", db = "ncbi")
+tax_name("Helianthus annuus", get = "family", db = "ncbi")
 ```
 
 It may happen that a data source does not provide information on the queried species, than one could take the result from another source and union the results from the different sources.
@@ -95,14 +95,14 @@ As mentioned most databases use a numeric code to reference a species. A general
 Below are a few examples. When you run these examples in R, you are presented with a command prompt asking for the row that contains the name you would like back; that output is not printed below for brevity. In this example, the search term has many matches. The function returns a data frame of the matches, and asks for the user to input what row number to accept.
 
 ```{r interactive, eval=TRUE, echo=TRUE, cache=FALSE}
-get_uid(sciname = "Pinus")
+get_uid("Pinus")
 ```
 
 In another example, you can pass in a long character vector of taxonomic names (although this one is rather short for demo purposes):
 
 ```{r interactive_many, eval=TRUE, echo=TRUE, cache=FALSE}
 splist <- c("annona cherimola", 'annona muricata', "quercus robur")
-get_tsn(searchterm = splist, searchtype = "scientific")
+get_tsn(splist, searchtype = "scientific")
 ```
 
 There are functions for many other sources

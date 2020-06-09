@@ -1,7 +1,7 @@
 ---
 title: Introduction to taxize
 author: Scott Chamberlain
-date: "2020-03-31"
+date: "2020-06-08"
 output: rmarkdown::html_vignette
 vignette: >
     %\VignetteIndexEntry{Introduction to taxize}
@@ -35,7 +35,7 @@ This is a common task in biology. We often have a list of species names and we w
 
 
 ```r
-temp <- gnr_resolve(names = c("Helianthos annus", "Homo saapiens"))
+temp <- gnr_resolve(c("Helianthos annus", "Homo saapiens"))
 head(temp)
 #> # A tibble: 6 x 5
 #>   user_supplied_name submitted_name  matched_name     data_source_title    score
@@ -54,7 +54,7 @@ The correct spellings are *Helianthus annuus* and *Homo sapiens*. Another approa
 ```r
 mynames <- c("Helianthus annuus", "Pinus contort", "Poa anua", "Abis magnifica",
   	"Rosa california", "Festuca arundinace", "Sorbus occidentalos","Madia sateva")
-tnrs(query = mynames, source = "iPlant_TNRS")[ , -c(5:7)]
+tnrs(mynames, source = "iPlant_TNRS")[ , -c(5:7)]
 #>         submittedname        acceptedname    sourceid score
 #> 1   Helianthus annuus   Helianthus annuus iPlant_TNRS  1.00
 #> 2       Pinus contort      Pinus contorta iPlant_TNRS  0.98
@@ -172,7 +172,7 @@ Instead of a full classification, you may only want a single name, say a family 
 
 
 ```r
-tax_name(query = "Helianthus annuus", get = "family", db = "ncbi")
+tax_name("Helianthus annuus", get = "family", db = "ncbi")
 #> ══  1 queries  ═══════════════
 #> ✔  Found:  Helianthus+annuus
 #> ══  Results  ═════════════════
@@ -194,28 +194,25 @@ Below are a few examples. When you run these examples in R, you are presented wi
 
 
 ```r
-get_uid(sciname = "Pinus")
+get_uid("Pinus")
 #> ══  1 queries  ═══════════════
-#>   status     rank    division scientificname commonname    uid genus species
-#> 1 active subgenus seed plants          Pinus hard pines 139271              
-#> 2 active    genus seed plants          Pinus              3337              
-#>   subsp modificationdate
-#> 1       2017/06/14 00:00
-#> 2       2016/03/25 00:00
+#> ✔  Found:  Pinus
 #> ══  Results  ═════════════════
 #> 
 #> ● Total: 1 
-#> ● Found: 0 
+#> ● Found: 1 
 #> ● Not Found: 0
-#> [1] NA
+#> [1] "3337"
 #> attr(,"class")
 #> [1] "uid"
 #> attr(,"match")
-#> [1] "NA due to user input out of range"
+#> [1] "found"
 #> attr(,"multiple_matches")
-#> [1] TRUE
+#> [1] FALSE
 #> attr(,"pattern_match")
 #> [1] FALSE
+#> attr(,"uri")
+#> [1] "https://www.ncbi.nlm.nih.gov/taxonomy/3337"
 ```
 
 In another example, you can pass in a long character vector of taxonomic names (although this one is rather short for demo purposes):
@@ -223,7 +220,7 @@ In another example, you can pass in a long character vector of taxonomic names (
 
 ```r
 splist <- c("annona cherimola", 'annona muricata', "quercus robur")
-get_tsn(searchterm = splist, searchtype = "scientific")
+get_tsn(splist, searchtype = "scientific")
 #> ══  3 queries  ═══════════════
 #> ✔  Found:  annona cherimola
 #> ✔  Found:  annona muricata
@@ -325,17 +322,17 @@ That's a lot of data, so we can get only certain rows back
 ```r
 get_nbnid_("Poa annua", rows = 1:10)
 #> $`Poa annua`
-#>                guid    scientificName    rank taxonomicStatus
-#> 1  NBNSYS0000002544         Poa annua species        accepted
-#> 2  NBNSYS0200003392  Triumfetta annua species        accepted
-#> 3  NBNSYS0200001901      Bellis annua species        accepted
-#> 4  NBNSYS0200002555       Lonas annua species        accepted
-#> 5  NHMSYS0000456951 Carrichtera annua species        accepted
-#> 6  NBNSYS0200002925     Poa poiformis species        accepted
-#> 7  NBNSYS0200002923    Poa leptoclada species        accepted
-#> 8  NHMSYS0000461817    Poa sieberiana species        accepted
-#> 9  NHMSYS0000461808     Poa ligularis species        accepted
-#> 10 NBNSYS0000163602     Poa granitica species        accepted
+#>                guid     scientificName    rank taxonomicStatus
+#> 1  NBNSYS0000002544          Poa annua species        accepted
+#> 2  NBNSYS0200001901       Bellis annua species        accepted
+#> 3  NBNSYS0200003392   Triumfetta annua species        accepted
+#> 4  NBNSYS0200002555        Lonas annua species        accepted
+#> 5  NHMSYS0000456951  Carrichtera annua species        accepted
+#> 6  NHMSYS0000461807 Poa labillardierei species        accepted
+#> 7  NHMSYS0000461808      Poa ligularis species        accepted
+#> 8  NHMSYS0000461817     Poa sieberiana species        accepted
+#> 9  NHMSYS0000461805         Poa gunnii species        accepted
+#> 10 NHMSYS0000461801     Poa costiniana species        accepted
 ```
 
 ## Coerce numerics/alphanumerics to taxon IDs
@@ -413,10 +410,10 @@ These `as.*()` functions do a quick check of the web resource to make sure it's 
 ```r
 system.time( replicate(3, as.gbifid(c("2704179","2435099","3171445"), check=TRUE)) )
 #>    user  system elapsed 
-#>   0.070   0.002   3.302
+#>   0.062   0.001   2.762
 system.time( replicate(3, as.gbifid(c("2704179","2435099","3171445"), check=FALSE)) )
 #>    user  system elapsed 
-#>   0.001   0.000   0.001
+#>   0.003   0.000   0.003
 ```
 
 ## What taxa are downstream of my taxon of interest?

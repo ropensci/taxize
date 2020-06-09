@@ -260,13 +260,13 @@ synonyms("Acer drummondii", db="itis")
 ## Get taxonomic IDs from many sources
 
 ```{r get_ids}
-get_ids(names="Salvelinus fontinalis", db = c('itis', 'ncbi'), mesages = FALSE)
+get_ids("Salvelinus fontinalis", db = c('itis', 'ncbi'), mesages = FALSE)
 ```
 
 You can limit to certain rows when getting ids in any `get_*()` functions
 
 ```{r get_ids2}
-get_ids(names="Poa annua", db = "gbif", rows=1)
+get_ids("Poa annua", db = "gbif", rows=1)
 ```
 
 Furthermore, you can just back all ids if that's your jam with the `get_*_()` functions (all `get_*()` functions with additional `_` underscore at end of function name)

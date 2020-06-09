@@ -279,7 +279,7 @@ children("Salmo", db = 'ncbi')
 #> 20      1201173               Salmo peristericus        species
 #> 21      1035833                   Salmo ischchan        species
 #> 22       700588                     Salmo labrax        species
-#> 23       602068                    Salmo caspius     subspecies
+#> 23       602068                    Salmo caspius        species
 #> 24       237411              Salmo obtusirostris        species
 #> 25       235141              Salmo platycephalus        species
 #> 26       234793                    Salmo letnica        species
@@ -383,7 +383,7 @@ synonyms("Acer drummondii", db="itis")
 
 
 ```r
-get_ids(names="Salvelinus fontinalis", db = c('itis', 'ncbi'), mesages = FALSE)
+get_ids("Salvelinus fontinalis", db = c('itis', 'ncbi'), mesages = FALSE)
 #> ══  db: itis ═════════════════
 #> ══  1 queries  ═══════════════
 #> ✔  Found:  Salvelinus fontinalis
@@ -436,7 +436,7 @@ You can limit to certain rows when getting ids in any `get_*()` functions
 
 
 ```r
-get_ids(names="Poa annua", db = "gbif", rows=1)
+get_ids("Poa annua", db = "gbif", rows=1)
 #> ══  db: gbif ═════════════════
 #> ══  1 queries  ═══════════════
 #> ✔  Found:  Poa annua
@@ -473,8 +473,8 @@ get_ids_(c("Chironomus riparius", "Pinus contorta"), db = 'nbn', rows=1:3)
 #> $nbn$`Chironomus riparius`
 #>               guid      scientificName    rank taxonomicStatus
 #> 1 NBNSYS0000027573 Chironomus riparius species        accepted
-#> 2 NBNSYS0000023573    Quedius riparius species        accepted
-#> 3 NBNSYS0000007169   Elaphrus riparius species        accepted
+#> 2 NBNSYS0000007169   Elaphrus riparius species        accepted
+#> 3 NBNSYS0000023573    Quedius riparius species        accepted
 #> 
 #> $nbn$`Pinus contorta`
 #>               guid                scientificName    rank taxonomicStatus
@@ -607,6 +607,7 @@ out <- as.uid(c(315567, 3339, 9696))
 ## Contributing
 
 See our [CONTRIBUTING](https://github.com/ropensci/taxize/blob/master/.github/CONTRIBUTING.md) document.
+
 
 ## Road map
 
