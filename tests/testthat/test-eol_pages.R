@@ -16,7 +16,7 @@ test_that("eol_pages returns the correct value and classes", {
 
   vcr::use_cassette("eol_pages2", {
   	bb <- suppressMessages(eol_pages(taxonconceptID = pageid2))
-  })
+  }, preserve_exact_body_bytes = TRUE)
 
 	expect_is(bb, "list")
 	expect_is(bb$scinames, "data.frame")
