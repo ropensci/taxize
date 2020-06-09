@@ -21,6 +21,9 @@ jobs:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
       CRAN: ${{ matrix.config.cran }}
       VCR_VERBOSE_ERRORS: true
+      ENTREZ_KEY: ${{ secrets.ENTREZ_KEY }}
+      IUCN_REDLIST_KEY: ${{ secrets.IUCN_REDLIST_KEY }}
+      TROPICOS_KEY: ${{ secrets.ENTREZ_KEY }}
 
     steps:
       - uses: actions/checkout@v1
