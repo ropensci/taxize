@@ -13,13 +13,10 @@ taxize
 
 `taxize` allows users to search over many taxonomic data sources for species names (scientific and common) and download up and downstream taxonomic hierarchical information - among other things.
 
-The taxize book => <https://taxize.dev>
+The taxize book: https://taxize.dev
+Package documentation: https://docs.ropensci.org/taxize/
 
-The functions in the package that work with a specific API have a prefix and suffix separated by an underscore. They follow the format of `service_whatitdoes`.  For example, `gnr_resolve` uses the Global Names Resolver API to resolve species names.  General functions in the package that don't hit a specific API don't have two words separated by an underscore, e.g., `classification`.
-
-You need API keys for Tropicos, IUCN, and NatureServe.
-
-## Currently implemented in `taxize`
+## Data sources currently implemented
 
 <table>
 <colgroup>
