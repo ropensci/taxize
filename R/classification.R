@@ -385,7 +385,6 @@ classification.uid <- function(id, callopts = list(), return_id = TRUE,
         # Add NA where the taxon ID was not found
         names(out) <- xml_text(xml2::xml_find_all(ttp,
           '//TaxaSet/Taxon/TaxId'))
-        out <- unname(out[ids])
         success <- ! grepl(tt, pattern = 'error', ignore.case = TRUE)
         tries <- tries + 1
         # NCBI limits requests to three per second without key or 10 per

@@ -175,3 +175,16 @@ test_that("warn on mismatch 'db'", {
         get_uid("Chironomus riparius", messages = FALSE), db = "itis"))
   })
 })
+
+# see https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=668400
+test_that("ncbi classification - taxon merged", {
+  skip_on_cran()
+  vcr::use_cassette("classification_fetches_merged_taxon", {
+    a <- classification(668400, db = "ncbi")
+  })
+
+  expect_is(a, "classification")
+  expect_named(a, "668400")
+  # input id is different from id returned
+  expect_false(identical("668400", a[[1]]$id[NROW(a[[1]])]))
+})

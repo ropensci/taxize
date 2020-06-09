@@ -1,0 +1,150 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=668400&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.70.0 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Tue, 09 Jun 2020 00:06:38 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      x-ratelimit-remaining: '9'
+      ncbi-phid: D0BD06731A00A61500004716154FC7CD.1.1.m_5
+      cache-control: private
+      ncbi-sid: 7462A9406F67D850_141FSID
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      access-control-allow-origin: '*'
+      content-type: text/xml; charset=UTF-8
+      set-cookie: ncbi_sid=7462A9406F67D850_141FSID; domain=.nih.gov; path=/; expires=Wed,
+        09 Jun 2021 00:06:38 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      file: no
+      string: |-
+        <?xml version="1.0" ?>
+        <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
+        <TaxaSet><Taxon>
+            <TaxId>668482</TaxId>
+            <ScientificName>Sinularia polydactyla</ScientificName>
+            <OtherNames>
+                <Synonym>Lobularia polydactyla</Synonym>
+                <Synonym>Sinularia candidula</Synonym>
+                <Synonym>Sinularia compressa</Synonym>
+                <Name>
+                    <ClassCDE>authority</ClassCDE>
+                    <DispName>Lobularia polydactyla Ehrenberg, 1834</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>authority</ClassCDE>
+                    <DispName>Sinularia candidula Verseveldt &amp; Benayahu, 1983</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>authority</ClassCDE>
+                    <DispName>Sinularia compressa Tixier-Durivault, 1945</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>authority</ClassCDE>
+                    <DispName>Sinularia polydactyla Ehrenberg, 1834</DispName>
+                </Name>
+            </OtherNames>
+            <ParentTaxId>51814</ParentTaxId>
+            <Rank>species</Rank>
+            <Division>Invertebrates</Division>
+            <GeneticCode>
+                <GCId>1</GCId>
+                <GCName>Standard</GCName>
+            </GeneticCode>
+            <MitoGeneticCode>
+                <MGCId>4</MGCId>
+                <MGCName>Mold Mitochondrial; Protozoan Mitochondrial; Coelenterate Mitochondrial; Mycoplasma; Spiroplasma</MGCName>
+            </MitoGeneticCode>
+            <Lineage>cellular organisms; Eukaryota; Opisthokonta; Metazoa; Eumetazoa; Cnidaria; Anthozoa; Octocorallia; Alcyonacea; Alcyoniina; Alcyoniidae; Sinularia</Lineage>
+            <LineageEx>
+                <Taxon>
+                    <TaxId>131567</TaxId>
+                    <ScientificName>cellular organisms</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>2759</TaxId>
+                    <ScientificName>Eukaryota</ScientificName>
+                    <Rank>superkingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33154</TaxId>
+                    <ScientificName>Opisthokonta</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33208</TaxId>
+                    <ScientificName>Metazoa</ScientificName>
+                    <Rank>kingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6072</TaxId>
+                    <ScientificName>Eumetazoa</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6073</TaxId>
+                    <ScientificName>Cnidaria</ScientificName>
+                    <Rank>phylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6101</TaxId>
+                    <ScientificName>Anthozoa</ScientificName>
+                    <Rank>class</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6132</TaxId>
+                    <ScientificName>Octocorallia</ScientificName>
+                    <Rank>subclass</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>40677</TaxId>
+                    <ScientificName>Alcyonacea</ScientificName>
+                    <Rank>order</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>723662</TaxId>
+                    <ScientificName>Alcyoniina</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>40678</TaxId>
+                    <ScientificName>Alcyoniidae</ScientificName>
+                    <Rank>family</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>51814</TaxId>
+                    <ScientificName>Sinularia</ScientificName>
+                    <Rank>genus</Rank>
+                </Taxon>
+            </LineageEx>
+            <CreateDate>2009/08/21 17:25:27</CreateDate>
+            <UpdateDate>2020/06/02 19:06:50</UpdateDate>
+            <PubDate>2010/01/31 18:00:31</PubDate>
+            <AkaTaxIds>
+                <TaxId>668400</TaxId>
+            </AkaTaxIds>
+        </Taxon>
+
+        </TaxaSet>
+  recorded_at: 2020-06-09 00:06:38 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2
