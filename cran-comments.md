@@ -16,7 +16,7 @@ there were no errors related to taxize.
 
 ------
 
-This version xxxx.
+This version standardizes parameters across many functions, and fixes a number of bugs.
 
 Thanks!
 Scott Chamberlain
