@@ -14,6 +14,7 @@ taxize
 `taxize` allows users to search over many taxonomic data sources for species names (scientific and common) and download up and downstream taxonomic hierarchical information - among other things.
 
 The taxize book: https://taxize.dev
+
 Package documentation: https://docs.ropensci.org/taxize/
 
 ## Data sources currently implemented
