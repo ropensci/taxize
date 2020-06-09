@@ -3,21 +3,17 @@ context("comm2sci")
 test_that("comm2sci returns the correct values and classes", {
   skip_on_cran()
 
-  tt <- suppressMessages(comm2sci(com='american black bear'))
-  uu <- suppressMessages(comm2sci('annual blue grass', 
-    db='tropicos'))
-  zz <- suppressMessages(comm2sci(c('blue whale', 'dwarf surfclam'),
-    db = "worms"))
-
-  temp1 <- suppressMessages(comm2sci(com=c('black bear','roe deer'),
-    db='eol'))
-  temp2 <- suppressMessages(comm2sci(com='black bear', db='tropicos'))
-  temp3 <- suppressMessages(comm2sci(com=c('black bear','roe deer'),
-    db='eol'))
+  vcr::use_cassette("comm2sci", {
+    tt <- suppressMessages(comm2sci(com='american black bear'))
+    uu <- suppressMessages(comm2sci('annual blue grass', 
+      db='tropicos'))
+    temp2 <- suppressMessages(comm2sci(com='black bear', db='tropicos'))
+    temp3 <- suppressMessages(comm2sci(com=c('black bear','roe deer'),
+      db='eol'))
+  }, preserve_exact_body_bytes = TRUE)
 
   expect_equal(names(tt), 'american black bear')
   expect_equal(names(uu), 'annual blue grass')
-  expect_equal(names(zz), c('blue whale', 'dwarf surfclam'))
 
   expect_identical(
     suppressMessages(

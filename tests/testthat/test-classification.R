@@ -113,9 +113,12 @@ nn <- apply(df, 1, function(x) paste(x["genus"], x["species"], collapse = " "))
 
 test_that("works on a variety of names", {
   skip_on_cran()
-  # browser()
-  x <- classification(nn[5], db = "ncbi", messages = FALSE)
-  z <- classification(nn[6], db = "ncbi", messages = FALSE)
+  # skip_on_ci() # keeps timing out on GH actions for unknown reason
+  
+  vcr::use_cassette("classification_variety_of_names", {
+    x <- classification(nn[5], db = "ncbi", messages = FALSE)
+    z <- classification(nn[6], db = "ncbi", messages = FALSE)
+  })
 
 	expect_is(x, "classification")
 	expect_is(z, "classification")
