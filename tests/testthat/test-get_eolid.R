@@ -1,11 +1,11 @@
 context("get_eolid")
 
 test_that("get_eolid works", {
-  skip_on_cran()
+    skip_on_cran()
 
   vcr::use_cassette("get_eolid", {
     a <- get_eolid(sci_com = "Puma concolor", messages = FALSE, rows = 1)
-  })
+  }, preserve_exact_body_bytes = TRUE)
 
   expect_is(a, "eolid")
   expect_is(a[[1]], "character")
