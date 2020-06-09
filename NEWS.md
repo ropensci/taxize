@@ -1,3 +1,23 @@
+taxize 0.9.97
+=============
+
+### NEW FEATURES
+
+* Many of the functions in taxize share similar types of inputs (e.g., scientific names, or common names), but many different parameter names are used to refer to the same thing. We've standardized parameter names to make user understanding easier as the user uses different functions. TLDR: `sci` will always only accept a scientific name; `com` accdepts only a common name; `id` accepts a taxonomic identifier; `sci_com` accepts or scientific or common name; `sci_id` accepts a scientific name or taxonomic identifier. In most cases we have retained the old parameter name and you can still use it but you get a warning with information. In a future package version the replaced parameters will be removed completely. See https://github.com/ropensci/taxize/issues/723 for tables covering the functions affected, their old and new parameter names (#723) (#829)
+* xxx (#xxx)
+
+### MINOR IMPROVEMENTS
+
+* xxx (#xxx)
+* xxx (#xxx)
+
+### BUG FIXES
+
+* xxx (#xxx)
+* xxx (#xxx)
+
+
+
 taxize 0.9.96
 =============
 

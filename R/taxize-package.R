@@ -73,6 +73,7 @@
 #' @importFrom R6 R6Class
 #' @importFrom crayon style
 #' @importFrom cli symbol cat_line rule
+#' @importFrom conditionz ConditionKeeper
 #' @name taxize-package
 #' @aliases taxize
 #' @docType package

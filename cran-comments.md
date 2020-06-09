@@ -1,7 +1,7 @@
 ## Test environments
 
-* local OS X install, R 4.0.0
-* ubuntu 16.04 (on travis-ci), R 4.0.0
+* local OS X install, R 4.0.1
+* ubuntu 16.04 (on travis-ci), R 4.0.1
 * win-builder (devel and release)
 
 ## R CMD check results
@@ -16,8 +16,7 @@ there were no errors related to taxize.
 
 ------
 
-This version includes a number of bug fixes and integration of a new 
-package API in the natserv R package recently updated on CRAN.
+This version xxxx.
 
 Thanks!
 Scott Chamberlain
