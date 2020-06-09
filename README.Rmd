@@ -12,8 +12,7 @@ knitr::opts_chunk$set(
 
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![cran checks](https://cranchecks.info/badges/worst/taxize)](https://cranchecks.info/pkgs/taxize)
-[![Build Status](https://travis-ci.org/ropensci/taxize.svg?branch=master)](https://travis-ci.org/ropensci/taxize)
-[![Build status](https://ci.appveyor.com/api/projects/status/6mgc02mkd8j4sq3g/branch/master)](https://ci.appveyor.com/project/sckott/taxize-175/branch/master)
+[![R-CMD-check](https://github.com/ropensci/taxize/workflows/R-CMD-check/badge.svg)](https://github.com/ropensci/taxize/actions/)
 [![rstudio mirror downloads](https://cranlogs.r-pkg.org/badges/taxize)](https://github.com/metacran/cranlogs.app)
 [![cran version](https://www.r-pkg.org/badges/version/taxize)](https://cran.r-project.org/package=taxize)
 
