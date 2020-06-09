@@ -13,6 +13,7 @@ test_that("ncbi_ping returns the correct value", {
 
 test_that("trpicos_ping returns the correct value", {
   skip_on_cran() # uses secrets
+  skip_on_ci()
   vcr::use_cassette("trpicos_ping", {
     expect_true(tropicos_ping())
     expect_true(tropicos_ping("content"))
