@@ -9,7 +9,9 @@
 #' with target taxon rank names, with additional list of data.frame's of
 #' intermediate taxonomic groups. Default: `FALSE`
 #' @param start (integer) Record number to start at
-#' @param ... crul options passed on to [crul::verb-GET]
+#' @param ... crul options passed on to [worrms::wm_children()], including the
+#' parameters `marine_only` and `offset`, see `?worrms::wm_children` for 
+#' details
 #' @return data.frame of taxonomic information downstream to family from e.g.,
 #' Order, Class, etc., or if `intermediated=TRUE`, list of length two,
 #' with target taxon rank names, and intermediate names.
@@ -22,6 +24,10 @@
 #' worms_downstream(id = 51, downto="subclass", intermediate=TRUE)
 #' 
 #' worms_downstream(id = 105, downto="subclass")
+#' 
+#' # marine_only parameter
+#' worms_downstream(545470, downto = "species")
+#' worms_downstream(545470, downto = "species", marine_only = FALSE)
 #' }
 worms_downstream <- function(id, downto, intermediate = FALSE, start = 1, 
   ...) {

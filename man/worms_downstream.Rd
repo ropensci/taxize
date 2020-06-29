@@ -19,7 +19,9 @@ intermediate taxonomic groups. Default: \code{FALSE}}
 
 \item{start}{(integer) Record number to start at}
 
-\item{...}{crul options passed on to \link[crul:verb-GET]{crul::verb-GET}}
+\item{...}{crul options passed on to \code{\link[worrms:wm_children]{worrms::wm_children()}}, including the
+parameters \code{marine_only} and \code{offset}, see \code{?worrms::wm_children} for
+details}
 }
 \value{
 data.frame of taxonomic information downstream to family from e.g.,
@@ -39,5 +41,9 @@ worms_downstream(id = 51, downto="class")
 worms_downstream(id = 51, downto="subclass", intermediate=TRUE)
 
 worms_downstream(id = 105, downto="subclass")
+
+# marine_only parameter
+worms_downstream(545470, downto = "species")
+worms_downstream(545470, downto = "species", marine_only = FALSE)
 }
 }
