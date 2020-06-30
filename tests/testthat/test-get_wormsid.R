@@ -4,7 +4,7 @@ test_that("get_wormsid returns the correct value", {
   skip_on_cran()
   vcr::use_cassette("get_wormsid", {
     x <- sw(get_wormsid("Gadus morhua", rows = 1, messages = FALSE))
-    z <- sw(get_wormsid(c("Platanista gangetica", "Lichenopora neapolitana"),
+    z <- sw(get_wormsid(c("Gadus morhua", "Lichenopora neapolitana"),
       rows = 1, messages = FALSE))
   })
 

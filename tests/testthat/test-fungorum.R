@@ -38,7 +38,7 @@ test_that("fungorum - fg_name_by_key", {
   })
 
   expect_is(aa, "data.frame")
-  expect_true(any(grepl("pubplaceofpublication", names(aa))))
+  expect_true(any(grepl("name_of_fungus", names(aa))))
   expect_true(any(grepl("uuid", names(aa))))
   expect_equal(NROW(aa), 1)
 })

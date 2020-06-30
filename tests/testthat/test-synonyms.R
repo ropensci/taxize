@@ -56,7 +56,7 @@ test_that("synonyms: data sources return consistent outputs", {
   # when name found, but no synonyms found, returns empty data.frame
   vcr::use_cassette("synonyms_name_found_but_no_synonyms", {
     gg <- synonyms("Epigonus thai", db="worms", messages = FALSE)
-    hh <- synonyms("Ursus arctos", db="nbn", messages = FALSE)
+    hh <- synonyms("Arctoa anderssonii", db="nbn", rank = "species", messages = FALSE)
     ii <- synonyms(get_iucn('Ursus americanus'), db="iucn", messages = FALSE)
     kk <- synonyms("Pinus balfouriana", db="itis", messages = FALSE)
     ll <- synonyms("Pinus contorta", db="tropicos", messages = FALSE)

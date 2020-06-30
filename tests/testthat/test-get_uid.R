@@ -33,14 +33,14 @@ test_that("get_uid query modifiers work", {
   expect_equal(mod2[[1]], "1230190")
 
   vcr::use_cassette("get_uid_rank_modifiers", {
-    rq1 <- get_uid(sci_com = "Pinus", rank_query = "genus", messages = FALSE)
-    rq2 <- get_uid(sci_com = "Pinus", rank_query = "subgenus", messages = FALSE)
+    rq1 <- get_uid(sci_com = "Bombus", rank_query = "genus", messages = FALSE)
+    rq2 <- get_uid(sci_com = "Bombus", rank_query = "subgenus", messages = FALSE)
   })
 
   expect_is(rq1, "uid")
   expect_is(rq2, "uid")
-  expect_equal(rq1[[1]], "3337")
-  expect_equal(rq2[[1]], "139271")
+  expect_equal(rq1[[1]], "28641")
+  expect_equal(rq2[[1]], "144708")
 })
 
 test_that("get_uid filtering works", {
@@ -58,16 +58,16 @@ test_that("get_uid filtering works", {
   expect_equal(df2[[1]], "7674")
 
   vcr::use_cassette("get_uid_filtering_rank", {
-    rf1 <- get_uid(sci_com = "Pinus", rank_filter = "genus", rows = 2,
+    rf1 <- get_uid(sci_com = "Bombus", rank_filter = "genus", rows = 2,
       messages = FALSE)
-    rf2 <- get_uid(sci_com = "Pinus", rank_filter = "subgenus",
+    rf2 <- get_uid(sci_com = "Bombus", rank_filter = "subgenus",
       messages = FALSE)
   })
 
   expect_is(rf1, "uid")
   expect_is(rf2, "uid")
-  expect_equal(rf1[[1]], "3337")
-  expect_equal(rf2[[1]], "139271")
+  expect_equal(rf1[[1]], "28641")
+  expect_equal(rf2[[1]], "144708")
 })
 
 test_that("get_uid fails as expected", {
