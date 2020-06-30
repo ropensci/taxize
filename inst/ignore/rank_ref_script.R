@@ -1,12 +1,3 @@
-# clade <- rank_ref[NROW(rank_ref), ]
-# clade$ranks <- paste0(clade$ranks, ",clade")
-# rank_ref <- rbind(rank_ref[-NROW(rank_ref), ], clade)
-# rank_ref
-
-# cohorts <- c("megacohort", "supercohort", "cohort", "subcohort", "infracohort")
-# cohort_ids <- c()
-
-# -----------------
 ids <- c(
   '01', # domain
   '05','10','20','25', # kingdom
@@ -18,7 +9,8 @@ ids <- c(
   '155','160','170', # tribe
   '180','190','200','210','215','217', # genus
   '220','225','230', # species/etc.
-  '240','250','255','260','265','270', # variety/sub/form/etc.
+  '240','250','255','260','265', # variety/sub/form/etc.
+  '280', # genetic variants
   '300' # unspecified
 )
 ranks <- c(
@@ -30,9 +22,10 @@ ranks <- c(
   'superorder','order','suborder','infraorder','parvorder', # order
   'superfamily','family','subfamily', # family
   'supertribe','tribe','subtribe', # tribe
-  'genus','subgenus','section','subsection','species group','species subgroup', # genus
-  'species','infraspecies','subspecies', # species/etc.
-  'variety,varietas','subvariety,race','stirp','form,forma,morph','aberration','subform', # variety/sub/form/etc.
+  'genus','subgenus','section','subsection','species group,series','species subgroup', # genus
+  'species','infraspecies','subspecies,forma specialis', # species/etc.
+  'variety,varietas','subvariety,race','stirp','form,forma,morph','subform', # variety/sub/form/etc.
+  'biotype,isolate,pathogroup,serogroup,serotype,strain,aberration', # genetic variants
   'unspecified,no rank,unranked,clade' # unspecified
 )
 rank_ref <- data.frame(
@@ -40,6 +33,8 @@ rank_ref <- data.frame(
   ranks = ranks,
   stringsAsFactors = FALSE
 )
-save(rank_ref, file = "data/rank_ref.RData", version = 2)
-
 # NOTE: "version = 2" is so that we don't have to require R > 3.5
+save(rank_ref, file = "data/rank_ref.RData", version = 2)
+# NOTES: 
+# - genetic variants: placed slightly higher above 'unspecified' just to denote
+#   they're not no rank, but they're not really a taxonomic rank either
