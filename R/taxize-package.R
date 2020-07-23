@@ -113,6 +113,16 @@ NULL
 #' @keywords data
 NULL
 
+#' Lookup-table for IDs of taxonomic ranks (WoRMS)
+#'
+#' Same as `rank_ref` but specifically for WoRMS, where section/subsection
+#' ranks are put between family/order rather than between species/genus.
+#'
+#' @name rank_ref_zoo
+#' @docType data
+#' @keywords data
+NULL
+
 #' Lookup-table for family, genus, and species names for ThePlantList
 #'
 #' These names are from http://www.theplantlist.org, and are from
