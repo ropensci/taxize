@@ -66,7 +66,7 @@ Subtree, Synonym, Text Word. These are not checked, so make sure they are
 entered correctly, as is.}
 
 \item{rank_query}{(character) A taxonomic rank name to modify the query sent
-to NCBI. See \code{\link[=rank_ref]{rank_ref()}} for possible options. Though note that
+to NCBI. See \link{rank_ref} for possible options. Though note that
 some data sources use atypical ranks, so inspect the data itself for
 options. Optional. See \code{Querying} below.}
 
@@ -74,7 +74,7 @@ options. Optional. See \code{Querying} below.}
 data after retrieved from NCBI. Optional. See \code{Filtering} below.}
 
 \item{rank_filter}{(character) A taxonomic rank name to filter data after
-retrieved from NCBI. See \code{\link[=rank_ref]{rank_ref()}} for possible options.
+retrieved from NCBI. See \link{rank_ref} for possible options.
 Though note that some data sources use atypical ranks, so inspect the data
 itself for options. Optional. See \code{Filtering} below.}
 

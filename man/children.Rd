@@ -25,7 +25,7 @@ children(...)
 \method{children}{boldid}(sci_id, db = NULL, ...)
 }
 \arguments{
-\item{...}{Further args passed on to \code{\link[ritis:hierarchy_down]{ritis::hierarchy_down()}},
+\item{...}{Further args passed on to \code{\link[ritis:hierarchy]{ritis::hierarchy_down()}},
 \code{\link[=ncbi_children]{ncbi_children()}}, \code{\link[worrms:wm_children]{worrms::wm_children()}}, \code{\link[=bold_children]{bold_children()}}
 See those functions for what parameters can be passed on.}
 

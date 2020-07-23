@@ -20,7 +20,7 @@ taxonomic groups. Default: FALSE}
 \item{tsns}{Deprecated, see \code{id}}
 
 \item{...}{Further args passed on to \code{\link[ritis:rank_name]{ritis::rank_name()}} and
-\code{\link[ritis:hierarchy_down]{ritis::hierarchy_down()}}}
+\code{\link[ritis:hierarchy]{ritis::hierarchy_down()}}}
 }
 \value{
 Data.frame of taxonomic information downstream to family from e.g.,

@@ -61,7 +61,7 @@ of the raw data that you are presented during the ask process.}
 data after retrieved from NCBI. Optional. See \code{Filtering} below.}
 
 \item{rank_filter}{(character) A taxonomic rank name to filter data after
-retrieved from NCBI. See \code{\link[=rank_ref]{rank_ref()}} for possible options.
+retrieved from NCBI. See \link{rank_ref} for possible options.
 Though note that some data sources use atypical ranks, so inspect the data
 itself for options. Optional. See \code{Filtering} below.}
 

@@ -23,7 +23,7 @@
 #' below.
 #' @param parent (character) A parent name (i.e., the parent of the target search
 #' taxon). Optional. See `Filtering` below.
-#' @param rank (character) A taxonomic rank name. See [rank_ref()] for possible
+#' @param rank (character) A taxonomic rank name. See [rank_ref] for possible
 #' options. Though note that some data sources use atypical ranks, so inspect the
 #' data itself for options. Optional. See `Filtering` below.
 #' @param check logical; Check if ID matches any existing on the DB, only used in

@@ -13,7 +13,7 @@
 #' See [get_tpsid_()] to get back all, or a subset, of the raw data that you are
 #' presented during the ask process.
 #' @param family (character) A family name. Optional. See `Filtering` below.
-#' @param rank (character) A taxonomic rank name. See [rank_ref()] for possible
+#' @param rank (character) A taxonomic rank name. See [rank_ref] for possible
 #' options. Though note that some data sources use atypical ranks, so inspect the
 #' data itself for options. Optional. See `Filtering` below.
 #' @param sciname Deprecated, see `sci`
