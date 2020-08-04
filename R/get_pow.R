@@ -36,6 +36,13 @@
 #' subset that is closer to the target you want.  For these two parameters,
 #' you can use regex strings since we use [grep()] internally to match.
 #' Filtering narrows down to the set that matches your query, and removes the rest.
+#' 
+#' @section Rate-limits:
+#' As of February 2019, KEW was limiting to 5 requests per second. Note that
+#' they may change that number in the future.
+#' 
+#' If you get errors that contain `429` you are hitting the rate limit, and you
+#' can get around it by doing requests with `Sys.sleep` in between requests.
 #'
 #' @family taxonomic-ids
 #' @seealso [classification()]
