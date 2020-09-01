@@ -75,7 +75,7 @@ considered. Note that this function still only gives back a boldid class object 
 to many identifiers. See \code{\link[=get_boldid_]{get_boldid_()}} to get back all, or a subset,
 of the raw data that you are presented during the ask process.}
 
-\item{rank}{(character) A taxonomic rank name. See \code{\link[=rank_ref]{rank_ref()}} for possible
+\item{rank}{(character) A taxonomic rank name. See \link{rank_ref} for possible
 options. Though note that some data sources use atypical ranks, so inspect the
 data itself for options. Optional. See \code{Filtering} below.}
 

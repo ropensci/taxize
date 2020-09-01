@@ -3,7 +3,7 @@
 #' @export
 #' @param sci (character) Vector of taxonomic names to query. required.
 #' @param get (character) The ranks of the taxonomic name to get, see
-#' [rank_ref()]. required.
+#' [rank_ref]. required.
 #' @param db (character) The database to search from: 'itis', 'ncbi' or 'both'.
 #' If 'both' both NCBI and ITIS will be queried. Result will be the union of
 #' both. If using ncbi, we recommend getting an API key; see 

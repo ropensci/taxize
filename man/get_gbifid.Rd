@@ -73,7 +73,7 @@ below.}
 
 \item{family}{(character) A family name. Optional. See \code{Filtering} below.}
 
-\item{rank}{(character) A taxonomic rank name. See \code{\link[=rank_ref]{rank_ref()}} for possible
+\item{rank}{(character) A taxonomic rank name. See \link{rank_ref} for possible
 options. Though note that some data sources use atypical ranks, so inspect the
 data itself for options. Optional. See \code{Filtering} below.}
 

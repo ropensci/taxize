@@ -50,7 +50,7 @@ matrix based on taxonomy alone, and outputs either a phylo or dist object.
 See details for more information.
 }
 \details{
-See \code{\link[vegan:taxa2dist]{vegan::taxa2dist()}}. Thanks to Jari Oksanen for
+See \code{\link[vegan:taxondive]{vegan::taxa2dist()}}. Thanks to Jari Oksanen for
 making the taxa2dist function and pointing it out, and Clarke & Warwick
 (1998, 2001), which taxa2dist was based on.
 }

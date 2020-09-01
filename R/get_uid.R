@@ -21,13 +21,13 @@
 #' Subtree, Synonym, Text Word. These are not checked, so make sure they are
 #' entered correctly, as is.
 #' @param rank_query (character) A taxonomic rank name to modify the query sent
-#' to NCBI. See [rank_ref()] for possible options. Though note that
+#' to NCBI. See [rank_ref] for possible options. Though note that
 #' some data sources use atypical ranks, so inspect the data itself for
 #' options. Optional. See `Querying` below.
 #' @param division_filter (character) A division (aka phylum) name to filter
 #' data after retrieved from NCBI. Optional. See `Filtering` below.
 #' @param rank_filter (character) A taxonomic rank name to filter data after
-#' retrieved from NCBI. See [rank_ref()] for possible options.
+#' retrieved from NCBI. See [rank_ref] for possible options.
 #' Though note that some data sources use atypical ranks, so inspect the data
 #' itself for options. Optional. See `Filtering` below.
 #' @param key (character) NCBI Entrez API key. optional. See Details.

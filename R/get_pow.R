@@ -21,7 +21,7 @@
 #' @param family_filter (character) A division (aka phylum) name to filter
 #' data after retrieved from NCBI. Optional. See `Filtering` below.
 #' @param rank_filter (character) A taxonomic rank name to filter data after
-#' retrieved from NCBI. See [rank_ref()] for possible options.
+#' retrieved from NCBI. See [rank_ref] for possible options.
 #' Though note that some data sources use atypical ranks, so inspect the data
 #' itself for options. Optional. See `Filtering` below.
 #' @param check logical; Check if ID matches any existing on the DB, only 
@@ -36,6 +36,13 @@
 #' subset that is closer to the target you want.  For these two parameters,
 #' you can use regex strings since we use [grep()] internally to match.
 #' Filtering narrows down to the set that matches your query, and removes the rest.
+#' 
+#' @section Rate-limits:
+#' As of February 2019, KEW was limiting to 5 requests per second. Note that
+#' they may change that number in the future.
+#' 
+#' If you get errors that contain `429` you are hitting the rate limit, and you
+#' can get around it by doing requests with `Sys.sleep` in between requests.
 #'
 #' @family taxonomic-ids
 #' @seealso [classification()]

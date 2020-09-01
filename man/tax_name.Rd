@@ -18,7 +18,7 @@ tax_name(
 \item{sci}{(character) Vector of taxonomic names to query. required.}
 
 \item{get}{(character) The ranks of the taxonomic name to get, see
-\code{\link[=rank_ref]{rank_ref()}}. required.}
+\link{rank_ref}. required.}
 
 \item{db}{(character) The database to search from: 'itis', 'ncbi' or 'both'.
 If 'both' both NCBI and ITIS will be queried. Result will be the union of

@@ -11,7 +11,7 @@ worms_downstream(id, downto, intermediate = FALSE, start = 1, ...)
 
 \item{downto}{(character) The taxonomic level you want to go down to.
 See examples below. The taxonomic level IS case sensitive, and you do have
-to spell it correctly. See \code{data(rank_ref)} for spelling.}
+to spell it correctly. See \link{rank_ref_zoo} for spelling.}
 
 \item{intermediate}{(logical) If \code{TRUE}, return a list of length two
 with target taxon rank names, with additional list of data.frame's of

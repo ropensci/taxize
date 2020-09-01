@@ -19,7 +19,7 @@
 #' class object with one to many identifiers. See
 #' [get_eolid_()] to get back all, or a subset, of the raw
 #' data that you are presented during the ask process.
-#' @param rank (character) A taxonomic rank name. See [rank_ref()]
+#' @param rank (character) A taxonomic rank name. See [rank_ref]
 #' for possible options. Though note that some data sources use atypical ranks,
 #' so inspect the data itself for options. Optional. See `Filtering` below.
 #' @param data_source (character) A data source inside of EOL. These are
