@@ -184,6 +184,25 @@ taxa2dist <- function(x, varstep = FALSE, check = TRUE, labels) {
   out
 }
 
+#' List of available NCBI taxonomy ranks
+#' @noRd
+#' @author Vinh Tran {tran@bio.uni-frankfurt.de}
+mainTaxonomyRank <- function() {
+  return(
+    c(
+      "strain","biotype","isolate","pathogroup","serogroup","serotype",
+      "genotype","morph","forma","subspecies","subvariety","varietas",
+      "formaspecialis","subspecies","species","speciessubgroup",
+      "speciesgroup","series","subgenus","genus","subtribe","tribe",
+      "subfamily","family","superfamily",
+      "parvorder","infraorder","suborder","order","superorder",
+      "subcohort","cohort","infraclass","subclass","class","superclass",
+      "subphylum","phylum","superphylum",
+      "subkingdom","kingdom","superkingdom"
+    )
+  )
+}
+
 #' Get full taxonomy ranks and IDs
 #' @noRd
 #' @author Vinh Tran {tran@bio.uni-frankfurt.de}
@@ -196,6 +215,7 @@ get_rank <- function (x) {
     data.frame(rank_df, stringsAsFactors = FALSE),
     data.frame(id_df, stringsAsFactors = FALSE)
   )
+  joined_df$rank_df[!(joined_df$rank_df %in% mainTaxonomyRank())] <- 'no rank'
   joined_df <- within(
     joined_df,
     rank_df[rank_df=='no rank'] <- paste0("norank_", id_df[rank_df=='no rank'])
@@ -221,6 +241,7 @@ get_name <- function (x) {
     data.frame(rank_df,stringsAsFactors=FALSE),
     data.frame(nameDf,stringsAsFactors=FALSE)
   )
+  joined_df$rank_df[!(joined_df$rank_df %in% mainTaxonomyRank())] <- 'no rank'
   joined_df <- within(
     joined_df,
     rank_df[rank_df=='no rank'] <- paste0("norank_",id_df[rank_df=='no rank'])
@@ -246,12 +267,7 @@ rank_indexing <- function (rankList) {
   allInputRank <- allInputRank[!is.na(allInputRank)]
 
   ### initial index for main ranks
-  mainRank <- c("strain","forma","subspecies","varietas","species",
-                "speciessubgroup","speciesgroup","subgenus","genus","subtribe",
-                "tribe","subfamily","family","superfamily","parvorder",
-                "infraorder","suborder","order","superorder","infraclass",
-                "subclass","class","superclass","subphylum","phylum",
-                "superphylum","subkingdom","kingdom","superkingdom")
+  mainRank <- mainTaxonomyRank()
   rank2index <- new.env(hash = TRUE)
   getHash <- Vectorize(get, vectorize.args = "x")
   assignHash <- Vectorize(assign, vectorize.args = c("x", "value"))
