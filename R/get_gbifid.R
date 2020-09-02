@@ -64,7 +64,35 @@
 #' xx
 #'
 #' # multiple names
-#' get_gbifid(c("Poa annua", "Pinus contorta"))
+#' x <- get_gbifid(c("Poa annua", "Pinus contorta", "adf"))
+#' x
+#' as.data.frame(x) # returns a tibble
+#' nms <- c("Poa", "Abies magnifica", "Pinaceae", "Pinopsida", "Eukaryota", "Abies")
+#' w <- get_gbifid(nms)
+#' w
+#' as.data.frame(w)
+#' class(w)
+#' 
+#' # extract parts (maintains the txid/taxa_taxon class)
+#' library(taxa)
+#' tax_rank(w)
+#' as.character(tax_rank(w))
+#' tax_id(w)
+#' as.character(tax_id(w))
+#' tax_name(w)
+#' as.character(tax_name(w))
+#' 
+#' # subset (maintains the txid/taxa_taxon class)
+#' w[1]
+#' w[1:3]
+#' w[tax_rank(w) > 'genus']
+#' names(w) <- letters[1:6]
+#' w
+#' w[c('b', 'c')]
+#' 
+#' ## convert to taxonomy object
+#' taxonomy(w)
+#' 
 #'
 #' # specify rows to limit choices available
 #' get_gbifid(sci='Pinus')
@@ -167,15 +195,19 @@ get_gbifid <- function(sci, ask = TRUE, messages = TRUE, rows = NA,
     )
     mm <- NROW(df) > 1
 
-    if (is.null(df)) df <- data.frame(NULL)
+    if (is.null(df) || NROW(df) == 0) df <- data.frame(NULL)
 
-    if (nrow(df) == 0) {
+    if (NROW(df) == 0) {
       mssg(messages, m_not_found_sp_altclass)
       id <- NA_character_
+      name <- NA_character_
+      rank_taken <- NA_character_
       att <- "not found"
     } else {
       names(df)[1] <- "gbifid"
       id <- df$gbifid
+      name <- df$canonicalname
+      rank_taken <- df$rank
       att <- "found"
     }
 
@@ -183,14 +215,19 @@ get_gbifid <- function(sci, ask = TRUE, messages = TRUE, rows = NA,
     if (length(id) == 0) {
       mssg(messages, m_not_found_sp_altclass)
       id <- NA_character_
+      name <- NA_character_
+      rank_taken <- NA_character_
       att <- "not found"
     }
 
     if (length(id) > 1) {
       # check for exact match
-      matchtmp <- df[as.character(df$canonicalname) %in% sci[i], "gbifid"]
+      matchtmp <- df[as.character(df$canonicalname) %in% sci[i], ]
       if (length(matchtmp) == 1) {
-        id <- as.character(matchtmp)
+        # id <- as.character(matchtmp)
+        id <- as.character(matchtmp$gbifid)
+        name <- matchtmp$canonicalname
+        rank_taken <- matchtmp$rank
         direct <- TRUE
       } else {
         if (!is.null(phylum) || !is.null(class) || !is.null(order) ||
@@ -205,11 +242,14 @@ get_gbifid <- function(sci, ask = TRUE, messages = TRUE, rows = NA,
         df <- sub_rows(df, rows)
         if (NROW(df) == 0) {
           id <- NA_character_
+          name <- NA_character_
+          rank_taken <- NA_character_
           att <- "not found"
         } else {
           id <- df$gbifid
           if (length(id) == 1) {
             rank_taken <- as.character(df$rank)
+            name <- df$canonicalname
             att <- "found"
           }
         }
@@ -239,9 +279,13 @@ get_gbifid <- function(sci, ask = TRUE, messages = TRUE, rows = NA,
               message("Input accepted, took gbifid '",
                       as.character(df$gbifid[take]), "'.\n")
               id <- as.character(df$gbifid[take])
+              name <- df$scientificname[take] %||% df$canonicalname[take]
+              rank_taken <- df$rank[take]
               att <- "found"
             } else {
               id <- NA_character_
+              name <- NA_character_
+              rank_taken <- NA_character_
               att <- "not found"
               mssg(messages, "\nReturned 'NA'!\n\n")
             }
@@ -250,25 +294,35 @@ get_gbifid <- function(sci, ask = TRUE, messages = TRUE, rows = NA,
               warning(sprintf(m_more_than_one_found, "gbifid", sci[i]),
                 call. = FALSE)
               id <- NA_character_
+              name <- NA_character_
+              rank_taken <- NA_character_
               att <- m_na_ask_false
             }
           }
         }
       }
     }
-    res <- list(id = id, att = att, multiple = mm, direct = direct)
+    res <- list(id = id, name = name, rank = rank_taken, att = att,
+      multiple = mm, direct = direct)
     prog$completed(sci[i], att)
     prog$prog(att)
     tstate$add(sci[i], res)
   }
   out <- tstate$get()
-  ids <- structure(as.character(unlist(pluck(out, "id"))), class = "gbifid",
-                   match = pluck_un(out, "att", ""),
-                   multiple_matches = pluck_un(out, "multiple", logical(1)),
-                   pattern_match = pluck_un(out, "direct", logical(1)))
+  ids <- as.character(unlist(pluck(out, "id")))
+  ids <- replace_nas(ids, "999")
+  res <- .taxa_taxon(
+    name = unlist(pluck(out, "name")),
+    id = taxa::taxon_id(ids, db = "gbif"),
+    rank = unlist(pluck(out, "rank")),
+    uri = sprintf(get_url_templates$gbif, ids),
+    match = unname(unlist(pluck(out, "att"))),
+    multiple_matches = unname(unlist(pluck(out, "multiple"))),
+    pattern_match = unname(unlist(pluck(out, "direct")))
+  )
   on.exit(prog$prog_summary(), add = TRUE)
   on.exit(tstate$exit, add = TRUE)
-  add_uri(ids, get_url_templates$gbif)
+  return(res)
 }
 
 #' @export
@@ -310,6 +364,22 @@ as.data.frame.gbifid <- function(x, ...){
              uri = attr(x, "uri"),
              stringsAsFactors = FALSE)
 }
+
+#' @export
+#' @rdname get_gbifid
+as.data.frame.txid <- function(x, ...){
+  tibble::as_tibble(
+    data.frame(ids = as.character(taxa::tax_id(x)),
+      name = as.character(taxa::tax_name(x)),
+      rank = unname(as.character(taxa::tax_rank(x))),
+      uri = txz_uri(x),
+      match = txz_match(x),
+      multiple_matches = txz_mm(x),
+      pattern_match = txz_pm(x),
+      stringsAsFactors = FALSE)
+  )
+}
+
 
 make_gbifid <- function(x, check=TRUE) make_generic(x, 'https://www.gbif.org/species/%s', "gbifid", check)
 

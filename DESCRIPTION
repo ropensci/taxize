@@ -96,13 +96,15 @@ Imports:
     crayon,
     cli,
     phangorn,
-    conditionz
+    conditionz,
+    taxa
 Suggests:
     testthat,
     knitr,
     rmarkdown,
     vegan,
     vcr
+Remotes: ropensci/taxa@vectorize
 RoxygenNote: 7.1.1
 Roxygen: list(markdown = TRUE)
 X-schema.org-applicationCategory: Taxonomy

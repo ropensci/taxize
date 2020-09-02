@@ -302,3 +302,8 @@ pchk <- function(from, to, pkg_version = "v0.9.97") {
   if (!is.null(from))
     taxize_ck$handle_conditions(warning(mssg))
 }
+
+replace_nas <- function(x, with = "") {
+  x[is.na(x)] <- with
+  return(x)
+}

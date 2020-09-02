@@ -9,6 +9,7 @@
 \alias{as.gbifid.numeric}
 \alias{as.gbifid.data.frame}
 \alias{as.data.frame.gbifid}
+\alias{as.data.frame.txid}
 \alias{get_gbifid_}
 \title{Get the GBIF backbone taxon ID from taxonomic names.}
 \usage{
@@ -40,6 +41,8 @@ as.gbifid(x, check = FALSE)
 \method{as.gbifid}{data.frame}(x, check = TRUE)
 
 \method{as.data.frame}{gbifid}(x, ...)
+
+\method{as.data.frame}{txid}(x, ...)
 
 get_gbifid_(
   sci,
@@ -140,7 +143,35 @@ xx <- taxon_last()
 xx
 
 # multiple names
-get_gbifid(c("Poa annua", "Pinus contorta"))
+x <- get_gbifid(c("Poa annua", "Pinus contorta", "adf"))
+x
+as.data.frame(x) # returns a tibble
+nms <- c("Poa", "Abies magnifica", "Pinaceae", "Pinopsida", "Eukaryota", "Abies")
+w <- get_gbifid(nms)
+w
+as.data.frame(w)
+class(w)
+
+# extract parts (maintains the txid/taxa_taxon class)
+library(taxa)
+tax_rank(w)
+as.character(tax_rank(w))
+tax_id(w)
+as.character(tax_id(w))
+tax_name(w)
+as.character(tax_name(w))
+
+# subset (maintains the txid/taxa_taxon class)
+w[1]
+w[1:3]
+w[tax_rank(w) > 'genus']
+names(w) <- letters[1:6]
+w
+w[c('b', 'c')]
+
+## convert to taxonomy object
+taxonomy(w)
+
 
 # specify rows to limit choices available
 get_gbifid(sci='Pinus')
