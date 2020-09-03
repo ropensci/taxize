@@ -310,7 +310,7 @@ get_gbifid <- function(sci, ask = TRUE, messages = TRUE, rows = NA,
   }
   out <- tstate$get()
   ids <- as.character(unlist(pluck(out, "id")))
-  ids <- replace_nas(ids, "999")
+  # ids <- replace_nas(ids, NA_character_)
   res <- .taxa_taxon(
     name = unlist(pluck(out, "name")),
     id = taxa::taxon_id(ids, db = "gbif"),
