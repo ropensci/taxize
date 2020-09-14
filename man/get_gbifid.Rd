@@ -3,12 +3,12 @@
 \name{get_gbifid}
 \alias{get_gbifid}
 \alias{as.gbifid}
-\alias{as.gbifid.gbifid}
+\alias{as.gbifid.gbif}
 \alias{as.gbifid.character}
 \alias{as.gbifid.list}
 \alias{as.gbifid.numeric}
 \alias{as.gbifid.data.frame}
-\alias{as.data.frame.gbifid}
+\alias{as.data.frame.gbif}
 \alias{as.data.frame.txid}
 \alias{get_gbifid_}
 \title{Get the GBIF backbone taxon ID from taxonomic names.}
@@ -30,7 +30,7 @@ get_gbifid(
 
 as.gbifid(x, check = FALSE)
 
-\method{as.gbifid}{gbifid}(x, check = FALSE)
+\method{as.gbifid}{gbif}(x, check = FALSE)
 
 \method{as.gbifid}{character}(x, check = TRUE)
 
@@ -40,7 +40,7 @@ as.gbifid(x, check = FALSE)
 
 \method{as.gbifid}{data.frame}(x, check = TRUE)
 
-\method{as.data.frame}{gbifid}(x, ...)
+\method{as.data.frame}{gbif}(x, ...)
 
 \method{as.data.frame}{txid}(x, ...)
 
@@ -203,8 +203,8 @@ get_gbifid("Satyrium", phylum = "arthropoda")
 get_gbifid("A*", method = "lookup", order = "*tera")
 get_gbifid("A*", method = "lookup", order = "*ales")
 
-# Convert a uid without class information to a uid class
-as.gbifid(get_gbifid("Poa annua")) # already a uid, returns the same
+# Convert a gbifid without class information to a gbifid class
+as.gbifid(get_gbifid("Poa annua")) # already a gbifid, returns the same
 as.gbifid(get_gbifid(c("Poa annua","Puma concolor"))) # same
 as.gbifid(2704179) # numeric
 as.gbifid(c(2704179,2435099,3171445)) # numeric vector, length > 1
@@ -220,7 +220,7 @@ as.gbifid(list("2704179","2435099","3171445"), check=FALSE)
 
 (out <- as.gbifid(c(2704179,2435099,3171445)))
 data.frame(out)
-as.uid( data.frame(out) )
+as.gbifid( data.frame(out) )
 
 # Get all data back
 get_gbifid_("Puma concolor")

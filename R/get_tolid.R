@@ -95,6 +95,8 @@ get_tolid <- function(sci, ask = TRUE, messages = TRUE, rows = NA,
   prog$prog_start()
 
   for (i in seq_along(sci)) {
+    rank_taken <- NA_character_
+    name <- NA_character_
     mssg(messages, "\nRetrieving data for taxon '", sci[i], "'\n")
 
     tol_df <- tryCatch(tol_resolve(sci[i], ...), error = function(e) e)
@@ -120,15 +122,19 @@ get_tolid <- function(sci, ask = TRUE, messages = TRUE, rows = NA,
       # take the one tol from data.frame
       if (NROW(tol_df) == 1) {
         id <- tol_df$ott_id
+        rank_taken <- tol_df$rank
+        name <- tol_df$matched_name
         att <- 'found'
       }
 
       # more than one found -> user input
       if (NROW(tol_df) > 1) {
         # check for exact match
-        matchtmp <- tol_df[tolower(tol_df$unique_name) %in% tolower(sci[i]), "ott_id"]
+        matchtmp <- tol_df[tolower(tol_df$matched_name) %in% tolower(sci[i]), ]
         if (length(matchtmp) == 1) {
-          id <- as.character(matchtmp)
+          id <- as.character(matchtmp$ott_id)
+          rank_taken <- matchtmp$rank
+          name <- matchtmp$matched_name
           direct <- TRUE
           att <- "found"
         } else {
@@ -140,6 +146,7 @@ get_tolid <- function(sci, ask = TRUE, messages = TRUE, rows = NA,
             id <- tol_df$ott_id
             if (length(id) == 1) {
               rank_taken <- tol_df$rank
+              name <- tol_df$matched_name
               att <- "found"
             }
           }
@@ -163,6 +170,8 @@ get_tolid <- function(sci, ask = TRUE, messages = TRUE, rows = NA,
                 message("Input accepted, took tol ID '",
                   as.character(tol_df$ott_id[take]), "'.\n")
                 id <- as.character(tol_df$ott_id[take])
+                rank_taken <- tol_df$rank[take]
+                name <- tol_df$matched_name[take]
                 att <- "found"
               } else {
                 id <- NA_character_
@@ -182,20 +191,26 @@ get_tolid <- function(sci, ask = TRUE, messages = TRUE, rows = NA,
         }
       }
     }
-    res <- list(id = as.character(id), att = att, multiple = FALSE,
-      direct = FALSE)
+    res <- list(id = as.character(id), name = name, rank = rank_taken,
+      att = att, multiple = FALSE, direct = FALSE)
     prog$completed(sci[i], att)
     prog$prog(att)
     tstate$add(sci[i], res)
   }
   out <- tstate$get()
-  ids <- structure(as.character(unlist(pluck(out, "id"))), class = "tolid",
-                   match = pluck_un(out, "att", ""),
-                   multiple_matches = pluck_un(out, "multiple", logical(1)),
-                   pattern_match = pluck_un(out, "direct", logical(1)))
+  ids <- as.character(unlist(pluck(out, "id")))
+  res <- .taxa_taxon(
+    name = unlist(pluck(out, "name")),
+    id = taxa::taxon_id(ids, db = "tol"),
+    rank = unlist(pluck(out, "rank")),
+    uri = sprintf(get_url_templates$tol, ids),
+    match = unname(unlist(pluck(out, "att"))),
+    multiple_matches = unname(unlist(pluck(out, "multiple"))),
+    pattern_match = unname(unlist(pluck(out, "direct")))
+  )
   on.exit(prog$prog_summary(), add = TRUE)
   on.exit(tstate$exit, add = TRUE)
-  add_uri(ids, get_url_templates$tol)
+  return(res)
 }
 
 #' @export
@@ -297,8 +312,10 @@ tol_fetch_fuzzy <- function(x) {
   df$tax_sources <- NULL
   df$synonyms <- NULL
   df$is_suppressed <- NULL
+  df$is_suppressed_from_synth <- NULL
   df$search_string <- NULL
   df$name <- NULL
+  df$source <- NULL
   df
 }
 

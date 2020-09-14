@@ -124,8 +124,8 @@
 #' get_gbifid("A*", method = "lookup", order = "*tera")
 #' get_gbifid("A*", method = "lookup", order = "*ales")
 #'
-#' # Convert a uid without class information to a uid class
-#' as.gbifid(get_gbifid("Poa annua")) # already a uid, returns the same
+#' # Convert a gbifid without class information to a gbifid class
+#' as.gbifid(get_gbifid("Poa annua")) # already a gbifid, returns the same
 #' as.gbifid(get_gbifid(c("Poa annua","Puma concolor"))) # same
 #' as.gbifid(2704179) # numeric
 #' as.gbifid(c(2704179,2435099,3171445)) # numeric vector, length > 1
@@ -141,7 +141,7 @@
 #'
 #' (out <- as.gbifid(c(2704179,2435099,3171445)))
 #' data.frame(out)
-#' as.uid( data.frame(out) )
+#' as.gbifid( data.frame(out) )
 #'
 #' # Get all data back
 #' get_gbifid_("Puma concolor")
@@ -310,7 +310,6 @@ get_gbifid <- function(sci, ask = TRUE, messages = TRUE, rows = NA,
   }
   out <- tstate$get()
   ids <- as.character(unlist(pluck(out, "id")))
-  # ids <- replace_nas(ids, NA_character_)
   res <- .taxa_taxon(
     name = unlist(pluck(out, "name")),
     id = taxa::taxon_id(ids, db = "gbif"),
@@ -331,7 +330,7 @@ as.gbifid <- function(x, check=FALSE) UseMethod("as.gbifid")
 
 #' @export
 #' @rdname get_gbifid
-as.gbifid.gbifid <- function(x, check=FALSE) x
+as.gbifid.gbif <- function(x, check=FALSE) x
 
 #' @export
 #' @rdname get_gbifid
@@ -355,7 +354,7 @@ as.gbifid.data.frame <- function(x, check = TRUE) {
 
 #' @export
 #' @rdname get_gbifid
-as.data.frame.gbifid <- function(x, ...){
+as.data.frame.gbif <- function(x, ...){
   data.frame(ids = as.character(unclass(x)),
              class = "gbifid",
              match = attr(x, "match"),

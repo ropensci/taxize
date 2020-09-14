@@ -47,3 +47,12 @@ tol_resolve <- function(names = NULL, context_name = NULL,
     do_approximate_matching = do_approximate_matching, ids = ids, 
     include_suppressed = include_suppressed, ...)
 }
+
+tol_tx_resolve <- function(x, ...) {
+  z <- tol_resolve(names = x, ...)
+  lst <- attr(z, "original_response")$results[[1]]$matches[[1]]
+  data.frame(
+    name = lst$matched_name, approximate_match = lst$is_approximate_match,
+    ott_id = lst$taxon$ott_id, is_synonym = lst$is_synonym, rank = lst$taxon$rank
+  )
+}

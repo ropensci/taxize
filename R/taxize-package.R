@@ -74,6 +74,7 @@
 #' @importFrom crayon style
 #' @importFrom cli symbol cat_line rule
 #' @importFrom conditionz ConditionKeeper
+#' @importFrom hoardr hoard
 #' @name taxize-package
 #' @aliases taxize
 #' @docType package

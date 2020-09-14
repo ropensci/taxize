@@ -102,22 +102,31 @@ get_tsn <- function(sci_com, searchtype = "scientific", accepted = FALSE,
 
   for (i in seq_along(sci_com)) {
     direct <- FALSE
+    rank_taken <- NA_character_
+    name <- NA_character_
     mssg(messages, "\nRetrieving data for taxon '", sci_com[i], "'\n")
 
     searchtype <- match.arg(searchtype, c("scientific", "common"))
-    tsn_df <- ritis::terms(sci_com[i], what = searchtype, ...)
+    tsn_df <- ritis::terms(sci_com[i], what = searchtype)
     mm <- NROW(tsn_df) > 1
 
     if (!inherits(tsn_df, "tbl_df") || NROW(tsn_df) == 0) {
       tsn <- NA_character_
       att <- "not found"
     } else {
+      tsn_df$rank <- il_tsn2rank(tsn_df$tsn)
+      # tsn_df$rank <- unlist(lapply(tsn_df$tsn, function(w) {
+      #   tmp <- ritis::rank_name(w)
+      #   if (NROW(tmp) == 0) NA_character_ else tolower(tmp$rankname)
+      # }))
+
       if ("commonNames" %in% names(tsn_df)) {
         tsn_df$commonNames <-
           sapply(tsn_df$commonNames, function(z) paste0(z, collapse = ","))
       }
 
-      tsn_df <- tsn_df[, c("tsn", "scientificName", "commonNames", "nameUsage")]
+      tsn_df <- tsn_df[, c("tsn", "scientificName", "commonNames",
+        "nameUsage", "rank")]
 
       if (accepted) {
         tsn_df <- tsn_df[ tsn_df$nameUsage %in% c("valid", "accepted"), ]
@@ -135,6 +144,8 @@ get_tsn <- function(sci_com, searchtype = "scientific", accepted = FALSE,
       # take the one tsn from data.frame
       if (NROW(tsn_df) == 1) {
         tsn <- tsn_df$tsn
+        rank_taken <- tsn_df$rank
+        name <- tsn_df$scientificName
         att <- "found"
       }
 
@@ -142,9 +153,11 @@ get_tsn <- function(sci_com, searchtype = "scientific", accepted = FALSE,
       if (NROW(tsn_df) > 1) {
         tsn_df <- data.frame(tsn_df, stringsAsFactors = FALSE)
         names(tsn_df)[grep(searchtype, names(tsn_df))] <- "target"
-        matchtmp <- tsn_df[tolower(tsn_df$target) %in% tolower(sci_com[i]), "tsn"]
-        if (length(matchtmp) == 1) {
-          tsn <- matchtmp
+        matchtmp <- tsn_df[tolower(tsn_df$target) %in% tolower(sci_com[i]), ]
+        if (NROW(matchtmp) == 1) {
+          tsn <- matchtmp$tsn
+          rank_taken <- matchtmp$rank
+          name <- matchtmp$target
           direct <- TRUE
           att <- "found"
         } else {
@@ -182,6 +195,8 @@ get_tsn <- function(sci_com, searchtype = "scientific", accepted = FALSE,
             message("Input accepted, took taxon '",
               as.character(tsn_df$target[take]), "'.\n")
             tsn <-  tsn_df$tsn[take]
+            rank_taken <- tsn_df$rank[take]
+            name <- tsn_df$target[take]
             att <- "found"
           } else {
             tsn <- NA_character_
@@ -200,20 +215,26 @@ get_tsn <- function(sci_com, searchtype = "scientific", accepted = FALSE,
 
     }
 
-    res <- list(id = as.character(tsn), att = att, multiple = mm,
-      direct = direct)
+    res <- list(id = as.character(tsn), name = name, rank = rank_taken,
+      att = att, multiple = mm, direct = direct)
     prog$completed(sci_com[i], att)
     prog$prog(att)
     tstate$add(sci_com[i], res)
   }
   out <- tstate$get()
-  ids <- structure(as.character(unlist(pluck(out, "id"))), class = "tsn",
-                   match = pluck_un(out, "att", ""),
-                   multiple_matches = pluck_un(out, "multiple", logical(1)),
-                   pattern_match = pluck_un(out, "direct", logical(1)))
+  ids <- as.character(unlist(pluck(out, "id")))
+  res <- .taxa_taxon(
+    name = unlist(pluck(out, "name")),
+    id = taxa::taxon_id(ids, db = "itis"),
+    rank = unlist(pluck(out, "rank")),
+    uri = sprintf(get_url_templates$itis, ids),
+    match = unname(unlist(pluck(out, "att"))),
+    multiple_matches = unname(unlist(pluck(out, "multiple"))),
+    pattern_match = unname(unlist(pluck(out, "direct")))
+  )
   on.exit(prog$prog_summary(), add = TRUE)
   on.exit(tstate$exit, add = TRUE)
-  add_uri(ids, get_url_templates$itis)
+  return(res)
 }
 
 #' @export

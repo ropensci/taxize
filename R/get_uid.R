@@ -189,6 +189,8 @@ get_uid <- function(sci_com, ask = TRUE, messages = TRUE, rows = NA,
 
   for (i in seq_along(sci_com)) {
     direct <- FALSE
+    rank_taken <- NA_character_
+    name <- NA_character_
     mssg(messages, "\nRetrieving data for taxon '", sci_com[i], "'\n")
     sci_com[i] <- gsub(" ", "+", sci_com[i])
     if (!is.null(modifier))
@@ -220,9 +222,7 @@ get_uid <- function(sci_com, ask = TRUE, messages = TRUE, rows = NA,
       mssg(messages, m_not_found_sp_altclass)
       uid <- NA_character_
       att <- 'NA due to not found'
-    }
-    # more than one found on ncbi -> user input
-    if (length(uid) > 1) {
+    } else {
       ID <- paste(uid, collapse = ",")
       try_again_errors <- c("Could not resolve host: eutils.ncbi.nlm.nih.gov")
       query_args <- tc(list(db = "taxonomy", ID = ID, api_key = key))
@@ -232,86 +232,111 @@ get_uid <- function(sci_com, ask = TRUE, messages = TRUE, rows = NA,
       df <- parse_ncbi(ttp)
       rownames(df) <- 1:nrow(df)
 
-      if (!is.null(division_filter) || !is.null(rank_filter)) {
-        df <- filt(df, "division", division_filter)
-        df <- filt(df, "rank", rank_filter)
-      }
-
-      df <- sub_rows(df, rows)
-      uid <- df$uid
       if (length(uid) == 1) {
         direct <- TRUE
         att <- "found"
-      }
-      if (length(uid) == 0) {
-        uid <- NA_character_
+        rank_taken <- df$rank
+        name <- df$scientificname
       }
 
+      # more than one found on ncbi -> user input
       if (length(uid) > 1) {
-        # check for exact match
-        matchtmp <- df[
-          tolower(
-            as.character(df$scientificname)) %in% tolower(sci_com[i]), "uid"]
-        if (length(matchtmp) == 1) {
-          uid <- as.character(matchtmp)
-          direct <- TRUE
+        if (!is.null(division_filter) || !is.null(rank_filter)) {
+          df <- filt(df, "division", division_filter)
+          df <- filt(df, "rank", rank_filter)
         }
-      }
 
-      if (length(uid) > 1) {
-        if (!ask) {
-          if (length(uid) == 1) {
-            att <- "found"
-          } else {
-            warning(
-              sprintf(m_more_than_one_found, "UID", sci_com[i]),
-              call. = FALSE
-            )
-            uid <- NA_character_
-            att <- m_na_ask_false
-          }
-        } else {
-          # prompt
-          rownames(df) <- 1:nrow(df)
-          message("\n\n")
-          message("\nMore than one UID found for taxon '", sci_com[i], "'!\n
-            Enter rownumber of taxon (other inputs will return 'NA'):\n")
-          print(df)
-          take <- scan(n = 1, quiet = TRUE, what = 'raw')
+        df <- sub_rows(df, rows)
+        uid <- df$uid
+        
+        if (length(uid) == 0) {
+          uid <- NA_character_
+        }
 
-          if (length(take) == 0) {
-            take <- "notake"
-            att <- "nothing chosen"
+        if (length(uid) == 1) {
+          direct <- TRUE
+          att <- "found"
+          rank_taken <- df$rank
+          name <- df$scientificname
+        }
+
+        if (length(uid) > 1) {
+          # check for exact match
+          matchtmp <- df[
+            tolower(
+              as.character(df$scientificname)) %in% tolower(sci_com[i]), ]
+          if (NROW(matchtmp) == 1) {
+            uid <- as.character(matchtmp$uid)
+            rank_taken <- matchtmp$rank
+            name <- matchtmp$scientificname
+            direct <- TRUE
           }
-          if (take %in% seq_len(nrow(df))) {
-            take <- as.numeric(take)
-            message("Input accepted, took UID '",
-                    as.character(df$uid[take]), "'.\n")
-            uid <- as.character(df$uid[take])
-            att <- 'found'
+        }
+
+        if (length(uid) > 1) {
+          if (!ask) {
+            if (length(uid) == 1) {
+              att <- "found"
+              rank_taken <- df$rank
+              name <- df$scientificname
+            } else {
+              warning(
+                sprintf(m_more_than_one_found, "UID", sci_com[i]),
+                call. = FALSE
+              )
+              uid <- NA_character_
+              att <- m_na_ask_false
+            }
           } else {
-            uid <- NA_character_
-            att <- "NA due to user input out of range"
-            mssg(messages, "\nReturned 'NA'!\n\n")
+            # prompt
+            rownames(df) <- 1:nrow(df)
+            message("\n\n")
+            message("\nMore than one UID found for taxon '", sci_com[i], "'!\n
+              Enter rownumber of taxon (other inputs will return 'NA'):\n")
+            print(df)
+            take <- scan(n = 1, quiet = TRUE, what = 'raw')
+
+            if (length(take) == 0) {
+              take <- "notake"
+              att <- "nothing chosen"
+            }
+            if (take %in% seq_len(nrow(df))) {
+              take <- as.numeric(take)
+              message("Input accepted, took UID '",
+                      as.character(df$uid[take]), "'.\n")
+              uid <- as.character(df$uid[take])
+              rank_taken <- df$rank[take]
+              name <- df$scientificname[take]
+              att <- 'found'
+            } else {
+              uid <- NA_character_
+              att <- "NA due to user input out of range"
+              mssg(messages, "\nReturned 'NA'!\n\n")
+            }
           }
         }
       }
     }
-    res <- list(id = as.character(uid), att = att, multiple = mm,
-      direct = direct)
+    res <- list(id = as.character(uid), name = name, rank = rank_taken,
+      att = att, multiple = mm, direct = direct)
     prog$completed(sci_com[i], att)
     prog$prog(att)
     tstate$add(sci_com[i], res)
   }
   out <- tstate$get()
-  ids <- structure(pluck_un(out, "id", ""), class = "uid",
-    match = pluck_un(out, "att", ""),
-    multiple_matches = pluck_un(out, "multiple", logical(1)),
-    pattern_match = pluck_un(out, "direct", logical(1))
+  ids <- as.character(unlist(pluck_un(out, "id", "")))
+  res <- .taxa_taxon(
+    name = unlist(pluck(out, "name")),
+    id = taxa::taxon_id(ids, db = "ncbi"),
+    rank = unlist(pluck(out, "rank")),
+    uri = sprintf(get_url_templates$ncbi, ids),
+    match = unname(unlist(pluck(out, "att"))),
+    multiple_matches = unname(unlist(pluck(out, "multiple"))),
+    pattern_match = unname(unlist(pluck(out, "direct")))
   )
   on.exit(prog$prog_summary(), add = TRUE)
   on.exit(tstate$exit, add = TRUE)
-  add_uri(ids, get_url_templates$ncbi)
+  return(res)
 }
 
 repeat_until_it_works <- function(catch, path, query, max_tries = 3,

@@ -25,7 +25,7 @@
     list(.names = .names, name = name, rank = rank,
       id = id, auth = auth, uri = uri, match = match,
       multiple_matches = multiple_matches, pattern_match = pattern_match),
-    .names_set = .names_set, ..., class = c("txid", "gbif", "taxa_taxon"))
+    .names_set = .names_set, ..., class = c("txid", "taxa_taxon"))
 }
 
 

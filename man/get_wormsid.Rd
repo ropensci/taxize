@@ -110,11 +110,7 @@ Species (WORMS).
 \examples{
 \dontrun{
 (x <- get_wormsid('Gadus morhua'))
-attributes(x)
-attr(x, "match")
-attr(x, "multiple_matches")
-attr(x, "pattern_match")
-attr(x, "uri")
+data.frame(x)
 
 get_wormsid('Pomatomus saltatrix')
 get_wormsid(c("Gadus morhua", "Lichenopora neapolitana"))

@@ -39,11 +39,7 @@
 #'
 #' @examples \dontrun{
 #' (x <- get_wormsid('Gadus morhua'))
-#' attributes(x)
-#' attr(x, "match")
-#' attr(x, "multiple_matches")
-#' attr(x, "pattern_match")
-#' attr(x, "uri")
+#' data.frame(x)
 #'
 #' get_wormsid('Pomatomus saltatrix')
 #' get_wormsid(c("Gadus morhua", "Lichenopora neapolitana"))
@@ -136,6 +132,8 @@ get_wormsid <- function(sci_com, searchtype = "scientific", marine_only = TRUE,
 
   for (i in seq_along(sci_com)) {
     direct <- FALSE
+    rank_taken <- NA_character_
+    name <- NA_character_
     mssg(messages, "\nRetrieving data for taxon '", sci_com[i], "'\n")
 
     if (!searchtype %in% c("scientific", "common")) {
@@ -155,7 +153,8 @@ get_wormsid <- function(sci_com, searchtype = "scientific", marine_only = TRUE,
       att <- "not found"
     } else {
       wmdf <- suppressWarnings(data.frame(wmdf))
-      wmdf <- wmdf[, c("AphiaID", "scientificname", "authority", "status")]
+      wmdf <- wmdf[, c("AphiaID", "scientificname", "authority", "status", "rank")]
+      wmdf$rank <- tolower(wmdf$rank)
       names(wmdf)[1] <- "id"
 
       if (accepted) {
@@ -175,14 +174,18 @@ get_wormsid <- function(sci_com, searchtype = "scientific", marine_only = TRUE,
       if (nrow(wmdf) == 1) {
         wmid <- wmdf$id
         att <- "found"
+        name <- wmdf$scientificname
+        rank_taken <- wmdf$rank
       }
 
       # check for direct match
       if (nrow(wmdf) > 1) {
         names(wmdf)[grep("scientificname", names(wmdf))] <- "target"
-        matchtmp <- wmdf[tolower(wmdf$target) %in% tolower(sci_com[i]), "id"]
-        if (length(matchtmp) == 1) {
-          wmid <- matchtmp
+        matchtmp <- wmdf[tolower(wmdf$target) %in% tolower(sci_com[i]), ]
+        if (NROW(matchtmp) == 1) {
+          wmid <- matchtmp$id
+          name <- matchtmp$target
+          rank_taken <- matchtmp$rank
           direct <- TRUE
           att <- "found"
         } else {
@@ -217,6 +220,8 @@ get_wormsid <- function(sci_com, searchtype = "scientific", marine_only = TRUE,
             take <- as.numeric(take)
             message("Input accepted, took taxon '", as.character(wmdf$target[take]), "'.\n")
             wmid <-  wmdf$id[take]
+            name <- wmdf$target[take]
+            rank_taken <- wmdf$rank[take]
             att <- "found"
           } else {
             wmid <- NA_character_
@@ -234,21 +239,26 @@ get_wormsid <- function(sci_com, searchtype = "scientific", marine_only = TRUE,
       }
 
     }
-    res <- list(id = as.character(wmid), att = att, multiple = mm,
-      direct = direct)
+    res <- list(id = as.character(wmid), name = name, rank = rank_taken,
+      att = att, multiple = mm, direct = direct)
     prog$completed(sci_com[i], att)
     prog$prog(att)
     tstate$add(sci_com[i], res)
   }
   out <- tstate$get()
-  ids <- structure(pluck_un(out, "id", ""), class = "wormsid",
-    match = pluck_un(out, "att", ""),
-    multiple_matches = pluck_un(out, "multiple", logical(1)),
-    pattern_match = pluck_un(out, "direct", logical(1))
+  ids <- as.character(unlist(pluck(out, "id")))
+  res <- .taxa_taxon(
+    name = unlist(pluck(out, "name")),
+    id = taxa::taxon_id(ids, db = "worms"),
+    rank = unlist(pluck(out, "rank")),
+    uri = sprintf(get_url_templates$worms, ids),
+    match = unname(unlist(pluck(out, "att"))),
+    multiple_matches = unname(unlist(pluck(out, "multiple"))),
+    pattern_match = unname(unlist(pluck(out, "direct")))
   )
   on.exit(prog$prog_summary(), add = TRUE)
   on.exit(tstate$exit, add = TRUE)
-  add_uri(ids, get_url_templates$worms)
+  return(res)
 }
 
 try_df <- function(expr) {

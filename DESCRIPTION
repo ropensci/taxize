@@ -97,7 +97,8 @@ Imports:
     cli,
     phangorn,
     conditionz,
-    taxa
+    taxa,
+    hoardr
 Suggests:
     testthat,
     knitr,
