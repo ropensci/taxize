@@ -249,9 +249,6 @@ get_pow <- function(sci_com, accepted = FALSE, ask = TRUE, messages = TRUE,
   on.exit(tstate$exit, add = TRUE)
   return(res)
 }
-#' @export
-#' @rdname get_pow
-get_powid <- get_pow
 
 #' @export
 #' @rdname get_pow
@@ -289,9 +286,6 @@ get_pow_ <- function(sci_com, messages = TRUE, rows = NA, x = NULL, ...) {
   stats::setNames(lapply(sci_com, get_pow_help, messages = messages,
     rows = rows, ...), sci_com)
 }
-#' @export
-#' @rdname get_pow
-get_powid_ <- get_pow_
 
 get_pow_help <- function(x, messages, rows, ...){
   mssg(messages, "\nRetrieving data for taxon '", x, "'\n")

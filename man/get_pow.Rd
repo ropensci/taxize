@@ -2,29 +2,15 @@
 % Please edit documentation in R/get_pow.R
 \name{get_pow}
 \alias{get_pow}
-\alias{get_powid}
 \alias{as.pow}
 \alias{as.pow.pow}
 \alias{as.pow.character}
 \alias{as.pow.list}
 \alias{as.pow.data.frame}
 \alias{get_pow_}
-\alias{get_powid_}
 \title{Get Kew's Plants of the World code for a taxon}
 \usage{
 get_pow(
-  sci_com,
-  accepted = FALSE,
-  ask = TRUE,
-  messages = TRUE,
-  rows = NA,
-  family_filter = NULL,
-  rank_filter = NULL,
-  x = NULL,
-  ...
-)
-
-get_powid(
   sci_com,
   accepted = FALSE,
   ask = TRUE,
@@ -47,8 +33,6 @@ as.pow(x, check = TRUE)
 \method{as.pow}{data.frame}(x, check = TRUE)
 
 get_pow_(sci_com, messages = TRUE, rows = NA, x = NULL, ...)
-
-get_powid_(sci_com, messages = TRUE, rows = NA, x = NULL, ...)
 }
 \arguments{
 \item{sci_com}{character; A vector of common or scientific names. Or, a
