@@ -3,26 +3,17 @@
 \name{children}
 \alias{children}
 \alias{children.default}
-\alias{children.tsn}
-\alias{children.wormsid}
 \alias{children.ids}
-\alias{children.uid}
-\alias{children.boldid}
+\alias{children.txid}
 \title{Retrieve immediate children taxa for a given taxon name or ID.}
 \usage{
 children(...)
 
 \method{children}{default}(sci_id, db = NULL, rows = NA, x = NULL, ...)
 
-\method{children}{tsn}(sci_id, db = NULL, ...)
-
-\method{children}{wormsid}(sci_id, db = NULL, ...)
-
 \method{children}{ids}(sci_id, db = NULL, ...)
 
-\method{children}{uid}(sci_id, db = NULL, ...)
-
-\method{children}{boldid}(sci_id, db = NULL, ...)
+\method{children}{txid}(sci_id, db = NULL, ...)
 }
 \arguments{
 \item{...}{Further args passed on to \code{\link[ritis:hierarchy]{ritis::hierarchy_down()}},
@@ -41,7 +32,7 @@ getting an API key; see \link{taxize-authentication}}
 
 \item{rows}{(numeric) Any number from 1 to infinity. If the default NA, all
 rows are considered. Note that this parameter is ignored if you pass in a
-taxonomic id of any of the acceptable classes: tsn. NCBI has a
+taxonomic id of any of the acceptable classes: itis. NCBI has a
 method for this function but rows doesn't work.}
 
 \item{x}{Deprecated, see \code{sci_id}}
@@ -87,8 +78,10 @@ children("Salmo", db = 'worms')
 children("Salmo", db = 'bold')
 
 # Plug in IDs
-(id <- get_wormsid("Gadus"))
+(id <- get_worms("Gadus"))
 children(id)
+(z <- get_itis("Tragia"))
+children(z)
 
 # Many taxa
 sp <- c("Tragia", "Schistocarpha", "Encalypta")

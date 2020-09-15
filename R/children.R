@@ -16,7 +16,7 @@
 #' getting an API key; see [taxize-authentication]
 #' @param rows (numeric) Any number from 1 to infinity. If the default NA, all
 #' rows are considered. Note that this parameter is ignored if you pass in a
-#' taxonomic id of any of the acceptable classes: tsn. NCBI has a
+#' taxonomic id of any of the acceptable classes: itis. NCBI has a
 #' method for this function but rows doesn't work.
 #' @param x Deprecated, see `sci_id`
 #' @param ... Further args passed on to [ritis::hierarchy_down()],
@@ -52,8 +52,10 @@
 #' children("Salmo", db = 'bold')
 #'
 #' # Plug in IDs
-#' (id <- get_wormsid("Gadus"))
+#' (id <- get_worms("Gadus"))
 #' children(id)
+#' (z <- get_itis("Tragia"))
+#' children(z)
 #'
 #' # Many taxa
 #' sp <- c("Tragia", "Schistocarpha", "Encalypta")
@@ -86,7 +88,7 @@ children.default <- function(sci_id, db = NULL, rows = NA, x = NULL, ...) {
   results <- switch(
     db,
     itis = {
-      id <- process_children_ids(sci_id, db, get_tsn, rows = rows, ...)
+      id <- process_children_ids(sci_id, db, get_itis, rows = rows, ...)
       stats::setNames(children(id, ...), sci_id)
     },
 
@@ -102,12 +104,12 @@ children.default <- function(sci_id, db = NULL, rows = NA, x = NULL, ...) {
     },
 
     worms = {
-      id <- process_children_ids(sci_id, db, get_wormsid, rows = rows, ...)
+      id <- process_children_ids(sci_id, db, get_worms, rows = rows, ...)
       stats::setNames(children(id, ...), sci_id)
     },
 
     bold = {
-      id <- process_children_ids(as.character(sci_id), db, get_boldid,
+      id <- process_children_ids(as.character(sci_id), db, get_bold,
         rows = rows, ...)
       stats::setNames(children(id, ...), sci_id)
     },
@@ -154,7 +156,7 @@ process_children_ids <- function(input, db, fxn, ...){
   g <- tryCatch(as.numeric(as.character(input)), warning = function(e) e)
   if (inherits(g, "condition")) return(eval(fxn)(input, ...))
   if (is.numeric(g) || is.character(input) && all(grepl("[[:digit:]]", input))) {
-    as_fxn <- switch(db, itis = as.tsn, worms = as.wormsid, bold = as.boldid)
+    as_fxn <- switch(db, itis = as.itis, worms = as.worms, bold = as.bold)
     as_fxn(input, check = FALSE)
   } else {
     eval(fxn)(input, ...)
@@ -163,7 +165,34 @@ process_children_ids <- function(input, db, fxn, ...){
 
 #' @export
 #' @rdname children
-children.tsn <- function(sci_id, db = NULL, ...) {
+children.ids <- function(sci_id, db = NULL, ...) {
+  fun <- function(y, ...){
+    # return NA if NA is supplied
+    if (is.na(y)) {
+      out <- NA
+    } else {
+      out <- children(y, ...)
+    }
+    return(out)
+  }
+  out <- lapply(sci_id, fun)
+  class(out) <- 'children_ids'
+  return(out)
+}
+
+#' @export
+#' @rdname children
+children.txid <- function(sci_id, db = NULL, ...) {
+  eval(parse(text=paste0("children_", id_class(sci_id))))(sci_id, db)
+}
+
+id_class <- function(x) {
+  clazess <- c("worms", "uid", "itis", "pow", "gbif",
+    "iucn", "natserv", "bold", "eol", "nbn", "tol", "tps")
+  clazess[clazess %in% class(x)]
+}
+
+children_itis <- function(sci_id, db = NULL, ...) {
   warn_db(list(db = db), "itis")
   fun <- function(y){
     # return NA if NA is supplied
@@ -173,25 +202,15 @@ children.tsn <- function(sci_id, db = NULL, ...) {
 		  out <- ritis::hierarchy_down(y, ...)
     }
   }
-  out <- lapply(sci_id, fun)
-  names(out) <- sci_id
+  ids <- as.character(taxa::tax_id(sci_id))
+  out <- lapply(ids, fun)
+  names(out) <- taxa::tax_name(sci_id)
   class(out) <- 'children'
   attr(out, 'db') <- 'itis'
   return(out)
 }
 
-df2dt2tbl <- function(x) {
-  tibble::as_tibble(
-    data.table::setDF(
-      data.table::rbindlist(
-        x, use.names = TRUE, fill = TRUE)
-    )
-  )
-}
-
-#' @export
-#' @rdname children
-children.wormsid <- function(sci_id, db = NULL, ...) {
+children_worms <- function(sci_id, db = NULL, ...) {
   warn_db(list(db = db), "worms")
   fun <- function(y){
     # return NA if NA is supplied
@@ -214,34 +233,17 @@ children.wormsid <- function(sci_id, db = NULL, ...) {
       )
     }
   }
-  out <- lapply(sci_id, fun)
-  names(out) <- sci_id
+  ids <- as.character(taxa::tax_id(sci_id))
+  out <- lapply(ids, fun)
+  names(out) <- taxa::tax_name(sci_id)
   class(out) <- 'children'
   attr(out, 'db') <- 'worms'
   return(out)
 }
 
-#' @export
-#' @rdname children
-children.ids <- function(sci_id, db = NULL, ...) {
-  fun <- function(y, ...){
-    # return NA if NA is supplied
-    if (is.na(y)) {
-      out <- NA
-    } else {
-      out <- children(y, ...)
-    }
-    return(out)
-  }
-  out <- lapply(sci_id, fun)
-  class(out) <- 'children_ids'
-  return(out)
-}
-
-#' @export
-#' @rdname children
-children.uid <- function(sci_id, db = NULL, ...) {
+children_uid <- function(sci_id, db = NULL, ...) {
   warn_db(list(db = db), "uid")
+  sci_id <- as.character(taxa::tax_id(sci_id))
   out <- if (is.na(sci_id)) {
     stats::setNames(list(ncbi_blank), sci_id)
   } else {
@@ -252,10 +254,9 @@ children.uid <- function(sci_id, db = NULL, ...) {
   return(out)
 }
 
-#' @export
-#' @rdname children
-children.boldid <- function(sci_id, db = NULL, ...) {
+children_bold <- function(sci_id, db = NULL, ...) {
   warn_db(list(db = db), "bold")
+  sci_id <- as.character(taxa::tax_id(sci_id))
   out <- if (is.na(sci_id)) {
     stats::setNames(list(bold_blank), sci_id)
   } else {
