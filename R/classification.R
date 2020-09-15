@@ -11,13 +11,13 @@
 #' result, but it will likely be wrong (not what you were expecting). If using
 #' ncbi, and/or tropicos, we recommend getting an API key; see
 #' [taxize-authentication]
-#' @param id character; identifiers, returned by [get_tsn()], [get_uid()],
+#' @param id character; identifiers, returned by [get_itis()], [get_ncbi()],
 #' [get_eolid()], [get_tpsid()], [get_gbifid()], [get_tolid()],
 #' [get_wormsid()], [get_natservid()], [get_wormsid()], [get_wiki()],
 #' [get_pow()]
 #' @param callopts Curl options passed on to [crul::verb-GET]
-#' @param ... For `classification`: other arguments passed to [get_tsn()],
-#' [get_uid()], [get_eolid()], [get_tpsid()], [get_gbifid()],
+#' @param ... For `classification`: other arguments passed to [get_itis()],
+#' [get_ncbi()], [get_eolid()], [get_tpsid()], [get_gbifid()],
 #' [get_wormsid()], [get_natservid()], [get_wormsid()], [get_wiki()],
 #' [get_pow()]. For `rbind.classification` and `cbind.classification`: one or
 #' more objects of class `classification`
@@ -44,7 +44,7 @@
 #' classification. But you can attach it yourself quite easily of course.
 #' This behavior is different from the other data sources.
 #'
-#' @seealso [get_tsn()], [get_uid()], [get_eolid()],
+#' @seealso [get_itis()], [get_ncbi()], [get_eolid()],
 #'    [get_tpsid()], [get_gbifid()], [get_wormsid()], [get_natservid()],
 #'    [get_boldid()], [get_wiki()], [get_pow()]
 #'
@@ -123,12 +123,12 @@
 #' classification("Chironomus", db = 'tol')
 #' classification("Poa annua", db = 'tropicos')
 #'
-#' # Use methods for get_uid, get_tsn, get_eolid, get_tpsid
-#' classification(get_uid(c("Chironomus riparius", "Puma concolor")))
+#' # Use methods for get_ncbi, get_itis, get_eolid, get_tpsid
+#' classification(get_ncbi(c("Chironomus riparius", "Puma concolor")))
 #'
-#' classification(get_uid(c("Chironomus riparius", "aaa vva")))
-#' classification(get_tsn(c("Chironomus riparius", "aaa vva")))
-#' classification(get_tsn(c("Chironomus riparius", "aaa vva"),
+#' classification(get_ncbi(c("Chironomus riparius", "aaa vva")))
+#' classification(get_itis(c("Chironomus riparius", "aaa vva")))
+#' classification(get_itis(c("Chironomus riparius", "aaa vva"),
 #'   messages = FALSE))
 #' classification(get_eolid(c("Chironomus riparius", "aaa vva")))
 #' classification(get_tpsid(c("Poa annua", "aaa vva")))
@@ -154,20 +154,20 @@
 #' ## so you can turn off return_id
 #' cbind( classification(out, return_id=FALSE) )
 #'
-#' (cl_uid <- classification(get_uid(c("Puma concolor",
+#' (cl_uid <- classification(get_ncbi(c("Puma concolor",
 #'   "Accipiter striatus")), return_id=FALSE))
 #' rbind(cl_uid)
 #' cbind(cl_uid)
 #' ## cbind works a bit odd when there are lots of ranks without names
-#' (cl_uid <- classification(get_uid(c("Puma concolor","Accipiter striatus")),
+#' (cl_uid <- classification(get_ncbi(c("Puma concolor","Accipiter striatus")),
 #'   return_id=TRUE))
 #' cbind(cl_uid)
 #'
-#' (cl_tsn <- classification(get_tsn(c("Puma concolor","Accipiter striatus"))))
+#' (cl_tsn <- classification(get_itis(c("Puma concolor","Accipiter striatus"))))
 #' rbind(cl_tsn)
 #' cbind(cl_tsn)
 #'
-#' (tsns <- get_tsn(c("Puma concolor","Accipiter striatus")))
+#' (tsns <- get_itis(c("Puma concolor","Accipiter striatus")))
 #' (cl_tsns <- classification(tsns))
 #' cbind(cl_tsns)
 #'
@@ -228,11 +228,11 @@ classification.default <- function(sci_id, db = NULL, callopts = list(),
   switch(
     db,
     itis = {
-      id <- process_ids(sci_id, db, get_tsn, rows = rows, ...)
+      id <- process_ids(sci_id, db, get_itis, rows = rows, ...)
       stats::setNames(classification(id, return_id = return_id, ...), sci_id)
     },
     ncbi = {
-      id <- process_ids(sci_id, db, get_uid, rows = rows)
+      id <- process_ids(sci_id, db, get_ncbi, rows = rows)
       stats::setNames(classification(id, callopts = callopts,
         return_id = return_id), sci_id)
     },
@@ -298,8 +298,8 @@ process_ids <- function(input, db, fxn, ...){
     is.character(input) && all(grepl("urn:lsid", input)) # POW
   ) {
     as_fxn <- switch(db,
-           itis = as.tsn,
-           ncbi = as.uid,
+           itis = as.itis,
+           ncbi = as.ncbi,
            eol = as.eolid,
            tropicos = as.tpsid,
            gbif = as.gbifid,
@@ -318,7 +318,7 @@ process_ids <- function(input, db, fxn, ...){
 
 #' @export
 #' @rdname classification
-classification.tsn <- function(id, return_id = TRUE, ...) {
+classification.itis <- function(id, return_id = TRUE, ...) {
   warn_db(list(...), "itis")
   fun <- function(x) {
     # return NA if NA is supplied

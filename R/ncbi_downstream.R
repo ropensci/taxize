@@ -35,7 +35,7 @@
 #' ncbi_downstream(id = 7088, downto="superfamily")
 #'
 #' ## families in the ferns (Moniliformopses)
-#' (id <- get_uid("Moniliformopses"))
+#' (id <- get_ncbi("Moniliformopses"))
 #' ncbi_downstream(id = id, downto = "order")
 #' }
 ncbi_downstream <- function(id, downto, intermediate = FALSE, ...) {

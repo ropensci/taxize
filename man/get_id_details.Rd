@@ -19,9 +19,9 @@ This document applies to the following functions:
 \item \code{\link[=get_nbnid]{get_nbnid()}}
 \item \code{\link[=get_tolid]{get_tolid()}}
 \item \code{\link[=get_tpsid]{get_tpsid()}}
-\item \code{\link[=get_tsn]{get_tsn()}}
+\item \code{\link[=get_itis]{get_itis()}}
 \item \code{\link[=get_ubioid]{get_ubioid()}}
-\item \code{\link[=get_uid]{get_uid()}}
+\item \code{\link[=get_ncbi]{get_ncbi()}}
 \item \code{\link[=get_wiki]{get_wiki()}}
 \item \code{\link[=get_wormsid]{get_wormsid()}}
 }

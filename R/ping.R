@@ -6,7 +6,7 @@
 #' signifying the service is up. If content, we do a simple, quick check to
 #' determine if returned content matches what's expected. If an HTTP status
 #' code, it must match an appropriate code. See [status_codes()].
-#' @param key (character) NCBI Entrez API key. optional. See [get_uid()]
+#' @param key (character) NCBI Entrez API key. optional. See [get_ncbi()]
 #' @param ... Curl options passed on to [crul::verb-GET]
 #' @return A logical, TRUE or FALSE
 #' @details For ITIS, see [ritis::description], which provides number of

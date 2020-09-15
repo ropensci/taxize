@@ -101,7 +101,7 @@ genbank2uid <- function(id, batch_size = 100, key = NULL, ...) {
   # Convert to list format
   output <- lapply(seq_len(nrow(result)), function(i) {
     my_uid <- result[i, "id"]
-    my_uid <- as.uid(result[i, "id"], check = FALSE)
+    my_uid <- as.ncbi(result[i, "id"], check = FALSE)
     if (is.na(my_uid)) {
       attr(my_uid, "match") <- "not found"
       attr(my_uid, "name") <- "unknown"

@@ -77,8 +77,8 @@
 #' ## itis
 #' downstream('Bangiophyceae', db="itis", downto="genus")
 #' downstream('Bangiophyceae', db="itis", downto="genus", intermediate=TRUE)
-#' downstream(get_tsn('Bangiophyceae'), downto="genus")
-#' downstream(get_tsn('Bangiophyceae'), downto="genus", intermediate=TRUE)
+#' downstream(get_itis('Bangiophyceae'), downto="genus")
+#' downstream(get_itis('Bangiophyceae'), downto="genus", intermediate=TRUE)
 #'
 #' # Use the rows parameter
 #' ## note how in the second function call you don't get the prompt
@@ -103,7 +103,7 @@ downstream.default <- function(sci_id, db=NULL, downto=NULL,
   switch(
     db,
     itis = {
-      id <- process_stream_ids(sci_id, db, get_tsn, rows = rows, ...)
+      id <- process_stream_ids(sci_id, db, get_itis, rows = rows, ...)
       stats::setNames(downstream(id, downto = tolower(downto),
                                  intermediate = intermediate, ...), sci_id)
     },
@@ -113,7 +113,7 @@ downstream.default <- function(sci_id, db=NULL, downto=NULL,
                                  intermediate = intermediate, ...), sci_id)
     },
     ncbi = {
-      id <- process_stream_ids(sci_id, db, get_uid, rows = rows, ...)
+      id <- process_stream_ids(sci_id, db, get_ncbi, rows = rows, ...)
       stats::setNames(downstream(id, downto = tolower(downto),
                                  intermediate = intermediate, ...), sci_id)
     },
@@ -139,8 +139,8 @@ process_stream_ids <- function(input, db, fxn, ...){
     is.character(input) &&
     all(grepl("[[:digit:]]", input))
   ) {
-    as_fxn <- switch(db, itis = as.tsn, gbif = as.gbifid,
-      ncbi = as.uid, worms = as.wormsid, bold = as.boldid)
+    as_fxn <- switch(db, itis = as.itis, gbif = as.gbifid,
+      ncbi = as.ncbi, worms = as.wormsid, bold = as.boldid)
     as_fxn(input, check = FALSE)
   } else {
     eval(fxn)(input, ...)

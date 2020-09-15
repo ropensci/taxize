@@ -33,8 +33,8 @@ on the console.}
 
 \item{query}{Deprecated, see \code{sci}}
 
-\item{...}{Other arguments passed to \code{\link[=get_tsn]{get_tsn()}} or
-\code{\link[=get_uid]{get_uid()}}.}
+\item{...}{Other arguments passed to \code{\link[=get_itis]{get_itis()}} or
+\code{\link[=get_ncbi]{get_ncbi()}}.}
 }
 \value{
 A data.frame with one column for every queried rank, in addition to

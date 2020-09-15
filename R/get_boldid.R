@@ -9,7 +9,7 @@
 #' See [bold_search()] for options.
 #' @param includeTree (logical) If TRUE (default: FALSE), returns a list
 #' containing information for parent taxa as well as the specified taxon.
-#' @param ask logical; should get_tsn be run in interactive mode?
+#' @param ask logical; should get_itis be run in interactive mode?
 #' If TRUE and more than one TSN is found for teh species, the user is asked for
 #' input. If FALSE NA is returned for multiple matches.
 #' @param messages logical; should progress be printed?

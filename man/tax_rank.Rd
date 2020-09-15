@@ -9,7 +9,7 @@ tax_rank(sci_id, db = NULL, rows = NA, x = NULL, ...)
 \arguments{
 \item{sci_id}{(character) Vector of one or more taxon names (character) or
 IDs (character or numeric) to query. Or objects returned from \verb{get_*()}
-functions like \code{\link[=get_tsn]{get_tsn()}}}
+functions like \code{\link[=get_itis]{get_itis()}}}
 
 \item{db}{(character) database to query. either \code{ncbi}, \code{itis}, \code{eol},
 \code{tropicos}, \code{gbif},\code{nbn}, \code{worms}, \code{natserv}, \code{bold}. Note that each
@@ -39,7 +39,7 @@ rank, \code{\link[=tax_rank]{tax_rank()}} returns the actual rank of the taxon.
 \dontrun{
 tax_rank("Helianthus annuus", db = "itis")
 tax_rank("Helianthus annuus", db = "natserv")
-tax_rank(get_tsn("Helianthus annuus"))
+tax_rank(get_itis("Helianthus annuus"))
 tax_rank(c("Helianthus", "Pinus", "Poa"), db = "itis")
 
 tax_rank(get_boldid("Helianthus annuus"))

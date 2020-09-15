@@ -48,7 +48,7 @@ upstream.default <- function(sci_id, db = NULL, upto = NULL, rows = NA,
   switch(
     db,
     itis = {
-      id <- process_stream_ids(sci_id, db, get_tsn, rows = rows, ...)
+      id <- process_stream_ids(sci_id, db, get_itis, rows = rows, ...)
       setNames(upstream(id, upto = tolower(upto), ...), sci_id)
     },
     stop("the provided db value was not recognised", call. = FALSE)
@@ -66,7 +66,7 @@ upstream.tsn <- function(sci_id, db = NULL, upto = NULL, ...) {
     } else {
       class <- classification(y, ...)
       toget <- class[[1]][ grep(upto, class[[1]]$rank) - 1, c("name", "id") ]
-      setNames(downstream(as.tsn(toget$id), downto = upto, ...), toget$name)
+      setNames(downstream(as.itis(toget$id), downto = upto, ...), toget$name)
     }
   }
   out <- if (length(sci_id) > 1) lapply(sci_id, fun, ...) else fun(sci_id, ...)

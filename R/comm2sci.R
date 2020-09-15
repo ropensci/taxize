@@ -12,13 +12,13 @@
 #' data.frame.
 #' @param commnames Deprecated, see `com`
 #' @param ... Further arguments passed on to internal methods.
-#' @param id taxon identifiers, as returned by [get_tsn()] or [get_uid()]
+#' @param id taxon identifiers, as returned by [get_itis()] or [get_ncbi()]
 #' @return If `simplify=TRUE`, a list of scientific names, with list
 #' labeled by your input names. If `simplify=FALSE`, a data.frame with
 #' columns that vary by data source. `character(0)` on no match
 #' @seealso [sci2comm()]
 #' @details For data sources ITIS and NCBI you can pass in common names
-#' directly, and use [get_uid()] or [get_tsn()] to get ids first, then pass in
+#' directly, and use [get_ncbi()] or [get_itis()] to get ids first, then pass in
 #' to this fxn.
 #'
 #' For the other data sources, you can only pass in common names directly.
@@ -41,11 +41,11 @@
 #' comm2sci('blue whale', db = "worms")
 #' comm2sci(c('blue whale', 'dwarf surfclam'), db = "worms")
 #'
-#' # ncbi: pass in uid's from get_uid() directly
-#' x <- get_uid("western capercaillie", modifier = "Common Name")
+#' # ncbi: pass in uid's from get_ncbi() directly
+#' x <- get_ncbi("western capercaillie", modifier = "Common Name")
 #' comm2sci(x)
-#' # itis: pass in tsn's from get_tsn() directly
-#' x <- get_tsn(c("Louisiana black bear", "american crow"),
+#' # itis: pass in tsn's from get_itis() directly
+#' x <- get_itis(c("Louisiana black bear", "american crow"),
 #'   searchtype = "common")
 #' comm2sci(x)
 #' }
@@ -75,7 +75,7 @@ sci_from_comm <- function(nn, db, simplify, itisby, ...) {
     itis = c2s_itis(nn, itisby, simplify, ...),
     tropicos = c2s_tp(simplify, com = nn, ...),
     ncbi = {
-      ids <- get_uid(nn, modifier = "Common Name", ...)
+      ids <- get_ncbi(nn, modifier = "Common Name", ...)
       c2s_ncbi(ids, ...)
     },
     worms = c2s_worms(nn, simplify, ...),

@@ -14,10 +14,10 @@
 #' data.frame. Only applies to eol and itis. Specify `FALSE` to obtain
 #' the language of each vernacular in the output for eol and itis.
 #' @param scinames Deprecated, see `sci`
-#' @param ... Further arguments passed on to functions [get_uid()],
-#' [get_tsn()].
-#' @param id character; identifiers, as returned by [get_tsn()],
-#' [get_uid()].
+#' @param ... Further arguments passed on to functions [get_ncbi()],
+#' [get_itis()].
+#' @param id character; identifiers, as returned by [get_itis()],
+#' [get_ncbi()].
 #'
 #' @section Authentication:
 #' See [taxize-authentication] for help on authentication
@@ -44,13 +44,13 @@
 #' sci2comm('Loxodonta africana', db='iucn')
 #'
 #' # Passing id in, works for sources: itis and ncbi, not eol
-#' sci2comm(get_tsn('Helianthus annuus'))
-#' sci2comm(get_uid('Helianthus annuus'))
+#' sci2comm(get_itis('Helianthus annuus'))
+#' sci2comm(get_ncbi('Helianthus annuus'))
 #' sci2comm(get_wormsid('Gadus morhua'))
 #' sci2comm(get_iucn('Loxodonta africana'))
 #'
 #' # Don't simplify returned
-#' sci2comm(get_tsn('Helianthus annuus'), simplify=FALSE)
+#' sci2comm(get_itis('Helianthus annuus'), simplify=FALSE)
 #' sci2comm(get_iucn('Loxodonta africana'), simplify=FALSE)
 #'
 #' # Use curl options
@@ -115,7 +115,7 @@ sci2comm.iucn <- function(id, simplify=TRUE, ...) {
 
 
 itis2comm <- function(x, simplify, ...){
-  tsn <- get_tsn(x, ...)
+  tsn <- get_itis(x, ...)
   itis_foo(tsn, simplify = simplify, ...)
 }
 
@@ -142,7 +142,7 @@ eol2comm <- function(x, simplify, ...){
 }
 
 ncbi2comm <- function(x, ...){
-  uid <- get_uid(x, ...)
+  uid <- get_ncbi(x, ...)
   ncbi_foo(uid, ...)
 }
 

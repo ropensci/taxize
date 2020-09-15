@@ -40,7 +40,7 @@ data.frame.}
 
 \item{commnames}{Deprecated, see \code{com}}
 
-\item{id}{taxon identifiers, as returned by \code{\link[=get_tsn]{get_tsn()}} or \code{\link[=get_uid]{get_uid()}}}
+\item{id}{taxon identifiers, as returned by \code{\link[=get_itis]{get_itis()}} or \code{\link[=get_ncbi]{get_ncbi()}}}
 }
 \value{
 If \code{simplify=TRUE}, a list of scientific names, with list
@@ -52,7 +52,7 @@ Get scientific names from common names.
 }
 \details{
 For data sources ITIS and NCBI you can pass in common names
-directly, and use \code{\link[=get_uid]{get_uid()}} or \code{\link[=get_tsn]{get_tsn()}} to get ids first, then pass in
+directly, and use \code{\link[=get_ncbi]{get_ncbi()}} or \code{\link[=get_itis]{get_itis()}} to get ids first, then pass in
 to this fxn.
 
 For the other data sources, you can only pass in common names directly.
@@ -79,11 +79,11 @@ comm2sci(com=c('annual blue grass','tree of heaven'), db='tropicos')
 comm2sci('blue whale', db = "worms")
 comm2sci(c('blue whale', 'dwarf surfclam'), db = "worms")
 
-# ncbi: pass in uid's from get_uid() directly
-x <- get_uid("western capercaillie", modifier = "Common Name")
+# ncbi: pass in uid's from get_ncbi() directly
+x <- get_ncbi("western capercaillie", modifier = "Common Name")
 comm2sci(x)
-# itis: pass in tsn's from get_tsn() directly
-x <- get_tsn(c("Louisiana black bear", "american crow"),
+# itis: pass in tsn's from get_itis() directly
+x <- get_itis(c("Louisiana black bear", "american crow"),
   searchtype = "common")
 comm2sci(x)
 }

@@ -3,7 +3,7 @@
 #' @export
 #' @param sci_id (character) Vector of one or more taxon names (character) or
 #' IDs (character or numeric) to query. Or objects returned from `get_*()`
-#' functions like [get_tsn()]
+#' functions like [get_itis()]
 #' @param db (character) database to query. either `ncbi`, `itis`, `eol`,
 #' `tropicos`, `gbif`,`nbn`, `worms`, `natserv`, `bold`. Note that each
 #' taxonomic data source has their own identifiers, so that if you provide the
@@ -21,7 +21,7 @@
 #' @examples \dontrun{
 #' tax_rank("Helianthus annuus", db = "itis")
 #' tax_rank("Helianthus annuus", db = "natserv")
-#' tax_rank(get_tsn("Helianthus annuus"))
+#' tax_rank(get_itis("Helianthus annuus"))
 #' tax_rank(c("Helianthus", "Pinus", "Poa"), db = "itis")
 #'
 #' tax_rank(get_boldid("Helianthus annuus"))
@@ -69,9 +69,9 @@ tax_rank.character <- function(sci_id, db = NULL, rows = NA, x = NULL, ...) {
       rows = rows), ...), sci_id),
     tropicos = stats::setNames(tax_rank_(process_ids(sci_id, db, get_tpsid,
       rows = rows), ...), sci_id),
-    itis = stats::setNames(tax_rank_(process_ids(sci_id, db, get_tsn,
+    itis = stats::setNames(tax_rank_(process_ids(sci_id, db, get_itis,
       rows = rows), ...), sci_id),
-    ncbi = stats::setNames(tax_rank_(process_ids(sci_id, db, get_uid,
+    ncbi = stats::setNames(tax_rank_(process_ids(sci_id, db, get_ncbi,
       rows = rows), ...), sci_id),
     worms = stats::setNames(tax_rank_(process_ids(sci_id, db, get_wormsid,
       rows = rows), ...), sci_id),

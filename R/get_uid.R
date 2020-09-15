@@ -5,14 +5,14 @@
 #' @export
 #' @param sci_com character; scientific or common name. Or, a `taxon_state`
 #' object (see [taxon-state])
-#' @param ask logical; should get_uid be run in interactive mode? If TRUE and
+#' @param ask logical; should get_ncbi be run in interactive mode? If TRUE and
 #' more than one TSN is found for the species, the user is asked for input. If
 #' FALSE NA is returned for multiple matches.
 #' @param messages logical; If `TRUE` (default) the actual taxon queried is
 #' printed on the console.
 #' @param rows numeric; Any number from 1 to infinity. If the default NA, all
 #' rows are considered. Note that this function still only gives back a uid
-#' class object with one to many identifiers. See [get_uid_()] to get back
+#' class object with one to many identifiers. See [get_ncbi_()] to get back
 #' all, or a subset, of the raw data that you are presented during the ask
 #' process.
 #' @param modifier (character) A modifier to the `sci_com` given. Options
@@ -31,11 +31,11 @@
 #' Though note that some data sources use atypical ranks, so inspect the data
 #' itself for options. Optional. See `Filtering` below.
 #' @param key (character) NCBI Entrez API key. optional. See Details.
-#' @param x Input to [as.uid()]
+#' @param x Input to [as.ncbi()]
 #' @param sciname Deprecated, see `sci_com`
 #' @param ... Ignored
 #' @param check logical; Check if ID matches any existing on the DB, only used
-#'   in [as.uid()]
+#'   in [as.ncbi()]
 #' @template getreturn
 #'
 #' @section Querying: The parameter `rank_query` is used in the search sent
@@ -62,7 +62,7 @@
 #' @section Authentication:
 #' See [taxize-authentication] for help on authentication
 #'
-#' Note that even though you can't pass in your key to `as.uid` functions,
+#' Note that even though you can't pass in your key to `as.ncbi` functions,
 #' we still use your Entrez API key if you have it saved as an R option
 #' or environment variable.
 #' 
@@ -76,87 +76,87 @@
 #' @author Eduard Szoecs, \email{eduardszoecs@@gmail.com}
 #'
 #' @examples \dontrun{
-#' get_uid(c("Chironomus riparius", "Chaetopteryx"))
-#' get_uid(c("Chironomus riparius", "aaa vva"))
+#' get_ncbi(c("Chironomus riparius", "Chaetopteryx"))
+#' get_ncbi(c("Chironomus riparius", "aaa vva"))
 #'
 #' # When not found
-#' get_uid("howdy")
-#' get_uid(c("Chironomus riparius", "howdy"))
+#' get_ncbi("howdy")
+#' get_ncbi(c("Chironomus riparius", "howdy"))
 #'
 #' # Narrow down results to a division or rank, or both
 #' ## By modifying the query
 #' ### w/ modifiers to the name
-#' get_uid(sci_com = "Aratinga acuticauda", modifier = "Organism")
-#' get_uid(sci_com = "bear", modifier = "Common Name")
+#' get_ncbi(sci_com = "Aratinga acuticauda", modifier = "Organism")
+#' get_ncbi(sci_com = "bear", modifier = "Common Name")
 #'
 #' ### w/ rank query
-#' get_uid(sci_com = "Pinus", rank_query = "genus")
-#' get_uid(sci_com = "Pinus", rank_query = "subgenus")
+#' get_ncbi(sci_com = "Pinus", rank_query = "genus")
+#' get_ncbi(sci_com = "Pinus", rank_query = "subgenus")
 #' ### division query doesn't really work, for unknown reasons, so not available
 #'
 #' ## By filtering the result
 #' ## Echinacea example
 #' ### Results w/o narrowing
-#' get_uid("Echinacea")
+#' get_ncbi("Echinacea")
 #' ### w/ division
-#' get_uid(sci_com = "Echinacea", division_filter = "eudicots")
-#' get_uid(sci_com = "Echinacea", division_filter = "sea urchins")
+#' get_ncbi(sci_com = "Echinacea", division_filter = "eudicots")
+#' get_ncbi(sci_com = "Echinacea", division_filter = "sea urchins")
 #'
 #' ## Satyrium example
 #' ### Results w/o narrowing
-#' get_uid(sci_com = "Satyrium")
+#' get_ncbi(sci_com = "Satyrium")
 #' ### w/ division
-#' get_uid(sci_com = "Satyrium", division_filter = "monocots")
-#' get_uid(sci_com = "Satyrium", division_filter = "butterflies")
+#' get_ncbi(sci_com = "Satyrium", division_filter = "monocots")
+#' get_ncbi(sci_com = "Satyrium", division_filter = "butterflies")
 #'
 #' ## Rank example
-#' get_uid(sci_com = "Pinus")
-#' get_uid(sci_com = "Pinus", rank_filter = "genus")
-#' get_uid(sci_com = "Pinus", rank_filter = "subgenus")
+#' get_ncbi(sci_com = "Pinus")
+#' get_ncbi(sci_com = "Pinus", rank_filter = "genus")
+#' get_ncbi(sci_com = "Pinus", rank_filter = "subgenus")
 #'
 #' # Fuzzy filter on any filtering fields
 #' ## uses grep on the inside
-#' get_uid("Satyrium", division_filter = "m")
+#' get_ncbi("Satyrium", division_filter = "m")
 #'
 #' # specify rows to limit choices available
-#' get_uid('Dugesia') # user prompt needed
-#' get_uid('Dugesia', rows=1) # 2 choices, so returns only 1 row, so no choices
-#' get_uid('Dugesia', ask = FALSE) # returns NA for multiple matches
+#' get_ncbi('Dugesia') # user prompt needed
+#' get_ncbi('Dugesia', rows=1) # 2 choices, so returns only 1 row, so no choices
+#' get_ncbi('Dugesia', ask = FALSE) # returns NA for multiple matches
 #'
 #' # Go to a website with more info on the taxon
-#' res <- get_uid("Chironomus riparius")
+#' res <- get_ncbi("Chironomus riparius")
 #' browseURL(attr(res, "uri"))
 #'
-#' # Convert a uid without class information to a uid class
-#' as.uid(get_uid("Chironomus riparius")) # already a uid, returns the same
-#' as.uid(get_uid(c("Chironomus riparius","Pinus contorta"))) # same
-#' as.uid(315567) # numeric
-#' as.uid(c(315567,3339,9696)) # numeric vector, length > 1
-#' as.uid("315567") # character
-#' as.uid(c("315567","3339","9696")) # character vector, length > 1
-#' as.uid(list("315567","3339","9696")) # list, either numeric or character
+#' # Convert a uid without class information to a ncbi class
+#' as.ncbi(get_ncbi("Chironomus riparius")) # already ncbi class, returns same
+#' as.ncbi(get_ncbi(c("Chironomus riparius","Pinus contorta"))) # same
+#' as.ncbi(315567) # numeric
+#' as.ncbi(c(315567,3339,9696)) # numeric vector, length > 1
+#' as.ncbi("315567") # character
+#' as.ncbi(c("315567","3339","9696")) # character vector, length > 1
+#' as.ncbi(list("315567","3339","9696")) # list, either numeric or character
 #' ## dont check, much faster
-#' as.uid("315567", check=FALSE)
-#' as.uid(315567, check=FALSE)
-#' as.uid(c("315567","3339","9696"), check=FALSE)
-#' as.uid(list("315567","3339","9696"), check=FALSE)
+#' as.ncbi("315567", check=FALSE)
+#' as.ncbi(315567, check=FALSE)
+#' as.ncbi(c("315567","3339","9696"), check=FALSE)
+#' as.ncbi(list("315567","3339","9696"), check=FALSE)
 #'
-#' (out <- as.uid(c(315567,3339,9696)))
+#' (out <- as.ncbi(c(315567,3339,9696)))
 #' data.frame(out)
-#' as.uid( data.frame(out) )
+#' as.ncbi( data.frame(out) )
 #'
 #' # Get all data back
-#' get_uid_("Puma concolor")
-#' get_uid_("Dugesia")
-#' get_uid_("Dugesia", rows=2)
-#' get_uid_("Dugesia", rows=1:2)
-#' get_uid_(c("asdfadfasd","Pinus contorta"))
+#' get_ncbi_("Puma concolor")
+#' get_ncbi_("Dugesia")
+#' get_ncbi_("Dugesia", rows=2)
+#' get_ncbi_("Dugesia", rows=1:2)
+#' get_ncbi_(c("asdfadfasd","Pinus contorta"))
 #'
 #' # use curl options
-#' get_uid("Quercus douglasii", verbose = TRUE)
+#' get_ncbi("Quercus douglasii", verbose = TRUE)
 #' }
 
-get_uid <- function(sci_com, ask = TRUE, messages = TRUE, rows = NA,
+get_ncbi <- function(sci_com, ask = TRUE, messages = TRUE, rows = NA,
                     modifier = NULL, rank_query = NULL,
                     division_filter = NULL, rank_filter = NULL,
                     key = NULL, sciname = NULL, ...) {
@@ -173,10 +173,10 @@ get_uid <- function(sci_com, ask = TRUE, messages = TRUE, rows = NA,
   pchk(sciname, "sci_com")
 
   if (inherits(sci_com, "character")) {
-    tstate <- taxon_state$new(class = "uid", names = sci_com)
+    tstate <- taxon_state$new(class = "ncbi", names = sci_com)
     items <- sci_com
   } else {
-    assert_state(sci_com, "uid")
+    assert_state(sci_com, "ncbi")
     tstate <- sci_com
     sci_com <- tstate$taxa_remaining()
     items <- c(sci_com, tstate$taxa_completed())
@@ -338,6 +338,9 @@ get_uid <- function(sci_com, ask = TRUE, messages = TRUE, rows = NA,
   on.exit(tstate$exit, add = TRUE)
   return(res)
 }
+#' @export
+#' @rdname get_ncbi
+get_uid <- get_ncbi
 
 repeat_until_it_works <- function(catch, path, query, max_tries = 3,
   wait_time = 10, messages = TRUE, ...) {
@@ -363,35 +366,35 @@ repeat_until_it_works <- function(catch, path, query, max_tries = 3,
 }
 
 #' @export
-#' @rdname get_uid
-as.uid <- function(x, check=TRUE) UseMethod("as.uid")
+#' @rdname get_ncbi
+as.ncbi <- function(x, check=TRUE) UseMethod("as.ncbi")
 
 #' @export
-#' @rdname get_uid
-as.uid.uid <- function(x, check=TRUE) x
+#' @rdname get_ncbi
+as.ncbi.ncbi <- function(x, check=TRUE) x
 
 #' @export
-#' @rdname get_uid
-as.uid.character <- function(x, check=TRUE) if(length(x) == 1) make_uid(x, check) else collapse(x, make_uid, "uid", check=check)
+#' @rdname get_ncbi
+as.ncbi.character <- function(x, check=TRUE) if(length(x) == 1) make_ncbi(x, check) else collapse(x, make_ncbi, "ncbi", check=check)
 
 #' @export
-#' @rdname get_uid
-as.uid.list <- function(x, check=TRUE) if(length(x) == 1) make_uid(x, check) else collapse(x, make_uid, "uid", check=check)
+#' @rdname get_ncbi
+as.ncbi.list <- function(x, check=TRUE) if(length(x) == 1) make_ncbi(x, check) else collapse(x, make_ncbi, "ncbi", check=check)
 
 #' @export
-#' @rdname get_uid
-as.uid.numeric <- function(x, check=TRUE) as.uid(as.character(x), check)
+#' @rdname get_ncbi
+as.ncbi.numeric <- function(x, check=TRUE) as.ncbi(as.character(x), check)
 
 #' @export
-#' @rdname get_uid
-as.uid.data.frame <- function(x, check=TRUE) as_txid_df(x, check)
+#' @rdname get_ncbi
+as.ncbi.data.frame <- function(x, check=TRUE) as_txid_df(x, check)
 
-make_uid <- function(x, check=TRUE) {
+make_ncbi <- function(x, check=TRUE) {
   make_generic(x, 'https://www.ncbi.nlm.nih.gov/taxonomy/%s',
-    "uid", check)
+    "ncbi", check)
 }
 
-check_uid <- function(x){
+check_ncbi <- function(x){
   key <- getkey(NULL, "ENTREZ_KEY")
   cli <- crul::HttpClient$new(url = ncbi_base(), headers = tx_ual,
     opts = list(http_version = 2L))
@@ -405,17 +408,20 @@ check_uid <- function(x){
 
 
 #' @export
-#' @rdname get_uid
-get_uid_ <- function(sci_com, messages = TRUE, rows = NA, key = NULL,
+#' @rdname get_ncbi
+get_ncbi_ <- function(sci_com, messages = TRUE, rows = NA, key = NULL,
   sciname = NULL, ...) {
   
   key <- getkey(key, "ENTREZ_KEY")
   pchk(sciname, "sci_com")
-  stats::setNames(lapply(sci_com, get_uid_help, messages = messages,
+  stats::setNames(lapply(sci_com, get_ncbi_help, messages = messages,
     rows = rows, key = key, ...), sci_com)
 }
+#' @export
+#' @rdname get_ncbi
+get_uid_ <- get_ncbi_
 
-get_uid_help <- function(sci_com, messages, rows, key, ...) {
+get_ncbi_help <- function(sci_com, messages, rows, key, ...) {
   mssg(messages, "\nRetrieving data for taxon '", sci_com, "'\n")
   cli <- crul::HttpClient$new(url = ncbi_base(), headers = tx_ual,
     opts = list(http_version = 2L, ...))

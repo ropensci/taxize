@@ -135,8 +135,8 @@ downstream(get_ids("Apis", db = c('gbif','itis')), downto = 'species')
 ## itis
 downstream('Bangiophyceae', db="itis", downto="genus")
 downstream('Bangiophyceae', db="itis", downto="genus", intermediate=TRUE)
-downstream(get_tsn('Bangiophyceae'), downto="genus")
-downstream(get_tsn('Bangiophyceae'), downto="genus", intermediate=TRUE)
+downstream(get_itis('Bangiophyceae'), downto="genus")
+downstream(get_itis('Bangiophyceae'), downto="genus", intermediate=TRUE)
 
 # Use the rows parameter
 ## note how in the second function call you don't get the prompt

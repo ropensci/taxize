@@ -30,7 +30,7 @@ lowest_common(...)
 \method{lowest_common}{tolid}(sci_id, class_list = NULL, low_rank = NULL, ...)
 }
 \arguments{
-\item{...}{Other arguments passed to \code{\link[=get_tsn]{get_tsn()}}, \code{\link[=get_uid]{get_uid()}},
+\item{...}{Other arguments passed to \code{\link[=get_itis]{get_itis()}}, \code{\link[=get_ncbi]{get_ncbi()}},
 \code{\link[=get_gbifid]{get_gbifid()}}, \code{\link[=get_tolid]{get_tolid()}}}
 
 \item{sci_id}{Vector of taxa names (character) or id (character or numeric) to
@@ -90,10 +90,10 @@ lowest_common(xx, class_list = cls)
 
 spp <- c("Sus scrofa", "Homo sapiens", "Nycticebus coucang")
 lowest_common(spp, db = "ncbi")
-lowest_common(get_uid(spp))
+lowest_common(get_ncbi(spp))
 
 lowest_common(spp, db = "itis")
-lowest_common(get_tsn(spp))
+lowest_common(get_itis(spp))
 
 gbifid <- c("2704179", "3119195")
 lowest_common(gbifid, db = "gbif")
@@ -104,12 +104,12 @@ lowest_common(get_gbifid(spp))
 
 cool_orchid <- c("Angraecum sesquipedale", "Dracula vampira",
   "Masdevallia coccinea")
-orchid_ncbi <- get_uid(cool_orchid)
+orchid_ncbi <- get_ncbi(cool_orchid)
 orchid_gbif <- get_gbifid(cool_orchid)
 
 cool_orchids2 <- c("Domingoa haematochila", "Gymnadenia conopsea",
   "Masdevallia coccinea")
-orchid_itis <- get_tsn(cool_orchids2)
+orchid_itis <- get_itis(cool_orchids2)
 
 orchid_hier_ncbi <- classification(orchid_ncbi, db = 'ncbi')
 orchid_hier_gbif <- classification(orchid_gbif, db = 'gbif')
@@ -120,8 +120,8 @@ lowest_common(orchid_ncbi, class_list = orchid_hier_ncbi,
   low_rank = 'class')
 lowest_common(orchid_gbif, low_rank = 'class')
 lowest_common(orchid_gbif, orchid_hier_gbif, low_rank = 'class')
-lowest_common(get_uid(cool_orchid), low_rank = 'class')
-lowest_common(get_uid(cool_orchid), low_rank = 'family')
+lowest_common(get_ncbi(cool_orchid), low_rank = 'class')
+lowest_common(get_ncbi(cool_orchid), low_rank = 'family')
 
 lowest_common(orchid_ncbi, class_list = orchid_hier_ncbi,
   low_rank = 'subfamily')
@@ -139,7 +139,7 @@ lowest_common(x = nms, db = "gbif")
 
 ## NAs due to taxon not found, stops with error message
 # lowest_common(orchid_itis, db = "itis")
-# lowest_common(get_tsn(cool_orchid))
+# lowest_common(get_itis(cool_orchid))
 }
 }
 \author{

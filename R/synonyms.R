@@ -8,7 +8,7 @@
 #' you could get a result, but it will likely be wrong (not what you were
 #' expecting). If using tropicos, we  recommend getting an API key;
 #' see [taxize-authentication]
-#' @param id character; identifiers, returned by [get_tsn()], [get_tpsid()],
+#' @param id character; identifiers, returned by [get_itis()], [get_tpsid()],
 #' [get_nbnid()], [get_wormsid()], [get_pow()]
 #' @param rows (numeric) Any number from 1 to infinity. If the default NA, all
 #' rows are considered. Note that this parameter is ignored if you pass in a
@@ -35,7 +35,7 @@
 #' Note that IUCN requires an API key. See [rredlist::rredlist-package]
 #' for help on authentiating with IUCN Redlist
 #'
-#' @seealso [get_tsn()] [get_tpsid()] [get_nbnid()]
+#' @seealso [get_itis()] [get_tpsid()] [get_nbnid()]
 #' [get_wormsid()] [get_iucn()] [get_pow()]
 #'
 #' @export
@@ -69,7 +69,7 @@
 #' synonyms("Spinus pinus", db="itis")
 #'
 #' # Use get_* methods
-#' synonyms(get_tsn("Poa annua"))
+#' synonyms(get_itis("Poa annua"))
 #' synonyms(get_tpsid("Poa annua"))
 #' synonyms(get_nbnid("Carcharodon carcharias"))
 #' synonyms(get_iucn('Loxodonta africana'))
@@ -119,7 +119,7 @@ synonyms.default <- function(sci_id, db = NULL, rows = NA, x = NULL, ...) {
   switch(
     db,
     itis = {
-      id <- process_syn_ids(sci_id, db, get_tsn, rows = rows, ...)
+      id <- process_syn_ids(sci_id, db, get_itis, rows = rows, ...)
       structure(stats::setNames(synonyms(id, ...), sci_id),
                 class = "synonyms", db = "itis")
     },
@@ -164,7 +164,7 @@ process_syn_ids <- function(input, db, fxn, ...){
     is.character(input) && all(grepl("[[:digit:]]", input))
   ) {
     as_fxn <- switch(db,
-      itis = as.tsn,
+      itis = as.itis,
       tropicos = as.tpsid,
       nbn = as.nbnid,
       worms = as.wormsid,

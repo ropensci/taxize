@@ -13,8 +13,8 @@
 #' @param messages (logical) If `TRUE` the actual taxon queried is printed
 #' on the console.
 #' @param query Deprecated, see `sci`
-#' @param ... Other arguments passed to [get_tsn()] or
-#' [get_uid()].
+#' @param ... Other arguments passed to [get_itis()] or
+#' [get_ncbi()].
 #'
 #' @return A data.frame with one column for every queried rank, in addition to
 #' a column for db and queried term.
@@ -80,7 +80,7 @@ tax_name <- function(sci, get, db = "itis", pref = 'ncbi', messages = TRUE,
 }
 
 do_ncbi <- function(query, get, messages, both=FALSE, rows = NA, ...) {
-  uid <- get_uid(query, messages = messages, rows = rows, ...)
+  uid <- get_ncbi(query, messages = messages, rows = rows, ...)
   if (all(is.na(uid))) {
     if (messages) message("No UID found for species '", query, "'!\n")
     if (both) {
@@ -107,7 +107,7 @@ do_ncbi <- function(query, get, messages, both=FALSE, rows = NA, ...) {
 }
 
 do_itis <- function(query, get, messages, both = FALSE, rows = NA, ...){
-  tsn <- get_tsn(query, searchtype = "scientific", messages = messages,
+  tsn <- get_itis(query, searchtype = "scientific", messages = messages,
                  rows = rows, ...)
   if (all(is.na(tsn))) {
     if (messages) message("No TSN found for species '", query, "'!\n")

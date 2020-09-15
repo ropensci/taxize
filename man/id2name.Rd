@@ -64,7 +64,7 @@ id2name(19322, db = "itis")
 id2name(515698, db = "tol")
 # get NCBI ID and pass to classification()
 x <- id2name(515698, db = "tol")
-classification(as.uid(x[[1]]$tax_sources_ncbi))
+classification(as.ncbi(x[[1]]$tax_sources_ncbi))
 
 # NCBI
 id2name(315567, db = "ncbi")

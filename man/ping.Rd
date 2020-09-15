@@ -46,7 +46,7 @@ code, it must match an appropriate code. See \code{\link[=status_codes]{status_c
 
 \item{...}{Curl options passed on to \link[crul:verb-GET]{crul::verb-GET}}
 
-\item{key}{(character) NCBI Entrez API key. optional. See \code{\link[=get_uid]{get_uid()}}}
+\item{key}{(character) NCBI Entrez API key. optional. See \code{\link[=get_ncbi]{get_ncbi()}}}
 }
 \value{
 A logical, TRUE or FALSE

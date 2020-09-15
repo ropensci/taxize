@@ -54,7 +54,7 @@ taxonomic id of any of the acceptable classes: tsn, tpsid, nbnid, ids.}
 \item{x}{For \code{synonyms()}: deprecated, see \code{sci_id}. For \code{synonyms_df()},
 the output of \code{synonyms()}}
 
-\item{id}{character; identifiers, returned by \code{\link[=get_tsn]{get_tsn()}}, \code{\link[=get_tpsid]{get_tpsid()}},
+\item{id}{character; identifiers, returned by \code{\link[=get_itis]{get_itis()}}, \code{\link[=get_tpsid]{get_tpsid()}},
 \code{\link[=get_nbnid]{get_nbnid()}}, \code{\link[=get_wormsid]{get_wormsid()}}, \code{\link[=get_pow]{get_pow()}}}
 }
 \value{
@@ -112,7 +112,7 @@ synonyms("Acer drummondii", db="itis")
 synonyms("Spinus pinus", db="itis")
 
 # Use get_* methods
-synonyms(get_tsn("Poa annua"))
+synonyms(get_itis("Poa annua"))
 synonyms(get_tpsid("Poa annua"))
 synonyms(get_nbnid("Carcharodon carcharias"))
 synonyms(get_iucn('Loxodonta africana'))
@@ -150,6 +150,6 @@ synonyms_df(x)
 }
 }
 \seealso{
-\code{\link[=get_tsn]{get_tsn()}} \code{\link[=get_tpsid]{get_tpsid()}} \code{\link[=get_nbnid]{get_nbnid()}}
+\code{\link[=get_itis]{get_itis()}} \code{\link[=get_tpsid]{get_tpsid()}} \code{\link[=get_nbnid]{get_nbnid()}}
 \code{\link[=get_wormsid]{get_wormsid()}} \code{\link[=get_iucn]{get_iucn()}} \code{\link[=get_pow]{get_pow()}}
 }

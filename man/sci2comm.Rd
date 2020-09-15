@@ -22,8 +22,8 @@ sci2comm(...)
 \method{sci2comm}{iucn}(id, simplify = TRUE, ...)
 }
 \arguments{
-\item{...}{Further arguments passed on to functions \code{\link[=get_uid]{get_uid()}},
-\code{\link[=get_tsn]{get_tsn()}}.}
+\item{...}{Further arguments passed on to functions \code{\link[=get_ncbi]{get_ncbi()}},
+\code{\link[=get_itis]{get_itis()}}.}
 
 \item{sci}{character; One or more scientific names or partial names.}
 
@@ -42,8 +42,8 @@ the language of each vernacular in the output for eol and itis.}
 
 \item{scinames}{Deprecated, see \code{sci}}
 
-\item{id}{character; identifiers, as returned by \code{\link[=get_tsn]{get_tsn()}},
-\code{\link[=get_uid]{get_uid()}}.}
+\item{id}{character; identifiers, as returned by \code{\link[=get_itis]{get_itis()}},
+\code{\link[=get_ncbi]{get_ncbi()}}.}
 }
 \value{
 List of character vectors, named by input taxon name,
@@ -75,13 +75,13 @@ sci2comm('Pomatomus saltatrix', db='worms')
 sci2comm('Loxodonta africana', db='iucn')
 
 # Passing id in, works for sources: itis and ncbi, not eol
-sci2comm(get_tsn('Helianthus annuus'))
-sci2comm(get_uid('Helianthus annuus'))
+sci2comm(get_itis('Helianthus annuus'))
+sci2comm(get_ncbi('Helianthus annuus'))
 sci2comm(get_wormsid('Gadus morhua'))
 sci2comm(get_iucn('Loxodonta africana'))
 
 # Don't simplify returned
-sci2comm(get_tsn('Helianthus annuus'), simplify=FALSE)
+sci2comm(get_itis('Helianthus annuus'), simplify=FALSE)
 sci2comm(get_iucn('Loxodonta africana'), simplify=FALSE)
 
 # Use curl options

@@ -23,7 +23,7 @@ see \link{taxize-authentication}}
 
 \item{messages}{(logical) If FALSE (Default) suppress messages}
 
-\item{...}{Other arguments passed to \code{\link[=get_tsn]{get_tsn()}} or \code{\link[=get_uid]{get_uid()}}}
+\item{...}{Other arguments passed to \code{\link[=get_itis]{get_itis()}} or \code{\link[=get_ncbi]{get_ncbi()}}}
 }
 \value{
 A list of class \code{tax_agg} with the following items:

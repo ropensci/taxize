@@ -3,7 +3,7 @@
 \name{classification}
 \alias{classification}
 \alias{classification.default}
-\alias{classification.tsn}
+\alias{classification.itis}
 \alias{classification.uid}
 \alias{classification.eolid}
 \alias{classification.tpsid}
@@ -34,7 +34,7 @@ classification(...)
   ...
 )
 
-\method{classification}{tsn}(id, return_id = TRUE, ...)
+\method{classification}{itis}(id, return_id = TRUE, ...)
 
 \method{classification}{uid}(
   id,
@@ -76,8 +76,8 @@ classification(...)
 \method{rbind}{classification_ids}(...)
 }
 \arguments{
-\item{...}{For \code{classification}: other arguments passed to \code{\link[=get_tsn]{get_tsn()}},
-\code{\link[=get_uid]{get_uid()}}, \code{\link[=get_eolid]{get_eolid()}}, \code{\link[=get_tpsid]{get_tpsid()}}, \code{\link[=get_gbifid]{get_gbifid()}},
+\item{...}{For \code{classification}: other arguments passed to \code{\link[=get_itis]{get_itis()}},
+\code{\link[=get_ncbi]{get_ncbi()}}, \code{\link[=get_eolid]{get_eolid()}}, \code{\link[=get_tpsid]{get_tpsid()}}, \code{\link[=get_gbifid]{get_gbifid()}},
 \code{\link[=get_wormsid]{get_wormsid()}}, \code{\link[=get_natservid]{get_natservid()}}, \code{\link[=get_wormsid]{get_wormsid()}}, \code{\link[=get_wiki]{get_wiki()}},
 \code{\link[=get_pow]{get_pow()}}. For \code{rbind.classification} and \code{cbind.classification}: one or
 more objects of class \code{classification}}
@@ -107,7 +107,7 @@ in a taxonomic id instead of a name of class character.}
 
 \item{x}{Deprecated, see \code{sci_id}}
 
-\item{id}{character; identifiers, returned by \code{\link[=get_tsn]{get_tsn()}}, \code{\link[=get_uid]{get_uid()}},
+\item{id}{character; identifiers, returned by \code{\link[=get_itis]{get_itis()}}, \code{\link[=get_ncbi]{get_ncbi()}},
 \code{\link[=get_eolid]{get_eolid()}}, \code{\link[=get_tpsid]{get_tpsid()}}, \code{\link[=get_gbifid]{get_gbifid()}}, \code{\link[=get_tolid]{get_tolid()}},
 \code{\link[=get_wormsid]{get_wormsid()}}, \code{\link[=get_natservid]{get_natservid()}}, \code{\link[=get_wormsid]{get_wormsid()}}, \code{\link[=get_wiki]{get_wiki()}},
 \code{\link[=get_pow]{get_pow()}}}
@@ -218,12 +218,12 @@ classification(c("Chironomus riparius", "asdfasdfsfdfsd"), db = 'gbif')
 classification("Chironomus", db = 'tol')
 classification("Poa annua", db = 'tropicos')
 
-# Use methods for get_uid, get_tsn, get_eolid, get_tpsid
-classification(get_uid(c("Chironomus riparius", "Puma concolor")))
+# Use methods for get_ncbi, get_itis, get_eolid, get_tpsid
+classification(get_ncbi(c("Chironomus riparius", "Puma concolor")))
 
-classification(get_uid(c("Chironomus riparius", "aaa vva")))
-classification(get_tsn(c("Chironomus riparius", "aaa vva")))
-classification(get_tsn(c("Chironomus riparius", "aaa vva"),
+classification(get_ncbi(c("Chironomus riparius", "aaa vva")))
+classification(get_itis(c("Chironomus riparius", "aaa vva")))
+classification(get_itis(c("Chironomus riparius", "aaa vva"),
   messages = FALSE))
 classification(get_eolid(c("Chironomus riparius", "aaa vva")))
 classification(get_tpsid(c("Poa annua", "aaa vva")))
@@ -249,20 +249,20 @@ cbind(cl)
 ## so you can turn off return_id
 cbind( classification(out, return_id=FALSE) )
 
-(cl_uid <- classification(get_uid(c("Puma concolor",
+(cl_uid <- classification(get_ncbi(c("Puma concolor",
   "Accipiter striatus")), return_id=FALSE))
 rbind(cl_uid)
 cbind(cl_uid)
 ## cbind works a bit odd when there are lots of ranks without names
-(cl_uid <- classification(get_uid(c("Puma concolor","Accipiter striatus")),
+(cl_uid <- classification(get_ncbi(c("Puma concolor","Accipiter striatus")),
   return_id=TRUE))
 cbind(cl_uid)
 
-(cl_tsn <- classification(get_tsn(c("Puma concolor","Accipiter striatus"))))
+(cl_tsn <- classification(get_itis(c("Puma concolor","Accipiter striatus"))))
 rbind(cl_tsn)
 cbind(cl_tsn)
 
-(tsns <- get_tsn(c("Puma concolor","Accipiter striatus")))
+(tsns <- get_itis(c("Puma concolor","Accipiter striatus")))
 (cl_tsns <- classification(tsns))
 cbind(cl_tsns)
 
@@ -312,7 +312,7 @@ result <- classification(ids, db = 'ncbi')
 }
 }
 \seealso{
-\code{\link[=get_tsn]{get_tsn()}}, \code{\link[=get_uid]{get_uid()}}, \code{\link[=get_eolid]{get_eolid()}},
+\code{\link[=get_itis]{get_itis()}}, \code{\link[=get_ncbi]{get_ncbi()}}, \code{\link[=get_eolid]{get_eolid()}},
 \code{\link[=get_tpsid]{get_tpsid()}}, \code{\link[=get_gbifid]{get_gbifid()}}, \code{\link[=get_wormsid]{get_wormsid()}}, \code{\link[=get_natservid]{get_natservid()}},
 \code{\link[=get_boldid]{get_boldid()}}, \code{\link[=get_wiki]{get_wiki()}}, \code{\link[=get_pow]{get_pow()}}
 }

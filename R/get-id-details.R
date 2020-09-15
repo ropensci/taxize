@@ -14,9 +14,9 @@
 #' * [get_nbnid()]
 #' * [get_tolid()]
 #' * [get_tpsid()]
-#' * [get_tsn()]
+#' * [get_itis()]
 #' * [get_ubioid()]
-#' * [get_uid()]
+#' * [get_ncbi()]
 #' * [get_wiki()]
 #' * [get_wormsid()]
 #'

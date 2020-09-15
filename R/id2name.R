@@ -27,7 +27,7 @@
 #' id2name(515698, db = "tol")
 #' # get NCBI ID and pass to classification()
 #' x <- id2name(515698, db = "tol")
-#' classification(as.uid(x[[1]]$tax_sources_ncbi))
+#' classification(as.ncbi(x[[1]]$tax_sources_ncbi))
 #'
 #' # NCBI
 #' id2name(315567, db = "ncbi")
@@ -62,7 +62,7 @@ id2name.default <- function(id, db = NULL, x = NULL, ...) {
 id2name_sources <- c('tol', 'itis', 'ncbi', 'worms', 'gbif', 'bold')
 
 process_idn_ids <- function(input, db) {
-  as_fxn <- switch(db, tol = as.tolid, itis = as.tsn, ncbi = as.uid,
+  as_fxn <- switch(db, tol = as.tolid, itis = as.itis, ncbi = as.ncbi,
     worms = as.wormsid, gbif = as.gbifid,
     bold = as.boldid)
   as_fxn(input, check = FALSE)

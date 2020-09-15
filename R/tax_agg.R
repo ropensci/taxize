@@ -10,7 +10,7 @@
 #' what you were expecting). If using ncbi we recommend getting an API key;
 #' see [taxize-authentication]
 #' @param messages (logical) If FALSE (Default) suppress messages
-#' @param ... Other arguments passed to [get_tsn()] or [get_uid()]
+#' @param ... Other arguments passed to [get_itis()] or [get_ncbi()]
 #'
 #' @details `tax_agg` aggregates (sum) taxa to a specific taxonomic level.
 #' If a taxon is not found in the database (ITIS or NCBI) or the supplied taxon

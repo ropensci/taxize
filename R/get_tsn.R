@@ -10,71 +10,71 @@
 #' @param accepted logical; If TRUE, removes names that are not accepted valid
 #' names by ITIS. Set to `FALSE` (default) to give back both accepted
 #' and unaccepted names.
-#' @param ask logical; should get_tsn be run in interactive mode?
+#' @param ask logical; should get_itis be run in interactive mode?
 #' If `TRUE` and more than one TSN is found for the species, the user is
 #' asked for input. If `FALSE` NA is returned for multiple matches.
 #' @param messages logical; should progress be printed?
 #' @param rows numeric; Any number from 1 to infinity. If the default NA, all
 #' rows are considered. Note that this function still only gives back a tsn
 #' class object with one to many identifiers. See
-#' [get_tsn_()] to get back all, or a subset, of the raw
+#' [get_itis_()] to get back all, or a subset, of the raw
 #' data that you are presented during the ask process.
-#' @param x Input to as.tsn
+#' @param x Input to as.itis
 #' @param searchterm Deprecated, see `sci_com`
 #' @param ... Ignored
 #' @param check logical; Check if ID matches any existing on the DB, only
-#' used in [as.tsn()]
+#' used in [as.itis()]
 #' @template getreturn
 #'
 #' @family taxonomic-ids
 #' @seealso [classification()]
 #'
 #' @examples \dontrun{
-#' get_tsn("Quercus douglasii")
-#' get_tsn("Chironomus riparius")
-#' get_tsn(c("Chironomus riparius","Quercus douglasii"))
+#' get_itis("Quercus douglasii")
+#' get_itis("Chironomus riparius")
+#' get_itis(c("Chironomus riparius","Quercus douglasii"))
 #' splist <- c("annona cherimola", 'annona muricata', "quercus robur",
 #' 		"shorea robusta", "pandanus patina", "oryza sativa", "durio zibethinus")
-#' get_tsn(splist, messages=FALSE)
+#' get_itis(splist, messages=FALSE)
 #'
 #' # specify rows to limit choices available
-#' get_tsn('Arni')
-#' get_tsn('Arni', rows=1)
-#' get_tsn('Arni', rows=1:2)
+#' get_itis('Arni')
+#' get_itis('Arni', rows=1)
+#' get_itis('Arni', rows=1:2)
 #'
 #' # When not found
-#' get_tsn("howdy")
-#' get_tsn(c("Chironomus riparius", "howdy"))
+#' get_itis("howdy")
+#' get_itis(c("Chironomus riparius", "howdy"))
 #'
 #' # Using common names
-#' get_tsn("black bear", searchtype="common")
+#' get_itis("black bear", searchtype="common")
 #'
-#' # Convert a tsn without class information to a tsn class
-#' as.tsn(get_tsn("Quercus douglasii")) # already a tsn, returns the same
-#' as.tsn(get_tsn(c("Chironomus riparius","Pinus contorta"))) # same
-#' as.tsn(19322) # numeric
-#' as.tsn(c(19322,129313,506198)) # numeric vector, length > 1
-#' as.tsn("19322") # character
-#' as.tsn(c("19322","129313","506198")) # character vector, length > 1
-#' as.tsn(list("19322","129313","506198")) # list, either numeric or character
+#' # Convert a tsn without class information to a itis class
+#' as.itis(get_itis("Quercus douglasii")) # already a itis, returns the same
+#' as.itis(get_itis(c("Chironomus riparius","Pinus contorta"))) # same
+#' as.itis(19322) # numeric
+#' as.itis(c(19322,129313,506198)) # numeric vector, length > 1
+#' as.itis("19322") # character
+#' as.itis(c("19322","129313","506198")) # character vector, length > 1
+#' as.itis(list("19322","129313","506198")) # list, either numeric or character
 #' ## dont check, much faster
-#' as.tsn("19322", check=FALSE)
-#' as.tsn(19322, check=FALSE)
-#' as.tsn(c("19322","129313","506198"), check=FALSE)
-#' as.tsn(list("19322","129313","506198"), check=FALSE)
+#' as.itis("19322", check=FALSE)
+#' as.itis(19322, check=FALSE)
+#' as.itis(c("19322","129313","506198"), check=FALSE)
+#' as.itis(list("19322","129313","506198"), check=FALSE)
 #'
-#' (out <- as.tsn(c(19322,129313,506198)))
+#' (out <- as.itis(c(19322,129313,506198)))
 #' data.frame(out)
-#' as.tsn( data.frame(out) )
+#' as.itis( data.frame(out) )
 #'
 #' # Get all data back
-#' get_tsn_("Arni")
-#' get_tsn_("Arni", rows=1)
-#' get_tsn_("Arni", rows=1:2)
-#' get_tsn_(c("asdfadfasd","Pinus contorta"), rows=1:5)
+#' get_itis_("Arni")
+#' get_itis_("Arni", rows=1)
+#' get_itis_("Arni", rows=1:2)
+#' get_itis_(c("asdfadfasd","Pinus contorta"), rows=1:5)
 #' }
 
-get_tsn <- function(sci_com, searchtype = "scientific", accepted = FALSE,
+get_itis <- function(sci_com, searchtype = "scientific", accepted = FALSE,
   ask = TRUE, messages = TRUE, rows = NA, searchterm = NULL, ...) {
 
   assert(sci_com, c("character", "taxon_state"))
@@ -86,10 +86,10 @@ get_tsn <- function(sci_com, searchtype = "scientific", accepted = FALSE,
   pchk(searchterm, "sci_com")
 
   if (inherits(sci_com, "character")) {
-    tstate <- taxon_state$new(class = "tsn", names = sci_com)
+    tstate <- taxon_state$new(class = "itis", names = sci_com)
     items <- sci_com
   } else {
-    assert_state(sci_com, "tsn")
+    assert_state(sci_com, "itis")
     tstate <- sci_com
     sci_com <- tstate$taxa_remaining()
     items <- c(sci_com, tstate$taxa_completed())
@@ -230,59 +230,66 @@ get_tsn <- function(sci_com, searchtype = "scientific", accepted = FALSE,
     uri = sprintf(get_url_templates$itis, ids),
     match = unname(unlist(pluck(out, "att"))),
     multiple_matches = unname(unlist(pluck(out, "multiple"))),
-    pattern_match = unname(unlist(pluck(out, "direct")))
+    pattern_match = unname(unlist(pluck(out, "direct"))),
+    class = "itis"
   )
   on.exit(prog$prog_summary(), add = TRUE)
   on.exit(tstate$exit, add = TRUE)
   return(res)
 }
+#' @export
+#' @rdname get_itis
+get_tsn <- get_itis
 
 #' @export
-#' @rdname get_tsn
-as.tsn <- function(x, check=TRUE) UseMethod("as.tsn")
+#' @rdname get_itis
+as.itis <- function(x, check=TRUE) UseMethod("as.itis")
 
 #' @export
-#' @rdname get_tsn
-as.tsn.tsn <- function(x, check=TRUE) x
+#' @rdname get_itis
+as.itis.itis <- function(x, check=TRUE) x
 
 #' @export
-#' @rdname get_tsn
-as.tsn.character <- function(x, check=TRUE) if (length(x) == 1) make_tsn(x, check) else collapse(x, make_tsn, "tsn", check = check)
+#' @rdname get_itis
+as.itis.character <- function(x, check=TRUE) if (length(x) == 1) make_itis(x, check) else collapse(x, make_itis, "itis", check = check)
 
 #' @export
-#' @rdname get_tsn
-as.tsn.list <- function(x, check=TRUE) if (length(x) == 1) make_tsn(x, check) else collapse(x, make_tsn, "tsn", check = check)
+#' @rdname get_itis
+as.itis.list <- function(x, check=TRUE) if (length(x) == 1) make_itis(x, check) else collapse(x, make_itis, "itis", check = check)
 
 #' @export
-#' @rdname get_tsn
-as.tsn.numeric <- function(x, check=TRUE) as.tsn(as.character(x), check)
+#' @rdname get_itis
+as.itis.numeric <- function(x, check=TRUE) as.itis(as.character(x), check)
 
 #' @export
-#' @rdname get_tsn
-as.tsn.data.frame <- function(x, check=TRUE) as_txid_df(x, check)
+#' @rdname get_itis
+as.itis.data.frame <- function(x, check=TRUE) as_txid_df(x, check)
 
-make_tsn <- function(x, check=TRUE) {
-  make_generic(x, get_url_templates$itis, "tsn", check)
+make_itis <- function(x, check=TRUE) {
+  make_generic(x, get_url_templates$itis, "itis", check)
 }
 
-check_tsn <- function(x){
+check_itis <- function(x){
   tt <- suppressMessages(itis_getrecord(x))
   identical(tt$acceptedNameList$tsn, as.character(x))
 }
 
 #' @export
-#' @rdname get_tsn
-get_tsn_ <- function(sci_com, messages = TRUE, searchtype = "scientific",
+#' @rdname get_itis
+get_itis_ <- function(sci_com, messages = TRUE, searchtype = "scientific",
                      accepted = TRUE, rows = NA, searchterm = NULL, ...) {
   pchk(searchterm, "sci_com")
   stats::setNames(
-    lapply(sci_com, get_tsn_help, messages = messages,
+    lapply(sci_com, get_itis_help, messages = messages,
            searchtype = searchtype, accepted = accepted, rows = rows, ...),
     sci_com
   )
 }
+#' @export
+#' @rdname get_itis
+get_tsn_ <- get_itis_
 
-get_tsn_help <- function(sci_com, messages, searchtype, accepted,
+get_itis_help <- function(sci_com, messages, searchtype, accepted,
   rows, ...) {
 
   mssg(messages, "\nRetrieving data for taxon '", sci_com, "'\n")

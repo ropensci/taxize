@@ -25,7 +25,7 @@ get_ids_dbs <- c(
 #' `get_ids_` to get back all, or a subset, of the raw data that you
 #' are presented during the ask process.
 #' @param names Deprecated, see `sci_com`
-#' @param ... Other arguments passed to [get_tsn()], [get_uid()],
+#' @param ... Other arguments passed to [get_itis()], [get_ncbi()],
 #' [get_eol()], [get_tps()], [get_gbif()],
 #' [get_nbn()].
 #' @return A vector of taxonomic identifiers, each retaining their respective
@@ -87,8 +87,8 @@ get_ids <- function(sci_com,
   foo <- function(x, sci_com, ...){
     if (!suppress) cat_db(x)
     ids <- switch(x,
-                  itis = get_tsn(sci_com, ...),
-                  ncbi = get_uid(sci_com, ...),
+                  itis = get_itis(sci_com, ...),
+                  ncbi = get_ncbi(sci_com, ...),
                   eol = get_eol(sci_com, ...),
                   tropicos = get_tps(sci_com, ...),
                   gbif = get_gbif(sci_com, ...),
@@ -114,8 +114,8 @@ get_ids_ <- function(sci_com, db = get_ids_dbs, rows = NA,
   foo <- function(x, sci_com, rows, ...){
     if (!suppress) cat_db(x)
     ids <- switch(x,
-                  itis = get_tsn_(sci_com, rows = rows, ...),
-                  ncbi = get_uid_(sci_com, rows = rows, ...),
+                  itis = get_itis_(sci_com, rows = rows, ...),
+                  ncbi = get_ncbi_(sci_com, rows = rows, ...),
                   eol = get_eol_(sci_com, rows = rows, ...),
                   tropicos = get_tps_(sci_com, rows = rows, ...),
                   gbif = get_gbif_(sci_com, rows = rows, ...),

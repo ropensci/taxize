@@ -89,7 +89,7 @@ See \code{\link[=bold_search]{bold_search()}} for options.}
 \item{includeTree}{(logical) If TRUE (default: FALSE), returns a list
 containing information for parent taxa as well as the specified taxon.}
 
-\item{ask}{logical; should get_tsn be run in interactive mode?
+\item{ask}{logical; should get_itis be run in interactive mode?
 If TRUE and more than one TSN is found for teh species, the user is asked for
 input. If FALSE NA is returned for multiple matches.}
 
@@ -217,14 +217,14 @@ Other taxonomic-ids:
 \code{\link{get_eol}()},
 \code{\link{get_gbif}()},
 \code{\link{get_ids}()},
+\code{\link{get_itis}()},
 \code{\link{get_iucn}()},
 \code{\link{get_natserv}()},
 \code{\link{get_nbn}()},
+\code{\link{get_ncbi}()},
 \code{\link{get_pow}()},
 \code{\link{get_tolid}()},
 \code{\link{get_tps}()},
-\code{\link{get_tsn}()},
-\code{\link{get_uid}()},
 \code{\link{get_wiki}()},
 \code{\link{get_worms}()}
 }
