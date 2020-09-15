@@ -77,14 +77,14 @@ classification(...)
 }
 \arguments{
 \item{...}{For \code{classification}: other arguments passed to \code{\link[=get_itis]{get_itis()}},
-\code{\link[=get_ncbi]{get_ncbi()}}, \code{\link[=get_eolid]{get_eolid()}}, \code{\link[=get_tpsid]{get_tpsid()}}, \code{\link[=get_gbifid]{get_gbifid()}},
-\code{\link[=get_wormsid]{get_wormsid()}}, \code{\link[=get_natservid]{get_natservid()}}, \code{\link[=get_wormsid]{get_wormsid()}}, \code{\link[=get_wiki]{get_wiki()}},
+\code{\link[=get_ncbi]{get_ncbi()}}, \code{\link[=get_eol]{get_eol()}}, \code{\link[=get_tps]{get_tps()}}, \code{\link[=get_gbif]{get_gbif()}},
+\code{\link[=get_worms]{get_worms()}}, \code{\link[=get_natserv]{get_natserv()}}, \code{\link[=get_worms]{get_worms()}}, \code{\link[=get_wiki]{get_wiki()}},
 \code{\link[=get_pow]{get_pow()}}. For \code{rbind.classification} and \code{cbind.classification}: one or
 more objects of class \code{classification}}
 
 \item{sci_id}{Vector of taxa names (character) or IDs (character or numeric)
 to query. For \code{db = "eol"}, EOL expects you to pass it a taxon id, called
-\code{eolid} in the output of \code{\link[=get_eolid]{get_eolid()}}.}
+\code{eolid} in the output of \code{\link[=get_eol]{get_eol()}}.}
 
 \item{db}{character; database to query. either \code{ncbi}, \code{itis}, \code{eol},
 \code{tropicos}, \code{gbif}, \code{nbn}, \code{worms}, \code{natserv}, \code{bold}, \code{wiki}, or \code{pow}.
@@ -108,8 +108,8 @@ in a taxonomic id instead of a name of class character.}
 \item{x}{Deprecated, see \code{sci_id}}
 
 \item{id}{character; identifiers, returned by \code{\link[=get_itis]{get_itis()}}, \code{\link[=get_ncbi]{get_ncbi()}},
-\code{\link[=get_eolid]{get_eolid()}}, \code{\link[=get_tpsid]{get_tpsid()}}, \code{\link[=get_gbifid]{get_gbifid()}}, \code{\link[=get_tolid]{get_tolid()}},
-\code{\link[=get_wormsid]{get_wormsid()}}, \code{\link[=get_natservid]{get_natservid()}}, \code{\link[=get_wormsid]{get_wormsid()}}, \code{\link[=get_wiki]{get_wiki()}},
+\code{\link[=get_eol]{get_eol()}}, \code{\link[=get_tps]{get_tps()}}, \code{\link[=get_gbif]{get_gbif()}}, \code{\link[=get_tol]{get_tol()}},
+\code{\link[=get_worms]{get_worms()}}, \code{\link[=get_natserv]{get_natserv()}}, \code{\link[=get_worms]{get_worms()}}, \code{\link[=get_wiki]{get_wiki()}},
 \code{\link[=get_pow]{get_pow()}}}
 
 \item{batch_size}{(numeric) For NCBI queries, specify the number of IDs to
@@ -179,7 +179,7 @@ classification("134717", db = 'natserv')
 classification(c(2704179, 6162875, 8286319, 2441175, 731), db = 'gbif')
 classification(25509881, db = 'tropicos')
 classification("NBNSYS0000004786", db = 'nbn')
-classification(as.nbnid("NBNSYS0000004786"), db = 'nbn')
+classification(as.nbn("NBNSYS0000004786"), db = 'nbn')
 classification(3930798, db = 'tol')
 
 ## works the same if IDs are in class character
@@ -218,16 +218,16 @@ classification(c("Chironomus riparius", "asdfasdfsfdfsd"), db = 'gbif')
 classification("Chironomus", db = 'tol')
 classification("Poa annua", db = 'tropicos')
 
-# Use methods for get_ncbi, get_itis, get_eolid, get_tpsid
+# Use methods for get_ncbi, get_itis, get_eol, get_tps
 classification(get_ncbi(c("Chironomus riparius", "Puma concolor")))
 
 classification(get_ncbi(c("Chironomus riparius", "aaa vva")))
 classification(get_itis(c("Chironomus riparius", "aaa vva")))
 classification(get_itis(c("Chironomus riparius", "aaa vva"),
   messages = FALSE))
-classification(get_eolid(c("Chironomus riparius", "aaa vva")))
-classification(get_tpsid(c("Poa annua", "aaa vva")))
-classification(get_gbifid(c("Poa annua", "Bison bison")))
+classification(get_eol(c("Chironomus riparius", "aaa vva")))
+classification(get_tps(c("Poa annua", "aaa vva")))
+classification(get_gbif(c("Poa annua", "Bison bison")))
 
 # Pass many ids from class "ids"
 (out <- get_ids(names="Puma concolor", db = c('ncbi','gbif')))
@@ -312,7 +312,7 @@ result <- classification(ids, db = 'ncbi')
 }
 }
 \seealso{
-\code{\link[=get_itis]{get_itis()}}, \code{\link[=get_ncbi]{get_ncbi()}}, \code{\link[=get_eolid]{get_eolid()}},
-\code{\link[=get_tpsid]{get_tpsid()}}, \code{\link[=get_gbifid]{get_gbifid()}}, \code{\link[=get_wormsid]{get_wormsid()}}, \code{\link[=get_natservid]{get_natservid()}},
-\code{\link[=get_boldid]{get_boldid()}}, \code{\link[=get_wiki]{get_wiki()}}, \code{\link[=get_pow]{get_pow()}}
+\code{\link[=get_itis]{get_itis()}}, \code{\link[=get_ncbi]{get_ncbi()}}, \code{\link[=get_eol]{get_eol()}},
+\code{\link[=get_tps]{get_tps()}}, \code{\link[=get_gbif]{get_gbif()}}, \code{\link[=get_worms]{get_worms()}}, \code{\link[=get_natserv]{get_natserv()}},
+\code{\link[=get_bold]{get_bold()}}, \code{\link[=get_wiki]{get_wiki()}}, \code{\link[=get_pow]{get_pow()}}
 }

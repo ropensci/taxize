@@ -69,7 +69,7 @@ children(8028, db = "ncbi")
 ## works with numeric if as character as well
 children(161994, db = "itis")
 children(88899, db = "bold")
-children(as.boldid(88899))
+children(as.bold(88899))
 
 # Plug in taxon names
 children("Salmo", db = 'itis')

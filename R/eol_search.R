@@ -23,7 +23,7 @@
 #' @return A data frame with four columns:
 #'
 #' * pageid: pageid, this is the same as the eolid you can get from
-#' [get_eolid()]
+#' [get_eol()]
 #' * name: taxonomic name, may or may not contain the taxonomic authority
 #' * link: URL for the taxon in question
 #' * content: a string of semi-colon separated names. it's not clear

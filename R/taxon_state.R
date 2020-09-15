@@ -21,7 +21,7 @@ taxon_state_env <- new.env()
 #' to use `taxon_state`
 #' - The passed in `taxon_state` object must have a `$class` matching that of
 #' the `get_*` function being called. For example, you can only pass a
-#' `taxon_state` with `$class` of `gbifid` to `get_gbifid()`, and so on.
+#' `taxon_state` with `$class` of `gbifid` to `get_gbif()`, and so on.
 #' - If you run `taxon_clear()` while a `get*` function is running, you may 
 #' lose track of any state known to this package before it was cleared
 #' 
@@ -33,7 +33,7 @@ taxon_state_env <- new.env()
 #' 
 #' @examples \dontrun{
 #' spp <- names_list("species", 3)
-#' res <- get_gbifid(spp)
+#' res <- get_gbif(spp)
 #' z <- taxon_last()
 #' z
 #' z$taxa_remaining()

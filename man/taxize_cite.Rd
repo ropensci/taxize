@@ -21,9 +21,9 @@ taxize_cite(fxn='itis_hierarchy')
 taxize_cite(fxn='tp_classification')
 taxize_cite(fxn='gbif_ping')
 taxize_cite(fxn='plantminer')
-taxize_cite(fxn='get_natservid_')
-taxize_cite(fxn='as.natservid')
-taxize_cite(fxn='get_wormsid')
+taxize_cite(fxn='get_natserv_')
+taxize_cite(fxn='as.natserv')
+taxize_cite(fxn='get_worms')
 taxize_cite(fxn='as.wormsid')
 
 # Functions that use many data sources

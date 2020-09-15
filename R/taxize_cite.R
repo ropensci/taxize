@@ -10,9 +10,9 @@
 #' taxize_cite(fxn='tp_classification')
 #' taxize_cite(fxn='gbif_ping')
 #' taxize_cite(fxn='plantminer')
-#' taxize_cite(fxn='get_natservid_')
-#' taxize_cite(fxn='as.natservid')
-#' taxize_cite(fxn='get_wormsid')
+#' taxize_cite(fxn='get_natserv_')
+#' taxize_cite(fxn='as.natserv')
+#' taxize_cite(fxn='get_worms')
 #' taxize_cite(fxn='as.wormsid')
 #'
 #' # Functions that use many data sources
@@ -76,12 +76,12 @@ data_citations <- function(x){
     itis_taxrank = list(itis = c_itis),
     itis_terms = list(itis = c_itis),
     apg_lookup = list(apg = c_apg),
-    as.boldid = list(bold = c_bold),
-    as.eolid = list(eol = c_eol),
-    as.gbifid = list(gbif = c_gbif),
-    as.natservid = list(natserv = c_natureserve),
-    as.nbnid = list(nbn = c_nbn),
-    as.tpsid = list(tropicos = c_tropicos),
+    as.bold = list(bold = c_bold),
+    as.eol = list(eol = c_eol),
+    as.gbif = list(gbif = c_gbif),
+    as.natserv = list(natserv = c_natureserve),
+    as.nbn = list(nbn = c_nbn),
+    as.tps = list(tropicos = c_tropicos),
     as.itis = list(itis = c_itis),
     as.ncbi = list(ncbi = c_ncbi),
     as.wormsid = list(worms = c_worms),
@@ -106,29 +106,29 @@ data_citations <- function(x){
     gbif_parse = list(gbif = c_gbif),
     gbif_ping = list(gbif = c_gbif),
     genbank2uid = list(genbank = c_genbank),
-    get_boldid = list(bold = c_bold),
-    get_boldid_ = list(bold = c_bold),
-    get_eolid = list(eol = c_eol),
-    get_eolid_ = list(eol = c_eol),
-    get_gbifid = list(gbif = c_gbif),
-    get_gbifid_ = list(gbif = c_gbif),
+    get_bold = list(bold = c_bold),
+    get_bold_ = list(bold = c_bold),
+    get_eol = list(eol = c_eol),
+    get_eol_ = list(eol = c_eol),
+    get_gbif = list(gbif = c_gbif),
+    get_gbif_ = list(gbif = c_gbif),
     get_ids = list(itis = c_itis, ncbi = c_ncbi, gbif = c_gbif, eol = c_eol,
                    tropicos = c_tropicos, nbn = c_nbn),
     get_ids_ = list(itis = c_itis, ncbi = c_ncbi, gbif = c_gbif, eol = c_eol,
                     tropicos = c_tropicos, nbn = c_nbn),
-    get_natservid = list(natserv = c_natureserve),
-    get_natservid_ = list(natserv = c_natureserve),
-    get_nbnid = list(nbn = c_nbn),
-    get_nbnid_ = list(nbn = c_nbn),
+    get_natserv = list(natserv = c_natureserve),
+    get_natserv_ = list(natserv = c_natureserve),
+    get_nbn = list(nbn = c_nbn),
+    get_nbn_ = list(nbn = c_nbn),
     get_seqs = list(genbank = c_genbank),
-    get_tpsid = list(tropicos = c_tropicos),
-    get_tpsid_ = list(tropicos = c_tropicos),
+    get_tps = list(tropicos = c_tropicos),
+    get_tps_ = list(tropicos = c_tropicos),
     get_itis = list(itis = c_itis),
     get_itis_ = list(itis = c_itis),
     get_ncbi = list(ncbi = c_ncbi),
     get_ncbi_ = list(ncbi = c_ncbi),
-    get_wormsid = list(worms = c_worms),
-    get_wormsid_ = list(worms = c_worms),
+    get_worms = list(worms = c_worms),
+    get_worms_ = list(worms = c_worms),
     gisd_isinvasive = list(gisd = c_gisd),
     gni_details = list(gni = c_gni),
     gni_parse = list(gni = c_gni),

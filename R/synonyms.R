@@ -8,8 +8,8 @@
 #' you could get a result, but it will likely be wrong (not what you were
 #' expecting). If using tropicos, we  recommend getting an API key;
 #' see [taxize-authentication]
-#' @param id character; identifiers, returned by [get_itis()], [get_tpsid()],
-#' [get_nbnid()], [get_wormsid()], [get_pow()]
+#' @param id character; identifiers, returned by [get_itis()], [get_tps()],
+#' [get_nbn()], [get_worms()], [get_pow()]
 #' @param rows (numeric) Any number from 1 to infinity. If the default NA, all
 #' rows are considered. Note that this parameter is ignored if you pass in a
 #' taxonomic id of any of the acceptable classes: tsn, tpsid, nbnid, ids.
@@ -35,8 +35,8 @@
 #' Note that IUCN requires an API key. See [rredlist::rredlist-package]
 #' for help on authentiating with IUCN Redlist
 #'
-#' @seealso [get_itis()] [get_tpsid()] [get_nbnid()]
-#' [get_wormsid()] [get_iucn()] [get_pow()]
+#' @seealso [get_itis()] [get_tps()] [get_nbn()]
+#' [get_worms()] [get_iucn()] [get_pow()]
 #'
 #' @export
 #' @examples \dontrun{
@@ -70,8 +70,8 @@
 #'
 #' # Use get_* methods
 #' synonyms(get_itis("Poa annua"))
-#' synonyms(get_tpsid("Poa annua"))
-#' synonyms(get_nbnid("Carcharodon carcharias"))
+#' synonyms(get_tps("Poa annua"))
+#' synonyms(get_nbn("Carcharodon carcharias"))
 #' synonyms(get_iucn('Loxodonta africana'))
 #' synonyms(get_pow('Lithocarpus mindanaensis'))
 #'
@@ -124,17 +124,17 @@ synonyms.default <- function(sci_id, db = NULL, rows = NA, x = NULL, ...) {
                 class = "synonyms", db = "itis")
     },
     tropicos = {
-      id <- process_syn_ids(sci_id, db, get_tpsid, rows = rows, ...)
+      id <- process_syn_ids(sci_id, db, get_tps, rows = rows, ...)
       structure(stats::setNames(synonyms(id, ...), sci_id),
                 class = "synonyms", db = "tropicos")
     },
     nbn = {
-      id <- process_syn_ids(sci_id, db, get_nbnid, rows = rows, ...)
+      id <- process_syn_ids(sci_id, db, get_nbn, rows = rows, ...)
       structure(stats::setNames(synonyms(id, ...), sci_id),
                 class = "synonyms", db = "nbn")
     },
     worms = {
-      id <- process_syn_ids(sci_id, db, get_wormsid, rows = rows, ...)
+      id <- process_syn_ids(sci_id, db, get_worms, rows = rows, ...)
       structure(stats::setNames(synonyms(id, ...), sci_id),
                 class = "synonyms", db = "worms")
     },
@@ -165,8 +165,8 @@ process_syn_ids <- function(input, db, fxn, ...){
   ) {
     as_fxn <- switch(db,
       itis = as.itis,
-      tropicos = as.tpsid,
-      nbn = as.nbnid,
+      tropicos = as.tps,
+      nbn = as.nbn,
       worms = as.wormsid,
       iucn = as.iucn,
       pow = as.pow)

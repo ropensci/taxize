@@ -3,7 +3,7 @@
 #' @export
 #' @param sci_id Vector of taxa names (character) or IDs (character or numeric)
 #' to query. For `db = "eol"`, EOL expects you to pass it a taxon id, called
-#' `eolid` in the output of [get_eolid()]. 
+#' `eolid` in the output of [get_eol()]. 
 #' @param db character; database to query. either `ncbi`, `itis`, `eol`,
 #' `tropicos`, `gbif`, `nbn`, `worms`, `natserv`, `bold`, `wiki`, or `pow`.
 #' Note that each taxonomic data source has, their own identifiers, so that
@@ -12,13 +12,13 @@
 #' ncbi, and/or tropicos, we recommend getting an API key; see
 #' [taxize-authentication]
 #' @param id character; identifiers, returned by [get_itis()], [get_ncbi()],
-#' [get_eolid()], [get_tpsid()], [get_gbifid()], [get_tolid()],
-#' [get_wormsid()], [get_natservid()], [get_wormsid()], [get_wiki()],
+#' [get_eol()], [get_tps()], [get_gbif()], [get_tol()],
+#' [get_worms()], [get_natserv()], [get_worms()], [get_wiki()],
 #' [get_pow()]
 #' @param callopts Curl options passed on to [crul::verb-GET]
 #' @param ... For `classification`: other arguments passed to [get_itis()],
-#' [get_ncbi()], [get_eolid()], [get_tpsid()], [get_gbifid()],
-#' [get_wormsid()], [get_natservid()], [get_wormsid()], [get_wiki()],
+#' [get_ncbi()], [get_eol()], [get_tps()], [get_gbif()],
+#' [get_worms()], [get_natserv()], [get_worms()], [get_wiki()],
 #' [get_pow()]. For `rbind.classification` and `cbind.classification`: one or
 #' more objects of class `classification`
 #' @param return_id (logical) If `TRUE` (default), return the taxon id
@@ -44,9 +44,9 @@
 #' classification. But you can attach it yourself quite easily of course.
 #' This behavior is different from the other data sources.
 #'
-#' @seealso [get_itis()], [get_ncbi()], [get_eolid()],
-#'    [get_tpsid()], [get_gbifid()], [get_wormsid()], [get_natservid()],
-#'    [get_boldid()], [get_wiki()], [get_pow()]
+#' @seealso [get_itis()], [get_ncbi()], [get_eol()],
+#'    [get_tps()], [get_gbif()], [get_worms()], [get_natserv()],
+#'    [get_bold()], [get_wiki()], [get_pow()]
 #'
 #' @section Lots of results:
 #' It may happen sometimes that you get more results back from your query
@@ -84,7 +84,7 @@
 #' classification(c(2704179, 6162875, 8286319, 2441175, 731), db = 'gbif')
 #' classification(25509881, db = 'tropicos')
 #' classification("NBNSYS0000004786", db = 'nbn')
-#' classification(as.nbnid("NBNSYS0000004786"), db = 'nbn')
+#' classification(as.nbn("NBNSYS0000004786"), db = 'nbn')
 #' classification(3930798, db = 'tol')
 #'
 #' ## works the same if IDs are in class character
@@ -123,16 +123,16 @@
 #' classification("Chironomus", db = 'tol')
 #' classification("Poa annua", db = 'tropicos')
 #'
-#' # Use methods for get_ncbi, get_itis, get_eolid, get_tpsid
+#' # Use methods for get_ncbi, get_itis, get_eol, get_tps
 #' classification(get_ncbi(c("Chironomus riparius", "Puma concolor")))
 #'
 #' classification(get_ncbi(c("Chironomus riparius", "aaa vva")))
 #' classification(get_itis(c("Chironomus riparius", "aaa vva")))
 #' classification(get_itis(c("Chironomus riparius", "aaa vva"),
 #'   messages = FALSE))
-#' classification(get_eolid(c("Chironomus riparius", "aaa vva")))
-#' classification(get_tpsid(c("Poa annua", "aaa vva")))
-#' classification(get_gbifid(c("Poa annua", "Bison bison")))
+#' classification(get_eol(c("Chironomus riparius", "aaa vva")))
+#' classification(get_tps(c("Poa annua", "aaa vva")))
+#' classification(get_gbif(c("Poa annua", "Bison bison")))
 #'
 #' # Pass many ids from class "ids"
 #' (out <- get_ids(names="Puma concolor", db = c('ncbi','gbif')))
@@ -237,42 +237,42 @@ classification.default <- function(sci_id, db = NULL, callopts = list(),
         return_id = return_id), sci_id)
     },
     eol = {
-      id <- process_ids(sci_id, db, get_eolid, rows = rows, ...)
+      id <- process_ids(sci_id, db, get_eol, rows = rows, ...)
       stats::setNames(classification(id, callopts = callopts,
         return_id = return_id, ...), sci_id)
     },
     tropicos = {
-      id <- process_ids(sci_id, db, get_tpsid, rows = rows, ...)
+      id <- process_ids(sci_id, db, get_tps, rows = rows, ...)
       stats::setNames(classification(id, callopts = callopts,
         return_id = return_id, ...), sci_id)
     },
     gbif = {
-      id <- process_ids(sci_id, db, get_gbifid, rows = rows, ...)
+      id <- process_ids(sci_id, db, get_gbif, rows = rows, ...)
       stats::setNames(classification(id, callopts = callopts,
         return_id = return_id, ...), sci_id)
     },
     nbn = {
-      id <- process_ids(sci_id, db, get_nbnid, rows = rows, ...)
+      id <- process_ids(sci_id, db, get_nbn, rows = rows, ...)
       stats::setNames(classification(id, callopts = callopts,
         return_id = return_id, ...), sci_id)
     },
     tol = {
-      id <- process_ids(sci_id, db, get_tolid, rows = rows, ...)
+      id <- process_ids(sci_id, db, get_tol, rows = rows, ...)
       stats::setNames(classification(id, callopts = callopts,
         return_id = return_id, ...), sci_id)
     },
     worms = {
-      id <- process_ids(sci_id, db, get_wormsid, rows = rows, ...)
+      id <- process_ids(sci_id, db, get_worms, rows = rows, ...)
       stats::setNames(classification(id, callopts = callopts,
         return_id = return_id, ...), sci_id)
     },
     natserv = {
-      id <- process_ids(sci_id, db, get_natservid, rows = rows, ...)
+      id <- process_ids(sci_id, db, get_natserv, rows = rows, ...)
       stats::setNames(classification(id, callopts = callopts,
         return_id = return_id, ...), sci_id)
     },
     bold = {
-      id <- process_ids(sci_id, db, get_boldid, rows = rows, ...)
+      id <- process_ids(sci_id, db, get_bold, rows = rows, ...)
       stats::setNames(classification(id, callopts = callopts,
         return_id = return_id, ...), sci_id)
     },
@@ -300,14 +300,14 @@ process_ids <- function(input, db, fxn, ...){
     as_fxn <- switch(db,
            itis = as.itis,
            ncbi = as.ncbi,
-           eol = as.eolid,
-           tropicos = as.tpsid,
-           gbif = as.gbifid,
-           nbn = as.nbnid,
-           tol = as.tolid,
+           eol = as.eol,
+           tropicos = as.tps,
+           gbif = as.gbif,
+           nbn = as.nbn,
+           tol = as.tol,
            worms = as.wormsid,
-           natserv = as.natservid,
-           bold = as.boldid,
+           natserv = as.natserv,
+           bold = as.bold,
            wiki = as.wiki,
            pow = as.pow)
     as_fxn(input, check = FALSE)

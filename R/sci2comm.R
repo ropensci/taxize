@@ -46,7 +46,7 @@
 #' # Passing id in, works for sources: itis and ncbi, not eol
 #' sci2comm(get_itis('Helianthus annuus'))
 #' sci2comm(get_ncbi('Helianthus annuus'))
-#' sci2comm(get_wormsid('Gadus morhua'))
+#' sci2comm(get_worms('Gadus morhua'))
 #' sci2comm(get_iucn('Loxodonta africana'))
 #'
 #' # Don't simplify returned
@@ -147,7 +147,7 @@ ncbi2comm <- function(x, ...){
 }
 
 worms2comm <- function(x, simplify, ...){
-  id <- get_wormsid(x, ...)
+  id <- get_worms(x, ...)
   worms_foo(id, simplify = simplify, ...)
 }
 

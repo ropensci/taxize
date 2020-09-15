@@ -10,20 +10,20 @@ attributes, and all exception behaviors.
 \details{
 This document applies to the following functions:
 \itemize{
-\item \code{\link[=get_boldid]{get_boldid()}}
-\item \code{\link[=get_eolid]{get_eolid()}}
-\item \code{\link[=get_gbifid]{get_gbifid()}}
+\item \code{\link[=get_bold]{get_bold()}}
+\item \code{\link[=get_eol]{get_eol()}}
+\item \code{\link[=get_gbif]{get_gbif()}}
 \item \code{\link[=get_ids]{get_ids()}}
 \item \code{\link[=get_iucn]{get_iucn()}}
-\item \code{\link[=get_natservid]{get_natservid()}}
-\item \code{\link[=get_nbnid]{get_nbnid()}}
-\item \code{\link[=get_tolid]{get_tolid()}}
-\item \code{\link[=get_tpsid]{get_tpsid()}}
+\item \code{\link[=get_natserv]{get_natserv()}}
+\item \code{\link[=get_nbn]{get_nbn()}}
+\item \code{\link[=get_tol]{get_tol()}}
+\item \code{\link[=get_tps]{get_tps()}}
 \item \code{\link[=get_itis]{get_itis()}}
 \item \code{\link[=get_ubioid]{get_ubioid()}}
 \item \code{\link[=get_ncbi]{get_ncbi()}}
 \item \code{\link[=get_wiki]{get_wiki()}}
-\item \code{\link[=get_wormsid]{get_wormsid()}}
+\item \code{\link[=get_worms]{get_worms()}}
 }
 }
 \section{attributes}{

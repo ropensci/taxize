@@ -15,7 +15,7 @@
 #' @param low_rank (character) taxonomic rank to return, of length 1
 #' @param x Deprecated, see `sci_id`
 #' @param ... Other arguments passed to [get_itis()], [get_ncbi()],
-#' [get_gbifid()], [get_tolid()]
+#' [get_gbif()], [get_tol()]
 #'
 #' @return NA when no match, or a data.frame with columns
 #' * name
@@ -42,8 +42,8 @@
 #'   "Masdevallia coccinea")
 #' (cls <- classification(taxa, db = "tol"))
 #' lowest_common(taxa, db = "tol", class_list = cls)
-#' lowest_common(get_tolid(taxa), class_list = cls)
-#' xx <- get_tolid(taxa)
+#' lowest_common(get_tol(taxa), class_list = cls)
+#' xx <- get_tol(taxa)
 #' lowest_common(xx, class_list = cls)
 #'
 #' spp <- c("Sus scrofa", "Homo sapiens", "Nycticebus coucang")
@@ -58,12 +58,12 @@
 #'
 #' spp <- c("Poa annua", "Helianthus annuus")
 #' lowest_common(spp, db = "gbif")
-#' lowest_common(get_gbifid(spp))
+#' lowest_common(get_gbif(spp))
 #'
 #' cool_orchid <- c("Angraecum sesquipedale", "Dracula vampira",
 #'   "Masdevallia coccinea")
 #' orchid_ncbi <- get_ncbi(cool_orchid)
-#' orchid_gbif <- get_gbifid(cool_orchid)
+#' orchid_gbif <- get_gbif(cool_orchid)
 #'
 #' cool_orchids2 <- c("Domingoa haematochila", "Gymnadenia conopsea",
 #'   "Masdevallia coccinea")
@@ -123,11 +123,11 @@ lowest_common.default <- function(sci_id, db = NULL, rows = NA, class_list = NUL
       lowest_common(id, class_list, ...)
     },
     gbif = {
-      id <- process_lowest_ids(sci_id, db, get_gbifid, rows = rows, ...)
+      id <- process_lowest_ids(sci_id, db, get_gbif, rows = rows, ...)
       lowest_common(id, class_list, ...)
     },
     tol = {
-      id <- process_lowest_ids(sci_id, db, get_tolid, rows = rows, ...)
+      id <- process_lowest_ids(sci_id, db, get_tol, rows = rows, ...)
       lowest_common(id, class_list, ...)
     },
     stop("the provided db value was not recognised", call. = FALSE)
@@ -228,8 +228,8 @@ process_lowest_ids <- function(input, db, fxn, ...) {
   g <- tryCatch(as.numeric(as.character(input)), warning = function(e) e)
   if (inherits(g, "condition")) eval(fxn)(input, ...)
   if (is.numeric(g) || is.character(input) && all(grepl("[[:digit:]]", input))) {
-    as_fxn <- switch(db, itis = as.itis, gbif = as.gbifid,
-      ncbi = as.ncbi, tol = as.tolid)
+    as_fxn <- switch(db, itis = as.itis, gbif = as.gbif,
+      ncbi = as.ncbi, tol = as.tol)
     as_fxn(input, check = FALSE)
   } else {
     eval(fxn)(input, ...)

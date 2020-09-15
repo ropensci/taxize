@@ -31,7 +31,7 @@ lowest_common(...)
 }
 \arguments{
 \item{...}{Other arguments passed to \code{\link[=get_itis]{get_itis()}}, \code{\link[=get_ncbi]{get_ncbi()}},
-\code{\link[=get_gbifid]{get_gbifid()}}, \code{\link[=get_tolid]{get_tolid()}}}
+\code{\link[=get_gbif]{get_gbif()}}, \code{\link[=get_tol]{get_tol()}}}
 
 \item{sci_id}{Vector of taxa names (character) or id (character or numeric) to
 query.}
@@ -84,8 +84,8 @@ taxa <- c("Angraecum sesquipedale", "Dracula vampira",
   "Masdevallia coccinea")
 (cls <- classification(taxa, db = "tol"))
 lowest_common(taxa, db = "tol", class_list = cls)
-lowest_common(get_tolid(taxa), class_list = cls)
-xx <- get_tolid(taxa)
+lowest_common(get_tol(taxa), class_list = cls)
+xx <- get_tol(taxa)
 lowest_common(xx, class_list = cls)
 
 spp <- c("Sus scrofa", "Homo sapiens", "Nycticebus coucang")
@@ -100,12 +100,12 @@ lowest_common(gbifid, db = "gbif")
 
 spp <- c("Poa annua", "Helianthus annuus")
 lowest_common(spp, db = "gbif")
-lowest_common(get_gbifid(spp))
+lowest_common(get_gbif(spp))
 
 cool_orchid <- c("Angraecum sesquipedale", "Dracula vampira",
   "Masdevallia coccinea")
 orchid_ncbi <- get_ncbi(cool_orchid)
-orchid_gbif <- get_gbifid(cool_orchid)
+orchid_gbif <- get_gbif(cool_orchid)
 
 cool_orchids2 <- c("Domingoa haematochila", "Gymnadenia conopsea",
   "Masdevallia coccinea")

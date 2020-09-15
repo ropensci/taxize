@@ -118,7 +118,7 @@ downstream("Apis", db = 'bold', downto = 'species')
 downstream("Gadus", db = 'worms', downto = 'species')
 downstream(c("Apis","Epeoloides"), db = 'itis', downto = 'species')
 downstream("Ursus", db = 'gbif', downto = 'species')
-downstream(get_gbifid("Ursus"), db = 'gbif', downto = 'species')
+downstream(get_gbif("Ursus"), db = 'gbif', downto = 'species')
 
 # Many taxa
 sp <- names_list("genus", 3)

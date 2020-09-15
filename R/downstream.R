@@ -60,7 +60,7 @@
 #' downstream("Gadus", db = 'worms', downto = 'species')
 #' downstream(c("Apis","Epeoloides"), db = 'itis', downto = 'species')
 #' downstream("Ursus", db = 'gbif', downto = 'species')
-#' downstream(get_gbifid("Ursus"), db = 'gbif', downto = 'species')
+#' downstream(get_gbif("Ursus"), db = 'gbif', downto = 'species')
 #'
 #' # Many taxa
 #' sp <- names_list("genus", 3)
@@ -108,7 +108,7 @@ downstream.default <- function(sci_id, db=NULL, downto=NULL,
                                  intermediate = intermediate, ...), sci_id)
     },
     gbif = {
-      id <- process_stream_ids(sci_id, db, get_gbifid, rows = rows, ...)
+      id <- process_stream_ids(sci_id, db, get_gbif, rows = rows, ...)
       stats::setNames(downstream(id, downto = tolower(downto),
                                  intermediate = intermediate, ...), sci_id)
     },
@@ -118,12 +118,12 @@ downstream.default <- function(sci_id, db=NULL, downto=NULL,
                                  intermediate = intermediate, ...), sci_id)
     },
     worms = {
-      id <- process_stream_ids(sci_id, db, get_wormsid, rows = rows, ...)
+      id <- process_stream_ids(sci_id, db, get_worms, rows = rows, ...)
       stats::setNames(downstream(id, downto = tolower(downto),
                                  intermediate = intermediate, ...), sci_id)
     },
     bold = {
-      id <- process_stream_ids(as.character(sci_id), db, get_boldid, rows = rows, ...)
+      id <- process_stream_ids(as.character(sci_id), db, get_bold, rows = rows, ...)
       stats::setNames(downstream(id, downto = tolower(downto),
                                  intermediate = intermediate, ...), sci_id)
     },
@@ -139,8 +139,8 @@ process_stream_ids <- function(input, db, fxn, ...){
     is.character(input) &&
     all(grepl("[[:digit:]]", input))
   ) {
-    as_fxn <- switch(db, itis = as.itis, gbif = as.gbifid,
-      ncbi = as.ncbi, worms = as.wormsid, bold = as.boldid)
+    as_fxn <- switch(db, itis = as.itis, gbif = as.gbif,
+      ncbi = as.ncbi, worms = as.wormsid, bold = as.bold)
     as_fxn(input, check = FALSE)
   } else {
     eval(fxn)(input, ...)

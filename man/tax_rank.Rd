@@ -42,7 +42,7 @@ tax_rank("Helianthus annuus", db = "natserv")
 tax_rank(get_itis("Helianthus annuus"))
 tax_rank(c("Helianthus", "Pinus", "Poa"), db = "itis")
 
-tax_rank(get_boldid("Helianthus annuus"))
+tax_rank(get_bold("Helianthus annuus"))
 tax_rank("421377", db = "bold")
 tax_rank(421377, db = "bold")
 

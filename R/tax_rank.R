@@ -24,7 +24,7 @@
 #' tax_rank(get_itis("Helianthus annuus"))
 #' tax_rank(c("Helianthus", "Pinus", "Poa"), db = "itis")
 #'
-#' tax_rank(get_boldid("Helianthus annuus"))
+#' tax_rank(get_bold("Helianthus annuus"))
 #' tax_rank("421377", db = "bold")
 #' tax_rank(421377, db = "bold")
 #'
@@ -55,25 +55,25 @@ tax_rank.character <- function(sci_id, db = NULL, rows = NA, x = NULL, ...) {
   if (!is.null(x)) sci_id <- x
   switch(
     db,
-    bold = stats::setNames(tax_rank_(process_ids(sci_id, db, get_boldid,
+    bold = stats::setNames(tax_rank_(process_ids(sci_id, db, get_bold,
       rows = rows), ...), sci_id),
-    eol = stats::setNames(tax_rank_(process_ids(sci_id, db, get_eolid,
+    eol = stats::setNames(tax_rank_(process_ids(sci_id, db, get_eol,
       rows = rows), ...), sci_id),
-    gbif = stats::setNames(tax_rank_(process_ids(sci_id, db, get_gbifid,
+    gbif = stats::setNames(tax_rank_(process_ids(sci_id, db, get_gbif,
       rows = rows), ...), sci_id),
-    natserv = stats::setNames(tax_rank_(process_ids(sci_id, db, get_natservid,
+    natserv = stats::setNames(tax_rank_(process_ids(sci_id, db, get_natserv,
       rows = rows), ...), sci_id),
-    nbn = stats::setNames(tax_rank_(process_ids(sci_id, db, get_nbnid,
+    nbn = stats::setNames(tax_rank_(process_ids(sci_id, db, get_nbn,
       rows = rows), ...), sci_id),
-    tol = stats::setNames(tax_rank_(process_ids(sci_id, db, get_tolid,
+    tol = stats::setNames(tax_rank_(process_ids(sci_id, db, get_tol,
       rows = rows), ...), sci_id),
-    tropicos = stats::setNames(tax_rank_(process_ids(sci_id, db, get_tpsid,
+    tropicos = stats::setNames(tax_rank_(process_ids(sci_id, db, get_tps,
       rows = rows), ...), sci_id),
     itis = stats::setNames(tax_rank_(process_ids(sci_id, db, get_itis,
       rows = rows), ...), sci_id),
     ncbi = stats::setNames(tax_rank_(process_ids(sci_id, db, get_ncbi,
       rows = rows), ...), sci_id),
-    worms = stats::setNames(tax_rank_(process_ids(sci_id, db, get_wormsid,
+    worms = stats::setNames(tax_rank_(process_ids(sci_id, db, get_worms,
       rows = rows), ...), sci_id),
     stop("the provided db value was not recognised", call. = FALSE)
   )

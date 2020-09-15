@@ -5,20 +5,20 @@
 #' @name get_id_details
 #'
 #' @details This document applies to the following functions:
-#' * [get_boldid()]
-#' * [get_eolid()]
-#' * [get_gbifid()]
+#' * [get_bold()]
+#' * [get_eol()]
+#' * [get_gbif()]
 #' * [get_ids()]
 #' * [get_iucn()]
-#' * [get_natservid()]
-#' * [get_nbnid()]
-#' * [get_tolid()]
-#' * [get_tpsid()]
+#' * [get_natserv()]
+#' * [get_nbn()]
+#' * [get_tol()]
+#' * [get_tps()]
 #' * [get_itis()]
 #' * [get_ubioid()]
 #' * [get_ncbi()]
 #' * [get_wiki()]
-#' * [get_wormsid()]
+#' * [get_worms()]
 #'
 #' @section attributes:
 #' Each output from `get_*()` functions have the following attributes:

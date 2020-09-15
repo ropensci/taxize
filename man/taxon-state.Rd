@@ -35,7 +35,7 @@ function call - you have to explicitly pass a \code{taxon_state} object
 to use \code{taxon_state}
 \item The passed in \code{taxon_state} object must have a \verb{$class} matching that of
 the \verb{get_*} function being called. For example, you can only pass a
-\code{taxon_state} with \verb{$class} of \code{gbifid} to \code{get_gbifid()}, and so on.
+\code{taxon_state} with \verb{$class} of \code{gbifid} to \code{get_gbif()}, and so on.
 \item If you run \code{taxon_clear()} while a \verb{get*} function is running, you may
 lose track of any state known to this package before it was cleared
 }
@@ -46,7 +46,7 @@ in \verb{get*} functions
 \examples{
 \dontrun{
 spp <- names_list("species", 3)
-res <- get_gbifid(spp)
+res <- get_gbif(spp)
 z <- taxon_last()
 z
 z$taxa_remaining()

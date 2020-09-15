@@ -46,7 +46,7 @@ to filter search results}
 A data frame with four columns:
 \itemize{
 \item pageid: pageid, this is the same as the eolid you can get from
-\code{\link[=get_eolid]{get_eolid()}}
+\code{\link[=get_eol]{get_eol()}}
 \item name: taxonomic name, may or may not contain the taxonomic authority
 \item link: URL for the taxon in question
 \item content: a string of semi-colon separated names. it's not clear

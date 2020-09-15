@@ -77,7 +77,7 @@ sci2comm('Loxodonta africana', db='iucn')
 # Passing id in, works for sources: itis and ncbi, not eol
 sci2comm(get_itis('Helianthus annuus'))
 sci2comm(get_ncbi('Helianthus annuus'))
-sci2comm(get_wormsid('Gadus morhua'))
+sci2comm(get_worms('Gadus morhua'))
 sci2comm(get_iucn('Loxodonta africana'))
 
 # Don't simplify returned
