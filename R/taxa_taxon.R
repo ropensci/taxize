@@ -1,7 +1,9 @@
 .new_taxa_taxon <- function(.names = NULL, name = character(),
-  rank = taxa::taxon_rank(), id = taxa::taxon_id(), auth = taxa::taxon_authority(),
+  rank = taxa::taxon_rank(), id = taxa::taxon_id(),
+  auth = taxa::taxon_authority(),
   uri = character(), match = character(),
-  multiple_matches = character(), pattern_match = character(), ...) {
+  multiple_matches = character(), pattern_match = character(),
+  class = NULL, ...) {
 
   # Set names to NA if not set
   if (is.null(names) || all(is.na(.names))) {
@@ -25,13 +27,13 @@
     list(.names = .names, name = name, rank = rank,
       id = id, auth = auth, uri = uri, match = match,
       multiple_matches = multiple_matches, pattern_match = pattern_match),
-    .names_set = .names_set, ..., class = c("txid", "taxa_taxon"))
+    .names_set = .names_set, ..., class = c("txid", "taxa_taxon", class))
 }
 
 
-.taxa_taxon <- function(name = character(0), rank = NA, id = NA,
+taxa_taxon <- function(name = character(0), rank = NA, id = NA,
   auth = NA, .names = NA, uri = NA, match = NA,
-  multiple_matches = NA, pattern_match = NA, ...) {
+  multiple_matches = NA, pattern_match = NA, class = NULL, ...) {
 
   # Cast inputs to correct values
   name <- vctrs::vec_cast(name, character())
@@ -60,7 +62,8 @@
   # Create taxon object
   .new_taxa_taxon(.names = .names, name = name, rank = rank, id = id,
     auth = auth,  uri = uri, match = match,
-    multiple_matches = multiple_matches, pattern_match = pattern_match, ...) 
+    multiple_matches = multiple_matches,
+    pattern_match = pattern_match, class = class, ...) 
 }
 
 
@@ -89,3 +92,16 @@ txz_uri <- function(x) txz_named_field(x, "uri")
 txz_match <- function(x) txz_named_field(x, "match")
 txz_mm <- function(x) txz_named_field(x, "multiple_matches")
 txz_pm <- function(x) txz_named_field(x, "pattern_match")
+
+as_txid_df <- function(x, check = TRUE) {
+  taxa_taxon(
+    name = x$name,
+    id = x$ids,
+    rank = x$rank,
+    uri = x$uri,
+    match = x$match,
+    multiple_matches = x$multiple_matches,
+    pattern_match = x$pattern_match,
+    class = "gbif"
+  )
+}

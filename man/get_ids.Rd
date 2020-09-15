@@ -39,8 +39,8 @@ name being queried. default: \code{FALSE}}
 \item{names}{Deprecated, see \code{sci_com}}
 
 \item{...}{Other arguments passed to \code{\link[=get_tsn]{get_tsn()}}, \code{\link[=get_uid]{get_uid()}},
-\code{\link[=get_eolid]{get_eolid()}}, \code{\link[=get_tpsid]{get_tpsid()}}, \code{\link[=get_gbifid]{get_gbifid()}},
-\code{\link[=get_nbnid]{get_nbnid()}}.}
+\code{\link[=get_eol]{get_eol()}}, \code{\link[=get_tps]{get_tps()}}, \code{\link[=get_gbif]{get_gbif()}},
+\code{\link[=get_nbn]{get_nbn()}}.}
 
 \item{rows}{(numeric) Any number from 1 to infinity. If the default NA, all
 rows are returned. When used in \code{get_ids} this function still only
@@ -70,7 +70,7 @@ See \link{taxize-authentication} for help on authentication
 \dontrun{
 # Plug in taxon names directly
 ## By default you get ids for all data sources
-get_ids("Chironomus riparius")
+get_ids("Quercus lobata")
 
 # specify rows to limit choices available
 get_ids("Poa annua", db="eol", rows=1)
@@ -98,7 +98,7 @@ synonyms(out$tropicos)
 # Get all data back
 get_ids_(c("Chironomus riparius", "Pinus contorta"), db = 'nbn',
   rows=1:10)
-get_ids_(c("Chironomus riparius", "Pinus contorta"), db = c('nbn','gbif'),
+get_ids_(c("Chironomus riparius", "Pinus contorta"), db = c('itis','gbif'),
   rows=1:10)
 
 # use curl options
@@ -109,18 +109,18 @@ get_ids("Agapostemon", db = "ncbi", verbose = TRUE)
 \code{\link[=classification]{classification()}}
 
 Other taxonomic-ids: 
-\code{\link{get_boldid}()},
-\code{\link{get_eolid}()},
-\code{\link{get_gbifid}()},
+\code{\link{get_bold}()},
+\code{\link{get_eol}()},
+\code{\link{get_gbif}()},
 \code{\link{get_iucn}()},
-\code{\link{get_natservid}()},
-\code{\link{get_nbnid}()},
+\code{\link{get_natserv}()},
+\code{\link{get_nbn}()},
 \code{\link{get_pow}()},
 \code{\link{get_tolid}()},
-\code{\link{get_tpsid}()},
+\code{\link{get_tps}()},
 \code{\link{get_tsn}()},
 \code{\link{get_uid}()},
 \code{\link{get_wiki}()},
-\code{\link{get_wormsid}()}
+\code{\link{get_worms}()}
 }
 \concept{taxonomic-ids}

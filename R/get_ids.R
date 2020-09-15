@@ -26,8 +26,8 @@ get_ids_dbs <- c(
 #' are presented during the ask process.
 #' @param names Deprecated, see `sci_com`
 #' @param ... Other arguments passed to [get_tsn()], [get_uid()],
-#' [get_eolid()], [get_tpsid()], [get_gbifid()],
-#' [get_nbnid()].
+#' [get_eol()], [get_tps()], [get_gbif()],
+#' [get_nbn()].
 #' @return A vector of taxonomic identifiers, each retaining their respective
 #' S3 classes so that each element can be passed on to another function
 #' (see e.g.'s).
@@ -42,7 +42,7 @@ get_ids_dbs <- c(
 #' @examples \dontrun{
 #' # Plug in taxon names directly
 #' ## By default you get ids for all data sources
-#' get_ids("Chironomus riparius")
+#' get_ids("Quercus lobata")
 #'
 #' # specify rows to limit choices available
 #' get_ids("Poa annua", db="eol", rows=1)
@@ -70,7 +70,7 @@ get_ids_dbs <- c(
 #' # Get all data back
 #' get_ids_(c("Chironomus riparius", "Pinus contorta"), db = 'nbn',
 #'   rows=1:10)
-#' get_ids_(c("Chironomus riparius", "Pinus contorta"), db = c('nbn','gbif'),
+#' get_ids_(c("Chironomus riparius", "Pinus contorta"), db = c('itis','gbif'),
 #'   rows=1:10)
 #'
 #' # use curl options
@@ -89,10 +89,10 @@ get_ids <- function(sci_com,
     ids <- switch(x,
                   itis = get_tsn(sci_com, ...),
                   ncbi = get_uid(sci_com, ...),
-                  eol = get_eolid(sci_com, ...),
-                  tropicos = get_tpsid(sci_com, ...),
-                  gbif = get_gbifid(sci_com, ...),
-                  nbn = get_nbnid(sci_com, ...),
+                  eol = get_eol(sci_com, ...),
+                  tropicos = get_tps(sci_com, ...),
+                  gbif = get_gbif(sci_com, ...),
+                  nbn = get_nbn(sci_com, ...),
                   pow = get_pow(sci_com, ...))
     names(ids) <- sci_com
     return( ids )
@@ -116,10 +116,10 @@ get_ids_ <- function(sci_com, db = get_ids_dbs, rows = NA,
     ids <- switch(x,
                   itis = get_tsn_(sci_com, rows = rows, ...),
                   ncbi = get_uid_(sci_com, rows = rows, ...),
-                  eol = get_eolid_(sci_com, rows = rows, ...),
-                  tropicos = get_tpsid_(sci_com, rows = rows, ...),
-                  gbif = get_gbifid_(sci_com, rows = rows, ...),
-                  nbn = get_nbnid_(sci_com, rows = rows, ...))
+                  eol = get_eol_(sci_com, rows = rows, ...),
+                  tropicos = get_tps_(sci_com, rows = rows, ...),
+                  gbif = get_gbif_(sci_com, rows = rows, ...),
+                  nbn = get_nbn_(sci_com, rows = rows, ...))
     stats::setNames(ids, sci_com)
   }
   structure(stats::setNames(

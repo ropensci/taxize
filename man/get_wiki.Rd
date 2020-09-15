@@ -120,18 +120,18 @@ as.wiki("Malus_domestica", wiki_site = "pedia", wiki = "da")
 \code{\link[=classification]{classification()}}
 
 Other taxonomic-ids: 
-\code{\link{get_boldid}()},
-\code{\link{get_eolid}()},
-\code{\link{get_gbifid}()},
+\code{\link{get_bold}()},
+\code{\link{get_eol}()},
+\code{\link{get_gbif}()},
 \code{\link{get_ids}()},
 \code{\link{get_iucn}()},
-\code{\link{get_natservid}()},
-\code{\link{get_nbnid}()},
+\code{\link{get_natserv}()},
+\code{\link{get_nbn}()},
 \code{\link{get_pow}()},
 \code{\link{get_tolid}()},
-\code{\link{get_tpsid}()},
+\code{\link{get_tps}()},
 \code{\link{get_tsn}()},
 \code{\link{get_uid}()},
-\code{\link{get_wormsid}()}
+\code{\link{get_worms}()}
 }
 \concept{taxonomic-ids}

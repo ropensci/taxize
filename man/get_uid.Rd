@@ -8,7 +8,6 @@
 \alias{as.uid.list}
 \alias{as.uid.numeric}
 \alias{as.uid.data.frame}
-\alias{as.data.frame.uid}
 \alias{get_uid_}
 \title{Get the UID codes from NCBI for taxonomic names.}
 \usage{
@@ -37,8 +36,6 @@ as.uid(x, check = TRUE)
 \method{as.uid}{numeric}(x, check = TRUE)
 
 \method{as.uid}{data.frame}(x, check = TRUE)
-
-\method{as.data.frame}{uid}(x, ...)
 
 get_uid_(sci_com, messages = TRUE, rows = NA, key = NULL, sciname = NULL, ...)
 }
@@ -231,19 +228,19 @@ get_uid("Quercus douglasii", verbose = TRUE)
 \code{\link[=classification]{classification()}}
 
 Other taxonomic-ids: 
-\code{\link{get_boldid}()},
-\code{\link{get_eolid}()},
-\code{\link{get_gbifid}()},
+\code{\link{get_bold}()},
+\code{\link{get_eol}()},
+\code{\link{get_gbif}()},
 \code{\link{get_ids}()},
 \code{\link{get_iucn}()},
-\code{\link{get_natservid}()},
-\code{\link{get_nbnid}()},
+\code{\link{get_natserv}()},
+\code{\link{get_nbn}()},
 \code{\link{get_pow}()},
 \code{\link{get_tolid}()},
-\code{\link{get_tpsid}()},
+\code{\link{get_tps}()},
 \code{\link{get_tsn}()},
 \code{\link{get_wiki}()},
-\code{\link{get_wormsid}()}
+\code{\link{get_worms}()}
 }
 \author{
 Eduard Szoecs, \email{eduardszoecs@gmail.com}

@@ -199,14 +199,15 @@ get_tolid <- function(sci, ask = TRUE, messages = TRUE, rows = NA,
   }
   out <- tstate$get()
   ids <- as.character(unlist(pluck(out, "id")))
-  res <- .taxa_taxon(
+  res <- taxa_taxon(
     name = unlist(pluck(out, "name")),
     id = taxa::taxon_id(ids, db = "tol"),
     rank = unlist(pluck(out, "rank")),
     uri = sprintf(get_url_templates$tol, ids),
     match = unname(unlist(pluck(out, "att"))),
     multiple_matches = unname(unlist(pluck(out, "multiple"))),
-    pattern_match = unname(unlist(pluck(out, "direct")))
+    pattern_match = unname(unlist(pluck(out, "direct"))),
+    class = "tol"
   )
   on.exit(prog$prog_summary(), add = TRUE)
   on.exit(tstate$exit, add = TRUE)
@@ -239,23 +240,7 @@ as.tolid.numeric <- function(x, check=TRUE) as.tolid(as.character(x), check)
 
 #' @export
 #' @rdname get_tolid
-as.tolid.data.frame <- function(x, check=TRUE) {
-  structure(x$ids, class = "tolid", match = x$match,
-            multiple_matches = x$multiple_matches,
-            pattern_match = x$pattern_match, uri = x$uri)
-}
-
-#' @export
-#' @rdname get_tolid
-as.data.frame.tolid <- function(x, ...){
-  data.frame(ids = as.character(unclass(x)),
-             class = "tolid",
-             match = attr(x, "match"),
-             multiple_matches = attr(x, "multiple_matches"),
-             pattern_match = attr(x, "pattern_match"),
-             uri = attr(x, "uri"),
-             stringsAsFactors = FALSE)
-}
+as.tolid.data.frame <- function(x, check=TRUE) as_txid_df(x, check)
 
 make_tol <- function(x, check=TRUE) {
   make_generic(x, 'https://tree.opentreeoflife.org/opentree/argus/ottol@%s', "tolid", check)

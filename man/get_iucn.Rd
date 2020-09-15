@@ -8,7 +8,6 @@
 \alias{as.iucn.list}
 \alias{as.iucn.numeric}
 \alias{as.iucn.data.frame}
-\alias{as.data.frame.iucn}
 \title{Get a IUCN Redlist taxon}
 \usage{
 get_iucn(sci, messages = TRUE, key = NULL, x = NULL, ...)
@@ -24,8 +23,6 @@ as.iucn(x, check = TRUE, key = NULL)
 \method{as.iucn}{numeric}(x, check = TRUE, key = NULL)
 
 \method{as.iucn}{data.frame}(x, check = TRUE, key = NULL)
-
-\method{as.data.frame}{iucn}(x, ...)
 }
 \arguments{
 \item{sci}{(character) A vector of scientific names. Or, a
@@ -56,7 +53,7 @@ Comes with the following attributes:
 \code{\link[=synonyms]{synonyms()}} and \code{\link[=sci2comm]{sci2comm()}} methods since they
 internally use \pkg{rredlist} functions which require the taxonomic name,
 and not the taxonomic identifier
-\item \emph{ri} (character) - The URI where more information can be
+\item \emph{uri} (character) - The URI where more information can be
 read on the taxon - includes the taxonomic identifier in the URL somewhere
 }
 
@@ -75,12 +72,16 @@ we'll add an underscore method here.
 
 IUCN ids only work with \code{\link[=synonyms]{synonyms()}} and \code{\link[=sci2comm]{sci2comm()}}
 methods.
+
+There's no concept of a taxon rank other than "species" for IUCN. i.e.,
+all returned data from this function should be of rank "species"
 }
 \examples{
 \dontrun{
 get_iucn("Branta canadensis")
 get_iucn("Branta bernicla")
 get_iucn("Panthera uncia")
+get_iucn(c("Panthera uncia", "Branta bernicla"))
 
 # as coercion
 as.iucn(22732)
@@ -92,18 +93,18 @@ as.iucn(data.frame(res))
 }
 \seealso{
 Other taxonomic-ids: 
-\code{\link{get_boldid}()},
-\code{\link{get_eolid}()},
-\code{\link{get_gbifid}()},
+\code{\link{get_bold}()},
+\code{\link{get_eol}()},
+\code{\link{get_gbif}()},
 \code{\link{get_ids}()},
-\code{\link{get_natservid}()},
-\code{\link{get_nbnid}()},
+\code{\link{get_natserv}()},
+\code{\link{get_nbn}()},
 \code{\link{get_pow}()},
 \code{\link{get_tolid}()},
-\code{\link{get_tpsid}()},
+\code{\link{get_tps}()},
 \code{\link{get_tsn}()},
 \code{\link{get_uid}()},
 \code{\link{get_wiki}()},
-\code{\link{get_wormsid}()}
+\code{\link{get_worms}()}
 }
 \concept{taxonomic-ids}

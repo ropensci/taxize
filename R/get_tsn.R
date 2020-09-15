@@ -223,7 +223,7 @@ get_tsn <- function(sci_com, searchtype = "scientific", accepted = FALSE,
   }
   out <- tstate$get()
   ids <- as.character(unlist(pluck(out, "id")))
-  res <- .taxa_taxon(
+  res <- taxa_taxon(
     name = unlist(pluck(out, "name")),
     id = taxa::taxon_id(ids, db = "itis"),
     rank = unlist(pluck(out, "rank")),
@@ -259,23 +259,7 @@ as.tsn.numeric <- function(x, check=TRUE) as.tsn(as.character(x), check)
 
 #' @export
 #' @rdname get_tsn
-as.tsn.data.frame <- function(x, check=TRUE) {
-  structure(x$ids, class = "tsn", match = x$match,
-            multiple_matches = x$multiple_matches,
-            pattern_match = x$pattern_match, uri = x$uri)
-}
-
-#' @export
-#' @rdname get_tsn
-as.data.frame.tsn <- function(x, ...){
-  data.frame(ids = as.character(unclass(x)),
-             class = "tsn",
-             match = attr(x, "match"),
-             multiple_matches = attr(x, "multiple_matches"),
-             pattern_match = attr(x, "pattern_match"),
-             uri = attr(x, "uri"),
-             stringsAsFactors = FALSE)
-}
+as.tsn.data.frame <- function(x, check=TRUE) as_txid_df(x, check)
 
 make_tsn <- function(x, check=TRUE) {
   make_generic(x, get_url_templates$itis, "tsn", check)

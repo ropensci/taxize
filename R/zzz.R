@@ -16,12 +16,15 @@ pluck_un <- function(x, name, type) unname(pluck(x, name, type))
 collapse <- function(x, fxn, class, match=TRUE, ...) {
   tmp <- lapply(x, fxn, ...)
   if (match) {
-    structure(sapply(tmp, unclass), class = class,
-              name = unlist(sapply(tmp, attr, which = "name")),
-              match = sapply(tmp, attr, which = "match"),
-              multiple_matches = sapply(tmp, attr, which = "multiple_matches"),
-              pattern_match = sapply(tmp, attr, which = "pattern_match"),
-              uri = tcnull(sapply(tmp, attr, which = "uri")))
+    taxa_taxon(
+      id = vapply(tmp, function(z) as.character(taxa::tax_id(z)), ""),
+      name = vapply(tmp, taxa::tax_name, ""),
+      match = vapply(tmp, txz_match, ""),
+      multiple_matches = vapply(tmp, txz_mm, logical(1)),
+      pattern_match = vapply(tmp, txz_pm, logical(1)),
+      uri = vapply(tmp, txz_uri, ""),
+      class = class
+    )
   } else {
     structure(sapply(tmp, unclass), class = class,
               uri = tcnull(sapply(tmp, attr, which = "uri")))
@@ -32,8 +35,16 @@ evalfxn <- function(x) eval(parse(text = paste0("check", "_", x)))
 
 toid <- function(x, url, class, ...) {
   uri <- sprintf(url, x)
-  structure(x, class = class, match = "found", multiple_matches = FALSE,
-            pattern_match = FALSE, uri = uri, ...)
+  taxa_taxon(
+    name = NA_character_,
+    id = taxa::taxon_id(x, db = class),
+    rank = NA_character_,
+    uri = uri,
+    match = "found",
+    multiple_matches = NA,
+    pattern_match = NA,
+    class = class
+  )
 }
 
 add_uri <- function(ids, url, z = NULL){
@@ -306,4 +317,29 @@ pchk <- function(from, to, pkg_version = "v0.9.97") {
 replace_nas <- function(x, with = "") {
   x[is.na(x)] <- with
   return(x)
+}
+
+rank_swap <- function(x) {
+  vapply(x, function(w) {
+    switch(w,
+      sp. = "species",
+      subsp. = "subspecies",
+      gen. = "genus",
+      subg. = "subgenus",
+      var. = "variety",
+      subvar. = "subvariety",
+      "[unranked]" = "unranked",
+      unranked = "unranked",
+      sect. = "section",
+      subsect. = "subsection",
+      ser. = "series",
+      fo. = "forma",
+      subfo. = "subforma",
+      proles = "proles",
+      lusus = "lusus",
+      nothosp. = "nothospecies",
+      nothosubsp. = "nothosubspecies",
+      nothovar. = "nothovariety"
+    )
+  }, character(1))
 }

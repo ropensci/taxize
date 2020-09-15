@@ -2,16 +2,29 @@
 % Please edit documentation in R/get_pow.R
 \name{get_pow}
 \alias{get_pow}
+\alias{get_powid}
 \alias{as.pow}
 \alias{as.pow.pow}
 \alias{as.pow.character}
 \alias{as.pow.list}
 \alias{as.pow.data.frame}
-\alias{as.data.frame.pow}
 \alias{get_pow_}
+\alias{get_powid_}
 \title{Get Kew's Plants of the World code for a taxon}
 \usage{
 get_pow(
+  sci_com,
+  accepted = FALSE,
+  ask = TRUE,
+  messages = TRUE,
+  rows = NA,
+  family_filter = NULL,
+  rank_filter = NULL,
+  x = NULL,
+  ...
+)
+
+get_powid(
   sci_com,
   accepted = FALSE,
   ask = TRUE,
@@ -33,9 +46,9 @@ as.pow(x, check = TRUE)
 
 \method{as.pow}{data.frame}(x, check = TRUE)
 
-\method{as.data.frame}{pow}(x, ...)
-
 get_pow_(sci_com, messages = TRUE, rows = NA, x = NULL, ...)
+
+get_powid_(sci_com, messages = TRUE, rows = NA, x = NULL, ...)
 }
 \arguments{
 \item{sci_com}{character; A vector of common or scientific names. Or, a
@@ -162,19 +175,19 @@ Other pow:
 \code{\link{pow_synonyms}()}
 
 Other taxonomic-ids: 
-\code{\link{get_boldid}()},
-\code{\link{get_eolid}()},
-\code{\link{get_gbifid}()},
+\code{\link{get_bold}()},
+\code{\link{get_eol}()},
+\code{\link{get_gbif}()},
 \code{\link{get_ids}()},
 \code{\link{get_iucn}()},
-\code{\link{get_natservid}()},
-\code{\link{get_nbnid}()},
+\code{\link{get_natserv}()},
+\code{\link{get_nbn}()},
 \code{\link{get_tolid}()},
-\code{\link{get_tpsid}()},
+\code{\link{get_tps}()},
 \code{\link{get_tsn}()},
 \code{\link{get_uid}()},
 \code{\link{get_wiki}()},
-\code{\link{get_wormsid}()}
+\code{\link{get_worms}()}
 }
 \concept{pow}
 \concept{taxonomic-ids}

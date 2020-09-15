@@ -31,7 +31,7 @@ nbn_synonyms(id = 'NHMSYS0000502940')
 }
 \seealso{
 Other nbn: 
-\code{\link{get_nbnid}()},
+\code{\link{get_nbn}()},
 \code{\link{nbn_classification}()},
 \code{\link{nbn_search}()}
 }

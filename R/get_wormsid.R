@@ -17,91 +17,91 @@
 #' @param accepted logical; If TRUE, removes names that are not accepted valid
 #' names by WORMS. Set to `FALSE` (default) to give back both accepted
 #' and unaccepted names.
-#' @param ask logical; should get_wormsid be run in interactive mode?
-#' If `TRUE` and more than one wormsid is found for the species, the
+#' @param ask logical; should get_worms be run in interactive mode?
+#' If `TRUE` and more than one worms is found for the species, the
 #' user is asked for input. If `FALSE` NA is returned for
 #' multiple matches.
 #' @param messages logical; should progress be printed?
 #' @param rows numeric; Any number from 1 to infinity. If the default NaN, all
-#' rows are considered. Note that this function still only gives back a wormsid
-#' class object with one to many identifiers. See [get_wormsid_()] to get back
+#' rows are considered. Note that this function still only gives back a worms
+#' class object with one to many identifiers. See [get_worms_()] to get back
 #' all, or a subset, of the raw data that you are presented during the ask
 #' process.
 #' @param query Deprecated, see `sci_com`
-#' @param x Input to `as.wormsid`
+#' @param x Input to `as.worms`
 #' @param ... Ignored
 #' @param check logical; Check if ID matches any existing on the DB, only
-#' used in [as.wormsid()]
+#' used in [as.worms()]
 #' @template getreturn
 #'
 #' @family taxonomic-ids
 #' @seealso [classification()]
 #'
 #' @examples \dontrun{
-#' (x <- get_wormsid('Gadus morhua'))
+#' (x <- get_worms('Gadus morhua'))
 #' data.frame(x)
 #'
-#' get_wormsid('Pomatomus saltatrix')
-#' get_wormsid(c("Gadus morhua", "Lichenopora neapolitana"))
+#' get_worms('Pomatomus saltatrix')
+#' get_worms(c("Gadus morhua", "Lichenopora neapolitana"))
 #'
 #' # marine_only
-#' get_wormsid("Apedinella", marine_only=TRUE)
-#' get_wormsid("Apedinella", marine_only=FALSE)
+#' get_worms("Apedinella", marine_only=TRUE)
+#' get_worms("Apedinella", marine_only=FALSE)
 #'
 #' # fuzzy
 #' ## searchtype="scientific": fuzzy is TRUE by default
-#' get_wormsid("Platypro", searchtype="scientific", fuzzy=TRUE)
-#' get_wormsid("Platypro", searchtype="scientific", fuzzy=FALSE)
+#' get_worms("Platypro", searchtype="scientific", fuzzy=TRUE)
+#' get_worms("Platypro", searchtype="scientific", fuzzy=FALSE)
 #' ## searchtype="common": fuzzy is FALSE by default
-#' get_wormsid("clam", searchtype="common", fuzzy=FALSE)
-#' get_wormsid("clam", searchtype="common", fuzzy=TRUE)
+#' get_worms("clam", searchtype="common", fuzzy=FALSE)
+#' get_worms("clam", searchtype="common", fuzzy=TRUE)
 #'
 #' # by common name
-#' get_wormsid("dolphin", 'common')
-#' get_wormsid("clam", 'common')
+#' get_worms("dolphin", 'common')
+#' get_worms("clam", 'common')
 #'
 #' # specify rows to limit choices available
-#' get_wormsid('Plat')
-#' get_wormsid('Plat', rows=1)
-#' get_wormsid('Plat', rows=1:2)
+#' get_worms('Plat')
+#' get_worms('Plat', rows=1)
+#' get_worms('Plat', rows=1:2)
 #'
 #' # When not found
-#' get_wormsid("howdy")
-#' get_wormsid(c('Gadus morhua', "howdy"))
+#' get_worms("howdy")
+#' get_worms(c('Gadus morhua', "howdy"))
 #'
-#' # Convert a wormsid without class information to a wormsid class
-#' # already a wormsid, returns the same
-#' as.wormsid(get_wormsid('Gadus morhua'))
+#' # Convert a worms without class information to a worms class
+#' # already a worms, returns the same
+#' as.worms(get_worms('Gadus morhua'))
 #' # same
-#' as.wormsid(get_wormsid(c('Gadus morhua', 'Pomatomus saltatrix')))
+#' as.worms(get_worms(c('Gadus morhua', 'Pomatomus saltatrix')))
 #' # numeric
-#' as.wormsid(126436)
+#' as.worms(126436)
 #' # numeric vector, length > 1
-#' as.wormsid(c(126436,151482))
+#' as.worms(c(126436,151482))
 #' # character
-#' as.wormsid("126436")
+#' as.worms("126436")
 #' # character vector, length > 1
-#' as.wormsid(c("126436","151482"))
+#' as.worms(c("126436","151482"))
 #' # list, either numeric or character
-#' as.wormsid(list("126436","151482"))
+#' as.worms(list("126436","151482"))
 #' ## dont check, much faster
-#' as.wormsid("126436", check=FALSE)
-#' as.wormsid(126436, check=FALSE)
-#' as.wormsid(c("126436","151482"), check=FALSE)
-#' as.wormsid(list("126436","151482"), check=FALSE)
+#' as.worms("126436", check=FALSE)
+#' as.worms(126436, check=FALSE)
+#' as.worms(c("126436","151482"), check=FALSE)
+#' as.worms(list("126436","151482"), check=FALSE)
 #'
-#' (out <- as.wormsid(c(126436,151482)))
+#' (out <- as.worms(c(126436,151482)))
 #' data.frame(out)
-#' as.wormsid( data.frame(out) )
+#' as.worms( data.frame(out) )
 #'
 #' # Get all data back
-#' get_wormsid_("Plat")
-#' get_wormsid_("Plat", rows=1)
-#' get_wormsid_("Plat", rows=1:2)
-#' get_wormsid_("Plat", rows=1:75)
-#' # get_wormsid_(c("asdfadfasd","Plat"), rows=1:5)
+#' get_worms_("Plat")
+#' get_worms_("Plat", rows=1)
+#' get_worms_("Plat", rows=1:2)
+#' get_worms_("Plat", rows=1:75)
+#' # get_worms_(c("asdfadfasd","Plat"), rows=1:5)
 #' }
-get_wormsid <- function(sci_com, searchtype = "scientific", marine_only = TRUE,
+get_worms <- function(sci_com, searchtype = "scientific", marine_only = TRUE,
   fuzzy = NULL, accepted = FALSE, ask = TRUE, messages = TRUE,
   rows = NA, query = NULL, ...) {
 
@@ -116,10 +116,10 @@ get_wormsid <- function(sci_com, searchtype = "scientific", marine_only = TRUE,
   pchk(query, "sci_com")
 
   if (inherits(sci_com, "character")) {
-    tstate <- taxon_state$new(class = "wormsid", names = sci_com)
+    tstate <- taxon_state$new(class = "worms", names = sci_com)
     items <- sci_com
   } else {
-    assert_state(sci_com, "wormsid")
+    assert_state(sci_com, "worms")
     tstate <- sci_com
     sci_com <- tstate$taxa_remaining()
     items <- c(sci_com, tstate$taxa_completed())
@@ -247,19 +247,23 @@ get_wormsid <- function(sci_com, searchtype = "scientific", marine_only = TRUE,
   }
   out <- tstate$get()
   ids <- as.character(unlist(pluck(out, "id")))
-  res <- .taxa_taxon(
+  res <- taxa_taxon(
     name = unlist(pluck(out, "name")),
     id = taxa::taxon_id(ids, db = "worms"),
     rank = unlist(pluck(out, "rank")),
     uri = sprintf(get_url_templates$worms, ids),
     match = unname(unlist(pluck(out, "att"))),
     multiple_matches = unname(unlist(pluck(out, "multiple"))),
-    pattern_match = unname(unlist(pluck(out, "direct")))
+    pattern_match = unname(unlist(pluck(out, "direct"))),
+    class = "worms"
   )
   on.exit(prog$prog_summary(), add = TRUE)
   on.exit(tstate$exit, add = TRUE)
   return(res)
 }
+#' @export
+#' @rdname get_worms
+get_wormsid <- get_worms
 
 try_df <- function(expr) {
   res <- tryCatch(expr, error = function(e) e)
@@ -271,71 +275,58 @@ try_df <- function(expr) {
 }
 
 #' @export
-#' @rdname get_wormsid
-as.wormsid <- function(x, check=TRUE) UseMethod("as.wormsid")
+#' @rdname get_worms
+as.worms <- function(x, check=TRUE) UseMethod("as.worms")
 
 #' @export
-#' @rdname get_wormsid
-as.wormsid.wormsid <- function(x, check=TRUE) x
+#' @rdname get_worms
+as.worms.worms <- function(x, check=TRUE) x
 
 #' @export
-#' @rdname get_wormsid
-as.wormsid.character <- function(x, check=TRUE) if (length(x) == 1) make_worms(x, check) else collapse(x, make_worms, "wormsid", check = check)
+#' @rdname get_worms
+as.worms.character <- function(x, check=TRUE) if (length(x) == 1) make_worms(x, check) else collapse(x, make_worms, "worms", check = check)
 
 #' @export
-#' @rdname get_wormsid
-as.wormsid.list <- function(x, check=TRUE) if (length(x) == 1) make_worms(x, check) else collapse(x, make_worms, "wormsid", check = check)
+#' @rdname get_worms
+as.worms.list <- function(x, check=TRUE) if (length(x) == 1) make_worms(x, check) else collapse(x, make_worms, "worms", check = check)
 
 #' @export
-#' @rdname get_wormsid
-as.wormsid.numeric <- function(x, check=TRUE) as.wormsid(as.character(x), check)
+#' @rdname get_worms
+as.worms.numeric <- function(x, check=TRUE) as.worms(as.character(x), check)
 
 #' @export
-#' @rdname get_wormsid
-as.wormsid.data.frame <- function(x, check=TRUE) {
-  structure(x$ids, class = "wormsid", match = x$match,
-            multiple_matches = x$multiple_matches,
-            pattern_match = x$pattern_match, uri = x$uri)
-}
-
-#' @export
-#' @rdname get_wormsid
-as.data.frame.wormsid <- function(x, ...){
-  data.frame(ids = as.character(unclass(x)),
-             class = "wormsid",
-             match = attr(x, "match"),
-             multiple_matches = attr(x, "multiple_matches"),
-             pattern_match = attr(x, "pattern_match"),
-             uri = attr(x, "uri"),
-             stringsAsFactors = FALSE)
-}
+#' @rdname get_worms
+as.worms.data.frame <- function(x, check=TRUE) as_txid_df(x, check)
 
 make_worms <- function(x, check=TRUE) {
   make_generic(x, 'https://www.marinespecies.org/aphia.php?p=taxdetails&id=%s',
-    "wormsid", check)
+    "worms", check)
 }
 
-check_wormsid <- function(x){
+check_worms <- function(x){
   tt <- worrms::wm_record(as.numeric(x))
   identical(as.character(tt$AphiaID), as.character(x))
 }
 
 #' @export
-#' @rdname get_wormsid
-get_wormsid_ <- function(sci_com, messages = TRUE, searchtype = "scientific",
+#' @rdname get_worms
+get_worms_ <- function(sci_com, messages = TRUE, searchtype = "scientific",
   marine_only = TRUE, fuzzy = NULL, accepted = TRUE, rows = NA, query = NULL,
   ...) {
 
   pchk(query, "sci_com")
   stats::setNames(
-    lapply(sci_com, get_wormsid_help, messages = messages,
+    lapply(sci_com, get_worms_help, messages = messages,
            searchtype = searchtype, marine_only = marine_only, fuzzy = fuzzy,
            accepted = accepted, rows = rows, ...),
     sci_com
   )
 }
+#' @export
+#' @rdname get_worms
+get_wormsid_ <- get_worms_
 
-get_wormsid_help <- function(query, messages, searchtype, marine_only,
+get_worms_help <- function(query, messages, searchtype, marine_only,
   fuzzy, accepted, rows, ...) {
 
   mssg(messages, "\nRetrieving data for taxon '", query, "'\n")

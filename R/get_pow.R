@@ -123,12 +123,14 @@ get_pow <- function(sci_com, accepted = FALSE, ask = TRUE, messages = TRUE,
 
   for (i in seq_along(sci_com)) {
     direct <- FALSE
+    pow <- NA_character_
+    name <- NA_character_
+    rank_taken <- NA_character_
     mssg(messages, "\nRetrieving data for taxon '", sci_com[i], "'\n")
     pow_df <- pow_search(sci_com = sci_com[i], ...)$data
     mm <- NROW(pow_df) > 1
 
     if (!inherits(pow_df, "data.frame")) {
-      pow <- NA_character_
       att <- "not found"
     } else {
       pow_df <- pow_df[, c("name","rank","accepted","kingdom","family","fqId")]
@@ -136,7 +138,6 @@ get_pow <- function(sci_com, accepted = FALSE, ask = TRUE, messages = TRUE,
       # should return NA if spec not found
       if (nrow(pow_df) == 0) {
         mssg(messages, "Not found. Consider checking the spelling or alternate classification")
-        pow <- NA_character_
         att <- 'not found'
       }
 
@@ -147,19 +148,21 @@ get_pow <- function(sci_com, accepted = FALSE, ask = TRUE, messages = TRUE,
       # take the one pow from data.frame
       if (nrow(pow_df) == 1) {
         pow <- pow_df$fqId
+        name <- pow_df$name
+        rank_taken <- pow_df$rank
         att <- 'found'
       }
       # check for direct match
       if (nrow(pow_df) > 1) {
         names(pow_df)[grep('name', names(pow_df))] <- "target"
-        di_rect <- pow_df[tolower(pow_df$target) %in% tolower(sci_com[i]), "fqId"]
-        if (length(di_rect) == 1) {
-          pow <- di_rect
+        di_rect <- pow_df[tolower(pow_df$target) %in% tolower(sci_com[i]), ]
+        if (NROW(di_rect) == 1) {
+          pow <- di_rect$fqId
+          name <- di_rect$target
+          rank_taken <- di_rect$rank
           direct <- TRUE
           att <- 'found'
         } else {
-          pow <- NA_character_
-          direct <- FALSE
           att <- 'found'
         }
       }
@@ -178,6 +181,8 @@ get_pow <- function(sci_com, accepted = FALSE, ask = TRUE, messages = TRUE,
         pow_df <- sub_rows(pow_df, rows)
         pow <- id <- pow_df$fqId
         if (length(id) == 1) {
+          name <- pow_df$target
+          rank_taken <- pow_df$rank
           direct <- TRUE
           att <- "found"
         }
@@ -200,9 +205,10 @@ get_pow <- function(sci_com, accepted = FALSE, ask = TRUE, messages = TRUE,
               take <- as.numeric(take)
               message("Input accepted, took taxon '", as.character(pow_df$target[take]), "'.\n")
               pow <-  pow_df$fqId[take]
+              name <-  pow_df$target[take]
+              rank_taken <-  pow_df$rank[take]
               att <- 'found'
             } else {
-              pow <- NA_character_
               mssg(messages, "\nReturned 'NA'!\n\n")
               att <- 'not found'
             }
@@ -216,27 +222,36 @@ get_pow <- function(sci_com, accepted = FALSE, ask = TRUE, messages = TRUE,
                       sci_com[i]),
               call. = FALSE
             )
-            pow <- NA_character_
             att <- 'NA due to ask=FALSE & > 1 result'
           }
         }
       }
     }
-    res <- list(id = as.character(pow), att = att, multiple = mm,
-      direct = direct)
+    res <- list(id = as.character(pow), name = name, rank = rank_taken,
+      att = att, multiple = mm, direct = direct)
     prog$completed(sci_com[i], att)
     prog$prog(att)
     tstate$add(sci_com[i], res)
   }
   out <- tstate$get()
-  ids <- structure(as.character(unlist(pluck(out, "id"))), class = "pow",
-                   match = pluck_un(out, "att", ""),
-                   multiple_matches = pluck_un(out, "multiple", logical(1)),
-                   pattern_match = pluck_un(out, "direct", logical(1)))
+  ids <- as.character(unlist(pluck(out, "id")))
+  res <- taxa_taxon(
+    name = unlist(pluck(out, "name")),
+    id = taxa::taxon_id(ids, db = "pow"),
+    rank = unlist(pluck(out, "rank")),
+    uri = sprintf(get_url_templates$pow, ids),
+    match = unname(unlist(pluck(out, "att"))),
+    multiple_matches = unname(unlist(pluck(out, "multiple"))),
+    pattern_match = unname(unlist(pluck(out, "direct"))),
+    class = "pow"
+  )
   on.exit(prog$prog_summary(), add = TRUE)
   on.exit(tstate$exit, add = TRUE)
-  add_uri(ids, get_url_templates$pow)
+  return(res)
 }
+#' @export
+#' @rdname get_pow
+get_powid <- get_pow
 
 #' @export
 #' @rdname get_pow
@@ -256,23 +271,7 @@ as.pow.list <- function(x, check=TRUE) if(length(x) == 1) make_pow(x, check) els
 
 #' @export
 #' @rdname get_pow
-as.pow.data.frame <- function(x, check=TRUE) {
-  structure(x$ids, class="pow", match=x$match,
-            multiple_matches = x$multiple_matches,
-            pattern_match = x$pattern_match, uri=x$uri)
-}
-
-#' @export
-#' @rdname get_pow
-as.data.frame.pow <- function(x, ...){
-  data.frame(ids = as.character(unclass(x)),
-             class = "pow",
-             match = attr(x, "match"),
-             multiple_matches = attr(x, "multiple_matches"),
-             pattern_match = attr(x, "pattern_match"),
-             uri = attr(x, "uri"),
-             stringsAsFactors = FALSE)
-}
+as.pow.data.frame <- function(x, check=TRUE) as_txid_df(x, check)
 
 make_pow <- function(x, check=TRUE) {
   make_generic(x, 'http://powo.science.kew.org/taxon/%s', "pow", check)
@@ -290,6 +289,9 @@ get_pow_ <- function(sci_com, messages = TRUE, rows = NA, x = NULL, ...) {
   stats::setNames(lapply(sci_com, get_pow_help, messages = messages,
     rows = rows, ...), sci_com)
 }
+#' @export
+#' @rdname get_pow
+get_powid_ <- get_pow_
 
 get_pow_help <- function(x, messages, rows, ...){
   mssg(messages, "\nRetrieving data for taxon '", x, "'\n")

@@ -75,6 +75,7 @@ get_wiki <- function(sci_com, wiki_site = "species", wiki = "en", ask = TRUE,
 
   for (i in seq_along(sci_com)) {
     direct <- FALSE
+    id <- NA_character_
     mssg(messages, "\nRetrieving data for taxon '", sci_com[i], "'\n")
     df <- switch(
       wiki_site,
@@ -86,7 +87,6 @@ get_wiki <- function(sci_com, wiki_site = "species", wiki = "en", ask = TRUE,
     mm <- NROW(df) > 1
 
     if (!inherits(df, "tbl_df") || NROW(df) == 0) {
-      id <- NA_character_
       att <- "not found"
     } else {
       df <- df[, c("title", "size", "wordcount")]
@@ -95,7 +95,6 @@ get_wiki <- function(sci_com, wiki_site = "species", wiki = "en", ask = TRUE,
       # should return NA if spec not found
       if (NROW(df) == 0) {
         mssg(messages, tx_msg_not_found)
-        id <- NA_character_
         att <- "not found"
       }
 
@@ -116,8 +115,6 @@ get_wiki <- function(sci_com, wiki_site = "species", wiki = "en", ask = TRUE,
           direct <- TRUE
           att <- "found"
         } else {
-          direct <- FALSE
-          id <- NA_character_
           att <- m_na_ask_false_no_direct
           warning("> 1 result; no direct match found", call. = FALSE)
         }
@@ -151,7 +148,6 @@ get_wiki <- function(sci_com, wiki_site = "species", wiki = "en", ask = TRUE,
             id <-  df$title[take]
             att <- "found"
           } else {
-            id <- NA_character_
             mssg(messages, "\nReturned 'NA'!\n\n")
             att <- "not found"
           }
@@ -159,7 +155,6 @@ get_wiki <- function(sci_com, wiki_site = "species", wiki = "en", ask = TRUE,
           if (length(id) != 1) {
             warning(sprintf(m_more_than_one_found, "Wiki ID", x),
               call. = FALSE)
-            id <- NA_character_
             att <- m_na_ask_false
           }
         }

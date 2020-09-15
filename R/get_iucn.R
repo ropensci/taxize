@@ -23,7 +23,7 @@
 #'  [synonyms()] and [sci2comm()] methods since they
 #'  internally use \pkg{rredlist} functions which require the taxonomic name,
 #'  and not the taxonomic identifier
-#' * *ri* (character) - The URI where more information can be
+#' * *uri* (character) - The URI where more information can be
 #'  read on the taxon - includes the taxonomic identifier in the URL somewhere
 #'
 #' *multiple_matches* and *pattern_match* do not apply here as in other `get_*`
@@ -37,6 +37,9 @@
 #'
 #' IUCN ids only work with [synonyms()] and [sci2comm()]
 #' methods.
+#' 
+#' There's no concept of a taxon rank other than "species" for IUCN. i.e., 
+#' all returned data from this function should be of rank "species"
 #'
 #' @family taxonomic-ids
 #'
@@ -44,6 +47,7 @@
 #' get_iucn("Branta canadensis")
 #' get_iucn("Branta bernicla")
 #' get_iucn("Panthera uncia")
+#' get_iucn(c("Panthera uncia", "Branta bernicla"))
 #'
 #' # as coercion
 #' as.iucn(22732)
@@ -112,12 +116,18 @@ get_iucn <- function(sci, messages = TRUE, key = NULL, x = NULL, ...) {
     tstate$add(sci[i], res)
   }
   out <- tstate$get()
-  ids <- structure(as.character(unlist(pluck(out, "id"))), class = "iucn",
-                   match = pluck_un(out, "att", ""),
-                   name = pluck_un(out, "name", ""))
+  ids <- as.character(unlist(pluck(out, "id")))
+  res <- taxa_taxon(
+    name = unlist(pluck(out, "name")),
+    id = taxa::taxon_id(ids, db = "iucn"),
+    rank = "species",
+    uri = sprintf(get_url_templates$iucn, ids),
+    match = unname(unlist(pluck(out, "att"))),
+    class = "iucn"
+  )
   on.exit(prog$prog_summary(), add = TRUE)
   on.exit(tstate$exit, add = TRUE)
-  add_uri(ids, get_url_templates$iucn)
+  return(res)
 }
 
 #' @export
@@ -161,17 +171,6 @@ as.iucn.numeric <- function(x, check=TRUE, key = NULL) {
 as.iucn.data.frame <- function(x, check=TRUE, key = NULL) {
   structure(x$ids, class = "iucn", match = x$match,
             name = x$name, uri = x$uri)
-}
-
-#' @export
-#' @rdname get_iucn
-as.data.frame.iucn <- function(x, ...){
-  data.frame(ids = unclass(x),
-             class = "iucn",
-             name = attr(x, "name"),
-             match = attr(x, "match"),
-             uri = attr(x, "uri"),
-             stringsAsFactors = FALSE)
 }
 
 make_iucn <- function(x, check = TRUE, key = NULL) {

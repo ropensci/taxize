@@ -6,72 +6,70 @@
 #' @param searchtype character; One of 'scientific' (default) or 'common'.
 #' This doesn't affect the query to NatureServe - but rather affects what
 #' column of data is targeted in name filtering post data request.
-#' @param ask logical; should get_natservid be run in interactive mode?
+#' @param ask logical; should get_natserv be run in interactive mode?
 #' If `TRUE` and more than one wormsid is found for the species, the
 #' user is asked for input. If `FALSE` NA is returned for
 #' multiple matches. default: `TRUE`
 #' @param messages logical; should progress be printed? default: `TRUE`
 #' @param rows numeric; Any number from 1 to infinity. If the default NaN, all
 #' rows are considered. Note that this function still only gives back a
-#' natservid class object with one to many identifiers. See
-#' `get_natservid_()` to get back all, or a subset, of the raw
+#' natserv class object with one to many identifiers. See
+#' `get_natserv_()` to get back all, or a subset, of the raw
 #' data that you are presented during the ask process.
-#' @param x Input to `as.natservid`
+#' @param x Input to `as.natserv`
 #' @param query Deprecated, see `sci_com`
 #' @param ... curl options passed on to [crul::verb-POST]
 #' @param check logical; Check if ID matches any existing on the DB, only
-#' used in [as.natservid()]
+#' used in [as.natserv()]
 #' @template getreturn
 #' @family taxonomic-ids
 #' @seealso [classification()]
 #' @note Authentication no longer required
 #' @examples \dontrun{
-#' (x <- get_natservid("Helianthus annuus", verbose = TRUE))
-#' attributes(x)
-#' attr(x, "match")
-#' attr(x, "multiple_matches")
-#' attr(x, "pattern_match")
-#' attr(x, "uri")
+#' (x <- get_natserv("Helianthus annuus"))
+#' library(taxa)
+#' tax_name(x)
+#' tax_id(x)
 #'
-#' get_natservid('Gadus morhua')
-#' get_natservid(c("Helianthus annuus", 'Gadus morhua'))
+#' get_natserv('Gadus morhua')
+#' get_natserv(c("Helianthus annuus", 'Gadus morhua'))
 #'
 #' # specify rows to limit choices available
-#' get_natservid('Ruby Quaker Moth', 'common')
-#' get_natservid('Ruby*', 'common')
-#' get_natservid('Ruby*', 'common', rows=1)
-#' get_natservid('Ruby*', 'common', rows=1:2)
+#' get_natserv('Ruby Quaker Moth', 'common')
+#' get_natserv('Ruby*', 'common')
+#' get_natserv('Ruby*', 'common', rows=1)
+#' get_natserv('Ruby*', 'common', rows=1:2)
 #'
 #' # When not found
-#' get_natservid("howdy")
-#' get_natservid(c('Gadus morhua', "howdy"))
+#' get_natserv("howdy")
+#' get_natserv(c('Gadus morhua', "howdy"))
 #'
-#' # Convert a natservid without class information to a natservid class
-#' # already a natservid, returns the same
-#' as.natservid(get_natservid('Pomatomus saltatrix'))
+#' # Convert a natserv without class information to a natserv class
+#' # already a natserv, returns the same
+#' as.natserv(get_natserv('Pomatomus saltatrix'))
 #' # same
-#' as.natservid(get_natservid(c('Gadus morhua', 'Pomatomus saltatrix')))
+#' as.natserv(get_natserv(c('Gadus morhua', 'Pomatomus saltatrix')))
 #' # character
-#' as.natservid(101905)
+#' as.natserv(101905)
 #' # character vector, length > 1
-#' as.natservid(c(101905, 101998))
+#' as.natserv(c(101905, 101998))
 #' # list, either numeric or character
-#' as.natservid(list(101905, 101998))
+#' as.natserv(list(101905, 101998))
 #' ## dont check, much faster
-#' as.natservid(101905, check = FALSE)
-#' as.natservid(c(101905, 101998), check = FALSE)
-#' as.natservid(list(101905, 101998), check = FALSE)
+#' as.natserv(101905, check = FALSE)
+#' as.natserv(c(101905, 101998), check = FALSE)
+#' as.natserv(list(101905, 101998), check = FALSE)
 #'
-#' (out <- as.natservid(c(101905, 101998), check = FALSE))
+#' (out <- as.natserv(c(101905, 101998), check = FALSE))
 #' data.frame(out)
-#' as.natservid( data.frame(out) )
+#' as.natserv( data.frame(out) )
 #'
 #' # Get all data back
-#' get_natservid_("Helianthus")
-#' get_natservid_("Ruby*", searchtype = "common")
-#' get_natservid_("Ruby*", searchtype = "common", rows=1:3)
+#' get_natserv_("Helianthus")
+#' get_natserv_("Ruby*", searchtype = "common")
+#' get_natserv_("Ruby*", searchtype = "common", rows=1:3)
 #' }
-get_natservid <- function(sci_com, searchtype = "scientific", ask = TRUE,
+get_natserv <- function(sci_com, searchtype = "scientific", ask = TRUE,
                           messages = TRUE, rows = NA, query = NULL, ...) {
 
   assert(sci_com, c("character", "taxon_state"))
@@ -83,10 +81,10 @@ get_natservid <- function(sci_com, searchtype = "scientific", ask = TRUE,
   pchk(query, "sci_com")
 
   if (inherits(sci_com, "character")) {
-    tstate <- taxon_state$new(class = "natservid", names = sci_com)
+    tstate <- taxon_state$new(class = "natserv", names = sci_com)
     items <- sci_com
   } else {
-    assert_state(sci_com, "natservid")
+    assert_state(sci_com, "natserv")
     tstate <- sci_com
     sci_com <- tstate$taxa_remaining()
     items <- c(sci_com, tstate$taxa_completed())
@@ -99,6 +97,8 @@ get_natservid <- function(sci_com, searchtype = "scientific", ask = TRUE,
 
   for (i in seq_along(sci_com)) {
     direct <- FALSE
+    name <- NA_character_
+    nsid <- NA_character_
     mssg(messages, "\nRetrieving data for taxon '", sci_com[i], "'\n")
 
     if (!searchtype %in% c("scientific", "common")) {
@@ -110,7 +110,6 @@ get_natservid <- function(sci_com, searchtype = "scientific", ask = TRUE,
     mm <- NROW(nsdf) > 1
 
     if (!inherits(nsdf, "tbl_df") || NROW(nsdf) == 0) {
-      nsid <- NA_character_
       att <- "not found"
     } else {
       nsdf <- suppressWarnings(data.frame(nsdf))
@@ -119,13 +118,13 @@ get_natservid <- function(sci_com, searchtype = "scientific", ask = TRUE,
       # should return NA if spec not found
       if (nrow(nsdf) == 0) {
         mssg(messages, m_not_found_sp_altclass)
-        nsid <- NA_character_
         att <- 'not found'
       }
 
       # take the one nsid from data.frame
       if (nrow(nsdf) == 1) {
         nsid <- nsdf$id
+        name <- nsdf[[grep(searchtype, names(nsdf), value = TRUE)]]
         att <- 'found'
       }
 
@@ -133,21 +132,19 @@ get_natservid <- function(sci_com, searchtype = "scientific", ask = TRUE,
       if (nrow(nsdf) > 1) {
 
         names(nsdf)[grep(searchtype, names(nsdf))] <- "target"
-        direct <- match(tolower(nsdf$target), tolower(sci_com[i]))
+        # direct <- match(tolower(nsdf$target), tolower(sci_com[i]))
+        matchtmp <- nsdf[as.character(nsdf$target) %in% sci_com[i], ]
 
-        if (length(direct) == 1) {
-          if (!all(is.na(direct))) {
-            nsid <- nsdf$id[!is.na(direct)]
+        if (NROW(matchtmp) == 1) {
+          if (!all(is.na(matchtmp))) {
+            nsid <- matchtmp$id
+            name <- matchtmp$target
             direct <- TRUE
             att <- 'found'
           } else {
-            direct <- FALSE
-            nsid <- NA_character_
             att <- 'not found'
           }
         } else {
-          direct <- FALSE
-          nsid <- NA_character_
           att <- m_na_ask_false_no_direct
           warning("> 1 result; no direct match found", call. = FALSE)
         }
@@ -180,9 +177,9 @@ get_natservid <- function(sci_com, searchtype = "scientific", ask = TRUE,
             take <- as.numeric(take)
             message("Input accepted, took taxon '", as.character(nsdf$target[take]), "'.\n")
             nsid <-  nsdf$id[take]
+            name <-  nsdf$target[take]
             att <- 'found'
           } else {
-            nsid <- NA_character_
             mssg(messages, "\nReturned 'NA'!\n\n")
             att <- 'not found'
           }
@@ -190,91 +187,87 @@ get_natservid <- function(sci_com, searchtype = "scientific", ask = TRUE,
           if (length(nsid) != 1) {
             warning(sprintf(m_more_than_one_found, "NatureServe ID", sci_com[i]),
               call. = FALSE)
-            nsid <- NA_character_
             att <- m_na_ask_false
           }
         }
       }
 
     }
-    res <- list(id = as.character(nsid), att = att, multiple = mm,
-      direct = direct)
+    res <- list(id = as.character(nsid), name = name, att = att,
+      multiple = mm, direct = direct)
     prog$completed(sci_com[i], att)
     prog$prog(att)
     tstate$add(sci_com[i], res)
   }
   out <- tstate$get()
-  ids <- structure(as.character(unlist(pluck(out, "id"))), class = "natservid",
-                   match = pluck_un(out, "att", ""),
-                   multiple_matches = pluck_un(out, "multiple", logical(1)),
-                   pattern_match = pluck_un(out, "direct", logical(1)))
+  ids <- as.character(unlist(pluck(out, "id")))
+  res <- taxa_taxon(
+    name = unlist(pluck(out, "name")),
+    id = taxa::taxon_id(ids, db = "natserv"),
+    rank = "species",
+    uri = sprintf(get_url_templates$natserv, ids),
+    match = unname(unlist(pluck(out, "att"))),
+    multiple_matches = unname(unlist(pluck(out, "multiple"))),
+    pattern_match = unname(unlist(pluck(out, "direct"))),
+    class = "natserv"
+  )
   on.exit(prog$prog_summary(), add = TRUE)
   on.exit(tstate$exit, add = TRUE)
-  add_uri(ids, get_url_templates$natserv)
+  return(res)
 }
+#' @export
+#' @rdname get_natserv
+get_natservid <- get_natserv
 
 #' @export
-#' @rdname get_natservid
-as.natservid <- function(x, check=TRUE) UseMethod("as.natservid")
+#' @rdname get_natserv
+as.natserv <- function(x, check=TRUE) UseMethod("as.natserv")
 
 #' @export
-#' @rdname get_natservid
-as.natservid.natservid <- function(x, check=TRUE) x
+#' @rdname get_natserv
+as.natserv.natserv <- function(x, check=TRUE) x
 
 #' @export
-#' @rdname get_natservid
-as.natservid.character <- function(x, check=TRUE) if (length(x) == 1) make_natserv(x, check) else collapse(x, make_natserv, "natservid", check = check)
+#' @rdname get_natserv
+as.natserv.character <- function(x, check=TRUE) if (length(x) == 1) make_natserv(x, check) else collapse(x, make_natserv, "natserv", check = check)
 
 #' @export
-#' @rdname get_natservid
-as.natservid.list <- function(x, check=TRUE) if (length(x) == 1) make_natserv(x, check) else collapse(x, make_natserv, "natservid", check = check)
+#' @rdname get_natserv
+as.natserv.list <- function(x, check=TRUE) if (length(x) == 1) make_natserv(x, check) else collapse(x, make_natserv, "natserv", check = check)
 
 #' @export
-#' @rdname get_natservid
-as.natservid.numeric <- function(x, check=TRUE) as.natservid(as.character(x), check)
+#' @rdname get_natserv
+as.natserv.numeric <- function(x, check=TRUE) as.natserv(as.character(x), check)
 
 #' @export
-#' @rdname get_natservid
-as.natservid.data.frame <- function(x, check=TRUE) {
-  structure(x$ids, class = "natservid", match = x$match,
-            multiple_matches = x$multiple_matches,
-            pattern_match = x$pattern_match, uri = x$uri)
-}
+#' @rdname get_natserv
+as.natserv.data.frame <- function(x, check=TRUE) as_txid_df(x, check)
 
-#' @export
-#' @rdname get_natservid
-as.data.frame.natservid <- function(x, ...){
-  data.frame(ids = as.character(unclass(x)),
-             class = "natservid",
-             match = attr(x, "match"),
-             multiple_matches = attr(x, "multiple_matches"),
-             pattern_match = attr(x, "pattern_match"),
-             uri = attr(x, "uri"),
-             stringsAsFactors = FALSE)
-}
+make_natserv <- function(x, check=TRUE) make_generic(x, ns_base_uri(), "natserv", check)
 
-make_natserv <- function(x, check=TRUE) make_generic(x, ns_base_uri(), "natservid", check)
-
-check_natservid <- function(x){
+check_natserv <- function(x){
   tt <- crul::HttpClient$new(sprintf(ns_base_uri(), x),
     headers = tx_ual)$get()$parse("UTF-8")
   !grepl("No records matched", tt)
 }
 
 #' @export
-#' @rdname get_natservid
-get_natservid_ <- function(sci_com, searchtype = "scientific", messages = TRUE,
+#' @rdname get_natserv
+get_natserv_ <- function(sci_com, searchtype = "scientific", messages = TRUE,
   rows = NA, query = NULL, ...) {
 
   pchk(query, "sci_com")
   stats::setNames(
-    lapply(sci_com, get_natservid_help, searchtype = searchtype,
+    lapply(sci_com, get_natserv_help, searchtype = searchtype,
       messages = messages, rows = rows, ...),
     sci_com
   )
 }
+#' @export
+#' @rdname get_natserv
+get_natservid_ <- get_natserv_
 
-get_natservid_help <- function(sci_com, searchtype, messages, rows, ...) {
+get_natserv_help <- function(sci_com, searchtype, messages, rows, ...) {
   mssg(messages, "\nRetrieving data for taxon '", sci_com, "'\n")
   df <- ns_worker(x = sci_com, searchtype = searchtype, ...)
   sub_rows(df, rows)

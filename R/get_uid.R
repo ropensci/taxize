@@ -325,7 +325,7 @@ get_uid <- function(sci_com, ask = TRUE, messages = TRUE, rows = NA,
   }
   out <- tstate$get()
   ids <- as.character(unlist(pluck_un(out, "id", "")))
-  res <- .taxa_taxon(
+  res <- taxa_taxon(
     name = unlist(pluck(out, "name")),
     id = taxa::taxon_id(ids, db = "ncbi"),
     rank = unlist(pluck(out, "rank")),
@@ -384,23 +384,7 @@ as.uid.numeric <- function(x, check=TRUE) as.uid(as.character(x), check)
 
 #' @export
 #' @rdname get_uid
-as.uid.data.frame <- function(x, check=TRUE) {
-  structure(x$ids, class="uid", match=x$match,
-            multiple_matches = x$multiple_matches,
-            pattern_match = x$pattern_match, uri=x$uri)
-}
-
-#' @export
-#' @rdname get_uid
-as.data.frame.uid <- function(x, ...){
-  data.frame(ids = as.character(unclass(x)),
-             class = "uid",
-             match = attr(x, "match"),
-             multiple_matches = attr(x, "multiple_matches"),
-             pattern_match = attr(x, "pattern_match"),
-             uri = attr(x, "uri"),
-             stringsAsFactors = FALSE)
-}
+as.uid.data.frame <- function(x, check=TRUE) as_txid_df(x, check)
 
 make_uid <- function(x, check=TRUE) {
   make_generic(x, 'https://www.ncbi.nlm.nih.gov/taxonomy/%s',

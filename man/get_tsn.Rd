@@ -8,7 +8,6 @@
 \alias{as.tsn.list}
 \alias{as.tsn.numeric}
 \alias{as.tsn.data.frame}
-\alias{as.data.frame.tsn}
 \alias{get_tsn_}
 \title{Get the TSN code for a search term.}
 \usage{
@@ -34,8 +33,6 @@ as.tsn(x, check = TRUE)
 \method{as.tsn}{numeric}(x, check = TRUE)
 
 \method{as.tsn}{data.frame}(x, check = TRUE)
-
-\method{as.data.frame}{tsn}(x, ...)
 
 get_tsn_(
   sci_com,
@@ -143,18 +140,18 @@ get_tsn_(c("asdfadfasd","Pinus contorta"), rows=1:5)
 \code{\link[=classification]{classification()}}
 
 Other taxonomic-ids: 
-\code{\link{get_boldid}()},
-\code{\link{get_eolid}()},
-\code{\link{get_gbifid}()},
+\code{\link{get_bold}()},
+\code{\link{get_eol}()},
+\code{\link{get_gbif}()},
 \code{\link{get_ids}()},
 \code{\link{get_iucn}()},
-\code{\link{get_natservid}()},
-\code{\link{get_nbnid}()},
+\code{\link{get_natserv}()},
+\code{\link{get_nbn}()},
 \code{\link{get_pow}()},
 \code{\link{get_tolid}()},
-\code{\link{get_tpsid}()},
+\code{\link{get_tps}()},
 \code{\link{get_uid}()},
 \code{\link{get_wiki}()},
-\code{\link{get_wormsid}()}
+\code{\link{get_worms}()}
 }
 \concept{taxonomic-ids}

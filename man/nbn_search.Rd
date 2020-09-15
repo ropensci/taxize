@@ -66,7 +66,7 @@ nbn_search(sci_com = "blackbird", verbose = TRUE)
 }
 \seealso{
 Other nbn: 
-\code{\link{get_nbnid}()},
+\code{\link{get_nbn}()},
 \code{\link{nbn_classification}()},
 \code{\link{nbn_synonyms}()}
 }

@@ -35,7 +35,7 @@ nbn_classification(id="NHMSYS0000502940", verbose = TRUE)
 }
 \seealso{
 Other nbn: 
-\code{\link{get_nbnid}()},
+\code{\link{get_nbn}()},
 \code{\link{nbn_search}()},
 \code{\link{nbn_synonyms}()}
 }

@@ -13,11 +13,11 @@
 #' If TRUE and more than one TSN is found for teh species, the user is asked for
 #' input. If FALSE NA is returned for multiple matches.
 #' @param messages logical; should progress be printed?
-#' @param x Input to [`as.boldid()`]
+#' @param x Input to [`as.bold()`]
 #' @param ... Curl options passed on to [`crul::verb-GET`]
 #' @param rows numeric; Any number from 1 to infinity. If the default NA, all rows are
-#' considered. Note that this function still only gives back a boldid class object with one
-#' to many identifiers. See [get_boldid_()] to get back all, or a subset,
+#' considered. Note that this function still only gives back a bold class object with one
+#' to many identifiers. See [get_bold_()] to get back all, or a subset,
 #' of the raw data that you are presented during the ask process.
 #' @param division (character) A division (aka phylum) name. Optional. See `Filtering`
 #' below.
@@ -27,7 +27,7 @@
 #' options. Though note that some data sources use atypical ranks, so inspect the
 #' data itself for options. Optional. See `Filtering` below.
 #' @param check logical; Check if ID matches any existing on the DB, only used in
-#' [as.boldid()]
+#' [as.bold()]
 #' @param searchterm Deprecated, see `sci`
 #' @template getreturn
 #'
@@ -42,73 +42,73 @@
 #' @seealso [classification()]
 #'
 #' @examples \dontrun{
-#' get_boldid(sci = "Agapostemon")
-#' get_boldid(sci = "Chironomus riparius")
-#' get_boldid(c("Chironomus riparius","Quercus douglasii"))
+#' get_bold(sci = "Agapostemon")
+#' get_bold(sci = "Chironomus riparius")
+#' get_bold(c("Chironomus riparius","Quercus douglasii"))
 #' splist <- names_list('species')
-#' get_boldid(splist, messages=FALSE)
+#' get_bold(splist, messages=FALSE)
 #'
 #' # Fuzzy searching
-#' get_boldid(sci="Osmi", fuzzy=TRUE)
+#' get_bold(sci="Osmi", fuzzy=TRUE)
 #'
 #' # Get back a subset
-#' get_boldid(sci="Osmi", fuzzy=TRUE, rows = 1)
-#' get_boldid(sci="Osmi", fuzzy=TRUE, rows = 1:10)
-#' get_boldid(sci=c("Osmi","Aga"), fuzzy=TRUE, rows = 1)
-#' get_boldid(sci=c("Osmi","Aga"), fuzzy=TRUE, rows = 1:3)
+#' get_bold(sci="Osmi", fuzzy=TRUE, rows = 1)
+#' get_bold(sci="Osmi", fuzzy=TRUE, rows = 1:10)
+#' get_bold(sci=c("Osmi","Aga"), fuzzy=TRUE, rows = 1)
+#' get_bold(sci=c("Osmi","Aga"), fuzzy=TRUE, rows = 1:3)
 #'
 #' # found
-#' get_boldid('Epicordulia princeps')
-#' get_boldid('Arigomphus furcifer')
+#' get_bold("Cordulegaster erronea")
+#' get_bold('Arigomphus furcifer')
 #'
 #' # When not found
-#' get_boldid("howdy")
-#' get_boldid(c("Chironomus riparius", "howdy"))
-#' get_boldid("Cordulegaster erronea")
-#' get_boldid("Nasiaeshna pentacantha")
+#' get_bold('Epicordulia princeps')
+#' get_bold("howdy")
+#' get_bold(c("Chironomus riparius", "howdy"))
+#' get_bold("Nasiaeshna pentacantha")
 #'
 #' # Narrow down results to a division or rank, or both
 #' ## Satyrium example
 #' ### Results w/o narrowing
-#' get_boldid("Satyrium")
+#' get_bold("Satyrium")
 #' ### w/ phylum
-#' get_boldid("Satyrium", division = "Plantae")
-#' get_boldid("Satyrium", division = "Animalia")
+#' get_bold("Satyrium", division = "Plantae")
+#' get_bold("Satyrium", division = "Animalia")
 #'
 #' ## Rank example
-#' get_boldid("Osmia", fuzzy = TRUE)
-#' get_boldid("Osmia", fuzzy = TRUE, rank = "genus")
+#' get_bold("Osmia", fuzzy = TRUE)
+#' get_bold("Osmia", fuzzy = TRUE, rank = "genus")
 #'
 #' # Fuzzy filter on any filtering fields
 #' ## uses grep on the inside
-#' get_boldid("Satyrium", division = "anim")
-#' get_boldid("Aga", fuzzy = TRUE, parent = "*idae")
+#' get_bold("Satyrium", division = "anim")
+#' get_bold("Aga", fuzzy = TRUE, parent = "*idae")
 #'
-#' # Convert a boldid without class information to a boldid class
-#' as.boldid(get_boldid("Agapostemon")) # already a boldid, returns the same
-#' as.boldid(get_boldid(c("Agapostemon","Quercus douglasii"))) # same
-#' as.boldid(1973) # numeric
-#' as.boldid(c(1973,101009,98597)) # numeric vector, length > 1
-#' as.boldid("1973") # character
-#' as.boldid(c("1973","101009","98597")) # character vector, length > 1
-#' as.boldid(list("1973","101009","98597")) # list, either numeric or character
+#' # Convert a bold without class information to a bold class
+#' as.bold(get_bold("Agapostemon")) # already a bold, returns the same
+#' as.bold(get_bold(c("Agapostemon","Quercus douglasii"))) # same
+#' as.bold(1973) # numeric
+#' as.bold(c(1973,101009,98597)) # numeric vector, length > 1
+#' as.bold("1973") # character
+#' as.bold(c("1973","101009","98597")) # character vector, length > 1
+#' as.bold(list("1973","101009","98597")) # list, either numeric or character
 #' ## dont check, much faster
-#' as.boldid("1973", check=FALSE)
-#' as.boldid(1973, check=FALSE)
-#' as.boldid(c("1973","101009","98597"), check=FALSE)
-#' as.boldid(list("1973","101009","98597"), check=FALSE)
+#' as.bold("1973", check=FALSE)
+#' as.bold(1973, check=FALSE)
+#' as.bold(c("1973","101009","98597"), check=FALSE)
+#' as.bold(list("1973","101009","98597"), check=FALSE)
 #'
-#' (out <- as.boldid(c(1973,101009,98597)))
+#' (out <- as.bold(c(1973,101009,98597)))
 #' data.frame(out)
-#' as.boldid( data.frame(out) )
+#' as.bold( data.frame(out) )
 #'
 #' # Get all data back
-#' get_boldid_("Osmia", fuzzy=TRUE, rows=1:5)
-#' get_boldid_("Osmia", fuzzy=TRUE, rows=1)
-#' get_boldid_(c("Osmi","Aga"), fuzzy=TRUE, rows = 1:3)
+#' get_bold_("Osmia", fuzzy=TRUE, rows=1:5)
+#' get_bold_("Osmia", fuzzy=TRUE, rows=1)
+#' get_bold_(c("Osmi","Aga"), fuzzy=TRUE, rows = 1:3)
 #' }
 
-get_boldid <- function(sci, fuzzy = FALSE, dataTypes = 'basic',
+get_bold <- function(sci, fuzzy = FALSE, dataTypes = 'basic',
                        includeTree = FALSE, ask = TRUE, messages = TRUE,
                        rows = NA, rank = NULL, division = NULL,
                        parent = NULL, searchterm = NULL, ...) {
@@ -126,10 +126,10 @@ get_boldid <- function(sci, fuzzy = FALSE, dataTypes = 'basic',
   pchk(searchterm, "sci")
 
   if (inherits(sci, "character")) {
-    tstate <- taxon_state$new(class = "boldid", names = sci)
+    tstate <- taxon_state$new(class = "bold", names = sci)
     items <- sci
   } else {
-    assert_state(sci, "boldid")
+    assert_state(sci, "bold")
     tstate <- sci
     sci <- tstate$taxa_remaining()
     items <- c(sci, tstate$taxa_completed())
@@ -141,6 +141,8 @@ get_boldid <- function(sci, fuzzy = FALSE, dataTypes = 'basic',
   prog$prog_start()
 
   for (i in seq_along(sci)) {
+    name <- NA_character_
+    rank_taken <- NA_character_
     direct <- FALSE
     mssg(messages, "\nRetrieving data for taxon '", sci[i], "'\n")
     bold_df <- bold_search(sci = sci[i], fuzzy = fuzzy,
@@ -179,6 +181,8 @@ get_boldid <- function(sci, fuzzy = FALSE, dataTypes = 'basic',
         # take the one tsn from data.frame
         if (nrow(bold_df) == 1) {
           boldid <- bold_df$taxid
+          name <- bold_df$taxon
+          rank_taken <- bold_df$rank
           att <- 'found'
         }
         # check for direct match
@@ -188,6 +192,8 @@ get_boldid <- function(sci, fuzzy = FALSE, dataTypes = 'basic',
           if (length(di_rect) == 1) {
             if (!all(is.na(di_rect))) {
               boldid <- bold_df$taxid[!is.na(di_rect)]
+              name <- bold_df$target[!is.na(di_rect)]
+              rank_taken <- bold_df$rank[!is.na(di_rect)]
               direct <- TRUE
               att <- 'found'
             } else {
@@ -225,6 +231,8 @@ get_boldid <- function(sci, fuzzy = FALSE, dataTypes = 'basic',
             boldid <- id <- bold_df$taxid
             if (length(id) == 1) {
               direct <- TRUE
+              name <- bold_df$target
+              rank_taken <- bold_df$rank
               att <- "found"
             }
           }
@@ -250,6 +258,8 @@ get_boldid <- function(sci, fuzzy = FALSE, dataTypes = 'basic',
                 message("Input accepted, took taxon '",
                   as.character(bold_df$target[take]), "'.\n")
                 boldid <-  bold_df$taxid[take]
+                name <- bold_df$target[take]
+                rank_taken <- bold_df$rank[take]
                 att <- "found"
               } else {
                 boldid <- NA_character_
@@ -261,7 +271,7 @@ get_boldid <- function(sci, fuzzy = FALSE, dataTypes = 'basic',
             if (length(boldid) == 1) {
               att <- "found"
             } else {
-              warning(sprintf(m_more_than_one_found, "boldid", sci[i]),
+              warning(sprintf(m_more_than_one_found, "bold", sci[i]),
                 call. = FALSE)
               boldid <- NA_character_
               att <- m_na_ask_false
@@ -270,95 +280,92 @@ get_boldid <- function(sci, fuzzy = FALSE, dataTypes = 'basic',
         }
       }
     }
-    res <- list(id = as.character(boldid), att = att, multiple = mm,
-      direct = direct)
+    res <- list(id = as.character(boldid), name = name, rank = rank_taken,
+      att = att, multiple = mm, direct = direct)
     prog$completed(sci[i], att)
     prog$prog(att)
     tstate$add(sci[i], res)
   }
   out <- tstate$get()
-  ids <- structure(as.character(unlist(pluck(out, "id"))), class = "boldid",
-                   match = pluck_un(out, "att", ""),
-                   multiple_matches = pluck_un(out, "multiple", logical(1)),
-                   pattern_match = pluck_un(out, "direct", logical(1)))
+  ids <- as.character(unlist(pluck(out, "id")))
+  res <- taxa_taxon(
+    name = unlist(pluck(out, "name")),
+    id = taxa::taxon_id(ids, db = "bold"),
+    rank = unlist(pluck(out, "rank")),
+    uri = sprintf(get_url_templates$bold, ids),
+    match = unname(unlist(pluck(out, "att"))),
+    multiple_matches = unname(unlist(pluck(out, "multiple"))),
+    pattern_match = unname(unlist(pluck(out, "direct"))),
+    class = "bold"
+  )
   on.exit(prog$prog_summary(), add = TRUE)
   on.exit(tstate$exit, add = TRUE)
-  add_uri(ids, get_url_templates$bold)
+  return(res)
 }
+#' @export
+#' @rdname get_bold
+get_boldid <- get_bold
 
 #' @export
-#' @rdname get_boldid
-as.boldid <- function(x, check=TRUE) UseMethod("as.boldid")
+#' @rdname get_bold
+as.bold <- function(x, check=TRUE) UseMethod("as.bold")
 
 #' @export
-#' @rdname get_boldid
-as.boldid.boldid <- function(x, check=TRUE) x
+#' @rdname get_bold
+as.bold.bold <- function(x, check=TRUE) x
 
 #' @export
-#' @rdname get_boldid
-as.boldid.character <- function(x, check=TRUE) {
+#' @rdname get_bold
+as.bold.character <- function(x, check=TRUE) {
   if (length(x) == 1) 
-    make_boldid(x, check) 
+    make_bold(x, check) 
   else 
-    collapse(x, make_boldid, "boldid", check=check)
+    collapse(x, make_bold, "bold", check=check)
 }
 
 #' @export
-#' @rdname get_boldid
-as.boldid.list <- function(x, check=TRUE) {
+#' @rdname get_bold
+as.bold.list <- function(x, check=TRUE) {
   if (length(x) == 1) 
-    make_boldid(x, check) 
+    make_bold(x, check) 
   else 
-    collapse(x, make_boldid, "boldid", check=check)
+    collapse(x, make_bold, "bold", check=check)
 }
 
 #' @export
-#' @rdname get_boldid
-as.boldid.numeric <- function(x, check=TRUE) as.boldid(as.character(x), check)
+#' @rdname get_bold
+as.bold.numeric <- function(x, check=TRUE) as.bold(as.character(x), check)
 
 #' @export
-#' @rdname get_boldid
-as.boldid.data.frame <- function(x, check=TRUE) {
-  structure(x$ids, class="boldid", match=x$match,
-            multiple_matches = x$multiple_matches,
-            pattern_match = x$pattern_match, uri=x$uri)
-}
+#' @rdname get_bold
+as.bold.data.frame <- function(x, check=TRUE) as_txid_df(x, check)
 
-#' @export
-#' @rdname get_boldid
-as.data.frame.boldid <- function(x, ...){
-  data.frame(ids = as.character(unclass(x)),
-             class = "boldid",
-             match = attr(x, "match"),
-             multiple_matches = attr(x, "multiple_matches"),
-             pattern_match = attr(x, "pattern_match"),
-             uri = attr(x, "uri"),
-             stringsAsFactors = FALSE)
-}
-
-make_boldid <- function(x, check=TRUE) {
+make_bold <- function(x, check=TRUE) {
   make_generic(x,
     'http://boldsystems.org/index.php/Taxbrowser_Taxonpage?taxid=%s',
-    "boldid", check)
+    "bold", check)
 }
 
-check_boldid <- function(x){
+check_bold <- function(x){
   tryid <- bold_tax_id(x)
   !identical("noresults", names(tryid)[2])
 }
 
 #' @export
-#' @rdname get_boldid
-get_boldid_ <- function(sci, messages = TRUE, fuzzy = FALSE,
+#' @rdname get_bold
+get_bold_ <- function(sci, messages = TRUE, fuzzy = FALSE,
   dataTypes='basic', includeTree=FALSE, rows = NA, searchterm = NULL, ...) {
 
   pchk(searchterm, "sci")
-  stats::setNames(lapply(sci, get_boldid_help, messages = messages,
+  stats::setNames(lapply(sci, get_bold_help, messages = messages,
     fuzzy = fuzzy, dataTypes=dataTypes, includeTree=includeTree,
     rows = rows, ...), sci)
 }
+#' @export
+#' @rdname get_bold
+get_boldid_ <- get_bold_
 
-get_boldid_help <- function(sci, messages, fuzzy, dataTypes,
+get_bold_help <- function(sci, messages, fuzzy, dataTypes,
   includeTree, rows, ...){
   
   mssg(messages, "\nRetrieving data for taxon '", sci, "'\n")
