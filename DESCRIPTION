@@ -93,8 +93,6 @@ Imports:
     crayon,
     cli,
     conditionz,
-    taxa,
-    vctrs,
     hoardr
 Suggests:
     testthat,
@@ -104,8 +102,10 @@ Suggests:
     vegan,
     ape,
     phangorn,
-    zoo
-Remotes: ropensci/taxa@vectorize
+    zoo,
+    vctrs,
+    taxa
+Remotes: ropensci/taxa@vectorize-no-taxize
 RoxygenNote: 7.1.1
 Roxygen: list(markdown = TRUE)
 X-schema.org-applicationCategory: Taxonomy
