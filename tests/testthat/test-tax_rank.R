@@ -30,8 +30,8 @@ test_that("works with get_*() input", {
   })
 
   expect_is(aa, "list")
-  expect_equal(names(aa), "421377")
-  expect_equal(aa$`421377`, "genus")
+  expect_equal(names(aa), "Helianthus annuus")
+  expect_equal(aa$`Helianthus annuus`, "genus")
 })
 
 test_that("tax_rank fails well", {
@@ -41,6 +41,5 @@ test_that("tax_rank fails well", {
   expect_error(tax_rank("aadfd"), "Must specify db!")
   expect_error(tax_rank("Asdfadsf", db = "asdfd"),
                "the provided db value was not recognised")
-  expect_error(tax_rank(NA, db = "itis"),
-               "'db' not recognized")
+  expect_error(tax_rank(NA, db = "itis"), "no applicable method")
 })

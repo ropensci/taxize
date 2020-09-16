@@ -15,27 +15,27 @@ test_that("taxon_last", {
   skip_on_cran()
   skip_if_net_down()
 
-  # in more real context: get_gbifid call
+  # in more real context: get_gbif call
   spp <- c("Spruceanthus marianus", "Bomarea costaricensis",
     "Rubus mindanaensis", "Columnea mira")
-  vcr::use_cassette("taxon_state_get_gbifid", {
-    res <- get_gbifid(spp, messages = FALSE)
+  vcr::use_cassette("taxon_state_get_gbif", {
+    res <- get_gbif(spp, messages = FALSE)
   })
   tl <- taxon_last()
   expect_is(tl, "taxon_state")
   expect_equal(tl$count, 4)
-  expect_equal(tl$class, "gbifid")
+  expect_equal(tl$class, "gbif")
 
   # test another get_* fxn
   spp <- c("Spruceanthus marianus", "Bomarea costaricensis",
     "Rubus mindanaensis", "Columnea mira")
-  vcr::use_cassette("taxon_state_get_uid", {
-    res <- get_uid(spp, messages = FALSE)
+  vcr::use_cassette("taxon_state_get_ncbi", {
+    res <- get_ncbi(spp, messages = FALSE)
   })
   tl <- taxon_last()
   expect_is(tl, "taxon_state")
   expect_equal(tl$count, 4)
-  expect_equal(tl$class, "uid")
+  expect_equal(tl$class, "ncbi")
 })
 
 test_that("taxon_state works", {
@@ -84,7 +84,7 @@ test_that("taxon_state works", {
     att = "found",
     multiple = FALSE,
     direct = FALSE,
-    class = "gbifid"
+    class = "gbif"
   )
   ts$add(query = "Quercus robur", result = res)
   ts$add(query = "Poa annua", result = res2)
