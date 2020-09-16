@@ -180,9 +180,8 @@ process_syn_ids <- function(input, db, fxn, ...){
 #' @export
 #' @rdname synonyms
 synonyms.txid <- function(sci_id, db = NULL, ...) {
-  db <- txdbac(sci_id)[1]
   fun <- parse(text=paste0("synonyms_", id_class(sci_id)))
-  eval(fun)(sci_id, ...)
+  eval(fun)(sci_id, db = db, ...)
 }
 
 synonyms_itis <- function(id, ...) {
