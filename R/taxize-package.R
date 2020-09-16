@@ -62,12 +62,9 @@
 #' @importFrom methods as is
 #' @importFrom stats as.dist hclust na.omit setNames aggregate complete.cases
 #' @importFrom crul HttpClient HttpRequest AsyncVaried upload
-#' @importFrom zoo na.locf
 #' @importFrom utils URLencode citation download.file read.delim write.table tail
-#' @importFrom ape read.tree as.phylo.hclust plot.phylo
 #' @importFrom jsonlite fromJSON toJSON
 #' @importFrom data.table rbindlist setDF transpose melt dcast as.data.table
-#' @importFrom foreach foreach %do%
 #' @importFrom xml2 xml_text xml_find_first xml_find_all xml_children read_xml
 #' xml_name xml_ns as_list
 #' @importFrom R6 R6Class

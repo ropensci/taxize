@@ -52,6 +52,10 @@
 #' }
 
 class2tree <- function(input, varstep = TRUE, check = TRUE, ...) {
+  checkpkg("phangorn")
+  checkpkg("ape")
+  checkpkg("zoo")
+  
   if (any(is.na(input))) {
     message('Removed species without classification.')
     input <- input[!is.na(input)]
@@ -95,7 +99,7 @@ class2tree <- function(input, varstep = TRUE, check = TRUE, ...) {
   if (is(taxdis, 'simpleError'))
     stop("Try check=FALSE, but see docs for taxa2dist function in the vegan package for details.")
   
-  out <- as.phylo.hclust(hclust(taxdis, ...))
+  out <- ape::as.phylo.hclust(hclust(taxdis, ...))
   out <- ape::di2multi(out)
   # Add node labels
   node_ids <- sort(unique(out$edge[,1]))

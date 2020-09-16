@@ -80,9 +80,6 @@ Imports:
     crul (>= 0.7.0),
     xml2 (>= 1.2.0),
     jsonlite,
-    foreach,
-    ape,
-    zoo,
     data.table,
     tibble (>= 1.2),
     bold (>= 0.8.6),
@@ -95,7 +92,6 @@ Imports:
     R6,
     crayon,
     cli,
-    phangorn,
     conditionz,
     taxa,
     vctrs,
@@ -104,8 +100,11 @@ Suggests:
     testthat,
     knitr,
     rmarkdown,
+    vcr,
     vegan,
-    vcr
+    ape,
+    phangorn,
+    zoo
 Remotes: ropensci/taxa@vectorize
 RoxygenNote: 7.1.1
 Roxygen: list(markdown = TRUE)

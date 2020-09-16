@@ -352,3 +352,11 @@ df2dt2tbl <- function(x) {
     )
   )
 }
+
+checkpkg <- function(x) {
+  if (!requireNamespace(x, quietly = TRUE)) {
+    stop("Please install ", x, call. = FALSE)
+  } else {
+    invisible(TRUE)
+  }
+}
