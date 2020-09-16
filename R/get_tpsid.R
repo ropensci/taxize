@@ -110,6 +110,7 @@ get_tps <- function(sci, ask = TRUE, messages = TRUE, key = NULL,
   assert(family, "character")
   assert(rank, "character")
   assert_rows(rows)
+  fchk(as.character(match.call()[[1]]), "get_tps")
   pchk(sciname, "sci")
 
   if (inherits(sci, "character")) {

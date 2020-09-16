@@ -123,6 +123,7 @@ get_bold <- function(sci, fuzzy = FALSE, dataTypes = 'basic',
   assert(division, "character")
   assert(parent, "character")
   assert_rows(rows)
+  fchk(as.character(match.call()[[1]]), "get_bold")
   pchk(searchterm, "sci")
 
   if (inherits(sci, "character")) {

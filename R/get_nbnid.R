@@ -93,6 +93,7 @@ get_nbn <- function(sci_com, ask = TRUE, messages = TRUE, rec_only = FALSE,
   assert(rank, "character")
   assert(messages, "logical")
   assert_rows(rows)
+  fchk(as.character(match.call()[[1]]), "get_nbn")
   pchk(name, "sci_com")
 
   if (inherits(sci_com, "character")) {

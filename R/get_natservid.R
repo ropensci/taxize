@@ -78,6 +78,7 @@ get_natserv <- function(sci_com, searchtype = "scientific", ask = TRUE,
   assert(ask, "logical")
   assert(messages, "logical")
   assert_rows(rows)
+  fchk(as.character(match.call()[[1]]), "get_natserv")
   pchk(query, "sci_com")
 
   if (inherits(sci_com, "character")) {

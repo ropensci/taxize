@@ -120,6 +120,7 @@ get_eol <- function(sci_com, ask = TRUE, messages = TRUE,
   assert(rank, "character")
   assert(data_source, "character")
   assert_rows(rows)
+  fchk(as.character(match.call()[[1]]), "get_eol")
   pchk(sciname, "sci_com")
 
   if (inherits(sci_com, "character")) {

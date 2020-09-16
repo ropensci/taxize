@@ -168,6 +168,7 @@ get_gbif <- function(sci, ask = TRUE, messages = TRUE, rows = NA,
   assert(rank, "character")
   assert(method, "character")
   assert_rows(rows)
+  fchk(as.character(match.call()[[1]]), "get_gbif")
   pchk(sciname, "sci")
 
   if (inherits(sci, "character")) {

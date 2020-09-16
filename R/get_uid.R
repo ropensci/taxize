@@ -170,6 +170,7 @@ get_ncbi <- function(sci_com, ask = TRUE, messages = TRUE, rows = NA,
   assert(rank_filter, "character")
   assert_rows(rows)
   key <- getkey(key, service = "entrez")
+  fchk(as.character(match.call()[[1]]), "get_ncbi")
   pchk(sciname, "sci_com")
 
   if (inherits(sci_com, "character")) {

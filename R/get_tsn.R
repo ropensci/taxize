@@ -83,11 +83,12 @@ get_itis <- function(sci_com, searchtype = "scientific", accepted = FALSE,
   assert(searchtype, "character")
   assert(accepted, "logical")
   assert_rows(rows)
-  fchk(searchterm, "get_itis")
+  fchk(as.character(match.call()[[1]]), "get_itis")
   pchk(searchterm, "sci_com")
 
   if (inherits(sci_com, "character")) {
     tstate <- taxon_state$new(class = "itis", names = sci_com)
+    
     items <- sci_com
   } else {
     assert_state(sci_com, "itis")

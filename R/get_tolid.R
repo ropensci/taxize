@@ -73,6 +73,7 @@ get_tol <- function(sci, ask = TRUE, messages = TRUE, rows = NA,
   assert(sci, c("character", "taxon_state"))
   assert(ask, "logical")
   assert(messages, "logical")
+  fchk(as.character(match.call()[[1]]), "get_tol")
   pchk(sciname, "sci")
   if (!all(is.na(rows))) {
     assert(rows, c("numeric", "integer"))

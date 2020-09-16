@@ -113,6 +113,7 @@ get_worms <- function(sci_com, searchtype = "scientific", marine_only = TRUE,
   assert(ask, "logical")
   assert(messages, "logical")
   assert_rows(rows)
+  fchk(as.character(match.call()[[1]]), "get_worms")
   pchk(query, "sci_com")
 
   if (inherits(sci_com, "character")) {
