@@ -156,6 +156,13 @@ get_tps <- function(sci, ask = TRUE, messages = TRUE, key = NULL,
       mssg(messages, m_not_found_sp_altclass)
       att <- "not found"
     }
+    # found on tropicos, length 1
+    if (length(id) == 1 && att == "found") {
+      att <- "found"
+      direct <- TRUE
+      rank_taken <- rank_swap(df$rank)
+      name <- df$name
+    }
     # more than one found on tropicos -> user input
     if (length(id) > 1) {
 
