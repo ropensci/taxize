@@ -10,18 +10,18 @@ test_that("sci2comm returns the correct value", {
                    messages = FALSE)
   })
 
-  expect_that(names(tt), equals('Helianthus annuus'))
-  expect_that(names(uu), equals('Helianthus annuus'))
-  expect_that(names(zz), equals('Pomatomus saltatrix'))
+  expect_named(tt, 'Helianthus annuus')
+  expect_named(uu, 'Helianthus annuus')
+  expect_named(zz, 'Pomatomus saltatrix')
 
-  expect_that(tt, is_a("list"))
-  expect_that(tt[[1]], is_a("character"))
+  expect_is(tt, "list")
+  expect_is(tt[[1]], "character")
 
-  expect_that(uu, is_a("list"))
-  expect_that(uu[[1]], is_a("character"))
+  expect_is(uu, "list")
+  expect_is(uu[[1]], "character")
 
-  expect_that(zz, is_a("list"))
-  expect_that(zz[[1]], is_a("character"))
+  expect_is(zz, "list")
+  expect_is(zz[[1]], "character")
 })
 
 test_that("warn on mismatch 'db'", {

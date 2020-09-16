@@ -102,7 +102,7 @@ iucn_summary.character <- function(x, distr_detail = FALSE, key = NULL, ...) {
     return(tmp)
   }
   xid <- lapply(x, safe_get_iucn, key = key)
-  xid <- as.numeric(xid)
+  xid <- as.numeric(unlist(lapply(xid, txidac)))
   res <- get_iucn_summary2(xid, distr_detail, key = key, ...)
   structure(stats::setNames(res, x), class = "iucn_summary")
 }

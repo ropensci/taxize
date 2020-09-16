@@ -6,9 +6,10 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
   response:
     status:
       status_code: '200'
@@ -16,34 +17,83 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Fri, 25 Jan 2019 23:02:19 GMT
+      date: Wed, 16 Sep 2020 19:04:49 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '8'
-      ncbi-phid: D0BD37B365326FC5000022C85B55E1D6.1.1.m_1
+      x-ratelimit-remaining: '9'
+      ncbi-phid: D0BD6B87A4E45FE5000022DF156FB9E2.1.1.m_1
       cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: A0EE528E6923C400_9003SID
+      ncbi-sid: CADBAC3BB90410E2_7045SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=A0EE528E6923C400_9003SID; domain=.nih.gov; path=/; expires=Sat,
-        25 Jan 2020 23:02:20 GMT
+      set-cookie: ncbi_sid=CADBAC3BB90410E2_7045SID; domain=.nih.gov; path=/; expires=Thu,
+        16 Sep 2021 19:04:49 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
     body:
       encoding: UTF-8
+      file: no
       string: |
         <?xml version="1.0" encoding="UTF-8" ?>
         <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>4232</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Helianthus+annuus[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Helianthus+annuus[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2019-01-25 23:02:24 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2020-09-16 19:04:56 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&ID=4232&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Wed, 16 Sep 2020 19:04:49 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      x-ratelimit-remaining: '8'
+      ncbi-phid: D0BD6B87A4E45FE5000033DF163493F2.1.1.m_1
+      cache-control: private
+      ncbi-sid: FD704ED8537DBB58_38D7SID
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      access-control-allow-origin: '*'
+      content-type: text/xml; charset=UTF-8
+      set-cookie: ncbi_sid=FD704ED8537DBB58_38D7SID; domain=.nih.gov; path=/; expires=Thu,
+        16 Sep 2021 19:04:50 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      file: no
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!DOCTYPE eSummaryResult
+        PUBLIC \"-//NLM//DTD esummary v1 20041029//EN\" \"https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20041029/esummary-v1.dtd\">\n<eSummaryResult>\n<DocSum>\n\t<Id>4232</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus annuus</Item>\n\t<Item Name=\"CommonName\" Type=\"String\">common
+        sunflower</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">4232</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">annuus</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2018/11/23 00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
+  recorded_at: 2020-09-16 19:04:56 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=4232&api_key=<<entrez_api_token>>
@@ -51,9 +101,10 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
   response:
     status:
       status_code: '200'
@@ -61,26 +112,26 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Fri, 25 Jan 2019 23:02:20 GMT
+      date: Wed, 16 Sep 2020 19:04:50 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '6'
-      ncbi-phid: D0BD37B365326FC5000023C85B928AD6.1.1.m_3
+      x-ratelimit-remaining: '7'
+      ncbi-phid: D0BD6B87A4E45FE5000039DF168EAE27.1.1.m_3
       cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: C1CD1DDA64036E34_3328SID
+      ncbi-sid: 928505CD594AE10F_A66DSID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=C1CD1DDA64036E34_3328SID; domain=.nih.gov; path=/; expires=Sat,
-        25 Jan 2020 23:02:20 GMT
+      set-cookie: ncbi_sid=928505CD594AE10F_A66DSID; domain=.nih.gov; path=/; expires=Thu,
+        16 Sep 2021 19:04:50 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
     body:
       encoding: UTF-8
+      file: no
       string: |-
         <?xml version="1.0" ?>
         <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
@@ -117,7 +168,7 @@ http_interactions:
                 <MGCId>1</MGCId>
                 <MGCName>Standard</MGCName>
             </MitoGeneticCode>
-            <Lineage>cellular organisms; Eukaryota; Viridiplantae; Streptophyta; Streptophytina; Embryophyta; Tracheophyta; Euphyllophyta; Spermatophyta; Magnoliophyta; Mesangiospermae; eudicotyledons; Gunneridae; Pentapetalae; asterids; campanulids; Asterales; Asteraceae; Asteroideae; Heliantheae alliance; Heliantheae; Helianthus</Lineage>
+            <Lineage>cellular organisms; Eukaryota; Viridiplantae; Streptophyta; Streptophytina; Embryophyta; Tracheophyta; Euphyllophyta; Spermatophyta; Magnoliopsida; Mesangiospermae; eudicotyledons; Gunneridae; Pentapetalae; asterids; campanulids; Asterales; Asteraceae; Asteroideae; Heliantheae alliance; Heliantheae; Helianthus</Lineage>
             <LineageEx>
                 <Taxon>
                     <TaxId>131567</TaxId>
@@ -147,57 +198,57 @@ http_interactions:
                 <Taxon>
                     <TaxId>3193</TaxId>
                     <ScientificName>Embryophyta</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>58023</TaxId>
                     <ScientificName>Tracheophyta</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>78536</TaxId>
                     <ScientificName>Euphyllophyta</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>58024</TaxId>
                     <ScientificName>Spermatophyta</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>3398</TaxId>
-                    <ScientificName>Magnoliophyta</ScientificName>
-                    <Rank>no rank</Rank>
+                    <ScientificName>Magnoliopsida</ScientificName>
+                    <Rank>class</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>1437183</TaxId>
                     <ScientificName>Mesangiospermae</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>71240</TaxId>
                     <ScientificName>eudicotyledons</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>91827</TaxId>
                     <ScientificName>Gunneridae</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>1437201</TaxId>
                     <ScientificName>Pentapetalae</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>71274</TaxId>
                     <ScientificName>asterids</ScientificName>
-                    <Rank>subclass</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>91882</TaxId>
                     <ScientificName>campanulids</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>4209</TaxId>
@@ -217,7 +268,7 @@ http_interactions:
                 <Taxon>
                     <TaxId>911341</TaxId>
                     <ScientificName>Heliantheae alliance</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>102814</TaxId>
@@ -237,13 +288,13 @@ http_interactions:
                 </Property>
             </Properties>
             <CreateDate>1995/02/27 09:24:00</CreateDate>
-            <UpdateDate>2018/11/23 13:57:51</UpdateDate>
+            <UpdateDate>2018/11/23 13:57:52</UpdateDate>
             <PubDate>1993/08/03 01:00:00</PubDate>
         </Taxon>
 
         </TaxaSet>
-  recorded_at: 2019-01-25 23:02:24 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2020-09-16 19:04:56 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2
 - request:
     method: get
     uri: https://www.itis.gov/ITISWebService/jsonservice/getITISTermsFromScientificName?srchKey=Helianthus%20annuus
@@ -251,7 +302,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      User-Agent: libcurl/7.72.0 r-curl/4.3 crul/1.0.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -263,20 +314,21 @@ http_interactions:
       connection: keep-alive
       content-length: '1547'
       content-type: text/json;charset=ISO-8859-1
-      date: Fri, 25 Jan 2019 23:02:23 GMT
+      date: Wed, 16 Sep 2020 19:04:54 GMT
       status: 'HTTP/1.1 200 '
       strict-transport-security:
+      - max-age=63072000; includeSubDomains; preload
       - max-age=63072000; includeSubdomains; preload
-      - max-age=63072000; includeSubdomains; preload
-      x-application: itis_webservices
+      x-content-type-options: nosniff
       x-node-name: not shown
       x-upstream-member: not shown
     body:
       encoding: UTF-8
+      file: no
       string: |
         {"class":"gov.usgs.itis.itis_service.data.SvcItisTermList","itisTerms":[{"author":"L.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["annual sunflower","sunflower","wild sunflower","common sunflower"],"nameUsage":"accepted","scientificName":"Helianthus annuus","tsn":"36616"},{"author":"(Heiser) Heiser","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus annuus ssp. jaegeri","tsn":"525928"},{"author":"(Douglas ex Lindl.) Cockerell","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus annuus ssp. lenticularis","tsn":"525929"},{"author":"Heiser","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus annuus ssp. texanus","tsn":"525930"},{"author":"(Douglas ex Lindl.) Steyerm.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus annuus var. lenticularis","tsn":"536095"},{"author":"(DC.) Cockerell","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus annuus var. macrocarpus","tsn":"536096"},{"author":"(Heiser) Shinners","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus annuus var. texanus","tsn":"536097"}],"requestedName":"Helianthus annuus"}
-  recorded_at: 2019-01-25 23:02:24 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2020-09-16 19:04:56 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2
 - request:
     method: get
     uri: https://www.itis.gov/ITISWebService/jsonservice/getCommonNamesFromTSN?tsn=36616
@@ -284,7 +336,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      User-Agent: libcurl/7.72.0 r-curl/4.3 crul/1.0.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -296,20 +348,21 @@ http_interactions:
       connection: keep-alive
       content-length: '583'
       content-type: text/json;charset=ISO-8859-1
-      date: Fri, 25 Jan 2019 23:02:23 GMT
+      date: Wed, 16 Sep 2020 19:04:55 GMT
       status: 'HTTP/1.1 200 '
       strict-transport-security:
+      - max-age=63072000; includeSubDomains; preload
       - max-age=63072000; includeSubdomains; preload
-      - max-age=63072000; includeSubdomains; preload
-      x-application: itis_webservices
+      x-content-type-options: nosniff
       x-node-name: not shown
       x-upstream-member: not shown
     body:
       encoding: UTF-8
+      file: no
       string: |
         {"class":"gov.usgs.itis.itis_service.data.SvcCommonNameList","commonNames":[{"class":"gov.usgs.itis.itis_service.data.SvcCommonName","commonName":"common sunflower","language":"English","tsn":"36616"},{"class":"gov.usgs.itis.itis_service.data.SvcCommonName","commonName":"sunflower","language":"English","tsn":"36616"},{"class":"gov.usgs.itis.itis_service.data.SvcCommonName","commonName":"wild sunflower","language":"English","tsn":"36616"},{"class":"gov.usgs.itis.itis_service.data.SvcCommonName","commonName":"annual sunflower","language":"English","tsn":"36616"}],"tsn":"36616"}
-  recorded_at: 2019-01-25 23:02:24 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2020-09-16 19:04:56 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2
 - request:
     method: get
     uri: http://www.marinespecies.org/rest/AphiaRecordsByName/Pomatomus%20saltatrix?like=true&marine_only=true&offset=1
@@ -317,7 +370,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      User-Agent: libcurl/7.72.0 r-curl/4.3 crul/1.0.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -327,25 +380,26 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Fri, 25 Jan 2019 23:02:23 GMT
-      server: Apache/2.4.25 (Win32) PHP/5.6.29
-      x-powered-by: PHP/5.6.29
+      date: Wed, 16 Sep 2020 19:04:55 GMT
+      server: Apache/2.4.39 (Win64)
       access-control-allow-origin: '*'
       access-control-allow-headers: X-Requested-With, Content-Type, Accept, Origin,
         Authorization
       access-control-allow-methods: GET, POST, OPTIONS
-      content-length: '874'
-      content-type: application/json;charset=utf-8
+      content-length: '919'
+      content-type: application/json
+      set-cookie: vliz_webc=vliz_webc2; path=/
     body:
       encoding: UTF-8
+      file: no
       string: '[{"AphiaID":151482,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=151482","scientificname":"Pomatomus
-        saltatrix","authority":"(Linnaeus, 1766)","status":"accepted","unacceptreason":null,"rank":"Species","valid_AphiaID":151482,"valid_name":"Pomatomus
-        saltatrix","valid_authority":"(Linnaeus, 1766)","kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Perciformes","family":"Pomatomidae","genus":"Pomatomus","citation":"Froese,
-        R. and D. Pauly. Editors. (2019). FishBase. Pomatomus saltatrix (Linnaeus,
+        saltatrix","authority":"(Linnaeus, 1766)","status":"accepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":151482,"valid_name":"Pomatomus
+        saltatrix","valid_authority":"(Linnaeus, 1766)","parentNameUsageID":126046,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Perciformes","family":"Pomatomidae","genus":"Pomatomus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Pomatomus saltatrix (Linnaeus,
         1766). Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=151482
-        on 2019-01-26","lsid":"urn:lsid:marinespecies.org:taxname:151482","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"like","modified":"2008-01-15T17:27:08.177Z"}]'
-  recorded_at: 2019-01-25 23:02:24 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+        on 2020-09-16","lsid":"urn:lsid:marinespecies.org:taxname:151482","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"like","modified":"2008-01-15T17:27:08.177Z"}]'
+  recorded_at: 2020-09-16 19:04:56 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2
 - request:
     method: get
     uri: http://www.marinespecies.org/rest/AphiaVernacularsByAphiaID/151482
@@ -353,7 +407,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      User-Agent: libcurl/7.72.0 r-curl/4.3 crul/1.0.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -363,17 +417,18 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Fri, 25 Jan 2019 23:02:24 GMT
-      server: Apache/2.4.25 (Win32) PHP/5.6.29
-      x-powered-by: PHP/5.6.29
+      date: Wed, 16 Sep 2020 19:04:56 GMT
+      server: Apache/2.4.39 (Win64)
       access-control-allow-origin: '*'
       access-control-allow-headers: X-Requested-With, Content-Type, Accept, Origin,
         Authorization
       access-control-allow-methods: GET, POST, OPTIONS
       content-length: '1550'
-      content-type: application/json;charset=utf-8
+      content-type: application/json
+      set-cookie: vliz_webc=vliz_webc1; path=/
     body:
       encoding: UTF-8
+      file: no
       string: '[{"vernacular":"anchova","language_code":"por","language":"Portuguese"},{"vernacular":"anchova
         de banco","language_code":"spa","language":"Spanish"},{"vernacular":"anjova","language_code":"spa","language":"Spanish"},{"vernacular":"anjova
         de banco","language_code":"spa","language":"Spanish"},{"vernacular":"bl\u00e5fisk","language_code":"swe","language":"Swedish"},{"vernacular":"Blaufisch","language_code":"deu","language":"German"},{"vernacular":"blauwe
@@ -381,5 +436,5 @@ http_interactions:
         fish","language_code":"eng","language":"English"},{"vernacular":"bluefish","language_code":"eng","language":"English"},{"vernacular":"dyphavsabbor","language_code":"nor","language":"Norwegian"},{"vernacular":"elwe","language_code":"dut","language":"Dutch"},{"vernacular":"serra","language_code":"ita","language":"Italian"},{"vernacular":"snapper","language_code":"eng","language":"English"},{"vernacular":"tassergal","language_code":"fra","language":"French"},{"vernacular":"zeepiranha","language_code":"dut","language":"Dutch"},{"vernacular":"\u0393\u03bf\u03c6\u03ac\u03c1\u03b9","language_code":"gre","language":"Modern
         Greek (1453-)"},{"vernacular":"\u041b\u0443\u0444\u0430\u0440 \u0437\u0432\u0438\u0447\u0430\u0439\u043d\u0438\u0439","language_code":"ukr","language":"Ukrainian"},{"vernacular":"\u041b\u0443\u0444\u0430\u0440\u044c
         \u043e\u0431\u044b\u043a\u043d\u043e\u0432\u0435\u043d\u043d\u044b\u0439","language_code":"rus","language":"Russian"}]'
-  recorded_at: 2019-01-25 23:02:24 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2020-09-16 19:04:56 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2
