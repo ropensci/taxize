@@ -332,7 +332,8 @@ get_ncbi <- function(sci_com, ask = TRUE, messages = TRUE, rows = NA,
     uri = sprintf(get_url_templates$ncbi, ids),
     match = unname(unlist(pluck(out, "att"))),
     multiple_matches = unname(unlist(pluck(out, "multiple"))),
-    pattern_match = unname(unlist(pluck(out, "direct")))
+    pattern_match = unname(unlist(pluck(out, "direct"))),
+    class = "ncbi"
   )
   on.exit(prog$prog_summary(), add = TRUE)
   on.exit(tstate$exit, add = TRUE)

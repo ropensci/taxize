@@ -3,10 +3,7 @@
 \name{lowest_common}
 \alias{lowest_common}
 \alias{lowest_common.default}
-\alias{lowest_common.uid}
-\alias{lowest_common.tsn}
-\alias{lowest_common.gbifid}
-\alias{lowest_common.tolid}
+\alias{lowest_common.txid}
 \title{Retrieve the lowest common taxon and rank for a given taxon name or ID}
 \usage{
 lowest_common(...)
@@ -21,13 +18,7 @@ lowest_common(...)
   ...
 )
 
-\method{lowest_common}{uid}(sci_id, class_list = NULL, low_rank = NULL, ...)
-
-\method{lowest_common}{tsn}(sci_id, class_list = NULL, low_rank = NULL, ...)
-
-\method{lowest_common}{gbifid}(sci_id, class_list = NULL, low_rank = NULL, ...)
-
-\method{lowest_common}{tolid}(sci_id, class_list = NULL, low_rank = NULL, ...)
+\method{lowest_common}{txid}(sci_id, class_list = NULL, low_rank = NULL, ...)
 }
 \arguments{
 \item{...}{Other arguments passed to \code{\link[=get_itis]{get_itis()}}, \code{\link[=get_ncbi]{get_ncbi()}},
@@ -133,9 +124,9 @@ lowest_common(orchid_itis, class_list = orchid_hier_itis,
 
 ## Pass in sci. names
 nms <- c("Angraecum sesquipedale", "Dracula vampira", "Masdevallia coccinea")
-lowest_common(x = nms, db = "ncbi")
-lowest_common(x = nms, db = "gbif")
-# lowest_common(x = nms, db = "itis")
+lowest_common(nms, db = "ncbi")
+lowest_common(nms, db = "gbif")
+lowest_common(nms, db = "itis")
 
 ## NAs due to taxon not found, stops with error message
 # lowest_common(orchid_itis, db = "itis")

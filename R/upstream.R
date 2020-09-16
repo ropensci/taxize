@@ -31,6 +31,8 @@
 #'
 #' @examples \dontrun{
 #' upstream('Pinus contorta', db = 'itis', upto = 'genus')
+#' x <- get_itis('Pinus contorta')
+#' upstream(x, upto = 'genus')
 #' }
 upstream <- function(...) {
   UseMethod("upstream")
@@ -57,7 +59,7 @@ upstream.default <- function(sci_id, db = NULL, upto = NULL, rows = NA,
 
 #' @export
 #' @rdname upstream
-upstream.tsn <- function(sci_id, db = NULL, upto = NULL, ...) {
+upstream.itis <- function(sci_id, db = NULL, upto = NULL, ...) {
   warn_db(list(db = db), "itis")
   fun <- function(y, ...){
     # return NA if NA is supplied

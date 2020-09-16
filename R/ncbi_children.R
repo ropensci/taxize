@@ -61,7 +61,7 @@ ncbi_children <- function(name = NULL, id = NULL, start = 0, max_return = 1000,
                           ambiguous = FALSE, key = NULL, ...) {
 
   assert(name, "character")
-  assert(id, c("character", "numeric", "uid"))
+  assert(id, c("character", "numeric", "ncbi"))
   key <- getkey(key, "ENTREZ_KEY")
 
   # Constants -----------------------------------------------------------------
@@ -77,7 +77,7 @@ ncbi_children <- function(name = NULL, id = NULL, start = 0, max_return = 1000,
   out_type <- match.arg(out_type)
   # Get name from id ----------------------------------------------------------
   if (is.null(name)) {
-    if (!inherits(id, 'uid')) attr(id, 'class') <- 'uid'
+    # if (!inherits(id, 'ncbi')) attr(id, 'class') <- 'ncbi'
     id_taxonomy <- classification(id, db = 'ncbi')
     id_taxonomy <- lapply(id_taxonomy, function(z) {
       if (!(inherits(z, "data.frame"))) data.frame(NULL) else z

@@ -6,68 +6,68 @@
 #' @export
 #' @param sci character; one or more scientific names. Or, a `taxon_state`
 #' object (see [taxon-state])
-#' @param ask logical; should `get_tolid` be run in interactive mode?
+#' @param ask logical; should `get_tol` be run in interactive mode?
 #' If `TRUE` and more than one TOL is found for the species, the user is
 #' asked for input. If `FALSE` NA is returned for multiple matches.
 #' @param messages logical; should progress be printed?
 #' @param rows numeric; Any number from 1 to infinity. If the default NA, all
 #' rows are considered. Note that this function still only gives back a tol
-#' class object with one to many identifiers. See [get_tolid_()]
+#' class object with one to many identifiers. See [get_tol_()]
 #' to get back all, or a subset, of the raw data that you are presented during
 #' the ask process.
-#' @param x Input to `as.tolid`
+#' @param x Input to `as.tol`
 #' @param sciname Deprecated, see `sci`
 #' @param ... Ignored
 #' @param check logical; Check if ID matches any existing on the DB, only
-#' used in [as.tolid()]
+#' used in [as.tol()]
 #' @template getreturn
 #'
 #' @family taxonomic-ids
 #' @seealso [classification()]
 #'
 #' @examples \dontrun{
-#' get_tolid(sci = "Quercus douglasii")
-#' get_tolid(sci = "Chironomus riparius")
-#' get_tolid(c("Chironomus riparius","Quercus douglasii"))
+#' get_tol(sci = "Quercus douglasii")
+#' get_tol(sci = "Chironomus riparius")
+#' get_tol(c("Chironomus riparius","Quercus douglasii"))
 #' splist <- c("annona cherimola", 'annona muricata', "quercus robur",
 #' 		"shorea robusta", "pandanus patina", "oryza sativa", "durio zibethinus")
-#' get_tolid(splist, messages=FALSE)
+#' get_tol(splist, messages=FALSE)
 #'
 #' # specify rows to limit choices available
-#' get_tolid('Arni')
-#' get_tolid('Arni', rows=1)
-#' get_tolid('Arni', rows=1:2)
+#' get_tol('Arni')
+#' get_tol('Arni', rows=1)
+#' get_tol('Arni', rows=1:2)
 #'
 #' # When not found
-#' get_tolid("howdy")
-#' get_tolid(c("Chironomus riparius", "howdy"))
+#' get_tol("howdy")
+#' get_tol(c("Chironomus riparius", "howdy"))
 #'
 #' # Convert a tol without class information to a tol class
-#' as.tolid(get_tolid("Quercus douglasii")) # already a tol, returns the same
-#' as.tolid(get_tolid(c("Chironomus riparius","Pinus contorta"))) # same
-#' as.tolid(5907893) # numeric
-#' as.tolid(c(3930798,515712,872577)) # numeric vector, length > 1
-#' as.tolid("3930798") # character
-#' as.tolid(c("3930798","515712","872577")) # character vector, length > 1
-#' as.tolid(list("3930798","515712","872577")) # list, either numeric or character
+#' as.tol(get_tol("Quercus douglasii")) # already a tol, returns the same
+#' as.tol(get_tol(c("Chironomus riparius","Pinus contorta"))) # same
+#' as.tol(5907893) # numeric
+#' as.tol(c(3930798,515712,872577)) # numeric vector, length > 1
+#' as.tol("3930798") # character
+#' as.tol(c("3930798","515712","872577")) # character vector, length > 1
+#' as.tol(list("3930798","515712","872577")) # list, either numeric or character
 #' ## dont check, much faster
-#' as.tolid("3930798", check=FALSE)
-#' as.tolid(3930798, check=FALSE)
-#' as.tolid(c("3930798","515712","872577"), check=FALSE)
-#' as.tolid(list("3930798","515712","872577"), check=FALSE)
+#' as.tol("3930798", check=FALSE)
+#' as.tol(3930798, check=FALSE)
+#' as.tol(c("3930798","515712","872577"), check=FALSE)
+#' as.tol(list("3930798","515712","872577"), check=FALSE)
 #'
-#' (out <- as.tolid(c(3930798,515712,872577)))
+#' (out <- as.tol(c(3930798,515712,872577)))
 #' data.frame(out)
-#' as.tolid( data.frame(out) )
+#' as.tol( data.frame(out) )
 #'
 #' # Get all data back
-#' get_tolid_("Arni")
-#' get_tolid_("Arni", rows=1)
-#' get_tolid_("Arni", rows=1:2)
-#' get_tolid_(c("asdfadfasd","Pinus contorta"))
+#' get_tol_("Arni")
+#' get_tol_("Arni", rows=1)
+#' get_tol_("Arni", rows=1:2)
+#' get_tol_(c("asdfadfasd","Pinus contorta"))
 #' }
 
-get_tolid <- function(sci, ask = TRUE, messages = TRUE, rows = NA,
+get_tol <- function(sci, ask = TRUE, messages = TRUE, rows = NA,
   sciname = NULL, ...) {
 
   assert(sci, c("character", "taxon_state"))
@@ -80,10 +80,10 @@ get_tolid <- function(sci, ask = TRUE, messages = TRUE, rows = NA,
   }
 
   if (inherits(sci, "character")) {
-    tstate <- taxon_state$new(class = "tolid", names = sci)
+    tstate <- taxon_state$new(class = "tol", names = sci)
     items <- sci
   } else {
-    assert_state(sci, "tolid")
+    assert_state(sci, "tol")
     tstate <- sci
     sci <- tstate$taxa_remaining()
     items <- c(sci, tstate$taxa_completed())
@@ -213,55 +213,61 @@ get_tolid <- function(sci, ask = TRUE, messages = TRUE, rows = NA,
   on.exit(tstate$exit, add = TRUE)
   return(res)
 }
+#' @export
+#' @rdname get_tol
+get_tolid <- get_tol
 
 #' @export
-#' @rdname get_tolid
-as.tolid <- function(x, check=TRUE) UseMethod("as.tolid")
+#' @rdname get_tol
+as.tol <- function(x, check=TRUE) UseMethod("as.tol")
 
 #' @export
-#' @rdname get_tolid
-as.tolid.tolid <- function(x, check=TRUE) x
+#' @rdname get_tol
+as.tol.tol <- function(x, check=TRUE) x
 
 #' @export
-#' @rdname get_tolid
-as.tolid.character <- function(x, check=TRUE) {
-  if (length(x) == 1) make_tol(x, check) else collapse(x, make_tol, "tolid", check = check)
+#' @rdname get_tol
+as.tol.character <- function(x, check=TRUE) {
+  if (length(x) == 1) make_tol(x, check) else collapse(x, make_tol, "tol", check = check)
 }
 
 #' @export
-#' @rdname get_tolid
-as.tolid.list <- function(x, check=TRUE) {
-  if (length(x) == 1) make_tol(x, check) else collapse(x, make_tol, "tolid", check = check)
+#' @rdname get_tol
+as.tol.list <- function(x, check=TRUE) {
+  if (length(x) == 1) make_tol(x, check) else collapse(x, make_tol, "tol", check = check)
 }
 
 #' @export
-#' @rdname get_tolid
-as.tolid.numeric <- function(x, check=TRUE) as.tolid(as.character(x), check)
+#' @rdname get_tol
+as.tol.numeric <- function(x, check=TRUE) as.tol(as.character(x), check)
 
 #' @export
-#' @rdname get_tolid
-as.tolid.data.frame <- function(x, check=TRUE) as_txid_df(x, check)
+#' @rdname get_tol
+as.tol.data.frame <- function(x, check=TRUE) as_txid_df(x, check)
 
 make_tol <- function(x, check=TRUE) {
-  make_generic(x, 'https://tree.opentreeoflife.org/opentree/argus/ottol@%s', "tolid", check)
+  make_generic(x, 'https://tree.opentreeoflife.org/opentree/argus/ottol@%s', "tol", check)
 }
 
-check_tolid <- function(x){
+check_tol <- function(x){
   tt <- tryCatch(rotl::taxonomy_taxon_info(as.numeric(x)), error = function(e) e)
   !inherits(tt, "error")
 }
 
 #' @export
-#' @rdname get_tolid
-get_tolid_ <- function(sci, messages = TRUE, rows = NA, sciname = NULL) {
+#' @rdname get_tol
+get_tol_ <- function(sci, messages = TRUE, rows = NA, sciname = NULL) {
   pchk(sciname, "sci")
   stats::setNames(
-    lapply(sci, get_tolid_help, messages = messages, rows = rows),
+    lapply(sci, get_tol_help, messages = messages, rows = rows),
     sci
   )
 }
+#' @export
+#' @rdname get_tol
+get_tolid_ <- get_tol_
 
-get_tolid_help <- function(sci, messages, rows, ...){
+get_tol_help <- function(sci, messages, rows, ...){
   mssg(messages, "\nRetrieving data for taxon '", sci, "'\n")
   tol_df <- tryCatch(tol_resolve(sci, ...), error = function(e) e)
   if (!inherits(tol_df, "data.frame") || NROW(tol_df) == 0 || inherits(tol_df, "error")) {

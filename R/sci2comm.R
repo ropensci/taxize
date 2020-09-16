@@ -75,40 +75,40 @@ sci2comm.default <- function(sci, db='ncbi', simplify=TRUE,
 
 #' @export
 #' @rdname sci2comm
-sci2comm.uid <- function(id, ...) {
+sci2comm.txid <- function(sci_id, simplify = TRUE, ...) {
+  db <- txdbac(sci_id)[1]
+  fun <- parse(text=paste0("sci2comm_", id_class(sci_id)))
+  eval(fun)(sci_id, simplify, ...)
+}
+
+sci2comm_ncbi <- function(id, ...) {
   warn_db(list(...), "ncbi")
   out <- lapply(id, function(x) ncbi_foo(x, ...))
-  names(out) <- id
+  names(out) <- names_or_ids(id)
   return(out)
 }
 
-#' @export
-#' @rdname sci2comm
-sci2comm.tsn <- function(id, simplify=TRUE, ...) {
+sci2comm_itis <- function(id, simplify=TRUE, ...) {
   warn_db(list(...), "itis")
   out <- lapply(id, function(x) itis_foo(x, simplify, ...))
-  names(out) <- id
+  names(out) <- names_or_ids(id)
   return(out)
 }
 
-#' @export
-#' @rdname sci2comm
-sci2comm.wormsid <- function(id, simplify=TRUE, ...) {
+sci2comm_worms <- function(id, simplify=TRUE, ...) {
   warn_db(list(...), "worms")
   out <- lapply(id, function(x) worms_foo(x, simplify, ...))
-  names(out) <- id
+  names(out) <- names_or_ids(id)
   return(out)
 }
 
-#' @export
-#' @rdname sci2comm
-sci2comm.iucn <- function(id, simplify=TRUE, ...) {
+sci2comm_iucn <- function(id, simplify=TRUE, ...) {
   warn_db(list(...), "iucn")
   out <- vector("list", length(id))
   for (i in seq_along(id)) {
-    out[[i]] <- iucn_foo(attr(id, "name")[i], simplify, ...)
+    out[[i]] <- iucn_foo(txnameac(id)[i], simplify, ...)
   }
-  names(out) <- id
+  names(out) <- names_or_ids(id)
   return(out)
 }
 
@@ -120,12 +120,12 @@ itis2comm <- function(x, simplify, ...){
 }
 
 eol2comm <- function(x, simplify, ...){
-  tmp <- eol_search(terms = x, ...)
+  tmp <- eol_search(txnameac(x), ...)
   pageids <- tmp[grep(x, tmp$name, ignore.case = TRUE), "pageid"]
   dfs <- tc(
     lapply(pageids, function(x) {
       tmp <- tryCatch(
-        eol_pages(taxonconceptID = x, common_names = TRUE, ...),
+        eol_pages(taxonconceptID = x, common_names = TRUE),
         error = function(e) e
       )
       if (inherits(tmp, "error")) NULL else tmp$vernacular
@@ -153,7 +153,7 @@ worms2comm <- function(x, simplify, ...){
 
 iucn2comm <- function(x, simplify, ...){
   id <- get_iucn(x, ...)
-  iucn_foo(attr(id, "name"), simplify = simplify, ...)
+  iucn_foo(txnameac(id), simplify = simplify, ...)
 }
 
 getsci <- function(nn, db, simplify, ...){
@@ -173,7 +173,7 @@ itis_foo <- function(x, simplify=TRUE, ...){
   if (is.na(x)) {
     return(character(0))
   } else {
-    out <- ritis::common_names(x)
+    out <- ritis::common_names(txidac(x))
     # if common name is not found
     if (nrow(out) == 0) return(character(0))
   }
@@ -186,7 +186,7 @@ itis_foo <- function(x, simplify=TRUE, ...){
 
 ncbi_foo <- function(x, ...){
   key <- getkey(NULL, "ENTREZ_KEY")
-  query <- tc(list(db = "taxonomy", ID = x, api_key = key))
+  query <- tc(list(db = "taxonomy", ID = txidac(x), api_key = key))
   cli <- crul::HttpClient$new(url = ncbi_base(), headers = tx_ual,
     opts = list(http_version = 2L, ...))
   res <- cli$get("entrez/eutils/efetch.fcgi", query = query)
@@ -207,7 +207,7 @@ worms_foo <- function(x, simplify=TRUE, ...){
   if (is.na(x)) {
     return(character(0))
   } else {
-    out <- worrms::wm_common_id(as.numeric(x))
+    out <- worrms::wm_common_id(as.numeric(txidac(x)))
     #if common name is not found
     if (nrow(out) == 0) return(character(0))
   }

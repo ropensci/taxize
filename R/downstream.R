@@ -123,7 +123,8 @@ downstream.default <- function(sci_id, db=NULL, downto=NULL,
                                  intermediate = intermediate, ...), sci_id)
     },
     bold = {
-      id <- process_stream_ids(as.character(sci_id), db, get_bold, rows = rows, ...)
+      id <- process_stream_ids(as.character(sci_id), db, get_bold,
+        rows = rows, ...)
       stats::setNames(downstream(id, downto = tolower(downto),
                                  intermediate = intermediate, ...), sci_id)
     },
@@ -140,7 +141,7 @@ process_stream_ids <- function(input, db, fxn, ...){
     all(grepl("[[:digit:]]", input))
   ) {
     as_fxn <- switch(db, itis = as.itis, gbif = as.gbif,
-      ncbi = as.ncbi, worms = as.wormsid, bold = as.bold)
+      ncbi = as.ncbi, worms = as.worms, bold = as.bold)
     as_fxn(input, check = FALSE)
   } else {
     eval(fxn)(input, ...)
@@ -149,7 +150,14 @@ process_stream_ids <- function(input, db, fxn, ...){
 
 #' @export
 #' @rdname downstream
-downstream.tsn <- function(sci_id, db = NULL, downto = NULL,
+downstream.txid <- function(id, db=NULL, downto=NULL, intermediate=FALSE,
+  ...) {
+  db <- as.character(taxa::tax_db(id))[1]
+  fun <- parse(text=paste0("downstream_", id_class(id)))
+  eval(fun)(id, db = db, downto = downto, intermediate = intermediate, ...)
+}
+
+downstream_itis <- function(sci_id, db = NULL, downto = NULL,
                            intermediate = FALSE, ...) {
   warn_db(list(db = db), "itis")
   fun <- function(y, downto, intermediate, ...) {
@@ -161,13 +169,12 @@ downstream.tsn <- function(sci_id, db = NULL, downto = NULL,
 		                  intermediate = intermediate, ...)
     }
   }
-  out <- lapply(sci_id, fun, downto = downto, intermediate = intermediate, ...)
-  structure(out, class = 'downstream', db = 'itis', .Names = sci_id)
+  out <- lapply(txidac(sci_id), fun, downto = downto,
+    intermediate = intermediate, ...)
+  structure(out, class = 'downstream', db = 'itis', .Names = txnameac(sci_id))
 }
 
-#' @export
-#' @rdname downstream
-downstream.gbifid <- function(sci_id, db = NULL, downto = NULL,
+downstream_gbif <- function(sci_id, db = NULL, downto = NULL,
                               intermediate = FALSE, limit = 100,
                               start = NULL, ...) {
   warn_db(list(db = db), "gbif")
@@ -181,14 +188,12 @@ downstream.gbifid <- function(sci_id, db = NULL, downto = NULL,
                       start = start, ...)
     }
   }
-  out <- lapply(sci_id, fun, downto = downto, intermediate = intermediate,
+  out <- lapply(txidac(sci_id), fun, downto = downto, intermediate = intermediate,
     limit = limit, start = start, ...)
   structure(out, class = 'downstream', db = 'gbif')
 }
 
-#' @export
-#' @rdname downstream
-downstream.uid <- function(sci_id, db = NULL, downto = NULL,
+downstream_ncbi <- function(sci_id, db = NULL, downto = NULL,
                               intermediate = FALSE, ...) {
   warn_db(list(db = db), "ncbi")
   fun <- function(y, downto, intermediate, ...){
@@ -200,13 +205,12 @@ downstream.uid <- function(sci_id, db = NULL, downto = NULL,
                       intermediate = intermediate, ...)
     }
   }
-  out <- lapply(sci_id, fun, downto = downto, intermediate = intermediate, ...)
+  out <- lapply(txidac(sci_id), fun, downto = downto,
+    intermediate = intermediate, ...)
   structure(out, class = 'downstream', db = 'ncbi')
 }
 
-#' @export
-#' @rdname downstream
-downstream.wormsid <- function(sci_id, db = NULL, downto = NULL,
+downstream_worms <- function(sci_id, db = NULL, downto = NULL,
                               intermediate = FALSE, ...) {
   warn_db(list(db = db), "worms")
   fun <- function(y, downto, intermediate, ...){
@@ -218,13 +222,12 @@ downstream.wormsid <- function(sci_id, db = NULL, downto = NULL,
                       intermediate = intermediate, ...)
     }
   }
-  out <- lapply(sci_id, fun, downto = downto, intermediate = intermediate, ...)
+  out <- lapply(txidac(sci_id), fun, downto = downto,
+    intermediate = intermediate, ...)
   structure(out, class = 'downstream', db = 'worms')
 }
 
-#' @export
-#' @rdname downstream
-downstream.boldid <- function(sci_id, db = NULL, downto = NULL,
+downstream_bold <- function(sci_id, db = NULL, downto = NULL,
                               intermediate = FALSE, ...) {
   warn_db(list(db = db), "bold")
   fun <- function(y, downto, intermediate, ...){
@@ -236,7 +239,8 @@ downstream.boldid <- function(sci_id, db = NULL, downto = NULL,
                       intermediate = intermediate, ...)
     }
   }
-  out <- lapply(sci_id, fun, downto = downto, intermediate = intermediate, ...)
+  out <- lapply(txidac(sci_id), fun, downto = downto,
+    intermediate = intermediate, ...)
   structure(out, class = 'downstream', db = 'bold')
 }
 
@@ -252,8 +256,9 @@ downstream.ids <- function(sci_id, db = NULL, downto = NULL,
       downstream(y, downto = downto, intermediate = intermediate, ...)
     }
   }
-  structure(lapply(sci_id, fun, downto = downto, intermediate = intermediate, ...),
-            class = 'downstream_ids')
+  structure(lapply(sci_id, fun, downto = downto,
+    intermediate = intermediate, ...),
+  class = 'downstream_ids')
 }
 
 simp <- function(x) if (length(x) == 1) x[[1]] else x

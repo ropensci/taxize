@@ -105,3 +105,19 @@ as_txid_df <- function(x, check = TRUE) {
     class = "gbif"
   )
 }
+
+txac_template <- function(fun) {
+  function(x) {
+    assert(x, c("character", "txid"))
+    if (is.character(x)) x else as.character(fun(x))
+  }
+}
+txidac <- txac_template(taxa::tax_id)
+txnameac <- txac_template(taxa::tax_name)
+txdbac <- txac_template(taxa::tax_db)
+txrankac <- txac_template(taxa::tax_rank)
+
+names_or_ids <- function(x) {
+  z <- txnameac(x)
+  if (length(na.omit(z)) == 0) txidac(x) else z
+}

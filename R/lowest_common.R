@@ -91,9 +91,9 @@
 #'
 #' ## Pass in sci. names
 #' nms <- c("Angraecum sesquipedale", "Dracula vampira", "Masdevallia coccinea")
-#' lowest_common(x = nms, db = "ncbi")
-#' lowest_common(x = nms, db = "gbif")
-#' # lowest_common(x = nms, db = "itis")
+#' lowest_common(nms, db = "ncbi")
+#' lowest_common(nms, db = "gbif")
+#' lowest_common(nms, db = "itis")
 #'
 #' ## NAs due to taxon not found, stops with error message
 #' # lowest_common(orchid_itis, db = "itis")
@@ -136,40 +136,36 @@ lowest_common.default <- function(sci_id, db = NULL, rows = NA, class_list = NUL
 
 #' @export
 #' @rdname lowest_common
-lowest_common.uid <- function(sci_id, class_list = NULL, low_rank = NULL, ...) {
-  check_lowest_ids(sci_id)
-  class_list <- get_class(sci_id, class_list, db = "uid", ...)
-  lc_helper(sci_id, class_list, low_rank, ...)
+lowest_common.txid <- function(sci_id, class_list = NULL, low_rank = NULL, ...) {
+  fun <- parse(text=paste0("lowest_common_", id_class(sci_id)))
+  eval(fun)(sci_id, class_list, low_rank, ...)
 }
 
-#' @export
-#' @rdname lowest_common
-lowest_common.tsn <- function(sci_id, class_list = NULL, low_rank = NULL, ...) {
+lowest_common_ncbi <- function(sci_id, class_list = NULL, low_rank = NULL, ...) {
+  check_lowest_ids(sci_id)
+  class_list <- get_class(sci_id, class_list, db = "ncbi", ...)
+  lc_helper(sci_id, class_list, low_rank, ...)
+}
+lowest_common_itis <- function(sci_id, class_list = NULL, low_rank = NULL, ...) {
   check_lowest_ids(sci_id)
   class_list <- get_class(sci_id, class_list, db = "itis", ...)
   lc_helper(sci_id, class_list, low_rank, ...)
 }
-
-#' @export
-#' @rdname lowest_common
-lowest_common.gbifid <- function(sci_id, class_list = NULL, low_rank = NULL, ...) {
+lowest_common_gbif <- function(sci_id, class_list = NULL, low_rank = NULL, ...) {
   check_lowest_ids(sci_id)
   class_list <- get_class(sci_id, class_list, db = "gbif", ...)
   lc_helper(sci_id, class_list, low_rank, ...)
 }
-
-#' @export
-#' @rdname lowest_common
-lowest_common.tolid <- function(sci_id, class_list = NULL, low_rank = NULL, ...) {
+lowest_common_tol <- function(sci_id, class_list = NULL, low_rank = NULL, ...) {
   check_lowest_ids(sci_id)
   class_list <- get_class(sci_id, class_list, db = "tol", ...)
-  names(class_list) <- sci_id
+  names(class_list) <- names_or_ids(sci_id)
   lc_helper(sci_id, class_list, low_rank, ...)
 }
 
 # helpers -------------------------------------------------
 lc_helper <- function(x, class_list, low_rank = NULL, ...) {
-  idc <- class_list[x]
+  idc <- tc(class_list[txidac(x)]) %||% tc(class_list[txnameac(x)])
   # next line NCBI specific
   cseq <- vapply(idc, function(x) x[1, 1] != "unclassified sequences",
                  logical(1))
@@ -186,7 +182,6 @@ lc_helper <- function(x, class_list, low_rank = NULL, ...) {
     if (!(low_rank %in% valid_ranks)) {
       warning('the supplied rank is not valid')
     }
-    # low_rank_names <- as.character(unique(unlist(lapply(idc, function(x) x$name[which(x$rank == low_rank)]))))
     low_rank_names <- unique(setDF(rbindlist(lapply(idc, function(x)
       x[which(x$rank == low_rank),]))))
     if (NROW(low_rank_names) == 1) {
@@ -208,7 +203,8 @@ get_class <- function(x, y, db, ...) {
     if (db == "uid") db <- "ncbi"
     classification(x, db = db, ...)
   } else {
-    yattr <- sub("ncbi", "uid", attr(y, "db"))
+    # yattr <- sub("ncbi", "uid", attr(y, "db"))
+    yattr <- attr(y, "db")
     if (yattr != db) {
       stop(sprintf("class_list input must be of class '%s'", db), call. = FALSE)
     }

@@ -135,7 +135,7 @@
 #' classification(get_gbif(c("Poa annua", "Bison bison")))
 #'
 #' # Pass many ids from class "ids"
-#' (out <- get_ids(names="Puma concolor", db = c('ncbi','gbif')))
+#' (out <- get_ids(sci_com="Puma concolor", db = c('ncbi','gbif')))
 #' (cl <- classification(out))
 #'
 #' # Bind width-wise from class classification_ids
@@ -145,7 +145,7 @@
 #' rbind(cl)
 #'
 #' # Many names to get_ids
-#' (out <- get_ids(names=c("Puma concolor","Accipiter striatus"),
+#' (out <- get_ids(sci_com=c("Puma concolor","Accipiter striatus"),
 #'   db = c('ncbi','itis')))
 #' (cl <- classification(out))
 #' rbind(cl)
@@ -305,7 +305,7 @@ process_ids <- function(input, db, fxn, ...){
            gbif = as.gbif,
            nbn = as.nbn,
            tol = as.tol,
-           worms = as.wormsid,
+           worms = as.worms,
            natserv = as.natserv,
            bold = as.bold,
            wiki = as.wiki,
@@ -318,7 +318,13 @@ process_ids <- function(input, db, fxn, ...){
 
 #' @export
 #' @rdname classification
-classification.itis <- function(id, return_id = TRUE, ...) {
+classification.txid <- function(id, return_id = TRUE, ...) {
+  db <- as.character(taxa::tax_db(id))[1]
+  fun <- parse(text=paste0("classification_", id_class(id)))
+  eval(fun)(id, return_id = return_id, ...)
+}
+
+classification_itis <- function(id, return_id = TRUE, ...) {
   warn_db(list(...), "itis")
   fun <- function(x) {
     # return NA if NA is supplied
@@ -338,14 +344,12 @@ classification.itis <- function(id, return_id = TRUE, ...) {
     }
     return(out)
   }
-  out <- lapply(id, fun)
-  names(out) <- id
+  out <- lapply(txidac(id), fun)
+  names(out) <- names_or_ids(id)
   structure(out, class = 'classification', db = 'itis')
 }
 
-#' @export
-#' @rdname classification
-classification.uid <- function(id, callopts = list(), return_id = TRUE,
+classification_ncbi <- function(id, callopts = list(), return_id = TRUE,
   batch_size = 50, max_tries = 3, ...) {
 
   warn_db(list(...), "ncbi")
@@ -418,17 +422,16 @@ classification.uid <- function(id, callopts = list(), return_id = TRUE,
     })
     return(out)
   }
-  id <- as.character(id) # force to character
+  nmz <- names_or_ids(id)
+  id <- txidac(id) # force to character
   id_chunks <- split(id, ceiling(seq_along(id)/batch_size))
   out <- lapply(id_chunks, fun, callopts = callopts)
   out <- unlist(out, recursive = FALSE)
-  names(out) <- id
+  names(out) <- nmz
   structure(out, class = 'classification', db = 'ncbi')
 }
 
-#' @export
-#' @rdname classification
-classification.eolid <- function(id, callopts = list(), return_id = TRUE, ...) {
+classification_eol <- function(id, callopts = list(), return_id = TRUE, ...) {
   warn_db(list(...), "eol")
   common_names = synonyms = NULL
   fun <- function(x){
@@ -462,14 +465,12 @@ classification.eolid <- function(id, callopts = list(), return_id = TRUE, ...) {
       }
     }
   }
-  out <- lapply(id, fun)
-  names(out) <- id
+  out <- lapply(txidac(id), fun)
+  names(out) <- names_or_ids(id)
   structure(out, class = 'classification', db = 'eol')
 }
 
-#' @export
-#' @rdname classification
-classification.tpsid <- function(id, callopts = list(), return_id = TRUE, ...) {
+classification_tps <- function(id, callopts = list(), return_id = TRUE, ...) {
   warn_db(list(...), "tropicos")
   fun <- function(x, callopts){
     if (is.na(x)) {
@@ -491,14 +492,12 @@ classification.tpsid <- function(id, callopts = list(), return_id = TRUE, ...) {
     }
     return(out)
   }
-  out <- lapply(id, fun, callopts = callopts)
-  names(out) <- id
+  out <- lapply(txidac(id), fun, callopts = callopts)
+  names(out) <- names_or_ids(id)
   structure(out, class = 'classification', db = 'tropicos')
 }
 
-#' @export
-#' @rdname classification
-classification.gbifid <- function(id, callopts = list(),
+classification_gbif <- function(id, callopts = list(),
   return_id = TRUE, ...) {
 
   warn_db(list(...), "gbif")
@@ -538,14 +537,12 @@ classification.gbifid <- function(id, callopts = list(),
       }
     }
   }
-  out <- lapply(id, fun, callopts = callopts)
-  names(out) <- id
+  out <- lapply(txidac(id), fun, callopts = callopts)
+  names(out) <- names_or_ids(id)
   structure(out, class = 'classification', db = 'gbif')
 }
 
-#' @export
-#' @rdname classification
-classification.nbnid <- function(id, callopts = list(),
+classification_nbn <- function(id, callopts = list(),
   return_id = TRUE, ...) {
 
   warn_db(list(...), "nbn")
@@ -567,14 +564,12 @@ classification.nbnid <- function(id, callopts = list(),
       }
     }
   }
-  out <- lapply(id, fun, callopts = callopts)
-  names(out) <- id
+  out <- lapply(txidac(id), fun, callopts = callopts)
+  names(out) <- names_or_ids(id)
   structure(out, class = 'classification', db = 'nbn')
 }
 
-#' @export
-#' @rdname classification
-classification.tolid <- function(id, callopts = list(),
+classification_tol <- function(id, callopts = list(),
   return_id = TRUE, ...) {
 
   warn_db(list(...), "tol")
@@ -603,14 +598,12 @@ classification.tolid <- function(id, callopts = list(),
       }
     }
   }
-  out <- lapply(id, fun, callopts = callopts)
-  names(out) <- id
+  out <- lapply(txidac(id), fun, callopts = callopts)
+  names(out) <- names_or_ids(id)
   structure(out, class = 'classification', db = 'tol')
 }
 
-#' @export
-#' @rdname classification
-classification.wormsid <- function(id, callopts = list(),
+classification_worms <- function(id, callopts = list(),
   return_id = TRUE, ...) {
 
   warn_db(list(...), "worms")
@@ -631,14 +624,12 @@ classification.wormsid <- function(id, callopts = list(),
       }
     }
   }
-  out <- lapply(id, fun, ...)
-  names(out) <- id
+  out <- lapply(txidac(id), fun, ...)
+  names(out) <- names_or_ids(id)
   structure(out, class = 'classification', db = 'worms')
 }
 
-#' @export
-#' @rdname classification
-classification.natservid <- function(id, callopts = list(),
+classification_natserv <- function(id, callopts = list(),
   return_id = TRUE, ...) {
 
   warn_db(list(...), "natserv")
@@ -658,33 +649,16 @@ classification.natservid <- function(id, callopts = list(),
         df <- data.frame(scientificname = unname(unlist(res)),
           rank = gsub("tax", "", names(res)), stringsAsFactors = FALSE)
         df <- rbind(df, c(out$scientificName, "species"))
-        # tmp <- out[[1]]$classification
-        # if (is.null(tmp)) return(NA)
-        # tmp <- tmp$taxonomy$formalTaxonomy
-        # if (is.null(tmp)) return(NA)
-        # tmp <- tmp[names(tmp) %in% c('kingdom', 'phylum',
-        #   'class', 'order', 'family', 'genus')]
-        # df <- data.frame(scientificname = unname(unlist(tmp)),
-        #   rank = names(tmp), stringsAsFactors = FALSE)
-        # rks <- c('kingdom', 'phylum', 'class', 'order',
-        #   'family', 'genus', 'species')
-        # targ_taxon <- c(
-        #   out[[1]]$classification$names$scientificName$unformattedName[[1]],
-        #   rks[which(df$rank[length(df$rank)] == rks) + 1]
-        # )
-        # df <- rbind(df, targ_taxon)
         return(df)
       }
     }
   }
-  out <- lapply(id, fun, callopts = callopts)
-  names(out) <- id
+  out <- lapply(txidac(id), fun, callopts = callopts)
+  names(out) <- names_or_ids(id)
   structure(out, class = 'classification', db = 'natserv')
 }
 
-#' @export
-#' @rdname classification
-classification.boldid <- function(id, callopts = list(),
+classification_bold <- function(id, callopts = list(),
   return_id = TRUE, ...) {
 
   warn_db(list(...), "bold")
@@ -705,8 +679,8 @@ classification.boldid <- function(id, callopts = list(),
       }
     }
   }
-  out <- lapply(id, fun, callopts = callopts)
-  names(out) <- id
+  out <- lapply(txidac(id), fun, callopts = callopts)
+  names(out) <- names_or_ids(id)
   structure(out, class = 'classification', db = 'bold')
 }
 
@@ -745,9 +719,7 @@ classification.wiki <- function(id, callopts = list(), return_id = TRUE, ...) {
             wiki_site = attr(id, "wiki_site"), wiki = attr(id, "wiki_lang"))
 }
 
-#' @export
-#' @rdname classification
-classification.pow <- function(id, callopts = list(), return_id = TRUE, ...) {
+classification_pow <- function(id, callopts = list(), return_id = TRUE, ...) {
   warn_db(list(...), "pow")
   fun <- function(x, callopts) {
     if (is.na(x)) {
@@ -765,8 +737,8 @@ classification.pow <- function(id, callopts = list(), return_id = TRUE, ...) {
       }
     }
   }
-  out <- lapply(id, fun, callopts = callopts)
-  names(out) <- id
+  out <- lapply(txidac(id), fun, callopts = callopts)
+  names(out) <- names_or_ids(id)
   structure(out, class = 'classification', db = 'pow')
 }
 

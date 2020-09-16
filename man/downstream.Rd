@@ -3,11 +3,7 @@
 \name{downstream}
 \alias{downstream}
 \alias{downstream.default}
-\alias{downstream.tsn}
-\alias{downstream.gbifid}
-\alias{downstream.uid}
-\alias{downstream.wormsid}
-\alias{downstream.boldid}
+\alias{downstream.txid}
 \alias{downstream.ids}
 \title{Retrieve the downstream taxa for a given taxon name or ID.}
 \usage{
@@ -23,23 +19,7 @@ downstream(...)
   ...
 )
 
-\method{downstream}{tsn}(sci_id, db = NULL, downto = NULL, intermediate = FALSE, ...)
-
-\method{downstream}{gbifid}(
-  sci_id,
-  db = NULL,
-  downto = NULL,
-  intermediate = FALSE,
-  limit = 100,
-  start = NULL,
-  ...
-)
-
-\method{downstream}{uid}(sci_id, db = NULL, downto = NULL, intermediate = FALSE, ...)
-
-\method{downstream}{wormsid}(sci_id, db = NULL, downto = NULL, intermediate = FALSE, ...)
-
-\method{downstream}{boldid}(sci_id, db = NULL, downto = NULL, intermediate = FALSE, ...)
+\method{downstream}{txid}(id, db = NULL, downto = NULL, intermediate = FALSE, ...)
 
 \method{downstream}{ids}(sci_id, db = NULL, downto = NULL, intermediate = FALSE, ...)
 }

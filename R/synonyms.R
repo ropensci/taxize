@@ -35,8 +35,8 @@
 #' Note that IUCN requires an API key. See [rredlist::rredlist-package]
 #' for help on authentiating with IUCN Redlist
 #'
-#' @seealso [get_itis()] [get_tps()] [get_nbn()]
-#' [get_worms()] [get_iucn()] [get_pow()]
+#' @seealso [get_itis()] [get_tps()] [get_nbn()] [get_worms()] [get_iucn()]
+#' [get_pow()]
 #'
 #' @export
 #' @examples \dontrun{
@@ -76,7 +76,7 @@
 #' synonyms(get_pow('Lithocarpus mindanaensis'))
 #'
 #' # Pass many ids from class "ids"
-#' out <- get_ids(names="Poa annua", db = c('itis','tropicos'))
+#' out <- get_ids("Poa annua", db = c('itis','tropicos'))
 #' synonyms(out)
 #'
 #' # Use the rows parameter to select certain rows
@@ -120,32 +120,32 @@ synonyms.default <- function(sci_id, db = NULL, rows = NA, x = NULL, ...) {
     db,
     itis = {
       id <- process_syn_ids(sci_id, db, get_itis, rows = rows, ...)
-      structure(stats::setNames(synonyms(id, ...), sci_id),
+      structure(stats::setNames(synonyms(id, ...), names_or_ids(id)),
                 class = "synonyms", db = "itis")
     },
     tropicos = {
       id <- process_syn_ids(sci_id, db, get_tps, rows = rows, ...)
-      structure(stats::setNames(synonyms(id, ...), sci_id),
+      structure(stats::setNames(synonyms(id, ...), names_or_ids(id)),
                 class = "synonyms", db = "tropicos")
     },
     nbn = {
       id <- process_syn_ids(sci_id, db, get_nbn, rows = rows, ...)
-      structure(stats::setNames(synonyms(id, ...), sci_id),
+      structure(stats::setNames(synonyms(id, ...), names_or_ids(id)),
                 class = "synonyms", db = "nbn")
     },
     worms = {
       id <- process_syn_ids(sci_id, db, get_worms, rows = rows, ...)
-      structure(stats::setNames(synonyms(id, ...), sci_id),
+      structure(stats::setNames(synonyms(id, ...), names_or_ids(id)),
                 class = "synonyms", db = "worms")
     },
     iucn = {
-      id <- process_syn_ids(sci_id, db, get_iucn, ...)
-      structure(stats::setNames(synonyms(id, ...), sci_id),
+      id <- process_syn_ids(as.character(sci_id), db, get_iucn, ...)
+      structure(stats::setNames(synonyms(id, ...), names_or_ids(id)),
                 class = "synonyms", db = "iucn")
     },
     pow = {
       id <- process_syn_ids(sci_id, db, get_pow, ...)
-      structure(stats::setNames(synonyms(id, ...), sci_id),
+      structure(stats::setNames(synonyms(id, ...), names_or_ids(id)),
                 class = "synonyms", db = "pow")
     },
     stop("the provided db value was not recognised", call. = FALSE)
@@ -167,7 +167,7 @@ process_syn_ids <- function(input, db, fxn, ...){
       itis = as.itis,
       tropicos = as.tps,
       nbn = as.nbn,
-      worms = as.wormsid,
+      worms = as.worms,
       iucn = as.iucn,
       pow = as.pow)
     if (db == "iucn") return(as_fxn(input, check = TRUE))
@@ -179,11 +179,17 @@ process_syn_ids <- function(input, db, fxn, ...){
 
 #' @export
 #' @rdname synonyms
-synonyms.tsn <- function(id, ...) {
+synonyms.txid <- function(sci_id, db = NULL, ...) {
+  db <- txdbac(sci_id)[1]
+  fun <- parse(text=paste0("synonyms_", id_class(sci_id)))
+  eval(fun)(sci_id, ...)
+}
+
+synonyms_itis <- function(id, ...) {
   warn_db(list(...), "itis")
   fun <- function(x){
     if (is.na(x)) { NA_character_ } else {
-      is_acc <- rit_acc_name(x, ...)
+      is_acc <- rit_acc_name(x)
       if (all(!is.na(is_acc$acceptedName))) {
         accdf <- stats::setNames(
           data.frame(x[1], is_acc, stringsAsFactors = FALSE),
@@ -211,7 +217,7 @@ synonyms.tsn <- function(id, ...) {
       do.call("rbind", unname(res))
     }
   }
-  stats::setNames(lapply(id, fun), id)
+  stats::setNames(lapply(txidac(id), fun), names_or_ids(id))
 }
 
 rit_acc_name <- function(x, ...) {
@@ -224,9 +230,7 @@ rit_acc_name <- function(x, ...) {
   }
 }
 
-#' @export
-#' @rdname synonyms
-synonyms.tpsid <- function(id, ...) {
+synonyms_tps <- function(id, ...) {
   warn_db(list(...), "topicos")
   fun <- function(x) {
     if (is.na(x)) {
@@ -236,12 +240,10 @@ synonyms.tpsid <- function(id, ...) {
       if (grepl("no syns found", res[1,1])) tibble::tibble() else res
     }
   }
-  stats::setNames(lapply(id, fun), id)
+  stats::setNames(lapply(txidac(id), fun), names_or_ids(id))
 }
 
-#' @export
-#' @rdname synonyms
-synonyms.nbnid <- function(id, ...) {
+synonyms_nbn <- function(id, ...) {
   warn_db(list(...), "nbn")
   fun <- function(x){
     if (is.na(x)) {
@@ -251,12 +253,10 @@ synonyms.nbnid <- function(id, ...) {
       if (length(res) == 0) tibble::tibble() else res
     }
   }
-  stats::setNames(lapply(id, fun), id)
+  stats::setNames(lapply(txidac(id), fun), names_or_ids(id))
 }
 
-#' @export
-#' @rdname synonyms
-synonyms.wormsid <- function(id, ...) {
+synonyms_worms <- function(id, ...) {
   warn_db(list(...), "worms")
   fun <- function(x) {
     if (is.na(x)) {
@@ -267,35 +267,33 @@ synonyms.wormsid <- function(id, ...) {
       if (inherits(res, "error")) tibble::tibble() else res
     }
   }
-  stats::setNames(lapply(id, fun), id)
+  stats::setNames(lapply(txidac(id), fun), names_or_ids(id))
 }
 
-#' @export
-#' @rdname synonyms
-synonyms.iucn <- function(id, ...) {
+synonyms_iucn <- function(id, ...) {
   warn_db(list(...), "iucn")
-  out <- vector(mode = "list", length = length(id))
-  for (i in seq_along(id)) {
-    if (is.na(id[[i]])) {
+  xid <- txidac(id)
+  out <- vector(mode = "list", length = length(xid))
+  for (i in seq_along(xid)) {
+    if (is.na(xid[[i]])) {
       out[[i]] <- NA_character_
     } else {
-      res <- rredlist::rl_synonyms(attr(id, "name")[i], ...)$result
+      res <- rredlist::rl_synonyms(txnameac(id)[i], ...)$result
       out[[i]] <- if (length(res) == 0) tibble::tibble() else res
     }
   }
-  stats::setNames(out, id)
+  stats::setNames(out, names_or_ids(id))
 }
 
-#' @export
-#' @rdname synonyms
-synonyms.pow <- function(id, ...) {
+synonyms_pow <- function(id, ...) {
   warn_db(list(...), "pow")
-  out <- vector(mode = "list", length = length(id))
-  for (i in seq_along(id)) {
-    if (is.na(id[[i]])) {
+  xid <- txidac(id)
+  out <- vector(mode = "list", length = length(xid))
+  for (i in seq_along(xid)) {
+    if (is.na(xid[[i]])) {
       out[[i]] <- NA_character_
     } else {
-      res <- pow_synonyms(id[i], ...)
+      res <- pow_synonyms(xid[i], ...)
       out[[i]] <- if (length(res) == 0) {
         tibble::tibble() 
       } else {
@@ -304,7 +302,7 @@ synonyms.pow <- function(id, ...) {
       }
     }
   }
-  stats::setNames(out, id)
+  stats::setNames(out, names_or_ids(id))
 }
 
 

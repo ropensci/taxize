@@ -3,7 +3,7 @@
 \name{upstream}
 \alias{upstream}
 \alias{upstream.default}
-\alias{upstream.tsn}
+\alias{upstream.itis}
 \alias{upstream.ids}
 \title{Retrieve the upstream taxa for a given taxon name or ID.}
 \usage{
@@ -11,7 +11,7 @@ upstream(...)
 
 \method{upstream}{default}(sci_id, db = NULL, upto = NULL, rows = NA, x = NULL, ...)
 
-\method{upstream}{tsn}(sci_id, db = NULL, upto = NULL, ...)
+\method{upstream}{itis}(sci_id, db = NULL, upto = NULL, ...)
 
 \method{upstream}{ids}(sci_id, db = NULL, upto = NULL, ...)
 }
@@ -54,5 +54,7 @@ the function.
 \examples{
 \dontrun{
 upstream('Pinus contorta', db = 'itis', upto = 'genus')
+x <- get_itis('Pinus contorta')
+upstream(x, upto = 'genus')
 }
 }

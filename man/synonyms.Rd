@@ -3,12 +3,7 @@
 \name{synonyms}
 \alias{synonyms}
 \alias{synonyms.default}
-\alias{synonyms.tsn}
-\alias{synonyms.tpsid}
-\alias{synonyms.nbnid}
-\alias{synonyms.wormsid}
-\alias{synonyms.iucn}
-\alias{synonyms.pow}
+\alias{synonyms.txid}
 \alias{synonyms.ids}
 \alias{synonyms_df}
 \title{Retrieve synonyms from various sources given input taxonomic
@@ -18,17 +13,7 @@ synonyms(...)
 
 \method{synonyms}{default}(sci_id, db = NULL, rows = NA, x = NULL, ...)
 
-\method{synonyms}{tsn}(id, ...)
-
-\method{synonyms}{tpsid}(id, ...)
-
-\method{synonyms}{nbnid}(id, ...)
-
-\method{synonyms}{wormsid}(id, ...)
-
-\method{synonyms}{iucn}(id, ...)
-
-\method{synonyms}{pow}(id, ...)
+\method{synonyms}{txid}(sci_id, db = NULL, ...)
 
 \method{synonyms}{ids}(id, ...)
 
@@ -119,7 +104,7 @@ synonyms(get_iucn('Loxodonta africana'))
 synonyms(get_pow('Lithocarpus mindanaensis'))
 
 # Pass many ids from class "ids"
-out <- get_ids(names="Poa annua", db = c('itis','tropicos'))
+out <- get_ids("Poa annua", db = c('itis','tropicos'))
 synonyms(out)
 
 # Use the rows parameter to select certain rows
@@ -150,6 +135,6 @@ synonyms_df(x)
 }
 }
 \seealso{
-\code{\link[=get_itis]{get_itis()}} \code{\link[=get_tps]{get_tps()}} \code{\link[=get_nbn]{get_nbn()}}
-\code{\link[=get_worms]{get_worms()}} \code{\link[=get_iucn]{get_iucn()}} \code{\link[=get_pow]{get_pow()}}
+\code{\link[=get_itis]{get_itis()}} \code{\link[=get_tps]{get_tps()}} \code{\link[=get_nbn]{get_nbn()}} \code{\link[=get_worms]{get_worms()}} \code{\link[=get_iucn]{get_iucn()}}
+\code{\link[=get_pow]{get_pow()}}
 }

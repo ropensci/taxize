@@ -24,7 +24,7 @@ taxize_cite(fxn='plantminer')
 taxize_cite(fxn='get_natserv_')
 taxize_cite(fxn='as.natserv')
 taxize_cite(fxn='get_worms')
-taxize_cite(fxn='as.wormsid')
+taxize_cite(fxn='as.worms')
 
 # Functions that use many data sources
 taxize_cite(fxn='synonyms')

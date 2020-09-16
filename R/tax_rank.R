@@ -44,7 +44,7 @@ tax_rank <- function(sci_id, db = NULL, rows = NA, x = NULL, ...) {
 
 #' @export
 tax_rank.default <- function(sci_id, db = NULL, rows = NA, x = NULL, ...) {
-  stats::setNames(tax_rank_(sci_id, ...), sci_id)
+  stats::setNames(tax_rank_(sci_id, ...), names_or_ids(sci_id))
 }
 
 #' @export
@@ -100,5 +100,5 @@ tax_rank_ <- function(id, ...) {
       }
     }
   }
-  lapply(id, fun, clz = dbswap(class(id)), ...)
+  lapply(id, fun, clz = txdbac(id)[1], ...)
 }

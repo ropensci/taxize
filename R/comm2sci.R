@@ -53,7 +53,6 @@ comm2sci <- function(...) {
   UseMethod("comm2sci")
 }
 
-
 #' @method comm2sci default
 #' @export
 #' @rdname comm2sci
@@ -86,20 +85,26 @@ sci_from_comm <- function(nn, db, simplify, itisby, ...) {
 
 #' @export
 #' @rdname comm2sci
-comm2sci.tsn <- function(id, db='ncbi', itisby='search',
+comm2sci.txid <- function(id, db='ncbi', itisby='search',
                          simplify=TRUE, ...) {
-  warn_db(list(db = db), "itis")
-  temp <- lapply(id, c2s_itis_, simplify = simplify, ...)
-  stats::setNames(temp, id)
+  fun <- parse(text=paste0("comm2sci_", id_class(id)))
+  db <- as.character(taxa::tax_db(id))[1]
+  eval(fun)(id, db, itisby, simplify, ...)
 }
 
-#' @export
-#' @rdname comm2sci
-comm2sci.uid <- function(id, db='ncbi', itisby='search',
+comm2sci_itis <- function(id, db='itis', itisby='search',
+                         simplify=TRUE, ...) {
+  warn_db(list(db = db), "itis")
+  temp <- lapply(as.character(taxa::tax_id(id)), c2s_itis_,
+    simplify = simplify, ...)
+  stats::setNames(temp, as.character(taxa::tax_id(id)))
+}
+
+comm2sci_ncbi <- function(id, db='ncbi', itisby='search',
                          simplify=TRUE, ...) {
   warn_db(list(db = db), "ncbi")
   temp <- lapply(id, c2s_ncbi, simplify = simplify, ...)
-  stats::setNames(temp, id)
+  stats::setNames(temp, as.character(taxa::tax_id(id)))
 }
 
 # helpers ------------
@@ -143,7 +148,8 @@ c2s_itis_ <- function(x, by='search', simplify, ...){
 
 c2s_ncbi <- function(x, simplify, ...) {
   key <- getkey(NULL, "ENTREZ_KEY")
-  query <- tc(list(db = "taxonomy", ID = x, api_key = key))
+  query <- tc(list(db = "taxonomy", ID = as.character(taxa::tax_id(x)),
+    api_key = key))
   cli <- crul::HttpClient$new(url = ncbi_base(),
     headers = tx_ual, opts = list(http_version = 2L, ...))
   res <- cli$get("entrez/eutils/efetch.fcgi", query = query)

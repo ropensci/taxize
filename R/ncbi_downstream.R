@@ -57,9 +57,9 @@ ncbi_downstream <- function(id, downto, intermediate = FALSE, ...) {
   iter <- 0
   while (stop_ == "not") {
     iter <- iter + 1
-    tt <- dt2df(lapply(id, function(x) ncbi_children(id = x, ...)[[1]]))
+    tt <- dt2df(lapply(as.ncbi(id, check=FALSE), function(x) ncbi_children(id = x, ...)[[1]]))
     tt$.id <- NULL
-    tt <- remove_self_ids(tt, id)
+    tt <- remove_self_ids(tt, as.ncbi(id, check=FALSE))
     tt <- rename(tt, c('childtaxa_rank' = 'rank'))
     tt <- prune_too_low(tt, downto, ignore_no_rank = TRUE)
 
@@ -96,5 +96,5 @@ ncbi_downstream <- function(id, downto, intermediate = FALSE, ...) {
 }
 
 remove_self_ids <- function(x, id) {
-  x[!as.character(x$childtaxa_id) %in% as.character(id), ]
+  x[!as.character(x$childtaxa_id) %in% txidac(id), ]
 }

@@ -17,7 +17,8 @@ make_iucn_generic <- function(x, uu, clz, check = TRUE, key = NULL) {
   if (check) {
     res <- check_iucn_getname(x, key = key)
     if (length(res$result) != 0) {
-      toid(res$result$taxonid, uu, clz, name = res$result$scientific_name)
+      toid(as.character(res$result$taxonid), uu, clz,
+        name = res$result$scientific_name)
     } else {
       structure(
         NA, class = clz, match = "not found",

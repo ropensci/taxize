@@ -3,18 +3,8 @@
 \name{classification}
 \alias{classification}
 \alias{classification.default}
-\alias{classification.itis}
-\alias{classification.uid}
-\alias{classification.eolid}
-\alias{classification.tpsid}
-\alias{classification.gbifid}
-\alias{classification.nbnid}
-\alias{classification.tolid}
-\alias{classification.wormsid}
-\alias{classification.natservid}
-\alias{classification.boldid}
+\alias{classification.txid}
 \alias{classification.wiki}
-\alias{classification.pow}
 \alias{classification.ids}
 \alias{cbind.classification}
 \alias{rbind.classification}
@@ -34,36 +24,9 @@ classification(...)
   ...
 )
 
-\method{classification}{itis}(id, return_id = TRUE, ...)
-
-\method{classification}{uid}(
-  id,
-  callopts = list(),
-  return_id = TRUE,
-  batch_size = 50,
-  max_tries = 3,
-  ...
-)
-
-\method{classification}{eolid}(id, callopts = list(), return_id = TRUE, ...)
-
-\method{classification}{tpsid}(id, callopts = list(), return_id = TRUE, ...)
-
-\method{classification}{gbifid}(id, callopts = list(), return_id = TRUE, ...)
-
-\method{classification}{nbnid}(id, callopts = list(), return_id = TRUE, ...)
-
-\method{classification}{tolid}(id, callopts = list(), return_id = TRUE, ...)
-
-\method{classification}{wormsid}(id, callopts = list(), return_id = TRUE, ...)
-
-\method{classification}{natservid}(id, callopts = list(), return_id = TRUE, ...)
-
-\method{classification}{boldid}(id, callopts = list(), return_id = TRUE, ...)
+\method{classification}{txid}(id, return_id = TRUE, ...)
 
 \method{classification}{wiki}(id, callopts = list(), return_id = TRUE, ...)
-
-\method{classification}{pow}(id, callopts = list(), return_id = TRUE, ...)
 
 \method{classification}{ids}(id, ...)
 
@@ -230,7 +193,7 @@ classification(get_tps(c("Poa annua", "aaa vva")))
 classification(get_gbif(c("Poa annua", "Bison bison")))
 
 # Pass many ids from class "ids"
-(out <- get_ids(names="Puma concolor", db = c('ncbi','gbif')))
+(out <- get_ids(sci_com="Puma concolor", db = c('ncbi','gbif')))
 (cl <- classification(out))
 
 # Bind width-wise from class classification_ids
@@ -240,7 +203,7 @@ cbind(cl)
 rbind(cl)
 
 # Many names to get_ids
-(out <- get_ids(names=c("Puma concolor","Accipiter striatus"),
+(out <- get_ids(sci_com=c("Puma concolor","Accipiter striatus"),
   db = c('ncbi','itis')))
 (cl <- classification(out))
 rbind(cl)

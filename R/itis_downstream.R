@@ -41,6 +41,7 @@ itis_downstream <- function(id, downto, intermediate = FALSE, tsns = NULL,
 
 	pchk(tsns, "id")
   if (!is.null(tsns)) id <- tsns
+  id <- as.character(id)
   downto <- tolower(downto)
   downto2 <- taxize_ds$rank_ref[which_rank(downto), "rankid"]
   torank_ids <- taxize_ds$rank_ref[
@@ -54,7 +55,7 @@ itis_downstream <- function(id, downto, intermediate = FALSE, tsns = NULL,
 	while (stop_ == "not") {
 		iter <- iter + 1
 		if (!nchar(as.character(notout$rankname[[1]])) > 0) {
-			temp <- dt2df(lapply(as.character(id), ritis::rank_name),
+			temp <- dt2df(lapply(txidac(id), ritis::rank_name),
 				idcol = FALSE)
 		} else {
 		  temp <- notout

@@ -13,7 +13,7 @@
 #' taxize_cite(fxn='get_natserv_')
 #' taxize_cite(fxn='as.natserv')
 #' taxize_cite(fxn='get_worms')
-#' taxize_cite(fxn='as.wormsid')
+#' taxize_cite(fxn='as.worms')
 #'
 #' # Functions that use many data sources
 #' taxize_cite(fxn='synonyms')
@@ -84,7 +84,7 @@ data_citations <- function(x){
     as.tps = list(tropicos = c_tropicos),
     as.itis = list(itis = c_itis),
     as.ncbi = list(ncbi = c_ncbi),
-    as.wormsid = list(worms = c_worms),
+    as.worms = list(worms = c_worms),
     bold_ping = list(bold = c_bold),
     bold_search = list(bold = c_bold),
     cbind.classification = list(none = c_none),

@@ -3,23 +3,14 @@
 \name{sci2comm}
 \alias{sci2comm}
 \alias{sci2comm.default}
-\alias{sci2comm.uid}
-\alias{sci2comm.tsn}
-\alias{sci2comm.wormsid}
-\alias{sci2comm.iucn}
+\alias{sci2comm.txid}
 \title{Get common names from scientific names.}
 \usage{
 sci2comm(...)
 
 \method{sci2comm}{default}(sci, db = "ncbi", simplify = TRUE, scinames = NULL, ...)
 
-\method{sci2comm}{uid}(id, ...)
-
-\method{sci2comm}{tsn}(id, simplify = TRUE, ...)
-
-\method{sci2comm}{wormsid}(id, simplify = TRUE, ...)
-
-\method{sci2comm}{iucn}(id, simplify = TRUE, ...)
+\method{sci2comm}{txid}(sci_id, simplify = TRUE, ...)
 }
 \arguments{
 \item{...}{Further arguments passed on to functions \code{\link[=get_ncbi]{get_ncbi()}},

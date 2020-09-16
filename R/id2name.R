@@ -63,7 +63,7 @@ id2name_sources <- c('tol', 'itis', 'ncbi', 'worms', 'gbif', 'bold')
 
 process_idn_ids <- function(input, db) {
   as_fxn <- switch(db, tol = as.tol, itis = as.itis, ncbi = as.ncbi,
-    worms = as.wormsid, gbif = as.gbif,
+    worms = as.worms, gbif = as.gbif,
     bold = as.bold)
   as_fxn(input, check = FALSE)
 }

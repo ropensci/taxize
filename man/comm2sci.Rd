@@ -3,8 +3,7 @@
 \name{comm2sci}
 \alias{comm2sci}
 \alias{comm2sci.default}
-\alias{comm2sci.tsn}
-\alias{comm2sci.uid}
+\alias{comm2sci.txid}
 \title{Get scientific names from common names.}
 \usage{
 comm2sci(...)
@@ -18,9 +17,7 @@ comm2sci(...)
   ...
 )
 
-\method{comm2sci}{tsn}(id, db = "ncbi", itisby = "search", simplify = TRUE, ...)
-
-\method{comm2sci}{uid}(id, db = "ncbi", itisby = "search", simplify = TRUE, ...)
+\method{comm2sci}{txid}(id, db = "ncbi", itisby = "search", simplify = TRUE, ...)
 }
 \arguments{
 \item{...}{Further arguments passed on to internal methods.}
