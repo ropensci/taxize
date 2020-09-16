@@ -98,6 +98,7 @@ Imports:
     phangorn,
     conditionz,
     taxa,
+    vctrs,
     hoardr
 Suggests:
     testthat,

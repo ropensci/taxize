@@ -132,7 +132,7 @@ test_that("warn on mismatch 'db'", {
   vcr::use_cassette("children_warn_on_db_mismatch", {
     expect_warning(
       children(
-        get_uid("Chironomus riparius", messages = FALSE), db = "itis"))
+        get_itis("Chironomus riparius", messages = FALSE), db = "worms"))
   })
 })
 

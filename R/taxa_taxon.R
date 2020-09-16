@@ -88,9 +88,28 @@ txz_named_field <- function(x, name) {
   if (!is.null(names(x))) names(out) <- names(x)
   return(out)
 }
+
+#' Access various metadata from taxonomic id objects
+#' @name id-accessors
+#' @family taxonomic-ids
+#' @param x result of a call to a `get_*` function, an object
+#' of class `txid`
+NULL
+
+#' @export
+#' @rdname id-accessors
 txz_uri <- function(x) txz_named_field(x, "uri")
+
+#' @export
+#' @rdname id-accessors
 txz_match <- function(x) txz_named_field(x, "match")
+
+#' @export
+#' @rdname id-accessors
 txz_mm <- function(x) txz_named_field(x, "multiple_matches")
+
+#' @export
+#' @rdname id-accessors
 txz_pm <- function(x) txz_named_field(x, "pattern_match")
 
 as_txid_df <- function(x, check = TRUE) {

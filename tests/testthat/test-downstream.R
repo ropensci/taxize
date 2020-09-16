@@ -3,7 +3,7 @@ context("downstream")
 test_that("downstream basic usage works", {
   skip_on_cran()
   vcr::use_cassette("downstream", {
-    cc <- downstream("Ursus", db = "gbif", downto = "Species",
+    cc <- downstream("Ursus", db = "gbif", downto = "Species", rows = 1,
       messages = FALSE)
   }, preserve_exact_body_bytes = TRUE)
 
@@ -15,7 +15,7 @@ test_that("downstream basic usage works", {
 test_that("downstream - taxonomic id input", {
   skip_on_cran()
   vcr::use_cassette("downstream_id_input", {
-    aa <- downstream(get_gbifid("Ursus", messages = FALSE),
+    aa <- downstream(get_gbifid("Ursus", messages = FALSE, rows = 1),
       db = "gbif", downto = "Species")
   }, preserve_exact_body_bytes = TRUE)
 

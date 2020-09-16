@@ -184,7 +184,8 @@ Other taxonomic-ids:
 \code{\link{get_tol}()},
 \code{\link{get_tps}()},
 \code{\link{get_wiki}()},
-\code{\link{get_worms}()}
+\code{\link{get_worms}()},
+\code{\link{id-accessors}}
 
 Other nbn: 
 \code{\link{nbn_classification}()},

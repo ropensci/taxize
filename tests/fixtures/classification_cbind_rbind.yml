@@ -8,8 +8,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92)
+      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
   response:
     status:
       status_code: '200'
@@ -17,20 +17,20 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Mon, 24 Feb 2020 23:37:56 GMT
+      date: Wed, 16 Sep 2020 01:00:25 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
       x-ratelimit-remaining: '9'
-      ncbi-phid: D0BD57157EF9A68500001F37C383BDD6.1.1.m_1
+      ncbi-phid: D0BD7762B13BBE450000544392DB2E35.1.1.m_1
       cache-control: private
-      ncbi-sid: C4DC67FCA4F90483_E73ASID
+      ncbi-sid: B2C815E78C11F5BF_363CSID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=C4DC67FCA4F90483_E73ASID; domain=.nih.gov; path=/; expires=Wed,
-        24 Feb 2021 23:37:57 GMT
+      set-cookie: ncbi_sid=B2C815E78C11F5BF_363CSID; domain=.nih.gov; path=/; expires=Thu,
+        16 Sep 2021 01:00:25 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -43,8 +43,57 @@ http_interactions:
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>9696</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Puma+concolor[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Puma+concolor[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2020-02-24 23:37:58 GMT
-  recorded_with: vcr/0.4.2.91, webmockr/0.5.1.98
+  recorded_at: 2020-09-16 01:00:27 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&ID=9696&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Wed, 16 Sep 2020 01:00:25 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      x-ratelimit-remaining: '8'
+      ncbi-phid: D0BD7762B13BBE4500006143935A3CB4.1.1.m_1
+      cache-control: private
+      ncbi-sid: 4E7A902B8561245A_76F8SID
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      access-control-allow-origin: '*'
+      content-type: text/xml; charset=UTF-8
+      set-cookie: ncbi_sid=4E7A902B8561245A_76F8SID; domain=.nih.gov; path=/; expires=Thu,
+        16 Sep 2021 01:00:25 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      file: no
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!DOCTYPE eSummaryResult
+        PUBLIC \"-//NLM//DTD esummary v1 20041029//EN\" \"https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20041029/esummary-v1.dtd\">\n<eSummaryResult>\n<DocSum>\n\t<Id>9696</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">carnivores</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Puma concolor</Item>\n\t<Item Name=\"CommonName\" Type=\"String\">puma</Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">9696</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Puma</Item>\n\t<Item Name=\"Species\" Type=\"String\">concolor</Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2018/10/29 00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
+  recorded_at: 2020-09-16 01:00:27 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Accipiter%2Bstriatus&api_key=<<entrez_api_token>>
@@ -54,8 +103,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92)
+      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
   response:
     status:
       status_code: '200'
@@ -63,20 +112,20 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Mon, 24 Feb 2020 23:37:56 GMT
+      date: Wed, 16 Sep 2020 01:00:25 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '8'
-      ncbi-phid: D0BD57157EF9A68500005337C3C444C1.1.1.m_1
+      x-ratelimit-remaining: '7'
+      ncbi-phid: D0BD7762B13BBE450000454393BA9676.1.1.m_1
       cache-control: private
-      ncbi-sid: 33BDD96E6E3DA45F_BF8CSID
+      ncbi-sid: B8156D31065C3068_CC5ESID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=33BDD96E6E3DA45F_BF8CSID; domain=.nih.gov; path=/; expires=Wed,
-        24 Feb 2021 23:37:57 GMT
+      set-cookie: ncbi_sid=B8156D31065C3068_CC5ESID; domain=.nih.gov; path=/; expires=Thu,
+        16 Sep 2021 01:00:25 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -89,8 +138,57 @@ http_interactions:
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>56330</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Accipiter+striatus[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Accipiter+striatus[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2020-02-24 23:37:58 GMT
-  recorded_with: vcr/0.4.2.91, webmockr/0.5.1.98
+  recorded_at: 2020-09-16 01:00:27 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&ID=56330&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Wed, 16 Sep 2020 01:00:25 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      x-ratelimit-remaining: '6'
+      ncbi-phid: D0BD7762B13BBE4500002C439420D636.1.1.m_1
+      cache-control: private
+      ncbi-sid: 3FA865A651427DD7_9290SID
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      access-control-allow-origin: '*'
+      content-type: text/xml; charset=UTF-8
+      set-cookie: ncbi_sid=3FA865A651427DD7_9290SID; domain=.nih.gov; path=/; expires=Thu,
+        16 Sep 2021 01:00:26 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      file: no
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!DOCTYPE eSummaryResult
+        PUBLIC \"-//NLM//DTD esummary v1 20041029//EN\" \"https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20041029/esummary-v1.dtd\">\n<eSummaryResult>\n<DocSum>\n\t<Id>56330</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">hawks &amp; eagles</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Accipiter striatus</Item>\n\t<Item Name=\"CommonName\" Type=\"String\">Sharp-shinned
+        hawk</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">56330</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Accipiter</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">striatus</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2017/06/14 00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
+  recorded_at: 2020-09-16 01:00:27 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=9696%2C56330&api_key=<<entrez_api_token>>
@@ -98,7 +196,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.47.0 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.72.0 r-curl/4.3 crul/1.0.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -108,20 +206,20 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Mon, 24 Feb 2020 23:37:57 GMT
+      date: Wed, 16 Sep 2020 01:00:27 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '7'
-      ncbi-phid: 939B1ADCACB471850000283A42EBE925.1.1.m_3
+      x-ratelimit-remaining: '8'
+      ncbi-phid: D0BD7762B13BBE4500003C4394F2433B.1.1.m_3
       cache-control: private
-      ncbi-sid: C6E1829CE36CACB0_4A6ESID
+      ncbi-sid: 413CA016ECC883AA_5A53SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=C6E1829CE36CACB0_4A6ESID; domain=.nih.gov; path=/; expires=Wed,
-        24 Feb 2021 23:37:58 GMT
+      set-cookie: ncbi_sid=413CA016ECC883AA_5A53SID; domain=.nih.gov; path=/; expires=Thu,
+        16 Sep 2021 01:00:26 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -165,7 +263,7 @@ http_interactions:
                 <Taxon>
                     <TaxId>33154</TaxId>
                     <ScientificName>Opisthokonta</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>33208</TaxId>
@@ -175,17 +273,17 @@ http_interactions:
                 <Taxon>
                     <TaxId>6072</TaxId>
                     <ScientificName>Eumetazoa</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>33213</TaxId>
                     <ScientificName>Bilateria</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>33511</TaxId>
                     <ScientificName>Deuterostomia</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>7711</TaxId>
@@ -200,22 +298,22 @@ http_interactions:
                 <Taxon>
                     <TaxId>7742</TaxId>
                     <ScientificName>Vertebrata</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>7776</TaxId>
                     <ScientificName>Gnathostomata</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>117570</TaxId>
                     <ScientificName>Teleostomi</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>117571</TaxId>
                     <ScientificName>Euteleostomi</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>8287</TaxId>
@@ -225,17 +323,17 @@ http_interactions:
                 <Taxon>
                     <TaxId>1338369</TaxId>
                     <ScientificName>Dipnotetrapodomorpha</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>32523</TaxId>
                     <ScientificName>Tetrapoda</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>32524</TaxId>
                     <ScientificName>Amniota</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>40674</TaxId>
@@ -245,17 +343,17 @@ http_interactions:
                 <Taxon>
                     <TaxId>32525</TaxId>
                     <ScientificName>Theria</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>9347</TaxId>
                     <ScientificName>Eutheria</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>1437010</TaxId>
                     <ScientificName>Boreoeutheria</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>314145</TaxId>
@@ -328,7 +426,7 @@ http_interactions:
                 <Taxon>
                     <TaxId>33154</TaxId>
                     <ScientificName>Opisthokonta</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>33208</TaxId>
@@ -338,17 +436,17 @@ http_interactions:
                 <Taxon>
                     <TaxId>6072</TaxId>
                     <ScientificName>Eumetazoa</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>33213</TaxId>
                     <ScientificName>Bilateria</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>33511</TaxId>
                     <ScientificName>Deuterostomia</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>7711</TaxId>
@@ -363,22 +461,22 @@ http_interactions:
                 <Taxon>
                     <TaxId>7742</TaxId>
                     <ScientificName>Vertebrata</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>7776</TaxId>
                     <ScientificName>Gnathostomata</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>117570</TaxId>
                     <ScientificName>Teleostomi</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>117571</TaxId>
                     <ScientificName>Euteleostomi</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>8287</TaxId>
@@ -388,57 +486,57 @@ http_interactions:
                 <Taxon>
                     <TaxId>1338369</TaxId>
                     <ScientificName>Dipnotetrapodomorpha</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>32523</TaxId>
                     <ScientificName>Tetrapoda</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>32524</TaxId>
                     <ScientificName>Amniota</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>8457</TaxId>
                     <ScientificName>Sauropsida</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>32561</TaxId>
                     <ScientificName>Sauria</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>1329799</TaxId>
                     <ScientificName>Archelosauria</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>8492</TaxId>
                     <ScientificName>Archosauria</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>436486</TaxId>
                     <ScientificName>Dinosauria</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>436489</TaxId>
                     <ScientificName>Saurischia</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>436491</TaxId>
                     <ScientificName>Theropoda</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>436492</TaxId>
                     <ScientificName>Coelurosauria</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>8782</TaxId>
@@ -477,5 +575,5 @@ http_interactions:
         </Taxon>
 
         </TaxaSet>
-  recorded_at: 2020-02-24 23:37:58 GMT
-  recorded_with: vcr/0.4.2.91, webmockr/0.5.1.98
+  recorded_at: 2020-09-16 01:00:27 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2

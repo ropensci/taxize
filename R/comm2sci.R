@@ -88,7 +88,6 @@ sci_from_comm <- function(nn, db, simplify, itisby, ...) {
 comm2sci.txid <- function(id, db='ncbi', itisby='search',
                          simplify=TRUE, ...) {
   fun <- parse(text=paste0("comm2sci_", id_class(id)))
-  db <- as.character(taxa::tax_db(id))[1]
   eval(fun)(id, db, itisby, simplify, ...)
 }
 

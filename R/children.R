@@ -89,29 +89,29 @@ children.default <- function(sci_id, db = NULL, rows = NA, x = NULL, ...) {
     db,
     itis = {
       id <- process_children_ids(sci_id, db, get_itis, rows = rows, ...)
-      stats::setNames(children(id, ...), sci_id)
+      stats::setNames(children(id, ...), names_or_ids(as.character(sci_id)))
     },
 
     ncbi = {
       if (all(grepl("^[[:digit:]]*$", sci_id))) {
         id <- sci_id
-        class(id) <- "uid"
-        stats::setNames(children(id, ...), sci_id)
+        id <- as.ncbi(id, FALSE)
+        stats::setNames(children(id, ...), txidac(as.character(sci_id)))
       } else {
         out <- ncbi_children(name = sci_id, ...)
-        structure(out, class = 'children', db = 'ncbi', .Names = sci_id)
+        structure(out, class = 'children', db = 'ncbi', .Names = txnameac(sci_id))
       }
     },
 
     worms = {
       id <- process_children_ids(sci_id, db, get_worms, rows = rows, ...)
-      stats::setNames(children(id, ...), sci_id)
+      stats::setNames(children(id, ...), names_or_ids(as.character(sci_id)))
     },
 
     bold = {
       id <- process_children_ids(as.character(sci_id), db, get_bold,
         rows = rows, ...)
-      stats::setNames(children(id, ...), sci_id)
+      stats::setNames(children(id, ...), names_or_ids(as.character(sci_id)))
     },
 
     stop("the provided db value was not recognised", call. = FALSE)
@@ -183,7 +183,8 @@ children.ids <- function(sci_id, db = NULL, ...) {
 #' @export
 #' @rdname children
 children.txid <- function(sci_id, db = NULL, ...) {
-  eval(parse(text=paste0("children_", id_class(sci_id))))(sci_id, db)
+  fun <- parse(text=paste0("children_", id_class(sci_id)))
+  eval(fun)(sci_id, db = db, ...)
 }
 
 id_class <- function(x) {
@@ -241,8 +242,8 @@ children_worms <- function(sci_id, db = NULL, ...) {
   return(out)
 }
 
-children_uid <- function(sci_id, db = NULL, ...) {
-  warn_db(list(db = db), "uid")
+children_ncbi <- function(sci_id, db = NULL, ...) {
+  warn_db(list(db = db), "ncbi")
   sci_id <- as.character(taxa::tax_id(sci_id))
   out <- if (is.na(sci_id)) {
     stats::setNames(list(ncbi_blank), sci_id)

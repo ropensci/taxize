@@ -152,7 +152,6 @@ process_stream_ids <- function(input, db, fxn, ...){
 #' @rdname downstream
 downstream.txid <- function(id, db=NULL, downto=NULL, intermediate=FALSE,
   ...) {
-  db <- as.character(taxa::tax_db(id))[1]
   fun <- parse(text=paste0("downstream_", id_class(id)))
   eval(fun)(id, db = db, downto = downto, intermediate = intermediate, ...)
 }

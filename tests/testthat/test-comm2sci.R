@@ -55,6 +55,6 @@ test_that("warn on mismatch 'db'", {
   vcr::use_cassette("comm2sci_warn_on_db_mismatch", {
     expect_warning(
       comm2sci(
-        get_uid("Chironomus riparius", messages = FALSE), db = "itis"))
+        get_ncbi("Chironomus riparius", messages = FALSE), db = "itis"))
   })
 })

@@ -52,8 +52,8 @@ test_that("classification returns the correct values and classes", {
 # 	expect_that(length(clas_tp), equals(2))
 
   vcr::use_cassette("classification_get_fxn", {
-    uids <- get_uid(c("Chironomus riparius", "aaa vva"), messages = FALSE)
-    tsns <- get_tsn(c("Chironomus riparius", "aaa vva"), messages = FALSE)
+    uids <- get_ncbi(c("Chironomus riparius", "aaa vva"), messages = FALSE)
+    tsns <- get_itis(c("Chironomus riparius", "aaa vva"), messages = FALSE)
     clas_uids <- classification(uids, messages = FALSE)
     names(clas_uids) <- NULL
     clas_tsns <- classification(tsns, messages = FALSE)
@@ -128,7 +128,7 @@ test_that("queries with no results fail well", {
   skip_on_cran()
   vcr::use_cassette("classification_no_results", {
     aa <- classification("foobar", db = "itis", messages = FALSE)
-    bb <- classification(get_tsn("foobar", messages = FALSE), messages = FALSE)
+    bb <- classification(get_itis("foobar", messages = FALSE), messages = FALSE)
   })
 
   expect_true(is.na(unclass(aa)[[1]]))
@@ -175,7 +175,7 @@ test_that("warn on mismatch 'db'", {
   vcr::use_cassette("classification_warn_on_db_mismatch", {
     expect_warning(
       classification(
-        get_uid("Chironomus riparius", messages = FALSE), db = "itis"))
+        get_ncbi("Chironomus riparius", messages = FALSE), db = "itis"))
   })
 })
 

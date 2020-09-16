@@ -98,19 +98,28 @@ genbank2uid <- function(id, batch_size = 100, key = NULL, ...) {
                             key = key, ...))
   result <- do.call(rbind, batch_results)
   
+  ids <- as.character(result$id, "id")
+  output <- taxa_taxon(
+    name = result$name,
+    id = taxa::taxon_id(ids, db = "ncbi"),
+    uri = sprintf(get_url_templates$ncbi, ids),
+    match = vapply(!is.na(ids), function(w) ifelse(w, "found", "not found"), ""),
+    class = "ncbi"
+  )
+
   # Convert to list format
-  output <- lapply(seq_len(nrow(result)), function(i) {
-    my_uid <- result[i, "id"]
-    my_uid <- as.ncbi(result[i, "id"], check = FALSE)
-    if (is.na(my_uid)) {
-      attr(my_uid, "match") <- "not found"
-      attr(my_uid, "name") <- "unknown"
-    } else {
-      attr(my_uid, "match") <- "found"
-      attr(my_uid, "name") <- result[i, "name"]
-    }
-    return(my_uid)
-  })
+  # output <- lapply(seq_len(nrow(result)), function(i) {
+  #   my_id <- result[i, "id"]
+  #   my_id <- as.ncbi(result[i, "id"], check = FALSE)
+  #   if (is.na(my_id)) {
+  #     attr(my_id, "match") <- "not found"
+  #     attr(my_id, "name") <- "unknown"
+  #   } else {
+  #     attr(my_id, "match") <- "found"
+  #     attr(my_id, "name") <- result[i, "name"]
+  #   }
+  #   return(my_id)
+  # })
   
   # Alert user to errors
   if (any(is.na(result$id))) {
@@ -118,7 +127,7 @@ genbank2uid <- function(id, batch_size = 100, key = NULL, ...) {
     warning(paste0("The following ", sum(is.na(result$id)), " of ", nrow(result),
                    " queries could not be found:\n  ",
                    limited_print(failed, type = "silent")), call. = FALSE)
-   }
+  }
   return(output)
 }
 

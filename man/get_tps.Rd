@@ -191,7 +191,8 @@ Other taxonomic-ids:
 \code{\link{get_pow}()},
 \code{\link{get_tol}()},
 \code{\link{get_wiki}()},
-\code{\link{get_worms}()}
+\code{\link{get_worms}()},
+\code{\link{id-accessors}}
 }
 \author{
 Scott Chamberlain
