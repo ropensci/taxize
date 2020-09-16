@@ -66,7 +66,7 @@ classification data.}
 
 \item{rows}{(numeric) Any number from 1 to infinity. If the default NA,
 all rows are considered. Note that this parameter is ignored if you pass
-in a taxonomic id instead of a name of class character.}
+in a taxonomic id instead of a name of class character}
 
 \item{x}{Deprecated, see \code{sci_id}}
 
@@ -74,12 +74,6 @@ in a taxonomic id instead of a name of class character.}
 \code{\link[=get_eol]{get_eol()}}, \code{\link[=get_tps]{get_tps()}}, \code{\link[=get_gbif]{get_gbif()}}, \code{\link[=get_tol]{get_tol()}},
 \code{\link[=get_worms]{get_worms()}}, \code{\link[=get_natserv]{get_natserv()}}, \code{\link[=get_worms]{get_worms()}}, \code{\link[=get_wiki]{get_wiki()}},
 \code{\link[=get_pow]{get_pow()}}}
-
-\item{batch_size}{(numeric) For NCBI queries, specify the number of IDs to
-lookup for each query.}
-
-\item{max_tries}{(numeric) For NCBI queries, the number of times a particular
-query will be attempted, assuming the first does not work.}
 }
 \value{
 A named list of data.frames with the taxonomic classification of
@@ -97,6 +91,17 @@ BEWARE: Right now, NBN doesn't return the queried taxon in the
 classification. But you can attach it yourself quite easily of course.
 This behavior is different from the other data sources.
 }
+\section{NCBI parameters}{
+
+The following two parameters can be passed through when using NCBI
+\itemize{
+\item \code{batch_size} (numeric) For NCBI queries, specify the number of IDs to
+lookup for each query.
+\item \code{max_tries} (numeric) For NCBI queries, the number of times a particular
+query will be attempted, assuming the first does not work.
+}
+}
+
 \section{Lots of results}{
 
 It may happen sometimes that you get more results back from your query

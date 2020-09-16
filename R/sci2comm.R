@@ -16,8 +16,6 @@
 #' @param scinames Deprecated, see `sci`
 #' @param ... Further arguments passed on to functions [get_ncbi()],
 #' [get_itis()].
-#' @param id character; identifiers, as returned by [get_itis()],
-#' [get_ncbi()].
 #'
 #' @section Authentication:
 #' See [taxize-authentication] for help on authentication
@@ -75,10 +73,10 @@ sci2comm.default <- function(sci, db='ncbi', simplify=TRUE,
 
 #' @export
 #' @rdname sci2comm
-sci2comm.txid <- function(sci_id, simplify = TRUE, ...) {
-  db <- txdbac(sci_id)[1]
-  fun <- parse(text=paste0("sci2comm_", id_class(sci_id)))
-  eval(fun)(sci_id, simplify, ...)
+sci2comm.txid <- function(sci, simplify = TRUE, ...) {
+  db <- txdbac(sci)[1]
+  fun <- parse(text=paste0("sci2comm_", id_class(sci)))
+  eval(fun)(sci, simplify, ...)
 }
 
 sci2comm_ncbi <- function(id, ...) {

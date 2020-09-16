@@ -10,7 +10,7 @@ sci2comm(...)
 
 \method{sci2comm}{default}(sci, db = "ncbi", simplify = TRUE, scinames = NULL, ...)
 
-\method{sci2comm}{txid}(sci_id, simplify = TRUE, ...)
+\method{sci2comm}{txid}(sci, simplify = TRUE, ...)
 }
 \arguments{
 \item{...}{Further arguments passed on to functions \code{\link[=get_ncbi]{get_ncbi()}},
@@ -32,9 +32,6 @@ data.frame. Only applies to eol and itis. Specify \code{FALSE} to obtain
 the language of each vernacular in the output for eol and itis.}
 
 \item{scinames}{Deprecated, see \code{sci}}
-
-\item{id}{character; identifiers, as returned by \code{\link[=get_itis]{get_itis()}},
-\code{\link[=get_ncbi]{get_ncbi()}}.}
 }
 \value{
 List of character vectors, named by input taxon name,

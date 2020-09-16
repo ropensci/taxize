@@ -19,7 +19,7 @@ downstream(...)
   ...
 )
 
-\method{downstream}{txid}(id, db = NULL, downto = NULL, intermediate = FALSE, ...)
+\method{downstream}{txid}(sci_id, db = NULL, downto = NULL, intermediate = FALSE, ...)
 
 \method{downstream}{ids}(sci_id, db = NULL, downto = NULL, intermediate = FALSE, ...)
 }
@@ -56,10 +56,6 @@ rows are considered. Note that this parameter is ignored if you pass in a
 taxonomic id of any of the acceptable classes: tsn.}
 
 \item{x}{Deprecated, see \code{sci_id}}
-
-\item{limit}{Number of records to return}
-
-\item{start}{Record number to start at}
 }
 \value{
 A named list of data.frames with the downstream names of every
@@ -76,6 +72,15 @@ ourselves here.
 \section{Authentication}{
 
 See \link{taxize-authentication} for help on authentication
+}
+
+\section{GBIF parameters}{
+
+The following two parameters can be passed through when using GBIF
+\itemize{
+\item \code{limit} Number of records to return
+\item \code{start} Record number to start at
+}
 }
 
 \section{bold}{

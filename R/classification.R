@@ -27,11 +27,7 @@
 #' classification data.
 #' @param rows (numeric) Any number from 1 to infinity. If the default NA,
 #' all rows are considered. Note that this parameter is ignored if you pass
-#' in a taxonomic id instead of a name of class character.
-#' @param batch_size (numeric) For NCBI queries, specify the number of IDs to
-#'   lookup for each query.
-#' @param max_tries (numeric) For NCBI queries, the number of times a particular
-#'   query will be attempted, assuming the first does not work.
+#' in a taxonomic id instead of a name of class character
 #' @param x Deprecated, see `sci_id`
 #'
 #' @return A named list of data.frames with the taxonomic classification of
@@ -43,6 +39,14 @@
 #' BEWARE: Right now, NBN doesn't return the queried taxon in the
 #' classification. But you can attach it yourself quite easily of course.
 #' This behavior is different from the other data sources.
+#' 
+#' @section NCBI parameters:
+#' The following two parameters can be passed through when using NCBI
+#' 
+#' - `batch_size` (numeric) For NCBI queries, specify the number of IDs to
+#' lookup for each query.
+#' - `max_tries` (numeric) For NCBI queries, the number of times a particular
+#' query will be attempted, assuming the first does not work.
 #'
 #' @seealso [get_itis()], [get_ncbi()], [get_eol()],
 #'    [get_tps()], [get_gbif()], [get_worms()], [get_natserv()],

@@ -30,8 +30,6 @@
 #' @param rows (numeric) Any number from 1 to infinity. If the default NA, all
 #' rows are considered. Note that this parameter is ignored if you pass in a
 #' taxonomic id of any of the acceptable classes: tsn.
-#' @param limit Number of records to return
-#' @param start Record number to start at
 #' @param x Deprecated, see `sci_id`
 #' @param ... Further args passed on to [itis_downstream()],
 #' [gbif_downstream()], [ncbi_downstream()],
@@ -42,6 +40,12 @@
 #'
 #' @section Authentication:
 #' See [taxize-authentication] for help on authentication
+#' 
+#' @section GBIF parameters:
+#' The following two parameters can be passed through when using GBIF
+#' 
+#' - `limit` Number of records to return
+#' - `start` Record number to start at
 #' 
 #' @section bold:
 #' BEWARE: `db="bold"` scrapes the BOLD website, so may be unstable. That is,
@@ -150,10 +154,10 @@ process_stream_ids <- function(input, db, fxn, ...){
 
 #' @export
 #' @rdname downstream
-downstream.txid <- function(id, db=NULL, downto=NULL, intermediate=FALSE,
+downstream.txid <- function(sci_id, db=NULL, downto=NULL, intermediate=FALSE,
   ...) {
-  fun <- parse(text=paste0("downstream_", id_class(id)))
-  eval(fun)(id, db = db, downto = downto, intermediate = intermediate, ...)
+  fun <- parse(text=paste0("downstream_", id_class(sci_id)))
+  eval(fun)(sci_id, db = db, downto = downto, intermediate = intermediate, ...)
 }
 
 downstream_itis <- function(sci_id, db = NULL, downto = NULL,
