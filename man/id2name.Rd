@@ -3,29 +3,14 @@
 \name{id2name}
 \alias{id2name}
 \alias{id2name.default}
-\alias{id2name.tolid}
-\alias{id2name.tsn}
-\alias{id2name.uid}
-\alias{id2name.wormsid}
-\alias{id2name.gbifid}
-\alias{id2name.boldid}
+\alias{id2name.txid}
 \title{Taxonomic IDs to taxonomic names}
 \usage{
 id2name(id, db = NULL, x = NULL, ...)
 
 \method{id2name}{default}(id, db = NULL, x = NULL, ...)
 
-\method{id2name}{tolid}(id, ...)
-
-\method{id2name}{tsn}(id, ...)
-
-\method{id2name}{uid}(id, ...)
-
-\method{id2name}{wormsid}(id, ...)
-
-\method{id2name}{gbifid}(id, ...)
-
-\method{id2name}{boldid}(id, ...)
+\method{id2name}{txid}(id, ...)
 }
 \arguments{
 \item{id}{vector of taxonomic IDs (character or numeric)}

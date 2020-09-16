@@ -68,10 +68,36 @@ process_idn_ids <- function(input, db) {
   as_fxn(input, check = FALSE)
 }
 
-# TOL
 #' @export
 #' @rdname id2name
-id2name.tolid <- function(id, ...) {
+id2name.txid <- function(id, ...) {
+  fun <- parse(text=paste0("id2name_", id_class(id)))
+  eval(fun)(txidac(id), ...)
+}
+
+# id2name factory
+id2name_factory <- function(db) {
+  function(id, ...) {
+    warn_db(list(...), db)
+    fxn <- parse(text=paste0(db, "_id2name"))
+    fun <- function(y) {
+      if (is.na(y)) NA_character_ else eval(fxn)(y)
+    }
+    out <- lapply(id, fun)
+    names(out) <- id
+    class(out) <- 'id2name'
+    attr(out, 'db') <- db
+    return(out)
+  }
+}
+id2name_itis <- id2name_factory("itis")
+id2name_ncbi <- id2name_factory("ncbi")
+id2name_worms <- id2name_factory("worms")
+id2name_gbif <- id2name_factory("gbif")
+id2name_bold <- id2name_factory("bold")
+
+# TOL
+id2name_tol <- function(id, ...) {
   warn_db(list(...), "tol")
   fun <- function(y) {
     if (is.na(y)) NA_character_ else tol_id2name(as.numeric(y))
@@ -83,7 +109,6 @@ id2name.tolid <- function(id, ...) {
   return(out)
 }
 
-
 # ITIS
 itis_id2name <- function(x, ...) {
   z <- itis_getrecord(x, ...)
@@ -94,21 +119,6 @@ itis_id2name <- function(x, ...) {
     parent_tsn = z$parentTSN$parentTsn,
     stringsAsFactors = FALSE)
 }
-
-#' @export
-#' @rdname id2name
-id2name.tsn <- function(id, ...) {
-  warn_db(list(...), "itis")
-  fun <- function(y) {
-    if (is.na(y)) NA_character_ else itis_id2name(y, ...)
-  }
-  out <- lapply(id, fun, ...)
-  names(out) <- id
-  class(out) <- 'id2name'
-  attr(out, 'db') <- 'tsn'
-  return(out)
-}
-
 
 # NCBI
 ncbi_id2name <- function(x, ...) {
@@ -130,21 +140,6 @@ ncbi_id2name <- function(x, ...) {
   return(tmp)
 }
 
-#' @export
-#' @rdname id2name
-id2name.uid <- function(id, ...) {
-  warn_db(list(...), "ncbi")
-  fun <- function(y, ...) {
-    if (is.na(y)) NA_character_ else ncbi_id2name(y, ...)
-  }
-  out <- lapply(id, fun, ...)
-  names(out) <- id
-  class(out) <- 'id2name'
-  attr(out, 'db') <- 'ncbi'
-  return(out)
-}
-
-
 # WORMS
 worms_id2name <- function(x, ...) {
   res <- worrms::wm_record(as.numeric(x), ...)
@@ -153,21 +148,6 @@ worms_id2name <- function(x, ...) {
     rank = res$rank, status = res$status,
     stringsAsFactors = FALSE)
 }
-
-#' @export
-#' @rdname id2name
-id2name.wormsid <- function(id, ...) {
-  warn_db(list(...), "worms")
-  fun <- function(y) {
-    if (is.na(y)) NA_character_ else worms_id2name(y, ...)
-  }
-  out <- lapply(id, fun, ...)
-  names(out) <- id
-  class(out) <- 'id2name'
-  attr(out, 'db') <- 'worms'
-  return(out)
-}
-
 
 # GBIF
 gbif_id2name <- function(x, ...) {
@@ -178,20 +158,6 @@ gbif_id2name <- function(x, ...) {
     stringsAsFactors = FALSE)
 }
 
-#' @export
-#' @rdname id2name
-id2name.gbifid <- function(id, ...) {
-  warn_db(list(...), "gbif")
-  fun <- function(y) {
-    if (is.na(y)) NA_character_ else gbif_id2name(y, ...)
-  }
-  out <- lapply(id, fun, ...)
-  names(out) <- id
-  class(out) <- 'id2name'
-  attr(out, 'db') <- 'gbif'
-  return(out)
-}
-
 # BOLD
 bold_id2name <- function(x, ...) {
   z <- bold_search(id = x, ...)
@@ -200,21 +166,6 @@ bold_id2name <- function(x, ...) {
     rank = tolower(z$tax_rank),
     stringsAsFactors = FALSE)
 }
-
-#' @export
-#' @rdname id2name
-id2name.boldid <- function(id, ...) {
-  warn_db(list(...), "bold")
-  fun <- function(y) {
-    if (is.na(y)) NA_character_ else bold_id2name(y, ...)
-  }
-  out <- lapply(id, fun, ...)
-  names(out) <- id
-  class(out) <- 'id2name'
-  attr(out, 'db') <- 'bold'
-  return(out)
-}
-
 
 ######## blank data.frames
 id2name_blanks <- list(

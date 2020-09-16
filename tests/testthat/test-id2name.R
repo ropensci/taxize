@@ -6,7 +6,7 @@ test_that("id2name: itis", {
   aa <- id2name(19322, db = "itis")
 
   expect_is(aa, "id2name")
-  expect_equal(attr(aa, "db"), "tsn")
+  expect_equal(attr(aa, "db"), "itis")
   expect_is(unclass(aa), "list")
   expect_is(aa[[1]], "data.frame")
   expect_named(aa[[1]], c('id', 'name', 'rank', 'status', 'parent_tsn'))
@@ -41,6 +41,6 @@ test_that("warn on mismatch 'db'", {
   vcr::use_cassette("id2name_warn_on_db_mismatch", {
     expect_warning(
       id2name(
-        get_uid('Apis', messages = FALSE), db = "gbif"))
+        get_ncbi('Apis', messages = FALSE), db = "gbif"))
   })
 })
