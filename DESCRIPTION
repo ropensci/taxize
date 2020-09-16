@@ -5,7 +5,7 @@ Description: Interacts with a suite of web 'APIs' for taxonomic tasks,
     species names, getting taxonomic hierarchies, fetching downstream and
     upstream taxonomic names, getting taxonomic synonyms, converting
     scientific to common names and vice versa, and more.
-Version: 0.9.97.95
+Version: 0.9.97.97
 License: MIT + file LICENSE
 URL: https://docs.ropensci.org/taxize (website),
     https://github.com/ropensci/taxize (devel),
@@ -73,6 +73,8 @@ Language: en-US
 Depends:
     R(>= 3.2.1)
 Imports:
+    taxa,
+    vctrs,
     graphics,
     methods,
     stats,
@@ -102,9 +104,7 @@ Suggests:
     vegan,
     ape,
     phangorn,
-    zoo,
-    vctrs,
-    taxa
+    zoo
 Remotes: ropensci/taxa@vectorize-no-taxize
 RoxygenNote: 7.1.1
 Roxygen: list(markdown = TRUE)

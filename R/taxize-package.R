@@ -72,6 +72,10 @@
 #' @importFrom cli symbol cat_line rule
 #' @importFrom conditionz ConditionKeeper
 #' @importFrom hoardr hoard
+#' @importFrom vctrs field new_rcrd vec_assert vec_cast vec_default_cast
+#' vec_recycle vec_recycle_common
+#' @importFrom taxa db_ref tax_db tax_id tax_name tax_rank taxon
+#' taxon_authority taxon_id taxon_rank
 #' @name taxize-package
 #' @aliases taxize
 #' @docType package
@@ -285,6 +289,17 @@ NULL
 #' * [eubon()]: This function is defunct. Use [eubon_search()]
 #'
 #' @name taxize-defunct
+#' @aliases defunct
+NULL
+
+#' Deprecated functions in taxize
+#'
+#' The following functions are now deprecated:
+#' 
+#' * [get_tsn()]: use [get_itis()]
+#' * [get_uid()]: use [get_ncbi()]
+#'
+#' @name taxize-deprecated
 #' @aliases defunct
 NULL
 

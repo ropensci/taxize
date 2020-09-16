@@ -83,6 +83,7 @@ get_itis <- function(sci_com, searchtype = "scientific", accepted = FALSE,
   assert(searchtype, "character")
   assert(accepted, "logical")
   assert_rows(rows)
+  fchk(searchterm, "get_itis")
   pchk(searchterm, "sci_com")
 
   if (inherits(sci_com, "character")) {

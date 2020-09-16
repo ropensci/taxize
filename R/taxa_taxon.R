@@ -1,15 +1,3 @@
-# update taxa::db_ref
-taxa::db_ref$set("worms", url = "https://www.marinespecies.org/", 
-  desc = "World Register of Marine Species ", id_regex = ".+")
-taxa::db_ref$set("tol", url = "https://tree.opentreeoflife.org/",
-  desc = "Open Tree of Life", id_regex = ".+")
-taxa::db_ref$set("iucn", url = "https://www.iucnredlist.org/",
-  desc = "The IUCN Red List of Threatened Species", id_regex = ".+")
-taxa::db_ref$set("natserv", url = "https://www.natureserve.org/",
-  desc = "Nature Serve", id_regex = ".+")
-taxa::db_ref$set("pow", url = "http://plantsoftheworldonline.org/",
-  desc = "Plants of the World", id_regex = "urn:lsid:ipni.org:names:[0-9]{5,8}-[12]")
-
 .new_taxa_taxon <- function(.names = NULL, name = character(),
   rank = taxa::taxon_rank(), id = taxa::taxon_id(),
   auth = taxa::taxon_authority(),
