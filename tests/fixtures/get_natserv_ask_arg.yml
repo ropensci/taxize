@@ -1,0 +1,29 @@
+http_interactions:
+- request:
+    method: post
+    uri: https://explorer.natureserve.org/api/data/speciesSearch
+    body:
+      encoding: ''
+      string: '{"criteriaType":"species","textCriteria":[{"paramType":"textSearch","searchToken":"howdy","matchAgainst":"allScientificNames","operator":"similarTo"}]}'
+    headers:
+      User-Agent: libcurl/7.72.0 r-curl/4.3 crul/1.0.0
+      Content-Type: application/json
+      Accept-Encoding: gzip, deflate
+      Accept: application/json
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 200
+      date: Wed, 16 Sep 2020 17:29:01 GMT
+      server: Apache/2.4.41 (Win64) OpenSSL/1.1.1c
+      content-type: application/json;charset=UTF-8
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"results":[],"resultsSummary":{"page":0,"recordsPerPage":20,"totalPages":0,"totalResults":0,"speciesResults":{"total":0}},"searchCriteria":{"criteriaType":"species","textCriteria":[{"paramType":"textSearch","searchToken":"howdy","matchAgainst":"allScientificNames","operator":"similarTo"}],"statusCriteria":null,"locationCriteria":null,"pagingOptions":{"page":0,"recordsPerPage":20},"recordSubtypeCriteria":null,"modifiedSince":null,"locationOptions":null,"classificationOptions":null,"speciesTaxonomyCriteria":null}}'
+  recorded_at: 2020-09-16 17:30:35 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2

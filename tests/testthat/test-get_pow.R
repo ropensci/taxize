@@ -3,7 +3,7 @@ context("get_pow")
 test_that("get_pow: not found", {
   skip_on_cran()
   vcr::use_cassette("get_pow", {
-    z <- get_pow("adsf asdf asdf", messages = FALSE)[[1]]
+    z <- get_pow("adsf asdf asdf", messages = FALSE)
     w <- get_pow(c("Helianthus excubitor", "adsf asdf asdf"), 
       messages = FALSE)
   })
@@ -16,8 +16,8 @@ test_that("get_pow accepts ask-argument", {
   skip_on_cran()
   vcr::use_cassette("get_pow_ask_arg", {
     z <- get_pow("adsf asdf asdf", ask = FALSE,
-      messages = FALSE)[[1]]
-    expect_true(is.na(z))
+      messages = FALSE)
+    expect_true(is.na(z[[1]]))
   })
 })
 

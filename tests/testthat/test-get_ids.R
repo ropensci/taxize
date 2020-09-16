@@ -8,10 +8,10 @@ test_that("get_ids returns the correct values and classses", {
   tt <- get_ids("Chironomus riparius", db = "ncbi",
     messages = FALSE, suppress = TRUE)
 
-  expect_equal(tt[[1]][[1]], "315576")
+  expect_equal(unname(txidac(tt$ncbi)), "315576")
   expect_is(tt, "ids")
-  expect_is(tt[[1]], "uid")
-  expect_is(tt[[1]][[1]], "character")
+  expect_is(tt$ncbi, "ncbi")
+  expect_is(txidac(tt$ncbi), "character")
 })
 
 test_that("get_ids accepts ask and verbose arguments", {

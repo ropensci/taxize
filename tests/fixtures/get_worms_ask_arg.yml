@@ -1,0 +1,61 @@
+http_interactions:
+- request:
+    method: get
+    uri: http://www.marinespecies.org/rest/AphiaRecordsByName/Platanista%20gangetica?like=true&marine_only=true&offset=1
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.72.0 r-curl/4.3 crul/1.0.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '204'
+      message: No Content
+      explanation: Request fulfilled, nothing follows
+    headers:
+      status: HTTP/1.1 204 No Content
+      date: Wed, 16 Sep 2020 18:11:12 GMT
+      server: Apache/2.4.39 (Win64)
+      access-control-allow-origin: '*'
+      access-control-allow-headers: X-Requested-With, Content-Type, Accept, Origin,
+        Authorization
+      access-control-allow-methods: GET, POST, OPTIONS
+      set-cookie: vliz_webc=vliz_webc1; path=/
+    body:
+      encoding: UTF-8
+      file: no
+      string: ''
+  recorded_at: 2020-09-16 18:11:13 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2
+- request:
+    method: get
+    uri: http://www.marinespecies.org/rest/AphiaRecordsByName/asdasf?like=true&marine_only=true&offset=1
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.72.0 r-curl/4.3 crul/1.0.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '204'
+      message: No Content
+      explanation: Request fulfilled, nothing follows
+    headers:
+      status: HTTP/1.1 204 No Content
+      date: Wed, 16 Sep 2020 18:11:12 GMT
+      server: Apache/2.4.39 (Win64)
+      access-control-allow-origin: '*'
+      access-control-allow-headers: X-Requested-With, Content-Type, Accept, Origin,
+        Authorization
+      access-control-allow-methods: GET, POST, OPTIONS
+      set-cookie: vliz_webc=vliz_webc1; path=/
+    body:
+      encoding: UTF-8
+      file: no
+      string: ''
+  recorded_at: 2020-09-16 18:11:13 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2
