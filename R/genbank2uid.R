@@ -106,20 +106,6 @@ genbank2uid <- function(id, batch_size = 100, key = NULL, ...) {
     match = vapply(!is.na(ids), function(w) ifelse(w, "found", "not found"), ""),
     class = "ncbi"
   )
-
-  # Convert to list format
-  # output <- lapply(seq_len(nrow(result)), function(i) {
-  #   my_id <- result[i, "id"]
-  #   my_id <- as.ncbi(result[i, "id"], check = FALSE)
-  #   if (is.na(my_id)) {
-  #     attr(my_id, "match") <- "not found"
-  #     attr(my_id, "name") <- "unknown"
-  #   } else {
-  #     attr(my_id, "match") <- "found"
-  #     attr(my_id, "name") <- result[i, "name"]
-  #   }
-  #   return(my_id)
-  # })
   
   # Alert user to errors
   if (any(is.na(result$id))) {

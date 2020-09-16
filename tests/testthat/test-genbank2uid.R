@@ -40,14 +40,13 @@ test_that("genbank2uid - with gi numbers", {
   expect_is(txz_uri(aa), "character")
   expect_match(txz_uri(aa), "http")
 
-  expect_is(bb, "list")
-  expect_is(bb[[1]], "uid")
-  expect_is(unclass(bb[[1]]), "character")
-  expect_is(attr(bb[[2]], "match"), "character")
-  expect_equal(vapply(bb, attr, TRUE, which = "multiple_matches"), c(FALSE, FALSE))
-  expect_equal(vapply(bb, attr, TRUE, which = "pattern_match"), c(FALSE, FALSE))
-  expect_is(attr(bb[[1]], "uri"), "character")
-  expect_match(attr(bb[[1]], "uri"), "http")
+  expect_is(bb, "txid")
+  expect_is(bb, "ncbi")
+  expect_is(txz_match(bb), "character")
+  expect_equal(txz_mm(bb), c(NA, NA))
+  expect_equal(txz_pm(bb), c(NA, NA))
+  expect_is(txz_uri(bb), "character")
+  expect_match(txz_uri(bb), "http")
 })
 
 ### THIS ONLY RETURNS 1 RESULT NOW
@@ -72,8 +71,8 @@ test_that("genbank2uid - fails well", {
     expect_warning(genbank2uid(id = "gwa2_scaffold_1731_16S_1"),
                    "The following 1 of 1 queries could not be found")
     aa <- suppressWarnings(genbank2uid(id = "gwa2_scaffold_1731_16S_1"))
-    expect_is(aa[[1]], "uid")
-    expect_true(is.na(unclass(aa[[1]])))
+    expect_is(aa, "ncbi")
+    expect_true(is.na(aa))
 
     # many Ids not found
     expect_warning(genbank2uid(id = c("gwa2_scaffold_1731_16S_1", "asdfadfs")),
@@ -85,8 +84,8 @@ test_that("genbank2uid - fails well", {
   skip_on_cran()
   aa <- suppressWarnings(genbank2uid(id = c("gwa2_scaffold_1731_16S_1",
                                             "asdfadfs")))
-  expect_is(aa[[1]], "uid")
-  expect_true(all(is.na(unclass(aa[[1]]))))
+  expect_is(aa, "ncbi")
+  expect_true(all(is.na(aa)))
 
   # id not given
   expect_error(genbank2uid(), "argument \"id\" is missing")
