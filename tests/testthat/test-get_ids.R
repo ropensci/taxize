@@ -5,7 +5,7 @@ context("get_ids")
 test_that("get_ids returns the correct values and classses", {
   skip_on_cran()
 
-  tt <- get_ids(names = "Chironomus riparius", db = "ncbi",
+  tt <- get_ids("Chironomus riparius", db = "ncbi",
     messages = FALSE, suppress = TRUE)
 
   expect_equal(tt[[1]][[1]], "315576")
@@ -17,9 +17,9 @@ test_that("get_ids returns the correct values and classses", {
 test_that("get_ids accepts ask and verbose arguments", {
   skip_on_cran()
 
-  expect_message(get_ids(names = "Pinus contorta", db = "ncbi",
+  expect_message(get_ids("Pinus contorta", db = "ncbi",
     suppress = TRUE))
-  expect_message(get_ids(names = "Pinus contorta", db = "ncbi",
+  expect_message(get_ids("Pinus contorta", db = "ncbi",
     messages = FALSE, suppress = TRUE), NA)
 })
 
@@ -39,6 +39,7 @@ nn <- c('Imperata brasiliensis','Hylebates cordatus','Apocopis intermedius',
 
 test_that("works on a variety of names", {
   skip_on_cran()
+  skip_on_ci()
 
   expect_is(sw(get_ids(nn[13], db = c("ncbi", "itis", "tropicos"),
     suppress = TRUE, ask = FALSE, messages = FALSE)), "ids")

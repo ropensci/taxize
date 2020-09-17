@@ -1,7 +1,7 @@
 #' Retrieve the lowest common taxon and rank for a given taxon name or ID
 #'
 #' @export
-#' @param x Vector of taxa names (character) or id (character or numeric) to
+#' @param sci_id Vector of taxa names (character) or id (character or numeric) to
 #' query.
 #' @param db character; database to query. either `ncbi`, `itis`, `gbif`,
 #' `tol`. If using ncbi, we recommend getting an API key;
@@ -13,6 +13,7 @@
 #' @param class_list (list) A list of classifications, as returned from
 #' [classification()]
 #' @param low_rank (character) taxonomic rank to return, of length 1
+#' @param x Deprecated, see `sci_id`
 #' @param ... Other arguments passed to [get_tsn()], [get_uid()],
 #' [get_gbifid()], [get_tolid()]
 #'
@@ -104,26 +105,29 @@ lowest_common <- function(...){
 
 #' @export
 #' @rdname lowest_common
-lowest_common.default <- function(x, db = NULL, rows = NA, class_list = NULL,
-                                  low_rank = NULL, ...) {
+#' @method lowest_common default
+lowest_common.default <- function(sci_id, db = NULL, rows = NA, class_list = NULL,
+                                  low_rank = NULL, x = NULL, ...) {
   if (is.null(db)) if (!is.null(class_list)) db <- attr(class_list, "db")
   nstop(db)
+  pchk(x, "sci_id")
+  if (!is.null(x)) sci_id <- x
   switch(
     db,
     itis = {
-      id <- process_lowest_ids(x, db, get_tsn, rows = rows, ...)
+      id <- process_lowest_ids(sci_id, db, get_tsn, rows = rows, ...)
       lowest_common(id, class_list, ...)
     },
     ncbi = {
-      id <- process_lowest_ids(x, db, get_uid, rows = rows, ...)
+      id <- process_lowest_ids(sci_id, db, get_uid, rows = rows, ...)
       lowest_common(id, class_list, ...)
     },
     gbif = {
-      id <- process_lowest_ids(x, db, get_gbifid, rows = rows, ...)
+      id <- process_lowest_ids(sci_id, db, get_gbifid, rows = rows, ...)
       lowest_common(id, class_list, ...)
     },
     tol = {
-      id <- process_lowest_ids(x, db, get_tolid, rows = rows, ...)
+      id <- process_lowest_ids(sci_id, db, get_tolid, rows = rows, ...)
       lowest_common(id, class_list, ...)
     },
     stop("the provided db value was not recognised", call. = FALSE)
@@ -132,35 +136,35 @@ lowest_common.default <- function(x, db = NULL, rows = NA, class_list = NULL,
 
 #' @export
 #' @rdname lowest_common
-lowest_common.uid <- function(x, class_list = NULL, low_rank = NULL, ...) {
-  check_lowest_ids(x)
-  class_list <- get_class(x, class_list, db = "uid", ...)
-  lc_helper(x, class_list, low_rank, ...)
+lowest_common.uid <- function(sci_id, class_list = NULL, low_rank = NULL, ...) {
+  check_lowest_ids(sci_id)
+  class_list <- get_class(sci_id, class_list, db = "uid", ...)
+  lc_helper(sci_id, class_list, low_rank, ...)
 }
 
 #' @export
 #' @rdname lowest_common
-lowest_common.tsn <- function(x, class_list = NULL, low_rank = NULL, ...) {
-  check_lowest_ids(x)
-  class_list <- get_class(x, class_list, db = "itis", ...)
-  lc_helper(x, class_list, low_rank, ...)
+lowest_common.tsn <- function(sci_id, class_list = NULL, low_rank = NULL, ...) {
+  check_lowest_ids(sci_id)
+  class_list <- get_class(sci_id, class_list, db = "itis", ...)
+  lc_helper(sci_id, class_list, low_rank, ...)
 }
 
 #' @export
 #' @rdname lowest_common
-lowest_common.gbifid <- function(x, class_list = NULL, low_rank = NULL, ...) {
-  check_lowest_ids(x)
-  class_list <- get_class(x, class_list, db = "gbif", ...)
-  lc_helper(x, class_list, low_rank, ...)
+lowest_common.gbifid <- function(sci_id, class_list = NULL, low_rank = NULL, ...) {
+  check_lowest_ids(sci_id)
+  class_list <- get_class(sci_id, class_list, db = "gbif", ...)
+  lc_helper(sci_id, class_list, low_rank, ...)
 }
 
 #' @export
 #' @rdname lowest_common
-lowest_common.tolid <- function(x, class_list = NULL, low_rank = NULL, ...) {
-  check_lowest_ids(x)
-  class_list <- get_class(x, class_list, db = "tol", ...)
-  names(class_list) <- x
-  lc_helper(x, class_list, low_rank, ...)
+lowest_common.tolid <- function(sci_id, class_list = NULL, low_rank = NULL, ...) {
+  check_lowest_ids(sci_id)
+  class_list <- get_class(sci_id, class_list, db = "tol", ...)
+  names(class_list) <- sci_id
+  lc_helper(sci_id, class_list, low_rank, ...)
 }
 
 # helpers -------------------------------------------------

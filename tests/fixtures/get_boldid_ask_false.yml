@@ -1,12 +1,12 @@
 http_interactions:
 - request:
     method: get
-    uri: http://v4.boldsystems.org/index.php/API_Tax/TaxonSearch?taxName=adsf%20asdf%20asdf
+    uri: https://v4.boldsystems.org/index.php/API_Tax/TaxonSearch?taxName=adsf%20asdf%20asdf
     body:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -15,15 +15,16 @@ http_interactions:
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: HTTP/1.1 200 OK
-      date: Thu, 24 Jan 2019 01:16:01 GMT
-      server: Apache/2.2.15 (Red Hat)
-      x-powered-by: PHP/5.3.15
-      content-length: '48'
-      connection: close
+      status: 'HTTP/2 200 '
+      server: nginx
+      date: Tue, 05 May 2020 01:00:24 GMT
       content-type: text/html; charset=utf-8
+      content-length: '48'
+      x-powered-by: PHP/5.3.15
+      set-cookie: https=on;Path=/;Max-Age=3600;httponly;SameSite=Lax
     body:
       encoding: UTF-8
+      file: no
       string: '{"top_matched_names":[],"total_matched_names":0}'
-  recorded_at: 2019-01-24 01:16:01 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2020-05-05 01:00:24 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2

@@ -3,8 +3,8 @@ context("tp_search")
 test_that("tp_search returns the correct class", {
   skip_on_cran() # uses secrets
   vcr::use_cassette("tp_search", {
-    ttt <- suppressMessages(tp_search(name = 'Poa annua'))
-    uuu <- suppressMessages(tp_search(name = 'stuff things'))
+    ttt <- suppressMessages(tp_search(sci = 'Poa annua'))
+    uuu <- suppressMessages(tp_search(sci = 'stuff things'))
   }, preserve_exact_body_bytes = TRUE)
 
   if ("error" %in% names(ttt)) skip("error in tp_search call - skipping")

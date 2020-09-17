@@ -1,14 +1,15 @@
 http_interactions:
 - request:
     method: get
-    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Pinus&api_key=<<entrez_api_token>>
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Bombus&api_key=<<entrez_api_token>>
     body:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.2.92 rOpenSci(taxize/0.9.97.93)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.2.92 rOpenSci(taxize/0.9.97.93)
   response:
     status:
       status_code: '200'
@@ -16,289 +17,191 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 20:12:37 GMT
+      date: Tue, 30 Jun 2020 17:08:02 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      x-ratelimit-remaining: '8'
+      ncbi-phid: 322C66B925E1ECB5000046B692C0CE8B.1.1.m_1
+      cache-control: private
+      ncbi-sid: 209CA2F283E4A516_F9B5SID
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      access-control-allow-origin: '*'
+      content-type: text/xml; charset=UTF-8
+      set-cookie: ncbi_sid=209CA2F283E4A516_F9B5SID; domain=.nih.gov; path=/; expires=Wed,
+        30 Jun 2021 17:08:02 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      file: no
+      string: |
+        <?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
+        <eSearchResult><Count>2</Count><RetMax>2</RetMax><RetStart>0</RetStart><IdList>
+        <Id>144708</Id>
+        <Id>28641</Id>
+        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Bombus[All Names]</Term>    <Field>All Names</Field>    <Count>2</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Bombus[All Names]</QueryTranslation></eSearchResult>
+  recorded_at: 2020-06-30 17:08:03 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&ID=144708%2C28641&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.2.92 rOpenSci(taxize/0.9.97.93)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.2.92 rOpenSci(taxize/0.9.97.93)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Tue, 30 Jun 2020 17:08:02 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      x-ratelimit-remaining: '8'
+      ncbi-phid: 322C66B925E1ECB5000045B69383AF1D.1.1.m_1
+      cache-control: private
+      ncbi-sid: BC966F113D30B365_4411SID
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      access-control-allow-origin: '*'
+      content-type: text/xml; charset=UTF-8
+      set-cookie: ncbi_sid=BC966F113D30B365_4411SID; domain=.nih.gov; path=/; expires=Wed,
+        30 Jun 2021 17:08:03 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      file: no
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!DOCTYPE eSummaryResult
+        PUBLIC \"-//NLM//DTD esummary v1 20041029//EN\" \"https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20041029/esummary-v1.dtd\">\n<eSummaryResult>\n<DocSum>\n\t<Id>144708</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">subgenus</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bees</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Bombus</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">144708</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\"></Item>\n\t<Item Name=\"Species\" Type=\"String\"></Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2020/02/19 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>28641</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">genus</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bees</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Bombus</Item>\n\t<Item Name=\"CommonName\" Type=\"String\">bumble
+        bees</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">28641</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\"></Item>\n\t<Item
+        Name=\"Species\" Type=\"String\"></Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2020/02/19 00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
+  recorded_at: 2020-06-30 17:08:03 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Bombus&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.2.92 rOpenSci(taxize/0.9.97.93)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.2.92 rOpenSci(taxize/0.9.97.93)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Tue, 30 Jun 2020 17:08:02 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      x-ratelimit-remaining: '7'
+      ncbi-phid: 322C66B925E1ECB500004CB693EE7108.1.1.m_1
+      cache-control: private
+      ncbi-sid: 5590A1A4E9884321_A1CCSID
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      access-control-allow-origin: '*'
+      content-type: text/xml; charset=UTF-8
+      set-cookie: ncbi_sid=5590A1A4E9884321_A1CCSID; domain=.nih.gov; path=/; expires=Wed,
+        30 Jun 2021 17:08:03 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      file: no
+      string: |
+        <?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
+        <eSearchResult><Count>2</Count><RetMax>2</RetMax><RetStart>0</RetStart><IdList>
+        <Id>144708</Id>
+        <Id>28641</Id>
+        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Bombus[All Names]</Term>    <Field>All Names</Field>    <Count>2</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Bombus[All Names]</QueryTranslation></eSearchResult>
+  recorded_at: 2020-06-30 17:08:03 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&ID=144708%2C28641&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.2.92 rOpenSci(taxize/0.9.97.93)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.2.92 rOpenSci(taxize/0.9.97.93)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Tue, 30 Jun 2020 17:08:03 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
       x-ratelimit-remaining: '6'
-      ncbi-phid: D0BD37B365326FC500002486934A0E27.1.1.m_1
+      ncbi-phid: 322C66B925E1ECB500002FB694FB3779.1.1.m_1
       cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: 126BD3C22749743F_580DSID
+      ncbi-sid: CA8B0160BD158E7F_D0D9SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=126BD3C22749743F_580DSID; domain=.nih.gov; path=/; expires=Sun,
-        26 Jan 2020 20:12:37 GMT
+      set-cookie: ncbi_sid=CA8B0160BD158E7F_D0D9SID; domain=.nih.gov; path=/; expires=Wed,
+        30 Jun 2021 17:08:03 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
     body:
       encoding: UTF-8
-      string: |
-        <?xml version="1.0" encoding="UTF-8" ?>
-        <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
-        <eSearchResult><Count>2</Count><RetMax>2</RetMax><RetStart>0</RetStart><IdList>
-        <Id>139271</Id>
-        <Id>3337</Id>
-        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Pinus[All Names]</Term>    <Field>All Names</Field>    <Count>2</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Pinus[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2019-01-26 20:12:39 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
-- request:
-    method: get
-    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&ID=139271%2C3337&api_key=<<entrez_api_token>>
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
-      Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 20:12:38 GMT
-      server: Finatra
-      strict-transport-security: max-age=31536000; includeSubDomains; preload
-      content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '7'
-      ncbi-phid: D0BD37B365326FC50000258693AD8673.1.1.m_1
-      cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: CD80551D4F6F3627_4218SID
-      content-encoding: gzip
-      x-ratelimit-limit: '10'
-      access-control-allow-origin: '*'
-      content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=CD80551D4F6F3627_4218SID; domain=.nih.gov; path=/; expires=Sun,
-        26 Jan 2020 20:12:38 GMT
-      x-ua-compatible: IE=Edge
-      x-xss-protection: 1; mode=block
-      transfer-encoding: chunked
-    body:
-      encoding: UTF-8
+      file: no
       string: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!DOCTYPE eSummaryResult
-        PUBLIC \"-//NLM//DTD esummary v1 20041029//EN\" \"https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20041029/esummary-v1.dtd\">\n<eSummaryResult>\n<DocSum>\n\t<Id>139271</Id>\n\t<Item
+        PUBLIC \"-//NLM//DTD esummary v1 20041029//EN\" \"https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20041029/esummary-v1.dtd\">\n<eSummaryResult>\n<DocSum>\n\t<Id>144708</Id>\n\t<Item
         Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">subgenus</Item>\n\t<Item
-        Name=\"Division\" Type=\"String\">seed plants</Item>\n\t<Item Name=\"ScientificName\"
-        Type=\"String\">Pinus</Item>\n\t<Item Name=\"CommonName\" Type=\"String\">hard
-        pines</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">139271</Item>\n\t<Item
-        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\"></Item>\n\t<Item
-        Name=\"Species\" Type=\"String\"></Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
-        Name=\"ModificationDate\" Type=\"Date\">2017/06/14 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>3337</Id>\n\t<Item
-        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">genus</Item>\n\t<Item
-        Name=\"Division\" Type=\"String\">seed plants</Item>\n\t<Item Name=\"ScientificName\"
-        Type=\"String\">Pinus</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
-        Name=\"TaxId\" Type=\"Integer\">3337</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bees</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Bombus</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">144708</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
         Name=\"Genus\" Type=\"String\"></Item>\n\t<Item Name=\"Species\" Type=\"String\"></Item>\n\t<Item
         Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
-        Type=\"Date\">2016/03/25 00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
-  recorded_at: 2019-01-26 20:12:39 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
-- request:
-    method: get
-    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Pinus&api_key=<<entrez_api_token>>
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
-      Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 20:12:38 GMT
-      server: Finatra
-      strict-transport-security: max-age=31536000; includeSubDomains; preload
-      content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '7'
-      ncbi-phid: 322CDAEFF3EFD7B5000023B6267E3A45.1.1.m_1
-      cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: FA0124F2C11E786D_7858SID
-      content-encoding: gzip
-      x-ratelimit-limit: '10'
-      access-control-allow-origin: '*'
-      content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=FA0124F2C11E786D_7858SID; domain=.nih.gov; path=/; expires=Sun,
-        26 Jan 2020 20:12:39 GMT
-      x-ua-compatible: IE=Edge
-      x-xss-protection: 1; mode=block
-      transfer-encoding: chunked
-    body:
-      encoding: UTF-8
-      string: |
-        <?xml version="1.0" encoding="UTF-8" ?>
-        <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
-        <eSearchResult><Count>2</Count><RetMax>2</RetMax><RetStart>0</RetStart><IdList>
-        <Id>139271</Id>
-        <Id>3337</Id>
-        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Pinus[All Names]</Term>    <Field>All Names</Field>    <Count>2</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Pinus[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2019-01-26 20:12:39 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
-- request:
-    method: get
-    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Pinus&api_key=<<entrez_api_token>>
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
-      Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 20:12:38 GMT
-      server: Finatra
-      strict-transport-security: max-age=31536000; includeSubDomains; preload
-      content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '7'
-      ncbi-phid: 322CDAEFF3EFD7B5000020B626A7DF64.1.1.m_1
-      cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: FA0124F2C11E786D_7858SID
-      content-encoding: gzip
-      x-ratelimit-limit: '10'
-      access-control-allow-origin: '*'
-      content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=FA0124F2C11E786D_7858SID; domain=.nih.gov; path=/; expires=Sun,
-        26 Jan 2020 20:12:39 GMT
-      x-ua-compatible: IE=Edge
-      x-xss-protection: 1; mode=block
-      transfer-encoding: chunked
-    body:
-      encoding: UTF-8
-      string: |
-        <?xml version="1.0" encoding="UTF-8" ?>
-        <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
-        <eSearchResult><Count>2</Count><RetMax>2</RetMax><RetStart>0</RetStart><IdList>
-        <Id>139271</Id>
-        <Id>3337</Id>
-        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Pinus[All Names]</Term>    <Field>All Names</Field>    <Count>2</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Pinus[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2019-01-26 20:12:39 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
-- request:
-    method: get
-    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&ID=139271%2C3337&api_key=<<entrez_api_token>>
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
-      Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 20:12:39 GMT
-      server: Finatra
-      strict-transport-security: max-age=31536000; includeSubDomains; preload
-      content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '6'
-      ncbi-phid: 322CDAEFF3EFD7B5000021B626D7975F.1.1.m_1
-      cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: D66FF69460BCFDA8_CC30SID
-      content-encoding: gzip
-      x-ratelimit-limit: '10'
-      access-control-allow-origin: '*'
-      content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=D66FF69460BCFDA8_CC30SID; domain=.nih.gov; path=/; expires=Sun,
-        26 Jan 2020 20:12:39 GMT
-      x-ua-compatible: IE=Edge
-      x-xss-protection: 1; mode=block
-      transfer-encoding: chunked
-    body:
-      encoding: UTF-8
-      string: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!DOCTYPE eSummaryResult
-        PUBLIC \"-//NLM//DTD esummary v1 20041029//EN\" \"https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20041029/esummary-v1.dtd\">\n<eSummaryResult>\n<DocSum>\n\t<Id>139271</Id>\n\t<Item
-        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">subgenus</Item>\n\t<Item
-        Name=\"Division\" Type=\"String\">seed plants</Item>\n\t<Item Name=\"ScientificName\"
-        Type=\"String\">Pinus</Item>\n\t<Item Name=\"CommonName\" Type=\"String\">hard
-        pines</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">139271</Item>\n\t<Item
+        Type=\"Date\">2020/02/19 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>28641</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">genus</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bees</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Bombus</Item>\n\t<Item Name=\"CommonName\" Type=\"String\">bumble
+        bees</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">28641</Item>\n\t<Item
         Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\"></Item>\n\t<Item
         Name=\"Species\" Type=\"String\"></Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
-        Name=\"ModificationDate\" Type=\"Date\">2017/06/14 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>3337</Id>\n\t<Item
-        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">genus</Item>\n\t<Item
-        Name=\"Division\" Type=\"String\">seed plants</Item>\n\t<Item Name=\"ScientificName\"
-        Type=\"String\">Pinus</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
-        Name=\"TaxId\" Type=\"Integer\">3337</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
-        Name=\"Genus\" Type=\"String\"></Item>\n\t<Item Name=\"Species\" Type=\"String\"></Item>\n\t<Item
-        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
-        Type=\"Date\">2016/03/25 00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
-  recorded_at: 2019-01-26 20:12:39 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
-- request:
-    method: get
-    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&ID=139271%2C3337&api_key=<<entrez_api_token>>
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
-      Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 20:12:38 GMT
-      server: Finatra
-      strict-transport-security: max-age=31536000; includeSubDomains; preload
-      content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '5'
-      ncbi-phid: D0BD37B365326FC500001B869410B955.1.1.m_1
-      cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: D66FF69460BCFDA8_CC30SID
-      content-encoding: gzip
-      x-ratelimit-limit: '10'
-      access-control-allow-origin: '*'
-      content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=D66FF69460BCFDA8_CC30SID; domain=.nih.gov; path=/; expires=Sun,
-        26 Jan 2020 20:12:39 GMT
-      x-ua-compatible: IE=Edge
-      x-xss-protection: 1; mode=block
-      transfer-encoding: chunked
-    body:
-      encoding: UTF-8
-      string: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!DOCTYPE eSummaryResult
-        PUBLIC \"-//NLM//DTD esummary v1 20041029//EN\" \"https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20041029/esummary-v1.dtd\">\n<eSummaryResult>\n<DocSum>\n\t<Id>139271</Id>\n\t<Item
-        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">subgenus</Item>\n\t<Item
-        Name=\"Division\" Type=\"String\">seed plants</Item>\n\t<Item Name=\"ScientificName\"
-        Type=\"String\">Pinus</Item>\n\t<Item Name=\"CommonName\" Type=\"String\">hard
-        pines</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">139271</Item>\n\t<Item
-        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\"></Item>\n\t<Item
-        Name=\"Species\" Type=\"String\"></Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
-        Name=\"ModificationDate\" Type=\"Date\">2017/06/14 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>3337</Id>\n\t<Item
-        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">genus</Item>\n\t<Item
-        Name=\"Division\" Type=\"String\">seed plants</Item>\n\t<Item Name=\"ScientificName\"
-        Type=\"String\">Pinus</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
-        Name=\"TaxId\" Type=\"Integer\">3337</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
-        Name=\"Genus\" Type=\"String\"></Item>\n\t<Item Name=\"Species\" Type=\"String\"></Item>\n\t<Item
-        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
-        Type=\"Date\">2016/03/25 00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
-  recorded_at: 2019-01-26 20:12:39 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+        Name=\"ModificationDate\" Type=\"Date\">2020/02/19 00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
+  recorded_at: 2020-06-30 17:08:03 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2

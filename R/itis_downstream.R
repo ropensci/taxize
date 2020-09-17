@@ -1,13 +1,14 @@
 #' Retrieve all taxa names or TSNs downstream in hierarchy from given TSN.
 #'
 #' @export
-#' @param tsns A taxonomic serial number.
+#' @param id A taxonomic serial number.
 #' @param downto The taxonomic level you want to go down to. See examples below.
 #' The taxonomic level IS case sensitive, and you do have to spell it
 #' correctly. See `data(rank_ref)` for spelling.
 #' @param intermediate (logical) If TRUE, return a list of length two with target
 #' taxon rank names, with additional list of data.frame's of intermediate
 #' taxonomic groups. Default: FALSE
+#' @param tsns Deprecated, see `id`
 #' @param ... Further args passed on to [ritis::rank_name()] and
 #' [ritis::hierarchy_down()]
 #' @return Data.frame of taxonomic information downstream to family from e.g.,
@@ -15,27 +16,31 @@
 #' with target taxon rank names, and intermediate names.
 #' @examples \dontrun{
 #' ## the plant class Bangiophyceae, tsn 846509
-#' itis_downstream(tsns = 846509, downto="genus")
-#' itis_downstream(tsns = 846509, downto="genus", intermediate=TRUE)
+#' itis_downstream(id = 846509, downto="genus")
+#' itis_downstream(id = 846509, downto="genus", intermediate=TRUE)
 #'
 #' # get families downstream from Acridoidea
-#' itis_downstream(tsns = 650497, "family")
+#' itis_downstream(id = 650497, "family")
 #' ## here, intermediate leads to the same result as the target
-#' itis_downstream(tsns = 650497, "family", intermediate=TRUE)
+#' itis_downstream(id = 650497, "family", intermediate=TRUE)
 #'
 #' # get species downstream from Ursus
-#' itis_downstream(tsns = 180541, "species")
+#' itis_downstream(id = 180541, "species")
 #'
 #' # get orders down from the Division Rhodophyta (red algae)
-#' itis_downstream(tsns = 660046, "order")
-#' itis_downstream(tsns = 660046, "order", intermediate=TRUE)
+#' itis_downstream(id = 660046, "order")
+#' itis_downstream(id = 660046, "order", intermediate=TRUE)
 #'
 #' # get tribes down from the family Apidae
-#' itis_downstream(tsns = 154394, downto="tribe")
-#' itis_downstream(tsns = 154394, downto="tribe", intermediate=TRUE)
+#' itis_downstream(id = 154394, downto="tribe")
+#' itis_downstream(id = 154394, downto="tribe", intermediate=TRUE)
 #' }
 
-itis_downstream <- function(tsns, downto, intermediate = FALSE, ...) {
+itis_downstream <- function(id, downto, intermediate = FALSE, tsns = NULL,
+	...) {
+
+	pchk(tsns, "id")
+  if (!is.null(tsns)) id <- tsns
   downto <- tolower(downto)
   downto2 <- taxize_ds$rank_ref[which_rank(downto), "rankid"]
   torank_ids <- taxize_ds$rank_ref[
@@ -49,7 +54,7 @@ itis_downstream <- function(tsns, downto, intermediate = FALSE, ...) {
 	while (stop_ == "not") {
 		iter <- iter + 1
 		if (!nchar(as.character(notout$rankname[[1]])) > 0) {
-			temp <- dt2df(lapply(as.character(tsns), ritis::rank_name),
+			temp <- dt2df(lapply(as.character(id), ritis::rank_name),
 				idcol = FALSE)
 		} else {
 		  temp <- notout
@@ -82,7 +87,7 @@ itis_downstream <- function(tsns, downto, intermediate = FALSE, ...) {
 		  if (all(notout$rankname == downto)) {
 		    stop_ <- "fam"
 		  } else {
-		    tsns <- notout$tsn
+		    id <- notout$tsn
 		    stop_ <- "not"
 		  }
 		}

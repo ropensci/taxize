@@ -12,12 +12,13 @@
 \title{Get the UK National Biodiversity Network ID from taxonomic names.}
 \usage{
 get_nbnid(
-  name,
+  sci_com,
   ask = TRUE,
   messages = TRUE,
   rec_only = FALSE,
   rank = NULL,
   rows = NA,
+  name = NULL,
   ...
 )
 
@@ -34,17 +35,18 @@ as.nbnid(x, check = TRUE)
 \method{as.data.frame}{nbnid}(x, ...)
 
 get_nbnid_(
-  name,
+  sci_com,
   messages = TRUE,
   rec_only = FALSE,
   rank = NULL,
   rows = NA,
+  name = NULL,
   ...
 )
 }
 \arguments{
-\item{name}{character; scientific name. Or, a \code{taxon_state}
-object (see \link{taxon-state})}
+\item{sci_com}{character; a vector of common or scientific names. Or, a
+\code{taxon_state} object (see \link{taxon-state})}
 
 \item{ask}{logical; should get_nbnid be run in interactive mode?
 If TRUE and more than one ID is found for the species, the user is asked for
@@ -65,6 +67,8 @@ rows are considered. Note that this function still only gives back a nbnid
 class object with one to many identifiers. See
 \code{\link[=get_nbnid_]{get_nbnid_()}} to get back all, or a subset, of the raw
 data that you are presented during the ask process.}
+
+\item{name}{Deprecated, see \code{sci_com}}
 
 \item{...}{Further args passed on to \code{nbn_search}}
 
@@ -93,14 +97,14 @@ Get the UK National Biodiversity Network ID from taxonomic names.
 }
 \examples{
 \dontrun{
-get_nbnid(name='Poa annua')
-get_nbnid(name='Poa annua', rec_only=TRUE)
-get_nbnid(name='Poa annua', rank='Species')
-get_nbnid(name='Poa annua', rec_only=TRUE, rank='Species')
-get_nbnid(name='Pinus contorta')
+get_nbnid(sci_com='Poa annua')
+get_nbnid(sci_com='Poa annua', rec_only=TRUE)
+get_nbnid(sci_com='Poa annua', rank='Species')
+get_nbnid(sci_com='Poa annua', rec_only=TRUE, rank='Species')
+get_nbnid(sci_com='Pinus contorta')
 
 # The NBN service handles common names too
-get_nbnid(name='red-winged blackbird')
+get_nbnid(sci_com='red-winged blackbird')
 
 # specify rows to limit choices available
 get_nbnid('Poa ann')
@@ -109,7 +113,7 @@ get_nbnid('Poa ann', rows=25)
 get_nbnid('Poa ann', rows=1:2)
 
 # When not found
-get_nbnid(name="uaudnadndj")
+get_nbnid(sci_com="uaudnadndj")
 get_nbnid(c("Zootoca vivipara", "uaudnadndj"))
 get_nbnid(c("Zootoca vivipara","Chironomus riparius", "uaudnadndj"))
 
@@ -142,7 +146,7 @@ invisible(get_nbnid("Quercus douglasii", verbose = TRUE))
 }
 }
 \references{
-\url{https://api.nbnatlas.org/}
+https://api.nbnatlas.org/
 }
 \seealso{
 \code{\link[=classification]{classification()}}

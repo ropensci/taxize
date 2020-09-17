@@ -1,7 +1,7 @@
 #' Get the page name for a Wiki taxon
 #'
 #' @export
-#' @param x (character) A vector of common or scientific names. Or, a
+#' @param sci_com (character) A vector of common or scientific names. Or, a
 #' `taxon_state` object (see [taxon-state])
 #' @param wiki_site (character) Wiki site. One of species (default), pedia,
 #' commons
@@ -16,6 +16,8 @@
 #' all, or a subset, of the raw data that you are presented during the ask
 #' process.
 #' @param limit (integer) number of records to return
+#' @param x For `get_wiki()`: deprecated, see `sci_com`. For `as.wiki`, various,
+#' see examples
 #' @param ... Ignored
 #' @param check logical; Check if ID matches any existing on the DB, only
 #' used in [as.wiki()]
@@ -28,10 +30,10 @@
 #' @seealso [classification()]
 #'
 #' @examples \dontrun{
-#' get_wiki(x = "Quercus douglasii")
-#' get_wiki(x = "Quercu")
-#' get_wiki(x = "Quercu", "pedia")
-#' get_wiki(x = "Quercu", "commons")
+#' get_wiki(sci_com = "Quercus douglasii")
+#' get_wiki(sci_com = "Quercu")
+#' get_wiki(sci_com = "Quercu", "pedia")
+#' get_wiki(sci_com = "Quercu", "commons")
 #'
 #' # diff. wikis with wikipedia
 #' get_wiki("Malus domestica", "pedia")
@@ -45,24 +47,25 @@
 #' as.wiki("Malus_domestica", wiki_site = "pedia", wiki = "da")
 #' }
 
-get_wiki <- function(x, wiki_site = "species", wiki = "en", ask = TRUE,
-                     messages = TRUE, limit = 100, rows = NA, ...) {
+get_wiki <- function(sci_com, wiki_site = "species", wiki = "en", ask = TRUE,
+                     messages = TRUE, limit = 100, rows = NA, x = NULL, ...) {
 
-  assert(x, c("character", "taxon_state"))
+  assert(sci_com, c("character", "taxon_state"))
   assert(ask, "logical")
   assert(wiki_site, "character")
   assert(wiki, "character")
   assert(messages, "logical")
   assert_rows(rows)
+  pchk(x, "sci_com")
 
-  if (inherits(x, "character")) {
-    tstate <- taxon_state$new(class = "wiki", names = x)
-    items <- x
+  if (inherits(sci_com, "character")) {
+    tstate <- taxon_state$new(class = "wiki", names = sci_com)
+    items <- sci_com
   } else {
-    assert_state(x, "wiki")
-    tstate <- x
-    x <- tstate$taxa_remaining()
-    items <- c(x, tstate$taxa_completed())
+    assert_state(sci_com, "wiki")
+    tstate <- sci_com
+    sci_com <- tstate$taxa_remaining()
+    items <- c(sci_com, tstate$taxa_completed())
   }
 
   prog <- progressor$new(items = items, suppress = !messages)
@@ -70,15 +73,15 @@ get_wiki <- function(x, wiki_site = "species", wiki = "en", ask = TRUE,
   for (i in seq_along(done)) prog$completed(names(done)[i], done[[i]]$att)
   prog$prog_start()
 
-  for (i in seq_along(x)) {
+  for (i in seq_along(sci_com)) {
     direct <- FALSE
-    mssg(messages, "\nRetrieving data for taxon '", x, "'\n")
+    mssg(messages, "\nRetrieving data for taxon '", sci_com[i], "'\n")
     df <- switch(
       wiki_site,
-      species = wikitaxa::wt_wikispecies_search(query = x[i], limit = limit, ...),
-      pedia = wikitaxa::wt_wikipedia_search(query = x[i], wiki = wiki,
+      species = wikitaxa::wt_wikispecies_search(query = sci_com[i], limit = limit, ...),
+      pedia = wikitaxa::wt_wikipedia_search(query = sci_com[i], wiki = wiki,
                                             limit = limit, ...),
-      commons = wikitaxa::wt_wikicommons_search(query = x[i], limit = limit, ...)
+      commons = wikitaxa::wt_wikicommons_search(query = sci_com[i], limit = limit, ...)
     )$query$search
     mm <- NROW(df) > 1
 
@@ -107,7 +110,7 @@ get_wiki <- function(x, wiki_site = "species", wiki = "en", ask = TRUE,
       # check for direct match
       if (NROW(df) > 1) {
         df <- data.frame(df, stringsAsFactors = FALSE)
-        matchtmp <- df[tolower(df$title) %in% tolower(x[i]), "title"]
+        matchtmp <- df[tolower(df$title) %in% tolower(sci_com[i]), "title"]
         if (length(matchtmp) == 1) {
           id <- matchtmp
           direct <- TRUE
@@ -133,7 +136,7 @@ get_wiki <- function(x, wiki_site = "species", wiki = "en", ask = TRUE,
           # prompt
           message("\n\n")
           print(df)
-          message("\nMore than one wiki ID found for taxon '", x[i], "'!\n
+          message("\nMore than one wiki ID found for taxon '", sci_com[i], "'!\n
                   Enter rownumber of taxon (other inputs will return 'NA'):\n")
           take <- scan(n = 1, quiet = TRUE, what = 'raw')
 
@@ -166,9 +169,9 @@ get_wiki <- function(x, wiki_site = "species", wiki = "en", ask = TRUE,
 
     res <- list(id = as.character(id), att = att, multiple = mm,
       direct = direct)
-    prog$completed(x[i], att)
+    prog$completed(sci_com[i], att)
     prog$prog(att)
-    tstate$add(x[i], res)
+    tstate$add(sci_com[i], res)
   }
   out <- tstate$get()
   ids <- structure(pluck_un(out, "id", ""), class = "wiki",

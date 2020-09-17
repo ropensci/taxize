@@ -7,17 +7,26 @@
 \alias{downstream.gbifid}
 \alias{downstream.uid}
 \alias{downstream.wormsid}
+\alias{downstream.boldid}
 \alias{downstream.ids}
 \title{Retrieve the downstream taxa for a given taxon name or ID.}
 \usage{
 downstream(...)
 
-\method{downstream}{default}(x, db = NULL, downto = NULL, intermediate = FALSE, rows = NA, ...)
+\method{downstream}{default}(
+  sci_id,
+  db = NULL,
+  downto = NULL,
+  intermediate = FALSE,
+  rows = NA,
+  x = NULL,
+  ...
+)
 
-\method{downstream}{tsn}(x, db = NULL, downto = NULL, intermediate = FALSE, ...)
+\method{downstream}{tsn}(sci_id, db = NULL, downto = NULL, intermediate = FALSE, ...)
 
 \method{downstream}{gbifid}(
-  x,
+  sci_id,
   db = NULL,
   downto = NULL,
   intermediate = FALSE,
@@ -26,23 +35,26 @@ downstream(...)
   ...
 )
 
-\method{downstream}{uid}(x, db = NULL, downto = NULL, intermediate = FALSE, ...)
+\method{downstream}{uid}(sci_id, db = NULL, downto = NULL, intermediate = FALSE, ...)
 
-\method{downstream}{wormsid}(x, db = NULL, downto = NULL, intermediate = FALSE, ...)
+\method{downstream}{wormsid}(sci_id, db = NULL, downto = NULL, intermediate = FALSE, ...)
 
-\method{downstream}{ids}(x, db = NULL, downto = NULL, intermediate = FALSE, ...)
+\method{downstream}{boldid}(sci_id, db = NULL, downto = NULL, intermediate = FALSE, ...)
+
+\method{downstream}{ids}(sci_id, db = NULL, downto = NULL, intermediate = FALSE, ...)
 }
 \arguments{
 \item{...}{Further args passed on to \code{\link[=itis_downstream]{itis_downstream()}},
 \code{\link[=gbif_downstream]{gbif_downstream()}}, \code{\link[=ncbi_downstream]{ncbi_downstream()}},
-or \code{\link[=worms_downstream]{worms_downstream()}}}
+\code{\link[=worms_downstream]{worms_downstream()}}, or \code{\link[=bold_downstream]{bold_downstream()}}}
 
-\item{x}{Vector of taxa names (character) or IDs (character or numeric)
+\item{sci_id}{Vector of taxa names (character) or IDs (character or numeric)
 to query.}
 
 \item{db}{character; database to query. One or more of \code{itis}, \code{gbif},
-\code{ncbi} or \code{worms}. Note that each taxonomic  data source has their own
-identifiers, so that if you provide the wrong \code{db} value for the identifier
+\code{ncbi}, \code{worms}, or \code{bold}. Note that each taxonomic  data source has
+their own identifiers, so that if you provide the wrong \code{db} value for
+the identifier
 you could get a result, but it will likely be wrong (not what you were
 expecting). If using ncbi, we recommend getting an API key; see
 \link{taxize-authentication}}
@@ -63,6 +75,8 @@ intermediate taxonomic groups. Default: \code{FALSE}}
 rows are considered. Note that this parameter is ignored if you pass in a
 taxonomic id of any of the acceptable classes: tsn.}
 
+\item{x}{Deprecated, see \code{sci_id}}
+
 \item{limit}{Number of records to return}
 
 \item{start}{Record number to start at}
@@ -74,8 +88,8 @@ supplied taxa. You get an NA if there was no match in the database.
 \description{
 This function uses a while loop to continually collect children taxa down
 to the taxonomic rank that you specify in the \code{downto} parameter. You
-can get data from ITIS (itis), GBIF (gbif), NCBI (ncbi) or WORMS (worms).
-There is no method exposed by these four
+can get data from ITIS (itis), GBIF (gbif), NCBI (ncbi), WORMS (worms),
+or BOLD (bold). There is no method exposed by these four
 services for getting taxa at a specific taxonomic rank, so we do it
 ourselves here.
 }
@@ -84,14 +98,23 @@ ourselves here.
 See \link{taxize-authentication} for help on authentication
 }
 
+\section{bold}{
+
+BEWARE: \code{db="bold"} scrapes the BOLD website, so may be unstable. That is,
+one day it may work, and the next it may fail. Open an issue if you
+encounter an error: https://github.com/ropensci/taxize/issues
+}
+
 \examples{
 \dontrun{
 # Plug in taxon IDs
 downstream(125732, db = 'worms', downto = 'species')
+downstream(3451, db = 'bold', downto = 'species')
 
 # Plug in taxon names
 downstream("Apis", db = 'ncbi', downto = 'species')
 downstream("Apis", db = 'itis', downto = 'species')
+downstream("Apis", db = 'bold', downto = 'species')
 downstream("Gadus", db = 'worms', downto = 'species')
 downstream(c("Apis","Epeoloides"), db = 'itis', downto = 'species')
 downstream("Ursus", db = 'gbif', downto = 'species')

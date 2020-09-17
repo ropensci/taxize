@@ -12,8 +12,8 @@ itis_hierarchy(tsn, what = "full", ...)
 \item{what}{One of full (full hierarchy), up (immediate upstream), or down
 (immediate downstream)}
 
-\item{...}{Further arguments passed on to \code{\link[ritis:hierarchy_full]{ritis::hierarchy_full()}}
-\code{\link[ritis:hierarchy_up]{ritis::hierarchy_up()}} or \code{\link[ritis:hierarchy_down]{ritis::hierarchy_down()}}}
+\item{...}{Further arguments passed on to \code{\link[ritis:hierarchy]{ritis::hierarchy_full()}}
+\code{\link[ritis:hierarchy]{ritis::hierarchy_up()}} or \code{\link[ritis:hierarchy]{ritis::hierarchy_down()}}}
 }
 \description{
 Get hierarchies from TSN values, full, upstream only, or

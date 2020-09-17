@@ -14,7 +14,7 @@ tol_resolve(
 )
 }
 \arguments{
-\item{names}{(character vector) taxon names to be queried}
+\item{names}{(character) taxon names to be queried}
 
 \item{context_name}{name of the taxonomic context to be searched
 (length-one character vector). Must match (case sensitive) one
@@ -59,7 +59,7 @@ tol_resolve(turducken_spp, context_name="Animals")
 }
 }
 \references{
-\url{https://github.com/OpenTreeOfLife/germinator/wiki/TNRS-API-v3#match_names}
+https://github.com/OpenTreeOfLife/germinator/wiki/TNRS-API-v3#match_names
 }
 \seealso{
 \code{\link[=gnr_resolve]{gnr_resolve()}}, \code{\link[=tnrs]{tnrs()}}

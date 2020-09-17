@@ -5,22 +5,21 @@ citEntry(entry = "Article",
    journal		    = "F1000Research",
    author         = personList(person("Scott Chamberlain"), person("Eduard Szocs")),
    year           = "2013",
-   url            = "http://f1000research.com/articles/2-191/v2",
+   url            = "https://f1000research.com/articles/2-191/v2",
 
    textVersion  =
    paste("Scott Chamberlain and Eduard Szocs (2013).",
         "taxize - taxonomic search and retrieval in R.",
-        "F1000Research, 2:191. URL: http://f1000research.com/articles/2-191/v2.")
+        "F1000Research, 2:191. URL: https://f1000research.com/articles/2-191/v2")
 )
 
 citEntry(entry = "Manual",
   title   = "taxize: Taxonomic information from around the web",
   author  = "Scott Chamberlain, Eduard Szoecs, Zachary Foster, Zebulun Arendsee, Carl Boettiger, Karthik Ram, Ignasi Bartomeus, John Baumgartner, James O'Donnell, Jari Oksanen, Bastian Greshake Tzovaras, Philippe Marchand, Vinh Tran, Maëlle Salmon, Gaopeng Li, and Matthias Grenié",
   year    = "2020",
-  note    = "R package version 0.9.92",
+  note    = "R package version 0.9.98",
   url     = "https://github.com/ropensci/taxize",
 
   textVersion =
-  paste("Scott Chamberlain, Eduard Szoecs, Zachary Foster, Zebulun Arendsee, Carl Boettiger, Karthik Ram, Ignasi Bartomeus, John Baumgartner, James O'Donnell, Jari Oksanen, Bastian Greshake Tzovaras, Philippe Marchand, Vinh Tran, Maëlle Salmon, Gaopeng Li, and Matthias Grenié. (2020) taxize: Taxonomic information from around the web. R package version 0.9.92. https://github.com/ropensci/taxize")
+  paste("Scott Chamberlain, Eduard Szoecs, Zachary Foster, Zebulun Arendsee, Carl Boettiger, Karthik Ram, Ignasi Bartomeus, John Baumgartner, James O'Donnell, Jari Oksanen, Bastian Greshake Tzovaras, Philippe Marchand, Vinh Tran, Maëlle Salmon, Gaopeng Li, and Matthias Grenié. (2020) taxize: Taxonomic information from around the web. R package version 0.9.98. https://github.com/ropensci/taxize")
 )
-

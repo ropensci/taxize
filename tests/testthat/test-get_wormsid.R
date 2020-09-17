@@ -4,7 +4,7 @@ test_that("get_wormsid returns the correct value", {
   skip_on_cran()
   vcr::use_cassette("get_wormsid", {
     x <- sw(get_wormsid("Gadus morhua", rows = 1, messages = FALSE))
-    z <- sw(get_wormsid(c("Platanista gangetica", "Lichenopora neapolitana"),
+    z <- sw(get_wormsid(c("Gadus morhua", "Lichenopora neapolitana"),
       rows = 1, messages = FALSE))
   })
 
@@ -71,7 +71,7 @@ test_that("get_wormsid fails well", {
   })
 
   skip_on_cran()
-  expect_error(get_wormsid(), "argument \"query\" is missing")
+  expect_error(get_wormsid(), "argument \"sci_com\" is missing")
   expect_error(get_wormsid("clam", 5, messages = FALSE),
                "searchtype must be of class character")
   expect_error(get_wormsid("clam", "stuff", messages = FALSE),

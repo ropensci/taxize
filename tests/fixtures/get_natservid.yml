@@ -1,184 +1,128 @@
 http_interactions:
 - request:
-    method: get
-    uri: https://services.natureserve.org/idd/rest/ns/v1/globalSpecies/list/nameSearch?name=Gadus%20morhua&NSAccessKeyId=<<natureserve_api_token>>
+    method: post
+    uri: https://explorer.natureserve.org/api/data/speciesSearch
     body:
       encoding: ''
-      string: ''
+      string: '{"criteriaType":"species","textCriteria":[{"paramType":"textSearch","searchToken":"Pomatomus
+        saltatrix","matchAgainst":"allScientificNames","operator":"similarTo"}]}'
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
+      Content-Type: application/json
       Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
+      Accept: application/json
   response:
     status:
       status_code: '200'
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 18:06:10 GMT
-      server: Apache-Coyote/1.1
-      content-type: text/xml
+      status: HTTP/1.1 200 200
+      date: Fri, 15 May 2020 18:52:03 GMT
+      server: Apache/2.4.41 (Win64) OpenSSL/1.1.1c
+      content-type: application/json;charset=UTF-8
       transfer-encoding: chunked
     body:
       encoding: UTF-8
-      string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n\r\n<speciesSearchReport
-        \r\n    xsi:schemaLocation=\"http://services.natureserve.org/docs/schemas/biodiversityDataFlow/1
-        http://services.natureserve.org/docs/schemas/biodiversityDataFlow/1/\" \r\n
-        \   xmlns=\"http://services.natureserve.org/docs/schemas/biodiversityDataFlow/1\"
-        \r\n    xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" \r\n    schemaVersion=\"1.1\">\r\n\t<conditions>\r\n\t\t<match>\r\n\t\t\t<searchTerm>Gadus
-        morhua</searchTerm>\r\n\t\t</match>\r\n\t</conditions>\r\n\t<speciesSearchResultList>\r\n
-        \   \t<speciesSearchResult uid=\"ELEMENT_GLOBAL.2.101905\">\r\n\t   <globalSpeciesUid>ELEMENT_GLOBAL.2.101905</globalSpeciesUid>\r\n\t
-        \  <natureServeExplorerURI>http://explorer.natureserve.org/servlet/NatureServe?searchSpeciesUid=ELEMENT_GLOBAL.2.101905</natureServeExplorerURI>\r\n\t
-        \  \t   <jurisdictionScientificName>Gadus morhua</jurisdictionScientificName>\r\n\t
-        \  <commonName language=\"en\">Atlantic Cod</commonName>\t   <taxonomicComments>DNA
-        data for western North Atlantic populations reveal weak population genetic
-        structuring that may reflect the recent age of populations rather than extensive
-        gene flow among populations (Pogson et al. 2001).</taxonomicComments>\t   \t</speciesSearchResult>\r\n
-        \ </speciesSearchResultList>\r\n</speciesSearchReport>"
-  recorded_at: 2019-01-26 18:06:18 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+      file: no
+      string: '{"results":[{"recordType":"SPECIES","elementGlobalId":101998,"uniqueId":"ELEMENT_GLOBAL.2.101998","nsxUrl":"/Taxon/ELEMENT_GLOBAL.2.101998/Pomatomus_saltatrix","elcode":"AFCQS01010","scientificName":"Pomatomus
+        saltatrix","formattedScientificName":"<i>Pomatomus saltatrix</i>","primaryCommonName":"Bluefish","primaryCommonNameLanguage":"EN","roundedGRank":"G5","nations":[{"nationCode":"US","roundedNRank":"N5","subnations":[{"subnationCode":"RI","roundedSRank":"SNR","exotic":false},{"subnationCode":"GA","roundedSRank":"SNR","exotic":false},{"subnationCode":"NY","roundedSRank":"SNRN","exotic":false},{"subnationCode":"LA","roundedSRank":"S4","exotic":false}],"exotic":false}],"lastModified":"2020-05-14T02:20:27.191864Z","speciesGlobal":{"usesaCode":null,"cosewicCode":null,"saraCode":null,"synonyms":[],"otherCommonNames":[],"kingdom":"Animalia","phylum":"Craniata","taxclass":"Actinopterygii","taxorder":"Perciformes","family":"Pomatomidae","genus":"Pomatomus","taxonomicComments":null,"informalTaxonomy":"Animals
+        - Vertebrates - Fishes - Marine Bony and Cartilaginous; Hagfishes","infraspecies":false,"completeDistribution":false},"gRank":"G5"}],"resultsSummary":{"page":0,"recordsPerPage":20,"totalPages":1,"totalResults":1,"speciesResults":{"total":1}},"searchCriteria":{"criteriaType":"species","textCriteria":[{"paramType":"textSearch","searchToken":"Pomatomus
+        saltatrix","matchAgainst":"allScientificNames","operator":"similarTo"}],"statusCriteria":null,"locationCriteria":null,"pagingOptions":{"page":0,"recordsPerPage":20},"recordSubtypeCriteria":null,"modifiedSince":null,"speciesTaxonomyCriteria":null}}'
+  recorded_at: 2020-05-15 18:52:01 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2
 - request:
-    method: get
-    uri: https://services.natureserve.org/idd/rest/ns/v1/globalSpecies/list/nameSearch?name=howdy&NSAccessKeyId=<<natureserve_api_token>>
+    method: post
+    uri: https://explorer.natureserve.org/api/data/speciesSearch
     body:
       encoding: ''
-      string: ''
+      string: '{"criteriaType":"species","textCriteria":[{"paramType":"textSearch","searchToken":"howdy","matchAgainst":"allScientificNames","operator":"similarTo"}]}'
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
+      Content-Type: application/json
       Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
+      Accept: application/json
   response:
     status:
       status_code: '200'
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 18:06:11 GMT
-      server: Apache-Coyote/1.1
-      content-type: text/xml
+      status: HTTP/1.1 200 200
+      date: Fri, 15 May 2020 18:52:03 GMT
+      server: Apache/2.4.41 (Win64) OpenSSL/1.1.1c
+      content-type: application/json;charset=UTF-8
       transfer-encoding: chunked
     body:
       encoding: UTF-8
-      string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n\r\n<speciesSearchReport
-        \r\n    xsi:schemaLocation=\"http://services.natureserve.org/docs/schemas/biodiversityDataFlow/1
-        http://services.natureserve.org/docs/schemas/biodiversityDataFlow/1/\" \r\n
-        \   xmlns=\"http://services.natureserve.org/docs/schemas/biodiversityDataFlow/1\"
-        \r\n    xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" \r\n    schemaVersion=\"1.1\">\r\n\t<conditions>\r\n\t\t<match>\r\n\t\t\t<searchTerm>howdy</searchTerm>\r\n\t\t</match>\r\n\t</conditions>\r\n\t<speciesSearchResultList>\r\n</speciesSearchResultList>\r\n</speciesSearchReport>"
-  recorded_at: 2019-01-26 18:06:18 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+      file: no
+      string: '{"results":[],"resultsSummary":{"page":0,"recordsPerPage":20,"totalPages":0,"totalResults":0,"speciesResults":{"total":0}},"searchCriteria":{"criteriaType":"species","textCriteria":[{"paramType":"textSearch","searchToken":"howdy","matchAgainst":"allScientificNames","operator":"similarTo"}],"statusCriteria":null,"locationCriteria":null,"pagingOptions":{"page":0,"recordsPerPage":20},"recordSubtypeCriteria":null,"modifiedSince":null,"speciesTaxonomyCriteria":null}}'
+  recorded_at: 2020-05-15 18:52:01 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2
 - request:
-    method: get
-    uri: https://services.natureserve.org/idd/rest/ns/v1/globalSpecies/list/nameSearch?name=Helianthus%20annuus&NSAccessKeyId=<<natureserve_api_token>>
+    method: post
+    uri: https://explorer.natureserve.org/api/data/speciesSearch
     body:
       encoding: ''
-      string: ''
+      string: '{"criteriaType":"species","textCriteria":[{"paramType":"textSearch","searchToken":"Helianthus
+        annuus","matchAgainst":"allScientificNames","operator":"similarTo"}]}'
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
+      Content-Type: application/json
       Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
+      Accept: application/json
   response:
     status:
       status_code: '200'
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 18:06:15 GMT
-      server: Apache-Coyote/1.1
-      content-type: text/xml
+      status: HTTP/1.1 200 200
+      date: Fri, 15 May 2020 18:52:03 GMT
+      server: Apache/2.4.41 (Win64) OpenSSL/1.1.1c
+      content-type: application/json;charset=UTF-8
       transfer-encoding: chunked
     body:
       encoding: UTF-8
-      string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n\r\n<speciesSearchReport
-        \r\n    xsi:schemaLocation=\"http://services.natureserve.org/docs/schemas/biodiversityDataFlow/1
-        http://services.natureserve.org/docs/schemas/biodiversityDataFlow/1/\" \r\n
-        \   xmlns=\"http://services.natureserve.org/docs/schemas/biodiversityDataFlow/1\"
-        \r\n    xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" \r\n    schemaVersion=\"1.1\">\r\n\t<conditions>\r\n\t\t<match>\r\n\t\t\t<searchTerm>Helianthus
-        annuus</searchTerm>\r\n\t\t</match>\r\n\t</conditions>\r\n\t<speciesSearchResultList>\r\n
-        \   \t<speciesSearchResult uid=\"ELEMENT_GLOBAL.2.134717\">\r\n\t   <globalSpeciesUid>ELEMENT_GLOBAL.2.134717</globalSpeciesUid>\r\n\t
-        \  <natureServeExplorerURI>http://explorer.natureserve.org/servlet/NatureServe?searchSpeciesUid=ELEMENT_GLOBAL.2.134717</natureServeExplorerURI>\r\n\t
-        \  \t   <jurisdictionScientificName>Helianthus annuus</jurisdictionScientificName>\r\n\t
-        \  <commonName language=\"en\">Common Sunflower</commonName>\t   \t   \t</speciesSearchResult>\r\n
-        \ </speciesSearchResultList>\r\n</speciesSearchReport>"
-  recorded_at: 2019-01-26 18:06:18 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+      file: no
+      string: '{"results":[{"recordType":"SPECIES","elementGlobalId":134717,"uniqueId":"ELEMENT_GLOBAL.2.134717","nsxUrl":"/Taxon/ELEMENT_GLOBAL.2.134717/Helianthus_annuus","elcode":"PDAST4N030","scientificName":"Helianthus
+        annuus","formattedScientificName":"<i>Helianthus annuus</i>","primaryCommonName":"Common
+        Sunflower","primaryCommonNameLanguage":"EN","roundedGRank":"G5","nations":[{"nationCode":"CA","roundedNRank":"N4","subnations":[{"subnationCode":"ON","roundedSRank":"SNA","exotic":true},{"subnationCode":"AB","roundedSRank":"S4","exotic":false},{"subnationCode":"MB","roundedSRank":"S3","exotic":false},{"subnationCode":"PE","roundedSRank":"SNA","exotic":true},{"subnationCode":"BC","roundedSRank":"SNA","exotic":true},{"subnationCode":"SK","roundedSRank":"S4","exotic":false},{"subnationCode":"NB","roundedSRank":"SNA","exotic":true},{"subnationCode":"NT","roundedSRank":"SNA","exotic":true},{"subnationCode":"NS","roundedSRank":"SNA","exotic":true},{"subnationCode":"QC","roundedSRank":"SNA","exotic":true}],"exotic":false},{"nationCode":"US","roundedNRank":"N5","subnations":[{"subnationCode":"SC","roundedSRank":"SNR","exotic":false},{"subnationCode":"IN","roundedSRank":"SNR","exotic":false},{"subnationCode":"PA","roundedSRank":"SNA","exotic":true},{"subnationCode":"WV","roundedSRank":"SNA","exotic":true},{"subnationCode":"LA","roundedSRank":"SNR","exotic":false},{"subnationCode":"UT","roundedSRank":"SNR","exotic":false},{"subnationCode":"AR","roundedSRank":"SNR","exotic":false},{"subnationCode":"CT","roundedSRank":"SNR","exotic":false},{"subnationCode":"OH","roundedSRank":"SNR","exotic":false},{"subnationCode":"VT","roundedSRank":"SNR","exotic":false},{"subnationCode":"IA","roundedSRank":"S5","exotic":false},{"subnationCode":"NC","roundedSRank":"SNA","exotic":true},{"subnationCode":"MD","roundedSRank":"SNR","exotic":false},{"subnationCode":"WY","roundedSRank":"S5","exotic":false},{"subnationCode":"RI","roundedSRank":"SNA","exotic":true},{"subnationCode":"CO","roundedSRank":"SNR","exotic":false},{"subnationCode":"IL","roundedSRank":"SNA","exotic":true},{"subnationCode":"DC","roundedSRank":"SNA","exotic":true},{"subnationCode":"NJ","roundedSRank":"SNA","exotic":true},{"subnationCode":"KY","roundedSRank":"SNA","exotic":true},{"subnationCode":"MT","roundedSRank":"S5","exotic":false},{"subnationCode":"NH","roundedSRank":"SNR","exotic":false},{"subnationCode":"GA","roundedSRank":"SNR","exotic":false},{"subnationCode":"TN","roundedSRank":"SNR","exotic":false},{"subnationCode":"VA","roundedSRank":"SNA","exotic":true},{"subnationCode":"MS","roundedSRank":"SNR","exotic":false},{"subnationCode":"ND","roundedSRank":"SNR","exotic":false},{"subnationCode":"WI","roundedSRank":"SNR","exotic":false},{"subnationCode":"MA","roundedSRank":"SNR","exotic":false},{"subnationCode":"ID","roundedSRank":"SNR","exotic":false},{"subnationCode":"NY","roundedSRank":"SNA","exotic":true},{"subnationCode":"WA","roundedSRank":"SNR","exotic":false},{"subnationCode":"AL","roundedSRank":"SNR","exotic":false},{"subnationCode":"OR","roundedSRank":"SNR","exotic":false},{"subnationCode":"DE","roundedSRank":"SNA","exotic":true},{"subnationCode":"ME","roundedSRank":"SNR","exotic":false},{"subnationCode":"FL","roundedSRank":"SNR","exotic":false},{"subnationCode":"CA","roundedSRank":"SNR","exotic":false},{"subnationCode":"AK","roundedSRank":"SNR","exotic":false},{"subnationCode":"MN","roundedSRank":"SNR","exotic":false},{"subnationCode":"KS","roundedSRank":"SNR","exotic":false},{"subnationCode":"AZ","roundedSRank":"SNR","exotic":false},{"subnationCode":"SD","roundedSRank":"SNR","exotic":false},{"subnationCode":"TX","roundedSRank":"SNR","exotic":false},{"subnationCode":"MI","roundedSRank":"SNA","exotic":true},{"subnationCode":"OK","roundedSRank":"SNR","exotic":false},{"subnationCode":"NM","roundedSRank":"SNR","exotic":false},{"subnationCode":"HI","roundedSRank":"SNA","exotic":true},{"subnationCode":"NV","roundedSRank":"SNR","exotic":false},{"subnationCode":"NE","roundedSRank":"SNR","exotic":false},{"subnationCode":"MO","roundedSRank":"SNR","exotic":false}],"exotic":false}],"lastModified":"2020-05-14T03:44:14.047992Z","speciesGlobal":{"usesaCode":null,"cosewicCode":null,"saraCode":null,"synonyms":["Helianthus
+        annuus var. lenticularis"],"otherCommonNames":["common sunflower","Tournesol","Common
+        Annual Sunflower"],"kingdom":"Plantae","phylum":"Anthophyta","taxclass":"Dicotyledoneae","taxorder":"Asterales","family":"Asteraceae","genus":"Helianthus","taxonomicComments":null,"informalTaxonomy":"Plants
+        - Vascular Plants - Flowering Plants - Dicots","infraspecies":false,"completeDistribution":true},"gRank":"G5"}],"resultsSummary":{"page":0,"recordsPerPage":20,"totalPages":1,"totalResults":1,"speciesResults":{"total":1}},"searchCriteria":{"criteriaType":"species","textCriteria":[{"paramType":"textSearch","searchToken":"Helianthus
+        annuus","matchAgainst":"allScientificNames","operator":"similarTo"}],"statusCriteria":null,"locationCriteria":null,"pagingOptions":{"page":0,"recordsPerPage":20},"recordSubtypeCriteria":null,"modifiedSince":null,"speciesTaxonomyCriteria":null}}'
+  recorded_at: 2020-05-15 18:52:01 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2
 - request:
-    method: get
-    uri: https://services.natureserve.org/idd/rest/ns/v1/globalSpecies/list/nameSearch?name=Gadus%20morhua&NSAccessKeyId=<<natureserve_api_token>>
+    method: post
+    uri: https://explorer.natureserve.org/api/data/speciesSearch
     body:
       encoding: ''
-      string: ''
+      string: '{"criteriaType":"species","textCriteria":[{"paramType":"textSearch","searchToken":"Pomatomus
+        saltatrix","matchAgainst":"allScientificNames","operator":"similarTo"}]}'
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
+      Content-Type: application/json
       Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
+      Accept: application/json
   response:
     status:
       status_code: '200'
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 18:06:16 GMT
-      server: Apache-Coyote/1.1
-      content-type: text/xml
+      status: HTTP/1.1 200 200
+      date: Fri, 15 May 2020 18:52:03 GMT
+      server: Apache/2.4.41 (Win64) OpenSSL/1.1.1c
+      content-type: application/json;charset=UTF-8
       transfer-encoding: chunked
     body:
       encoding: UTF-8
-      string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n\r\n<speciesSearchReport
-        \r\n    xsi:schemaLocation=\"http://services.natureserve.org/docs/schemas/biodiversityDataFlow/1
-        http://services.natureserve.org/docs/schemas/biodiversityDataFlow/1/\" \r\n
-        \   xmlns=\"http://services.natureserve.org/docs/schemas/biodiversityDataFlow/1\"
-        \r\n    xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" \r\n    schemaVersion=\"1.1\">\r\n\t<conditions>\r\n\t\t<match>\r\n\t\t\t<searchTerm>Gadus
-        morhua</searchTerm>\r\n\t\t</match>\r\n\t</conditions>\r\n\t<speciesSearchResultList>\r\n
-        \   \t<speciesSearchResult uid=\"ELEMENT_GLOBAL.2.101905\">\r\n\t   <globalSpeciesUid>ELEMENT_GLOBAL.2.101905</globalSpeciesUid>\r\n\t
-        \  <natureServeExplorerURI>http://explorer.natureserve.org/servlet/NatureServe?searchSpeciesUid=ELEMENT_GLOBAL.2.101905</natureServeExplorerURI>\r\n\t
-        \  \t   <jurisdictionScientificName>Gadus morhua</jurisdictionScientificName>\r\n\t
-        \  <commonName language=\"en\">Atlantic Cod</commonName>\t   <taxonomicComments>DNA
-        data for western North Atlantic populations reveal weak population genetic
-        structuring that may reflect the recent age of populations rather than extensive
-        gene flow among populations (Pogson et al. 2001).</taxonomicComments>\t   \t</speciesSearchResult>\r\n
-        \ </speciesSearchResultList>\r\n</speciesSearchReport>"
-  recorded_at: 2019-01-26 18:06:18 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
-- request:
-    method: get
-    uri: https://services.natureserve.org/idd/rest/ns/v1/globalSpecies/list/nameSearch?name=Gadus%20morhua&NSAccessKeyId=<<natureserve_api_token>>
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
-      Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 18:06:18 GMT
-      server: Apache-Coyote/1.1
-      content-type: text/xml
-      transfer-encoding: chunked
-    body:
-      encoding: UTF-8
-      string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n\r\n<speciesSearchReport
-        \r\n    xsi:schemaLocation=\"http://services.natureserve.org/docs/schemas/biodiversityDataFlow/1
-        http://services.natureserve.org/docs/schemas/biodiversityDataFlow/1/\" \r\n
-        \   xmlns=\"http://services.natureserve.org/docs/schemas/biodiversityDataFlow/1\"
-        \r\n    xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" \r\n    schemaVersion=\"1.1\">\r\n\t<conditions>\r\n\t\t<match>\r\n\t\t\t<searchTerm>Gadus
-        morhua</searchTerm>\r\n\t\t</match>\r\n\t</conditions>\r\n\t<speciesSearchResultList>\r\n
-        \   \t<speciesSearchResult uid=\"ELEMENT_GLOBAL.2.101905\">\r\n\t   <globalSpeciesUid>ELEMENT_GLOBAL.2.101905</globalSpeciesUid>\r\n\t
-        \  <natureServeExplorerURI>http://explorer.natureserve.org/servlet/NatureServe?searchSpeciesUid=ELEMENT_GLOBAL.2.101905</natureServeExplorerURI>\r\n\t
-        \  \t   <jurisdictionScientificName>Gadus morhua</jurisdictionScientificName>\r\n\t
-        \  <commonName language=\"en\">Atlantic Cod</commonName>\t   <taxonomicComments>DNA
-        data for western North Atlantic populations reveal weak population genetic
-        structuring that may reflect the recent age of populations rather than extensive
-        gene flow among populations (Pogson et al. 2001).</taxonomicComments>\t   \t</speciesSearchResult>\r\n
-        \ </speciesSearchResultList>\r\n</speciesSearchReport>"
-  recorded_at: 2019-01-26 18:06:18 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+      file: no
+      string: '{"results":[{"recordType":"SPECIES","elementGlobalId":101998,"uniqueId":"ELEMENT_GLOBAL.2.101998","nsxUrl":"/Taxon/ELEMENT_GLOBAL.2.101998/Pomatomus_saltatrix","elcode":"AFCQS01010","scientificName":"Pomatomus
+        saltatrix","formattedScientificName":"<i>Pomatomus saltatrix</i>","primaryCommonName":"Bluefish","primaryCommonNameLanguage":"EN","roundedGRank":"G5","nations":[{"nationCode":"US","roundedNRank":"N5","subnations":[{"subnationCode":"RI","roundedSRank":"SNR","exotic":false},{"subnationCode":"GA","roundedSRank":"SNR","exotic":false},{"subnationCode":"NY","roundedSRank":"SNRN","exotic":false},{"subnationCode":"LA","roundedSRank":"S4","exotic":false}],"exotic":false}],"lastModified":"2020-05-14T02:20:27.191864Z","speciesGlobal":{"usesaCode":null,"cosewicCode":null,"saraCode":null,"synonyms":[],"otherCommonNames":[],"kingdom":"Animalia","phylum":"Craniata","taxclass":"Actinopterygii","taxorder":"Perciformes","family":"Pomatomidae","genus":"Pomatomus","taxonomicComments":null,"informalTaxonomy":"Animals
+        - Vertebrates - Fishes - Marine Bony and Cartilaginous; Hagfishes","infraspecies":false,"completeDistribution":false},"gRank":"G5"}],"resultsSummary":{"page":0,"recordsPerPage":20,"totalPages":1,"totalResults":1,"speciesResults":{"total":1}},"searchCriteria":{"criteriaType":"species","textCriteria":[{"paramType":"textSearch","searchToken":"Pomatomus
+        saltatrix","matchAgainst":"allScientificNames","operator":"similarTo"}],"statusCriteria":null,"locationCriteria":null,"pagingOptions":{"page":0,"recordsPerPage":20},"recordSubtypeCriteria":null,"modifiedSince":null,"speciesTaxonomyCriteria":null}}'
+  recorded_at: 2020-05-15 18:52:01 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2

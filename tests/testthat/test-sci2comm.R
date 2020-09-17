@@ -3,10 +3,10 @@ context("sci2comm")
 test_that("sci2comm returns the correct value", {
   skip_on_cran() # uses secrets
   vcr::use_cassette("sci2comm", {
-    tt <- sci2comm(scinames = 'Helianthus annuus', db = 'ncbi', messages = FALSE)
-    uu <- sw(sci2comm(scinames = 'Helianthus annuus', db = 'itis', rows = 1,
+    tt <- sci2comm(sci = 'Helianthus annuus', db = 'ncbi', messages = FALSE)
+    uu <- sw(sci2comm(sci = 'Helianthus annuus', db = 'itis', rows = 1,
                       messages = FALSE))
-    zz <- sci2comm(scinames = 'Pomatomus saltatrix', db = 'worms',
+    zz <- sci2comm(sci = 'Pomatomus saltatrix', db = 'worms',
                    messages = FALSE)
   })
 

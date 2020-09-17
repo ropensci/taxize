@@ -91,7 +91,7 @@ test_that("passing in an id works", {
 test_that("rbind and cbind work correctly", {
   skip_on_cran() # uses secrets
   vcr::use_cassette("classification_cbind_rbind", {
-    out <- get_ids(names = c("Puma concolor", "Accipiter striatus"),
+    out <- get_ids(c("Puma concolor", "Accipiter striatus"),
                    db = 'ncbi', messages = FALSE, suppress = TRUE)
     cl <- classification(out)
   })
@@ -113,9 +113,12 @@ nn <- apply(df, 1, function(x) paste(x["genus"], x["species"], collapse = " "))
 
 test_that("works on a variety of names", {
   skip_on_cran()
-  # browser()
-  x <- classification(nn[5], db = "ncbi", messages = FALSE)
-  z <- classification(nn[6], db = "ncbi", messages = FALSE)
+  # skip_on_ci() # keeps timing out on GH actions for unknown reason
+  
+  vcr::use_cassette("classification_variety_of_names", {
+    x <- classification(nn[5], db = "ncbi", messages = FALSE)
+    z <- classification(nn[6], db = "ncbi", messages = FALSE)
+  })
 
 	expect_is(x, "classification")
 	expect_is(z, "classification")
@@ -124,7 +127,7 @@ test_that("works on a variety of names", {
 test_that("queries with no results fail well", {
   skip_on_cran()
   vcr::use_cassette("classification_no_results", {
-    aa <- classification(x = "foobar", db = "itis", messages = FALSE)
+    aa <- classification("foobar", db = "itis", messages = FALSE)
     bb <- classification(get_tsn("foobar", messages = FALSE), messages = FALSE)
   })
 
@@ -174,4 +177,17 @@ test_that("warn on mismatch 'db'", {
       classification(
         get_uid("Chironomus riparius", messages = FALSE), db = "itis"))
   })
+})
+
+# see https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=668400
+test_that("ncbi classification - taxon merged", {
+  skip_on_cran()
+  vcr::use_cassette("classification_fetches_merged_taxon", {
+    a <- classification(668400, db = "ncbi")
+  })
+
+  expect_is(a, "classification")
+  expect_named(a, "668400")
+  # input id is different from id returned
+  expect_false(identical("668400", a[[1]]$id[NROW(a[[1]])]))
 })

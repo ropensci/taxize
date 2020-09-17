@@ -1,7 +1,7 @@
 ## Test environments
 
-* local OS X install, R 3.6.3 Patched
-* ubuntu 16.04 (on travis-ci), R 3.6.3
+* local OS X install, R 4.0.1
+* ubuntu 16.04 (on travis-ci), R 4.0.1
 * win-builder (devel and release)
 
 ## R CMD check results
@@ -10,13 +10,11 @@
 
 ## Reverse dependencies
 
-* I have run R CMD check on the 23 downstream dependencies
-(<https://github.com/ropensci/taxize/blob/master/revdep/README.md>);
-there were no errors.
+* I have run R CMD check on the 23 downstream dependencies; there were no errors related to taxize.
 
 ------
 
-This version includes a few bug fixes, a fix for a non-ASCII string in one of the package datasets, and the package gains a new S3 method.
+This version improves documentation in a few places, and fixes a few bugs.
 
 Thanks!
 Scott Chamberlain

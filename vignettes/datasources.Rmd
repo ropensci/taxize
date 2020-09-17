@@ -1,0 +1,168 @@
+---
+title: taxize data sources
+author: Scott Chamberlain
+date: "2020-09-17"
+output: rmarkdown::html_vignette
+vignette: >
+    %\VignetteIndexEntry{taxize data sources}
+    %\VignetteEngine{knitr::rmarkdown}
+    %\VignetteEncoding{UTF-8}
+---
+
+
+
+Data sources currently implemented in taxize
+
+<table>
+<colgroup>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+</colgroup>
+
+<thead>
+<tr>
+  <th style="text-align:left;">Souce</th>
+  <th style="text-align:left;">Function prefix</th>
+  <th style="text-align:left;">API Docs</th>
+  <th style="text-align:left;">API key</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+  <td style="text-align:left;">Encylopedia of Life</td>
+  <td style="text-align:left;"><code>eol</code></td>
+  <td style="text-align:left;"><a href="https://eol.org/docs/what-is-eol/data-services">link</a></td>
+  <td style="text-align:left;">none</td>
+</tr>
+<tr>
+  <td style="text-align:left;">Taxonomic Name Resolution Service</td>
+  <td style="text-align:left;"><code>tnrs</code></td>
+  <td style="text-align:left;">none</td>
+  <td style="text-align:left;">none</td>
+</tr>
+<tr>
+  <td style="text-align:left;">Integrated Taxonomic Information Service</td>
+  <td style="text-align:left;"><code>itis</code></td>
+  <td style="text-align:left;"><a href="https://www.itis.gov/ws_description.html">link</a></td>
+  <td style="text-align:left;">none</td>
+</tr>
+<tr>
+  <td style="text-align:left;">Global Names Resolver</td>
+  <td style="text-align:left;"><code>gnr</code></td>
+  <td style="text-align:left;"><a href="http://resolver.globalnames.org/api">link</a></td>
+  <td style="text-align:left;">none</td>
+</tr>
+<tr>
+  <td style="text-align:left;">Global Names Index</td>
+  <td style="text-align:left;"><code>gni</code></td>
+  <td style="text-align:left;"><a href="https://github.com/dimus/gni/wiki/api">link</a></td>
+  <td style="text-align:left;">none</td>
+</tr>
+<tr>
+  <td style="text-align:left;">IUCN Red List</td>
+  <td style="text-align:left;"><code>iucn</code></td>
+  <td style="text-align:left;"><a href="https://apiv3.iucnredlist.org/api/v3/docs">link</a></td>
+  <td style="text-align:left;"><a href="https://apiv3.iucnredlist.org/api/v3/token">link</a></td>
+</tr>
+<tr>
+  <td style="text-align:left;">Tropicos</td>
+  <td style="text-align:left;"><code>tp</code></td>
+  <td style="text-align:left;"><a href="http://services.tropicos.org/help">link</a></td>
+  <td style="text-align:left;"><a href="http://services.tropicos.org/help?requestkey">link</a></td>
+</tr>
+<tr>
+  <td style="text-align:left;">Theplantlist dot org</td>
+  <td style="text-align:left;"><code>tpl</code></td>
+  <td style="text-align:left;">**</td>
+  <td style="text-align:left;">none</td>
+</tr>
+<tr>
+  <td style="text-align:left;">National Center for Biotechnology Information</td>
+  <td style="text-align:left;"><code>ncbi</code></td>
+  <td style="text-align:left;">none</td>
+  <td style="text-align:left;">none</td>
+</tr>
+<tr>
+  <td style="text-align:left;">CANADENSYS Vascan name search API</td>
+  <td style="text-align:left;"><code>vascan</code></td>
+  <td style="text-align:left;"><a href="https://data.canadensys.net/vascan/api">link</a></td>
+  <td style="text-align:left;">none</td>
+</tr>
+<tr>
+  <td style="text-align:left;">International Plant Names Index (IPNI)</td>
+  <td style="text-align:left;"><code>ipni</code></td>
+  <td style="text-align:left;">none</td>
+  <td style="text-align:left;">none</td>
+</tr>
+<tr>
+  <td style="text-align:left;">Barcode of Life Data Systems (BOLD)</td>
+  <td style="text-align:left;"><code>bold</code></td>
+  <td style="text-align:left;"><a href="http://www.boldsystems.org/index.php/Resources">link</a></td>
+  <td style="text-align:left;">none</td>
+</tr>
+<tr>
+  <td style="text-align:left;">National Biodiversity Network (UK)</td>
+  <td style="text-align:left;"><code>nbn</code></td>
+  <td style="text-align:left;"><a href="https://data.nbn.org.uk/Documentation/Web_Services/Web_Services-REST/resources/restapi/rest.html">link</a></td>
+  <td style="text-align:left;">none</td>
+</tr>
+<tr>
+  <td style="text-align:left;">Index Fungorum</td>
+  <td style="text-align:left;"><code>fg</code></td>
+  <td style="text-align:left;">none</td>
+  <td style="text-align:left;">none</td>
+</tr>
+<tr>
+  <td style="text-align:left;">EU BON</td>
+  <td style="text-align:left;"><code>eubon</code></td>
+  <td style="text-align:left;"><a href="https://cybertaxonomy.eu/eubon-utis/doc.html">link</a></td>
+  <td style="text-align:left;">none</td>
+</tr>
+<tr>
+  <td style="text-align:left;">Index of Names (ION)</td>
+  <td style="text-align:left;"><code>ion</code></td>
+  <td style="text-align:left;"><a href="http://www.organismnames.com/">link</a></td>
+  <td style="text-align:left;">none</td>
+</tr>
+<tr>
+  <td style="text-align:left;">Open Tree of Life (TOL)</td>
+  <td style="text-align:left;"><code>tol</code></td>
+  <td style="text-align:left;"><a href="https://github.com/OpenTreeOfLife/germinator/wiki/Open-Tree-of-Life-Web-APIs">link</a></td>
+  <td style="text-align:left;">none</td>
+</tr>
+<tr>
+  <td style="text-align:left;">World Register of Marine Species (WoRMS)</td>
+  <td style="text-align:left;"><code>worms</code></td>
+  <td style="text-align:left;"><a href="https://www.marinespecies.org/aphia.php?p=webservice">link</a></td>
+  <td style="text-align:left;">none</td>
+</tr>
+<tr>
+  <td style="text-align:left;">NatureServe</td>
+  <td style="text-align:left;"><code>natserv</code></td>
+  <td style="text-align:left;"><a href="https://services.natureserve.org/BrowseServices/getSpeciesData/getSpeciesListREST.jsp">link</a></td>
+  <td style="text-align:left;"><a href="https://services.natureserve.org/developer/index.jsp">link</a></td>
+</tr>
+<tr>
+  <td style="text-align:left;">Wikipedia</td>
+  <td style="text-align:left;"><code>wiki</code></td>
+  <td style="text-align:left;"><a href="https://www.mediawiki.org/wiki/API:Main_page">link</a></td>
+  <td style="text-align:left;">none</td>
+</tr>
+<tr>
+  <td style="text-align:left;">Kew's Plants of the World</td>
+  <td style="text-align:left;"><code>pow</code></td>
+  <td style="text-align:left;">none</td>
+  <td style="text-align:left;">none</td>
+</tr>
+</tbody>
+</table>
+
+**: There are none! We suggest using `TPL` and `TPLck` functions in the [taxonstand package](https://cran.r-project.org/package=Taxonstand). We provide two functions to get bulk data: `tpl_families` and `tpl_get`.
+
+\***: There are none! The function scrapes the web directly.
+
+
+May be in taxize in the future: See the `datasources` label (https://github.com/ropensci/taxize/labels/datasources) in the issue tracker

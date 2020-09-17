@@ -1,7 +1,7 @@
 #' Get NatureServe taxonomic ID for a taxon name
 #'
 #' @export
-#' @param query character; A vector of common or scientific names. Or, a
+#' @param sci_com character; A vector of common or scientific names. Or, a
 #' `taxon_state` object (see [taxon-state])
 #' @param searchtype character; One of 'scientific' (default) or 'common'.
 #' This doesn't affect the query to NatureServe - but rather affects what
@@ -9,39 +9,24 @@
 #' @param ask logical; should get_natservid be run in interactive mode?
 #' If `TRUE` and more than one wormsid is found for the species, the
 #' user is asked for input. If `FALSE` NA is returned for
-#' multiple matches.
-#' @param messages logical; should progress be printed?
+#' multiple matches. default: `TRUE`
+#' @param messages logical; should progress be printed? default: `TRUE`
 #' @param rows numeric; Any number from 1 to infinity. If the default NaN, all
 #' rows are considered. Note that this function still only gives back a
 #' natservid class object with one to many identifiers. See
-#' [get_natservid_()] to get back all, or a subset, of the raw
+#' `get_natservid_()` to get back all, or a subset, of the raw
 #' data that you are presented during the ask process.
-#' @param key (character) your NatureServe API key. Required. See
-#' **Authentication** below for more.
-#' @param x Input to as.natservid
-#' @param ... Ignored
+#' @param x Input to `as.natservid`
+#' @param query Deprecated, see `sci_com`
+#' @param ... curl options passed on to [crul::verb-POST]
 #' @param check logical; Check if ID matches any existing on the DB, only
 #' used in [as.natservid()]
 #' @template getreturn
-#'
 #' @family taxonomic-ids
 #' @seealso [classification()]
-#'
-#' @section Authentication:
-#' Get an API key from NatureServe at
-#' <https://services.natureserve.org/developer/index.jsp>.
-#' You can pass your token in as an argument or store it one of two places:
-
-#' * your .Rprofile file with an entry like
-#' `options(NatureServeKey = "your-natureserve-key")`
-#' * your .Renviron file with an entry like
-#' `NATURE_SERVE_KEY=your-natureserve-key`
-#'
-#' See [Startup] for information on how to create/find your
-#' .Rprofile and .Renviron files
-#'
+#' @note Authentication no longer required
 #' @examples \dontrun{
-#' (x <- get_natservid("Helianthus annuus"))
+#' (x <- get_natservid("Helianthus annuus", verbose = TRUE))
 #' attributes(x)
 #' attr(x, "match")
 #' attr(x, "multiple_matches")
@@ -63,49 +48,48 @@
 #'
 #' # Convert a natservid without class information to a natservid class
 #' # already a natservid, returns the same
-#' as.natservid(get_natservid('Gadus morhua'))
+#' as.natservid(get_natservid('Pomatomus saltatrix'))
 #' # same
 #' as.natservid(get_natservid(c('Gadus morhua', 'Pomatomus saltatrix')))
 #' # character
-#' as.natservid("ELEMENT_GLOBAL.2.101905")
+#' as.natservid(101905)
 #' # character vector, length > 1
-#' as.natservid(c("ELEMENT_GLOBAL.2.101905", "ELEMENT_GLOBAL.2.101998"))
+#' as.natservid(c(101905, 101998))
 #' # list, either numeric or character
-#' as.natservid(list("ELEMENT_GLOBAL.2.101905", "ELEMENT_GLOBAL.2.101998"))
+#' as.natservid(list(101905, 101998))
 #' ## dont check, much faster
-#' as.natservid("ELEMENT_GLOBAL.2.101905", check = FALSE)
-#' as.natservid(c("ELEMENT_GLOBAL.2.101905", "ELEMENT_GLOBAL.2.101998"),
-#'   check = FALSE)
-#' as.natservid(list("ELEMENT_GLOBAL.2.101905", "ELEMENT_GLOBAL.2.101998"),
-#'   check = FALSE)
+#' as.natservid(101905, check = FALSE)
+#' as.natservid(c(101905, 101998), check = FALSE)
+#' as.natservid(list(101905, 101998), check = FALSE)
 #'
-#' (out <- as.natservid(
-#'   c("ELEMENT_GLOBAL.2.101905", "ELEMENT_GLOBAL.2.101998")))
+#' (out <- as.natservid(c(101905, 101998), check = FALSE))
 #' data.frame(out)
 #' as.natservid( data.frame(out) )
 #'
 #' # Get all data back
-#' get_natservid_("Ruby*")
-#' get_natservid_("Ruby*", rows=1:3)
+#' get_natservid_("Helianthus")
+#' get_natservid_("Ruby*", searchtype = "common")
+#' get_natservid_("Ruby*", searchtype = "common", rows=1:3)
 #' }
-get_natservid <- function(query, searchtype = "scientific", ask = TRUE,
-                          messages = TRUE, rows = NA, key = NULL, ...) {
+get_natservid <- function(sci_com, searchtype = "scientific", ask = TRUE,
+                          messages = TRUE, rows = NA, query = NULL, ...) {
 
-  assert(query, c("character", "taxon_state"))
+  assert(sci_com, c("character", "taxon_state"))
   assert(ask, "logical")
   assert(searchtype, "character")
   assert(ask, "logical")
   assert(messages, "logical")
   assert_rows(rows)
+  pchk(query, "sci_com")
 
-  if (inherits(query, "character")) {
-    tstate <- taxon_state$new(class = "natservid", names = query)
-    items <- query
+  if (inherits(sci_com, "character")) {
+    tstate <- taxon_state$new(class = "natservid", names = sci_com)
+    items <- sci_com
   } else {
-    assert_state(query, "natservid")
-    tstate <- query
-    query <- tstate$taxa_remaining()
-    items <- c(query, tstate$taxa_completed())
+    assert_state(sci_com, "natservid")
+    tstate <- sci_com
+    sci_com <- tstate$taxa_remaining()
+    items <- c(sci_com, tstate$taxa_completed())
   }
 
   prog <- progressor$new(items = items, suppress = !messages)
@@ -113,16 +97,16 @@ get_natservid <- function(query, searchtype = "scientific", ask = TRUE,
   for (i in seq_along(done)) prog$completed(names(done)[i], done[[i]]$att)
   prog$prog_start()
 
-  for (i in seq_along(query)) {
+  for (i in seq_along(sci_com)) {
     direct <- FALSE
-    mssg(messages, "\nRetrieving data for taxon '", query[i], "'\n")
+    mssg(messages, "\nRetrieving data for taxon '", sci_com[i], "'\n")
 
     if (!searchtype %in% c("scientific", "common")) {
       stop("'searchtype' must be one of 'scientific' or 'common'",
         call. = FALSE)
     }
 
-    nsdf <- ns_worker(query[i], key, ...)
+    nsdf <- ns_worker(x = sci_com[i], searchtype = searchtype, ...)
     mm <- NROW(nsdf) > 1
 
     if (!inherits(nsdf, "tbl_df") || NROW(nsdf) == 0) {
@@ -149,7 +133,7 @@ get_natservid <- function(query, searchtype = "scientific", ask = TRUE,
       if (nrow(nsdf) > 1) {
 
         names(nsdf)[grep(searchtype, names(nsdf))] <- "target"
-        direct <- match(tolower(nsdf$target), tolower(query[i]))
+        direct <- match(tolower(nsdf$target), tolower(sci_com[i]))
 
         if (length(direct) == 1) {
           if (!all(is.na(direct))) {
@@ -184,7 +168,7 @@ get_natservid <- function(query, searchtype = "scientific", ask = TRUE,
           message("\n\n")
           rownames(nsdf) <- seq_len(NROW(nsdf))
           print(nsdf)
-          message("\nMore than one NatureServe ID found for taxon '", query[i], "'!\n
+          message("\nMore than one NatureServe ID found for taxon '", sci_com[i], "'!\n
                   Enter rownumber of taxon (other inputs will return 'NA'):\n") # prompt
           take <- scan(n = 1, quiet = TRUE, what = 'raw')
 
@@ -204,7 +188,7 @@ get_natservid <- function(query, searchtype = "scientific", ask = TRUE,
           }
         } else {
           if (length(nsid) != 1) {
-            warning(sprintf(m_more_than_one_found, "NatureServe ID", query[i]),
+            warning(sprintf(m_more_than_one_found, "NatureServe ID", sci_com[i]),
               call. = FALSE)
             nsid <- NA_character_
             att <- m_na_ask_false
@@ -215,9 +199,9 @@ get_natservid <- function(query, searchtype = "scientific", ask = TRUE,
     }
     res <- list(id = as.character(nsid), att = att, multiple = mm,
       direct = direct)
-    prog$completed(query[i], att)
+    prog$completed(sci_com[i], att)
     prog$prog(att)
-    tstate$add(query[i], res)
+    tstate$add(sci_com[i], res)
   }
   out <- tstate$get()
   ids <- structure(as.character(unlist(pluck(out, "id"))), class = "natservid",
@@ -279,26 +263,40 @@ check_natservid <- function(x){
 
 #' @export
 #' @rdname get_natservid
-get_natservid_ <- function(query, messages = TRUE, rows = NA, key = NULL, ...) {
+get_natservid_ <- function(sci_com, searchtype = "scientific", messages = TRUE,
+  rows = NA, query = NULL, ...) {
+
+  pchk(query, "sci_com")
   stats::setNames(
-    lapply(query, get_natservid_help, messages = messages, rows = rows,
-           key = key, ...),
-    query
+    lapply(sci_com, get_natservid_help, searchtype = searchtype,
+      messages = messages, rows = rows, ...),
+    sci_com
   )
 }
 
-get_natservid_help <- function(query, messages, rows, key, ...) {
-  mssg(messages, "\nRetrieving data for taxon '", query, "'\n")
-  df <- ns_worker(query, key, ...)
+get_natservid_help <- function(sci_com, searchtype, messages, rows, ...) {
+  mssg(messages, "\nRetrieving data for taxon '", sci_com, "'\n")
+  df <- ns_worker(x = sci_com, searchtype = searchtype, ...)
   sub_rows(df, rows)
 }
 
-ns_base_uri <- function() "http://explorer.natureserve.org/servlet/NatureServe?searchSpeciesUid=%s"
+ns_base_uri <- function() "https://explorer.natureserve.org/Taxon/ELEMENT_GLOBAL.2.%s"
 
-ns_worker <- function(x, key, ...) {
-  tmp <- tryCatch(natserv::ns_search(x = x, key = key, ...), error = function(e) e)
+# x = "Helianthus annuus"; searchtype = "scientific"
+# x = "Ruby*"; searchtype = "common"
+ns_worker <- function(x, searchtype, ...) {
+  query <- switch(searchtype,
+    scientific = list(searchToken=x, matchAgainst="allScientificNames", operator="similarTo"),
+    common = list(searchToken=x, matchAgainst="allCommonNames", operator="similarTo")
+  )
+  # FIXME: gotta have pagination, but results not returning as expected, look into natserv bug
+  tmp <- tryCatch(
+    # natserv::ns_search_spp(text_adv = query, page = 1, per_page = 2000L, ...),
+    natserv::ns_search_spp(text_adv = query, ...),
+    error = function(e) e)
   if (inherits(tmp, "error")) return(tibble::tibble())
-  tmp <- tmp[, c("globalSpeciesUid","jurisdictionScientificName","commonName","natureServeExplorerURI")]
+  if (NROW(tmp$results) == 0) return(tibble::tibble())
+  tmp <- tmp$results[, c("elementGlobalId", "scientificName", "primaryCommonName", "nsxUrl")]
   names(tmp) <- c('id', 'scientificname', 'commonname', 'uri')
   tmp
 }

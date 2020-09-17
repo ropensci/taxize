@@ -59,7 +59,7 @@ NatureServe \tab natserv \tab FALSE \cr
 
 If the source above has a \code{TRUE} in the \verb{SOAP?} column, it is not available
 in this package. They are available from a different package called \strong{taxizesoap}.
-See the GitHub repo for how to install \url{https://github.com/ropensci/taxizesoap}
+See the GitHub repo for how to install https://github.com/ropensci/taxizesoap
 }
 
 \section{Catalogue of Life (COL)}{

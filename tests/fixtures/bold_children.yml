@@ -1,0 +1,1800 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://v4.boldsystems.org/index.php/Taxbrowser_Taxonpage?taxid=88899
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: 'HTTP/2 200 '
+      server: nginx
+      date: Thu, 23 Apr 2020 22:35:43 GMT
+      content-type: text/html; charset=utf-8
+      x-powered-by: PHP/5.3.15
+      set-cookie: session=vh95ps3e78e7u82rj56th181r1; path=/
+      x-frame-options: SAMEORIGIN
+      x-content-type-options: nosniff
+      x-xss-protection: 1; mode=block
+    body:
+      encoding: UTF-8
+      file: no
+      string: "<!DOCTYPE HTML>\n<html>\n<head>\n\t<meta charset=\"utf-8\" />\n<meta
+        http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\">\n\n<title>Momotus
+        | Taxonomy Browser | BOLDSYSTEMS</title>\n\n<meta name=\"keywords\" content=\"\"
+        />\n<meta name=\"description\" content=\"\" />\n<link rel=\"shortcut icon\"
+        type=\"image/x-icon\" href=\"/favicon.ico\" />\n<link rel=\"apple-touch-icon\"
+        href=\"/favicons/apple-icon.png\"/>\n<link rel=\"apple-touch-icon\" sizes=\"57x57\"
+        href=\"/favicons/apple-icon-57x57.png\"/>\n<link rel=\"apple-touch-icon\"
+        sizes=\"60x60\" href=\"/favicons/apple-icon-60x60.png\"/>\n<link rel=\"apple-touch-icon\"
+        sizes=\"72x72\" href=\"/favicons/apple-icon-72x72.png\"/>\n<link rel=\"apple-touch-icon\"
+        sizes=\"76x76\" href=\"/favicons/apple-icon-76x76.png\"/>\n<link rel=\"apple-touch-icon\"
+        sizes=\"114x114\" href=\"/favicons/apple-icon-114x114.png\"/>\n<link rel=\"apple-touch-icon\"
+        sizes=\"120x120\" href=\"/favicons/apple-icon-120x120.png\"/>\n<link rel=\"apple-touch-icon\"
+        sizes=\"144x144\" href=\"/favicons/apple-icon-144x144.png\"/>\n<link rel=\"apple-touch-icon\"
+        sizes=\"152x152\" href=\"/favicons/apple-icon-152x152.png\"/>\n<link rel=\"apple-touch-icon\"
+        sizes=\"180x180\" href=\"/favicons/apple-icon-180x180.png\"/>\n<meta name=\"viewport\"
+        content=\"width=device-width, initial-scale=1, user-scalable=0\" />\n\n<link
+        href=\"/libhtml_v4/css/bootstrap.css\" rel=\"stylesheet\" />\n<link href=\"/libhtml_v4/css/style.css\"
+        rel=\"stylesheet\" />\n<link href=\"/libhtml_v4/css/animate.css\" rel=\"stylesheet\"
+        />\n<link href=\"/libhtml_v4/css/ionicons.min.css\" rel=\"stylesheet\" />\n<!--<link
+        href=\"/libhtml_v4/css/font-awesome.min.css\" rel=\"stylesheet\" />-->\n<link
+        href=\"/libhtml_v3/font-awesome/css/font-awesome.css\" rel=\"stylesheet\">\n<link
+        href=\"https://fonts.googleapis.com/css?family=Open+Sans:400,600,800&amp;subset=latin,latin-ext\"
+        rel=\"stylesheet\" />\n<link href=\"/libhtml_v4/css/print.css\" rel=\"stylesheet\"
+        />\n\n<script src=\"/libhtml_v4/js/modernizr-custom.min.js\"></script>\n<script
+        src=\"/libhtml_v4/js/jquery-2.1.0.min.js\"></script>\n<script src=\"/libhtml_v4/js/bootstrap.js\"></script>\n<script
+        src=\"/libhtml_v4/js/plugins/toastr/toastr.min.js\"></script>\n<script type=\"text/javascript\"
+        src=\"/libhtml_v3/js/modalWaitingBox.js\"></script>\n<script>\n\t(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){\n\t(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new
+        Date();a=s.createElement(o),\n\tm=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)\n\t})(window,document,'script','//www.google-analytics.com/analytics.js','ga');\n\n\tga('create',
+        'UA-372370-4', 'auto');\n\tga('send', 'pageview');\n\n</script>\n<script language=\"javascript\">\n\t//
+        Loading page complete\n$(window).load(function()\n{\n\tcheckHero(); // Check
+        hero height is correct\n\tanimateWhenVisible();  // Activate animation when
+        visible\n});\n\n\n// Page ready\n$(document).ready(function()\n{\n\tif (Modernizr.mq('(min-width:
+        768px)')) {\n\t\t$('#promo').animate({ height: '408px' }, 600);\n\t\t$('#lead-in').animate({
+        height: '220px' }, 800);\n\t}\n\n\t$('.hero').css('height', $(window).height()+'px');
+        // Set initial hero height\n\t$('#scroll-hero').click(function()\n\t{\n\t\t$('html,body').animate({scrollTop:
+        $(\"#hero-bloc\").height()}, 'slow');\n\t});\n\n\tsetUpLightBox(); // Add
+        lightbox Support\n\n\t$(\"button#printBtn\").click(function (e){\n\t\twindow.print();\n\t});\n\n});\n\n//
+        Window resize\n$(window).resize(function()\n{\n\t$('.hero').css('height',getHeroHeight()+'px');
+        // Refresh hero height\n});\n\n// Get Hero Height\nfunction getHeroHeight()\n{\n\tvar
+        H = $(window).height(); // Window height\n\tif (window.hasOwnProperty('heroBodyH')){\n\t\tif(H
+        < heroBodyH) {// If window height is less than content height\n\t\t\tH = heroBodyH+100;\n\t\t}\n\t}\n\treturn
+        H\n}\n\n// Check hero height\nfunction checkHero()\n{\n\tif($('#hero-bloc').length)\n\t{\n\t\tP
+        = parseInt($('.hero-nav').css('padding-top'))*2\n\t\twindow.heroBodyH = $('.hero-nav').outerHeight()+P+$('.vc-content').outerHeight()+50;
+        // Set hero body height\n\t\t$('.hero').css('height', getHeroHeight() + 'px');
+        // Set hero to fill page height\n\t}\n}\n\n// Scroll to target\nfunction scrollToTarget(D)\n{\n\tif(D
+        == 1) // Top of page\n\t{\n\t\tD = 0;\n\t}\n\telse if(D == 2) // Bottom of
+        page\n\t{\n\t\tD = $(document).height();\n\t}\n\telse // Specific Bloc\n\t{\n\t\tD
+        = $(D).offset().top;\n\t\tif($('.sticky-nav').length) // Sticky Nav in use\n\t\t{\n\t\t\tD
+        = D-100;\n\t\t}\n\t}\n\n\t$('html,body').animate({scrollTop:D}, 'slow');\n}\n\n//
+        Initial tooltips\n$(function()\n{\n  $('[data-toggle=\"tooltip\"]').tooltip()\n})\n\n\n//
+        Animate when visible\nfunction animateWhenVisible()\n{\n\thideAll(); // Hide
+        all animation elements\n\tinViewCheck(); // Initail check on page load\n\n\t$(window).scroll(function()\n\t{\n\t\tinViewCheck();
+        // Check object visability on page scroll\n\t\tscrollToTopView(); // ScrollToTop
+        button visability toggle\n\t\tstickyNavToggle(); // Sticky nav toggle\n\t});\n};\n\n//
+        Hide all animation elements\nfunction stickyNavToggle()\n{\n\tvar V = 0; //
+        offset Value\n\tvar C = \"sticky\"; // Classes\n\n\tif($('.sticky-nav').parent().is('#hero-bloc'))
+        // If nav is in hero animate in\n\t{\n\t\tV = $('.sticky-nav').height();\n\t\tC
+        = \"sticky animated fadeInDown\";\n\t}\n\n\tif($(window).scrollTop() > V)\n\t{\n\t\t$('.sticky-nav').addClass(C);\n\n\t\tif(C
+        == \"sticky\")\n\t\t{\n\t\t\t$('.page-container').css('padding-top',$('.sticky-nav').height());\n\t\t}\n\t}\n\telse\n\t{\n\t\t$('.sticky-nav').removeClass(C);\n\t\t$('.page-container').removeAttr('style');\n\t}\n}\n\n//
+        Hide all animation elements\nfunction hideAll()\n{\n\t$('.animated').each(function(i)\n\t{\n\t\tif(!$(this).closest('.hero').length)
+        // Dont hide hero object\n\t\t{\n\t\t\t$(this).removeClass('animated').addClass('hideMe');\n\t\t}\n\t});\n}\n\n//
+        Check if object is inView\nfunction inViewCheck()\n{\n\t$($(\".hideMe\").get().reverse()).each(function(i)\n\t{\n\t\tvar
+        target = jQuery(this);\n\t\tvar a = target.offset().top + target.height();\n\t\tvar
+        b = $(window).scrollTop() + $(window).height();\n\n\t\tif(target.height()
+        > $(window).height()) // If object height is greater than window height\n\t\t{\n\t\t\ta
+        = target.offset().top;\n\t\t}\n\n\t\tif (a < b)\n\t\t{\n\t\t\tvar objectClass
+        = target.attr('class').replace('hideMe' , 'animated');\n\t\t\ttarget.css('visibility','hidden').removeAttr('class');\n\t\t\tsetTimeout(function(){target.attr('class',objectClass).css('visibility','visible');},0.01);\n\t\t}\n\t});\n};\n\n//
+        ScrollToTop button toggle\nfunction scrollToTopView()\n{\n\tif($(window).scrollTop()
+        > $(window).height()/3)\n\t{\n\t\tif(!$('.scrollToTop').hasClass('showScrollTop'))\n\t\t{\n\t\t\t$('.scrollToTop').addClass('showScrollTop');\n\t\t}\n\t}\n\telse\n\t{\n\t\t$('.scrollToTop').removeClass('showScrollTop');\n\t}\n};\n\n//
+        Light box support\nfunction setUpLightBox()\n{\n\twindow.targetLightbox;\n\n\t$(document).on('click',
+        '[data-lightbox]', function(e) // Create Lightbox Modal\n\t{\n\t\te.preventDefault();\n\t\ttargetLightbox
+        = $(this);\n\t\tvar captionData ='<p class=\"lightbox-caption\">'+$(this).attr('data-caption')+'</p>';\n\t\tif(!$(this).attr('data-caption'))
+        // No caption caption data\n\t\t{\n\t\t\tcaptionData = '';\n\t\t}\n\n\t\tvar
+        customModal = $('<div id=\"lightbox-modal\" class=\"modal fade\"><div class=\"modal-dialog\"><div
+        class=\"modal-content '+$(this).attr('data-frame')+'\"><button type=\"button\"
+        class=\"close close-lightbox\" data-dismiss=\"modal\" aria-label=\"Close\"><span
+        aria-hidden=\"true\">&times;</span></button><div class=\"modal-body\"><a href=\"#\"
+        class=\"prev-lightbox\" aria-label=\"prev\"></a><a href=\"#\" class=\"next-lightbox\"
+        aria-label=\"next\"></a><img id=\"lightbox-image\" class=\"img-responsive\"
+        src=\"'+$(this).attr('data-lightbox')+'\">'+captionData+'</div></div></div></div>');\n\t\t$('body').append(customModal);\n\t\t$('#lightbox-modal').modal('show');\n\n\t\t//
+        Handle navigation buttons (next - prev)\n\t\tif($('a[data-lightbox]').index(targetLightbox)
+        == 0)\n\t\t{\n\t\t\t$('.prev-lightbox').hide();\n\t\t}\n\t\tif($('a[data-lightbox]').index(targetLightbox)
+        == $('a[data-lightbox]').length-1)\n\t\t{\n\t\t\t$('.next-lightbox').hide();\n\t\t}\n\t}\n\t).on('hidden.bs.modal',
+        '#lightbox-modal', function () // Handle destroy modal\n\t{\n\t\t$('#lightbox-modal').remove();\n\t})\n\n\t$(document).on('click',
+        '.next-lightbox, .prev-lightbox', function(e)\n\t{\n\t\te.preventDefault();\n\t\tvar
+        idx = $('a[data-lightbox]').index(targetLightbox);\n\t\tvar next = $('a[data-lightbox]').eq(idx+1)
+        // Next\n\n\t\tif($(this).hasClass('prev-lightbox'))\n\t\t{\n\t\t\tnext =
+        $('a[data-lightbox]').eq(idx-1) // Prev\n\t\t}\n\t\t$('#lightbox-image').attr('src',next.attr('data-lightbox'));\n\t\t$('.lightbox-caption').html(next.attr('data-caption'));\n\t\ttargetLightbox
+        = next;\n\n\t\t// Handle navigation buttons (next - prev)\n\t\t$('.next-lightbox,
+        .prev-lightbox').hide();\n\n\t\tif($('a[data-lightbox]').index(next) != $('a[data-lightbox]').length-1)\n\t\t{\n\t\t\t$('.next-lightbox').show();\n\t\t}\n\t\tif($('a[data-lightbox]').index(next)
+        > 0)\n\t\t{\n\t\t\t$('.prev-lightbox').show();\n\t\t}\n\t});\n}\n\nfunction
+        submitSearch(){\n\t//search box\n\n\t\tif (document.searchForm.searchMenu.value==\"taxonomy\")
+        {\n\t\t\tdocument.searchForm.taxon.value = document.searchForm.query.value;
+        \ //temp fix for now.\n\t\t\tdocument.searchForm.action=\"/index.php/Taxbrowser_Taxonpage?taxon=\"+document.searchForm.query.value+\"&debug=1\";\n\t\t}
+        else if (document.searchForm.searchMenu.value==\"records\") {\n\t\t\tdocument.searchForm.action=\"/index.php/Public_SearchTerms?\";\n\t\t}
+        else if (document.searchForm.searchMenu.value==\"bins\") {\n\t\t\tdocument.searchForm.action=\"/index.php/Public_BINSearch?\";\n\t\t}\n\n}\n\n</script>\n<style>\n\t.ui-autocomplete
+        {\n\t\tposition: absolute;\n\t\ttop: 100%;\n\t\tleft: 0;\n\t\tz-index: 1000;\n\t\tfloat:
+        left;\n\t\tdisplay: none;\n\t\tmin-width: 160px;\n\t\t_width: 160px;\n\t\tpadding:
+        4px 0;\n\t\tmargin: 2px 0 0 0;\n\t\tlist-style: none;\n\t\tbackground-color:
+        #ffffff;\n\t\tborder-color: #ccc;\n\t\tborder-color: rgba(0, 0, 0, 0.2);\n\t\tborder-style:
+        solid;\n\t\tborder-width: 1px;\n\t\t-webkit-border-radius: 5px;\n\t\t-moz-border-radius:
+        5px;\n\t\tborder-radius: 5px;\n\t\t-webkit-box-shadow: 0 5px 10px rgba(0,
+        0, 0, 0.2);\n\t\t-moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);\n\t\tbox-shadow:
+        0 5px 10px rgba(0, 0, 0, 0.2);\n\t\t-webkit-background-clip: padding-box;\n\t\t-moz-background-clip:
+        padding;\n\t\tbackground-clip: padding-box;\n\t\t*border-right-width: 2px;\n\t\t*border-bottom-width:
+        2px;\n\n\t\t.ui-menu-item > a.ui-corner-all {\n\t\t\tdisplay: block;\n\t\t\tpadding:
+        3px 15px;\n\t\t\tclear: both;\n\t\t\tfont-weight: normal;\n\t\t\tline-height:
+        18px;\n\t\t\tcolor: #555555;\n\t\t\twhite-space: nowrap;\n\n\t\t\t&.ui-state-hover,
+        &.ui-state-active &.ui-state-focus{\n\t\t\t\tcolor: #ffffff;\n\t\t\t\ttext-decoration:
+        none;\n\t\t\t\tbackground-color: #0088cc !important;\n\t\t\t\tborder-radius:
+        0px;\n\t\t\t\t-webkit-border-radius: 0px;\n\t\t\t\t-moz-border-radius: 0px;\n\t\t\t\tbackground-image:
+        none;\n\t\t\t}\n\t\t}\n\t}\n\t.ui-helper-hidden-accessible{\n\t\tdisplay:none;\n\t}\n</style>\t<link
+        rel=\"stylesheet\" type=\"text/css\" href=\"/libhtml/highslide/highslide.css\"
+        />\n\t<script type=\"text/javascript\" src=\"/libhtml/highslide/highslide-full.js\"></script>\n\t<!--
+        ChartJS-->\n\t<script src=\"/libhtml_v4/js/plugins/chartjs/Chart.js\"></script>\n\t<script
+        src=\"/libhtml_v3/js/plugins/sparkline/jquery.sparkline.min.js\"></script>\n\n<!--
+        SCRIPT FROM TAXONPAGENEW -->\n<script type=\"text/javascript\">\n\t\t\tmaxColWidth
+        = 2250;\n\t\t\tmaxColHeight = 1125;\n\t\t\ths.graphicsDir = '/libhtml/highslide/graphics/';\n\t\t\ths.showCredits
+        = false;\n\t\t\ths.captionEval= 'this.thumb.title';\n\t\t\ths.enableKeyListener
+        = false;\n\t\t\ths.width = 400;\n\t\t\ths.height = 360;\n\t\t\ths.allowMultipleInstances
+        = false;\n\t\t\ths.useBox = true;\n\t\t\ths.enableKeyListener = true;\n\t\t\ths.dimmingOpacity=0.1;\n\t\t\ths.outlineType
+        = 'custom';\n\t\t\ths.align='center';\n\t\t\ths.registerOverlay({\n\t\t\t\t\thtml:
+        '<div class=\"closebutton\" onclick=\"return hs.close(this)\" title=\"Close\"></div>',\n\t\t\t\t\tposition:
+        'top right',\n\t\t\t\t\tuseOnHtml: true,\n\t\t\t\t\tfade: 2 // fading the
+        semi-transparent overlay looks bad in IE\n\t\t\t});\n\n</script>\n\t<script
+        language=\"javascript\">\n\t\t\tvar allCountriesData = {\"Brazil\":4,\"Colombia\":2,\"Mexico\":2,\"Panama\":10,\"Guatemala\":1,\"Peru\":17,\"Bolivia\":6,\"Ecuador\":2};\n\n\t\t\t$(document).ready(function()
+        {\n\t\t\t\t//Taxonomy Search event handler\n\t\t\t\t$('button[name=\"searchTax\"]').click(function
+        () {\n\t\t\t\t\twindow.location = \"/index.php/Taxbrowser_Taxonpage?taxon=\"+
+        $('input[name=\"taxon\"]').val();\n\t\t\t\t});\n\t\t\t\t//Species Summary
+        event handler\n\t\t\t\t$('button[name=\"speciesSummaryOpen\"]').on(\"click\",function
+        () {\n\t\t\t\t\topenSpeciesSummary();\n\t\t\t\t});\n\t\t\t\t//Access Published
+        & Released Data event handler\n\t\t\t\t$('button[name=\"accessPublishedData\"]').on(\"click\",function
+        () {\n\t\t\t\t\twindow.location = \"/index.php/Public_SearchTerms?query=Momotus[tax]\";\n\t\t\t\t});\n\n\t\t\t\t$('a.popup-medium').click(function
+        (ev) {\n\t\t\t\t\twindow.open(this.href,'popup', 'scrollbars=yes,width=780,height=690');\n\t\t\t\t\tev.preventDefault();\n\t\t\t\t});\n\n\t\t\t\twikiRetrieve('Momotus',
+        '14');\n\n\t\t\t\t//setup breadcrumbs\n\t\t\t\tvar taxonBreadcrumbs = [\"<a
+        class =\\\"link\\\" title=\\\"phylum\\\"href=\\\"\\/index.php\\/TaxBrowser_Taxonpage?taxid=18\\\">Chordata<\\/a>\",\"<a
+        class =\\\"link\\\" title=\\\"class\\\"href=\\\"\\/index.php\\/TaxBrowser_Taxonpage?taxid=51\\\">Aves<\\/a>\",\"<a
+        class =\\\"link\\\" title=\\\"order\\\"href=\\\"\\/index.php\\/TaxBrowser_Taxonpage?taxid=339\\\">Coraciiformes<\\/a>\",\"<a
+        class =\\\"link\\\" title=\\\"family\\\"href=\\\"\\/index.php\\/TaxBrowser_Taxonpage?taxid=88898\\\">Momotidae<\\/a>\",\"Momotus\"];\n\t\t\t\tsetupBreadcrumbs(taxonBreadcrumbs);\n\n\n\t\t\t\tvar
+        selector = \"#countries-summary\";\n\t\t\t\tcountriesRepresentation(selector,
+        allCountriesData);\n\n\t\t\t\t$('form[name=\"searchForm\"]').submit(function
+        (e) {\n\t\t\t\t\tif (document.searchForm.searchMenu.value==\"taxonomy\") {\n\t\t\t\t\t\tdocument.searchForm.taxon.value
+        = document.searchForm.query.value;  //temp fix for now.\n\t\t\t\t\t\tdocument.searchForm.action=\"/index.php/Taxbrowser_Taxonpage?taxon=\"+document.searchForm.query.value+\"&debug=1\";\n\t\t\t\t\t}
+        else if (document.searchForm.searchMenu.value==\"records\") {\n\t\t\t\t\t\tdocument.searchForm.action=\"/index.php/Public_SearchTerms?\";\n\t\t\t\t\t}
+        else if (document.searchForm.searchMenu.value==\"bins\") {\n\t\t\t\t\t\tdocument.searchForm.action=\"/index.php/Public_BINSearch?\";\n\t\t\t\t\t}\n\t\t\t\t});\n\n\t\t\t});\n\n\t\t\tfunction
+        setupBreadcrumbs(taxonBreadcrumbs) {\n\t\t\t\tvar selector = \"#taxonBreadcrumbs\";\n\t\t\t\tfor
+        (var i = 0; i < taxonBreadcrumbs.length; i++) {\n\t\t\t\t\tvar crumb;\n\t\t\t\t\tif
+        (i == taxonBreadcrumbs.length - 1) {\n\t\t\t\t\t\tcrumb = $(\"<li>\", {class:\"active\"}).append(taxonBreadcrumbs[i]);\n\t\t\t\t\t}
+        else {\n\t\t\t\t\t\tcrumb = $(\"<li>\").append(taxonBreadcrumbs[i]);\n\t\t\t\t\t}\n\t\t\t\t\t$(selector).append(crumb);\n\t\t\t\t}\n\t\t\t}\n\n\t\t\tfunction
+        openSpeciesSummary(ev) {\n\t\t\t\tvar page=\"speciesSummary\";\n\t\t\t\tPopup=window.open('/index.php/Working',page,'scrollbars=yes,resizable=yes,width=900,height=700');\n\t\t\t\tsetTimeout(function(){\n\t\t\t\t\t\t\t\t$('form[name=\"actionRequest\"]').attr('target',
+        page);\n\t\t\t\t\t\t\t\t$('form[name=\"actionRequest\"]').submit();\n\t\t\t\t\t\t\t\tPopup.focus();},\n\t\t\t\t\t\t\t\t450);\n\n\t\t\t\tev.preventDefault();\n\n\t\t\t}\n\n\t\t\tfunction
+        countriesRepresentation(selector,data){\n\t\t\t\tvar totalSpecimenCount =
+        Object.keys(data)\n\t\t\t\t\t.reduce(function(sum, key) {\n\t\t\t\t\t\treturn
+        sum + data[key];\n\t\t\t\t\t}, 0);\n\n\t\t\t\t //sort countries\n\t\t\t\tvar
+        sortedCountries = sortCountries();\n\n\t\t\t\t//only draw 5\n\t\t\t\tvar globalCounter
+        = 0;\n\t\t\t\tvar countrySelectorID = 1;\n\t\t\t\tfor (var j =0; j < 6 ; j++)
+        {\n\n\t\t\t\t\tvar countrySelector = \"country-summary\" + countrySelectorID;\n\t\t\t\t\t$(selector).append($(\"<div>\",
+        {class:\"col-lg-2 col-md-6\"}).append(\n\t\t\t\t\t\t\t\t$(\"<div>\", {class:\"ibox\"}\n\t\t\t\t\t\t\t\t).append(\n\t\t\t\t\t\t\t\t\t$(\"<div>\",
+        {class:\"ibox-content\"})\n\t\t\t\t\t\t\t\t).append(\n\t\t\t\t\t\t\t\t\t$(\"<div>\",
+        {id:countrySelector})\n\t\t\t\t\t\t\t\t)\n\t\t\t\t\t\t\t));\n\t\t\t\t\tvar
+        counter = 1;\n\t\t\t\t\tfor (globalCounter; globalCounter < sortedCountries.length;
+        globalCounter++) {\n\t\t\t\t\t\tvar newWidth = progressValue(sortedCountries[globalCounter][1],totalSpecimenCount);\n\t\t\t\t\t\t$(\"#\"+countrySelector).append($(\"<div>\").append(\n\t\t\t\t\t\t\t\t$(\"<span>\").text(sortedCountries[globalCounter][0]+\":\")\n\t\t\t\t\t\t\t).append(\n\t\t\t\t\t\t\t\t$(\"<span>\",{class:\"pull-right\"}).text(sortedCountries[globalCounter][1]
+        )\n\t\t\t\t\t\t\t).append(\n\t\t\t\t\t\t\t\t$(\"<div>\",{class:\"progress
+        progress-small\"}).append(\n\t\t\t\t\t\t\t\t\t$(\"<div>\",{class:\"progress-bar\",width:newWidth+\"%\"})\n\t\t\t\t\t\t\t\t)\n\t\t\t\t\t\t\t)\n\t\t\t\t\t\t);\n\t\t\t\t\t\tif
+        (counter == 2){\n\t\t\t\t\t\t\tbreak;\n\t\t\t\t\t\t}\n\t\t\t\t\t\tif (globalCounter
+        == 12){\n\t\t\t\t\t\t\tbreak;\n\t\t\t\t\t\t}\n\t\t\t\t\t\tcounter++;\n\t\t\t\t\t}\n\t\t\t\t\tglobalCounter++;\n\n\t\t\t\t\tcountrySelectorID++;\n\t\t\t\t}\n\n\t\t\t}\n\n\n\t\t\tfunction
+        sortCountries(){\n\t\t\t\tvar sortedCountries=[];\n\t\t\t\t//transform object
+        to array\n\t\t\t\tObject.keys(allCountriesData)\n\t\t\t\t   .map(function(
+        key) {\n\t\t\t\t\t   sortedCountries.push([key, allCountriesData[key]]);\n\t\t\t\t
+        \  });\n\t\t\t\t//sort items by value\n\t\t\t\tsortedCountries = sortedCountries.sort(function(a,
+        b){\n\t\t\t\t\treturn b[1] - a[1];\n\t\t\t\t});\n\t\t\t\treturn sortedCountries;\n\t\t\t}\n\n\n\t\t\tfunction
+        populateAllCountries(){\n\t\t\t\tvar sortedCountries = sortCountries();\n\t\t\t\tvar
+        i,j;\n\t\t\t\tvar temparray=[];\n\t\t\t\tvar chunk = Math.ceil(sortedCountries.length
+        / 4);\n\t\t\t\tfor (i=0,j = sortedCountries.length; i < j; i+=chunk) {\n\t\t\t\t\ttemparray.push(sortedCountries.slice(i,
+        i+chunk));\n\t\t\t\t}\n\n\t\t\t\tvar table = $(\"#dialogTable\");\n\t\t\t\t$(\"#dialogTable
+        tr\").remove();\n\t\t\t\tfor (var i =0; i < temparray[0].length; i++) {\n\t\t\t\t\tvar
+        newRow = $(\"<tr>\");\n\n\t\t\t\t\t//code will be cleaned up\n\t\t\t\t\tnewRow.append($(\"<td>\",
+        {style: \"width='10px'\"}).text(temparray[0][i][0]));\n\t\t\t\t\tnewRow.append($(\"<td>\",
+        {style: \"width='10px'\"}).text(temparray[0][i][1]));\n\t\t\t\t\tif (1 in
+        temparray && temparray[1][i] != undefined) {\n\t\t\t\t\t\tnewRow.append($(\"<td>\",
+        {style: \"width='10px'\"}).text(temparray[1][i][0]));\n\t\t\t\t\t\tnewRow.append($(\"<td>\",
+        {style: \"width='10px'\"}).text(temparray[1][i][1]));\n\t\t\t\t\t}\n\t\t\t\t\tif
+        (2 in temparray && temparray[2][i] != undefined) {\n\t\t\t\t\t\tnewRow.append($(\"<td>\",
+        {style: \"width='10px'\"}).text(temparray[2][i][0]));\n\t\t\t\t\t\tnewRow.append($(\"<td>\",
+        {style: \"width='10px'\"}).text(temparray[2][i][1]));\n\t\t\t\t\t}\n\t\t\t\t\tif
+        (3 in temparray && temparray[3][i] != undefined) {\n\t\t\t\t\t\tnewRow.append($(\"<td>\",
+        {style: \"width='10px'\"}).text(temparray[3][i][0]));\n\t\t\t\t\t\tnewRow.append($(\"<td>\",
+        {style: \"width='10px'\"}).text(temparray[3][i][1]));\n\t\t\t\t\t}\n\t\t\t\t\ttable.append(newRow);\n\t\t\t\t}\n\t\t\t\ttable.show();\n\t\t\t\t$(\"#alldatadialog\").modal('show');\n\t\t\t}\n\n\n\t\t\tfunction
+        progressValue(dividend, divisor) {\n\t\t\t\tif (dividend <= 0) {\n\t\t\t\t\treturn
+        0;\n\t\t\t\t} else {\n\t\t\t\t\tquotient = (dividend / parseFloat(divisor))
+        * 100.0 ;\n\t\t\t\t\treturn Math.max(1, parseInt(quotient));\n\t\t\t\t}\n\t\t\t}\n\n\t\t\tfunction
+        wikiRetrieve(name, rank) {\n\t\t\t\tvar url = \"/index.php/MAS_Ajax_WikiRetriever?name=\"
+        + name + '&url=true';\n\t\t\t\t$.ajax({\n\t\t\t\t\ttype:\"GET\",\n\t\t\t\t\turl:
+        url,\n\t\t\t\t\tdata: {rank: rank},\n\t\t\t\t\tdataType: 'json',\n\t\t\t\t\tsuccess:
+        function(data){\n\n\t\t\t\t\t\tif(data && data['text']) {\n\t\t\t\t\t\t\t$('#rowTaxon').show();\n\t\t\t\t\t\t\t$('#pTaxon').prepend(data['text']);\n\t\t\t\t\t\t\tif(data['url'])
+        {\n\t\t\t\t\t\t\t\t$('#pTaxon a').attr('href', 'http://en.wikipedia.org/wiki/'
+        + data['url']);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t} else {\n\t\t\t\t\t\t\t$('#rowTaxon').hide();\n\t\t\t\t\t\t}\n\t\t\t\t\t},\n\t\t\t\t\terror:
+        function(){\n\t\t\t\t\t\t$('#rowTaxon').hide();\n\t\t\t\t\t}\n\t\t\t\t});\n\t\t\t}\n\n\n\t\t\tfunction
+        buildChart(url,suffix){\n\t\t\t\t$.get(url,{\"taxid\":\"88899\"}).done(function(data){\n\t\t\t\t\tvar
+        doughnutOptions = {\n\t\t\t\t\t\tsegmentShowStroke: true,\n\t\t\t\t\t\tsegmentStrokeColor:
+        \"#fff\",\n\t\t\t\t\t\tsegmentStrokeWidth: 2,\n\t\t\t\t\t\tpercentageInnerCutout:
+        45, // This is 0 for Pie charts\n\t\t\t\t\t\tanimationSteps: 100,\n\t\t\t\t\t\tanimationEasing:
+        \"easeOutBounce\",\n\t\t\t\t\t\tanimateRotate: true,\n\t\t\t\t\t\tanimateScale:
+        false,\n\t\t\t\t\t\tresponsive: true,\n\t\t\t\t\t\tlegendTemplate : '<ul class=\"list-unstyled\">'+'<%
+        for (var i=0; i<segments.length; i++) { %>'+'<li>'+'<span style=\"-moz-border-radius:7px
+        7px 7px 7px; border-radius:7px 7px 7px 7px; margin-right:10px;width:15px;height:15px;display:inline-block;background-color:<%=segments[i].fillColor%>\">
+        </span>'+'<% if (segments[i].label) { %><%= segments[i].label %><% } %>'+'</li>'+'<%
+        } %>'+'</ul>'\n\t\t\t\t\t};\n\t\t\t\t\tjsonObj = JSON.parse(data);\n\t\t\t\t\tchartColours
+        = [\"#93C3DE\",\"#A2E6C6\",\"#A8EF8D\",\"#F0E287\",\"#DEB483\",\"#DE9E93\",\"#DAA1DE\",\"#BCB2F4\",\"#DEDEDE\",\"#B4B4B4\"];\n\t\t\t\t\thighlightColour
+        = \"#1ab394\";\n\t\t\t\t\tchartData = [];\n\t\t\t\t\tchartColourIndex = 0;\n\n\t\t\t\t\tfor
+        (i=jsonObj.data.length-1;i>=0;i--){\n\t\t\t\t\t\tchartLabel = jsonObj.labels[i];\n\t\t\t\t\t\tchartVal
+        = jsonObj.data[i];\n\t\t\t\t\t\tchartData.push({\n\t\t\t\t\t\t\tvalue:chartVal,\n\t\t\t\t\t\t\tcolor:chartColours[chartColourIndex],\n\t\t\t\t\t\t\thighlight:
+        highlightColour,\n\t\t\t\t\t\t\tlabel:chartLabel\n\t\t\t\t\t\t});\n\t\t\t\t\t\tchartColourIndex
+        += 1;\n\t\t\t\t\t\tif (chartColourIndex == chartColours.length){//for now
+        ;loop through the colour\n\t\t\t\t\t\t\tchartColourIndex = 0;\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t\tvar
+        ctx = document.getElementById(\"chart\"+suffix).getContext(\"2d\");\n\t\t\t\t\tvar
+        tgChart = new Chart(ctx).Doughnut(chartData, doughnutOptions);\n\t\t\t\t\t$(\"#legend\"+suffix).html(tgChart.generateLegend());\n\t\t\t\t});\n\t\t\t}\n\n\t\t\t$(document).ready(function()
+        {\n\t\t\t\t\t\t\t\tbuildChart('/index.php/TaxBrowser_Charts_institutionsrcdata','Depositry');\n\t\t\t\t\t\t\t\t\t\t\t\tbuildChart('/index.php/TaxBrowser_Charts_institutionsrcdata/sequencinglabs','Sequence');\n\t\t\t\t\t\t\t});\n\t</script>\n\n\t<style
+        type=\"text/css\">\n\n\t\t.highslide-heading {\n\t\t\tcolor:#dedede;\n\t\t}\n\t\t.highslide-caption{\n\t\t\tfont-size:10pt
+        !important;\n\t\t}\n\t\t.imagegallery_preview {\n\t\t\tbackground-color: #FFFFFF;\n\t\t\tmargin:
+        8px;\n\t\t\tborder: 1px solid #111111;\n\t\t\tpadding: 0px;\n\t\t\twidth:400px;\n\t\t\ttext-align:
+        center;\n\t\t\tfloat:right;\n\t\t}\n\n\t\t.alignTop, .alignTop td{\n\t\t\tvertical-align:
+        top;\n\t\t}\n\t\t.legendFont {\n\t\t\tfont-size: 12px;\n\t\t}\n\t\t.scrollPortlet{\n\t\t\tmax-height:
+        400px;\n\t\t\toverflow-y: auto;\n\t\t}\n\t\t.progress {\n\t\t\theight: 10px;\n\t\t}\n\t\t.modal-dialog
+        \ {width:1000px;}\n\n\t\t.breadcrumb {\n\t\t\tpadding: 0px;\n\t\t\tpadding-left:15px;\n\t\t\tbackground-color:
+        transparent;\n\t\t}\n\t\t.l-bloc a.link{\n\t\t\tcolor: #337ab7 ;\n\t\t}\n\t\t.highslide-caption
+        a {\n\t\t\tcolor: #ff9400;\n\t\t\tfont-size: 10pt !important;\n\t\t\tfont-weight:
+        bold;\n\t\t\tpadding: 2px;\n\t\t}\n\n\t</style>\n</head>\n<body>\n\t<div class=\"page-container\">\n\t\t<div
+        class=\"bloc sticky-nav bgc-dark-jungle-green d-bloc\">\n\t\t\t<div class=\"container
+        bloc-xs\">\n\t\t\t\t<nav class=\"navbar row\">\n\t\t\t\t\t<div class=\"navbar-header\">\n\t\t\t\t\t\t<a
+        class=\"navbar-brand\" href=\"/index.php\">\n\t\t\t\t\t\t\t<img src=\"/libhtml_v4/images/BOLDlogo.png\"
+        alt=\"logo\" />\n\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t<button id=\"nav-toggle\"
+        type=\"button\" class=\"ui-navbar-toggle navbar-toggle\" data-toggle=\"collapse\"
+        data-target=\".navbar-1\">\n\t\t\t\t\t\t\t<span class=\"sr-only\">Toggle navigation</span>\n\t\t\t\t\t\t\t<span
+        class=\"icon-bar\"></span>\n\t\t\t\t\t\t\t<span class=\"icon-bar\"></span>\n\t\t\t\t\t\t\t<span
+        class=\"icon-bar\"></span>\n\t\t\t\t\t\t</button>\n\n\t\t\t\t\t\t<a href=\"#\"
+        class=\"search-toggle\" data-toggle=\"collapse\" data-target=\".search-wrap\">\n\t\t\t\t\t\t\t<span
+        class=\"fa fa-search fa-lg\"></span>\n\t\t\t\t\t\t</a>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div
+        class=\"collapse navbar-collapse navbar-1\">\n\t\t\t\t\t\t<ul class=\"site-navigation
+        nav navbar-nav\">\n\t\t\t\t\t\t\t<li><a href=\"/index.php/databases\">Databases</a></li>\n\t\t\t\t\t\t\t<li><a
+        href=\"/index.php/IDS_OpenIdEngine\">Identification</a></li>\n\t\t\t\t\t\t\t<li><a
+        href=\"/index.php/TaxBrowser_Home\">Taxonomy</a></li>\n\t\t\t\t\t\t\t<li><a
+        href=\"/index.php/MAS_Management_UserConsole\">Workbench</a></li>\n\t\t\t\t\t\t\t<li><a
+        href=\"/index.php/Resources\">Resources</a></li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li><a
+        href=\"/index.php/MAS_Management_UserConsole\">Login</a></li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li
+        class=\"nav-search\">\n\t\t\t\t\t\t\t\t<a href=\"#\" data-toggle=\"collapse\"
+        data-target=\".search-wrap\">\n\t\t\t\t\t\t\t\t\t<span class=\"fa fa-search
+        icon-sm\"></span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t</nav>\n\t\t\t</div>\n\n\t\t\t<div
+        class=\"search-wrap collapse\">\n\t\t\t\t<form id=\"site-search\" name =\"searchForm\"
+        onSubmit=\"submitSearch();\">\n\t\t\t\t\t<div class=\"col-sm-3 col-md-2\">\n\t\t\t\t\t\t<label
+        class=\"sr-only\" for=\"search_type\">Type</label>\n\t\t\t\t\t\t<select id=\"search_type\"
+        class=\"form-control\" name=\"searchMenu\">\n\t\t\t\t\t\t\t<option value=\"taxonomy\">Taxonomy</option>\n\t\t\t\t\t\t\t<option
+        value=\"records\">Public Data</option>\n\t\t\t\t\t\t\t<option value=\"bins\">BINs</option>\n\t\t\t\t\t\t</select>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div
+        class=\"col-sm-9 col-md-10\">\n\t\t\t\t\t\t<label class=\"sr-only\" for=\"search_keyword\">Keyword</label>\n\t\t\t\t\t\t<input
+        id=\"query\" class=\"form-control\" name=\"query\"  placeholder=\"Search\"
+        />\n\t\t\t\t\t\t<input type=\"hidden\" name=\"taxon\"/>\n\t\t\t\t\t</div>\n\t\t\t\t</form>\n\t\t\t</div>\n\t\t</div><!--
+        /.sticky-nav -->\n\n<div class=\"bloc bgc-cadet-blue d-bloc\" id=\"lead-in\">\n
+        \   <div class=\"container bloc-md\">\n\n        <div class=\"row\">\n            <div
+        class=\"col-sm-12\">\n                <h3>TAXONOMY BROWSER: Momotus</h3>\n\t\t\t\t
+        <p>Genus : Momotus</p>\n\n            </div>\n        </div>\n    </div>\n</div>\n\n<div
+        class=\"bloc l-bloc bgc-white\">\n    <div class=\"container bloc-md\" style=\"padding:10px;\">\n
+        \       <div class=\"row\">\n\t\t\t <ol class=\"breadcrumb\" id=\"taxonBreadcrumbs\">\n\t\t\t</ol>\n\t\t</div>\n\t\t<div
+        class=\"row\">\n\t\t\t<div class=\"col-lg-6 col-md-6\">\n\t\t\t\t<div class=\"ibox\">\n\t\t\t\t\t<div
+        class=\"ibox-content\">\n\t\t\t\t\t\t<div class=\"ibox float-e-margins\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div
+        class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-xs-12 text-left\" style=\"margin-top:0px;margin-bottom:0px;\"><img
+        class=\"img-responsive\" src=\"/pics/FRGUY/GUY0173%2B1234014162.JPG\"  border=\"0\"
+        title=\"sample id:GUY0173-EP\"></div>\n\t\t\t\t\t\t\t<div class=\"col-xs-12
+        text-right\" style=\"margin-top:0px;margin-bottom:0px;\">\t\t\t\t\t\t\t\t<div
+        class=\"row\">\n\t\t\t\t\t\t\t\t\t<div class=\"col-xs-8 text-left\" style=\"margin-top:0px;margin-bottom:0px;\"><i
+        class=\"fa fa-copyright\" aria-hidden=\"true\"></i> Unspecified (default):
+        All Rights Reserved\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<i class=\"fa
+        fa-user\" aria-hidden=\"true\"></i> No Rights Reserved\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div
+        class=\"col-xs-4 text-right\" style=\"margin-top:0px;margin-bottom:0px;\">\n\t\t\t\t\t\t\t\t\t\t\tImage
+        of  <a class=\"link\" href=\"/index.php/TaxBrowser_Taxonpage?taxid=88900\">Momotus
+        momota</a> \t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div><!--
+        END OF ROW -->\n\t\t\t\t\t\t\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div
+        class=\"col-lg-6 col-md-6\">\n\t\t\t<div class=\"ibox\">\n\t\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t\t<h2>Taxon
+        Description (Wikipedia)</h2>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ibox-content\">\n\t\t\t\t\t<div
+        class=\"ibox float-e-margins\">\n\t\t\t\t\t\t<p id=\"pTaxon\">\n\t\t\t\t\t\t\t<a
+        class=\"link popup-medium\" href=\"http://en.wikipedia.org/wiki/Momotus\">full
+        article at Wikipedia</a>\n\t\t\t\t\t\t</p>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\n\n\n\n\n\t</div>
+        <!-- End of 1st row -->\n\n\t<div class =\"row\">\n\n\n\t\t<div class=\"col-lg-4
+        col-md-6\">\n\t\t\t<div class=\"ibox\">\n\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t<h2>Statistics</h2>\n\t\t\t\t</div>\n\t\t\t\t<div
+        class=\"ibox-content\">\n\t\t\t\t<div class=\"ibox float-e-margins\">\n\t\t\t\t\t<table
+        class=\"table table-striped noborder\">\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td
+        width=\"41%\">Specimen Records:</td>\n\t\t\t\t\t\t\t<td width=\"17%\">82</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Specimens
+        with Sequences:</td>\n\t\t\t\t\t\t\t<td>65</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Specimens
+        with Barcodes:</td>\n\t\t\t\t\t\t\t<td><specimendataforlivestats/>59<specimendataforlivestats/></td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Species:</td>\n\t\t\t\t\t\t\t<td>3</td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Species
+        With Barcodes:</td>\n\t\t\t\t\t\t\t<td>3</td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td
+        width=\"60%\">Public Records:</td>\n\t\t\t\t\t\t\t<td width=\"40%\">39</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Public
+        Species:</td>\n\t\t\t\t\t\t\t<td>2</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Public
+        BINs:</td>\n\t\t\t\t\t\t\t<td>8</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td><button
+        class=\"btn btn-sm btn-info\" name=\"speciesSummaryOpen\"> Species List  </button></td>\n\t\t\t\t\t\t\t<td><button
+        class=\"btn btn-sm btn-info\" name=\"accessPublishedData\">Public Data</button></td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</table>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t\t</div>\n\n\n\t\t<div
+        class=\"col-lg-4 col-md-6\">\n\t\t\t<div class=\"ibox\">\n\t\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t\t<h2>Specimen
+        Depositories</h2>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ibox-content\">\n\t\t\t\t\t<div
+        class=\"ibox float-e-margins\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div id=\"divDepositry\"><canvas
+        id=\"chartDepositry\"></canvas></div>\n\t\t\t\t\t\t<div id=\"legendDepositry\"
+        class=\"legendFont\"></div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div id=\"institutionsList2\"></div>\n\t\t\t\t\t\t\t<script
+        language=\"javascript\">\n\t\t\t\t\t\t\tvar institutionsReduced=true;\n\t\t\t\t\t\t\tfunction
+        institutionsExpandReduce() {\n\t\t\t\t\t\t\t\tif (institutionsReduced==true)
+        {\n\t\t\t\t\t\t\t\t\tdocument.getElementById('institutionsList').innerHTML=\"\";\n\t\t\t\t\t\t\t\t\tdocument.getElementById('institutionsExpandReduceLink').innerHTML=\"Collapse\";\n\t\t\t\t\t\t\t\t\tinstitutionsReduced=false;\n\t\t\t\t\t\t\t\t}
+        else {\n\t\t\t\t\t\t\t\t\tdocument.getElementById('institutionsList').innerHTML=\"\";\n\t\t\t\t\t\t\t\t\tdocument.getElementById('institutionsExpandReduceLink').innerHTML=\"Expand\";\n\t\t\t\t\t\t\t\t\tinstitutionsReduced=true;\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t}\n\n\t\t\t\t\t\t\t</script>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div
+        class=\"col-lg-4 col-md-6\">\n\t\t\t<div class=\"ibox\">\n\t\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t\t<h2>Sequencing
+        Labs</h2>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ibox-content\">\n\t\t\t\t\t<div
+        class=\"ibox float-e-margins\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div id=\"divSequence\"><canvas
+        id=\"chartSequence\" height=\"140\"></canvas></div>\n\t\t\t\t\t\t<div id=\"legendSequence\"
+        class=\"legendFont\"></div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>
+        <!--END OF third ROW --->\n\n\n\t<div class=\"row\">\n\t\t<div class=\"col-lg-12
+        col-md-6\">\n\t\t\t<div class=\"ibox\">\n\t\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t\t<h2>Collection
+        Sites</h2>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ibox-content\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a
+        class=\"highslide\" onclick=\"return hs.expand(this,{width:maxColWidth,height:maxColHeight})\"
+        href=\"/index.php/TaxBrowser_Maps_CollectionSites?taxid=88899\" ><img border=\"0\"
+        width=\"100%\" src=\"/index.php/TaxBrowser_Maps_CollectionSites?taxid=88899\"></img></a>\n\t\t\t\t\t\t\t\t</br>\n\t\t\t\t\t\t\t\t<img
+        src=\"/libhtml/icons/mapScale_BOLD.png\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t</div>
+        <!-- END OF FIFTH ROW -->\n\n\t<div class=\"row\">\n\t\t<div class=\"col-lg-12\">\n\t\t\t<div
+        class=\"ibox\">\n\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t<h2>Countries</h2>\n\t\t\t\t\t<span>Collected
+        from <strong>8</strong> countries. </span> <a class=\"link\" onClick = \"populateAllCountries();\">
+        Show all countries</a>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t<div
+        class =\"row\" id =\"countries-summary\">\n\n\t</div><!--END OF ROW-->\n\n\n\t<div
+        class =\"row\">\n\t\t\t\t<div class=\"col-md-6\">\n\t\t\t<div class=\"ibox\">\n\t\t\t\t\t<div
+        class=\"ibox-title\">\n\t\t\t\t\t\t<h2>Sub-Taxa</h2>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div
+        class=\"ibox-content\">\n\t\t\t\t\t<!-- Left Menu START-->\n\t\t\t\t\t<div
+        class=\"ibox float-e-margins\">\n\n\t\t\t\t\t\t\t<lh>Species (3) </lh><ol><li><a
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=115130\">Momotus aequatorialis
+        [5]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=106839\">Momotus
+        mexicanus [24]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=88900\">Momotus
+        momota [53]</a></li></ol>\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t</div>\n\t\t
+        <!-- Left Menu END -->\n\t\t<div class=\"col-md-6\">\n\t\t\t\t\t\t\t\t<div
+        class=\"ibox float-e-margins\">\n\t\t\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t\t\t<h2>Imagery</h2>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div
+        class=\"ibox-content\">\n\t\t\t\t\t\t<i> Images representing subtaxa of Momotus</i>
+        <div class=\"row\"><div class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return
+        hs.expand(this,{width:500, height:118} )\" href=\"//v4.boldsystems.org/pics/AVIPE/MHNSM_MUSM-Orn-22421a.jpg%2B1430161804.JPG\"><img
+        title=\" (Momotus aequatorialis - MUSM-Orn-22421a)  Copyright - All Rights
+        Reserved (2014)  \" alt=\" (Momotus aequatorialis - MUSM-Orn-22421a)  @11
+        [ ] Copyright - All Rights Reserved (2014) Unspecified Museo de Historia Natural\"
+        \ src=\"//v4.boldsystems.org/pics/_w300/AVIPE/MHNSM_MUSM-Orn-22421a.jpg%2B1430161804.JPG\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=115130\">Momotus aequatorialis</a></div></div><div
+        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
+        height:667} )\" href=\"//v4.boldsystems.org/pics/FRGUY/GUY0173%2B1234014162.JPG\"><img
+        title=\" (Momotus momota - GUY0173-EP)  Unspecified (default): All Rights
+        Reserved  No Rights Reserved \" alt=\" (Momotus momota - GUY0173-EP)  @14
+        [ ] Unspecified (default): All Rights Reserved  No Rights Reserved Unspecified\"
+        \ src=\"//v4.boldsystems.org/pics/_w300/FRGUY/GUY0173%2B1234014162.JPG\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=88900\">Momotus momota</a></div></div></div></div>\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t</div>
+        <!-- END OF FOURTH ROW -->\n\n\t<!-- MODAL DIALOG FOR COUNTRIES -->\n\t<div
+        id=\"alldatadialog\" class=\"modal fade\" role=\"dialog\" data-keyboard=\"false\"
+        data-backdrop=\"static\">\n\t\t<div class=\"modal-dialog\" >\n\t\t\t<div class=\"modal-content\">\n\t\t\t\t<div
+        class=\"modal-header\">\n\t\t\t\t\t<button type=\"button\" class=\"close\"
+        data-dismiss=\"modal\">&times;</button>\n\t\t\t\t\t<h4 class=\"modal-title
+        \" id =\"dialogTitle\" >All Countries</h4>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"modal-body\"
+        >\n\n\t\t\t\t\t<table id=\"dialogTable\"  class=\"table table-striped\" style=\"width:100%;\"
+        border=\"0\" cellpadding=\"1\" cellspacing=\"10\" >\n\n\t\t\t\t\t</table>\n\t\t\t</div>\n\t\t\t<div
+        class=\"modal-footer\">\n\t\t\t\t<button id = \"closeDialog\" name = \"closeDialog\"
+        \ data-dismiss=\"modal\" class=\"btn btn-primary btn-sm\" >Close</button>\n\t\t\t</div>\n\t\t</div>\n\t\t</div>\n\t</div>\n\t<form
+        name=\"actionRequest\" action=\"/index.php/TaxBrowser_TaxonPage/SpeciesSummary\"
+        method=\"GET\">\n\t\t<input type=\"hidden\" name=\"taxid\" value=\"88899\">\n\t</form>\n\n\n
+        \       </div>\n    </div>\n</div>\n\t\t\t\t<div class=\"bloc bgc-platinum
+        l-bloc\" id=\"footer\">\n\t\t\t<div class=\"container bloc-md\">\n\t\t\t\t<div
+        class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t<h3 class=\"mg-md\">Databases</h3>\n\t\t\t\t\t\t<ul
+        class=\"list-unstyled\">\n\t\t\t\t\t\t\t<li><a href=\"/index.php/Public_BINSearch?searchtype=records\">Public
+        Data Portal</a></li>\n\t\t\t\t\t\t\t<li><a href=\"/index.php/TaxBrowser_Home\">Taxonomy
+        Browser</a></li>\n\t\t\t\t\t\t\t<li><a href=\"/index.php/Public_Publication_BibliographySearch\">Publications</a></li>\n\t\t\t\t\t\t\t<li><a
+        href=\"/index.php/Public_Primer_PrimerSearch\">Primers</a></li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div
+        class=\"col-sm-3\">\n\t\t\t\t\t\t<h3 class=\"mg-md\">Resources</h3>\n\t\t\t\t\t\t<ul
+        class=\"list-unstyled\">\n\t\t\t\t\t\t  <!--<li><a href=\"/index.php/resources/handbook?chapter=1_gettingstarted.html\">Documentation</a></li>-->\n\t\t\t\t\t\t
+        \ <li><a href=\"/libhtml/docs/bold.pdf\">Citing BOLD</a></li>\n\t\t\t\t\t\t
+        \ <li><a href=\"/index.php/NewsFeed\">News and Events</a></li>\n\t\t\t\t\t\t
+        \ <li><a href=\"/index.php/datarelease\">Data Releases</a></li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div
+        class=\"col-sm-3\">\n\t\t\t\t\t\t<h3 class=\"mg-md\">Organization</h3>\n\t\t\t\t\t\t<ul
+        class=\"list-unstyled\">\n\t\t\t\t\t\t  <li><a href=\"/index.php/Resources/whatIsBOLD\">About
+        Us</a></li>\n\t\t\t\t\t\t  <li><a href=\"/index.php/Resources/ContactUs\">Contact
+        Us</a></li>\n\t\t\t\t\t\t  <li><a href=\"/index.php/NewsFeed\">News &amp;
+        Events</a></li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t<h3
+        class=\"mg-md\">Partners</h3>\n\t\t\t\t\t\t<ul class=\"list-unstyled\">\n\t\t\t\t\t\t
+        \ <li><a href=\"http://www.ibol.org\">iBOL</a></li>\n\t\t\t\t\t\t  <li><a
+        href=\"http://biodiversitygenomics.net/\">CBG</a></li>\n\t\t\t\t\t\t  <li><a
+        href=\"http://ccdb.ca\">CCDB</a></li>\n\t\t\t\t\t\t  <li><a href=\"http://www.ncbi.nlm.nih.gov\">GenBank</a></li>\n\t\t\t\t\t\t
+        \ <li><a href=\"http://www.eol.org\">EOL</a></li>\n\t\t\t\t\t\t  <li><a href=\"http://www.gbif.org\">GBIF</a></li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div
+        class=\"bloc bgc-floral-white l-bloc\" id=\"affiliates\">\n\t\t\t<div class=\"container
+        bloc-md\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-2\">\n\t\t\t\t\t\t<img
+        class=\"img-responsive center-block\" style=\"margin-top:20px\" src=\"/libhtml_v4/img/ibol-50v.png\"
+        />\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-2\">\n\t\t\t\t\t\t<img
+        class=\"img-responsive center-block\" style=\"margin-top:20px\" src=\"/libhtml_v4/img/CFREF.png\"
+        />\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-2\">\n\t\t\t\t\t\t<img
+        class=\"img-responsive center-block\" src=\"/libhtml_v4/img/MRI_logo.png\"
+        />\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-2\">\n\t\t\t\t\t\t<img
+        \ class=\"img-responsive center-block\" style=\"margin-top:20px\" src=\"/libhtml_v4/img/CFINN.png\"/>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div
+        class=\"col-sm-2\">\n\t\t\t\t\t\t<img class=\"img-responsive center-block\"
+        style=\"margin-top:20px\" src=\"/libhtml_v4/img/NSERC.png\" />\n\t\t\t\t\t</div>\n\t\t\t\t\t<div
+        class=\"col-sm-2\">\n\t\t\t\t\t\t<img class=\"img-responsive center-block\"
+        src=\"/libhtml_v4/img/UoGuelph_image18-100x100.png\" />\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div
+        class=\"row\">\n\t\t\t\t\t<div class=\"col-xs-12\"><br/><h5><small><strong>Copyright</strong>
+        BOLD &copy; 2014-2020</small></h5></div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t</body>\n</html>\n"
+  recorded_at: 2020-04-23 22:35:50 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2
+- request:
+    method: get
+    uri: https://v4.boldsystems.org/index.php/Taxbrowser_Taxonpage?taxid=115130
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: 'HTTP/2 200 '
+      server: nginx
+      date: Thu, 23 Apr 2020 22:35:46 GMT
+      content-type: text/html; charset=utf-8
+      x-powered-by: PHP/5.3.15
+      set-cookie: session=o5jk9qqgcqjc3nraj32e6cj4b5; path=/
+      x-frame-options: SAMEORIGIN
+      x-content-type-options: nosniff
+      x-xss-protection: 1; mode=block
+    body:
+      encoding: UTF-8
+      file: no
+      string: "<!DOCTYPE HTML>\n<html>\n<head>\n\t<meta charset=\"utf-8\" />\n<meta
+        http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\">\n\n<title>Momotus
+        aequatorialis | Taxonomy Browser | BOLDSYSTEMS</title>\n\n<meta name=\"keywords\"
+        content=\"\" />\n<meta name=\"description\" content=\"\" />\n<link rel=\"shortcut
+        icon\" type=\"image/x-icon\" href=\"/favicon.ico\" />\n<link rel=\"apple-touch-icon\"
+        href=\"/favicons/apple-icon.png\"/>\n<link rel=\"apple-touch-icon\" sizes=\"57x57\"
+        href=\"/favicons/apple-icon-57x57.png\"/>\n<link rel=\"apple-touch-icon\"
+        sizes=\"60x60\" href=\"/favicons/apple-icon-60x60.png\"/>\n<link rel=\"apple-touch-icon\"
+        sizes=\"72x72\" href=\"/favicons/apple-icon-72x72.png\"/>\n<link rel=\"apple-touch-icon\"
+        sizes=\"76x76\" href=\"/favicons/apple-icon-76x76.png\"/>\n<link rel=\"apple-touch-icon\"
+        sizes=\"114x114\" href=\"/favicons/apple-icon-114x114.png\"/>\n<link rel=\"apple-touch-icon\"
+        sizes=\"120x120\" href=\"/favicons/apple-icon-120x120.png\"/>\n<link rel=\"apple-touch-icon\"
+        sizes=\"144x144\" href=\"/favicons/apple-icon-144x144.png\"/>\n<link rel=\"apple-touch-icon\"
+        sizes=\"152x152\" href=\"/favicons/apple-icon-152x152.png\"/>\n<link rel=\"apple-touch-icon\"
+        sizes=\"180x180\" href=\"/favicons/apple-icon-180x180.png\"/>\n<meta name=\"viewport\"
+        content=\"width=device-width, initial-scale=1, user-scalable=0\" />\n\n<link
+        href=\"/libhtml_v4/css/bootstrap.css\" rel=\"stylesheet\" />\n<link href=\"/libhtml_v4/css/style.css\"
+        rel=\"stylesheet\" />\n<link href=\"/libhtml_v4/css/animate.css\" rel=\"stylesheet\"
+        />\n<link href=\"/libhtml_v4/css/ionicons.min.css\" rel=\"stylesheet\" />\n<!--<link
+        href=\"/libhtml_v4/css/font-awesome.min.css\" rel=\"stylesheet\" />-->\n<link
+        href=\"/libhtml_v3/font-awesome/css/font-awesome.css\" rel=\"stylesheet\">\n<link
+        href=\"https://fonts.googleapis.com/css?family=Open+Sans:400,600,800&amp;subset=latin,latin-ext\"
+        rel=\"stylesheet\" />\n<link href=\"/libhtml_v4/css/print.css\" rel=\"stylesheet\"
+        />\n\n<script src=\"/libhtml_v4/js/modernizr-custom.min.js\"></script>\n<script
+        src=\"/libhtml_v4/js/jquery-2.1.0.min.js\"></script>\n<script src=\"/libhtml_v4/js/bootstrap.js\"></script>\n<script
+        src=\"/libhtml_v4/js/plugins/toastr/toastr.min.js\"></script>\n<script type=\"text/javascript\"
+        src=\"/libhtml_v3/js/modalWaitingBox.js\"></script>\n<script>\n\t(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){\n\t(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new
+        Date();a=s.createElement(o),\n\tm=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)\n\t})(window,document,'script','//www.google-analytics.com/analytics.js','ga');\n\n\tga('create',
+        'UA-372370-4', 'auto');\n\tga('send', 'pageview');\n\n</script>\n<script language=\"javascript\">\n\t//
+        Loading page complete\n$(window).load(function()\n{\n\tcheckHero(); // Check
+        hero height is correct\n\tanimateWhenVisible();  // Activate animation when
+        visible\n});\n\n\n// Page ready\n$(document).ready(function()\n{\n\tif (Modernizr.mq('(min-width:
+        768px)')) {\n\t\t$('#promo').animate({ height: '408px' }, 600);\n\t\t$('#lead-in').animate({
+        height: '220px' }, 800);\n\t}\n\n\t$('.hero').css('height', $(window).height()+'px');
+        // Set initial hero height\n\t$('#scroll-hero').click(function()\n\t{\n\t\t$('html,body').animate({scrollTop:
+        $(\"#hero-bloc\").height()}, 'slow');\n\t});\n\n\tsetUpLightBox(); // Add
+        lightbox Support\n\n\t$(\"button#printBtn\").click(function (e){\n\t\twindow.print();\n\t});\n\n});\n\n//
+        Window resize\n$(window).resize(function()\n{\n\t$('.hero').css('height',getHeroHeight()+'px');
+        // Refresh hero height\n});\n\n// Get Hero Height\nfunction getHeroHeight()\n{\n\tvar
+        H = $(window).height(); // Window height\n\tif (window.hasOwnProperty('heroBodyH')){\n\t\tif(H
+        < heroBodyH) {// If window height is less than content height\n\t\t\tH = heroBodyH+100;\n\t\t}\n\t}\n\treturn
+        H\n}\n\n// Check hero height\nfunction checkHero()\n{\n\tif($('#hero-bloc').length)\n\t{\n\t\tP
+        = parseInt($('.hero-nav').css('padding-top'))*2\n\t\twindow.heroBodyH = $('.hero-nav').outerHeight()+P+$('.vc-content').outerHeight()+50;
+        // Set hero body height\n\t\t$('.hero').css('height', getHeroHeight() + 'px');
+        // Set hero to fill page height\n\t}\n}\n\n// Scroll to target\nfunction scrollToTarget(D)\n{\n\tif(D
+        == 1) // Top of page\n\t{\n\t\tD = 0;\n\t}\n\telse if(D == 2) // Bottom of
+        page\n\t{\n\t\tD = $(document).height();\n\t}\n\telse // Specific Bloc\n\t{\n\t\tD
+        = $(D).offset().top;\n\t\tif($('.sticky-nav').length) // Sticky Nav in use\n\t\t{\n\t\t\tD
+        = D-100;\n\t\t}\n\t}\n\n\t$('html,body').animate({scrollTop:D}, 'slow');\n}\n\n//
+        Initial tooltips\n$(function()\n{\n  $('[data-toggle=\"tooltip\"]').tooltip()\n})\n\n\n//
+        Animate when visible\nfunction animateWhenVisible()\n{\n\thideAll(); // Hide
+        all animation elements\n\tinViewCheck(); // Initail check on page load\n\n\t$(window).scroll(function()\n\t{\n\t\tinViewCheck();
+        // Check object visability on page scroll\n\t\tscrollToTopView(); // ScrollToTop
+        button visability toggle\n\t\tstickyNavToggle(); // Sticky nav toggle\n\t});\n};\n\n//
+        Hide all animation elements\nfunction stickyNavToggle()\n{\n\tvar V = 0; //
+        offset Value\n\tvar C = \"sticky\"; // Classes\n\n\tif($('.sticky-nav').parent().is('#hero-bloc'))
+        // If nav is in hero animate in\n\t{\n\t\tV = $('.sticky-nav').height();\n\t\tC
+        = \"sticky animated fadeInDown\";\n\t}\n\n\tif($(window).scrollTop() > V)\n\t{\n\t\t$('.sticky-nav').addClass(C);\n\n\t\tif(C
+        == \"sticky\")\n\t\t{\n\t\t\t$('.page-container').css('padding-top',$('.sticky-nav').height());\n\t\t}\n\t}\n\telse\n\t{\n\t\t$('.sticky-nav').removeClass(C);\n\t\t$('.page-container').removeAttr('style');\n\t}\n}\n\n//
+        Hide all animation elements\nfunction hideAll()\n{\n\t$('.animated').each(function(i)\n\t{\n\t\tif(!$(this).closest('.hero').length)
+        // Dont hide hero object\n\t\t{\n\t\t\t$(this).removeClass('animated').addClass('hideMe');\n\t\t}\n\t});\n}\n\n//
+        Check if object is inView\nfunction inViewCheck()\n{\n\t$($(\".hideMe\").get().reverse()).each(function(i)\n\t{\n\t\tvar
+        target = jQuery(this);\n\t\tvar a = target.offset().top + target.height();\n\t\tvar
+        b = $(window).scrollTop() + $(window).height();\n\n\t\tif(target.height()
+        > $(window).height()) // If object height is greater than window height\n\t\t{\n\t\t\ta
+        = target.offset().top;\n\t\t}\n\n\t\tif (a < b)\n\t\t{\n\t\t\tvar objectClass
+        = target.attr('class').replace('hideMe' , 'animated');\n\t\t\ttarget.css('visibility','hidden').removeAttr('class');\n\t\t\tsetTimeout(function(){target.attr('class',objectClass).css('visibility','visible');},0.01);\n\t\t}\n\t});\n};\n\n//
+        ScrollToTop button toggle\nfunction scrollToTopView()\n{\n\tif($(window).scrollTop()
+        > $(window).height()/3)\n\t{\n\t\tif(!$('.scrollToTop').hasClass('showScrollTop'))\n\t\t{\n\t\t\t$('.scrollToTop').addClass('showScrollTop');\n\t\t}\n\t}\n\telse\n\t{\n\t\t$('.scrollToTop').removeClass('showScrollTop');\n\t}\n};\n\n//
+        Light box support\nfunction setUpLightBox()\n{\n\twindow.targetLightbox;\n\n\t$(document).on('click',
+        '[data-lightbox]', function(e) // Create Lightbox Modal\n\t{\n\t\te.preventDefault();\n\t\ttargetLightbox
+        = $(this);\n\t\tvar captionData ='<p class=\"lightbox-caption\">'+$(this).attr('data-caption')+'</p>';\n\t\tif(!$(this).attr('data-caption'))
+        // No caption caption data\n\t\t{\n\t\t\tcaptionData = '';\n\t\t}\n\n\t\tvar
+        customModal = $('<div id=\"lightbox-modal\" class=\"modal fade\"><div class=\"modal-dialog\"><div
+        class=\"modal-content '+$(this).attr('data-frame')+'\"><button type=\"button\"
+        class=\"close close-lightbox\" data-dismiss=\"modal\" aria-label=\"Close\"><span
+        aria-hidden=\"true\">&times;</span></button><div class=\"modal-body\"><a href=\"#\"
+        class=\"prev-lightbox\" aria-label=\"prev\"></a><a href=\"#\" class=\"next-lightbox\"
+        aria-label=\"next\"></a><img id=\"lightbox-image\" class=\"img-responsive\"
+        src=\"'+$(this).attr('data-lightbox')+'\">'+captionData+'</div></div></div></div>');\n\t\t$('body').append(customModal);\n\t\t$('#lightbox-modal').modal('show');\n\n\t\t//
+        Handle navigation buttons (next - prev)\n\t\tif($('a[data-lightbox]').index(targetLightbox)
+        == 0)\n\t\t{\n\t\t\t$('.prev-lightbox').hide();\n\t\t}\n\t\tif($('a[data-lightbox]').index(targetLightbox)
+        == $('a[data-lightbox]').length-1)\n\t\t{\n\t\t\t$('.next-lightbox').hide();\n\t\t}\n\t}\n\t).on('hidden.bs.modal',
+        '#lightbox-modal', function () // Handle destroy modal\n\t{\n\t\t$('#lightbox-modal').remove();\n\t})\n\n\t$(document).on('click',
+        '.next-lightbox, .prev-lightbox', function(e)\n\t{\n\t\te.preventDefault();\n\t\tvar
+        idx = $('a[data-lightbox]').index(targetLightbox);\n\t\tvar next = $('a[data-lightbox]').eq(idx+1)
+        // Next\n\n\t\tif($(this).hasClass('prev-lightbox'))\n\t\t{\n\t\t\tnext =
+        $('a[data-lightbox]').eq(idx-1) // Prev\n\t\t}\n\t\t$('#lightbox-image').attr('src',next.attr('data-lightbox'));\n\t\t$('.lightbox-caption').html(next.attr('data-caption'));\n\t\ttargetLightbox
+        = next;\n\n\t\t// Handle navigation buttons (next - prev)\n\t\t$('.next-lightbox,
+        .prev-lightbox').hide();\n\n\t\tif($('a[data-lightbox]').index(next) != $('a[data-lightbox]').length-1)\n\t\t{\n\t\t\t$('.next-lightbox').show();\n\t\t}\n\t\tif($('a[data-lightbox]').index(next)
+        > 0)\n\t\t{\n\t\t\t$('.prev-lightbox').show();\n\t\t}\n\t});\n}\n\nfunction
+        submitSearch(){\n\t//search box\n\n\t\tif (document.searchForm.searchMenu.value==\"taxonomy\")
+        {\n\t\t\tdocument.searchForm.taxon.value = document.searchForm.query.value;
+        \ //temp fix for now.\n\t\t\tdocument.searchForm.action=\"/index.php/Taxbrowser_Taxonpage?taxon=\"+document.searchForm.query.value+\"&debug=1\";\n\t\t}
+        else if (document.searchForm.searchMenu.value==\"records\") {\n\t\t\tdocument.searchForm.action=\"/index.php/Public_SearchTerms?\";\n\t\t}
+        else if (document.searchForm.searchMenu.value==\"bins\") {\n\t\t\tdocument.searchForm.action=\"/index.php/Public_BINSearch?\";\n\t\t}\n\n}\n\n</script>\n<style>\n\t.ui-autocomplete
+        {\n\t\tposition: absolute;\n\t\ttop: 100%;\n\t\tleft: 0;\n\t\tz-index: 1000;\n\t\tfloat:
+        left;\n\t\tdisplay: none;\n\t\tmin-width: 160px;\n\t\t_width: 160px;\n\t\tpadding:
+        4px 0;\n\t\tmargin: 2px 0 0 0;\n\t\tlist-style: none;\n\t\tbackground-color:
+        #ffffff;\n\t\tborder-color: #ccc;\n\t\tborder-color: rgba(0, 0, 0, 0.2);\n\t\tborder-style:
+        solid;\n\t\tborder-width: 1px;\n\t\t-webkit-border-radius: 5px;\n\t\t-moz-border-radius:
+        5px;\n\t\tborder-radius: 5px;\n\t\t-webkit-box-shadow: 0 5px 10px rgba(0,
+        0, 0, 0.2);\n\t\t-moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);\n\t\tbox-shadow:
+        0 5px 10px rgba(0, 0, 0, 0.2);\n\t\t-webkit-background-clip: padding-box;\n\t\t-moz-background-clip:
+        padding;\n\t\tbackground-clip: padding-box;\n\t\t*border-right-width: 2px;\n\t\t*border-bottom-width:
+        2px;\n\n\t\t.ui-menu-item > a.ui-corner-all {\n\t\t\tdisplay: block;\n\t\t\tpadding:
+        3px 15px;\n\t\t\tclear: both;\n\t\t\tfont-weight: normal;\n\t\t\tline-height:
+        18px;\n\t\t\tcolor: #555555;\n\t\t\twhite-space: nowrap;\n\n\t\t\t&.ui-state-hover,
+        &.ui-state-active &.ui-state-focus{\n\t\t\t\tcolor: #ffffff;\n\t\t\t\ttext-decoration:
+        none;\n\t\t\t\tbackground-color: #0088cc !important;\n\t\t\t\tborder-radius:
+        0px;\n\t\t\t\t-webkit-border-radius: 0px;\n\t\t\t\t-moz-border-radius: 0px;\n\t\t\t\tbackground-image:
+        none;\n\t\t\t}\n\t\t}\n\t}\n\t.ui-helper-hidden-accessible{\n\t\tdisplay:none;\n\t}\n</style>\t<link
+        rel=\"stylesheet\" type=\"text/css\" href=\"/libhtml/highslide/highslide.css\"
+        />\n\t<script type=\"text/javascript\" src=\"/libhtml/highslide/highslide-full.js\"></script>\n\t<!--
+        ChartJS-->\n\t<script src=\"/libhtml_v4/js/plugins/chartjs/Chart.js\"></script>\n\t<script
+        src=\"/libhtml_v3/js/plugins/sparkline/jquery.sparkline.min.js\"></script>\n\n<!--
+        SCRIPT FROM TAXONPAGENEW -->\n<script type=\"text/javascript\">\n\t\t\tmaxColWidth
+        = 2250;\n\t\t\tmaxColHeight = 1125;\n\t\t\ths.graphicsDir = '/libhtml/highslide/graphics/';\n\t\t\ths.showCredits
+        = false;\n\t\t\ths.captionEval= 'this.thumb.title';\n\t\t\ths.enableKeyListener
+        = false;\n\t\t\ths.width = 400;\n\t\t\ths.height = 360;\n\t\t\ths.allowMultipleInstances
+        = false;\n\t\t\ths.useBox = true;\n\t\t\ths.enableKeyListener = true;\n\t\t\ths.dimmingOpacity=0.1;\n\t\t\ths.outlineType
+        = 'custom';\n\t\t\ths.align='center';\n\t\t\ths.registerOverlay({\n\t\t\t\t\thtml:
+        '<div class=\"closebutton\" onclick=\"return hs.close(this)\" title=\"Close\"></div>',\n\t\t\t\t\tposition:
+        'top right',\n\t\t\t\t\tuseOnHtml: true,\n\t\t\t\t\tfade: 2 // fading the
+        semi-transparent overlay looks bad in IE\n\t\t\t});\n\n</script>\n\t<script
+        language=\"javascript\">\n\t\t\tvar allCountriesData = {\"Peru\":5};\n\n\t\t\t$(document).ready(function()
+        {\n\t\t\t\t//Taxonomy Search event handler\n\t\t\t\t$('button[name=\"searchTax\"]').click(function
+        () {\n\t\t\t\t\twindow.location = \"/index.php/Taxbrowser_Taxonpage?taxon=\"+
+        $('input[name=\"taxon\"]').val();\n\t\t\t\t});\n\t\t\t\t//Species Summary
+        event handler\n\t\t\t\t$('button[name=\"speciesSummaryOpen\"]').on(\"click\",function
+        () {\n\t\t\t\t\topenSpeciesSummary();\n\t\t\t\t});\n\t\t\t\t//Access Published
+        & Released Data event handler\n\t\t\t\t$('button[name=\"accessPublishedData\"]').on(\"click\",function
+        () {\n\t\t\t\t\twindow.location = \"/index.php/Public_SearchTerms?query=\\\"Momotus
+        aequatorialis\\\"[tax]\";\n\t\t\t\t});\n\n\t\t\t\t$('a.popup-medium').click(function
+        (ev) {\n\t\t\t\t\twindow.open(this.href,'popup', 'scrollbars=yes,width=780,height=690');\n\t\t\t\t\tev.preventDefault();\n\t\t\t\t});\n\n\t\t\t\twikiRetrieve('Momotus
+        aequatorialis', '17');\n\n\t\t\t\t//setup breadcrumbs\n\t\t\t\tvar taxonBreadcrumbs
+        = [\"<a class =\\\"link\\\" title=\\\"phylum\\\"href=\\\"\\/index.php\\/TaxBrowser_Taxonpage?taxid=18\\\">Chordata<\\/a>\",\"<a
+        class =\\\"link\\\" title=\\\"class\\\"href=\\\"\\/index.php\\/TaxBrowser_Taxonpage?taxid=51\\\">Aves<\\/a>\",\"<a
+        class =\\\"link\\\" title=\\\"order\\\"href=\\\"\\/index.php\\/TaxBrowser_Taxonpage?taxid=339\\\">Coraciiformes<\\/a>\",\"<a
+        class =\\\"link\\\" title=\\\"family\\\"href=\\\"\\/index.php\\/TaxBrowser_Taxonpage?taxid=88898\\\">Momotidae<\\/a>\",\"<a
+        class =\\\"link\\\" title=\\\"genus\\\"href=\\\"\\/index.php\\/TaxBrowser_Taxonpage?taxid=88899\\\">Momotus<\\/a>\",\"Momotus
+        aequatorialis\"];\n\t\t\t\tsetupBreadcrumbs(taxonBreadcrumbs);\n\n\n\t\t\t\tvar
+        selector = \"#countries-summary\";\n\t\t\t\tcountriesRepresentation(selector,
+        allCountriesData);\n\n\t\t\t\t$('form[name=\"searchForm\"]').submit(function
+        (e) {\n\t\t\t\t\tif (document.searchForm.searchMenu.value==\"taxonomy\") {\n\t\t\t\t\t\tdocument.searchForm.taxon.value
+        = document.searchForm.query.value;  //temp fix for now.\n\t\t\t\t\t\tdocument.searchForm.action=\"/index.php/Taxbrowser_Taxonpage?taxon=\"+document.searchForm.query.value+\"&debug=1\";\n\t\t\t\t\t}
+        else if (document.searchForm.searchMenu.value==\"records\") {\n\t\t\t\t\t\tdocument.searchForm.action=\"/index.php/Public_SearchTerms?\";\n\t\t\t\t\t}
+        else if (document.searchForm.searchMenu.value==\"bins\") {\n\t\t\t\t\t\tdocument.searchForm.action=\"/index.php/Public_BINSearch?\";\n\t\t\t\t\t}\n\t\t\t\t});\n\n\t\t\t});\n\n\t\t\tfunction
+        setupBreadcrumbs(taxonBreadcrumbs) {\n\t\t\t\tvar selector = \"#taxonBreadcrumbs\";\n\t\t\t\tfor
+        (var i = 0; i < taxonBreadcrumbs.length; i++) {\n\t\t\t\t\tvar crumb;\n\t\t\t\t\tif
+        (i == taxonBreadcrumbs.length - 1) {\n\t\t\t\t\t\tcrumb = $(\"<li>\", {class:\"active\"}).append(taxonBreadcrumbs[i]);\n\t\t\t\t\t}
+        else {\n\t\t\t\t\t\tcrumb = $(\"<li>\").append(taxonBreadcrumbs[i]);\n\t\t\t\t\t}\n\t\t\t\t\t$(selector).append(crumb);\n\t\t\t\t}\n\t\t\t}\n\n\t\t\tfunction
+        openSpeciesSummary(ev) {\n\t\t\t\tvar page=\"speciesSummary\";\n\t\t\t\tPopup=window.open('/index.php/Working',page,'scrollbars=yes,resizable=yes,width=900,height=700');\n\t\t\t\tsetTimeout(function(){\n\t\t\t\t\t\t\t\t$('form[name=\"actionRequest\"]').attr('target',
+        page);\n\t\t\t\t\t\t\t\t$('form[name=\"actionRequest\"]').submit();\n\t\t\t\t\t\t\t\tPopup.focus();},\n\t\t\t\t\t\t\t\t450);\n\n\t\t\t\tev.preventDefault();\n\n\t\t\t}\n\n\t\t\tfunction
+        countriesRepresentation(selector,data){\n\t\t\t\tvar totalSpecimenCount =
+        Object.keys(data)\n\t\t\t\t\t.reduce(function(sum, key) {\n\t\t\t\t\t\treturn
+        sum + data[key];\n\t\t\t\t\t}, 0);\n\n\t\t\t\t //sort countries\n\t\t\t\tvar
+        sortedCountries = sortCountries();\n\n\t\t\t\t//only draw 5\n\t\t\t\tvar globalCounter
+        = 0;\n\t\t\t\tvar countrySelectorID = 1;\n\t\t\t\tfor (var j =0; j < 6 ; j++)
+        {\n\n\t\t\t\t\tvar countrySelector = \"country-summary\" + countrySelectorID;\n\t\t\t\t\t$(selector).append($(\"<div>\",
+        {class:\"col-lg-2 col-md-6\"}).append(\n\t\t\t\t\t\t\t\t$(\"<div>\", {class:\"ibox\"}\n\t\t\t\t\t\t\t\t).append(\n\t\t\t\t\t\t\t\t\t$(\"<div>\",
+        {class:\"ibox-content\"})\n\t\t\t\t\t\t\t\t).append(\n\t\t\t\t\t\t\t\t\t$(\"<div>\",
+        {id:countrySelector})\n\t\t\t\t\t\t\t\t)\n\t\t\t\t\t\t\t));\n\t\t\t\t\tvar
+        counter = 1;\n\t\t\t\t\tfor (globalCounter; globalCounter < sortedCountries.length;
+        globalCounter++) {\n\t\t\t\t\t\tvar newWidth = progressValue(sortedCountries[globalCounter][1],totalSpecimenCount);\n\t\t\t\t\t\t$(\"#\"+countrySelector).append($(\"<div>\").append(\n\t\t\t\t\t\t\t\t$(\"<span>\").text(sortedCountries[globalCounter][0]+\":\")\n\t\t\t\t\t\t\t).append(\n\t\t\t\t\t\t\t\t$(\"<span>\",{class:\"pull-right\"}).text(sortedCountries[globalCounter][1]
+        )\n\t\t\t\t\t\t\t).append(\n\t\t\t\t\t\t\t\t$(\"<div>\",{class:\"progress
+        progress-small\"}).append(\n\t\t\t\t\t\t\t\t\t$(\"<div>\",{class:\"progress-bar\",width:newWidth+\"%\"})\n\t\t\t\t\t\t\t\t)\n\t\t\t\t\t\t\t)\n\t\t\t\t\t\t);\n\t\t\t\t\t\tif
+        (counter == 2){\n\t\t\t\t\t\t\tbreak;\n\t\t\t\t\t\t}\n\t\t\t\t\t\tif (globalCounter
+        == 12){\n\t\t\t\t\t\t\tbreak;\n\t\t\t\t\t\t}\n\t\t\t\t\t\tcounter++;\n\t\t\t\t\t}\n\t\t\t\t\tglobalCounter++;\n\n\t\t\t\t\tcountrySelectorID++;\n\t\t\t\t}\n\n\t\t\t}\n\n\n\t\t\tfunction
+        sortCountries(){\n\t\t\t\tvar sortedCountries=[];\n\t\t\t\t//transform object
+        to array\n\t\t\t\tObject.keys(allCountriesData)\n\t\t\t\t   .map(function(
+        key) {\n\t\t\t\t\t   sortedCountries.push([key, allCountriesData[key]]);\n\t\t\t\t
+        \  });\n\t\t\t\t//sort items by value\n\t\t\t\tsortedCountries = sortedCountries.sort(function(a,
+        b){\n\t\t\t\t\treturn b[1] - a[1];\n\t\t\t\t});\n\t\t\t\treturn sortedCountries;\n\t\t\t}\n\n\n\t\t\tfunction
+        populateAllCountries(){\n\t\t\t\tvar sortedCountries = sortCountries();\n\t\t\t\tvar
+        i,j;\n\t\t\t\tvar temparray=[];\n\t\t\t\tvar chunk = Math.ceil(sortedCountries.length
+        / 4);\n\t\t\t\tfor (i=0,j = sortedCountries.length; i < j; i+=chunk) {\n\t\t\t\t\ttemparray.push(sortedCountries.slice(i,
+        i+chunk));\n\t\t\t\t}\n\n\t\t\t\tvar table = $(\"#dialogTable\");\n\t\t\t\t$(\"#dialogTable
+        tr\").remove();\n\t\t\t\tfor (var i =0; i < temparray[0].length; i++) {\n\t\t\t\t\tvar
+        newRow = $(\"<tr>\");\n\n\t\t\t\t\t//code will be cleaned up\n\t\t\t\t\tnewRow.append($(\"<td>\",
+        {style: \"width='10px'\"}).text(temparray[0][i][0]));\n\t\t\t\t\tnewRow.append($(\"<td>\",
+        {style: \"width='10px'\"}).text(temparray[0][i][1]));\n\t\t\t\t\tif (1 in
+        temparray && temparray[1][i] != undefined) {\n\t\t\t\t\t\tnewRow.append($(\"<td>\",
+        {style: \"width='10px'\"}).text(temparray[1][i][0]));\n\t\t\t\t\t\tnewRow.append($(\"<td>\",
+        {style: \"width='10px'\"}).text(temparray[1][i][1]));\n\t\t\t\t\t}\n\t\t\t\t\tif
+        (2 in temparray && temparray[2][i] != undefined) {\n\t\t\t\t\t\tnewRow.append($(\"<td>\",
+        {style: \"width='10px'\"}).text(temparray[2][i][0]));\n\t\t\t\t\t\tnewRow.append($(\"<td>\",
+        {style: \"width='10px'\"}).text(temparray[2][i][1]));\n\t\t\t\t\t}\n\t\t\t\t\tif
+        (3 in temparray && temparray[3][i] != undefined) {\n\t\t\t\t\t\tnewRow.append($(\"<td>\",
+        {style: \"width='10px'\"}).text(temparray[3][i][0]));\n\t\t\t\t\t\tnewRow.append($(\"<td>\",
+        {style: \"width='10px'\"}).text(temparray[3][i][1]));\n\t\t\t\t\t}\n\t\t\t\t\ttable.append(newRow);\n\t\t\t\t}\n\t\t\t\ttable.show();\n\t\t\t\t$(\"#alldatadialog\").modal('show');\n\t\t\t}\n\n\n\t\t\tfunction
+        progressValue(dividend, divisor) {\n\t\t\t\tif (dividend <= 0) {\n\t\t\t\t\treturn
+        0;\n\t\t\t\t} else {\n\t\t\t\t\tquotient = (dividend / parseFloat(divisor))
+        * 100.0 ;\n\t\t\t\t\treturn Math.max(1, parseInt(quotient));\n\t\t\t\t}\n\t\t\t}\n\n\t\t\tfunction
+        wikiRetrieve(name, rank) {\n\t\t\t\tvar url = \"/index.php/MAS_Ajax_WikiRetriever?name=\"
+        + name + '&url=true';\n\t\t\t\t$.ajax({\n\t\t\t\t\ttype:\"GET\",\n\t\t\t\t\turl:
+        url,\n\t\t\t\t\tdata: {rank: rank},\n\t\t\t\t\tdataType: 'json',\n\t\t\t\t\tsuccess:
+        function(data){\n\n\t\t\t\t\t\tif(data && data['text']) {\n\t\t\t\t\t\t\t$('#rowTaxon').show();\n\t\t\t\t\t\t\t$('#pTaxon').prepend(data['text']);\n\t\t\t\t\t\t\tif(data['url'])
+        {\n\t\t\t\t\t\t\t\t$('#pTaxon a').attr('href', 'http://en.wikipedia.org/wiki/'
+        + data['url']);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t} else {\n\t\t\t\t\t\t\t$('#rowTaxon').hide();\n\t\t\t\t\t\t}\n\t\t\t\t\t},\n\t\t\t\t\terror:
+        function(){\n\t\t\t\t\t\t$('#rowTaxon').hide();\n\t\t\t\t\t}\n\t\t\t\t});\n\t\t\t}\n\n\n\t\t\tfunction
+        buildChart(url,suffix){\n\t\t\t\t$.get(url,{\"taxid\":\"115130\"}).done(function(data){\n\t\t\t\t\tvar
+        doughnutOptions = {\n\t\t\t\t\t\tsegmentShowStroke: true,\n\t\t\t\t\t\tsegmentStrokeColor:
+        \"#fff\",\n\t\t\t\t\t\tsegmentStrokeWidth: 2,\n\t\t\t\t\t\tpercentageInnerCutout:
+        45, // This is 0 for Pie charts\n\t\t\t\t\t\tanimationSteps: 100,\n\t\t\t\t\t\tanimationEasing:
+        \"easeOutBounce\",\n\t\t\t\t\t\tanimateRotate: true,\n\t\t\t\t\t\tanimateScale:
+        false,\n\t\t\t\t\t\tresponsive: true,\n\t\t\t\t\t\tlegendTemplate : '<ul class=\"list-unstyled\">'+'<%
+        for (var i=0; i<segments.length; i++) { %>'+'<li>'+'<span style=\"-moz-border-radius:7px
+        7px 7px 7px; border-radius:7px 7px 7px 7px; margin-right:10px;width:15px;height:15px;display:inline-block;background-color:<%=segments[i].fillColor%>\">
+        </span>'+'<% if (segments[i].label) { %><%= segments[i].label %><% } %>'+'</li>'+'<%
+        } %>'+'</ul>'\n\t\t\t\t\t};\n\t\t\t\t\tjsonObj = JSON.parse(data);\n\t\t\t\t\tchartColours
+        = [\"#93C3DE\",\"#A2E6C6\",\"#A8EF8D\",\"#F0E287\",\"#DEB483\",\"#DE9E93\",\"#DAA1DE\",\"#BCB2F4\",\"#DEDEDE\",\"#B4B4B4\"];\n\t\t\t\t\thighlightColour
+        = \"#1ab394\";\n\t\t\t\t\tchartData = [];\n\t\t\t\t\tchartColourIndex = 0;\n\n\t\t\t\t\tfor
+        (i=jsonObj.data.length-1;i>=0;i--){\n\t\t\t\t\t\tchartLabel = jsonObj.labels[i];\n\t\t\t\t\t\tchartVal
+        = jsonObj.data[i];\n\t\t\t\t\t\tchartData.push({\n\t\t\t\t\t\t\tvalue:chartVal,\n\t\t\t\t\t\t\tcolor:chartColours[chartColourIndex],\n\t\t\t\t\t\t\thighlight:
+        highlightColour,\n\t\t\t\t\t\t\tlabel:chartLabel\n\t\t\t\t\t\t});\n\t\t\t\t\t\tchartColourIndex
+        += 1;\n\t\t\t\t\t\tif (chartColourIndex == chartColours.length){//for now
+        ;loop through the colour\n\t\t\t\t\t\t\tchartColourIndex = 0;\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t\tvar
+        ctx = document.getElementById(\"chart\"+suffix).getContext(\"2d\");\n\t\t\t\t\tvar
+        tgChart = new Chart(ctx).Doughnut(chartData, doughnutOptions);\n\t\t\t\t\t$(\"#legend\"+suffix).html(tgChart.generateLegend());\n\t\t\t\t});\n\t\t\t}\n\n\t\t\t$(document).ready(function()
+        {\n\t\t\t\t\t\t\t\tbuildChart('/index.php/TaxBrowser_Charts_institutionsrcdata','Depositry');\n\t\t\t\t\t\t\t\t\t\t\t\tbuildChart('/index.php/TaxBrowser_Charts_institutionsrcdata/sequencinglabs','Sequence');\n\t\t\t\t\t\t\t});\n\t</script>\n\n\t<style
+        type=\"text/css\">\n\n\t\t.highslide-heading {\n\t\t\tcolor:#dedede;\n\t\t}\n\t\t.highslide-caption{\n\t\t\tfont-size:10pt
+        !important;\n\t\t}\n\t\t.imagegallery_preview {\n\t\t\tbackground-color: #FFFFFF;\n\t\t\tmargin:
+        8px;\n\t\t\tborder: 1px solid #111111;\n\t\t\tpadding: 0px;\n\t\t\twidth:400px;\n\t\t\ttext-align:
+        center;\n\t\t\tfloat:right;\n\t\t}\n\n\t\t.alignTop, .alignTop td{\n\t\t\tvertical-align:
+        top;\n\t\t}\n\t\t.legendFont {\n\t\t\tfont-size: 12px;\n\t\t}\n\t\t.scrollPortlet{\n\t\t\tmax-height:
+        400px;\n\t\t\toverflow-y: auto;\n\t\t}\n\t\t.progress {\n\t\t\theight: 10px;\n\t\t}\n\t\t.modal-dialog
+        \ {width:1000px;}\n\n\t\t.breadcrumb {\n\t\t\tpadding: 0px;\n\t\t\tpadding-left:15px;\n\t\t\tbackground-color:
+        transparent;\n\t\t}\n\t\t.l-bloc a.link{\n\t\t\tcolor: #337ab7 ;\n\t\t}\n\t\t.highslide-caption
+        a {\n\t\t\tcolor: #ff9400;\n\t\t\tfont-size: 10pt !important;\n\t\t\tfont-weight:
+        bold;\n\t\t\tpadding: 2px;\n\t\t}\n\n\t</style>\n</head>\n<body>\n\t<div class=\"page-container\">\n\t\t<div
+        class=\"bloc sticky-nav bgc-dark-jungle-green d-bloc\">\n\t\t\t<div class=\"container
+        bloc-xs\">\n\t\t\t\t<nav class=\"navbar row\">\n\t\t\t\t\t<div class=\"navbar-header\">\n\t\t\t\t\t\t<a
+        class=\"navbar-brand\" href=\"/index.php\">\n\t\t\t\t\t\t\t<img src=\"/libhtml_v4/images/BOLDlogo.png\"
+        alt=\"logo\" />\n\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t<button id=\"nav-toggle\"
+        type=\"button\" class=\"ui-navbar-toggle navbar-toggle\" data-toggle=\"collapse\"
+        data-target=\".navbar-1\">\n\t\t\t\t\t\t\t<span class=\"sr-only\">Toggle navigation</span>\n\t\t\t\t\t\t\t<span
+        class=\"icon-bar\"></span>\n\t\t\t\t\t\t\t<span class=\"icon-bar\"></span>\n\t\t\t\t\t\t\t<span
+        class=\"icon-bar\"></span>\n\t\t\t\t\t\t</button>\n\n\t\t\t\t\t\t<a href=\"#\"
+        class=\"search-toggle\" data-toggle=\"collapse\" data-target=\".search-wrap\">\n\t\t\t\t\t\t\t<span
+        class=\"fa fa-search fa-lg\"></span>\n\t\t\t\t\t\t</a>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div
+        class=\"collapse navbar-collapse navbar-1\">\n\t\t\t\t\t\t<ul class=\"site-navigation
+        nav navbar-nav\">\n\t\t\t\t\t\t\t<li><a href=\"/index.php/databases\">Databases</a></li>\n\t\t\t\t\t\t\t<li><a
+        href=\"/index.php/IDS_OpenIdEngine\">Identification</a></li>\n\t\t\t\t\t\t\t<li><a
+        href=\"/index.php/TaxBrowser_Home\">Taxonomy</a></li>\n\t\t\t\t\t\t\t<li><a
+        href=\"/index.php/MAS_Management_UserConsole\">Workbench</a></li>\n\t\t\t\t\t\t\t<li><a
+        href=\"/index.php/Resources\">Resources</a></li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li><a
+        href=\"/index.php/MAS_Management_UserConsole\">Login</a></li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li
+        class=\"nav-search\">\n\t\t\t\t\t\t\t\t<a href=\"#\" data-toggle=\"collapse\"
+        data-target=\".search-wrap\">\n\t\t\t\t\t\t\t\t\t<span class=\"fa fa-search
+        icon-sm\"></span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t</nav>\n\t\t\t</div>\n\n\t\t\t<div
+        class=\"search-wrap collapse\">\n\t\t\t\t<form id=\"site-search\" name =\"searchForm\"
+        onSubmit=\"submitSearch();\">\n\t\t\t\t\t<div class=\"col-sm-3 col-md-2\">\n\t\t\t\t\t\t<label
+        class=\"sr-only\" for=\"search_type\">Type</label>\n\t\t\t\t\t\t<select id=\"search_type\"
+        class=\"form-control\" name=\"searchMenu\">\n\t\t\t\t\t\t\t<option value=\"taxonomy\">Taxonomy</option>\n\t\t\t\t\t\t\t<option
+        value=\"records\">Public Data</option>\n\t\t\t\t\t\t\t<option value=\"bins\">BINs</option>\n\t\t\t\t\t\t</select>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div
+        class=\"col-sm-9 col-md-10\">\n\t\t\t\t\t\t<label class=\"sr-only\" for=\"search_keyword\">Keyword</label>\n\t\t\t\t\t\t<input
+        id=\"query\" class=\"form-control\" name=\"query\"  placeholder=\"Search\"
+        />\n\t\t\t\t\t\t<input type=\"hidden\" name=\"taxon\"/>\n\t\t\t\t\t</div>\n\t\t\t\t</form>\n\t\t\t</div>\n\t\t</div><!--
+        /.sticky-nav -->\n\n<div class=\"bloc bgc-cadet-blue d-bloc\" id=\"lead-in\">\n
+        \   <div class=\"container bloc-md\">\n\n        <div class=\"row\">\n            <div
+        class=\"col-sm-12\">\n                <h3>TAXONOMY BROWSER: Momotus aequatorialis</h3>\n\t\t\t\t
+        <p>Species : Momotus aequatorialis</p>\n\n            </div>\n        </div>\n
+        \   </div>\n</div>\n\n<div class=\"bloc l-bloc bgc-white\">\n    <div class=\"container
+        bloc-md\" style=\"padding:10px;\">\n        <div class=\"row\">\n\t\t\t <ol
+        class=\"breadcrumb\" id=\"taxonBreadcrumbs\">\n\t\t\t</ol>\n\t\t</div>\n\t\t<div
+        class=\"row\">\n\t\t\t<div class=\"col-lg-6 col-md-6\">\n\t\t\t\t<div class=\"ibox\">\n\t\t\t\t\t<div
+        class=\"ibox-content\">\n\t\t\t\t\t\t<div class=\"ibox float-e-margins\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div
+        class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-xs-12 text-left\" style=\"margin-top:0px;margin-bottom:0px;\"><img
+        class=\"img-responsive\" src=\"/pics/AVIPE/MHNSM_MUSM-Orn-22421b.jpg%2B1430161804.JPG\"
+        \ border=\"0\" title=\"sample id:MUSM-Orn-22421b\"></div>\n\t\t\t\t\t\t\t<div
+        class=\"col-xs-12 text-right\" style=\"margin-top:0px;margin-bottom:0px;\">\t\t\t\t\t\t\t\t<div
+        class=\"row\">\n\t\t\t\t\t\t\t\t\t<div class=\"col-xs-8 text-left\" style=\"margin-top:0px;margin-bottom:0px;\"><i
+        class=\"fa fa-copyright\" aria-hidden=\"true\"></i> Copyright - All Rights
+        Reserved\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<i class=\"fa
+        fa-calendar-o\" aria-hidden=\"true\"></i> 2014\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div
+        class=\"col-xs-4 text-right\" style=\"margin-top:0px;margin-bottom:0px;\">\n\t\t\t\t\t\t\t\t\t\t\tImage
+        of <a class=\"link\" href=\"/index.php/TaxBrowser_Taxonpage?taxid=115130\">Momotus
+        aequatorialis</a>\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div><!--
+        END OF ROW -->\n\t\t\t\t\t\t\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div
+        class=\"col-lg-6 col-md-6\">\n\t\t\t<div class=\"ibox\">\n\t\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t\t<h2>Taxon
+        Description (Wikipedia)</h2>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ibox-content\">\n\t\t\t\t\t<div
+        class=\"ibox float-e-margins\">\n\t\t\t\t\t\t<p id=\"pTaxon\">\n\t\t\t\t\t\t\t<a
+        class=\"link popup-medium\" href=\"http://en.wikipedia.org/wiki/Momotus aequatorialis\">full
+        article at Wikipedia</a>\n\t\t\t\t\t\t</p>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\n\n\n\n\n\t</div>
+        <!-- End of 1st row -->\n\n\t<div class =\"row\">\n\n\n\t\t<div class=\"col-lg-4
+        col-md-6\">\n\t\t\t<div class=\"ibox\">\n\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t<h2>Statistics</h2>\n\t\t\t\t</div>\n\t\t\t\t<div
+        class=\"ibox-content\">\n\t\t\t\t<div class=\"ibox float-e-margins\">\n\t\t\t\t\t<table
+        class=\"table table-striped noborder\">\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td
+        width=\"41%\">Specimen Records:</td>\n\t\t\t\t\t\t\t<td width=\"17%\">5</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Specimens
+        with Sequences:</td>\n\t\t\t\t\t\t\t<td>4</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Specimens
+        with Barcodes:</td>\n\t\t\t\t\t\t\t<td><specimendataforlivestats/>1<specimendataforlivestats/></td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Subspecies:</td>\n\t\t\t\t\t\t\t<td>0</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Subspecies
+        with Barcodes:</td>\n\t\t\t\t\t\t\t<td>0</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td
+        width=\"60%\">Public Records:</td>\n\t\t\t\t\t\t\t<td width=\"40%\">0</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Public
+        Subspecies:</td>\n\t\t\t\t\t\t\t<td>0</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Public
+        BINs:</td>\n\t\t\t\t\t\t\t<td>0</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td><button
+        class=\"btn btn-sm btn-info\" name=\"speciesSummaryOpen\"> Subspecies List
+        </button></td>\n\t\t\t\t\t\t\t<td><button class=\"btn btn-sm btn-info\" name=\"accessPublishedData\">Public
+        Data</button></td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</table>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t\t</div>\n\n\n\t\t<div
+        class=\"col-lg-4 col-md-6\">\n\t\t\t<div class=\"ibox\">\n\t\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t\t<h2>Specimen
+        Depositories</h2>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ibox-content\">\n\t\t\t\t\t<div
+        class=\"ibox float-e-margins\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div id=\"divDepositry\"><canvas
+        id=\"chartDepositry\"></canvas></div>\n\t\t\t\t\t\t<div id=\"legendDepositry\"
+        class=\"legendFont\"></div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div id=\"institutionsList2\"></div>\n\t\t\t\t\t\t\t<script
+        language=\"javascript\">\n\t\t\t\t\t\t\tvar institutionsReduced=true;\n\t\t\t\t\t\t\tfunction
+        institutionsExpandReduce() {\n\t\t\t\t\t\t\t\tif (institutionsReduced==true)
+        {\n\t\t\t\t\t\t\t\t\tdocument.getElementById('institutionsList').innerHTML=\"\";\n\t\t\t\t\t\t\t\t\tdocument.getElementById('institutionsExpandReduceLink').innerHTML=\"Collapse\";\n\t\t\t\t\t\t\t\t\tinstitutionsReduced=false;\n\t\t\t\t\t\t\t\t}
+        else {\n\t\t\t\t\t\t\t\t\tdocument.getElementById('institutionsList').innerHTML=\"\";\n\t\t\t\t\t\t\t\t\tdocument.getElementById('institutionsExpandReduceLink').innerHTML=\"Expand\";\n\t\t\t\t\t\t\t\t\tinstitutionsReduced=true;\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t}\n\n\t\t\t\t\t\t\t</script>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div
+        class=\"col-lg-4 col-md-6\">\n\t\t\t<div class=\"ibox\">\n\t\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t\t<h2>Sequencing
+        Labs</h2>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ibox-content\">\n\t\t\t\t\t<div
+        class=\"ibox float-e-margins\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div id=\"divSequence\"><canvas
+        id=\"chartSequence\" height=\"140\"></canvas></div>\n\t\t\t\t\t\t<div id=\"legendSequence\"
+        class=\"legendFont\"></div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>
+        <!--END OF third ROW --->\n\n\n\t<div class=\"row\">\n\t\t<div class=\"col-lg-12
+        col-md-6\">\n\t\t\t<div class=\"ibox\">\n\t\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t\t<h2>Collection
+        Sites</h2>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ibox-content\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a
+        class=\"highslide\" onclick=\"return hs.expand(this,{width:maxColWidth,height:maxColHeight})\"
+        href=\"/index.php/TaxBrowser_Maps_CollectionSites?taxid=115130\" ><img border=\"0\"
+        width=\"100%\" src=\"/index.php/TaxBrowser_Maps_CollectionSites?taxid=115130\"></img></a>\n\t\t\t\t\t\t\t\t</br>\n\t\t\t\t\t\t\t\t<img
+        src=\"/libhtml/icons/mapScale_BOLD.png\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t</div>
+        <!-- END OF FIFTH ROW -->\n\n\t<div class=\"row\">\n\t\t<div class=\"col-lg-12\">\n\t\t\t<div
+        class=\"ibox\">\n\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t<h2>Countries</h2>\n\t\t\t\t\t<span>Collected
+        from <strong>1</strong> countries. </span> <a class=\"link\" onClick = \"populateAllCountries();\">
+        Show all countries</a>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t<div
+        class =\"row\" id =\"countries-summary\">\n\n\t</div><!--END OF ROW-->\n\n\n\t<div
+        class =\"row\">\n\t\t <!-- Left Menu END -->\n\t\t<div class=\"col-md-12\">\n\t\t\t\t\t\t\t\t<div
+        class=\"ibox float-e-margins\">\n\t\t\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t\t\t<h2>Imagery</h2>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div
+        class=\"ibox-content\">\n\t\t\t\t\t\t<i> Images representing specimens of
+        Momotus aequatorialis</i> <div class=\"row\"><div class=\"col-xs-2\"><a class=\"highslide\"
+        onclick=\"return hs.expand(this,{width:500, height:118} )\" href=\"//v4.boldsystems.org/pics/AVIPE/MHNSM_MUSM-Orn-22421a.jpg%2B1430161804.JPG\"><img
+        title=\" (MUSM-Orn-22421a)  Copyright - All Rights Reserved (2014)  \" alt=\"
+        (MUSM-Orn-22421a)  @11 [ ] Copyright - All Rights Reserved (2014) Unspecified
+        Museo de Historia Natural\"  src=\"//v4.boldsystems.org/pics/_w300/AVIPE/MHNSM_MUSM-Orn-22421a.jpg%2B1430161804.JPG\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"></div></div><div class=\"col-xs-2\"><a class=\"highslide\" onclick=\"return
+        hs.expand(this,{width:500, height:125} )\" href=\"//v4.boldsystems.org/pics/AVIPE/MHNSM_MUSM-Orn-22421b.jpg%2B1430161804.JPG\"><img
+        title=\" (MUSM-Orn-22421b)  Copyright - All Rights Reserved (2014)  \" alt=\"
+        (MUSM-Orn-22421b)  @11 [ ] Copyright - All Rights Reserved (2014) Unspecified
+        Museo de Historia Natural\"  src=\"//v4.boldsystems.org/pics/_w300/AVIPE/MHNSM_MUSM-Orn-22421b.jpg%2B1430161804.JPG\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"></div></div></div></div>\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t</div>
+        <!-- END OF FOURTH ROW -->\n\n\t<!-- MODAL DIALOG FOR COUNTRIES -->\n\t<div
+        id=\"alldatadialog\" class=\"modal fade\" role=\"dialog\" data-keyboard=\"false\"
+        data-backdrop=\"static\">\n\t\t<div class=\"modal-dialog\" >\n\t\t\t<div class=\"modal-content\">\n\t\t\t\t<div
+        class=\"modal-header\">\n\t\t\t\t\t<button type=\"button\" class=\"close\"
+        data-dismiss=\"modal\">&times;</button>\n\t\t\t\t\t<h4 class=\"modal-title
+        \" id =\"dialogTitle\" >All Countries</h4>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"modal-body\"
+        >\n\n\t\t\t\t\t<table id=\"dialogTable\"  class=\"table table-striped\" style=\"width:100%;\"
+        border=\"0\" cellpadding=\"1\" cellspacing=\"10\" >\n\n\t\t\t\t\t</table>\n\t\t\t</div>\n\t\t\t<div
+        class=\"modal-footer\">\n\t\t\t\t<button id = \"closeDialog\" name = \"closeDialog\"
+        \ data-dismiss=\"modal\" class=\"btn btn-primary btn-sm\" >Close</button>\n\t\t\t</div>\n\t\t</div>\n\t\t</div>\n\t</div>\n\t<form
+        name=\"actionRequest\" action=\"/index.php/TaxBrowser_TaxonPage/SpeciesSummary\"
+        method=\"GET\">\n\t\t<input type=\"hidden\" name=\"taxid\" value=\"115130\">\n\t</form>\n\n\n
+        \       </div>\n    </div>\n</div>\n\t\t\t\t<div class=\"bloc bgc-platinum
+        l-bloc\" id=\"footer\">\n\t\t\t<div class=\"container bloc-md\">\n\t\t\t\t<div
+        class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t<h3 class=\"mg-md\">Databases</h3>\n\t\t\t\t\t\t<ul
+        class=\"list-unstyled\">\n\t\t\t\t\t\t\t<li><a href=\"/index.php/Public_BINSearch?searchtype=records\">Public
+        Data Portal</a></li>\n\t\t\t\t\t\t\t<li><a href=\"/index.php/TaxBrowser_Home\">Taxonomy
+        Browser</a></li>\n\t\t\t\t\t\t\t<li><a href=\"/index.php/Public_Publication_BibliographySearch\">Publications</a></li>\n\t\t\t\t\t\t\t<li><a
+        href=\"/index.php/Public_Primer_PrimerSearch\">Primers</a></li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div
+        class=\"col-sm-3\">\n\t\t\t\t\t\t<h3 class=\"mg-md\">Resources</h3>\n\t\t\t\t\t\t<ul
+        class=\"list-unstyled\">\n\t\t\t\t\t\t  <!--<li><a href=\"/index.php/resources/handbook?chapter=1_gettingstarted.html\">Documentation</a></li>-->\n\t\t\t\t\t\t
+        \ <li><a href=\"/libhtml/docs/bold.pdf\">Citing BOLD</a></li>\n\t\t\t\t\t\t
+        \ <li><a href=\"/index.php/NewsFeed\">News and Events</a></li>\n\t\t\t\t\t\t
+        \ <li><a href=\"/index.php/datarelease\">Data Releases</a></li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div
+        class=\"col-sm-3\">\n\t\t\t\t\t\t<h3 class=\"mg-md\">Organization</h3>\n\t\t\t\t\t\t<ul
+        class=\"list-unstyled\">\n\t\t\t\t\t\t  <li><a href=\"/index.php/Resources/whatIsBOLD\">About
+        Us</a></li>\n\t\t\t\t\t\t  <li><a href=\"/index.php/Resources/ContactUs\">Contact
+        Us</a></li>\n\t\t\t\t\t\t  <li><a href=\"/index.php/NewsFeed\">News &amp;
+        Events</a></li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t<h3
+        class=\"mg-md\">Partners</h3>\n\t\t\t\t\t\t<ul class=\"list-unstyled\">\n\t\t\t\t\t\t
+        \ <li><a href=\"http://www.ibol.org\">iBOL</a></li>\n\t\t\t\t\t\t  <li><a
+        href=\"http://biodiversitygenomics.net/\">CBG</a></li>\n\t\t\t\t\t\t  <li><a
+        href=\"http://ccdb.ca\">CCDB</a></li>\n\t\t\t\t\t\t  <li><a href=\"http://www.ncbi.nlm.nih.gov\">GenBank</a></li>\n\t\t\t\t\t\t
+        \ <li><a href=\"http://www.eol.org\">EOL</a></li>\n\t\t\t\t\t\t  <li><a href=\"http://www.gbif.org\">GBIF</a></li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div
+        class=\"bloc bgc-floral-white l-bloc\" id=\"affiliates\">\n\t\t\t<div class=\"container
+        bloc-md\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-2\">\n\t\t\t\t\t\t<img
+        class=\"img-responsive center-block\" style=\"margin-top:20px\" src=\"/libhtml_v4/img/ibol-50v.png\"
+        />\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-2\">\n\t\t\t\t\t\t<img
+        class=\"img-responsive center-block\" style=\"margin-top:20px\" src=\"/libhtml_v4/img/CFREF.png\"
+        />\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-2\">\n\t\t\t\t\t\t<img
+        class=\"img-responsive center-block\" src=\"/libhtml_v4/img/MRI_logo.png\"
+        />\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-2\">\n\t\t\t\t\t\t<img
+        \ class=\"img-responsive center-block\" style=\"margin-top:20px\" src=\"/libhtml_v4/img/CFINN.png\"/>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div
+        class=\"col-sm-2\">\n\t\t\t\t\t\t<img class=\"img-responsive center-block\"
+        style=\"margin-top:20px\" src=\"/libhtml_v4/img/NSERC.png\" />\n\t\t\t\t\t</div>\n\t\t\t\t\t<div
+        class=\"col-sm-2\">\n\t\t\t\t\t\t<img class=\"img-responsive center-block\"
+        src=\"/libhtml_v4/img/UoGuelph_image18-100x100.png\" />\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div
+        class=\"row\">\n\t\t\t\t\t<div class=\"col-xs-12\"><br/><h5><small><strong>Copyright</strong>
+        BOLD &copy; 2014-2020</small></h5></div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t</body>\n</html>\n"
+  recorded_at: 2020-04-23 22:35:50 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2
+- request:
+    method: get
+    uri: https://v4.boldsystems.org/index.php/Taxbrowser_Taxonpage?taxid=4962
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: 'HTTP/2 200 '
+      server: nginx
+      date: Thu, 23 Apr 2020 22:35:49 GMT
+      content-type: text/html; charset=utf-8
+      x-powered-by: PHP/5.3.15
+      set-cookie: session=jmkbtvskdvgthq1t4fs2jjt2t1; path=/
+      x-frame-options: SAMEORIGIN
+      x-content-type-options: nosniff
+      x-xss-protection: 1; mode=block
+    body:
+      encoding: UTF-8
+      file: no
+      string: "<!DOCTYPE HTML>\n<html>\n<head>\n\t<meta charset=\"utf-8\" />\n<meta
+        http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\">\n\n<title>Megachilinae
+        | Taxonomy Browser | BOLDSYSTEMS</title>\n\n<meta name=\"keywords\" content=\"\"
+        />\n<meta name=\"description\" content=\"\" />\n<link rel=\"shortcut icon\"
+        type=\"image/x-icon\" href=\"/favicon.ico\" />\n<link rel=\"apple-touch-icon\"
+        href=\"/favicons/apple-icon.png\"/>\n<link rel=\"apple-touch-icon\" sizes=\"57x57\"
+        href=\"/favicons/apple-icon-57x57.png\"/>\n<link rel=\"apple-touch-icon\"
+        sizes=\"60x60\" href=\"/favicons/apple-icon-60x60.png\"/>\n<link rel=\"apple-touch-icon\"
+        sizes=\"72x72\" href=\"/favicons/apple-icon-72x72.png\"/>\n<link rel=\"apple-touch-icon\"
+        sizes=\"76x76\" href=\"/favicons/apple-icon-76x76.png\"/>\n<link rel=\"apple-touch-icon\"
+        sizes=\"114x114\" href=\"/favicons/apple-icon-114x114.png\"/>\n<link rel=\"apple-touch-icon\"
+        sizes=\"120x120\" href=\"/favicons/apple-icon-120x120.png\"/>\n<link rel=\"apple-touch-icon\"
+        sizes=\"144x144\" href=\"/favicons/apple-icon-144x144.png\"/>\n<link rel=\"apple-touch-icon\"
+        sizes=\"152x152\" href=\"/favicons/apple-icon-152x152.png\"/>\n<link rel=\"apple-touch-icon\"
+        sizes=\"180x180\" href=\"/favicons/apple-icon-180x180.png\"/>\n<meta name=\"viewport\"
+        content=\"width=device-width, initial-scale=1, user-scalable=0\" />\n\n<link
+        href=\"/libhtml_v4/css/bootstrap.css\" rel=\"stylesheet\" />\n<link href=\"/libhtml_v4/css/style.css\"
+        rel=\"stylesheet\" />\n<link href=\"/libhtml_v4/css/animate.css\" rel=\"stylesheet\"
+        />\n<link href=\"/libhtml_v4/css/ionicons.min.css\" rel=\"stylesheet\" />\n<!--<link
+        href=\"/libhtml_v4/css/font-awesome.min.css\" rel=\"stylesheet\" />-->\n<link
+        href=\"/libhtml_v3/font-awesome/css/font-awesome.css\" rel=\"stylesheet\">\n<link
+        href=\"https://fonts.googleapis.com/css?family=Open+Sans:400,600,800&amp;subset=latin,latin-ext\"
+        rel=\"stylesheet\" />\n<link href=\"/libhtml_v4/css/print.css\" rel=\"stylesheet\"
+        />\n\n<script src=\"/libhtml_v4/js/modernizr-custom.min.js\"></script>\n<script
+        src=\"/libhtml_v4/js/jquery-2.1.0.min.js\"></script>\n<script src=\"/libhtml_v4/js/bootstrap.js\"></script>\n<script
+        src=\"/libhtml_v4/js/plugins/toastr/toastr.min.js\"></script>\n<script type=\"text/javascript\"
+        src=\"/libhtml_v3/js/modalWaitingBox.js\"></script>\n<script>\n\t(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){\n\t(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new
+        Date();a=s.createElement(o),\n\tm=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)\n\t})(window,document,'script','//www.google-analytics.com/analytics.js','ga');\n\n\tga('create',
+        'UA-372370-4', 'auto');\n\tga('send', 'pageview');\n\n</script>\n<script language=\"javascript\">\n\t//
+        Loading page complete\n$(window).load(function()\n{\n\tcheckHero(); // Check
+        hero height is correct\n\tanimateWhenVisible();  // Activate animation when
+        visible\n});\n\n\n// Page ready\n$(document).ready(function()\n{\n\tif (Modernizr.mq('(min-width:
+        768px)')) {\n\t\t$('#promo').animate({ height: '408px' }, 600);\n\t\t$('#lead-in').animate({
+        height: '220px' }, 800);\n\t}\n\n\t$('.hero').css('height', $(window).height()+'px');
+        // Set initial hero height\n\t$('#scroll-hero').click(function()\n\t{\n\t\t$('html,body').animate({scrollTop:
+        $(\"#hero-bloc\").height()}, 'slow');\n\t});\n\n\tsetUpLightBox(); // Add
+        lightbox Support\n\n\t$(\"button#printBtn\").click(function (e){\n\t\twindow.print();\n\t});\n\n});\n\n//
+        Window resize\n$(window).resize(function()\n{\n\t$('.hero').css('height',getHeroHeight()+'px');
+        // Refresh hero height\n});\n\n// Get Hero Height\nfunction getHeroHeight()\n{\n\tvar
+        H = $(window).height(); // Window height\n\tif (window.hasOwnProperty('heroBodyH')){\n\t\tif(H
+        < heroBodyH) {// If window height is less than content height\n\t\t\tH = heroBodyH+100;\n\t\t}\n\t}\n\treturn
+        H\n}\n\n// Check hero height\nfunction checkHero()\n{\n\tif($('#hero-bloc').length)\n\t{\n\t\tP
+        = parseInt($('.hero-nav').css('padding-top'))*2\n\t\twindow.heroBodyH = $('.hero-nav').outerHeight()+P+$('.vc-content').outerHeight()+50;
+        // Set hero body height\n\t\t$('.hero').css('height', getHeroHeight() + 'px');
+        // Set hero to fill page height\n\t}\n}\n\n// Scroll to target\nfunction scrollToTarget(D)\n{\n\tif(D
+        == 1) // Top of page\n\t{\n\t\tD = 0;\n\t}\n\telse if(D == 2) // Bottom of
+        page\n\t{\n\t\tD = $(document).height();\n\t}\n\telse // Specific Bloc\n\t{\n\t\tD
+        = $(D).offset().top;\n\t\tif($('.sticky-nav').length) // Sticky Nav in use\n\t\t{\n\t\t\tD
+        = D-100;\n\t\t}\n\t}\n\n\t$('html,body').animate({scrollTop:D}, 'slow');\n}\n\n//
+        Initial tooltips\n$(function()\n{\n  $('[data-toggle=\"tooltip\"]').tooltip()\n})\n\n\n//
+        Animate when visible\nfunction animateWhenVisible()\n{\n\thideAll(); // Hide
+        all animation elements\n\tinViewCheck(); // Initail check on page load\n\n\t$(window).scroll(function()\n\t{\n\t\tinViewCheck();
+        // Check object visability on page scroll\n\t\tscrollToTopView(); // ScrollToTop
+        button visability toggle\n\t\tstickyNavToggle(); // Sticky nav toggle\n\t});\n};\n\n//
+        Hide all animation elements\nfunction stickyNavToggle()\n{\n\tvar V = 0; //
+        offset Value\n\tvar C = \"sticky\"; // Classes\n\n\tif($('.sticky-nav').parent().is('#hero-bloc'))
+        // If nav is in hero animate in\n\t{\n\t\tV = $('.sticky-nav').height();\n\t\tC
+        = \"sticky animated fadeInDown\";\n\t}\n\n\tif($(window).scrollTop() > V)\n\t{\n\t\t$('.sticky-nav').addClass(C);\n\n\t\tif(C
+        == \"sticky\")\n\t\t{\n\t\t\t$('.page-container').css('padding-top',$('.sticky-nav').height());\n\t\t}\n\t}\n\telse\n\t{\n\t\t$('.sticky-nav').removeClass(C);\n\t\t$('.page-container').removeAttr('style');\n\t}\n}\n\n//
+        Hide all animation elements\nfunction hideAll()\n{\n\t$('.animated').each(function(i)\n\t{\n\t\tif(!$(this).closest('.hero').length)
+        // Dont hide hero object\n\t\t{\n\t\t\t$(this).removeClass('animated').addClass('hideMe');\n\t\t}\n\t});\n}\n\n//
+        Check if object is inView\nfunction inViewCheck()\n{\n\t$($(\".hideMe\").get().reverse()).each(function(i)\n\t{\n\t\tvar
+        target = jQuery(this);\n\t\tvar a = target.offset().top + target.height();\n\t\tvar
+        b = $(window).scrollTop() + $(window).height();\n\n\t\tif(target.height()
+        > $(window).height()) // If object height is greater than window height\n\t\t{\n\t\t\ta
+        = target.offset().top;\n\t\t}\n\n\t\tif (a < b)\n\t\t{\n\t\t\tvar objectClass
+        = target.attr('class').replace('hideMe' , 'animated');\n\t\t\ttarget.css('visibility','hidden').removeAttr('class');\n\t\t\tsetTimeout(function(){target.attr('class',objectClass).css('visibility','visible');},0.01);\n\t\t}\n\t});\n};\n\n//
+        ScrollToTop button toggle\nfunction scrollToTopView()\n{\n\tif($(window).scrollTop()
+        > $(window).height()/3)\n\t{\n\t\tif(!$('.scrollToTop').hasClass('showScrollTop'))\n\t\t{\n\t\t\t$('.scrollToTop').addClass('showScrollTop');\n\t\t}\n\t}\n\telse\n\t{\n\t\t$('.scrollToTop').removeClass('showScrollTop');\n\t}\n};\n\n//
+        Light box support\nfunction setUpLightBox()\n{\n\twindow.targetLightbox;\n\n\t$(document).on('click',
+        '[data-lightbox]', function(e) // Create Lightbox Modal\n\t{\n\t\te.preventDefault();\n\t\ttargetLightbox
+        = $(this);\n\t\tvar captionData ='<p class=\"lightbox-caption\">'+$(this).attr('data-caption')+'</p>';\n\t\tif(!$(this).attr('data-caption'))
+        // No caption caption data\n\t\t{\n\t\t\tcaptionData = '';\n\t\t}\n\n\t\tvar
+        customModal = $('<div id=\"lightbox-modal\" class=\"modal fade\"><div class=\"modal-dialog\"><div
+        class=\"modal-content '+$(this).attr('data-frame')+'\"><button type=\"button\"
+        class=\"close close-lightbox\" data-dismiss=\"modal\" aria-label=\"Close\"><span
+        aria-hidden=\"true\">&times;</span></button><div class=\"modal-body\"><a href=\"#\"
+        class=\"prev-lightbox\" aria-label=\"prev\"></a><a href=\"#\" class=\"next-lightbox\"
+        aria-label=\"next\"></a><img id=\"lightbox-image\" class=\"img-responsive\"
+        src=\"'+$(this).attr('data-lightbox')+'\">'+captionData+'</div></div></div></div>');\n\t\t$('body').append(customModal);\n\t\t$('#lightbox-modal').modal('show');\n\n\t\t//
+        Handle navigation buttons (next - prev)\n\t\tif($('a[data-lightbox]').index(targetLightbox)
+        == 0)\n\t\t{\n\t\t\t$('.prev-lightbox').hide();\n\t\t}\n\t\tif($('a[data-lightbox]').index(targetLightbox)
+        == $('a[data-lightbox]').length-1)\n\t\t{\n\t\t\t$('.next-lightbox').hide();\n\t\t}\n\t}\n\t).on('hidden.bs.modal',
+        '#lightbox-modal', function () // Handle destroy modal\n\t{\n\t\t$('#lightbox-modal').remove();\n\t})\n\n\t$(document).on('click',
+        '.next-lightbox, .prev-lightbox', function(e)\n\t{\n\t\te.preventDefault();\n\t\tvar
+        idx = $('a[data-lightbox]').index(targetLightbox);\n\t\tvar next = $('a[data-lightbox]').eq(idx+1)
+        // Next\n\n\t\tif($(this).hasClass('prev-lightbox'))\n\t\t{\n\t\t\tnext =
+        $('a[data-lightbox]').eq(idx-1) // Prev\n\t\t}\n\t\t$('#lightbox-image').attr('src',next.attr('data-lightbox'));\n\t\t$('.lightbox-caption').html(next.attr('data-caption'));\n\t\ttargetLightbox
+        = next;\n\n\t\t// Handle navigation buttons (next - prev)\n\t\t$('.next-lightbox,
+        .prev-lightbox').hide();\n\n\t\tif($('a[data-lightbox]').index(next) != $('a[data-lightbox]').length-1)\n\t\t{\n\t\t\t$('.next-lightbox').show();\n\t\t}\n\t\tif($('a[data-lightbox]').index(next)
+        > 0)\n\t\t{\n\t\t\t$('.prev-lightbox').show();\n\t\t}\n\t});\n}\n\nfunction
+        submitSearch(){\n\t//search box\n\n\t\tif (document.searchForm.searchMenu.value==\"taxonomy\")
+        {\n\t\t\tdocument.searchForm.taxon.value = document.searchForm.query.value;
+        \ //temp fix for now.\n\t\t\tdocument.searchForm.action=\"/index.php/Taxbrowser_Taxonpage?taxon=\"+document.searchForm.query.value+\"&debug=1\";\n\t\t}
+        else if (document.searchForm.searchMenu.value==\"records\") {\n\t\t\tdocument.searchForm.action=\"/index.php/Public_SearchTerms?\";\n\t\t}
+        else if (document.searchForm.searchMenu.value==\"bins\") {\n\t\t\tdocument.searchForm.action=\"/index.php/Public_BINSearch?\";\n\t\t}\n\n}\n\n</script>\n<style>\n\t.ui-autocomplete
+        {\n\t\tposition: absolute;\n\t\ttop: 100%;\n\t\tleft: 0;\n\t\tz-index: 1000;\n\t\tfloat:
+        left;\n\t\tdisplay: none;\n\t\tmin-width: 160px;\n\t\t_width: 160px;\n\t\tpadding:
+        4px 0;\n\t\tmargin: 2px 0 0 0;\n\t\tlist-style: none;\n\t\tbackground-color:
+        #ffffff;\n\t\tborder-color: #ccc;\n\t\tborder-color: rgba(0, 0, 0, 0.2);\n\t\tborder-style:
+        solid;\n\t\tborder-width: 1px;\n\t\t-webkit-border-radius: 5px;\n\t\t-moz-border-radius:
+        5px;\n\t\tborder-radius: 5px;\n\t\t-webkit-box-shadow: 0 5px 10px rgba(0,
+        0, 0, 0.2);\n\t\t-moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);\n\t\tbox-shadow:
+        0 5px 10px rgba(0, 0, 0, 0.2);\n\t\t-webkit-background-clip: padding-box;\n\t\t-moz-background-clip:
+        padding;\n\t\tbackground-clip: padding-box;\n\t\t*border-right-width: 2px;\n\t\t*border-bottom-width:
+        2px;\n\n\t\t.ui-menu-item > a.ui-corner-all {\n\t\t\tdisplay: block;\n\t\t\tpadding:
+        3px 15px;\n\t\t\tclear: both;\n\t\t\tfont-weight: normal;\n\t\t\tline-height:
+        18px;\n\t\t\tcolor: #555555;\n\t\t\twhite-space: nowrap;\n\n\t\t\t&.ui-state-hover,
+        &.ui-state-active &.ui-state-focus{\n\t\t\t\tcolor: #ffffff;\n\t\t\t\ttext-decoration:
+        none;\n\t\t\t\tbackground-color: #0088cc !important;\n\t\t\t\tborder-radius:
+        0px;\n\t\t\t\t-webkit-border-radius: 0px;\n\t\t\t\t-moz-border-radius: 0px;\n\t\t\t\tbackground-image:
+        none;\n\t\t\t}\n\t\t}\n\t}\n\t.ui-helper-hidden-accessible{\n\t\tdisplay:none;\n\t}\n</style>\t<link
+        rel=\"stylesheet\" type=\"text/css\" href=\"/libhtml/highslide/highslide.css\"
+        />\n\t<script type=\"text/javascript\" src=\"/libhtml/highslide/highslide-full.js\"></script>\n\t<!--
+        ChartJS-->\n\t<script src=\"/libhtml_v4/js/plugins/chartjs/Chart.js\"></script>\n\t<script
+        src=\"/libhtml_v3/js/plugins/sparkline/jquery.sparkline.min.js\"></script>\n\n<!--
+        SCRIPT FROM TAXONPAGENEW -->\n<script type=\"text/javascript\">\n\t\t\tmaxColWidth
+        = 2250;\n\t\t\tmaxColHeight = 1125;\n\t\t\ths.graphicsDir = '/libhtml/highslide/graphics/';\n\t\t\ths.showCredits
+        = false;\n\t\t\ths.captionEval= 'this.thumb.title';\n\t\t\ths.enableKeyListener
+        = false;\n\t\t\ths.width = 400;\n\t\t\ths.height = 360;\n\t\t\ths.allowMultipleInstances
+        = false;\n\t\t\ths.useBox = true;\n\t\t\ths.enableKeyListener = true;\n\t\t\ths.dimmingOpacity=0.1;\n\t\t\ths.outlineType
+        = 'custom';\n\t\t\ths.align='center';\n\t\t\ths.registerOverlay({\n\t\t\t\t\thtml:
+        '<div class=\"closebutton\" onclick=\"return hs.close(this)\" title=\"Close\"></div>',\n\t\t\t\t\tposition:
+        'top right',\n\t\t\t\t\tuseOnHtml: true,\n\t\t\t\t\tfade: 2 // fading the
+        semi-transparent overlay looks bad in IE\n\t\t\t});\n\n</script>\n\t<script
+        language=\"javascript\">\n\t\t\tvar allCountriesData = {\"Turkey\":29,\"Canada\":2875,\"Italy\":180,\"Bangladesh\":8,\"India\":14,\"Panama\":7,\"Costa
+        Rica\":29,\"France\":138,\"Bahamas\":4,\"Ethiopia\":11,\"Saint Vincent and
+        the Grenadines\":7,\"Peru\":16,\"Vanuatu\":124,\"United Arab Emirates\":13,\"Argentina\":203,\"Bolivia\":7,\"Norway\":141,\"Cote
+        d'Ivoire\":7,\"Ecuador\":2,\"Czech Republic\":1,\"Ghana\":25,\"Israel\":25,\"Australia\":749,\"Iran\":26,\"Cuba\":8,\"Venezuela\":11,\"Japan\":44,\"Republic
+        of the Congo\":8,\"Guatemala\":5,\"Germany\":813,\"Chile\":161,\"China\":22,\"Kazakhstan\":1,\"Taiwan\":3,\"Spain\":25,\"Nigeria\":1,\"Kyrgyzstan\":31,\"Netherlands\":111,\"Oman\":1,\"Indonesia\":2,\"Saudi
+        Arabia\":2,\"Cyprus\":19,\"United States\":2055,\"Morocco\":3,\"Sweden\":3,\"Vietnam\":42,\"French
+        Guiana\":1,\"Thailand\":171,\"Switzerland\":8,\"New Zealand\":2,\"Russia\":45,\"Brazil\":6,\"Bulgaria\":24,\"Pakistan\":80,\"Angola\":7,\"Myanmar\":1,\"Portugal\":6,\"Mexico\":267,\"Egypt\":15,\"Fiji\":14,\"South
+        Africa\":544,\"Lebanon\":4,\"United Kingdom\":31,\"Malaysia\":86,\"Austria\":148,\"Mozambique\":2,\"Colombia\":10,\"Greece\":21,\"Paraguay\":18,\"Kenya\":206,\"South
+        Korea\":11,\"Tajikistan\":5};\n\n\t\t\t$(document).ready(function() {\n\t\t\t\t//Taxonomy
+        Search event handler\n\t\t\t\t$('button[name=\"searchTax\"]').click(function
+        () {\n\t\t\t\t\twindow.location = \"/index.php/Taxbrowser_Taxonpage?taxon=\"+
+        $('input[name=\"taxon\"]').val();\n\t\t\t\t});\n\t\t\t\t//Species Summary
+        event handler\n\t\t\t\t$('button[name=\"speciesSummaryOpen\"]').on(\"click\",function
+        () {\n\t\t\t\t\topenSpeciesSummary();\n\t\t\t\t});\n\t\t\t\t//Access Published
+        & Released Data event handler\n\t\t\t\t$('button[name=\"accessPublishedData\"]').on(\"click\",function
+        () {\n\t\t\t\t\twindow.location = \"/index.php/Public_SearchTerms?query=Megachilinae[tax]\";\n\t\t\t\t});\n\n\t\t\t\t$('a.popup-medium').click(function
+        (ev) {\n\t\t\t\t\twindow.open(this.href,'popup', 'scrollbars=yes,width=780,height=690');\n\t\t\t\t\tev.preventDefault();\n\t\t\t\t});\n\n\t\t\t\twikiRetrieve('Megachilinae',
+        '12');\n\n\t\t\t\t//setup breadcrumbs\n\t\t\t\tvar taxonBreadcrumbs = [\"<a
+        class =\\\"link\\\" title=\\\"phylum\\\"href=\\\"\\/index.php\\/TaxBrowser_Taxonpage?taxid=20\\\">Arthropoda<\\/a>\",\"<a
+        class =\\\"link\\\" title=\\\"class\\\"href=\\\"\\/index.php\\/TaxBrowser_Taxonpage?taxid=82\\\">Insecta<\\/a>\",\"<a
+        class =\\\"link\\\" title=\\\"order\\\"href=\\\"\\/index.php\\/TaxBrowser_Taxonpage?taxid=125\\\">Hymenoptera<\\/a>\",\"<a
+        class =\\\"link\\\" title=\\\"family\\\"href=\\\"\\/index.php\\/TaxBrowser_Taxonpage?taxid=443\\\">Megachilidae<\\/a>\",\"Megachilinae\"];\n\t\t\t\tsetupBreadcrumbs(taxonBreadcrumbs);\n\n\n\t\t\t\tvar
+        selector = \"#countries-summary\";\n\t\t\t\tcountriesRepresentation(selector,
+        allCountriesData);\n\n\t\t\t\t$('form[name=\"searchForm\"]').submit(function
+        (e) {\n\t\t\t\t\tif (document.searchForm.searchMenu.value==\"taxonomy\") {\n\t\t\t\t\t\tdocument.searchForm.taxon.value
+        = document.searchForm.query.value;  //temp fix for now.\n\t\t\t\t\t\tdocument.searchForm.action=\"/index.php/Taxbrowser_Taxonpage?taxon=\"+document.searchForm.query.value+\"&debug=1\";\n\t\t\t\t\t}
+        else if (document.searchForm.searchMenu.value==\"records\") {\n\t\t\t\t\t\tdocument.searchForm.action=\"/index.php/Public_SearchTerms?\";\n\t\t\t\t\t}
+        else if (document.searchForm.searchMenu.value==\"bins\") {\n\t\t\t\t\t\tdocument.searchForm.action=\"/index.php/Public_BINSearch?\";\n\t\t\t\t\t}\n\t\t\t\t});\n\n\t\t\t});\n\n\t\t\tfunction
+        setupBreadcrumbs(taxonBreadcrumbs) {\n\t\t\t\tvar selector = \"#taxonBreadcrumbs\";\n\t\t\t\tfor
+        (var i = 0; i < taxonBreadcrumbs.length; i++) {\n\t\t\t\t\tvar crumb;\n\t\t\t\t\tif
+        (i == taxonBreadcrumbs.length - 1) {\n\t\t\t\t\t\tcrumb = $(\"<li>\", {class:\"active\"}).append(taxonBreadcrumbs[i]);\n\t\t\t\t\t}
+        else {\n\t\t\t\t\t\tcrumb = $(\"<li>\").append(taxonBreadcrumbs[i]);\n\t\t\t\t\t}\n\t\t\t\t\t$(selector).append(crumb);\n\t\t\t\t}\n\t\t\t}\n\n\t\t\tfunction
+        openSpeciesSummary(ev) {\n\t\t\t\tvar page=\"speciesSummary\";\n\t\t\t\tPopup=window.open('/index.php/Working',page,'scrollbars=yes,resizable=yes,width=900,height=700');\n\t\t\t\tsetTimeout(function(){\n\t\t\t\t\t\t\t\t$('form[name=\"actionRequest\"]').attr('target',
+        page);\n\t\t\t\t\t\t\t\t$('form[name=\"actionRequest\"]').submit();\n\t\t\t\t\t\t\t\tPopup.focus();},\n\t\t\t\t\t\t\t\t450);\n\n\t\t\t\tev.preventDefault();\n\n\t\t\t}\n\n\t\t\tfunction
+        countriesRepresentation(selector,data){\n\t\t\t\tvar totalSpecimenCount =
+        Object.keys(data)\n\t\t\t\t\t.reduce(function(sum, key) {\n\t\t\t\t\t\treturn
+        sum + data[key];\n\t\t\t\t\t}, 0);\n\n\t\t\t\t //sort countries\n\t\t\t\tvar
+        sortedCountries = sortCountries();\n\n\t\t\t\t//only draw 5\n\t\t\t\tvar globalCounter
+        = 0;\n\t\t\t\tvar countrySelectorID = 1;\n\t\t\t\tfor (var j =0; j < 6 ; j++)
+        {\n\n\t\t\t\t\tvar countrySelector = \"country-summary\" + countrySelectorID;\n\t\t\t\t\t$(selector).append($(\"<div>\",
+        {class:\"col-lg-2 col-md-6\"}).append(\n\t\t\t\t\t\t\t\t$(\"<div>\", {class:\"ibox\"}\n\t\t\t\t\t\t\t\t).append(\n\t\t\t\t\t\t\t\t\t$(\"<div>\",
+        {class:\"ibox-content\"})\n\t\t\t\t\t\t\t\t).append(\n\t\t\t\t\t\t\t\t\t$(\"<div>\",
+        {id:countrySelector})\n\t\t\t\t\t\t\t\t)\n\t\t\t\t\t\t\t));\n\t\t\t\t\tvar
+        counter = 1;\n\t\t\t\t\tfor (globalCounter; globalCounter < sortedCountries.length;
+        globalCounter++) {\n\t\t\t\t\t\tvar newWidth = progressValue(sortedCountries[globalCounter][1],totalSpecimenCount);\n\t\t\t\t\t\t$(\"#\"+countrySelector).append($(\"<div>\").append(\n\t\t\t\t\t\t\t\t$(\"<span>\").text(sortedCountries[globalCounter][0]+\":\")\n\t\t\t\t\t\t\t).append(\n\t\t\t\t\t\t\t\t$(\"<span>\",{class:\"pull-right\"}).text(sortedCountries[globalCounter][1]
+        )\n\t\t\t\t\t\t\t).append(\n\t\t\t\t\t\t\t\t$(\"<div>\",{class:\"progress
+        progress-small\"}).append(\n\t\t\t\t\t\t\t\t\t$(\"<div>\",{class:\"progress-bar\",width:newWidth+\"%\"})\n\t\t\t\t\t\t\t\t)\n\t\t\t\t\t\t\t)\n\t\t\t\t\t\t);\n\t\t\t\t\t\tif
+        (counter == 2){\n\t\t\t\t\t\t\tbreak;\n\t\t\t\t\t\t}\n\t\t\t\t\t\tif (globalCounter
+        == 12){\n\t\t\t\t\t\t\tbreak;\n\t\t\t\t\t\t}\n\t\t\t\t\t\tcounter++;\n\t\t\t\t\t}\n\t\t\t\t\tglobalCounter++;\n\n\t\t\t\t\tcountrySelectorID++;\n\t\t\t\t}\n\n\t\t\t}\n\n\n\t\t\tfunction
+        sortCountries(){\n\t\t\t\tvar sortedCountries=[];\n\t\t\t\t//transform object
+        to array\n\t\t\t\tObject.keys(allCountriesData)\n\t\t\t\t   .map(function(
+        key) {\n\t\t\t\t\t   sortedCountries.push([key, allCountriesData[key]]);\n\t\t\t\t
+        \  });\n\t\t\t\t//sort items by value\n\t\t\t\tsortedCountries = sortedCountries.sort(function(a,
+        b){\n\t\t\t\t\treturn b[1] - a[1];\n\t\t\t\t});\n\t\t\t\treturn sortedCountries;\n\t\t\t}\n\n\n\t\t\tfunction
+        populateAllCountries(){\n\t\t\t\tvar sortedCountries = sortCountries();\n\t\t\t\tvar
+        i,j;\n\t\t\t\tvar temparray=[];\n\t\t\t\tvar chunk = Math.ceil(sortedCountries.length
+        / 4);\n\t\t\t\tfor (i=0,j = sortedCountries.length; i < j; i+=chunk) {\n\t\t\t\t\ttemparray.push(sortedCountries.slice(i,
+        i+chunk));\n\t\t\t\t}\n\n\t\t\t\tvar table = $(\"#dialogTable\");\n\t\t\t\t$(\"#dialogTable
+        tr\").remove();\n\t\t\t\tfor (var i =0; i < temparray[0].length; i++) {\n\t\t\t\t\tvar
+        newRow = $(\"<tr>\");\n\n\t\t\t\t\t//code will be cleaned up\n\t\t\t\t\tnewRow.append($(\"<td>\",
+        {style: \"width='10px'\"}).text(temparray[0][i][0]));\n\t\t\t\t\tnewRow.append($(\"<td>\",
+        {style: \"width='10px'\"}).text(temparray[0][i][1]));\n\t\t\t\t\tif (1 in
+        temparray && temparray[1][i] != undefined) {\n\t\t\t\t\t\tnewRow.append($(\"<td>\",
+        {style: \"width='10px'\"}).text(temparray[1][i][0]));\n\t\t\t\t\t\tnewRow.append($(\"<td>\",
+        {style: \"width='10px'\"}).text(temparray[1][i][1]));\n\t\t\t\t\t}\n\t\t\t\t\tif
+        (2 in temparray && temparray[2][i] != undefined) {\n\t\t\t\t\t\tnewRow.append($(\"<td>\",
+        {style: \"width='10px'\"}).text(temparray[2][i][0]));\n\t\t\t\t\t\tnewRow.append($(\"<td>\",
+        {style: \"width='10px'\"}).text(temparray[2][i][1]));\n\t\t\t\t\t}\n\t\t\t\t\tif
+        (3 in temparray && temparray[3][i] != undefined) {\n\t\t\t\t\t\tnewRow.append($(\"<td>\",
+        {style: \"width='10px'\"}).text(temparray[3][i][0]));\n\t\t\t\t\t\tnewRow.append($(\"<td>\",
+        {style: \"width='10px'\"}).text(temparray[3][i][1]));\n\t\t\t\t\t}\n\t\t\t\t\ttable.append(newRow);\n\t\t\t\t}\n\t\t\t\ttable.show();\n\t\t\t\t$(\"#alldatadialog\").modal('show');\n\t\t\t}\n\n\n\t\t\tfunction
+        progressValue(dividend, divisor) {\n\t\t\t\tif (dividend <= 0) {\n\t\t\t\t\treturn
+        0;\n\t\t\t\t} else {\n\t\t\t\t\tquotient = (dividend / parseFloat(divisor))
+        * 100.0 ;\n\t\t\t\t\treturn Math.max(1, parseInt(quotient));\n\t\t\t\t}\n\t\t\t}\n\n\t\t\tfunction
+        wikiRetrieve(name, rank) {\n\t\t\t\tvar url = \"/index.php/MAS_Ajax_WikiRetriever?name=\"
+        + name + '&url=true';\n\t\t\t\t$.ajax({\n\t\t\t\t\ttype:\"GET\",\n\t\t\t\t\turl:
+        url,\n\t\t\t\t\tdata: {rank: rank},\n\t\t\t\t\tdataType: 'json',\n\t\t\t\t\tsuccess:
+        function(data){\n\n\t\t\t\t\t\tif(data && data['text']) {\n\t\t\t\t\t\t\t$('#rowTaxon').show();\n\t\t\t\t\t\t\t$('#pTaxon').prepend(data['text']);\n\t\t\t\t\t\t\tif(data['url'])
+        {\n\t\t\t\t\t\t\t\t$('#pTaxon a').attr('href', 'http://en.wikipedia.org/wiki/'
+        + data['url']);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t} else {\n\t\t\t\t\t\t\t$('#rowTaxon').hide();\n\t\t\t\t\t\t}\n\t\t\t\t\t},\n\t\t\t\t\terror:
+        function(){\n\t\t\t\t\t\t$('#rowTaxon').hide();\n\t\t\t\t\t}\n\t\t\t\t});\n\t\t\t}\n\n\n\t\t\tfunction
+        buildChart(url,suffix){\n\t\t\t\t$.get(url,{\"taxid\":\"4962\"}).done(function(data){\n\t\t\t\t\tvar
+        doughnutOptions = {\n\t\t\t\t\t\tsegmentShowStroke: true,\n\t\t\t\t\t\tsegmentStrokeColor:
+        \"#fff\",\n\t\t\t\t\t\tsegmentStrokeWidth: 2,\n\t\t\t\t\t\tpercentageInnerCutout:
+        45, // This is 0 for Pie charts\n\t\t\t\t\t\tanimationSteps: 100,\n\t\t\t\t\t\tanimationEasing:
+        \"easeOutBounce\",\n\t\t\t\t\t\tanimateRotate: true,\n\t\t\t\t\t\tanimateScale:
+        false,\n\t\t\t\t\t\tresponsive: true,\n\t\t\t\t\t\tlegendTemplate : '<ul class=\"list-unstyled\">'+'<%
+        for (var i=0; i<segments.length; i++) { %>'+'<li>'+'<span style=\"-moz-border-radius:7px
+        7px 7px 7px; border-radius:7px 7px 7px 7px; margin-right:10px;width:15px;height:15px;display:inline-block;background-color:<%=segments[i].fillColor%>\">
+        </span>'+'<% if (segments[i].label) { %><%= segments[i].label %><% } %>'+'</li>'+'<%
+        } %>'+'</ul>'\n\t\t\t\t\t};\n\t\t\t\t\tjsonObj = JSON.parse(data);\n\t\t\t\t\tchartColours
+        = [\"#93C3DE\",\"#A2E6C6\",\"#A8EF8D\",\"#F0E287\",\"#DEB483\",\"#DE9E93\",\"#DAA1DE\",\"#BCB2F4\",\"#DEDEDE\",\"#B4B4B4\"];\n\t\t\t\t\thighlightColour
+        = \"#1ab394\";\n\t\t\t\t\tchartData = [];\n\t\t\t\t\tchartColourIndex = 0;\n\n\t\t\t\t\tfor
+        (i=jsonObj.data.length-1;i>=0;i--){\n\t\t\t\t\t\tchartLabel = jsonObj.labels[i];\n\t\t\t\t\t\tchartVal
+        = jsonObj.data[i];\n\t\t\t\t\t\tchartData.push({\n\t\t\t\t\t\t\tvalue:chartVal,\n\t\t\t\t\t\t\tcolor:chartColours[chartColourIndex],\n\t\t\t\t\t\t\thighlight:
+        highlightColour,\n\t\t\t\t\t\t\tlabel:chartLabel\n\t\t\t\t\t\t});\n\t\t\t\t\t\tchartColourIndex
+        += 1;\n\t\t\t\t\t\tif (chartColourIndex == chartColours.length){//for now
+        ;loop through the colour\n\t\t\t\t\t\t\tchartColourIndex = 0;\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t\tvar
+        ctx = document.getElementById(\"chart\"+suffix).getContext(\"2d\");\n\t\t\t\t\tvar
+        tgChart = new Chart(ctx).Doughnut(chartData, doughnutOptions);\n\t\t\t\t\t$(\"#legend\"+suffix).html(tgChart.generateLegend());\n\t\t\t\t});\n\t\t\t}\n\n\t\t\t$(document).ready(function()
+        {\n\t\t\t\t\t\t\t\tbuildChart('/index.php/TaxBrowser_Charts_institutionsrcdata','Depositry');\n\t\t\t\t\t\t\t\t\t\t\t\tbuildChart('/index.php/TaxBrowser_Charts_institutionsrcdata/sequencinglabs','Sequence');\n\t\t\t\t\t\t\t});\n\t</script>\n\n\t<style
+        type=\"text/css\">\n\n\t\t.highslide-heading {\n\t\t\tcolor:#dedede;\n\t\t}\n\t\t.highslide-caption{\n\t\t\tfont-size:10pt
+        !important;\n\t\t}\n\t\t.imagegallery_preview {\n\t\t\tbackground-color: #FFFFFF;\n\t\t\tmargin:
+        8px;\n\t\t\tborder: 1px solid #111111;\n\t\t\tpadding: 0px;\n\t\t\twidth:400px;\n\t\t\ttext-align:
+        center;\n\t\t\tfloat:right;\n\t\t}\n\n\t\t.alignTop, .alignTop td{\n\t\t\tvertical-align:
+        top;\n\t\t}\n\t\t.legendFont {\n\t\t\tfont-size: 12px;\n\t\t}\n\t\t.scrollPortlet{\n\t\t\tmax-height:
+        400px;\n\t\t\toverflow-y: auto;\n\t\t}\n\t\t.progress {\n\t\t\theight: 10px;\n\t\t}\n\t\t.modal-dialog
+        \ {width:1000px;}\n\n\t\t.breadcrumb {\n\t\t\tpadding: 0px;\n\t\t\tpadding-left:15px;\n\t\t\tbackground-color:
+        transparent;\n\t\t}\n\t\t.l-bloc a.link{\n\t\t\tcolor: #337ab7 ;\n\t\t}\n\t\t.highslide-caption
+        a {\n\t\t\tcolor: #ff9400;\n\t\t\tfont-size: 10pt !important;\n\t\t\tfont-weight:
+        bold;\n\t\t\tpadding: 2px;\n\t\t}\n\n\t</style>\n</head>\n<body>\n\t<div class=\"page-container\">\n\t\t<div
+        class=\"bloc sticky-nav bgc-dark-jungle-green d-bloc\">\n\t\t\t<div class=\"container
+        bloc-xs\">\n\t\t\t\t<nav class=\"navbar row\">\n\t\t\t\t\t<div class=\"navbar-header\">\n\t\t\t\t\t\t<a
+        class=\"navbar-brand\" href=\"/index.php\">\n\t\t\t\t\t\t\t<img src=\"/libhtml_v4/images/BOLDlogo.png\"
+        alt=\"logo\" />\n\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t<button id=\"nav-toggle\"
+        type=\"button\" class=\"ui-navbar-toggle navbar-toggle\" data-toggle=\"collapse\"
+        data-target=\".navbar-1\">\n\t\t\t\t\t\t\t<span class=\"sr-only\">Toggle navigation</span>\n\t\t\t\t\t\t\t<span
+        class=\"icon-bar\"></span>\n\t\t\t\t\t\t\t<span class=\"icon-bar\"></span>\n\t\t\t\t\t\t\t<span
+        class=\"icon-bar\"></span>\n\t\t\t\t\t\t</button>\n\n\t\t\t\t\t\t<a href=\"#\"
+        class=\"search-toggle\" data-toggle=\"collapse\" data-target=\".search-wrap\">\n\t\t\t\t\t\t\t<span
+        class=\"fa fa-search fa-lg\"></span>\n\t\t\t\t\t\t</a>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div
+        class=\"collapse navbar-collapse navbar-1\">\n\t\t\t\t\t\t<ul class=\"site-navigation
+        nav navbar-nav\">\n\t\t\t\t\t\t\t<li><a href=\"/index.php/databases\">Databases</a></li>\n\t\t\t\t\t\t\t<li><a
+        href=\"/index.php/IDS_OpenIdEngine\">Identification</a></li>\n\t\t\t\t\t\t\t<li><a
+        href=\"/index.php/TaxBrowser_Home\">Taxonomy</a></li>\n\t\t\t\t\t\t\t<li><a
+        href=\"/index.php/MAS_Management_UserConsole\">Workbench</a></li>\n\t\t\t\t\t\t\t<li><a
+        href=\"/index.php/Resources\">Resources</a></li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li><a
+        href=\"/index.php/MAS_Management_UserConsole\">Login</a></li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li
+        class=\"nav-search\">\n\t\t\t\t\t\t\t\t<a href=\"#\" data-toggle=\"collapse\"
+        data-target=\".search-wrap\">\n\t\t\t\t\t\t\t\t\t<span class=\"fa fa-search
+        icon-sm\"></span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t</nav>\n\t\t\t</div>\n\n\t\t\t<div
+        class=\"search-wrap collapse\">\n\t\t\t\t<form id=\"site-search\" name =\"searchForm\"
+        onSubmit=\"submitSearch();\">\n\t\t\t\t\t<div class=\"col-sm-3 col-md-2\">\n\t\t\t\t\t\t<label
+        class=\"sr-only\" for=\"search_type\">Type</label>\n\t\t\t\t\t\t<select id=\"search_type\"
+        class=\"form-control\" name=\"searchMenu\">\n\t\t\t\t\t\t\t<option value=\"taxonomy\">Taxonomy</option>\n\t\t\t\t\t\t\t<option
+        value=\"records\">Public Data</option>\n\t\t\t\t\t\t\t<option value=\"bins\">BINs</option>\n\t\t\t\t\t\t</select>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div
+        class=\"col-sm-9 col-md-10\">\n\t\t\t\t\t\t<label class=\"sr-only\" for=\"search_keyword\">Keyword</label>\n\t\t\t\t\t\t<input
+        id=\"query\" class=\"form-control\" name=\"query\"  placeholder=\"Search\"
+        />\n\t\t\t\t\t\t<input type=\"hidden\" name=\"taxon\"/>\n\t\t\t\t\t</div>\n\t\t\t\t</form>\n\t\t\t</div>\n\t\t</div><!--
+        /.sticky-nav -->\n\n<div class=\"bloc bgc-cadet-blue d-bloc\" id=\"lead-in\">\n
+        \   <div class=\"container bloc-md\">\n\n        <div class=\"row\">\n            <div
+        class=\"col-sm-12\">\n                <h3>TAXONOMY BROWSER: Megachilinae</h3>\n\t\t\t\t
+        <p>Subfamily : Megachilinae</p>\n\n            </div>\n        </div>\n    </div>\n</div>\n\n<div
+        class=\"bloc l-bloc bgc-white\">\n    <div class=\"container bloc-md\" style=\"padding:10px;\">\n
+        \       <div class=\"row\">\n\t\t\t <ol class=\"breadcrumb\" id=\"taxonBreadcrumbs\">\n\t\t\t</ol>\n\t\t</div>\n\t\t<div
+        class=\"row\">\n\t\t\t<div class=\"col-lg-6 col-md-6\">\n\t\t\t\t<div class=\"ibox\">\n\t\t\t\t\t<div
+        class=\"ibox-content\">\n\t\t\t\t\t\t<div class=\"ibox float-e-margins\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div
+        class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-xs-12 text-left\" style=\"margin-top:0px;margin-bottom:0px;\"><img
+        class=\"img-responsive\" src=\"/pics/PBCAG/bioug01202-h10%2B1318965694.JPG\"
+        \ border=\"0\" title=\"sample id:BIOUG01202-H10\"></div>\n\t\t\t\t\t\t\t<div
+        class=\"col-xs-12 text-right\" style=\"margin-top:0px;margin-bottom:0px;\">\t\t\t\t\t\t\t\t<div
+        class=\"row\">\n\t\t\t\t\t\t\t\t\t<div class=\"col-xs-8 text-left\" style=\"margin-top:0px;margin-bottom:0px;\"><i
+        class=\"fa fa-creative-commons\" aria-hidden=\"true\"></i> CC BY-NC-SA\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<i
+        class=\"fa fa-user\" aria-hidden=\"true\"></i> CBG Photography Group\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<i
+        class=\"fa fa-calendar-o\" aria-hidden=\"true\"></i> 2011\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div
+        class=\"col-xs-4 text-right\" style=\"margin-top:0px;margin-bottom:0px;\">\n\t\t\t\t\t\t\t\t\t\t\tImage
+        of  <a class=\"link\" href=\"/index.php/TaxBrowser_Taxonpage?taxid=58221\">Anthidium</a>
+        \t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div><!--
+        END OF ROW -->\n\t\t\t\t\t\t\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div
+        class=\"col-lg-6 col-md-6\">\n\t\t\t<div class=\"ibox\">\n\t\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t\t<h2>Taxon
+        Description (Wikipedia)</h2>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ibox-content\">\n\t\t\t\t\t<div
+        class=\"ibox float-e-margins\">\n\t\t\t\t\t\t<p id=\"pTaxon\">\n\t\t\t\t\t\t\t<a
+        class=\"link popup-medium\" href=\"http://en.wikipedia.org/wiki/Megachilinae\">full
+        article at Wikipedia</a>\n\t\t\t\t\t\t</p>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\n\n\n\n\n\t</div>
+        <!-- End of 1st row -->\n\n\t<div class =\"row\">\n\n\n\t\t<div class=\"col-lg-4
+        col-md-6\">\n\t\t\t<div class=\"ibox\">\n\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t<h2>Statistics</h2>\n\t\t\t\t</div>\n\t\t\t\t<div
+        class=\"ibox-content\">\n\t\t\t\t<div class=\"ibox float-e-margins\">\n\t\t\t\t\t<table
+        class=\"table table-striped noborder\">\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td
+        width=\"41%\">Specimen Records:</td>\n\t\t\t\t\t\t\t<td width=\"17%\">13,060</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Specimens
+        with Sequences:</td>\n\t\t\t\t\t\t\t<td>11,492</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Specimens
+        with Barcodes:</td>\n\t\t\t\t\t\t\t<td><specimendataforlivestats/>10,326<specimendataforlivestats/></td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Species:</td>\n\t\t\t\t\t\t\t<td>1,956</td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Species
+        With Barcodes:</td>\n\t\t\t\t\t\t\t<td>1,564</td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td
+        width=\"60%\">Public Records:</td>\n\t\t\t\t\t\t\t<td width=\"40%\">5,325</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Public
+        Species:</td>\n\t\t\t\t\t\t\t<td>858</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Public
+        BINs:</td>\n\t\t\t\t\t\t\t<td>746</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td><button
+        class=\"btn btn-sm btn-info\" name=\"speciesSummaryOpen\"> Species List  </button></td>\n\t\t\t\t\t\t\t<td><button
+        class=\"btn btn-sm btn-info\" name=\"accessPublishedData\">Public Data</button></td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</table>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t\t</div>\n\n\n\t\t<div
+        class=\"col-lg-4 col-md-6\">\n\t\t\t<div class=\"ibox\">\n\t\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t\t<h2>Specimen
+        Depositories</h2>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ibox-content\">\n\t\t\t\t\t<div
+        class=\"ibox float-e-margins\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div id=\"divDepositry\"><canvas
+        id=\"chartDepositry\"></canvas></div>\n\t\t\t\t\t\t<div id=\"legendDepositry\"
+        class=\"legendFont\"></div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div id=\"institutionsList2\"></div>\n\t\t\t\t\t\t\t<script
+        language=\"javascript\">\n\t\t\t\t\t\t\tvar institutionsReduced=true;\n\t\t\t\t\t\t\tfunction
+        institutionsExpandReduce() {\n\t\t\t\t\t\t\t\tif (institutionsReduced==true)
+        {\n\t\t\t\t\t\t\t\t\tdocument.getElementById('institutionsList').innerHTML=\"\";\n\t\t\t\t\t\t\t\t\tdocument.getElementById('institutionsExpandReduceLink').innerHTML=\"Collapse\";\n\t\t\t\t\t\t\t\t\tinstitutionsReduced=false;\n\t\t\t\t\t\t\t\t}
+        else {\n\t\t\t\t\t\t\t\t\tdocument.getElementById('institutionsList').innerHTML=\"\";\n\t\t\t\t\t\t\t\t\tdocument.getElementById('institutionsExpandReduceLink').innerHTML=\"Expand\";\n\t\t\t\t\t\t\t\t\tinstitutionsReduced=true;\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t}\n\n\t\t\t\t\t\t\t</script>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div
+        class=\"col-lg-4 col-md-6\">\n\t\t\t<div class=\"ibox\">\n\t\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t\t<h2>Sequencing
+        Labs</h2>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ibox-content\">\n\t\t\t\t\t<div
+        class=\"ibox float-e-margins\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div id=\"divSequence\"><canvas
+        id=\"chartSequence\" height=\"140\"></canvas></div>\n\t\t\t\t\t\t<div id=\"legendSequence\"
+        class=\"legendFont\"></div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>
+        <!--END OF third ROW --->\n\n\n\t<div class=\"row\">\n\t\t<div class=\"col-lg-12
+        col-md-6\">\n\t\t\t<div class=\"ibox\">\n\t\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t\t<h2>Collection
+        Sites</h2>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ibox-content\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a
+        class=\"highslide\" onclick=\"return hs.expand(this,{width:maxColWidth,height:maxColHeight})\"
+        href=\"/index.php/TaxBrowser_Maps_CollectionSites?taxid=4962\" ><img border=\"0\"
+        width=\"100%\" src=\"/index.php/TaxBrowser_Maps_CollectionSites?taxid=4962\"></img></a>\n\t\t\t\t\t\t\t\t</br>\n\t\t\t\t\t\t\t\t<img
+        src=\"/libhtml/icons/mapScale_BOLD.png\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t</div>
+        <!-- END OF FIFTH ROW -->\n\n\t<div class=\"row\">\n\t\t<div class=\"col-lg-12\">\n\t\t\t<div
+        class=\"ibox\">\n\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t<h2>Countries</h2>\n\t\t\t\t\t<span>Collected
+        from <strong>72</strong> countries. </span> <a class=\"link\" onClick = \"populateAllCountries();\">
+        Show all countries</a>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t<div
+        class =\"row\" id =\"countries-summary\">\n\n\t</div><!--END OF ROW-->\n\n\n\t<div
+        class =\"row\">\n\t\t\t\t<div class=\"col-md-6\">\n\t\t\t<div class=\"ibox\">\n\t\t\t\t\t<div
+        class=\"ibox-title\">\n\t\t\t\t\t\t<h2>Sub-Taxa</h2>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div
+        class=\"ibox-content\">\n\t\t\t\t\t<!-- Left Menu START-->\n\t\t\t\t\t<div
+        class=\"ibox float-e-margins\">\n\n\t\t\t\t\t\t\t<lh>Tribes (3) </lh><ol><li><a
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=753396\">Anthidiini [38]</a></li><li><a
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=762731\">Megachilini [4975]</a></li><li><a
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=753397\">Osmiini [899]</a></li></ol><lh>Genera
+        (60) </lh><br/><ol><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=159808\">Afranthidium
+        [68]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=313608\">Afroheriades
+        [7]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=285910\">Afrostelis
+        [2]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=488454\">Aglaoapis
+        [2]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=58228\">Anthidiellum
+        [100]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=156022\">Anthidiine
+        [1]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=58221\">Anthidium
+        [577]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=156059\">Anthodioctes
+        [12]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=7592\">Ashmeadiella
+        [225]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=731643\">Ashmeadiellia
+        [1]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=313601\">Aspidosmia
+        [12]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=96572\">Atoposmia
+        [38]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=688853\">Austrostelis
+        [1]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=686051\">Aztecanthidium
+        [1]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=696074\">Bathanthidium
+        [2]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=509038\">Branthidium
+        [1]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=450557\">Callomegachile
+        [2]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=84734\">Chelostoma
+        [291]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=202617\">Chrisanthidium
+        [1]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=4964\">Coelioxys
+        [1095]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=7591\">Dianthidium
+        [105]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=99255\">Dioxys
+        [55]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=696294\">Ensliniana
+        [2]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=264921\">Eoanthidium
+        [50]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=162809\">Epanthidium
+        [36]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=202625\">Euaspis
+        [20]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=855892\">Gronoceras
+        [2]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=460169\">Haetosmia
+        [10]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=4948\">Heriades
+        [412]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=855897\">Heriadopsis
+        [1]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=200481\">Hofferia
+        [2]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=214093\">Hoplosmia
+        [44]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=686081\">Hoplostelis
+        [6]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=314159\">Hypanthidioides
+        [18]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=162762\">Hypanthidium
+        [24]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=316489\">Larocanthidium
+        [4]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=183234\">Mecanthidium
+        [1]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=300279\">Metadioxys
+        [1]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=91145\">Notanthidium
+        [35]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=202651\">Noteriades
+        [9]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=200483\">Ochreriades
+        [4]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=4940\">Osmia
+        [3007]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=313612\">Othinosmia
+        [90]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=285909\">Pachyanthidium
+        [28]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=594969\">Paradioxys
+        [1]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=112437\">Paranthidium
+        [13]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=313617\">Plesianthidium
+        [64]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=696304\">Prodioxys
+        [1]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=96610\">Protosmia
+        [10]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=261656\">Pseudoanthidium
+        [81]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=316470\">Pseudoheriades
+        [27]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=7593\">Radoszkowskiana
+        [1]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=313858\">Rhodanthidium
+        [36]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=316487\">Saranthidium
+        [1]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=286859\">Serapista
+        [7]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=4952\">Stelis
+        [396]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=189977\">Stenoheriades
+        [8]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=7594\">Trachusa
+        [54]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=286863\">Wainia
+        [14]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=414410\">Xeroheriades
+        [2]</a></li></ol>\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t</div>\n\t\t
+        <!-- Left Menu END -->\n\t\t<div class=\"col-md-6\">\n\t\t\t\t\t\t\t\t<div
+        class=\"ibox float-e-margins\">\n\t\t\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t\t\t<h2>Imagery</h2>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div
+        class=\"ibox-content\">\n\t\t\t\t\t\t<i> Images representing subtaxa of Megachilinae</i>
+        <div class=\"row\"><div class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return
+        hs.expand(this,{width:500, height:368} )\" href=\"//v4.boldsystems.org/pics/ASBEE/B1407-1408-G05%2B1248126468.jpg\"><img
+        title=\" (Afranthidium - 1408-G05)  CC BY-NC-SA (2010) Packer Collection at
+        York University <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\"
+        alt=\" (Afranthidium - 1408-G05)  @14 [ ] CC BY-NC-SA (2010) Packer Collection
+        at York University York University\"  src=\"//v4.boldsystems.org/pics/_w300/ASBEE/B1407-1408-G05%2B1248126468.jpg\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=159808\">Afranthidium</a></div></div><div
+        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
+        height:885} )\" href=\"//v4.boldsystems.org/pics/BEZAF/CCDB-15278_H01%2B1321044454.jpg\"><img
+        title=\" (Afroheriades - CCDB-15278 H01)  CC BY-NC-SA (2011) Packer Collection
+        York University <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\"
+        alt=\" (Afroheriades - CCDB-15278 H01)  @12 [ ] CC BY-NC-SA (2011) Packer
+        Collection York University York University\"  src=\"//v4.boldsystems.org/pics/_w300/BEZAF/CCDB-15278_H01%2B1321044454.jpg\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=313608\">Afroheriades</a></div></div><div
+        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
+        height:625} )\" href=\"//v4.boldsystems.org/pics/BOWGF/4483C11%2B1276798994.jpg\"><img
+        title=\" (Afrostelis - 04483C11-ZAF)  CC BY-NC-SA (2010) Packer Collection
+        at York University <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\"
+        alt=\" (Afrostelis - 04483C11-ZAF)  @12 [ ] CC BY-NC-SA (2010) Packer Collection
+        at York University York University\"  src=\"//v4.boldsystems.org/pics/_w300/BOWGF/4483C11%2B1276798994.jpg\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=285910\">Afrostelis</a></div></div><div
+        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
+        height:683} )\" href=\"//v4.boldsystems.org/pics/BOWGF/CCDB-15274_G11%2B1343406108.jpg\"><img
+        title=\" (Aglaoapis - CCDB-15274 G11)  CC BY-NC-SA (2012) Packer Collection
+        York University <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\"
+        alt=\" (Aglaoapis - CCDB-15274 G11)  @11 [ ] CC BY-NC-SA (2012) Packer Collection
+        York University York University\"  src=\"//v4.boldsystems.org/pics/_w300/BOWGF/CCDB-15274_G11%2B1343406108.jpg\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=488454\">Aglaoapis</a></div></div><div
+        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
+        height:334} )\" href=\"//v4.boldsystems.org/pics/BOFWM/00601-F06%2B1262793222.jpg\"><img
+        title=\" (Anthidiellum - CCDB-00601 F06)  CC BY-NC-SA (2010) Packer Collection
+        at York University <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\"
+        alt=\" (Anthidiellum - CCDB-00601 F06)  @14 [ ] CC BY-NC-SA (2010) Packer
+        Collection at York University York University\"  src=\"//v4.boldsystems.org/pics/_w300/BOFWM/00601-F06%2B1262793222.jpg\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=58228\">Anthidiellum</a></div></div><div
+        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
+        height:750} )\" href=\"//v4.boldsystems.org/pics/BOWGF/H09%2B1557418122.jpg\"><img
+        title=\" (Anthidiine - CCDB-33206 H09)  CreativeCommons - Attribution by Laurence
+        Packer (2018) Laurence Packer <br/><img src='/libhtml/icons/creativecommons/by_80x15.png'/>\"
+        alt=\" (Anthidiine - CCDB-33206 H09)  @11 [ ] CreativeCommons - Attribution
+        by Laurence Packer (2018) Laurence Packer York University\"  src=\"//v4.boldsystems.org/pics/_w300/BOWGF/H09%2B1557418122.jpg\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=156022\">Anthidiine</a></div></div></div><div
+        class=\"row\"><div class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return
+        hs.expand(this,{width:500, height:373} )\" href=\"//v4.boldsystems.org/pics/BWONE/06713G05-OMN%2B1450313880.jpg\"><img
+        title=\" (Anthidiini - 06713G05-OMN)  CC BY-NC-SA (2015) CBG Photography Group
+        <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\" alt=\"
+        (Anthidiini - 06713G05-OMN)  @15 [ ] CC BY-NC-SA (2015) CBG Photography Group
+        Centre for Biodiversity Genomics\"  src=\"//v4.boldsystems.org/pics/_w300/BWONE/06713G05-OMN%2B1450313880.jpg\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=753396\">Anthidiini</a></div></div><div
+        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
+        height:378} )\" href=\"//v4.boldsystems.org/pics/PBCAG/bioug01202-h10%2B1318965694.JPG\"><img
+        title=\" (Anthidium - BIOUG01202-H10)  CC BY-NC-SA (2011) CBG Photography
+        Group <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\"
+        alt=\" (Anthidium - BIOUG01202-H10)  @17 [ ] CC BY-NC-SA (2011) CBG Photography
+        Group Centre for Biodiversity Genomics\"  src=\"//v4.boldsystems.org/pics/_w300/PBCAG/bioug01202-h10%2B1318965694.JPG\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=58221\">Anthidium</a></div></div><div
+        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
+        height:367} )\" href=\"//v4.boldsystems.org/pics/ASBEE/B1407-1408-A09%2B1248125566.jpg\"><img
+        title=\" (Anthodioctes - 1408-09)  CC BY-NC-SA (2010) Packer Collection at
+        York University <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\"
+        alt=\" (Anthodioctes - 1408-09)  @15 [ ] CC BY-NC-SA (2010) Packer Collection
+        at York University York University\"  src=\"//v4.boldsystems.org/pics/_w300/ASBEE/B1407-1408-A09%2B1248125566.jpg\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=156059\">Anthodioctes</a></div></div><div
+        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
+        height:365} )\" href=\"//v4.boldsystems.org/pics/WASPS/CCDB-25169_E10%2B1531313850.jpg\"><img
+        title=\" (Ashmeadiella - CCDB-25169 E10)  Unspecified (default): All Rights
+        Reserved (2018) Cory S. Sheffield \" alt=\" (Ashmeadiella - CCDB-25169 E10)
+        \ @15 [ ] Unspecified (default): All Rights Reserved (2018) Cory S. Sheffield
+        Royal Saskatchewan Museum\"  src=\"//v4.boldsystems.org/pics/_w300/WASPS/CCDB-25169_E10%2B1531313850.jpg\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=7592\">Ashmeadiella</a></div></div><div
+        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
+        height:551} )\" href=\"//v4.boldsystems.org/pics/BEZAF/CCDB-15279_F06%2B1321043136.jpg\"><img
+        title=\" (Aspidosmia - CCDB-15279 F06)  CC BY-NC-SA (2011) Packer Collection
+        York University <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\"
+        alt=\" (Aspidosmia - CCDB-15279 F06)  @13 [ ] CC BY-NC-SA (2011) Packer Collection
+        York University York University\"  src=\"//v4.boldsystems.org/pics/_w300/BEZAF/CCDB-15279_F06%2B1321043136.jpg\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=313601\">Aspidosmia</a></div></div><div
+        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
+        height:376} )\" href=\"//v4.boldsystems.org/pics/SDBEE/DSC05840%2B1331139626.JPG\"><img
+        title=\" (Atoposmia - KJH.3250)  Unspecified (default): All Rights Reserved
+        \  \" alt=\" (Atoposmia - KJH.3250)  @14 [ ] Unspecified (default): All Rights
+        Reserved  Unspecified Unspecified\"  src=\"//v4.boldsystems.org/pics/_w300/SDBEE/DSC05840%2B1331139626.JPG\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=96572\">Atoposmia</a></div></div></div><div
+        class=\"row\"><div class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return
+        hs.expand(this,{width:500, height:750} )\" href=\"//v4.boldsystems.org/pics/BOWGF/A12%2B1557418078.jpg\"><img
+        title=\" (Austrostelis - CCDB-33206 A12)  CreativeCommons - Attribution by
+        Laurence Packer (2018) Laurence Packer <br/><img src='/libhtml/icons/creativecommons/by_80x15.png'/>\"
+        alt=\" (Austrostelis - CCDB-33206 A12)  @11 [ ] CreativeCommons - Attribution
+        by Laurence Packer (2018) Laurence Packer York University\"  src=\"//v4.boldsystems.org/pics/_w300/BOWGF/A12%2B1557418078.jpg\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=688853\">Austrostelis</a></div></div><div
+        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
+        height:376} )\" href=\"//v4.boldsystems.org/pics/SICOB/CCDB-32132-H06%2B1542814130.jpg\"><img
+        title=\" (Aztecanthidium - CCDB-32132-H06)  CC BY-NC-SA (2018) CBG Photography
+        Group <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\"
+        alt=\" (Aztecanthidium - CCDB-32132-H06)  @11 [ ] CC BY-NC-SA (2018) CBG Photography
+        Group Centre for Biodiversity Genomics\"  src=\"//v4.boldsystems.org/pics/_w300/SICOB/CCDB-32132-H06%2B1542814130.jpg\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=686051\">Aztecanthidium</a></div></div><div
+        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
+        height:750} )\" href=\"//v4.boldsystems.org/pics/BOWGF/B05%2B1557418080.jpg\"><img
+        title=\" (Bathanthidium - CCDB-33206 B05)  CreativeCommons - Attribution by
+        Laurence Packer (2018) Laurence Packer <br/><img src='/libhtml/icons/creativecommons/by_80x15.png'/>\"
+        alt=\" (Bathanthidium - CCDB-33206 B05)  @11 [ ] CreativeCommons - Attribution
+        by Laurence Packer (2018) Laurence Packer York University\"  src=\"//v4.boldsystems.org/pics/_w300/BOWGF/B05%2B1557418080.jpg\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=696074\">Bathanthidium</a></div></div><div
+        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
+        height:642} )\" href=\"//v4.boldsystems.org/pics/BOWGF/CCDB-15266-E2%2B1353032738.jpg\"><img
+        title=\" (Branthidium - CCDB-15266 E02)  CC BY-NC-SA (2012) Packer Collection
+        York University <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\"
+        alt=\" (Branthidium - CCDB-15266 E02)  @12 [ ] CC BY-NC-SA (2012) Packer Collection
+        York University York University\"  src=\"//v4.boldsystems.org/pics/_w300/BOWGF/CCDB-15266-E2%2B1353032738.jpg\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=509038\">Branthidium</a></div></div><div
+        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
+        height:490} )\" href=\"//v4.boldsystems.org/pics/BOFWI/CCDB_15262_E04%2B1324063644.jpg\"><img
+        title=\" (Callomegachile - CCDB-15262-E4)  CC BY-NC-SA (2010) Packer Collection
+        York University <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\"
+        alt=\" (Callomegachile - CCDB-15262-E4)  @13 [ ] CC BY-NC-SA (2010) Packer
+        Collection York University York University\"  src=\"//v4.boldsystems.org/pics/_w300/BOFWI/CCDB_15262_E04%2B1324063644.jpg\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=450557\">Callomegachile</a></div></div><div
+        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
+        height:303} )\" href=\"//v4.boldsystems.org/pics/ACUFI/FACU-000136%2B1353530796.JPG\"><img
+        title=\" (Chelostoma - FACU-000136)  CC BY-NC (2012) Marko Mutanen <br/><img
+        src='/libhtml/icons/creativecommons/by-nc_80x15.png'/>\" alt=\" (Chelostoma
+        - FACU-000136)  @15 [ ] CC BY-NC (2012) Marko Mutanen University of Oulu\"
+        \ src=\"//v4.boldsystems.org/pics/_w300/ACUFI/FACU-000136%2B1353530796.JPG\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=84734\">Chelostoma</a></div></div></div><div
+        class=\"row\"><div class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return
+        hs.expand(this,{width:500, height:334} )\" href=\"//v4.boldsystems.org/pics/BBHYL/IMG_6638%2B1294869798.jpg\"><img
+        title=\" (Coelioxys - 10BBCHY-3358)  Unspecified (default): All Rights Reserved
+        (2011) CBG Photography Group \" alt=\" (Coelioxys - 10BBCHY-3358)  @16 [ ]
+        Unspecified (default): All Rights Reserved (2011) CBG Photography Group Centre
+        for Biodiversity Genomics\"  src=\"//v4.boldsystems.org/pics/_w300/BBHYL/IMG_6638%2B1294869798.jpg\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=4964\">Coelioxys</a></div></div><div
+        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
+        height:407} )\" href=\"//v4.boldsystems.org/pics/WASPS/CCDB-25140_B09%2B1486072332.jpg\"><img
+        title=\" (Dianthidium - CCDB-25140 B09)  Unspecified (default): All Rights
+        Reserved (2017) Cory Sheffield \" alt=\" (Dianthidium - CCDB-25140 B09)  @15
+        [ ] Unspecified (default): All Rights Reserved (2017) Cory Sheffield Royal
+        Saskatchewan Museum\"  src=\"//v4.boldsystems.org/pics/_w300/WASPS/CCDB-25140_B09%2B1486072332.jpg\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=7591\">Dianthidium</a></div></div><div
+        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
+        height:379} )\" href=\"//v4.boldsystems.org/pics/ABEE/NHMW-HYM0000261_Os%2B1500053512.jpg\"><img
+        title=\" (Dioxys - NHMW-HYM 261)  CreativeCommons \x96 Attribution Non-Commercial
+        (by-nc) (2017)  <br/><img src='/libhtml/icons/creativecommons/by-nc_80x15.png'/>\"
+        alt=\" (Dioxys - NHMW-HYM 261)  @14 [ ] CreativeCommons \x96 Attribution Non-Commercial
+        (by-nc) (2017) Unspecified Natural History Museum Vienna\"  src=\"//v4.boldsystems.org/pics/_w300/ABEE/NHMW-HYM0000261_Os%2B1500053512.jpg\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=99255\">Dioxys</a></div></div><div
+        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
+        height:750} )\" href=\"//v4.boldsystems.org/pics/BOWGF/E07%2B1557418094.jpg\"><img
+        title=\" (Ensliniana - CCDB-33206 E07)  CreativeCommons - Attribution by Laurence
+        Packer (2018) Laurence Packer <br/><img src='/libhtml/icons/creativecommons/by_80x15.png'/>\"
+        alt=\" (Ensliniana - CCDB-33206 E07)  @11 [ ] CreativeCommons - Attribution
+        by Laurence Packer (2018) Laurence Packer York University\"  src=\"//v4.boldsystems.org/pics/_w300/BOWGF/E07%2B1557418094.jpg\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=696294\">Ensliniana</a></div></div><div
+        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
+        height:750} )\" href=\"//v4.boldsystems.org/pics/BOWGH/CCDB-14514_H04%2B1323367778.jpg\"><img
+        title=\" (Eoanthidium - CCDB-14514-H04)  CC BY-NC-SA (2012) Packer Collection
+        York University <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\"
+        alt=\" (Eoanthidium - CCDB-14514-H04)  @13 [ ] CC BY-NC-SA (2012) Packer Collection
+        York University York University\"  src=\"//v4.boldsystems.org/pics/_w300/BOWGH/CCDB-14514_H04%2B1323367778.jpg\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=264921\">Eoanthidium</a></div></div><div
+        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
+        height:374} )\" href=\"//v4.boldsystems.org/pics/BWONE/06713H02-ARG%2B1450313880.jpg\"><img
+        title=\" (Epanthidium - 06713H02-ARG)  CC BY-NC-SA (2015) CBG Photography
+        Group <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\"
+        alt=\" (Epanthidium - 06713H02-ARG)  @15 [ ] CC BY-NC-SA (2015) CBG Photography
+        Group Centre for Biodiversity Genomics\"  src=\"//v4.boldsystems.org/pics/_w300/BWONE/06713H02-ARG%2B1450313880.jpg\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=162809\">Epanthidium</a></div></div></div><div
+        class=\"row\"><div class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return
+        hs.expand(this,{width:500, height:437} )\" href=\"//v4.boldsystems.org/pics/BOWGH/CCDB-15253_A08%2B1331073500.jpg\"><img
+        title=\" (Euaspis - CCDB-15253 A08)  CC BY-NC-SA (2012) Packer Collection
+        York University <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\"
+        alt=\" (Euaspis - CCDB-15253 A08)  @14 [ ] CC BY-NC-SA (2012) Packer Collection
+        York University York University\"  src=\"//v4.boldsystems.org/pics/_w300/BOWGH/CCDB-15253_A08%2B1331073500.jpg\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=202625\">Euaspis</a></div></div><div
+        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
+        height:750} )\" href=\"//v4.boldsystems.org/pics/BOWGH/CCDB-14515_A12%2B1323371374.jpg\"><img
+        title=\" (Haetosmia - CCDB-14515-A12)  CC BY-NC-SA (2012) Packer Collection
+        York University <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\"
+        alt=\" (Haetosmia - CCDB-14515-A12)  @13 [ ] CC BY-NC-SA (2012) Packer Collection
+        York University York University\"  src=\"//v4.boldsystems.org/pics/_w300/BOWGH/CCDB-14515_A12%2B1323371374.jpg\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=460169\">Haetosmia</a></div></div><div
+        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
+        height:376} )\" href=\"//v4.boldsystems.org/pics/BEEAF/06747C08-ZAF%2B1452179250.jpg\"><img
+        title=\" (Heriades - 06747C08-ZAF)  CC BY-NC-SA (2016) CBG Photography Group
+        <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\" alt=\"
+        (Heriades - 06747C08-ZAF)  @15 [ ] CC BY-NC-SA (2016) CBG Photography Group
+        Centre for Biodiversity Genomics\"  src=\"//v4.boldsystems.org/pics/_w300/BEEAF/06747C08-ZAF%2B1452179250.jpg\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=4948\">Heriades</a></div></div><div
+        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
+        height:376} )\" href=\"//v4.boldsystems.org/pics/FBAPI/BC_ZSM_HYM_09805%2B1338571452.jpg\"><img
+        title=\" (Hoplosmia - BC ZSM HYM 09805)  CC BY-NC-SA (2010) Stefan Schmidt
+        <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\" alt=\"
+        (Hoplosmia - BC ZSM HYM 09805)  @15 [ ] CC BY-NC-SA (2010) Stefan Schmidt
+        SNSB, Zoologische Staatssammlung Muenchen\"  src=\"//v4.boldsystems.org/pics/_w300/FBAPI/BC_ZSM_HYM_09805%2B1338571452.jpg\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=214093\">Hoplosmia</a></div></div><div
+        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
+        height:376} )\" href=\"//v4.boldsystems.org/pics/BOTWC/G12%2B1547150434.jpg\"><img
+        title=\" (Hoplostelis - CCDB-30387 G12)  CC BY (2018) Laurence Packer <br/><img
+        src='/libhtml/icons/creativecommons/by_80x15.png'/>\" alt=\" (Hoplostelis
+        - CCDB-30387 G12)  @11 [ ] CC BY (2018) Laurence Packer York University\"
+        \ src=\"//v4.boldsystems.org/pics/_w300/BOTWC/G12%2B1547150434.jpg\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=686081\">Hoplostelis</a></div></div><div
+        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
+        height:335} )\" href=\"//v4.boldsystems.org/pics/BOFTW/06708H08-BRA%2B1452608558.JPG\"><img
+        title=\" (Hypanthidioides - 06708H08-BRA)  CC BY-NC-SA (2016) CBG Photography
+        Group <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\"
+        alt=\" (Hypanthidioides - 06708H08-BRA)  @14 [ ] CC BY-NC-SA (2016) CBG Photography
+        Group Centre for Biodiversity Genomics\"  src=\"//v4.boldsystems.org/pics/_w300/BOFTW/06708H08-BRA%2B1452608558.JPG\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=314159\">Hypanthidioides</a></div></div></div><div
+        class=\"row\"><div class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return
+        hs.expand(this,{width:500, height:373} )\" href=\"//v4.boldsystems.org/pics/BWONE/06713H10-PRY%2B1450313880.jpg\"><img
+        title=\" (Hypanthidium - 06713H10-PRY)  CC BY-NC-SA (2015) CBG Photography
+        Group <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\"
+        alt=\" (Hypanthidium - 06713H10-PRY)  @15 [ ] CC BY-NC-SA (2015) CBG Photography
+        Group Centre for Biodiversity Genomics\"  src=\"//v4.boldsystems.org/pics/_w300/BWONE/06713H10-PRY%2B1450313880.jpg\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=162762\">Hypanthidium</a></div></div><div
+        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
+        height:373} )\" href=\"//v4.boldsystems.org/pics/BWTWO/06717C08-YT%2B1450406760.jpg\"><img
+        title=\" (Megachilini - 06717C08-YT)  CC BY-NC-SA (2015) CBG Photography Group
+        <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\" alt=\"
+        (Megachilini - 06717C08-YT)  @16 [ ] CC BY-NC-SA (2015) CBG Photography Group
+        Centre for Biodiversity Genomics\"  src=\"//v4.boldsystems.org/pics/_w300/BWTWO/06717C08-YT%2B1450406760.jpg\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=762731\">Megachilini</a></div></div><div
+        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
+        height:544} )\" href=\"//v4.boldsystems.org/pics/BOFWI/CCDB_15262_H01%2B1324064372.jpg\"><img
+        title=\" (Notanthidium - CCDB-15262-H1)  CC BY-NC-SA (2010) Packer Collection
+        York University <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\"
+        alt=\" (Notanthidium - CCDB-15262-H1)  @13 [ ] CC BY-NC-SA (2010) Packer Collection
+        York University York University\"  src=\"//v4.boldsystems.org/pics/_w300/BOFWI/CCDB_15262_H01%2B1324064372.jpg\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=91145\">Notanthidium</a></div></div><div
+        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
+        height:334} )\" href=\"//v4.boldsystems.org/pics/BWONE/CCDB-01556_D03%2B1262792376.jpg\"><img
+        title=\" (Noteriades - CCDB-01556 D03)  CC BY-NC-SA (2010) Packer Collection
+        at York University <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\"
+        alt=\" (Noteriades - CCDB-01556 D03)  @11 [ ] CC BY-NC-SA (2010) Packer Collection
+        at York University York University\"  src=\"//v4.boldsystems.org/pics/_w300/BWONE/CCDB-01556_D03%2B1262792376.jpg\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=202651\">Noteriades</a></div></div><div
+        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
+        height:377} )\" href=\"//v4.boldsystems.org/pics/BOFMD/CCDB-09855_A12%2B1451967780.jpg\"><img
+        title=\" (Ochreriades - CCDB-09855 A12)  CC BY-NC-SA (2016) CBG Photography
+        Group <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\"
+        alt=\" (Ochreriades - CCDB-09855 A12)  @14 [ ] CC BY-NC-SA (2016) CBG Photography
+        Group Centre for Biodiversity Genomics\"  src=\"//v4.boldsystems.org/pics/_w300/BOFMD/CCDB-09855_A12%2B1451967780.jpg\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=200483\">Ochreriades</a></div></div><div
+        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
+        height:337} )\" href=\"//v4.boldsystems.org/pics/BUSA/IMG_3061.jpg\"><img
+        title=\" (Osmia - 18414)  CC BY-NC-SA (2010) Cory S. Sheffield <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\"
+        alt=\" (Osmia - 18414)  @16 [ ] CC BY-NC-SA (2010) Cory S. Sheffield York
+        University\"  src=\"//v4.boldsystems.org/pics/_w300/BUSA/IMG_3061.jpg\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=4940\">Osmia</a></div></div></div><div
+        class=\"row\"><div class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return
+        hs.expand(this,{width:500, height:411} )\" href=\"//v4.boldsystems.org/pics/WASPS/CCDB-25139_F01%2B1496176544.jpg\"><img
+        title=\" (Osmiini - CCDB-25139 F01)  Unspecified (default): All Rights Reserved
+        (2017) Cory Sheffield \" alt=\" (Osmiini - CCDB-25139 F01)  @15 [ ] Unspecified
+        (default): All Rights Reserved (2017) Cory Sheffield Royal Saskatchewan Museum\"
+        \ src=\"//v4.boldsystems.org/pics/_w300/WASPS/CCDB-25139_F01%2B1496176544.jpg\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=753397\">Osmiini</a></div></div><div
+        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
+        height:770} )\" href=\"//v4.boldsystems.org/pics/BEZAF/CCDB-15279_D04%2B1321042684.jpg\"><img
+        title=\" (Othinosmia - CCDB-15279 D04)  CC BY-NC-SA (2011) Packer Collection
+        York University <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\"
+        alt=\" (Othinosmia - CCDB-15279 D04)  @13 [ ] CC BY-NC-SA (2011) Packer Collection
+        York University York University\"  src=\"//v4.boldsystems.org/pics/_w300/BEZAF/CCDB-15279_D04%2B1321042684.jpg\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=313612\">Othinosmia</a></div></div><div
+        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
+        height:721} )\" href=\"//v4.boldsystems.org/pics/BEEAF/CCDB-15282_D03%2B1319818950.jpg\"><img
+        title=\" (Pachyanthidium - CCDB-15282 D03)  CC BY-NC-SA (2011) Packer Collection
+        York University <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\"
+        alt=\" (Pachyanthidium - CCDB-15282 D03)  @13 [ ] CC BY-NC-SA (2011) Packer
+        Collection York University York University\"  src=\"//v4.boldsystems.org/pics/_w300/BEEAF/CCDB-15282_D03%2B1319818950.jpg\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=285909\">Pachyanthidium</a></div></div><div
+        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
+        height:334} )\" href=\"//v4.boldsystems.org/pics/BOWGF/CCDB-06382_G03%2B1392746616.jpg\"><img
+        title=\" (Paradioxys - CCDB-06382 G03)  Unspecified (default): All Rights
+        Reserved (2014) Packer Collection York University \" alt=\" (Paradioxys -
+        CCDB-06382 G03)  @11 [ ] Unspecified (default): All Rights Reserved (2014)
+        Packer Collection York University York University\"  src=\"//v4.boldsystems.org/pics/_w300/BOWGF/CCDB-06382_G03%2B1392746616.jpg\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=594969\">Paradioxys</a></div></div><div
+        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
+        height:334} )\" href=\"//v4.boldsystems.org/pics/BOFWM/00601-F10%2B1262793210.jpg\"><img
+        title=\" (Paranthidium - CCDB-00601 F10)  CC BY-NC-SA (2010) Packer Collection
+        at York University <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\"
+        alt=\" (Paranthidium - CCDB-00601 F10)  @14 [ ] CC BY-NC-SA (2010) Packer
+        Collection at York University York University\"  src=\"//v4.boldsystems.org/pics/_w300/BOFWM/00601-F10%2B1262793210.jpg\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=112437\">Paranthidium</a></div></div><div
+        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
+        height:622} )\" href=\"//v4.boldsystems.org/pics/BEZAF/CCDB-15281_E07%2B1320264432.jpg\"><img
+        title=\" (Plesianthidium - CCDB-15281 E07)  CC BY-NC-SA (2011) Packer Collection
+        York University <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\"
+        alt=\" (Plesianthidium - CCDB-15281 E07)  @13 [ ] CC BY-NC-SA (2011) Packer
+        Collection York University York University\"  src=\"//v4.boldsystems.org/pics/_w300/BEZAF/CCDB-15281_E07%2B1320264432.jpg\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=313617\">Plesianthidium</a></div></div></div><div
+        class=\"row\"><div class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return
+        hs.expand(this,{width:500, height:750} )\" href=\"//v4.boldsystems.org/pics/BOWGF/F01%2B1557418096.jpg\"><img
+        title=\" (Prodioxys - CCDB-33206 F01)  CreativeCommons - Attribution by Laurence
+        Packer (2018) Laurence Packer <br/><img src='/libhtml/icons/creativecommons/by_80x15.png'/>\"
+        alt=\" (Prodioxys - CCDB-33206 F01)  @11 [ ] CreativeCommons - Attribution
+        by Laurence Packer (2018) Laurence Packer York University\"  src=\"//v4.boldsystems.org/pics/_w300/BOWGF/F01%2B1557418096.jpg\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=696304\">Prodioxys</a></div></div><div
+        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
+        height:376} )\" href=\"//v4.boldsystems.org/pics/SDBEE/DSC05883%2B1331141278.JPG\"><img
+        title=\" (Protosmia - JA.149)  Unspecified (default): All Rights Reserved
+        \  \" alt=\" (Protosmia - JA.149)  @14 [ ] Unspecified (default): All Rights
+        Reserved  Unspecified Unspecified\"  src=\"//v4.boldsystems.org/pics/_w300/SDBEE/DSC05883%2B1331141278.JPG\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=96610\">Protosmia</a></div></div><div
+        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
+        height:379} )\" href=\"//v4.boldsystems.org/pics/ABEE/NHMW-HYM0000541_Os%2B1500053548.jpg\"><img
+        title=\" (Pseudoanthidium - NHMW-HYM 541)  Unspecified (default): All Rights
+        Reserved (2017)  \" alt=\" (Pseudoanthidium - NHMW-HYM 541)  @15 [ ] Unspecified
+        (default): All Rights Reserved (2017) Unspecified Natural History Museum Vienna\"
+        \ src=\"//v4.boldsystems.org/pics/_w300/ABEE/NHMW-HYM0000541_Os%2B1500053548.jpg\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=261656\">Pseudoanthidium</a></div></div><div
+        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
+        height:882} )\" href=\"//v4.boldsystems.org/pics/BEZAF/CCDB-15278_A11%2B1321044082.jpg\"><img
+        title=\" (Pseudoheriades - CCDB-15278 A11)  CC BY-NC-SA (2011) Packer Collection
+        York University <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\"
+        alt=\" (Pseudoheriades - CCDB-15278 A11)  @13 [ ] CC BY-NC-SA (2011) Packer
+        Collection York University York University\"  src=\"//v4.boldsystems.org/pics/_w300/BEZAF/CCDB-15278_A11%2B1321044082.jpg\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=316470\">Pseudoheriades</a></div></div><div
+        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
+        height:384} )\" href=\"//v4.boldsystems.org/pics/BOFMD/CCDB-09855_G09%2B1452045780.jpg\"><img
+        title=\" (Rhodanthidium - CCDB-09855 G09)  CC BY-NC-SA (2016) CBG Photography
+        Group <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\"
+        alt=\" (Rhodanthidium - CCDB-09855 G09)  @15 [ ] CC BY-NC-SA (2016) CBG Photography
+        Group Centre for Biodiversity Genomics\"  src=\"//v4.boldsystems.org/pics/_w300/BOFMD/CCDB-09855_G09%2B1452045780.jpg\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=313858\">Rhodanthidium</a></div></div><div
+        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
+        height:334} )\" href=\"//v4.boldsystems.org/pics/BOWGF/A04%2B1557418074.jpg\"><img
+        title=\" (Serapista - CCDB-33206 A04)  CreativeCommons - Attribution by Laurence
+        Packer (2018) Laurence Packer <br/><img src='/libhtml/icons/creativecommons/by_80x15.png'/>\"
+        alt=\" (Serapista - CCDB-33206 A04)  @11 [ ] CreativeCommons - Attribution
+        by Laurence Packer (2018) Laurence Packer York University\"  src=\"//v4.boldsystems.org/pics/_w300/BOWGF/A04%2B1557418074.jpg\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=286859\">Serapista</a></div></div></div><div
+        class=\"row\"><div class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return
+        hs.expand(this,{width:500, height:334} )\" href=\"//v4.boldsystems.org/pics/NOAPI/AST_1005%2B1395858388.jpg\"><img
+        title=\" (Stelis - NOAPI269)  CC BY-NC-SA (2014) Arnstein Staverlokk <br/><img
+        src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\" alt=\" (Stelis
+        - NOAPI269)  @15 [ ] CC BY-NC-SA (2014) Arnstein Staverlokk Norwegian Institute
+        of Nature Research\"  src=\"//v4.boldsystems.org/pics/_w300/NOAPI/AST_1005%2B1395858388.jpg\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=4952\">Stelis</a></div></div><div
+        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
+        height:374} )\" href=\"//v4.boldsystems.org/pics/BOFTW/06730H01-ISR%2B1450327560.jpg\"><img
+        title=\" (Stenoheriades - 06730H01-ISR)  CC BY-NC-SA (2015) CBG Photography
+        Group <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\"
+        alt=\" (Stenoheriades - 06730H01-ISR)  @14 [ ] CC BY-NC-SA (2015) CBG Photography
+        Group Centre for Biodiversity Genomics\"  src=\"//v4.boldsystems.org/pics/_w300/BOFTW/06730H01-ISR%2B1450327560.jpg\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=189977\">Stenoheriades</a></div></div><div
+        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
+        height:750} )\" href=\"//v4.boldsystems.org/pics/BOWGH/CCDB-14514_E01%2B1323367226.jpg\"><img
+        title=\" (Trachusa - CCDB-14514-E01)  CC BY-NC-SA (2012) Packer Collection
+        York University <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\"
+        alt=\" (Trachusa - CCDB-14514-E01)  @15 [ ] CC BY-NC-SA (2012) Packer Collection
+        York University York University\"  src=\"//v4.boldsystems.org/pics/_w300/BOWGH/CCDB-14514_E01%2B1323367226.jpg\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=7594\">Trachusa</a></div></div><div
+        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
+        height:763} )\" href=\"//v4.boldsystems.org/pics/BEEAF/CCDB-15282_B11%2B1319819104.jpg\"><img
+        title=\" (Wainia - CCDB-15282 B11)  CC BY-NC-SA (2011) Packer Collection York
+        University <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\"
+        alt=\" (Wainia - CCDB-15282 B11)  @13 [ ] CC BY-NC-SA (2011) Packer Collection
+        York University York University\"  src=\"//v4.boldsystems.org/pics/_w300/BEEAF/CCDB-15282_B11%2B1319819104.jpg\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=286863\">Wainia</a></div></div><div
+        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
+        height:851} )\" href=\"//v4.boldsystems.org/pics/BEECF/CCDB-12076_G05%2B1321628696.jpg\"><img
+        title=\" (Xeroheriades - CCDB-12076 G05)  Unspecified (default): All Rights
+        Reserved (2011)  \" alt=\" (Xeroheriades - CCDB-12076 G05)  @11 [ ] Unspecified
+        (default): All Rights Reserved (2011) Unspecified York University\"  src=\"//v4.boldsystems.org/pics/_w300/BEECF/CCDB-12076_G05%2B1321628696.jpg\"width=\"200\"
+        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
+        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=414410\">Xeroheriades</a></div></div></div></div>\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t</div>
+        <!-- END OF FOURTH ROW -->\n\n\t<!-- MODAL DIALOG FOR COUNTRIES -->\n\t<div
+        id=\"alldatadialog\" class=\"modal fade\" role=\"dialog\" data-keyboard=\"false\"
+        data-backdrop=\"static\">\n\t\t<div class=\"modal-dialog\" >\n\t\t\t<div class=\"modal-content\">\n\t\t\t\t<div
+        class=\"modal-header\">\n\t\t\t\t\t<button type=\"button\" class=\"close\"
+        data-dismiss=\"modal\">&times;</button>\n\t\t\t\t\t<h4 class=\"modal-title
+        \" id =\"dialogTitle\" >All Countries</h4>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"modal-body\"
+        >\n\n\t\t\t\t\t<table id=\"dialogTable\"  class=\"table table-striped\" style=\"width:100%;\"
+        border=\"0\" cellpadding=\"1\" cellspacing=\"10\" >\n\n\t\t\t\t\t</table>\n\t\t\t</div>\n\t\t\t<div
+        class=\"modal-footer\">\n\t\t\t\t<button id = \"closeDialog\" name = \"closeDialog\"
+        \ data-dismiss=\"modal\" class=\"btn btn-primary btn-sm\" >Close</button>\n\t\t\t</div>\n\t\t</div>\n\t\t</div>\n\t</div>\n\t<form
+        name=\"actionRequest\" action=\"/index.php/TaxBrowser_TaxonPage/SpeciesSummary\"
+        method=\"GET\">\n\t\t<input type=\"hidden\" name=\"taxid\" value=\"4962\">\n\t</form>\n\n\n
+        \       </div>\n    </div>\n</div>\n\t\t\t\t<div class=\"bloc bgc-platinum
+        l-bloc\" id=\"footer\">\n\t\t\t<div class=\"container bloc-md\">\n\t\t\t\t<div
+        class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t<h3 class=\"mg-md\">Databases</h3>\n\t\t\t\t\t\t<ul
+        class=\"list-unstyled\">\n\t\t\t\t\t\t\t<li><a href=\"/index.php/Public_BINSearch?searchtype=records\">Public
+        Data Portal</a></li>\n\t\t\t\t\t\t\t<li><a href=\"/index.php/TaxBrowser_Home\">Taxonomy
+        Browser</a></li>\n\t\t\t\t\t\t\t<li><a href=\"/index.php/Public_Publication_BibliographySearch\">Publications</a></li>\n\t\t\t\t\t\t\t<li><a
+        href=\"/index.php/Public_Primer_PrimerSearch\">Primers</a></li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div
+        class=\"col-sm-3\">\n\t\t\t\t\t\t<h3 class=\"mg-md\">Resources</h3>\n\t\t\t\t\t\t<ul
+        class=\"list-unstyled\">\n\t\t\t\t\t\t  <!--<li><a href=\"/index.php/resources/handbook?chapter=1_gettingstarted.html\">Documentation</a></li>-->\n\t\t\t\t\t\t
+        \ <li><a href=\"/libhtml/docs/bold.pdf\">Citing BOLD</a></li>\n\t\t\t\t\t\t
+        \ <li><a href=\"/index.php/NewsFeed\">News and Events</a></li>\n\t\t\t\t\t\t
+        \ <li><a href=\"/index.php/datarelease\">Data Releases</a></li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div
+        class=\"col-sm-3\">\n\t\t\t\t\t\t<h3 class=\"mg-md\">Organization</h3>\n\t\t\t\t\t\t<ul
+        class=\"list-unstyled\">\n\t\t\t\t\t\t  <li><a href=\"/index.php/Resources/whatIsBOLD\">About
+        Us</a></li>\n\t\t\t\t\t\t  <li><a href=\"/index.php/Resources/ContactUs\">Contact
+        Us</a></li>\n\t\t\t\t\t\t  <li><a href=\"/index.php/NewsFeed\">News &amp;
+        Events</a></li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t<h3
+        class=\"mg-md\">Partners</h3>\n\t\t\t\t\t\t<ul class=\"list-unstyled\">\n\t\t\t\t\t\t
+        \ <li><a href=\"http://www.ibol.org\">iBOL</a></li>\n\t\t\t\t\t\t  <li><a
+        href=\"http://biodiversitygenomics.net/\">CBG</a></li>\n\t\t\t\t\t\t  <li><a
+        href=\"http://ccdb.ca\">CCDB</a></li>\n\t\t\t\t\t\t  <li><a href=\"http://www.ncbi.nlm.nih.gov\">GenBank</a></li>\n\t\t\t\t\t\t
+        \ <li><a href=\"http://www.eol.org\">EOL</a></li>\n\t\t\t\t\t\t  <li><a href=\"http://www.gbif.org\">GBIF</a></li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div
+        class=\"bloc bgc-floral-white l-bloc\" id=\"affiliates\">\n\t\t\t<div class=\"container
+        bloc-md\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-2\">\n\t\t\t\t\t\t<img
+        class=\"img-responsive center-block\" style=\"margin-top:20px\" src=\"/libhtml_v4/img/ibol-50v.png\"
+        />\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-2\">\n\t\t\t\t\t\t<img
+        class=\"img-responsive center-block\" style=\"margin-top:20px\" src=\"/libhtml_v4/img/CFREF.png\"
+        />\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-2\">\n\t\t\t\t\t\t<img
+        class=\"img-responsive center-block\" src=\"/libhtml_v4/img/MRI_logo.png\"
+        />\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-2\">\n\t\t\t\t\t\t<img
+        \ class=\"img-responsive center-block\" style=\"margin-top:20px\" src=\"/libhtml_v4/img/CFINN.png\"/>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div
+        class=\"col-sm-2\">\n\t\t\t\t\t\t<img class=\"img-responsive center-block\"
+        style=\"margin-top:20px\" src=\"/libhtml_v4/img/NSERC.png\" />\n\t\t\t\t\t</div>\n\t\t\t\t\t<div
+        class=\"col-sm-2\">\n\t\t\t\t\t\t<img class=\"img-responsive center-block\"
+        src=\"/libhtml_v4/img/UoGuelph_image18-100x100.png\" />\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div
+        class=\"row\">\n\t\t\t\t\t<div class=\"col-xs-12\"><br/><h5><small><strong>Copyright</strong>
+        BOLD &copy; 2014-2020</small></h5></div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t</body>\n</html>\n"
+  recorded_at: 2020-04-23 22:35:50 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2

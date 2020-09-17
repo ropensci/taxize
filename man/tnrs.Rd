@@ -5,18 +5,19 @@
 \title{Phylotastic Taxonomic Name Resolution Service.}
 \usage{
 tnrs(
-  query = NA,
+  sci,
   source = NULL,
   code = NULL,
   getpost = "POST",
   sleep = 0,
   splitby = 30,
   messages = TRUE,
+  query = NULL,
   ...
 )
 }
 \arguments{
-\item{query}{Vector of quoted taxonomic names to search (character).}
+\item{sci}{Vector of quoted taxonomic names to search (character).}
 
 \item{source}{Specify the source you want to match names against. Defaults
 to just retrieve data from all sources. Options: NCBI, iPlant_TNRS,
@@ -39,6 +40,8 @@ seconds. Use when doing many calls in a for loop ar lapply type call.}
 
 \item{messages}{Verbosity or not (default \code{TRUE})}
 
+\item{query}{Deprecated, see \code{sci}}
+
 \item{...}{Curl options to pass in \link[crul:verb-GET]{crul::verb-GET} or \link[crul:verb-POST]{crul::verb-POST}}
 }
 \value{
@@ -59,26 +62,26 @@ TNRS doesn't provide any advice about the occurrence of homonyms when
 queries have no indication of a taxonomic name's authority. So if there
 is any chance of a homonym, you probably want to send the authority as
 well, or use \code{\link[=gnr_resolve]{gnr_resolve()}}. For example,
-\code{tnrs(query="Jussiaea linearis", source="iPlant_TNRS")} gives result of
+\code{tnrs(sci="Jussiaea linearis", source="iPlant_TNRS")} gives result of
 \emph{Jussiaea linearis (Willd.) Oliv. ex Kuntze}, but there is a
 homonym. If you do
-\code{tnrs(query="Jussiaea linearis Hochst.", source="iPlant_TNRS")} you
+\code{tnrs(sci="Jussiaea linearis Hochst.", source="iPlant_TNRS")} you
 get a direct match for that name. So, beware that there's no indication
 of homonyms.
 }
 \examples{
 \dontrun{
 mynames <- c("Helianthus annuus", "Poa annua", "Mimulus bicolor")
-tnrs(query = mynames, source = "iPlant_TNRS")
+tnrs(sci = mynames, source = "iPlant_TNRS")
 
 # Specifying the nomenclatural code to match against
 mynames <- c("Helianthus annuus", "Poa annua")
-tnrs(query = mynames, code = "ICBN")
+tnrs(sci = mynames, code = "ICBN")
 
 # You can specify multiple sources, by comma-separating them
 mynames <- c("Panthera tigris", "Eutamias minimus", "Magnifera indica",
 "Humbert humbert")
-tnrs(query = mynames, source = "NCBI,MSW3")
+tnrs(sci = mynames, source = "NCBI,MSW3")
 
 mynames <- c("Panthera tigris", "Eutamias minimus", "Magnifera indica",
    "Humbert humbert", "Helianthus annuus", "Pinus contorta", "Poa annua",
@@ -89,11 +92,11 @@ tnrs(mynames, source = "NCBI")
 
 # Pass on curl options
 mynames <- c("Helianthus annuus", "Poa annua", "Mimulus bicolor")
-tnrs(query = mynames, source = "iPlant_TNRS", verbose = TRUE)
+tnrs(sci = mynames, source = "iPlant_TNRS", verbose = TRUE)
 }
 }
 \references{
-\url{http://taxosaurus.org/}
+http://taxosaurus.org/
 }
 \seealso{
 \code{\link[=gnr_resolve]{gnr_resolve()}}

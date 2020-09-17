@@ -5,7 +5,7 @@ test_that("itis_downstream returns the correct value", {
     
   skip_on_cran()     
   vcr::use_cassette("itis_downstream", {
-    dat_ <- itis_downstream(tsns=183264, "Species", verbose=FALSE)
+    dat_ <- itis_downstream(183264, "Species", verbose=FALSE)
   })
 
   expect_match(as.character(dat_[1,"rankname"]), "species")

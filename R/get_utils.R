@@ -61,6 +61,6 @@ get_url_templates <- list(
   bold = "http://boldsystems.org/index.php/Taxbrowser_Taxonpage?taxid=%s",
   itis = "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=%s",
   nbn = "https://species.nbnatlas.org/species/%s",
-  natserv = ns_base_uri(),
+  natserv = "https://explorer.natureserve.org/Taxon/ELEMENT_GLOBAL.2.%s",
   iucn = iucn_base_url
 )

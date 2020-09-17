@@ -1,10 +1,10 @@
 #' Search UK National Biodiversity Network
 #'
 #' @export
-#' @param q (character) The query terms(s)
+#' @param sci_com (character) The query terms(s), a scientific or common name
 #' @param fq (character) Filters to be applied to the original query. These
 #' are additional params of the form fq=INDEXEDFIELD:VALUE e.g.
-#' fq=rank:kingdom. See <https://species-ws.nbnatlas.org/indexFields> for all
+#' fq=rank:kingdom. See https://species-ws.nbnatlas.org/indexFields for all
 #' the fields that are queryable.
 #' @param rows (integer) Number of records to return
 #' @param start (integer) Record offset, to enable paging
@@ -12,31 +12,33 @@
 #' @param order (character) Supports "asc" or "desc"
 #' @param facets (list) Comma separated list of the fields to create facets
 #' on e.g. facets=basis_of_record.
+#' @param q Deprecated, see `sci`
 #' @param ... Further args passed on to [crul::HttpClient].
 #' @family nbn
 #' @return a list with slots for metadata (`meta`) with list of response
 #' attributes, and data (`data`) with a data.frame of results
 #' @author Scott Chamberlain, \email{myrmecocystus@@gmail.com}
-#' @references <https://api.nbnatlas.org/>
+#' @references https://api.nbnatlas.org/
 #'
 #' @examples \dontrun{
-#' x <- nbn_search(q = "Vulpes")
+#' x <- nbn_search(sci_com = "Vulpes")
 #' x$meta$totalRecords
 #' x$meta$pageSize
 #' x$meta$urlParameters
 #' x$meta$queryTitle
 #' head(x$data)
 #'
-#' nbn_search(q = "blackbird", start = 4)
+#' nbn_search(sci_com = "blackbird", start = 4)
 #'
 #' # debug curl stuff
-#' nbn_search(q = "blackbird", verbose = TRUE)
+#' nbn_search(sci_com = "blackbird", verbose = TRUE)
 #' }
-nbn_search <- function(q, fq = NULL, order = NULL, sort = NULL, start = 0,
-                       rows = 25, facets = NULL, ...) {
+nbn_search <- function(sci_com, fq = NULL, order = NULL, sort = NULL,
+  start = 0, rows = 25, facets = NULL, q = NULL, ...) {
 
+  pchk(q, "sci_com")
   args <- tc(list(
-    q = q, fq = fq, pageSize = rows, startIndex = start, sort = sort,
+    q = sci_com, fq = fq, pageSize = rows, startIndex = start, sort = sort,
     dir = order, facets = facets
   ))
   nbn_GET(file.path(nbn_base(), "search"), args, ...)

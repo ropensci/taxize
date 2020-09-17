@@ -5,7 +5,7 @@
 #' @param ... Further args passed on to [crul::verb-GET]
 #' @return A data.frame
 #' @family nbn
-#' @references <https://api.nbnatlas.org/>
+#' @references https://api.nbnatlas.org/
 #' @examples \dontrun{
 #' nbn_synonyms(id = 'NHMSYS0001501147')
 #' nbn_synonyms(id = 'NHMSYS0000456036')

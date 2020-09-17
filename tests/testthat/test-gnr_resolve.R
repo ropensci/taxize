@@ -3,7 +3,7 @@ context("gnr_resolve")
 test_that("gnr_resolve returns the correct value", {
   skip_on_cran()
 
-  tmp <- gnr_resolve(names = c("Helianthus annuus", "Homo sapiens"))
+  tmp <- gnr_resolve(c("Helianthus annuus", "Homo sapiens"))
 
   expect_equal(NCOL(tmp), 5)
 
@@ -15,7 +15,7 @@ test_that("best_match_only works correctly", {
   skip_on_cran()
 
   x <- 'Aconitum degeni subsp. paniculatum'
-  a <- gnr_resolve(names = x, best_match_only = TRUE)
+  a <- gnr_resolve(x, best_match_only = TRUE)
   b <- gnr_resolve(x, best_match_only = FALSE)
 
   expect_is(a, "data.frame")
@@ -26,7 +26,7 @@ test_that("best_match_only works correctly", {
   expect_is(b$data_source_title, "character")
 
   ## same order as user supplied
-  cc <- gnr_resolve(names = c("Homo sapiens", "Helianthus annuus"), best_match_only = TRUE)
+  cc <- gnr_resolve(c("Homo sapiens", "Helianthus annuus"), best_match_only = TRUE)
   expect_identical(cc$user_supplied_name, c("Homo sapiens", "Helianthus annuus"))
 })
 
@@ -50,8 +50,8 @@ test_that("canonical works correctly", {
 test_that("fields parameter works correctly", {
   skip_on_cran()
 
-  tmp1 <- gnr_resolve(names = c("Asteraceae", "Plantae"), fields = 'all')
-  tmp2 <- gnr_resolve(names = c("Asteraceae", "Plantae"), fields = 'minimal')
+  tmp1 <- gnr_resolve(c("Asteraceae", "Plantae"), fields = 'all')
+  tmp2 <- gnr_resolve(c("Asteraceae", "Plantae"), fields = 'minimal')
 
   expect_is(tmp1, "data.frame")
   expect_is(tmp1$matched_name, "character")

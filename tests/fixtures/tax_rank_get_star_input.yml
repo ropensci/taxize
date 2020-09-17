@@ -1,12 +1,12 @@
 http_interactions:
 - request:
     method: get
-    uri: http://v4.boldsystems.org/index.php/API_Tax/TaxonSearch?taxName=Helianthus%20annuus
+    uri: https://v4.boldsystems.org/index.php/API_Tax/TaxonSearch?taxName=Helianthus%20annuus
     body:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -15,28 +15,28 @@ http_interactions:
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: HTTP/1.1 200 OK
-      date: Fri, 06 Mar 2020 16:37:58 GMT
-      server: Apache/2.2.15 (Red Hat)
-      x-powered-by: PHP/5.3.15
-      content-length: '325'
-      connection: close
+      status: 'HTTP/2 200 '
+      server: nginx
+      date: Tue, 05 May 2020 14:37:20 GMT
       content-type: text/html; charset=utf-8
+      content-length: '325'
+      x-powered-by: PHP/5.3.15
+      set-cookie: https=on;Path=/;Max-Age=3600;httponly;SameSite=Lax
     body:
       encoding: UTF-8
       file: no
       string: '{"top_matched_names":[{"taxid":421377,"taxon":"Helianthus annuus","tax_rank":"species","tax_division":"Plantae","parentid":125295,"parentname":"Helianthus","taxonrep":"Helianthus
         annuus","representitive_image":{"image":"PNOR\/TROM_V_962829+1465220946.JPG","apectratio":1.499},"specimenrecords":"44"}],"total_matched_names":1}'
-  recorded_at: 2020-03-06 16:38:00 GMT
-  recorded_with: vcr/0.5.0, webmockr/0.6.0
+  recorded_at: 2020-05-05 14:37:20 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2
 - request:
     method: get
-    uri: http://v4.boldsystems.org/index.php/API_Tax/TaxonData?taxId=421377&dataTypes=basic&includeTree=true
+    uri: https://v4.boldsystems.org/index.php/API_Tax/TaxonData?taxId=421377&dataTypes=basic&includeTree=true
     body:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -45,17 +45,17 @@ http_interactions:
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: HTTP/1.1 200 OK
-      date: Fri, 06 Mar 2020 16:37:59 GMT
-      server: Apache/2.2.15 (Red Hat)
-      x-powered-by: PHP/5.3.15
-      content-length: '1096'
-      connection: close
+      status: 'HTTP/2 200 '
+      server: nginx
+      date: Tue, 05 May 2020 14:37:20 GMT
       content-type: text/html; charset=utf-8
+      content-length: '1096'
+      x-powered-by: PHP/5.3.15
+      set-cookie: https=on;Path=/;Max-Age=3600;httponly;SameSite=Lax
     body:
       encoding: UTF-8
       file: no
       string: '{"421377":{"taxid":421377,"taxon":"Helianthus annuus","tax_rank":"species","tax_division":"Plantae","parentid":125295,"parentname":"Helianthus","taxonrep":"Helianthus
         annuus"},"125295":{"taxid":125295,"taxon":"Helianthus","tax_rank":"genus","tax_division":"Plantae","parentid":151101,"parentname":"Asteroideae","taxonrep":"Helianthus"},"151101":{"taxid":151101,"taxon":"Asteroideae","tax_rank":"subfamily","tax_division":"Plantae","parentid":100962,"parentname":"Asteraceae","taxonrep":"Asteroideae"},"100962":{"taxid":100962,"taxon":"Asteraceae","tax_rank":"family","tax_division":"Plantae","parentid":35476,"parentname":"Asterales","taxonrep":"Asteraceae"},"35476":{"taxid":35476,"taxon":"Asterales","tax_rank":"order","tax_division":"Plantae","parentid":41,"parentname":"Magnoliopsida","taxonrep":"Asterales"},"41":{"taxid":41,"taxon":"Magnoliopsida","tax_rank":"class","tax_division":"Plantae","parentid":12,"parentname":"Magnoliophyta","taxonrep":"Magnoliopsida"},"12":{"taxid":12,"taxon":"Magnoliophyta","tax_rank":"phylum","tax_division":"Plantae","parentid":1,"taxonrep":"Magnoliophyta"}}'
-  recorded_at: 2020-03-06 16:38:00 GMT
-  recorded_with: vcr/0.5.0, webmockr/0.6.0
+  recorded_at: 2020-05-05 14:37:20 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2

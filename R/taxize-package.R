@@ -50,7 +50,7 @@
 #'
 #' If the source above has a `TRUE` in the `SOAP?` column, it is not available
 #' in this package. They are available from a different package called **taxizesoap**.
-#' See the GitHub repo for how to install <https://github.com/ropensci/taxizesoap>
+#' See the GitHub repo for how to install https://github.com/ropensci/taxizesoap
 #' 
 #' @section Catalogue of Life (COL):
 #' COL introduced rate limiting recently in 2019 - which has made the API
@@ -73,6 +73,7 @@
 #' @importFrom R6 R6Class
 #' @importFrom crayon style
 #' @importFrom cli symbol cat_line rule
+#' @importFrom conditionz ConditionKeeper
 #' @name taxize-package
 #' @aliases taxize
 #' @docType package
@@ -89,7 +90,7 @@ NULL
 
 #' Lookup-table for IDs of taxonomic ranks
 #'
-#' data.frame of 43 rows, with 2 columns:
+#' data.frame of 46 rows, with 2 columns:
 #' * rankid - a numeric rank id, consecutive
 #' * ranks - a comma separated vector of names that are considered
 #'  equal to one another within the row
@@ -101,8 +102,23 @@ NULL
 #' sources \pkg{taxize} that we don't have in `rank_ref` dataset.
 #'
 #' Let us know if you disagree with the ordering of ranks.
+#' 
+#' Note that `rankid` 280 are essentially "genetic variants"; placed just above
+#' 'unspecified' to denote they're not without rank, but they're not
+#' really taxonomic ranks either. As far as I know there's no way 
+#' to delineate among these "genetic variant" types.
 #'
 #' @name rank_ref
+#' @docType data
+#' @keywords data
+NULL
+
+#' Lookup-table for IDs of taxonomic ranks (WoRMS)
+#'
+#' Same as `rank_ref` but specifically for WoRMS, where section/subsection
+#' ranks are put between family/order rather than between species/genus.
+#'
+#' @name rank_ref_zoo
 #' @docType data
 #' @keywords data
 NULL
@@ -120,7 +136,7 @@ NULL
 #'   * `genus` genus name
 #'   * `species` specific epithet name
 #' 
-#' @source <http://www.theplantlist.org>
+#' @source http://www.theplantlist.org
 #' @name theplantlist
 #' @docType data
 #' @keywords data
@@ -131,16 +147,25 @@ NULL
 #' Family names and their replacements from the Angiosperm Phylogeny
 #' Website system of flowering plant classification.
 #'
-#' This dataset is from Version 13, incorporated on 2015-04-29.
+#' This dataset is from Version 14, incorporated on 2020-06-03, 
+#' generated using [apgFamilies()]
+#' 
+#' (update script in inst/ignore/apg_script.R)
 #'
-#' @format A data frame with 1597 rows and 4 variables:
+#' @format A data frame with 1705 rows and 6 variables:
 #' 
-#'   * `original` original data record from APG website
-#'   * `this` Order name
-#'   * `that` Replacement order name
-#'   * `order` Order name
+#' * `family`: family name
+#' * `synonym`: if `accepted=FALSE`, this is the accepted name;
+#' if `accepted=TRUE`, this is `NA`, and the name in `family` is accepted
+#' * `order`: order name for the family
+#' * `accepted`: logical, if name in `family` column is accepted or not
+#' * `original`: original data record from APG website, mapping
+#' name in `family` column to a new name, if there is one
+#' * `accepted_name`: accepted name. accepted names, combining those that
+#' are accepted from `family` column, with the new name from `synonym`
+#' if applicable
 #' 
-#' @source <http://www.mobot.org/MOBOT/research/APweb/>
+#' @source http://www.mobot.org/MOBOT/research/APweb/
 #' @name apg_families
 #' @docType data
 #' @keywords data
@@ -151,15 +176,24 @@ NULL
 #' Order names and their replacements from the Angiosperm Phylogeny
 #' Website system of flowering plant classification.
 #'
-#' This dataset is from Version 13, incorporated on 2015-04-29.
+#' This dataset is from Version 14, incorporated on 2020-06-03, 
+#' generated using [apgOrders()]
+#' 
+#' (update script in inst/ignore/apg_script.R)
 #'
-#' @format A data frame with 494 rows and 3 variables:
+#' @format A data frame with 576 rows and 5 variables:
 #' 
-#'   * `original` original data record from APG website
-#'   * `this` Order name
-#'   * `that` Replacement order name
+#' * `order`: order name
+#' * `synonym`: if `accepted=FALSE`, this is the accepted name;
+#' if `accepted=TRUE`, this is `NA`, and the name in `order` is accepted
+#' * `accepted`: logical, if name in `order` column is accepted or not
+#' * `original`: original data record from APG website, mapping
+#' name in `order` column to a new name, if there is one
+#' * `accepted_name`: accepted name. accepted names, combining those that
+#' are accepted from `order` column, with the new name from `synonym`
+#' if applicable
 #' 
-#' @source <http://www.mobot.org/MOBOT/research/APweb/>
+#' @source http://www.mobot.org/MOBOT/research/APweb/
 #' @name apg_orders
 #' @docType data
 #' @keywords data

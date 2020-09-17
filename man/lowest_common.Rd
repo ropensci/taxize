@@ -11,21 +11,29 @@
 \usage{
 lowest_common(...)
 
-\method{lowest_common}{default}(x, db = NULL, rows = NA, class_list = NULL, low_rank = NULL, ...)
+\method{lowest_common}{default}(
+  sci_id,
+  db = NULL,
+  rows = NA,
+  class_list = NULL,
+  low_rank = NULL,
+  x = NULL,
+  ...
+)
 
-\method{lowest_common}{uid}(x, class_list = NULL, low_rank = NULL, ...)
+\method{lowest_common}{uid}(sci_id, class_list = NULL, low_rank = NULL, ...)
 
-\method{lowest_common}{tsn}(x, class_list = NULL, low_rank = NULL, ...)
+\method{lowest_common}{tsn}(sci_id, class_list = NULL, low_rank = NULL, ...)
 
-\method{lowest_common}{gbifid}(x, class_list = NULL, low_rank = NULL, ...)
+\method{lowest_common}{gbifid}(sci_id, class_list = NULL, low_rank = NULL, ...)
 
-\method{lowest_common}{tolid}(x, class_list = NULL, low_rank = NULL, ...)
+\method{lowest_common}{tolid}(sci_id, class_list = NULL, low_rank = NULL, ...)
 }
 \arguments{
 \item{...}{Other arguments passed to \code{\link[=get_tsn]{get_tsn()}}, \code{\link[=get_uid]{get_uid()}},
 \code{\link[=get_gbifid]{get_gbifid()}}, \code{\link[=get_tolid]{get_tolid()}}}
 
-\item{x}{Vector of taxa names (character) or id (character or numeric) to
+\item{sci_id}{Vector of taxa names (character) or id (character or numeric) to
 query.}
 
 \item{db}{character; database to query. either \code{ncbi}, \code{itis}, \code{gbif},
@@ -41,6 +49,8 @@ NCBI has a method for this function but rows doesn't work.}
 \code{\link[=classification]{classification()}}}
 
 \item{low_rank}{(character) taxonomic rank to return, of length 1}
+
+\item{x}{Deprecated, see \code{sci_id}}
 }
 \value{
 NA when no match, or a data.frame with columns

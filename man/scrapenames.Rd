@@ -46,7 +46,7 @@ against all available Data Sources.}
 
 \item{data_source_ids}{(optional) Type: string. Pipe separated list of
 data source ids to resolve found names against. See list of Data Sources
-\url{http://resolver.globalnames.org/data_sources}.}
+http://resolver.globalnames.org/data_sources}
 
 \item{return_content}{(logical) return OCR'ed text. returns text
 string in \code{x$meta$content} slot. Default: \code{FALSE}}
@@ -59,7 +59,7 @@ data.frame.
 }
 \description{
 Uses the Global Names Recognition and Discovery service, see
-\url{http://gnrd.globalnames.org/}.
+http://gnrd.globalnames.org/
 
 Note: this function sometimes gives data back and sometimes not. The API
 that this function is extremely buggy.

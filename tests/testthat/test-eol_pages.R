@@ -7,7 +7,7 @@ test_that("eol_pages returns the correct value and classes", {
     pageid <- suppressMessages(eol_search('Pomatomus'))$pageid[1]
     pageid2 <- suppressMessages(eol_search('Helianthus'))$pageid[1]
     aa <- suppressMessages(eol_pages(taxonconceptID = pageid))
-  })
+  }, preserve_exact_body_bytes = TRUE)
 
   expect_is(aa, "list")
   expect_is(aa$scinames, "data.frame")
@@ -16,7 +16,7 @@ test_that("eol_pages returns the correct value and classes", {
 
   vcr::use_cassette("eol_pages2", {
   	bb <- suppressMessages(eol_pages(taxonconceptID = pageid2))
-  })
+  }, preserve_exact_body_bytes = TRUE)
 
 	expect_is(bb, "list")
 	expect_is(bb$scinames, "data.frame")

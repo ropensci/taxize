@@ -1,7 +1,7 @@
 #' Get scientific names from common names.
 #'
 #' @export
-#' @param commnames One or more common names or partial names.
+#' @param com One or more common names or partial names.
 #' @param db Data source, one of *"ncbi"* (default), *"itis"*,
 #' *"tropicos"*, *"eol"*, or *"worms"*. If using ncbi, we
 #' recommend getting an API key; see [taxize-authentication]
@@ -10,7 +10,9 @@
 #' @param simplify (logical) If `TRUE`, simplify output to a vector of names.
 #' If `FALSE`, return variable formats from different sources, usually a
 #' data.frame.
+#' @param commnames Deprecated, see `com`
 #' @param ... Further arguments passed on to internal methods.
+#' @param id taxon identifiers, as returned by [get_tsn()] or [get_uid()]
 #' @return If `simplify=TRUE`, a list of scientific names, with list
 #' labeled by your input names. If `simplify=FALSE`, a data.frame with
 #' columns that vary by data source. `character(0)` on no match
@@ -30,12 +32,12 @@
 #'
 #' @author Scott Chamberlain
 #' @examples \dontrun{
-#' comm2sci(commnames='american black bear')
-#' comm2sci(commnames='american black bear', simplify = FALSE)
-#' comm2sci(commnames='black bear', db='itis')
-#' comm2sci(commnames='american black bear', db='itis')
-#' comm2sci(commnames='annual blue grass', db='tropicos')
-#' comm2sci(commnames=c('annual blue grass','tree of heaven'), db='tropicos')
+#' comm2sci(com='american black bear')
+#' comm2sci(com='american black bear', simplify = FALSE)
+#' comm2sci(com='black bear', db='itis')
+#' comm2sci(com='american black bear', db='itis')
+#' comm2sci(com='annual blue grass', db='tropicos')
+#' comm2sci(com=c('annual blue grass','tree of heaven'), db='tropicos')
 #' comm2sci('blue whale', db = "worms")
 #' comm2sci(c('blue whale', 'dwarf surfclam'), db = "worms")
 #'
@@ -47,27 +49,31 @@
 #'   searchtype = "common")
 #' comm2sci(x)
 #' }
-comm2sci <- function(commnames, db='ncbi', itisby='search',
-                     simplify=TRUE, ...) {
+comm2sci <- function(...) {
   UseMethod("comm2sci")
 }
 
+
+#' @method comm2sci default
 #' @export
-comm2sci.default <- function(commnames, db='ncbi', itisby='search',
-                             simplify=TRUE, ...) {
-  assert(commnames, "character")
+#' @rdname comm2sci
+comm2sci.default <- function(com, db='ncbi', itisby='search',
+                             simplify=TRUE, commnames = NULL, ...) {
+  pchk(commnames, "com")
+  if (!is.null(commnames)) com <- commnames
+  assert(com, "character")
   assert(simplify, "logical")
-  temp <- lapply(commnames, sci_from_comm, db = db, simplify = simplify,
+  temp <- lapply(com, sci_from_comm, db = db, simplify = simplify,
                  itisby = itisby, ...)
-  stats::setNames(temp, commnames)
+  stats::setNames(temp, com)
 }
 
 sci_from_comm <- function(nn, db, simplify, itisby, ...) {
   switch(
     db,
-    eol = c2s_eol(terms = nn, simplify, ...),
+    eol = c2s_eol(sci = nn, simplify, ...),
     itis = c2s_itis(nn, itisby, simplify, ...),
-    tropicos = c2s_tp(simplify, commonname = nn, ...),
+    tropicos = c2s_tp(simplify, com = nn, ...),
     ncbi = {
       ids <- get_uid(nn, modifier = "Common Name", ...)
       c2s_ncbi(ids, ...)
@@ -79,19 +85,21 @@ sci_from_comm <- function(nn, db, simplify, itisby, ...) {
 }
 
 #' @export
-comm2sci.tsn <- function(commnames, db='ncbi', itisby='search',
+#' @rdname comm2sci
+comm2sci.tsn <- function(id, db='ncbi', itisby='search',
                          simplify=TRUE, ...) {
   warn_db(list(db = db), "itis")
-  temp <- lapply(commnames, c2s_itis_, simplify = simplify, ...)
-  stats::setNames(temp, commnames)
+  temp <- lapply(id, c2s_itis_, simplify = simplify, ...)
+  stats::setNames(temp, id)
 }
 
 #' @export
-comm2sci.uid <- function(commnames, db='ncbi', itisby='search',
+#' @rdname comm2sci
+comm2sci.uid <- function(id, db='ncbi', itisby='search',
                          simplify=TRUE, ...) {
   warn_db(list(db = db), "ncbi")
-  temp <- lapply(commnames, c2s_ncbi, simplify = simplify, ...)
-  stats::setNames(temp, commnames)
+  temp <- lapply(id, c2s_ncbi, simplify = simplify, ...)
+  stats::setNames(temp, id)
 }
 
 # helpers ------------

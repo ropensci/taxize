@@ -4,8 +4,8 @@ context("get_boldid")
 test_that("get_boldid returns the correct value", {
   skip_on_cran()
   vcr::use_cassette("get_boldid", {
-    expect_equal(get_boldid(searchterm = 'Helianthus', messages = FALSE)[[1]], '125295')
-    expect_true(is.na(get_boldid(searchterm='adsf asdf asdf', messages=FALSE)[[1]]))
+    expect_equal(get_boldid(sci = 'Helianthus', messages = FALSE)[[1]], '125295')
+    expect_true(is.na(get_boldid(sci='adsf asdf asdf', messages=FALSE)[[1]]))
     expect_is(get_boldid(c("Helianthus excubitor", "adsf asdf asdf"), messages=FALSE), 
       "boldid")
   })
@@ -32,7 +32,7 @@ test_that("get_boldid works when there's no parent name", {
 test_that("get_boldid fails as expected", {
   skip_on_cran()
 
-  expect_error(get_boldid(), "argument \"searchterm\" is missing")
+  expect_error(get_boldid(), "argument \"sci\" is missing")
   expect_error(get_boldid("Satyrium", ask = 4, messages = FALSE),
                "ask must be of class logical")
   expect_error(
@@ -60,6 +60,7 @@ test_that("get_boldid fails as expected", {
   expect_error(get_boldid("Achlya", rows = 0, messages = FALSE),
                "all\\(rows > 0\\) is not TRUE")
 
+  # skip('BOLD API down right now, SSL issue')
   # filter param doesn't match any values - returns NA and warns
   expect_warning(
     (z=get_boldid("Satyrium", division = "Plants", messages = FALSE)),

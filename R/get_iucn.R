@@ -1,7 +1,7 @@
 #' Get a IUCN Redlist taxon
 #'
 #' @export
-#' @param x (character) A vector of common or scientific names. Or, a
+#' @param sci (character) A vector of scientific names. Or, a
 #' `taxon_state` object (see [taxon-state])
 #' @param messages logical; should progress be printed?
 #' @param key (character) required. you IUCN Redlist API key. See
@@ -9,6 +9,8 @@
 #' IUCN Redlist
 #' @param check (logical) Check if ID matches any existing on the DB, only
 #' used in [as.iucn()]
+#' @param x For `get_iucn()`: Deprecated, see `sci`. For `as.iucn()`, various,
+#' see examples
 #' @param ... Ignored
 #'
 #' @return A vector of taxonomic identifiers as an S3 class.
@@ -39,9 +41,9 @@
 #' @family taxonomic-ids
 #'
 #' @examples \dontrun{
-#' get_iucn(x = "Branta canadensis")
-#' get_iucn(x = "Branta bernicla")
-#' get_iucn(x = "Panthera uncia")
+#' get_iucn("Branta canadensis")
+#' get_iucn("Branta bernicla")
+#' get_iucn("Panthera uncia")
 #'
 #' # as coercion
 #' as.iucn(22732)
@@ -50,19 +52,20 @@
 #' data.frame(res)
 #' as.iucn(data.frame(res))
 #' }
-get_iucn <- function(x, messages = TRUE, key = NULL, ...) {
+get_iucn <- function(sci, messages = TRUE, key = NULL, x = NULL, ...) {
 
-  assert(x, c("character", "taxon_state"))
+  assert(sci, c("character", "taxon_state"))
   assert(messages, "logical")
+  pchk(x, "sci")
 
-  if (inherits(x, "character")) {
-    tstate <- taxon_state$new(class = "iucn", names = x)
-    items <- x
+  if (inherits(sci, "character")) {
+    tstate <- taxon_state$new(class = "iucn", names = sci)
+    items <- sci
   } else {
-    assert_state(x, "iucn")
-    tstate <- x
-    x <- tstate$taxa_remaining()
-    items <- c(x, tstate$taxa_completed())
+    assert_state(sci, "iucn")
+    tstate <- sci
+    sci <- tstate$taxa_remaining()
+    items <- c(sci, tstate$taxa_completed())
   }
 
   prog <- progressor$new(items = items, suppress = !messages)
@@ -70,10 +73,10 @@ get_iucn <- function(x, messages = TRUE, key = NULL, ...) {
   for (i in seq_along(done)) prog$completed(names(done)[i], done[[i]]$att)
   prog$prog_start()
 
-  for (i in seq_along(x)) {
+  for (i in seq_along(sci)) {
     direct <- FALSE
-    mssg(messages, "\nRetrieving data for taxon '", x[i], "'\n")
-    df <- rredlist::rl_search(x[i], key = key, ...)
+    mssg(messages, "\nRetrieving data for taxon '", sci[i], "'\n")
+    df <- rredlist::rl_search(sci[i], key = key, ...)
 
     if (!inherits(df$result, "data.frame") || NROW(df$result) == 0) {
       id <- NA_character_
@@ -90,7 +93,7 @@ get_iucn <- function(x, messages = TRUE, key = NULL, ...) {
       }
 
       # check for direct match
-      direct <- match(tolower(df$scientific_name), tolower(x[i]))
+      direct <- match(tolower(df$scientific_name), tolower(sci[i]))
 
       if (!all(is.na(direct))) {
         id <- df$taxonid[!is.na(direct)]
@@ -103,10 +106,10 @@ get_iucn <- function(x, messages = TRUE, key = NULL, ...) {
       }
       # multiple matches not possible because no real search
     }
-    res <- list(id = id, name = x[i], att = att, direct = direct)
-    prog$completed(x[i], att)
+    res <- list(id = id, name = sci[i], att = att, direct = direct)
+    prog$completed(sci[i], att)
     prog$prog(att)
-    tstate$add(x[i], res)
+    tstate$add(sci[i], res)
   }
   out <- tstate$get()
   ids <- structure(as.character(unlist(pluck(out, "id"))), class = "iucn",

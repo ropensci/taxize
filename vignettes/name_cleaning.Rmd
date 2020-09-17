@@ -1,7 +1,7 @@
 ---
 title: Strategies for programmatic name cleaning
 author: Scott Chamberlain
-date: "2020-03-31"
+date: "2020-09-16"
 output: rmarkdown::html_vignette
 vignette: >
     %\VignetteIndexEntry{Strategies for programmatic name cleaning}
@@ -35,7 +35,7 @@ to select which taxon you want.
 
 
 ```r
-get_tsn(searchterm = "Quercus b")
+get_tsn("Quercus b")
 #>       tsn                       target             commonnames    nameusage
 #> 1   19298             Quercus beebiana                         not accepted
 #> 2  507263       Quercus berberidifolia               scrub oak     accepted
@@ -60,7 +60,7 @@ by number only (not by a name itself). Here, we want the first 3 records:
 
 
 ```r
-get_tsn(searchterm = 'Quercus b', rows = 1:3)
+get_tsn('Quercus b', rows = 1:3)
 #>     tsn           target     commonnames    nameusage
 #> 1 19298 Quercus beebiana                 not accepted
 #> 2 19300  Quercus bicolor swamp white oak     accepted
@@ -80,7 +80,7 @@ to know which one you want:
 
 
 ```r
-get_tsn(searchterm = 'Quercus b', rows = 3)
+get_tsn('Quercus b', rows = 3)
 #> ══  1 queries  ═══════════════
 #> ✔  Found:  Quercus b
 #> ══  Results  ═════════════════
@@ -111,7 +111,7 @@ has a sister method with and trailing underscore, e.g., `get_tsn()` and `get_tsn
 
 
 ```r
-get_tsn_(searchterm = "Quercus b")
+get_tsn_("Quercus b")
 #> $`Quercus b`
 #> # A tibble: 5 x 4
 #>   tsn    scientificName         commonNames                           nameUsage
@@ -131,7 +131,7 @@ number of a range of numbers:
 
 
 ```r
-get_tsn_(searchterm = "Quercus b", rows = 1)
+get_tsn_("Quercus b", rows = 1)
 #> $`Quercus b`
 #> # A tibble: 1 x 4
 #>   tsn   scientificName  commonNames                    nameUsage
@@ -141,7 +141,7 @@ get_tsn_(searchterm = "Quercus b", rows = 1)
 
 
 ```r
-get_tsn_(searchterm = "Quercus b", rows = 1:2)
+get_tsn_("Quercus b", rows = 1:2)
 #> $`Quercus b`
 #> # A tibble: 2 x 4
 #>   tsn    scientificName    commonNames                           nameUsage
@@ -241,24 +241,23 @@ in a programmatic workflow straight away.
 
 ```r
 spp <- names_list(rank = "species", size = 10)
-gnr_resolve(names = spp, preferred_data_sources = 11)
-#> # A tibble: 14 x 5
-#>    user_supplied_name submitted_name   matched_name       data_source_tit… score
-#>  * <chr>              <chr>            <chr>              <chr>            <dbl>
-#>  1 Asperula conferta  Asperula confer… Asperula conferta… GBIF Backbone T… 0.988
-#>  2 Asperula conferta  Asperula confer… Asperula conferta… GBIF Backbone T… 0.988
-#>  3 Scutellaria titov… Scutellaria tit… Scutellaria titov… GBIF Backbone T… 0.988
-#>  4 Polypodium prolon… Polypodium prol… Polypodium prolon… GBIF Backbone T… 0.988
-#>  5 Steinchisma decip… Steinchisma dec… Steinchisma decip… GBIF Backbone T… 0.988
-#>  6 Hieracium lepidot… Hieracium lepid… Hieracium lepidot… GBIF Backbone T… 0.988
-#>  7 Neolitsea archbol… Neolitsea archb… Neolitsea archbol… GBIF Backbone T… 0.988
-#>  8 Biscutella rupest… Biscutella rupe… Biscutella rupest… GBIF Backbone T… 0.988
-#>  9 Biscutella rupest… Biscutella rupe… Biscutella rupest… GBIF Backbone T… 0.988
-#> 10 Biscutella rupest… Biscutella rupe… Biscutella rupest… GBIF Backbone T… 0.988
-#> 11 Lastreopsis hornei Lastreopsis hor… Lastreopsis horne… GBIF Backbone T… 0.988
-#> 12 Dianthus morisian… Dianthus morisi… Dianthus morisian… GBIF Backbone T… 0.988
-#> 13 Mesembryanthemum … Mesembryanthemu… Mesembryanthemum … GBIF Backbone T… 0.988
-#> 14 Mesembryanthemum … Mesembryanthemu… Mesembryanthemum … GBIF Backbone T… 0.988
+gnr_resolve(spp, preferred_data_sources = 11)
+#> # A tibble: 13 x 5
+#>    user_supplied_na… submitted_name   matched_name        data_source_tit… score
+#>  * <chr>             <chr>            <chr>               <chr>            <dbl>
+#>  1 Astragalus radka… Astragalus radk… Astragalus radkane… GBIF Backbone T… 0.988
+#>  2 Montanoa gigas    Montanoa gigas   Montanoa gigas Rze… GBIF Backbone T… 0.988
+#>  3 Serratula semise… Serratula semis… Serratula semiserr… GBIF Backbone T… 0.988
+#>  4 Serratula semise… Serratula semis… Serratula semiserr… GBIF Backbone T… 0.988
+#>  5 Delosperma pagea… Delosperma page… Delosperma pageanu… GBIF Backbone T… 0.988
+#>  6 Delosperma pagea… Delosperma page… Delosperma pageanu… GBIF Backbone T… 0.988
+#>  7 Zieria hydroscop… Zieria hydrosco… Zieria hydroscopic… GBIF Backbone T… 0.988
+#>  8 Baccharis flabel… Baccharis flabe… Baccharis flabella… GBIF Backbone T… 0.988
+#>  9 Piper gonocarpum  Piper gonocarpum Piper gonocarpum T… GBIF Backbone T… 0.988
+#> 10 Lathraea japonica Lathraea japoni… Lathraea japonica … GBIF Backbone T… 0.988
+#> 11 Lathraea japonica Lathraea japoni… Lathraea japonica … GBIF Backbone T… 0.988
+#> 12 Lathraea japonica Lathraea japoni… Lathraea japonica … GBIF Backbone T… 0.988
+#> 13 Verbesina tachir… Verbesina tachi… Verbesina tachiren… GBIF Backbone T… 0.988
 ```
 
 ## Other functions
@@ -270,4 +269,4 @@ but you can can generally pass on parameters to the `get_*()` functions internal
 ## Feedback?
 
 Let us know if you have ideas for better ways to do programmatic name cleaning at 
-<https://github.com/ropensci/taxize/issues> or <https://discuss.ropensci.org/> !
+https://github.com/ropensci/taxize/issues or https://discuss.ropensci.org/ !

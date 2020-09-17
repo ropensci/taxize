@@ -5,21 +5,30 @@
 \alias{apg_orders}
 \title{MOBOT order names}
 \format{
-A data frame with 494 rows and 3 variables:
+A data frame with 576 rows and 5 variables:
 \itemize{
-\item \code{original} original data record from APG website
-\item \code{this} Order name
-\item \code{that} Replacement order name
+\item \code{order}: order name
+\item \code{synonym}: if \code{accepted=FALSE}, this is the accepted name;
+if \code{accepted=TRUE}, this is \code{NA}, and the name in \code{order} is accepted
+\item \code{accepted}: logical, if name in \code{order} column is accepted or not
+\item \code{original}: original data record from APG website, mapping
+name in \code{order} column to a new name, if there is one
+\item \code{accepted_name}: accepted name. accepted names, combining those that
+are accepted from \code{order} column, with the new name from \code{synonym}
+if applicable
 }
 }
 \source{
-\url{http://www.mobot.org/MOBOT/research/APweb/}
+http://www.mobot.org/MOBOT/research/APweb/
 }
 \description{
 Order names and their replacements from the Angiosperm Phylogeny
 Website system of flowering plant classification.
 }
 \details{
-This dataset is from Version 13, incorporated on 2015-04-29.
+This dataset is from Version 14, incorporated on 2020-06-03,
+generated using \code{\link[=apgOrders]{apgOrders()}}
+
+(update script in inst/ignore/apg_script.R)
 }
 \keyword{data}

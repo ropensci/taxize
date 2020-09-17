@@ -5,22 +5,23 @@
 \title{Search UK National Biodiversity Network}
 \usage{
 nbn_search(
-  q,
+  sci_com,
   fq = NULL,
   order = NULL,
   sort = NULL,
   start = 0,
   rows = 25,
   facets = NULL,
+  q = NULL,
   ...
 )
 }
 \arguments{
-\item{q}{(character) The query terms(s)}
+\item{sci_com}{(character) The query terms(s), a scientific or common name}
 
 \item{fq}{(character) Filters to be applied to the original query. These
 are additional params of the form fq=INDEXEDFIELD:VALUE e.g.
-fq=rank:kingdom. See \url{https://species-ws.nbnatlas.org/indexFields} for all
+fq=rank:kingdom. See https://species-ws.nbnatlas.org/indexFields for all
 the fields that are queryable.}
 
 \item{order}{(character) Supports "asc" or "desc"}
@@ -34,6 +35,8 @@ the fields that are queryable.}
 \item{facets}{(list) Comma separated list of the fields to create facets
 on e.g. facets=basis_of_record.}
 
+\item{q}{Deprecated, see \code{sci}}
+
 \item{...}{Further args passed on to \link[crul:HttpClient]{crul::HttpClient}.}
 }
 \value{
@@ -45,21 +48,21 @@ Search UK National Biodiversity Network
 }
 \examples{
 \dontrun{
-x <- nbn_search(q = "Vulpes")
+x <- nbn_search(sci_com = "Vulpes")
 x$meta$totalRecords
 x$meta$pageSize
 x$meta$urlParameters
 x$meta$queryTitle
 head(x$data)
 
-nbn_search(q = "blackbird", start = 4)
+nbn_search(sci_com = "blackbird", start = 4)
 
 # debug curl stuff
-nbn_search(q = "blackbird", verbose = TRUE)
+nbn_search(sci_com = "blackbird", verbose = TRUE)
 }
 }
 \references{
-\url{https://api.nbnatlas.org/}
+https://api.nbnatlas.org/
 }
 \seealso{
 Other nbn: 

@@ -43,7 +43,7 @@ Normally, if you get more than one result, you get a prompt asking you
 to select which taxon you want.
 
 ```{r eval=FALSE}
-get_tsn(searchterm = "Quercus b")
+get_tsn("Quercus b")
 #>       tsn                       target             commonnames    nameusage
 #> 1   19298             Quercus beebiana                         not accepted
 #> 2  507263       Quercus berberidifolia               scrub oak     accepted
@@ -67,7 +67,7 @@ Instead, we can use the rows parameter to specify which records we want
 by number only (not by a name itself). Here, we want the first 3 records:
 
 ```{r eval=FALSE}
-get_tsn(searchterm = 'Quercus b', rows = 1:3)
+get_tsn('Quercus b', rows = 1:3)
 #>     tsn           target     commonnames    nameusage
 #> 1 19298 Quercus beebiana                 not accepted
 #> 2 19300  Quercus bicolor swamp white oak     accepted
@@ -86,7 +86,7 @@ Thus, for full programmatic usage, you can specify a single row, if you happen
 to know which one you want:
 
 ```{r}
-get_tsn(searchterm = 'Quercus b', rows = 3)
+get_tsn('Quercus b', rows = 3)
 ```
 
 In reality it is unlikely you'll know which row you want, unless perhaps you
@@ -98,7 +98,7 @@ A better fit for programmatic use are underscore methods. Each `get_*()` functio
 has a sister method with and trailing underscore, e.g., `get_tsn()` and `get_tsn_()`.
 
 ```{r}
-get_tsn_(searchterm = "Quercus b")
+get_tsn_("Quercus b")
 ```
 
 The result is a single data.frame for each taxon queried, which can be
@@ -108,11 +108,11 @@ You can also combine `rows` parameter with underscore functions, as a single
 number of a range of numbers:
 
 ```{r}
-get_tsn_(searchterm = "Quercus b", rows = 1)
+get_tsn_("Quercus b", rows = 1)
 ```
 
 ```{r}
-get_tsn_(searchterm = "Quercus b", rows = 1:2)
+get_tsn_("Quercus b", rows = 1:2)
 ```
 
 ## as.* methods
@@ -158,7 +158,7 @@ in a programmatic workflow straight away.
 
 ```{r}
 spp <- names_list(rank = "species", size = 10)
-gnr_resolve(names = spp, preferred_data_sources = 11)
+gnr_resolve(spp, preferred_data_sources = 11)
 ```
 
 ## Other functions
@@ -170,4 +170,4 @@ but you can can generally pass on parameters to the `get_*()` functions internal
 ## Feedback?
 
 Let us know if you have ideas for better ways to do programmatic name cleaning at 
-<https://github.com/ropensci/taxize/issues> or <https://discuss.ropensci.org/> !
+https://github.com/ropensci/taxize/issues or https://discuss.ropensci.org/ !

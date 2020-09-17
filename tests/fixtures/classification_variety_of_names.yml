@@ -1,0 +1,422 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Regmatodon%2Borthostegius&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.97)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.97)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Tue, 09 Jun 2020 01:45:41 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      x-ratelimit-remaining: '9'
+      ncbi-phid: 939B5C81F6EEE0D500005A30917E6D2A.1.1.m_1
+      cache-control: private
+      ncbi-sid: 2B821E0BEBE4AC06_C1F7SID
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      access-control-allow-origin: '*'
+      content-type: text/xml; charset=UTF-8
+      set-cookie: ncbi_sid=2B821E0BEBE4AC06_C1F7SID; domain=.nih.gov; path=/; expires=Wed,
+        09 Jun 2021 01:45:41 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      file: no
+      string: |
+        <?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
+        <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
+        <Id>992823</Id>
+        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Regmatodon+orthostegius[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Regmatodon+orthostegius[All Names]</QueryTranslation></eSearchResult>
+  recorded_at: 2020-06-09 01:45:43 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=992823&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.70.0 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Tue, 09 Jun 2020 01:45:41 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      x-ratelimit-remaining: '8'
+      ncbi-phid: 939B5C81F6EEE0D50000253091B072F8.1.1.m_3
+      cache-control: private
+      ncbi-sid: 55BEDAE65289073B_98FBSID
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      access-control-allow-origin: '*'
+      content-type: text/xml; charset=UTF-8
+      set-cookie: ncbi_sid=55BEDAE65289073B_98FBSID; domain=.nih.gov; path=/; expires=Wed,
+        09 Jun 2021 01:45:42 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      file: no
+      string: |-
+        <?xml version="1.0" ?>
+        <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
+        <TaxaSet><Taxon>
+            <TaxId>992823</TaxId>
+            <ScientificName>Regmatodon orthostegius</ScientificName>
+            <OtherNames>
+                <Name>
+                    <ClassCDE>authority</ClassCDE>
+                    <DispName>Regmatodon orthostegius Mont.</DispName>
+                </Name>
+            </OtherNames>
+            <ParentTaxId>324116</ParentTaxId>
+            <Rank>species</Rank>
+            <Division>Plants and Fungi</Division>
+            <GeneticCode>
+                <GCId>1</GCId>
+                <GCName>Standard</GCName>
+            </GeneticCode>
+            <MitoGeneticCode>
+                <MGCId>1</MGCId>
+                <MGCName>Standard</MGCName>
+            </MitoGeneticCode>
+            <Lineage>cellular organisms; Eukaryota; Viridiplantae; Streptophyta; Streptophytina; Embryophyta; Bryophyta; Bryophytina; Bryopsida; Bryidae; Hypnanae; Hypnales; Regmatodontaceae; Regmatodon</Lineage>
+            <LineageEx>
+                <Taxon>
+                    <TaxId>131567</TaxId>
+                    <ScientificName>cellular organisms</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>2759</TaxId>
+                    <ScientificName>Eukaryota</ScientificName>
+                    <Rank>superkingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33090</TaxId>
+                    <ScientificName>Viridiplantae</ScientificName>
+                    <Rank>kingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>35493</TaxId>
+                    <ScientificName>Streptophyta</ScientificName>
+                    <Rank>phylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>131221</TaxId>
+                    <ScientificName>Streptophytina</ScientificName>
+                    <Rank>subphylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>3193</TaxId>
+                    <ScientificName>Embryophyta</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>3208</TaxId>
+                    <ScientificName>Bryophyta</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>404260</TaxId>
+                    <ScientificName>Bryophytina</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>3214</TaxId>
+                    <ScientificName>Bryopsida</ScientificName>
+                    <Rank>class</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>114658</TaxId>
+                    <ScientificName>Bryidae</ScientificName>
+                    <Rank>subclass</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>404315</TaxId>
+                    <ScientificName>Hypnanae</ScientificName>
+                    <Rank>superorder</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>13798</TaxId>
+                    <ScientificName>Hypnales</ScientificName>
+                    <Rank>order</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>324115</TaxId>
+                    <ScientificName>Regmatodontaceae</ScientificName>
+                    <Rank>family</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>324116</TaxId>
+                    <ScientificName>Regmatodon</ScientificName>
+                    <Rank>genus</Rank>
+                </Taxon>
+            </LineageEx>
+            <Properties>
+                <Property>
+                    <PropName>pgcode</PropName>
+                    <PropValueInt>11</PropValueInt>
+                </Property>
+            </Properties>
+            <CreateDate>2011/03/03 16:05:13</CreateDate>
+            <UpdateDate>2012/01/18 18:45:12</UpdateDate>
+            <PubDate>2012/01/18 18:00:50</PubDate>
+        </Taxon>
+
+        </TaxaSet>
+  recorded_at: 2020-06-09 01:45:43 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Fagraea%2Bfragrans&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.97)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.97)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Tue, 09 Jun 2020 01:45:42 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      x-ratelimit-remaining: '7'
+      ncbi-phid: 939B5C81F6EEE0D500003E309221D2C3.1.1.m_1
+      cache-control: private
+      ncbi-sid: 9B801FC7AB799015_1E45SID
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      access-control-allow-origin: '*'
+      content-type: text/xml; charset=UTF-8
+      set-cookie: ncbi_sid=9B801FC7AB799015_1E45SID; domain=.nih.gov; path=/; expires=Wed,
+        09 Jun 2021 01:45:42 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      file: no
+      string: |
+        <?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
+        <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
+        <Id>84942</Id>
+        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Fagraea+fragrans[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Fagraea+fragrans[All Names]</QueryTranslation></eSearchResult>
+  recorded_at: 2020-06-09 01:45:43 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=84942&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.70.0 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Tue, 09 Jun 2020 01:45:42 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      x-ratelimit-remaining: '6'
+      ncbi-phid: 939B5C81F6EEE0D500001430926495FF.1.1.m_3
+      cache-control: private
+      ncbi-sid: ABEC4FDA1944FCF5_FF19SID
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      access-control-allow-origin: '*'
+      content-type: text/xml; charset=UTF-8
+      set-cookie: ncbi_sid=ABEC4FDA1944FCF5_FF19SID; domain=.nih.gov; path=/; expires=Wed,
+        09 Jun 2021 01:45:42 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      file: no
+      string: |-
+        <?xml version="1.0" ?>
+        <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
+        <TaxaSet><Taxon>
+            <TaxId>84942</TaxId>
+            <ScientificName>Fagraea fragrans</ScientificName>
+            <OtherNames>
+                <Name>
+                    <ClassCDE>authority</ClassCDE>
+                    <DispName>Fagraea fragrans Roxb.</DispName>
+                </Name>
+            </OtherNames>
+            <ParentTaxId>26476</ParentTaxId>
+            <Rank>species</Rank>
+            <Division>Plants and Fungi</Division>
+            <GeneticCode>
+                <GCId>1</GCId>
+                <GCName>Standard</GCName>
+            </GeneticCode>
+            <MitoGeneticCode>
+                <MGCId>1</MGCId>
+                <MGCName>Standard</MGCName>
+            </MitoGeneticCode>
+            <Lineage>cellular organisms; Eukaryota; Viridiplantae; Streptophyta; Streptophytina; Embryophyta; Tracheophyta; Euphyllophyta; Spermatophyta; Magnoliopsida; Mesangiospermae; eudicotyledons; Gunneridae; Pentapetalae; asterids; lamiids; Gentianales; Gentianaceae; Potalieae; Potaliinae; Fagraea</Lineage>
+            <LineageEx>
+                <Taxon>
+                    <TaxId>131567</TaxId>
+                    <ScientificName>cellular organisms</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>2759</TaxId>
+                    <ScientificName>Eukaryota</ScientificName>
+                    <Rank>superkingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33090</TaxId>
+                    <ScientificName>Viridiplantae</ScientificName>
+                    <Rank>kingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>35493</TaxId>
+                    <ScientificName>Streptophyta</ScientificName>
+                    <Rank>phylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>131221</TaxId>
+                    <ScientificName>Streptophytina</ScientificName>
+                    <Rank>subphylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>3193</TaxId>
+                    <ScientificName>Embryophyta</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>58023</TaxId>
+                    <ScientificName>Tracheophyta</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>78536</TaxId>
+                    <ScientificName>Euphyllophyta</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>58024</TaxId>
+                    <ScientificName>Spermatophyta</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>3398</TaxId>
+                    <ScientificName>Magnoliopsida</ScientificName>
+                    <Rank>class</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1437183</TaxId>
+                    <ScientificName>Mesangiospermae</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>71240</TaxId>
+                    <ScientificName>eudicotyledons</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>91827</TaxId>
+                    <ScientificName>Gunneridae</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1437201</TaxId>
+                    <ScientificName>Pentapetalae</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>71274</TaxId>
+                    <ScientificName>asterids</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>91888</TaxId>
+                    <ScientificName>lamiids</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>4055</TaxId>
+                    <ScientificName>Gentianales</ScientificName>
+                    <Rank>order</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>21472</TaxId>
+                    <ScientificName>Gentianaceae</ScientificName>
+                    <Rank>family</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>303184</TaxId>
+                    <ScientificName>Potalieae</ScientificName>
+                    <Rank>tribe</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>2546023</TaxId>
+                    <ScientificName>Potaliinae</ScientificName>
+                    <Rank>subtribe</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>26476</TaxId>
+                    <ScientificName>Fagraea</ScientificName>
+                    <Rank>genus</Rank>
+                </Taxon>
+            </LineageEx>
+            <Properties>
+                <Property>
+                    <PropName>pgcode</PropName>
+                    <PropValueInt>11</PropValueInt>
+                </Property>
+            </Properties>
+            <CreateDate>1998/11/19 17:47:00</CreateDate>
+            <UpdateDate>2005/01/19 15:15:00</UpdateDate>
+            <PubDate>1999/01/01 00:00:00</PubDate>
+        </Taxon>
+
+        </TaxaSet>
+  recorded_at: 2020-06-09 01:45:43 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2

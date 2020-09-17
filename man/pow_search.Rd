@@ -4,10 +4,10 @@
 \alias{pow_search}
 \title{Search Kew's Plants of the World}
 \usage{
-pow_search(q, limit = 100, cursor = "*", sort = NULL, ...)
+pow_search(sci_com, limit = 100, cursor = "*", sort = NULL, q = NULL, ...)
 }
 \arguments{
-\item{q}{(character) query terms}
+\item{sci_com}{(character) query terms, scientific or common name}
 
 \item{limit}{(integer) Number of records to return. default: 100}
 
@@ -15,6 +15,8 @@ pow_search(q, limit = 100, cursor = "*", sort = NULL, ...)
 
 \item{sort}{(character) The field to sort by and sort order separted with
 underscore, e.g., \code{sort="name_desc"}}
+
+\item{q}{Deprecated, see \code{sci_com}}
 
 \item{...}{Further args passed on to \link[crul:HttpClient]{crul::HttpClient}.}
 }
@@ -27,7 +29,7 @@ Search Kew's Plants of the World
 }
 \examples{
 \dontrun{
-x <- pow_search(q = "Quercus")
+x <- pow_search(sci_com = "Quercus")
 x$meta
 x$meta$totalResults
 x$meta$perPage
@@ -37,20 +39,20 @@ x$meta$cursor
 head(x$data)
 
 # pagination
-pow_search(q = "sunflower", limit = 2)
+pow_search(sci_com = "sunflower", limit = 2)
 
 # debug curl stuff
-invisible(pow_search(q = "Helianthus annuus", verbose = TRUE))
+invisible(pow_search(sci_com = "Helianthus annuus", verbose = TRUE))
 
 # sort
-desc <- pow_search(q = "Helianthus", sort = "name_desc")
+desc <- pow_search(sci_com = "Helianthus", sort = "name_desc")
 desc$data$name
-asc <- pow_search(q = "Helianthus", sort = "name_asc")
+asc <- pow_search(sci_com = "Helianthus", sort = "name_asc")
 asc$data$name
 }
 }
 \references{
-\url{http://powo.science.kew.org/}
+http://powo.science.kew.org/
 }
 \seealso{
 Other pow: 

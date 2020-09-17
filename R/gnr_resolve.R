@@ -3,7 +3,7 @@
 #' See section **Age of datasets in the Global Names Resolver**
 #'
 #' @export
-#' @param names character; taxonomic names to be resolved. Doesn't work for
+#' @param sci character; taxonomic names to be resolved. Doesn't work for
 #' vernacular/common names.
 #' @param data_source_ids character; IDs to specify what data source
 #'     is searched. See [gnr_datasources()].
@@ -30,6 +30,7 @@
 #' @param http The HTTP method to use, one of "get" or "post". Default: "get".
 #' Use `http="post"` with large queries. Queries with > 300 records
 #' use "post" automatically because "get" would fail
+#' @param names Deprecated, see `sci`
 #' @param ... Curl options passed on to [crul::HttpClient]
 #' @param cap_first (logical) For each name, fix so that the first name part is
 #' capitalized, while others are not. This web service is sensitive to
@@ -89,11 +90,11 @@
 #'
 #' @seealso [gnr_datasources()] [tnrs]
 #' @keywords resolve names taxonomy
-#' @references <http://gnrd.globalnames.org/api>
-#' <http://gnrd.globalnames.org/>
+#' @references http://gnrd.globalnames.org/api
+#' http://gnrd.globalnames.org/
 #' @examples \dontrun{
-#' gnr_resolve(names = c("Helianthus annuus", "Homo sapiens"))
-#' gnr_resolve(names = c("Asteraceae", "Plantae"))
+#' gnr_resolve(sci = c("Helianthus annuus", "Homo sapiens"))
+#' gnr_resolve(sci = c("Asteraceae", "Plantae"))
 #'
 #' # Using data source 12 (Encyclopedia of Life)
 #' sources <- gnr_datasources()
@@ -103,18 +104,18 @@
 #'
 #' # Two species in the NE Brazil catalogue
 #' sps <- c('Justicia brasiliana','Schinopsis brasiliensis')
-#' gnr_resolve(names = sps, data_source_ids = 145)
+#' gnr_resolve(sci = sps, data_source_ids = 145)
 #'
 #' # Best match only, compare the two
-#' gnr_resolve(names = "Helianthus annuus", best_match_only = FALSE)
-#' gnr_resolve(names = "Helianthus annuus", best_match_only = TRUE)
+#' gnr_resolve(sci = "Helianthus annuus", best_match_only = FALSE)
+#' gnr_resolve(sci = "Helianthus annuus", best_match_only = TRUE)
 #'
 #' # Preferred data source
-#' gnr_resolve(names = "Helianthus annuus", preferred_data_sources = c(3,4))
+#' gnr_resolve(sci = "Helianthus annuus", preferred_data_sources = c(3,4))
 #'
 #' # Return canonical names - default is canonical=FALSE
-#' head(gnr_resolve(names = "Helianthus annuus"))
-#' head(gnr_resolve(names = "Helianthus annuus", canonical=TRUE))
+#' head(gnr_resolve(sci = "Helianthus annuus"))
+#' head(gnr_resolve(sci = "Helianthus annuus", canonical=TRUE))
 #'
 #' # Return canonical names with authority stripped but
 #' # ranks still present
@@ -124,23 +125,25 @@
 #'    with_canonical_ranks = TRUE)
 #' }
 
-gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
+gnr_resolve <- function(sci, data_source_ids = NULL, resolve_once = FALSE,
   with_context = FALSE, canonical = FALSE, highestscore = TRUE,
   best_match_only = FALSE, preferred_data_sources = NULL,
   with_canonical_ranks = FALSE, http = "get", cap_first = TRUE,
-  fields = "minimal", ...) {
+  fields = "minimal", names = NULL, ...) {
 
+  pchk(names, "sci")
+  if (!is.null(names)) sci <- names
   fields <- match.arg(fields, c("minimal", "all"))
   http <- match.arg(http, c("get", "post"))
   num <- NULL
   url <- "https://resolver.globalnames.org/name_resolvers.json"
   # clean out zero length strings
-  names <- Filter(function(x) nzchar(x) && !is.na(x) && is.character(x), names)
-  # store original names supplied by user
-  orig_names <- names
-  if (cap_first) names <- taxize_capwords(names, onlyfirst = TRUE)
-  names2 <- paste0(names, collapse = "|")
-  if (length(names) > 300 && http == "get") http <- "post"
+  sci <- Filter(function(x) nzchar(x) && !is.na(x) && is.character(x), sci)
+  # store original sci supplied by user
+  orig_names <- sci
+  if (cap_first) sci <- taxize_capwords(sci, onlyfirst = TRUE)
+  names2 <- paste0(sci, collapse = "|")
+  if (length(sci) > 300 && http == "get") http <- "post"
 
   data_source_ids <- paste0(data_source_ids, collapse = "|")
   preferred_data_sources <- paste0(preferred_data_sources, collapse = "|")
@@ -164,10 +167,10 @@ gnr_resolve <- function(names, data_source_ids = NULL, resolve_once = FALSE,
     dat <- jsonlite::fromJSON(tmp2, FALSE)$data
   } else {
     args <- args[!names(args) %in% "names"]
-    nms <- split(names, ceiling(seq_along(names)/500))
+    nms <- split(sci, ceiling(seq_along(sci)/500))
     datbits <- list()
     for (i in seq_along(nms)) {
-      tt <- data.frame(paste0(seq_along(nms[[i]]), "|", names))
+      tt <- data.frame(paste0(seq_along(nms[[i]]), "|", sci))
       file <- tempfile(fileext = ".txt")
       write.table(tt, file = file, row.names = FALSE,
                   col.names = FALSE, quote = FALSE)

@@ -1,3 +1,65 @@
+taxize 0.9.98
+=============
+
+### MINOR IMPROVEMENTS
+
+* improve `worms_downstream()` docs: make it clear that users can use parameters passed down to `worrms::wm_children()` (#831)
+* improve `get_pow_()` docs: add section on rate limits, what are rate limits for KEW POW and a user facing resolution (#836)
+* add 8 new rank names (via NCBI) to the reference rank data.frame (`rank_ref`) in the package: biotype, forma specialis, isolate, pathogroup, series, serogroup, serotype, and strain - queries from `downstream()` and other functions that rely on relative rank information should not fail anymore when they contain these 8 rank names  (#830)
+
+### BUG FIXES
+
+* new `rank_ref_zoo` reference data.frame specfically for zoological rank types - right now only used for WORMS. main difference is section/subsection in `rank_ref_zoo` are nested between the order and family, whereas in `rank_ref` (used for all other data sources) section/subsection are on the genus rank level (#833)
+* NCBI introduced a new rank "clade", or at least are using it a lot more often - often used instead of "no rank". This was causing some problems in `class2tree()`. Problem sorted out now (#835) (#838) (#839) (#840)
+
+
+taxize 0.9.97
+=============
+
+### NEW FEATURES
+
+* Many of the functions in taxize share similar types of inputs (e.g., scientific names, or common names), but many different parameter names are used to refer to the same thing. We've standardized parameter names to make user understanding easier as the user uses different functions. TLDR: `sci` will always only accept a scientific name; `com` accdepts only a common name; `id` accepts a taxonomic identifier; `sci_com` accepts or scientific or common name; `sci_id` accepts a scientific name or taxonomic identifier. In most cases we have retained the old parameter name and you can still use it but you get a warning with information. In a future package version the replaced parameters will be removed completely. See https://github.com/ropensci/taxize/issues/723 for tables covering the functions affected, their old and new parameter names (#723) (#829)
+
+### MINOR IMPROVEMENTS
+
+* upgraded APG datasets (`apg_families` and `apg_order`) to v14 (from July 2017) (#827)
+
+### BUG FIXES
+
+* fix to `worrms_downstream()`: three rank names were not accounted for in our internal set of ranks (suptertribe, subterclass, parvorder) (#824)
+* `classification.gbifid` was returning a duplicate last taxon, i.e., the last two rows in the output data.frame were the same. fixed. (#825)
+* fixed issue in `lowest_common()` due to problem in `classification.uid()` when a taxon UID was merged into another taxon (#828)
+
+
+taxize 0.9.96
+=============
+
+### NEW FEATURES
+
+* NatureServe has a new API version; the package natserv (https://docs.ropensci.org/natserv/) has a complete overhaul for the new API - taxize interfaces to NatureServe updated. Only user facing change should be that we've moved to using just the final numeric part of the NatureServe taxonomic identifiers as `ELEMENT_GLOBAL.2.` part is redundant for every identifier (#823)
+
+### MINOR IMPROVEMENTS
+
+* `rankagg()` and `tax_agg()` fixes: `rankagg()` examples now conditional on availability of `vegan` as it should be, and now real abundance data are used in the example. `tax_agg()` fixes species name ordering in `dune` data  (#822) work by @jarioksa
+
+### BUG FIXES
+
+* fixed a bug in `class2tree()` (#818) (#820) thx to @adriangeerre for the report & the fix by @trvinh
+* fix to `worms_downstream()`: user encountered a rank name ("phylum (division)") we hadn't dealt with yet for worms (#821) thx @msweetlove for the report
+
+
+taxize 0.9.95
+=============
+
+### NEW FEATURES
+
+* gains new functions: `bold_children()`, `bold_downstream()` and new S3 methods for `boldid`: `children.boldid` and `downstream.boldid`. Beware that these new methods are built on top of a function that scrapes BOLD's website - their API doesn't provide access to taxonomic children (only parents) - so we've taken the liberty of trying to liberate that data and make it easy to access (#817)
+
+### MINOR IMPROVEMENTS
+
+* fix to a failing `tol_resolve()` test - upstream package rotl had the bug; told maintainer about it and he'll submit a new version soon; affected commented out for now  (#814)
+
+
 taxize 0.9.94
 =============
 
@@ -550,11 +612,11 @@ taxize 0.7.6
 ### MINOR IMPROVEMENTS
 
 * Changed defunct messages in `eol_invasive()` and `gisd_invasive()`
-to point to new location in the [originr](https://github.com/ropenscilabs/originr)
+to point to new location in the [originr](https://github.com/ropensci/originr)
 package. Also, cleaned out code in those functions as not avail.
 anymore (#494)
 * Access to IUCN taxonomy information is now provided through the newish
-[rredlist](https://github.com/ropenscilabs/rredlist) package. (Two issues
+[rredlist](https://github.com/ropensci/rredlist) package. (Two issues
 dealing with IUCN problems (#475) (#492))
 
 ### BUG FIXES
@@ -597,7 +659,7 @@ taxize 0.7.4
 * New function `lowest_common()` for obtaining the lowest common taxon and
 rank for a given taxon name or ID. Methods so far for ITIS, NCBI, and GBIF (#505)
 * New contributor James O'Donnell (@jimmyodonnell) (via #505)
-* Now importing `rredlist` [rredlist](https://github.com/ropenscilabs/rredlist)
+* Now importing `rredlist` [rredlist](https://github.com/ropensci/rredlist)
 * New function `iucn_summary_id()` - same as `iucn_summary()`, except takes
 IUCN IDs as input instead of taxonomic names (#493)
 * All taxonomic rank columns in data.frame's now given back as lower case.

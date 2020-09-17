@@ -13,12 +13,12 @@
 \title{Get NatureServe taxonomic ID for a taxon name}
 \usage{
 get_natservid(
-  query,
+  sci_com,
   searchtype = "scientific",
   ask = TRUE,
   messages = TRUE,
   rows = NA,
-  key = NULL,
+  query = NULL,
   ...
 )
 
@@ -36,10 +36,17 @@ as.natservid(x, check = TRUE)
 
 \method{as.data.frame}{natservid}(x, ...)
 
-get_natservid_(query, messages = TRUE, rows = NA, key = NULL, ...)
+get_natservid_(
+  sci_com,
+  searchtype = "scientific",
+  messages = TRUE,
+  rows = NA,
+  query = NULL,
+  ...
+)
 }
 \arguments{
-\item{query}{character; A vector of common or scientific names. Or, a
+\item{sci_com}{character; A vector of common or scientific names. Or, a
 \code{taxon_state} object (see \link{taxon-state})}
 
 \item{searchtype}{character; One of 'scientific' (default) or 'common'.
@@ -49,22 +56,21 @@ column of data is targeted in name filtering post data request.}
 \item{ask}{logical; should get_natservid be run in interactive mode?
 If \code{TRUE} and more than one wormsid is found for the species, the
 user is asked for input. If \code{FALSE} NA is returned for
-multiple matches.}
+multiple matches. default: \code{TRUE}}
 
-\item{messages}{logical; should progress be printed?}
+\item{messages}{logical; should progress be printed? default: \code{TRUE}}
 
 \item{rows}{numeric; Any number from 1 to infinity. If the default NaN, all
 rows are considered. Note that this function still only gives back a
 natservid class object with one to many identifiers. See
-\code{\link[=get_natservid_]{get_natservid_()}} to get back all, or a subset, of the raw
+\code{get_natservid_()} to get back all, or a subset, of the raw
 data that you are presented during the ask process.}
 
-\item{key}{(character) your NatureServe API key. Required. See
-\strong{Authentication} below for more.}
+\item{query}{Deprecated, see \code{sci_com}}
 
-\item{...}{Ignored}
+\item{...}{curl options passed on to \link[crul:verb-POST]{crul::verb-POST}}
 
-\item{x}{Input to as.natservid}
+\item{x}{Input to \code{as.natservid}}
 
 \item{check}{logical; Check if ID matches any existing on the DB, only
 used in \code{\link[=as.natservid]{as.natservid()}}}
@@ -83,25 +89,12 @@ attributes and exceptions
 \description{
 Get NatureServe taxonomic ID for a taxon name
 }
-\section{Authentication}{
-
-Get an API key from NatureServe at
-\url{https://services.natureserve.org/developer/index.jsp}.
-You can pass your token in as an argument or store it one of two places:
-\itemize{
-\item your .Rprofile file with an entry like
-\code{options(NatureServeKey = "your-natureserve-key")}
-\item your .Renviron file with an entry like
-\code{NATURE_SERVE_KEY=your-natureserve-key}
+\note{
+Authentication no longer required
 }
-
-See \link{Startup} for information on how to create/find your
-.Rprofile and .Renviron files
-}
-
 \examples{
 \dontrun{
-(x <- get_natservid("Helianthus annuus"))
+(x <- get_natservid("Helianthus annuus", verbose = TRUE))
 attributes(x)
 attr(x, "match")
 attr(x, "multiple_matches")
@@ -123,30 +116,28 @@ get_natservid(c('Gadus morhua', "howdy"))
 
 # Convert a natservid without class information to a natservid class
 # already a natservid, returns the same
-as.natservid(get_natservid('Gadus morhua'))
+as.natservid(get_natservid('Pomatomus saltatrix'))
 # same
 as.natservid(get_natservid(c('Gadus morhua', 'Pomatomus saltatrix')))
 # character
-as.natservid("ELEMENT_GLOBAL.2.101905")
+as.natservid(101905)
 # character vector, length > 1
-as.natservid(c("ELEMENT_GLOBAL.2.101905", "ELEMENT_GLOBAL.2.101998"))
+as.natservid(c(101905, 101998))
 # list, either numeric or character
-as.natservid(list("ELEMENT_GLOBAL.2.101905", "ELEMENT_GLOBAL.2.101998"))
+as.natservid(list(101905, 101998))
 ## dont check, much faster
-as.natservid("ELEMENT_GLOBAL.2.101905", check = FALSE)
-as.natservid(c("ELEMENT_GLOBAL.2.101905", "ELEMENT_GLOBAL.2.101998"),
-  check = FALSE)
-as.natservid(list("ELEMENT_GLOBAL.2.101905", "ELEMENT_GLOBAL.2.101998"),
-  check = FALSE)
+as.natservid(101905, check = FALSE)
+as.natservid(c(101905, 101998), check = FALSE)
+as.natservid(list(101905, 101998), check = FALSE)
 
-(out <- as.natservid(
-  c("ELEMENT_GLOBAL.2.101905", "ELEMENT_GLOBAL.2.101998")))
+(out <- as.natservid(c(101905, 101998), check = FALSE))
 data.frame(out)
 as.natservid( data.frame(out) )
 
 # Get all data back
-get_natservid_("Ruby*")
-get_natservid_("Ruby*", rows=1:3)
+get_natservid_("Helianthus")
+get_natservid_("Ruby*", searchtype = "common")
+get_natservid_("Ruby*", searchtype = "common", rows=1:3)
 }
 }
 \seealso{

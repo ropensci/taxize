@@ -25,11 +25,12 @@
 classification(...)
 
 \method{classification}{default}(
-  x,
+  sci_id,
   db = NULL,
   callopts = list(),
   return_id = TRUE,
   rows = NA,
+  x = NULL,
   ...
 )
 
@@ -81,7 +82,7 @@ classification(...)
 \code{\link[=get_pow]{get_pow()}}. For \code{rbind.classification} and \code{cbind.classification}: one or
 more objects of class \code{classification}}
 
-\item{x}{Vector of taxa names (character) or IDs (character or numeric)
+\item{sci_id}{Vector of taxa names (character) or IDs (character or numeric)
 to query. For \code{db = "eol"}, EOL expects you to pass it a taxon id, called
 \code{eolid} in the output of \code{\link[=get_eolid]{get_eolid()}}.}
 
@@ -103,6 +104,8 @@ classification data.}
 \item{rows}{(numeric) Any number from 1 to infinity. If the default NA,
 all rows are considered. Note that this parameter is ignored if you pass
 in a taxonomic id instead of a name of class character.}
+
+\item{x}{Deprecated, see \code{sci_id}}
 
 \item{id}{character; identifiers, returned by \code{\link[=get_tsn]{get_tsn()}}, \code{\link[=get_uid]{get_uid()}},
 \code{\link[=get_eolid]{get_eolid()}}, \code{\link[=get_tpsid]{get_tpsid()}}, \code{\link[=get_gbifid]{get_gbifid()}}, \code{\link[=get_tolid]{get_tolid()}},
@@ -172,8 +175,8 @@ classification(126436, db = 'worms')
 classification('Helianthus annuus', db = 'pow')
 classification('Helianthus', db = 'pow')
 classification('Asteraceae', db = 'pow')
-classification("ELEMENT_GLOBAL.2.134717", db = 'natserv')
-classification(c(2704179, 6162875, 8286319), db = 'gbif')
+classification("134717", db = 'natserv')
+classification(c(2704179, 6162875, 8286319, 2441175, 731), db = 'gbif')
 classification(25509881, db = 'tropicos')
 classification("NBNSYS0000004786", db = 'nbn')
 classification(as.nbnid("NBNSYS0000004786"), db = 'nbn')

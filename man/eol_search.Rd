@@ -5,18 +5,19 @@
 \title{Search for terms in EOL database.}
 \usage{
 eol_search(
-  terms,
+  sci,
   page = 1,
   exact = NULL,
   filter_tid = NULL,
   filter_heid = NULL,
   filter_by_string = NULL,
   cache_ttl = NULL,
+  terms = NULL,
   ...
 )
 }
 \arguments{
-\item{terms}{search terms (character)}
+\item{sci}{(character) scientific name}
 
 \item{page}{A maximum of 30 results are returned per page. This parameter
 allows you to fetch more pages of results if there are more than
@@ -36,6 +37,8 @@ and that matching page will be used as the taxonomic group against which
 to filter search results}
 
 \item{cache_ttl}{The number of seconds you wish to have the response cached.}
+
+\item{terms}{Deprecated, see \code{sci}}
 
 \item{...}{Curl options passed on to \link[crul:HttpClient]{crul::HttpClient}}
 }
@@ -60,9 +63,9 @@ this function only returns JSON for now.
 }
 \examples{
 \dontrun{
-eol_search(terms='Homo')
-eol_search(terms='Salix', verbose = TRUE)
-eol_search(terms='Ursus americanus')
+eol_search(sci='Homo')
+eol_search(sci='Salix', verbose = TRUE)
+eol_search(sci='Ursus americanus')
 eol_search('Pinus contorta')
 }
 }

@@ -13,7 +13,7 @@
 \title{Get the GBIF backbone taxon ID from taxonomic names.}
 \usage{
 get_gbifid(
-  sciname,
+  sci,
   ask = TRUE,
   messages = TRUE,
   rows = NA,
@@ -23,6 +23,7 @@ get_gbifid(
   family = NULL,
   rank = NULL,
   method = "backbone",
+  sciname = NULL,
   ...
 )
 
@@ -40,10 +41,16 @@ as.gbifid(x, check = FALSE)
 
 \method{as.data.frame}{gbifid}(x, ...)
 
-get_gbifid_(sciname, messages = TRUE, rows = NA, method = "backbone")
+get_gbifid_(
+  sci,
+  messages = TRUE,
+  rows = NA,
+  method = "backbone",
+  sciname = NULL
+)
 }
 \arguments{
-\item{sciname}{(character) one or more scientific names. Or, a \code{taxon_state}
+\item{sci}{(character) one or more scientific names. Or, a \code{taxon_state}
 object (see \link{taxon-state})}
 
 \item{ask}{logical; should get_gbifid be run in interactive mode?
@@ -66,11 +73,13 @@ below.}
 
 \item{family}{(character) A family name. Optional. See \code{Filtering} below.}
 
-\item{rank}{(character) A taxonomic rank name. See \code{\link[=rank_ref]{rank_ref()}} for possible
+\item{rank}{(character) A taxonomic rank name. See \link{rank_ref} for possible
 options. Though note that some data sources use atypical ranks, so inspect the
 data itself for options. Optional. See \code{Filtering} below.}
 
 \item{method}{(character) one of "backbone" or "lookup". See Details.}
+
+\item{sciname}{Deprecated, see \code{sci}}
 
 \item{...}{Ignored}
 
@@ -119,9 +128,9 @@ Filtering narrows down to the set that matches your query, and removes the rest.
 
 \examples{
 \dontrun{
-get_gbifid(sciname='Poa annua')
-get_gbifid(sciname='Pinus contorta')
-get_gbifid(sciname='Puma concolor')
+get_gbifid(sci='Poa annua')
+get_gbifid(sci='Pinus contorta')
+get_gbifid(sci='Puma concolor')
 
 #lots of queries
 spp <- names_list("species", 10)
@@ -134,12 +143,12 @@ xx
 get_gbifid(c("Poa annua", "Pinus contorta"))
 
 # specify rows to limit choices available
-get_gbifid(sciname='Pinus')
-get_gbifid(sciname='Pinus', rows=10)
-get_gbifid(sciname='Pinus', rows=1:3)
+get_gbifid(sci='Pinus')
+get_gbifid(sci='Pinus', rows=10)
+get_gbifid(sci='Pinus', rows=1:3)
 
 # When not found, NA given
-get_gbifid(sciname="uaudnadndj")
+get_gbifid(sci="uaudnadndj")
 get_gbifid(c("Chironomus riparius", "uaudnadndj"))
 
 # Narrow down results to a division or rank, or both

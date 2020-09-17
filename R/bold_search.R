@@ -1,7 +1,7 @@
 #' Search Barcode of Life for taxonomic IDs
 #'
 #' @export
-#' @param name (character) One or more scientific names.
+#' @param sci (character) One or more scientific names.
 #' @param id (integer) One or more BOLD taxonomic identifiers.
 #' @param fuzzy (logical) Whether to use fuzzy search or not (default: `FALSE`).
 #' Only used if `name` passed.
@@ -13,10 +13,10 @@
 #' passed.
 #' @param response (logical) Note that response is the object that returns from the
 #' curl call, useful for debugging, and getting detailed info on the API call.
-#' @param ... Further args passed on to [crul::verb-GET], main purpose being curl
-#' debugging
-#' @details You must provide one of name or id to this function. The other
-#' parameters are optional. Note that when passing in `name`, `fuzzy` can be used
+#' @param name Deprecated, see `sci`
+#' @param ... named curl options passed on to [crul::verb-GET]
+#' @details You must provide one of `sci` or `id` to this function. The other
+#' parameters are optional. Note that when passing in `sci`, `fuzzy` can be used
 #' as well, while if `id` is passed, then `fuzzy` is ignored, and `dataTypes`
 #' `includeTree` can be used.
 #'
@@ -38,22 +38,22 @@
 #' * thirdparty Returns information from third parties. Includes wikipedia
 #' summary, wikipedia URL, GBIF map.
 #'
-#' @references <http://www.boldsystems.org/index.php/resources/api>
+#' @references http://www.boldsystems.org/index.php/resources/api
 #' @return A list of data.frame's.
 #' @examples \dontrun{
 #' # A basic example
-#' bold_search(name="Apis")
-#' bold_search(name="Agapostemon")
-#' bold_search(name="Poa")
+#' bold_search(sci="Apis")
+#' bold_search(sci="Agapostemon")
+#' bold_search(sci="Poa")
 #'
 #' # Fuzzy search
-#' head(bold_search(name="Po", fuzzy=TRUE))
-#' head(bold_search(name="Aga", fuzzy=TRUE))
+#' head(bold_search(sci="Po", fuzzy=TRUE))
+#' head(bold_search(sci="Aga", fuzzy=TRUE))
 #'
 #' # Many names
-#' bold_search(name=c("Apis","Puma concolor"))
+#' bold_search(sci=c("Apis","Puma concolor"))
 #' nms <- names_list('species')
-#' bold_search(name=nms)
+#' bold_search(sci=nms)
 #'
 #' # Searching by ID - dataTypes can be used, and includeTree can be used
 #' bold_search(id=88899)
@@ -62,16 +62,93 @@
 #' bold_search(id=88899, dataTypes="basic")
 #' bold_search(id=88899, includeTree=TRUE)
 #' }
+bold_search <- function(sci = NULL, id = NULL, fuzzy = FALSE,
+  dataTypes = 'basic', includeTree=FALSE, response=FALSE, name = NULL, ...) {
 
-bold_search <- function(name = NULL, id = NULL, fuzzy = FALSE, 
-  dataTypes = 'basic', includeTree=FALSE, response=FALSE, ...) {
-
-  stopifnot(!is.null(name) | !is.null(id))
-  type <- if (is.null(name)) "id" else "name"
+  pchk(name, "sci")
+  if (!is.null(name)) sci <- name
+  stopifnot(!is.null(sci) | !is.null(id))
+  type <- if (is.null(sci)) "id" else "sci"
   tmp <- switch(type,
-         name = bold_tax_name(name = name, fuzzy = fuzzy, response = response, ...),
+         sci = bold_tax_name(name = sci, fuzzy = fuzzy, response = response, ...),
          id = bold_tax_id(id = id, dataTypes = dataTypes, includeTree = includeTree,
                           response = response, ...)
   )
   return(tmp)
+}
+
+#' Barcode of Life taxonomic children
+#' 
+#' BEWARE: this function scrapes data from the BOLD website, so may 
+#' be unstable. That is, one day it may work, and the next it may fail.
+#' Open an issue if you encounter an error: 
+#' https://github.com/ropensci/taxize/issues
+#'
+#' @export
+#' @keywords internal
+#' @param id (integer) A BOLD taxonomic identifier. length=1. required
+#' @param ... named curl options passed on to [crul::verb-GET]
+#' debugging
+#' @return list of data.frame's
+#' @examples \dontrun{
+#' # Osmia (genus): 253 children
+#' bold_children(id = 4940)
+#' # Momotus (genus): 3 children
+#' bold_children(id = 88899)
+#' # Momotus aequatorialis (species): no children
+#' bold_children(id = 115130)
+#' # Osmia sp1 (species): no children
+#' bold_children(id = 293378)
+#' # Arthropoda (phylum): 27 children
+#' bold_children(id = 82)
+#' # Psocodea (order): 51 children
+#' bold_children(id = 737139)
+#' # Megachilinae (subfamily): 2 groups (tribes: 3, genera: 60)
+#' bold_children(id = 4962)
+#' # Stelis (species): 78 taxa
+#' bold_children(id = 4952)
+#' }
+bold_children <- function(id, ...) {
+  stopifnot(length(id) == 1)
+  x <- crul::HttpClient$new("https://v4.boldsystems.org", opts = list(...))
+  res <- x$get("index.php/Taxbrowser_Taxonpage", query = list(taxid = id))
+  res$raise_for_status()
+  html <- xml2::read_html(res$parse("UTF-8"))
+  nodes <- xml2::xml_find_all(html,
+    '//div[@class = "row"]//div[@class = "ibox float-e-margins"]//ol')
+  if (length(nodes) == 0) {
+    message("no children found")
+    return(list(tibble::tibble()))
+  }
+  group_nmz <- xml2::xml_find_all(html,
+    '//div[@class = "row"]//div[@class = "ibox float-e-margins"]//lh')
+  bb <- lapply(nodes, bold_children_each_node)
+  if (length(group_nmz) > 0) {
+    lst_nmz <- tolower(gsub("\\([0-9]+\\)|\\s", "", xml2::xml_text(group_nmz)))
+    for (i in seq_along(lst_nmz)) {
+      ranknm <- bold_make_rank(lst_nmz[i])
+      bb[[i]]$rank <- ranknm
+      if (!is.na(ranknm)) names(bb)[i] <- ranknm
+    }
+  }
+  return(bb)
+}
+
+bold_children_each_node <- function(x) {
+  out <- lapply(xml2::xml_find_all(x, ".//a"), function(w) {
+    nm <- gsub("\\s\\[[0-9]+\\]$", "", xml2::xml_text(w))
+    id <- strextract(xml2::xml_attr(w, "href"), "[0-9]+$")
+    data.frame(name = nm, id = id, stringsAsFactors = FALSE)
+  })
+  tibble::as_tibble(data.table::rbindlist(out))
+}
+
+bold_make_rank <- function(z) {
+  if (grepl("order", z)) return("order")
+  if (grepl("class", z)) return("class")
+  if (grepl("fam", z)) return("family")
+  if (grepl("tribe", z)) return("tribe")
+  if (grepl("gen", z)) return("genus")
+  if (grepl("spec", z)) return("species")
+  return(NA_character_)
 }

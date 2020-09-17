@@ -5,7 +5,7 @@
 \alias{rank_ref}
 \title{Lookup-table for IDs of taxonomic ranks}
 \description{
-data.frame of 43 rows, with 2 columns:
+data.frame of 46 rows, with 2 columns:
 \itemize{
 \item rankid - a numeric rank id, consecutive
 \item ranks - a comma separated vector of names that are considered
@@ -20,5 +20,10 @@ Please let us know if there is a rank that occurs from one of the data
 sources \pkg{taxize} that we don't have in \code{rank_ref} dataset.
 
 Let us know if you disagree with the ordering of ranks.
+
+Note that \code{rankid} 280 are essentially "genetic variants"; placed just above
+'unspecified' to denote they're not without rank, but they're not
+really taxonomic ranks either. As far as I know there's no way
+to delineate among these "genetic variant" types.
 }
 \keyword{data}

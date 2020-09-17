@@ -5,8 +5,8 @@
 \title{Search Tropicos by scientific name, common name, or Tropicos ID.}
 \usage{
 tp_search(
-  name = NULL,
-  commonname = NULL,
+  sci = NULL,
+  com = NULL,
   nameid = NULL,
   orderby = NULL,
   sortorder = NULL,
@@ -14,29 +14,35 @@ tp_search(
   startrow = NULL,
   type = NULL,
   key = NULL,
+  name = NULL,
+  commonname = NULL,
   ...
 )
 }
 \arguments{
-\item{name}{Your search string. For instance "poa annua". See Details.}
+\item{sci}{A scientific name, e.g., "poa annua". See Details.}
 
-\item{commonname}{Your search string. For instance "annual blue grass"}
+\item{com}{A common name, e.g., "annual blue grass"}
 
-\item{nameid}{Your search string. For instance "25509881"}
+\item{nameid}{Your search string. e.g., "25509881"}
 
-\item{orderby}{Your search string. For instance "1"}
+\item{orderby}{Your search string. e.g., "1"}
 
-\item{sortorder}{Your search string. For instance "ascending"}
+\item{sortorder}{Your search string. e.g., "ascending"}
 
-\item{pagesize}{Your search string. For instance "100"}
+\item{pagesize}{Your search string. e.g., "100"}
 
-\item{startrow}{Your search string. For instance "1"}
+\item{startrow}{Your search string. e.g., "1"}
 
-\item{type}{Type of search, "wildcard" (default) will add a wildcard to the end
-of your search string. "exact" will use your search string exactly.}
+\item{type}{Type of search, "wildcard" (default) will add a wildcard to
+the end of your search string. "exact" will use your search string exactly.}
 
 \item{key}{Your Tropicos API key; See \link{taxize-authentication}
 for help on authentication}
+
+\item{name}{Deprecated, see \code{sci}}
+
+\item{commonname}{Deprecated, see \code{com}}
 
 \item{...}{Further args passed on to \link[crul:HttpClient]{crul::HttpClient}}
 }
@@ -55,13 +61,13 @@ names like \code{var}/\code{subsp}, so remove those from your query.
 }
 \examples{
 \dontrun{
-tp_search(name = 'Poa annua')
-tp_search(name = 'Poa annua subsp. annua')
-tp_search(name = 'Poa annua var. annua')
-tp_search(name = 'Poa annua var annua')
-tp_search(name = 'Poa annua annua')
+tp_search(sci = 'Poa annua')
+tp_search(sci = 'Poa annua subsp. annua')
+tp_search(sci = 'Poa annua var. annua')
+tp_search(sci = 'Poa annua var annua')
+tp_search(sci = 'Poa annua annua')
 }
 }
 \references{
-\url{http://services.tropicos.org/help?method=SearchNameXml}
+http://services.tropicos.org/help?method=SearchNameXml
 }

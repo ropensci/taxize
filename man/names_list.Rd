@@ -7,12 +7,14 @@
 names_list(rank = "genus", size = 10)
 }
 \arguments{
-\item{rank}{Taxonomic rank, one of species, genus (default), family, order}
+\item{rank}{(character) Taxonomic rank, one of species, genus (default),
+family, order}
 
-\item{size}{Number of names to get. Maximum depends on the rank}
+\item{size}{(integer/numeric) Number of names to get. Maximum depends on
+the rank}
 }
 \value{
-Vector of taxonomic names.
+character vector of taxonomic names
 }
 \description{
 Family and order names come from the APG plant names list. Genus and
@@ -24,8 +26,8 @@ names_list('species')
 names_list('genus')
 names_list('family')
 names_list('order')
-names_list('order', '2')
-names_list('order', '15')
+names_list('order', 2)
+names_list('order', 15)
 
 # You can get a lot of genus or species names if you want
 nrow(theplantlist)

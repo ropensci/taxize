@@ -4,13 +4,21 @@
 \alias{tax_name}
 \title{Get taxonomic names for a given rank}
 \usage{
-tax_name(query, get, db = "itis", pref = "ncbi", messages = TRUE, ...)
+tax_name(
+  sci,
+  get,
+  db = "itis",
+  pref = "ncbi",
+  messages = TRUE,
+  query = NULL,
+  ...
+)
 }
 \arguments{
-\item{query}{(character) Vector of taxonomic names to query. required.}
+\item{sci}{(character) Vector of taxonomic names to query. required.}
 
 \item{get}{(character) The ranks of the taxonomic name to get, see
-\code{\link[=rank_ref]{rank_ref()}}. required.}
+\link{rank_ref}. required.}
 
 \item{db}{(character) The database to search from: 'itis', 'ncbi' or 'both'.
 If 'both' both NCBI and ITIS will be queried. Result will be the union of
@@ -22,6 +30,8 @@ Either 'ncbi' (default) or 'itis'. Currently not implemented.}
 
 \item{messages}{(logical) If \code{TRUE} the actual taxon queried is printed
 on the console.}
+
+\item{query}{Deprecated, see \code{sci}}
 
 \item{...}{Other arguments passed to \code{\link[=get_tsn]{get_tsn()}} or
 \code{\link[=get_uid]{get_uid()}}.}
@@ -46,23 +56,23 @@ See \link{taxize-authentication} for help on authentication
 \examples{
 \dontrun{
 # A case where itis and ncbi use the same names
-tax_name(query = "Helianthus annuus", get = "family", db = "itis")
-tax_name(query = "Helianthus annuus", get = "family", db = "ncbi")
-tax_name(query = "Helianthus annuus", get = c("genus","family","order"),
+tax_name(sci = "Helianthus annuus", get = "family", db = "itis")
+tax_name(sci = "Helianthus annuus", get = "family", db = "ncbi")
+tax_name(sci = "Helianthus annuus", get = c("genus","family","order"),
   db = "ncbi")
 
 # Case where itis and ncbi use different names
-tax_name(query = "Helianthus annuus", get = "kingdom", db = "itis")
-tax_name(query = "Helianthus annuus", get = "kingdom", db = "ncbi")
+tax_name(sci = "Helianthus annuus", get = "kingdom", db = "itis")
+tax_name(sci = "Helianthus annuus", get = "kingdom", db = "ncbi")
 
 # multiple rank arguments
-tax_name(query = c("Helianthus annuus","Baetis rhodani"), get = c("genus",
+tax_name(sci = c("Helianthus annuus","Baetis rhodani"), get = c("genus",
 "kingdom"), db = "ncbi")
-tax_name(query = c("Helianthus annuus","Baetis rhodani"), get = c("genus",
+tax_name(sci = c("Helianthus annuus","Baetis rhodani"), get = c("genus",
 "kingdom"), db = "itis")
 
 # query both sources
-tax_name(query=c("Helianthus annuus", 'Baetis rhodani'), get=c("genus",
+tax_name(sci=c("Helianthus annuus", 'Baetis rhodani'), get=c("genus",
 "kingdom"), db="both")
 }
 }

@@ -13,12 +13,13 @@
 \title{Get the TSN code for a search term.}
 \usage{
 get_tsn(
-  searchterm,
+  sci_com,
   searchtype = "scientific",
   accepted = FALSE,
   ask = TRUE,
   messages = TRUE,
   rows = NA,
+  searchterm = NULL,
   ...
 )
 
@@ -37,16 +38,17 @@ as.tsn(x, check = TRUE)
 \method{as.data.frame}{tsn}(x, ...)
 
 get_tsn_(
-  searchterm,
+  sci_com,
   messages = TRUE,
   searchtype = "scientific",
   accepted = TRUE,
   rows = NA,
+  searchterm = NULL,
   ...
 )
 }
 \arguments{
-\item{searchterm}{character; A vector of common or scientific names.
+\item{sci_com}{character; A vector of common or scientific names.
 Or, a \code{taxon_state} object (see \link{taxon-state})}
 
 \item{searchtype}{character; One of 'scientific' or 'common', or any
@@ -67,6 +69,8 @@ rows are considered. Note that this function still only gives back a tsn
 class object with one to many identifiers. See
 \code{\link[=get_tsn_]{get_tsn_()}} to get back all, or a subset, of the raw
 data that you are presented during the ask process.}
+
+\item{searchterm}{Deprecated, see \code{sci_com}}
 
 \item{...}{Ignored}
 
@@ -108,7 +112,7 @@ get_tsn("howdy")
 get_tsn(c("Chironomus riparius", "howdy"))
 
 # Using common names
-get_tsn(searchterm="black bear", searchtype="common")
+get_tsn("black bear", searchtype="common")
 
 # Convert a tsn without class information to a tsn class
 as.tsn(get_tsn("Quercus douglasii")) # already a tsn, returns the same

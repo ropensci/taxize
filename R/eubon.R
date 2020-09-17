@@ -45,7 +45,7 @@
 #' affects the search mode `scientificNameLike` and `vernacularNameLike`; other
 #' search modes are expected to return only one record per check list
 #' @param ... Curl options passed on to [crul::verb-GET]
-#' @references <https://cybertaxonomy.eu/eu-bon/utis/1.3/doc.html>
+#' @references https://cybertaxonomy.eu/eu-bon/utis/1.3/doc.html
 #' @family eubon-methods
 #' @examples \dontrun{
 #' eubon_search("Prionus")

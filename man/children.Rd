@@ -7,30 +7,33 @@
 \alias{children.wormsid}
 \alias{children.ids}
 \alias{children.uid}
+\alias{children.boldid}
 \title{Retrieve immediate children taxa for a given taxon name or ID.}
 \usage{
 children(...)
 
-\method{children}{default}(x, db = NULL, rows = NA, ...)
+\method{children}{default}(sci_id, db = NULL, rows = NA, x = NULL, ...)
 
-\method{children}{tsn}(x, db = NULL, ...)
+\method{children}{tsn}(sci_id, db = NULL, ...)
 
-\method{children}{wormsid}(x, db = NULL, ...)
+\method{children}{wormsid}(sci_id, db = NULL, ...)
 
-\method{children}{ids}(x, db = NULL, ...)
+\method{children}{ids}(sci_id, db = NULL, ...)
 
-\method{children}{uid}(x, db = NULL, ...)
+\method{children}{uid}(sci_id, db = NULL, ...)
+
+\method{children}{boldid}(sci_id, db = NULL, ...)
 }
 \arguments{
-\item{...}{Further args passed on to \code{\link[ritis:hierarchy_down]{ritis::hierarchy_down()}},
-\code{\link[=ncbi_children]{ncbi_children()}}, or \code{\link[worrms:wm_children]{worrms::wm_children()}}.
+\item{...}{Further args passed on to \code{\link[ritis:hierarchy]{ritis::hierarchy_down()}},
+\code{\link[=ncbi_children]{ncbi_children()}}, \code{\link[worrms:wm_children]{worrms::wm_children()}}, \code{\link[=bold_children]{bold_children()}}
 See those functions for what parameters can be passed on.}
 
-\item{x}{Vector of taxa names (character) or IDs (character or numeric)
+\item{sci_id}{Vector of taxa names (character) or IDs (character or numeric)
 to query.}
 
 \item{db}{character; database to query. One or more of \code{itis},
-\code{ncbi}, or \code{worms}. Note that each taxonomic data
+\code{ncbi}, \code{worms}, or \code{bold}. Note that each taxonomic data
 source has their own identifiers, so that if you provide the wrong
 \code{db} value for the identifier you could get a result, but it will
 likely be wrong (not what you were expecting). If using ncbi, we recommend
@@ -40,6 +43,8 @@ getting an API key; see \link{taxize-authentication}}
 rows are considered. Note that this parameter is ignored if you pass in a
 taxonomic id of any of the acceptable classes: tsn. NCBI has a
 method for this function but rows doesn't work.}
+
+\item{x}{Deprecated, see \code{sci_id}}
 }
 \value{
 A named list of data.frames with the children names of every
@@ -58,21 +63,31 @@ taxa with words like "unclassified", "unknown", "uncultured", "sp." are
 NOT removed
 }
 
+\section{bold}{
+
+BEWARE: \code{db="bold"} scrapes the BOLD website, so may be unstable. That is,
+one day it may work, and the next it may fail. Open an issue if you
+encounter an error: https://github.com/ropensci/taxize/issues
+}
+
 \examples{
 \dontrun{
 # Plug in taxonomic IDs
 children(161994, db = "itis")
 children(8028, db = "ncbi")
 ## works with numeric if as character as well
-children("161994", db = "itis")
+children(161994, db = "itis")
+children(88899, db = "bold")
+children(as.boldid(88899))
 
 # Plug in taxon names
 children("Salmo", db = 'itis')
 children("Salmo", db = 'ncbi')
 children("Salmo", db = 'worms')
+children("Salmo", db = 'bold')
 
 # Plug in IDs
-(id <- get_wormsid("Platanista"))
+(id <- get_wormsid("Gadus"))
 children(id)
 
 # Many taxa

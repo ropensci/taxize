@@ -13,13 +13,14 @@
 \title{Get the page name for a Wiki taxon}
 \usage{
 get_wiki(
-  x,
+  sci_com,
   wiki_site = "species",
   wiki = "en",
   ask = TRUE,
   messages = TRUE,
   limit = 100,
   rows = NA,
+  x = NULL,
   ...
 )
 
@@ -48,7 +49,7 @@ get_wiki_(
 )
 }
 \arguments{
-\item{x}{(character) A vector of common or scientific names. Or, a
+\item{sci_com}{(character) A vector of common or scientific names. Or, a
 \code{taxon_state} object (see \link{taxon-state})}
 
 \item{wiki_site}{(character) Wiki site. One of species (default), pedia,
@@ -69,6 +70,9 @@ rows are considered. Note that this function still only gives back a wiki
 class object with one to many identifiers. See \code{\link[=get_wiki_]{get_wiki_()}} to get back
 all, or a subset, of the raw data that you are presented during the ask
 process.}
+
+\item{x}{For \code{get_wiki()}: deprecated, see \code{sci_com}. For \code{as.wiki}, various,
+see examples}
 
 \item{...}{Ignored}
 
@@ -95,10 +99,10 @@ default. Set the \code{wiki} parameter for a different language site.
 }
 \examples{
 \dontrun{
-get_wiki(x = "Quercus douglasii")
-get_wiki(x = "Quercu")
-get_wiki(x = "Quercu", "pedia")
-get_wiki(x = "Quercu", "commons")
+get_wiki(sci_com = "Quercus douglasii")
+get_wiki(sci_com = "Quercu")
+get_wiki(sci_com = "Quercu", "pedia")
+get_wiki(sci_com = "Quercu", "commons")
 
 # diff. wikis with wikipedia
 get_wiki("Malus domestica", "pedia")

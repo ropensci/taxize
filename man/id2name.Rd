@@ -11,24 +11,24 @@
 \alias{id2name.boldid}
 \title{Taxonomic IDs to taxonomic names}
 \usage{
-id2name(x, db = NULL, ...)
+id2name(id, db = NULL, x = NULL, ...)
 
-\method{id2name}{default}(x, db = NULL, ...)
+\method{id2name}{default}(id, db = NULL, x = NULL, ...)
 
-\method{id2name}{tolid}(x, ...)
+\method{id2name}{tolid}(id, ...)
 
-\method{id2name}{tsn}(x, ...)
+\method{id2name}{tsn}(id, ...)
 
-\method{id2name}{uid}(x, ...)
+\method{id2name}{uid}(id, ...)
 
-\method{id2name}{wormsid}(x, ...)
+\method{id2name}{wormsid}(id, ...)
 
-\method{id2name}{gbifid}(x, ...)
+\method{id2name}{gbifid}(id, ...)
 
-\method{id2name}{boldid}(x, ...)
+\method{id2name}{boldid}(id, ...)
 }
 \arguments{
-\item{x}{vector of taxonomic IDs (character or numeric)}
+\item{id}{vector of taxonomic IDs (character or numeric)}
 
 \item{db}{(character) database to query. One or more of \code{tol}, \code{itis},
 \code{ncbi}, \code{worms}, \code{gbif}, or \code{bold}. Note that each
@@ -36,6 +36,8 @@ taxonomic data source has their own  identifiers, so that if you provide
 the wrong \code{db} value for the identifier you could get a result,
 but it will likely be wrong (not what you were expecting). If using ncbi
 we recommend getting API keys; see \link{taxize-authentication}}
+
+\item{x}{Deprecated, see \code{id}}
 
 \item{...}{Further args passed on to \code{tol_id2name} or
 \link{itis_getrecord}, or other internal functions.

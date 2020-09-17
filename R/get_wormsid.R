@@ -4,7 +4,7 @@
 #' Species (WORMS).
 #'
 #' @export
-#' @param query character; A vector of common or scientific names. Or, a
+#' @param sci_com character; A vector of common or scientific names. Or, a
 #' `taxon_state` object (see [taxon-state])
 #' @param searchtype character; One of 'scientific' or 'common', or any unique
 #' abbreviation
@@ -27,7 +27,8 @@
 #' class object with one to many identifiers. See [get_wormsid_()] to get back
 #' all, or a subset, of the raw data that you are presented during the ask
 #' process.
-#' @param x Input to as.wormsid
+#' @param query Deprecated, see `sci_com`
+#' @param x Input to `as.wormsid`
 #' @param ... Ignored
 #' @param check logical; Check if ID matches any existing on the DB, only
 #' used in [as.wormsid()]
@@ -104,11 +105,11 @@
 #' get_wormsid_("Plat", rows=1:75)
 #' # get_wormsid_(c("asdfadfasd","Plat"), rows=1:5)
 #' }
-get_wormsid <- function(query, searchtype = "scientific", marine_only = TRUE,
+get_wormsid <- function(sci_com, searchtype = "scientific", marine_only = TRUE,
   fuzzy = NULL, accepted = FALSE, ask = TRUE, messages = TRUE,
-  rows = NA, ...) {
+  rows = NA, query = NULL, ...) {
 
-  assert(query, c("character", "taxon_state"))
+  assert(sci_com, c("character", "taxon_state"))
   assert(searchtype, "character")
   assert(marine_only, "logical")
   assert(fuzzy, "logical")
@@ -116,15 +117,16 @@ get_wormsid <- function(query, searchtype = "scientific", marine_only = TRUE,
   assert(ask, "logical")
   assert(messages, "logical")
   assert_rows(rows)
+  pchk(query, "sci_com")
 
-  if (inherits(query, "character")) {
-    tstate <- taxon_state$new(class = "wormsid", names = query)
-    items <- query
+  if (inherits(sci_com, "character")) {
+    tstate <- taxon_state$new(class = "wormsid", names = sci_com)
+    items <- sci_com
   } else {
-    assert_state(query, "wormsid")
-    tstate <- query
-    query <- tstate$taxa_remaining()
-    items <- c(query, tstate$taxa_completed())
+    assert_state(sci_com, "wormsid")
+    tstate <- sci_com
+    sci_com <- tstate$taxa_remaining()
+    items <- c(sci_com, tstate$taxa_completed())
   }
 
   prog <- progressor$new(items = items, suppress = !messages)
@@ -132,18 +134,18 @@ get_wormsid <- function(query, searchtype = "scientific", marine_only = TRUE,
   for (i in seq_along(done)) prog$completed(names(done)[i], done[[i]]$att)
   prog$prog_start()
 
-  for (i in seq_along(query)) {
+  for (i in seq_along(sci_com)) {
     direct <- FALSE
-    mssg(messages, "\nRetrieving data for taxon '", query[i], "'\n")
+    mssg(messages, "\nRetrieving data for taxon '", sci_com[i], "'\n")
 
     if (!searchtype %in% c("scientific", "common")) {
       stop("'searchtype' must be one of 'scientific' or 'common'", call. = FALSE)
     }
     wmdf <- switch(
       searchtype,
-      scientific = worms_worker(query[i], worrms::wm_records_name, rows,
+      scientific = worms_worker(sci_com[i], worrms::wm_records_name, rows,
         marine_only, fuzzy %||% TRUE, ...),
-      common = worms_worker(query[i], worrms::wm_records_common, rows,
+      common = worms_worker(sci_com[i], worrms::wm_records_common, rows,
         marine_only, fuzzy %||% FALSE, ...)
     )
     mm <- NROW(wmdf) > 1
@@ -178,7 +180,7 @@ get_wormsid <- function(query, searchtype = "scientific", marine_only = TRUE,
       # check for direct match
       if (nrow(wmdf) > 1) {
         names(wmdf)[grep("scientificname", names(wmdf))] <- "target"
-        matchtmp <- wmdf[tolower(wmdf$target) %in% tolower(query[i]), "id"]
+        matchtmp <- wmdf[tolower(wmdf$target) %in% tolower(sci_com[i]), "id"]
         if (length(matchtmp) == 1) {
           wmid <- matchtmp
           direct <- TRUE
@@ -203,7 +205,7 @@ get_wormsid <- function(query, searchtype = "scientific", marine_only = TRUE,
           # prompt
           message("\n\n")
           print(wmdf)
-          message("\nMore than one WORMS ID found for taxon '", query[i], "'!\n
+          message("\nMore than one WORMS ID found for taxon '", sci_com[i], "'!\n
                   Enter rownumber of taxon (other inputs will return 'NA'):\n") # prompt
           take <- scan(n = 1, quiet = TRUE, what = 'raw')
 
@@ -223,7 +225,7 @@ get_wormsid <- function(query, searchtype = "scientific", marine_only = TRUE,
           }
         } else {
           if (length(wmid) != 1) {
-            warning(sprintf(m_more_than_one_found, "Worms ID", query[i]),
+            warning(sprintf(m_more_than_one_found, "Worms ID", sci_com[i]),
               call. = FALSE)
             wmid <- NA_character_
             att <- m_na_ask_false
@@ -234,9 +236,9 @@ get_wormsid <- function(query, searchtype = "scientific", marine_only = TRUE,
     }
     res <- list(id = as.character(wmid), att = att, multiple = mm,
       direct = direct)
-    prog$completed(query[i], att)
+    prog$completed(sci_com[i], att)
     prog$prog(att)
-    tstate$add(query[i], res)
+    tstate$add(sci_com[i], res)
   }
   out <- tstate$get()
   ids <- structure(pluck_un(out, "id", ""), class = "wormsid",
@@ -310,14 +312,16 @@ check_wormsid <- function(x){
 
 #' @export
 #' @rdname get_wormsid
-get_wormsid_ <- function(query, messages = TRUE, searchtype = "scientific",
-  marine_only = TRUE, fuzzy = NULL, accepted = TRUE, rows = NA, ...) {
+get_wormsid_ <- function(sci_com, messages = TRUE, searchtype = "scientific",
+  marine_only = TRUE, fuzzy = NULL, accepted = TRUE, rows = NA, query = NULL,
+  ...) {
 
+  pchk(query, "sci_com")
   stats::setNames(
-    lapply(query, get_wormsid_help, messages = messages,
+    lapply(sci_com, get_wormsid_help, messages = messages,
            searchtype = searchtype, marine_only = marine_only, fuzzy = fuzzy,
            accepted = accepted, rows = rows, ...),
-    query
+    sci_com
   )
 }
 

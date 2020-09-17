@@ -16,6 +16,11 @@ vign_use_case:
 		${RSCRIPT} -e "Sys.setenv(NOT_CRAN='true'); knitr::knit('case_study.Rmd.og', output = 'case_study.Rmd')";\
 		cd ..
 
+vign_datasources:
+		cd vignettes;\
+		${RSCRIPT} -e "Sys.setenv(NOT_CRAN='true'); knitr::knit('datasources.Rmd.og', output = 'datasources.Rmd')";\
+		cd ..
+
 install_vign: doc build
 	${RSCRIPT} -e "Sys.setenv(NOT_CRAN = TRUE); library(devtools); document(); install(build_vignettes=TRUE, dependencies=FALSE)"
 
@@ -23,16 +28,16 @@ install: doc build
 	R CMD INSTALL . && rm *.tar.gz
 
 build:
-	R CMD build .
+	R CMD build . --no-build-vignettes
 
 doc:
 	${RSCRIPT} -e "devtools::document()"
 
 eg:
-	${RSCRIPT} -e "devtools::run_examples()"
+	${RSCRIPT} -e "devtools::run_examples(run = TRUE)"
 
 check: build
-	_R_CHECK_CRAN_INCOMING_=FALSE R CMD CHECK --as-cran --no-manual `ls -1tr ${PACKAGE}*gz | tail -n1`
+	_R_CHECK_CRAN_INCOMING_=FALSE R CMD CHECK --as-cran --no-manual --no-build-vignettes `ls -1tr ${PACKAGE}*gz | tail -n1`
 	@rm -f `ls -1tr ${PACKAGE}*gz | tail -n1`
 	@rm -rf ${PACKAGE}.Rcheck
 

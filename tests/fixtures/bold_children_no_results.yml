@@ -1,0 +1,217 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://v4.boldsystems.org/index.php/Taxbrowser_Taxonpage?taxid=Adfadfasfadsfasddfads
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: 'HTTP/2 200 '
+      server: nginx
+      date: Thu, 23 Apr 2020 22:35:50 GMT
+      content-type: text/html; charset=utf-8
+      x-powered-by: PHP/5.3.15
+      set-cookie: session=v6jmpdgkhe3qr0b8eto5cuuv71; path=/
+      x-frame-options: SAMEORIGIN
+      x-content-type-options: nosniff
+      x-xss-protection: 1; mode=block
+    body:
+      encoding: UTF-8
+      file: no
+      string: "<!DOCTYPE HTML>\r\n<html>\r\n<head>\r\n\t<meta charset=\"utf-8\" />\n<meta
+        http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\">\n\n<title>No
+        Match | Taxonomy Browser | BOLDSYSTEMS</title>\n\n<meta name=\"keywords\"
+        content=\"\" />\n<meta name=\"description\" content=\"\" />\n<link rel=\"shortcut
+        icon\" type=\"image/x-icon\" href=\"/favicon.ico\" />\n<link rel=\"apple-touch-icon\"
+        href=\"/favicons/apple-icon.png\"/>\n<link rel=\"apple-touch-icon\" sizes=\"57x57\"
+        href=\"/favicons/apple-icon-57x57.png\"/>\n<link rel=\"apple-touch-icon\"
+        sizes=\"60x60\" href=\"/favicons/apple-icon-60x60.png\"/>\n<link rel=\"apple-touch-icon\"
+        sizes=\"72x72\" href=\"/favicons/apple-icon-72x72.png\"/>\n<link rel=\"apple-touch-icon\"
+        sizes=\"76x76\" href=\"/favicons/apple-icon-76x76.png\"/>\n<link rel=\"apple-touch-icon\"
+        sizes=\"114x114\" href=\"/favicons/apple-icon-114x114.png\"/>\n<link rel=\"apple-touch-icon\"
+        sizes=\"120x120\" href=\"/favicons/apple-icon-120x120.png\"/>\n<link rel=\"apple-touch-icon\"
+        sizes=\"144x144\" href=\"/favicons/apple-icon-144x144.png\"/>\n<link rel=\"apple-touch-icon\"
+        sizes=\"152x152\" href=\"/favicons/apple-icon-152x152.png\"/>\n<link rel=\"apple-touch-icon\"
+        sizes=\"180x180\" href=\"/favicons/apple-icon-180x180.png\"/>\n<meta name=\"viewport\"
+        content=\"width=device-width, initial-scale=1, user-scalable=0\" />\n\n<link
+        href=\"/libhtml_v4/css/bootstrap.css\" rel=\"stylesheet\" />\n<link href=\"/libhtml_v4/css/style.css\"
+        rel=\"stylesheet\" />\n<link href=\"/libhtml_v4/css/animate.css\" rel=\"stylesheet\"
+        />\n<link href=\"/libhtml_v4/css/ionicons.min.css\" rel=\"stylesheet\" />\n<!--<link
+        href=\"/libhtml_v4/css/font-awesome.min.css\" rel=\"stylesheet\" />-->\n<link
+        href=\"/libhtml_v3/font-awesome/css/font-awesome.css\" rel=\"stylesheet\">\n<link
+        href=\"https://fonts.googleapis.com/css?family=Open+Sans:400,600,800&amp;subset=latin,latin-ext\"
+        rel=\"stylesheet\" />\n<link href=\"/libhtml_v4/css/print.css\" rel=\"stylesheet\"
+        />\n\n<script src=\"/libhtml_v4/js/modernizr-custom.min.js\"></script>\n<script
+        src=\"/libhtml_v4/js/jquery-2.1.0.min.js\"></script>\n<script src=\"/libhtml_v4/js/bootstrap.js\"></script>\n<script
+        src=\"/libhtml_v4/js/plugins/toastr/toastr.min.js\"></script>\n<script type=\"text/javascript\"
+        src=\"/libhtml_v3/js/modalWaitingBox.js\"></script>\n<script>\n\t(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){\n\t(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new
+        Date();a=s.createElement(o),\n\tm=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)\n\t})(window,document,'script','//www.google-analytics.com/analytics.js','ga');\n\n\tga('create',
+        'UA-372370-4', 'auto');\n\tga('send', 'pageview');\n\n</script>\n<script language=\"javascript\">\n\t//
+        Loading page complete\n$(window).load(function()\n{\n\tcheckHero(); // Check
+        hero height is correct\n\tanimateWhenVisible();  // Activate animation when
+        visible\n});\n\n\n// Page ready\n$(document).ready(function()\n{\n\tif (Modernizr.mq('(min-width:
+        768px)')) {\n\t\t$('#promo').animate({ height: '408px' }, 600);\n\t\t$('#lead-in').animate({
+        height: '220px' }, 800);\n\t}\n\n\t$('.hero').css('height', $(window).height()+'px');
+        // Set initial hero height\n\t$('#scroll-hero').click(function()\n\t{\n\t\t$('html,body').animate({scrollTop:
+        $(\"#hero-bloc\").height()}, 'slow');\n\t});\n\n\tsetUpLightBox(); // Add
+        lightbox Support\n\n\t$(\"button#printBtn\").click(function (e){\n\t\twindow.print();\n\t});\n\n});\n\n//
+        Window resize\n$(window).resize(function()\n{\n\t$('.hero').css('height',getHeroHeight()+'px');
+        // Refresh hero height\n});\n\n// Get Hero Height\nfunction getHeroHeight()\n{\n\tvar
+        H = $(window).height(); // Window height\n\tif (window.hasOwnProperty('heroBodyH')){\n\t\tif(H
+        < heroBodyH) {// If window height is less than content height\n\t\t\tH = heroBodyH+100;\n\t\t}\n\t}\n\treturn
+        H\n}\n\n// Check hero height\nfunction checkHero()\n{\n\tif($('#hero-bloc').length)\n\t{\n\t\tP
+        = parseInt($('.hero-nav').css('padding-top'))*2\n\t\twindow.heroBodyH = $('.hero-nav').outerHeight()+P+$('.vc-content').outerHeight()+50;
+        // Set hero body height\n\t\t$('.hero').css('height', getHeroHeight() + 'px');
+        // Set hero to fill page height\n\t}\n}\n\n// Scroll to target\nfunction scrollToTarget(D)\n{\n\tif(D
+        == 1) // Top of page\n\t{\n\t\tD = 0;\n\t}\n\telse if(D == 2) // Bottom of
+        page\n\t{\n\t\tD = $(document).height();\n\t}\n\telse // Specific Bloc\n\t{\n\t\tD
+        = $(D).offset().top;\n\t\tif($('.sticky-nav').length) // Sticky Nav in use\n\t\t{\n\t\t\tD
+        = D-100;\n\t\t}\n\t}\n\n\t$('html,body').animate({scrollTop:D}, 'slow');\n}\n\n//
+        Initial tooltips\n$(function()\n{\n  $('[data-toggle=\"tooltip\"]').tooltip()\n})\n\n\n//
+        Animate when visible\nfunction animateWhenVisible()\n{\n\thideAll(); // Hide
+        all animation elements\n\tinViewCheck(); // Initail check on page load\n\n\t$(window).scroll(function()\n\t{\n\t\tinViewCheck();
+        // Check object visability on page scroll\n\t\tscrollToTopView(); // ScrollToTop
+        button visability toggle\n\t\tstickyNavToggle(); // Sticky nav toggle\n\t});\n};\n\n//
+        Hide all animation elements\nfunction stickyNavToggle()\n{\n\tvar V = 0; //
+        offset Value\n\tvar C = \"sticky\"; // Classes\n\n\tif($('.sticky-nav').parent().is('#hero-bloc'))
+        // If nav is in hero animate in\n\t{\n\t\tV = $('.sticky-nav').height();\n\t\tC
+        = \"sticky animated fadeInDown\";\n\t}\n\n\tif($(window).scrollTop() > V)\n\t{\n\t\t$('.sticky-nav').addClass(C);\n\n\t\tif(C
+        == \"sticky\")\n\t\t{\n\t\t\t$('.page-container').css('padding-top',$('.sticky-nav').height());\n\t\t}\n\t}\n\telse\n\t{\n\t\t$('.sticky-nav').removeClass(C);\n\t\t$('.page-container').removeAttr('style');\n\t}\n}\n\n//
+        Hide all animation elements\nfunction hideAll()\n{\n\t$('.animated').each(function(i)\n\t{\n\t\tif(!$(this).closest('.hero').length)
+        // Dont hide hero object\n\t\t{\n\t\t\t$(this).removeClass('animated').addClass('hideMe');\n\t\t}\n\t});\n}\n\n//
+        Check if object is inView\nfunction inViewCheck()\n{\n\t$($(\".hideMe\").get().reverse()).each(function(i)\n\t{\n\t\tvar
+        target = jQuery(this);\n\t\tvar a = target.offset().top + target.height();\n\t\tvar
+        b = $(window).scrollTop() + $(window).height();\n\n\t\tif(target.height()
+        > $(window).height()) // If object height is greater than window height\n\t\t{\n\t\t\ta
+        = target.offset().top;\n\t\t}\n\n\t\tif (a < b)\n\t\t{\n\t\t\tvar objectClass
+        = target.attr('class').replace('hideMe' , 'animated');\n\t\t\ttarget.css('visibility','hidden').removeAttr('class');\n\t\t\tsetTimeout(function(){target.attr('class',objectClass).css('visibility','visible');},0.01);\n\t\t}\n\t});\n};\n\n//
+        ScrollToTop button toggle\nfunction scrollToTopView()\n{\n\tif($(window).scrollTop()
+        > $(window).height()/3)\n\t{\n\t\tif(!$('.scrollToTop').hasClass('showScrollTop'))\n\t\t{\n\t\t\t$('.scrollToTop').addClass('showScrollTop');\n\t\t}\n\t}\n\telse\n\t{\n\t\t$('.scrollToTop').removeClass('showScrollTop');\n\t}\n};\n\n//
+        Light box support\nfunction setUpLightBox()\n{\n\twindow.targetLightbox;\n\n\t$(document).on('click',
+        '[data-lightbox]', function(e) // Create Lightbox Modal\n\t{\n\t\te.preventDefault();\n\t\ttargetLightbox
+        = $(this);\n\t\tvar captionData ='<p class=\"lightbox-caption\">'+$(this).attr('data-caption')+'</p>';\n\t\tif(!$(this).attr('data-caption'))
+        // No caption caption data\n\t\t{\n\t\t\tcaptionData = '';\n\t\t}\n\n\t\tvar
+        customModal = $('<div id=\"lightbox-modal\" class=\"modal fade\"><div class=\"modal-dialog\"><div
+        class=\"modal-content '+$(this).attr('data-frame')+'\"><button type=\"button\"
+        class=\"close close-lightbox\" data-dismiss=\"modal\" aria-label=\"Close\"><span
+        aria-hidden=\"true\">&times;</span></button><div class=\"modal-body\"><a href=\"#\"
+        class=\"prev-lightbox\" aria-label=\"prev\"></a><a href=\"#\" class=\"next-lightbox\"
+        aria-label=\"next\"></a><img id=\"lightbox-image\" class=\"img-responsive\"
+        src=\"'+$(this).attr('data-lightbox')+'\">'+captionData+'</div></div></div></div>');\n\t\t$('body').append(customModal);\n\t\t$('#lightbox-modal').modal('show');\n\n\t\t//
+        Handle navigation buttons (next - prev)\n\t\tif($('a[data-lightbox]').index(targetLightbox)
+        == 0)\n\t\t{\n\t\t\t$('.prev-lightbox').hide();\n\t\t}\n\t\tif($('a[data-lightbox]').index(targetLightbox)
+        == $('a[data-lightbox]').length-1)\n\t\t{\n\t\t\t$('.next-lightbox').hide();\n\t\t}\n\t}\n\t).on('hidden.bs.modal',
+        '#lightbox-modal', function () // Handle destroy modal\n\t{\n\t\t$('#lightbox-modal').remove();\n\t})\n\n\t$(document).on('click',
+        '.next-lightbox, .prev-lightbox', function(e)\n\t{\n\t\te.preventDefault();\n\t\tvar
+        idx = $('a[data-lightbox]').index(targetLightbox);\n\t\tvar next = $('a[data-lightbox]').eq(idx+1)
+        // Next\n\n\t\tif($(this).hasClass('prev-lightbox'))\n\t\t{\n\t\t\tnext =
+        $('a[data-lightbox]').eq(idx-1) // Prev\n\t\t}\n\t\t$('#lightbox-image').attr('src',next.attr('data-lightbox'));\n\t\t$('.lightbox-caption').html(next.attr('data-caption'));\n\t\ttargetLightbox
+        = next;\n\n\t\t// Handle navigation buttons (next - prev)\n\t\t$('.next-lightbox,
+        .prev-lightbox').hide();\n\n\t\tif($('a[data-lightbox]').index(next) != $('a[data-lightbox]').length-1)\n\t\t{\n\t\t\t$('.next-lightbox').show();\n\t\t}\n\t\tif($('a[data-lightbox]').index(next)
+        > 0)\n\t\t{\n\t\t\t$('.prev-lightbox').show();\n\t\t}\n\t});\n}\n\nfunction
+        submitSearch(){\n\t//search box\n\n\t\tif (document.searchForm.searchMenu.value==\"taxonomy\")
+        {\n\t\t\tdocument.searchForm.taxon.value = document.searchForm.query.value;
+        \ //temp fix for now.\n\t\t\tdocument.searchForm.action=\"/index.php/Taxbrowser_Taxonpage?taxon=\"+document.searchForm.query.value+\"&debug=1\";\n\t\t}
+        else if (document.searchForm.searchMenu.value==\"records\") {\n\t\t\tdocument.searchForm.action=\"/index.php/Public_SearchTerms?\";\n\t\t}
+        else if (document.searchForm.searchMenu.value==\"bins\") {\n\t\t\tdocument.searchForm.action=\"/index.php/Public_BINSearch?\";\n\t\t}\n\n}\n\n</script>\n<style>\n\t.ui-autocomplete
+        {\n\t\tposition: absolute;\n\t\ttop: 100%;\n\t\tleft: 0;\n\t\tz-index: 1000;\n\t\tfloat:
+        left;\n\t\tdisplay: none;\n\t\tmin-width: 160px;\n\t\t_width: 160px;\n\t\tpadding:
+        4px 0;\n\t\tmargin: 2px 0 0 0;\n\t\tlist-style: none;\n\t\tbackground-color:
+        #ffffff;\n\t\tborder-color: #ccc;\n\t\tborder-color: rgba(0, 0, 0, 0.2);\n\t\tborder-style:
+        solid;\n\t\tborder-width: 1px;\n\t\t-webkit-border-radius: 5px;\n\t\t-moz-border-radius:
+        5px;\n\t\tborder-radius: 5px;\n\t\t-webkit-box-shadow: 0 5px 10px rgba(0,
+        0, 0, 0.2);\n\t\t-moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);\n\t\tbox-shadow:
+        0 5px 10px rgba(0, 0, 0, 0.2);\n\t\t-webkit-background-clip: padding-box;\n\t\t-moz-background-clip:
+        padding;\n\t\tbackground-clip: padding-box;\n\t\t*border-right-width: 2px;\n\t\t*border-bottom-width:
+        2px;\n\n\t\t.ui-menu-item > a.ui-corner-all {\n\t\t\tdisplay: block;\n\t\t\tpadding:
+        3px 15px;\n\t\t\tclear: both;\n\t\t\tfont-weight: normal;\n\t\t\tline-height:
+        18px;\n\t\t\tcolor: #555555;\n\t\t\twhite-space: nowrap;\n\n\t\t\t&.ui-state-hover,
+        &.ui-state-active &.ui-state-focus{\n\t\t\t\tcolor: #ffffff;\n\t\t\t\ttext-decoration:
+        none;\n\t\t\t\tbackground-color: #0088cc !important;\n\t\t\t\tborder-radius:
+        0px;\n\t\t\t\t-webkit-border-radius: 0px;\n\t\t\t\t-moz-border-radius: 0px;\n\t\t\t\tbackground-image:
+        none;\n\t\t\t}\n\t\t}\n\t}\n\t.ui-helper-hidden-accessible{\n\t\tdisplay:none;\n\t}\n</style>\t<style>\r\n\t</style>\r\n</head>\r\n<body>\r\n\t<div
+        class=\"page-container\">\n\t\t<div class=\"bloc sticky-nav bgc-dark-jungle-green
+        d-bloc\">\n\t\t\t<div class=\"container bloc-xs\">\n\t\t\t\t<nav class=\"navbar
+        row\">\n\t\t\t\t\t<div class=\"navbar-header\">\n\t\t\t\t\t\t<a class=\"navbar-brand\"
+        href=\"/index.php\">\n\t\t\t\t\t\t\t<img src=\"/libhtml_v4/images/BOLDlogo.png\"
+        alt=\"logo\" />\n\t\t\t\t\t\t</a>\n\n\t\t\t\t\t\t<button id=\"nav-toggle\"
+        type=\"button\" class=\"ui-navbar-toggle navbar-toggle\" data-toggle=\"collapse\"
+        data-target=\".navbar-1\">\n\t\t\t\t\t\t\t<span class=\"sr-only\">Toggle navigation</span>\n\t\t\t\t\t\t\t<span
+        class=\"icon-bar\"></span>\n\t\t\t\t\t\t\t<span class=\"icon-bar\"></span>\n\t\t\t\t\t\t\t<span
+        class=\"icon-bar\"></span>\n\t\t\t\t\t\t</button>\n\n\t\t\t\t\t\t<a href=\"#\"
+        class=\"search-toggle\" data-toggle=\"collapse\" data-target=\".search-wrap\">\n\t\t\t\t\t\t\t<span
+        class=\"fa fa-search fa-lg\"></span>\n\t\t\t\t\t\t</a>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div
+        class=\"collapse navbar-collapse navbar-1\">\n\t\t\t\t\t\t<ul class=\"site-navigation
+        nav navbar-nav\">\n\t\t\t\t\t\t\t<li><a href=\"/index.php/databases\">Databases</a></li>\n\t\t\t\t\t\t\t<li><a
+        href=\"/index.php/IDS_OpenIdEngine\">Identification</a></li>\n\t\t\t\t\t\t\t<li><a
+        href=\"/index.php/TaxBrowser_Home\">Taxonomy</a></li>\n\t\t\t\t\t\t\t<li><a
+        href=\"/index.php/MAS_Management_UserConsole\">Workbench</a></li>\n\t\t\t\t\t\t\t<li><a
+        href=\"/index.php/Resources\">Resources</a></li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li><a
+        href=\"/index.php/MAS_Management_UserConsole\">Login</a></li>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li
+        class=\"nav-search\">\n\t\t\t\t\t\t\t\t<a href=\"#\" data-toggle=\"collapse\"
+        data-target=\".search-wrap\">\n\t\t\t\t\t\t\t\t\t<span class=\"fa fa-search
+        icon-sm\"></span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t</nav>\n\t\t\t</div>\n\n\t\t\t<div
+        class=\"search-wrap collapse\">\n\t\t\t\t<form id=\"site-search\" name =\"searchForm\"
+        onSubmit=\"submitSearch();\">\n\t\t\t\t\t<div class=\"col-sm-3 col-md-2\">\n\t\t\t\t\t\t<label
+        class=\"sr-only\" for=\"search_type\">Type</label>\n\t\t\t\t\t\t<select id=\"search_type\"
+        class=\"form-control\" name=\"searchMenu\">\n\t\t\t\t\t\t\t<option value=\"taxonomy\">Taxonomy</option>\n\t\t\t\t\t\t\t<option
+        value=\"records\">Public Data</option>\n\t\t\t\t\t\t\t<option value=\"bins\">BINs</option>\n\t\t\t\t\t\t</select>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div
+        class=\"col-sm-9 col-md-10\">\n\t\t\t\t\t\t<label class=\"sr-only\" for=\"search_keyword\">Keyword</label>\n\t\t\t\t\t\t<input
+        id=\"query\" class=\"form-control\" name=\"query\"  placeholder=\"Search\"
+        />\n\t\t\t\t\t\t<input type=\"hidden\" name=\"taxon\"/>\n\t\t\t\t\t</div>\n\t\t\t\t</form>\n\t\t\t</div>\n\t\t</div><!--
+        /.sticky-nav -->\n\t<div class=\"bloc bgc-cadet-blue d-bloc\" id=\"lead-in\">\r\n
+        \   <div class=\"container bloc-md\">\r\n        <div class=\"row\">\r\n            <div
+        class=\"col-sm-12\">\r\n                <h3>TAXONOMY BROWSER</h3>\r\n            </div>\r\n
+        \       </div>\r\n    </div>\r\n\t</div>\r\n\r\n\t<div class=\"bloc l-bloc
+        bgc-white\">\r\n\t   <div class=\"container bloc-md\">\r\n\t\t\t<div class=\"row\">\r\n\t\t\t<div
+        class=\"col-xs-12\">\r\n\t\t\t\t<div>\r\n\t\t\t\t\t\t\t\t\t\t\t<h4>\r\n\t\t\t\t\t\t\t<p>\r\n\t\t\t\t\t\t\t\tThis
+        taxon cannot be located.\t\t\t\t\t\t\t</p>\r\n\t\t\t\t\t\t\t<br><br>\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t</h4>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t\t<div
+        class=\"col-xs-12\">\r\n\t\t\t\t<div>\r\n\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t\t\t\t\t\t</ul>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t\t</div><!--end
+        row-->\r\n\t\t</div>\r\n\t</div>\r\n\t\t\t<div class=\"bloc bgc-platinum l-bloc\"
+        id=\"footer\">\n\t\t\t<div class=\"container bloc-md\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div
+        class=\"col-sm-3\">\n\t\t\t\t\t\t<h3 class=\"mg-md\">Databases</h3>\n\t\t\t\t\t\t<ul
+        class=\"list-unstyled\">\n\t\t\t\t\t\t\t<li><a href=\"/index.php/Public_BINSearch?searchtype=records\">Public
+        Data Portal</a></li>\n\t\t\t\t\t\t\t<li><a href=\"/index.php/TaxBrowser_Home\">Taxonomy
+        Browser</a></li>\n\t\t\t\t\t\t\t<li><a href=\"/index.php/Public_Publication_BibliographySearch\">Publications</a></li>\n\t\t\t\t\t\t\t<li><a
+        href=\"/index.php/Public_Primer_PrimerSearch\">Primers</a></li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div
+        class=\"col-sm-3\">\n\t\t\t\t\t\t<h3 class=\"mg-md\">Resources</h3>\n\t\t\t\t\t\t<ul
+        class=\"list-unstyled\">\n\t\t\t\t\t\t  <!--<li><a href=\"/index.php/resources/handbook?chapter=1_gettingstarted.html\">Documentation</a></li>-->\n\t\t\t\t\t\t
+        \ <li><a href=\"/libhtml/docs/bold.pdf\">Citing BOLD</a></li>\n\t\t\t\t\t\t
+        \ <li><a href=\"/index.php/NewsFeed\">News and Events</a></li>\n\t\t\t\t\t\t
+        \ <li><a href=\"/index.php/datarelease\">Data Releases</a></li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div
+        class=\"col-sm-3\">\n\t\t\t\t\t\t<h3 class=\"mg-md\">Organization</h3>\n\t\t\t\t\t\t<ul
+        class=\"list-unstyled\">\n\t\t\t\t\t\t  <li><a href=\"/index.php/Resources/whatIsBOLD\">About
+        Us</a></li>\n\t\t\t\t\t\t  <li><a href=\"/index.php/Resources/ContactUs\">Contact
+        Us</a></li>\n\t\t\t\t\t\t  <li><a href=\"/index.php/NewsFeed\">News &amp;
+        Events</a></li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t<h3
+        class=\"mg-md\">Partners</h3>\n\t\t\t\t\t\t<ul class=\"list-unstyled\">\n\t\t\t\t\t\t
+        \ <li><a href=\"http://www.ibol.org\">iBOL</a></li>\n\t\t\t\t\t\t  <li><a
+        href=\"http://biodiversitygenomics.net/\">CBG</a></li>\n\t\t\t\t\t\t  <li><a
+        href=\"http://ccdb.ca\">CCDB</a></li>\n\t\t\t\t\t\t  <li><a href=\"http://www.ncbi.nlm.nih.gov\">GenBank</a></li>\n\t\t\t\t\t\t
+        \ <li><a href=\"http://www.eol.org\">EOL</a></li>\n\t\t\t\t\t\t  <li><a href=\"http://www.gbif.org\">GBIF</a></li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div
+        class=\"bloc bgc-floral-white l-bloc\" id=\"affiliates\">\n\t\t\t<div class=\"container
+        bloc-md\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-2\">\n\t\t\t\t\t\t<img
+        class=\"img-responsive center-block\" style=\"margin-top:20px\" src=\"/libhtml_v4/img/ibol-50v.png\"
+        />\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-2\">\n\t\t\t\t\t\t<img
+        class=\"img-responsive center-block\" style=\"margin-top:20px\" src=\"/libhtml_v4/img/CFREF.png\"
+        />\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-2\">\n\t\t\t\t\t\t<img
+        class=\"img-responsive center-block\" src=\"/libhtml_v4/img/MRI_logo.png\"
+        />\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-2\">\n\t\t\t\t\t\t<img
+        \ class=\"img-responsive center-block\" style=\"margin-top:20px\" src=\"/libhtml_v4/img/CFINN.png\"/>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div
+        class=\"col-sm-2\">\n\t\t\t\t\t\t<img class=\"img-responsive center-block\"
+        style=\"margin-top:20px\" src=\"/libhtml_v4/img/NSERC.png\" />\n\t\t\t\t\t</div>\n\t\t\t\t\t<div
+        class=\"col-sm-2\">\n\t\t\t\t\t\t<img class=\"img-responsive center-block\"
+        src=\"/libhtml_v4/img/UoGuelph_image18-100x100.png\" />\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div
+        class=\"row\">\n\t\t\t\t\t<div class=\"col-xs-12\"><br/><h5><small><strong>Copyright</strong>
+        BOLD &copy; 2014-2020</small></h5></div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</body>\r\n</html>"
+  recorded_at: 2020-04-23 22:35:50 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.6.2

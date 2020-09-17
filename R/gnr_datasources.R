@@ -8,7 +8,7 @@
 #' @return data.frame/tibble
 #' @seealso [gnr_resolve()], [gni_search()]
 #' @keywords resolve names taxonomy
-#' @references <https://resolver.globalnames.org/data_sources>
+#' @references https://resolver.globalnames.org/data_sources
 #' @examples \dontrun{
 #' # all data sources
 #' gnr_datasources()
