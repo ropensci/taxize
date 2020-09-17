@@ -1,7 +1,7 @@
 ---
 title: Strategies for programmatic name cleaning
 author: Scott Chamberlain
-date: "2020-06-08"
+date: "2020-09-16"
 output: rmarkdown::html_vignette
 vignette: >
     %\VignetteIndexEntry{Strategies for programmatic name cleaning}
@@ -242,23 +242,22 @@ in a programmatic workflow straight away.
 ```r
 spp <- names_list(rank = "species", size = 10)
 gnr_resolve(spp, preferred_data_sources = 11)
-#> # A tibble: 14 x 5
+#> # A tibble: 13 x 5
 #>    user_supplied_na… submitted_name   matched_name        data_source_tit… score
 #>  * <chr>             <chr>            <chr>               <chr>            <dbl>
-#>  1 Prestonia seeman… Prestonia seema… Prestonia seemanni… GBIF Backbone T… 0.988
-#>  2 Stephanodaphne p… Stephanodaphne … Stephanodaphne per… GBIF Backbone T… 0.988
-#>  3 Eriogonum compos… Eriogonum compo… Eriogonum composit… GBIF Backbone T… 0.988
-#>  4 Eriogonum compos… Eriogonum compo… Eriogonum composit… GBIF Backbone T… 0.988
-#>  5 Acaulon muticum   Acaulon muticum  Acaulon muticum (H… GBIF Backbone T… 0.988
-#>  6 Acaulon muticum   Acaulon muticum  Acaulon muticum C.… GBIF Backbone T… 0.988
-#>  7 Ranunculus subte… Ranunculus subt… Ranunculus subtect… GBIF Backbone T… 0.988
-#>  8 Leucopogon pogon… Leucopogon pogo… Leucopogon pogonoc… GBIF Backbone T… 0.988
-#>  9 Leucopogon pogon… Leucopogon pogo… Leucopogon pogonoc… GBIF Backbone T… 0.988
-#> 10 Calanthe obrenif… Calanthe obreni… Calanthe obrenifor… GBIF Backbone T… 0.988
-#> 11 Palaquium pierrei Palaquium pierr… Palaquium pierrei … GBIF Backbone T… 0.988
-#> 12 Lithospermum cus… Lithospermum cu… Lithospermum cuspi… GBIF Backbone T… 0.988
-#> 13 Evodia lucida     Evodia lucida    Euodia lucida (Miq… GBIF Backbone T… 0.75 
-#> 14 Evodia lucida     Evodia lucida    Euodia lucida (A.G… GBIF Backbone T… 0.75
+#>  1 Astragalus radka… Astragalus radk… Astragalus radkane… GBIF Backbone T… 0.988
+#>  2 Montanoa gigas    Montanoa gigas   Montanoa gigas Rze… GBIF Backbone T… 0.988
+#>  3 Serratula semise… Serratula semis… Serratula semiserr… GBIF Backbone T… 0.988
+#>  4 Serratula semise… Serratula semis… Serratula semiserr… GBIF Backbone T… 0.988
+#>  5 Delosperma pagea… Delosperma page… Delosperma pageanu… GBIF Backbone T… 0.988
+#>  6 Delosperma pagea… Delosperma page… Delosperma pageanu… GBIF Backbone T… 0.988
+#>  7 Zieria hydroscop… Zieria hydrosco… Zieria hydroscopic… GBIF Backbone T… 0.988
+#>  8 Baccharis flabel… Baccharis flabe… Baccharis flabella… GBIF Backbone T… 0.988
+#>  9 Piper gonocarpum  Piper gonocarpum Piper gonocarpum T… GBIF Backbone T… 0.988
+#> 10 Lathraea japonica Lathraea japoni… Lathraea japonica … GBIF Backbone T… 0.988
+#> 11 Lathraea japonica Lathraea japoni… Lathraea japonica … GBIF Backbone T… 0.988
+#> 12 Lathraea japonica Lathraea japoni… Lathraea japonica … GBIF Backbone T… 0.988
+#> 13 Verbesina tachir… Verbesina tachi… Verbesina tachiren… GBIF Backbone T… 0.988
 ```
 
 ## Other functions

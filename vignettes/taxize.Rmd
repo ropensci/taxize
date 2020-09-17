@@ -1,7 +1,7 @@
 ---
 title: Introduction to taxize
 author: Scott Chamberlain
-date: "2020-06-08"
+date: "2020-09-16"
 output: rmarkdown::html_vignette
 vignette: >
     %\VignetteIndexEntry{Introduction to taxize}
@@ -410,10 +410,10 @@ These `as.*()` functions do a quick check of the web resource to make sure it's 
 ```r
 system.time( replicate(3, as.gbifid(c("2704179","2435099","3171445"), check=TRUE)) )
 #>    user  system elapsed 
-#>   0.062   0.001   2.762
+#>   0.091   0.002   6.032
 system.time( replicate(3, as.gbifid(c("2704179","2435099","3171445"), check=FALSE)) )
 #>    user  system elapsed 
-#>   0.003   0.000   0.003
+#>   0.002   0.000   0.002
 ```
 
 ## What taxa are downstream of my taxon of interest?
@@ -425,14 +425,15 @@ If someone is not a taxonomic specialist on a particular taxon he likely does no
 apis_itis_id <- 154395 # id for Apis, fetched beforehand to save time here
 downstream(apis_itis_id, downto = "species", db = "itis")
 #> $`154395`
-#>      tsn parentname parenttsn rankname          taxonname rankid
-#> 1 154396       Apis    154395  species     Apis mellifera    220
-#> 2 763550       Apis    154395  species Apis andreniformis    220
-#> 3 763551       Apis    154395  species        Apis cerana    220
-#> 4 763552       Apis    154395  species       Apis dorsata    220
-#> 5 763553       Apis    154395  species        Apis florea    220
-#> 6 763554       Apis    154395  species Apis koschevnikovi    220
-#> 7 763555       Apis    154395  species   Apis nigrocincta    220
+#>       tsn parentname parenttsn rankname          taxonname rankid
+#> 1 1128092       Apis    154395  species     Apis laboriosa    220
+#> 2  154396       Apis    154395  species     Apis mellifera    220
+#> 3  763550       Apis    154395  species Apis andreniformis    220
+#> 4  763551       Apis    154395  species        Apis cerana    220
+#> 5  763552       Apis    154395  species       Apis dorsata    220
+#> 6  763553       Apis    154395  species        Apis florea    220
+#> 7  763554       Apis    154395  species Apis koschevnikovi    220
+#> 8  763555       Apis    154395  species   Apis nigrocincta    220
 #> 
 #> attr(,"class")
 #> [1] "downstream"
