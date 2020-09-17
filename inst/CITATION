@@ -5,12 +5,12 @@ citEntry(entry = "Article",
    journal		    = "F1000Research",
    author         = personList(person("Scott Chamberlain"), person("Eduard Szocs")),
    year           = "2013",
-   url            = "https://f1000research.com/articles/2-191/v2/",
+   url            = "https://f1000research.com/articles/2-191/v2",
 
    textVersion  =
    paste("Scott Chamberlain and Eduard Szocs (2013).",
         "taxize - taxonomic search and retrieval in R.",
-        "F1000Research, 2:191. URL: https://f1000research.com/articles/2-191/v2/")
+        "F1000Research, 2:191. URL: https://f1000research.com/articles/2-191/v2")
 )
 
 citEntry(entry = "Manual",
