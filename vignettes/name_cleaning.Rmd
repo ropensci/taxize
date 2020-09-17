@@ -269,4 +269,4 @@ but you can can generally pass on parameters to the `get_*()` functions internal
 ## Feedback?
 
 Let us know if you have ideas for better ways to do programmatic name cleaning at 
-<https://github.com/ropensci/taxize/issues> or <https://discuss.ropensci.org/> !
+https://github.com/ropensci/taxize/issues or https://discuss.ropensci.org/ !
