@@ -5,11 +5,8 @@ name: revdep
 jobs:
   revdep:
     runs-on: ${{ matrix.config.os }}
-
     if: startsWith(github.event.head_commit.message, 'REVDEPCHECK')
-
     name: ${{ matrix.config.os }} (${{ matrix.config.r }})
-
     strategy:
       fail-fast: false
       matrix:
