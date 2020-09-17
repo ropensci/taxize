@@ -7,7 +7,8 @@
 itis_refs(tsn, ...)
 }
 \arguments{
-\item{tsn}{One or more TSN's (taxonomic serial number) for a taxonomic group (numeric)}
+\item{tsn}{One or more TSN's (taxonomic serial number) for a
+taxonomic group (numeric)}
 
 \item{...}{Further arguments passed on to getpublicationsfromtsn}
 }
