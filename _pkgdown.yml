@@ -4,6 +4,7 @@ reference:
       - taxize
       - taxize-defunct
       - taxize_cite
+      - taxize-params
   - title: "Authentication"
     contents:
       - taxize-authentication
@@ -42,6 +43,8 @@ reference:
       - plantGenusNames
       - plantNames
       - rank_ref
+      - rank_ref_zoo
+      - worrms_ranks
       - species_plantarum_binomials
       - theplantlist
   - title: "Random names"
@@ -112,6 +115,7 @@ reference:
   - title: "Other data sources"
     contents:
       - bold_search
+      - bold_downstream
       - ion
       - ipni_search
       - plantminer
@@ -126,3 +130,4 @@ reference:
   - title: "Defunct methods"
     contents:
       - taxize-defunct
+      - ubio_ping
