@@ -7,7 +7,7 @@ taxize
 [![cran checks](https://cranchecks.info/badges/worst/taxize)](https://cranchecks.info/pkgs/taxize)
 [![R-CMD-check](https://github.com/ropensci/taxize/workflows/R-CMD-check/badge.svg)](https://github.com/ropensci/taxize/actions/)
 [![codecov](https://codecov.io/gh/ropensci/taxize/branch/master/graph/badge.svg)](https://codecov.io/gh/ropensci/taxize)
-[![rstudio mirror downloads](https://cranlogs.r-pkg.org/badges/taxize)](https://github.com/metacran/cranlogs.app)
+[![rstudio mirror downloads](https://cranlogs.r-pkg.org/badges/taxize)](https://github.com/r-hub/cranlogs.app)
 [![cran version](https://www.r-pkg.org/badges/version/taxize)](https://cran.r-project.org/package=taxize)
 
 
@@ -231,19 +231,19 @@ lapply(out, head)
 #>                 name         rank     id
 #> 1 cellular organisms      no rank 131567
 #> 2          Eukaryota superkingdom   2759
-#> 3       Opisthokonta      no rank  33154
+#> 3       Opisthokonta        clade  33154
 #> 4            Metazoa      kingdom  33208
-#> 5          Eumetazoa      no rank   6072
-#> 6          Bilateria      no rank  33213
+#> 5          Eumetazoa        clade   6072
+#> 6          Bilateria        clade  33213
 #> 
 #> $`492549`
 #>                 name         rank     id
 #> 1 cellular organisms      no rank 131567
 #> 2          Eukaryota superkingdom   2759
-#> 3       Opisthokonta      no rank  33154
+#> 3       Opisthokonta        clade  33154
 #> 4            Metazoa      kingdom  33208
-#> 5          Eumetazoa      no rank   6072
-#> 6          Bilateria      no rank  33213
+#> 5          Eumetazoa        clade   6072
+#> 6          Bilateria        clade  33213
 ```
 
 ## Immediate children
@@ -255,38 +255,46 @@ Get immediate children of _Salmo_. In this case, _Salmo_ is a genus, so this giv
 children("Salmo", db = 'ncbi')
 #> $Salmo
 #>    childtaxa_id                   childtaxa_name childtaxa_rank
-#> 1       2705433                     Salmo ghigii        species
-#> 2       2304090                  Salmo abanticus        species
-#> 3       2126688              Salmo ciscaucasicus        species
-#> 4       1509524  Salmo marmoratus x Salmo trutta        species
-#> 5       1484545 Salmo cf. cenerinus BOLD:AAB3872        species
-#> 6       1483130               Salmo zrmanjaensis        species
-#> 7       1483129               Salmo visovacensis        species
-#> 8       1483128                Salmo rhodanensis        species
-#> 9       1483127                 Salmo pellegrini        species
-#> 10      1483126                     Salmo opimus        species
-#> 11      1483125                Salmo macedonicus        species
-#> 12      1483124                Salmo lourosensis        species
-#> 13      1483123                   Salmo labecula        species
-#> 14      1483122                  Salmo farioides        species
-#> 15      1483121                      Salmo chilo        species
-#> 16      1483120                     Salmo cettii        species
-#> 17      1483119                  Salmo cenerinus        species
-#> 18      1483118                   Salmo aphelios        species
-#> 19      1483117                    Salmo akairos        species
-#> 20      1201173               Salmo peristericus        species
-#> 21      1035833                   Salmo ischchan        species
-#> 22       700588                     Salmo labrax        species
-#> 23       602068                    Salmo caspius        species
-#> 24       237411              Salmo obtusirostris        species
-#> 25       235141              Salmo platycephalus        species
-#> 26       234793                    Salmo letnica        species
-#> 27        62065                  Salmo ohridanus        species
-#> 28        33518                 Salmo marmoratus        species
-#> 29        33516                    Salmo fibreni        species
-#> 30        33515                     Salmo carpio        species
-#> 31         8032                     Salmo trutta        species
-#> 32         8030                      Salmo salar        species
+#> 1       2739741                   Salmo tigridis        species
+#> 2       2739740                  Salmo rizeensis        species
+#> 3       2739739                    Salmo okumusi        species
+#> 4       2739738                 Salmo munzuricus        species
+#> 5       2739737                 Salmo fahrettini        species
+#> 6       2739736                Salmo euphrataeus        species
+#> 7       2705433                     Salmo ghigii        species
+#> 8       2358192                 Salmo coruhensis        species
+#> 9       2304090                  Salmo abanticus        species
+#> 10      2126688              Salmo ciscaucasicus        species
+#> 11      1509524  Salmo marmoratus x Salmo trutta        species
+#> 12      1484545 Salmo cf. cenerinus BOLD:AAB3872        species
+#> 13      1483130               Salmo zrmanjaensis        species
+#> 14      1483129               Salmo visovacensis        species
+#> 15      1483128                Salmo rhodanensis        species
+#> 16      1483127                 Salmo pellegrini        species
+#> 17      1483126                     Salmo opimus        species
+#> 18      1483125                Salmo macedonicus        species
+#> 19      1483124                Salmo lourosensis        species
+#> 20      1483123                   Salmo labecula        species
+#> 21      1483122                  Salmo farioides        species
+#> 22      1483121                      Salmo chilo        species
+#> 23      1483120                     Salmo cettii        species
+#> 24      1483119                  Salmo cenerinus        species
+#> 25      1483118                   Salmo aphelios        species
+#> 26      1483117                    Salmo akairos        species
+#> 27      1201173               Salmo peristericus        species
+#> 28      1035833                   Salmo ischchan        species
+#> 29       700588                     Salmo labrax        species
+#> 30       602068                    Salmo caspius        species
+#> 31       237411              Salmo obtusirostris        species
+#> 32       235141              Salmo platycephalus        species
+#> 33       234793                    Salmo letnica        species
+#> 34       157020                Salmo macrostigma        species
+#> 35        62065                  Salmo ohridanus        species
+#> 36        33518                 Salmo marmoratus        species
+#> 37        33516                    Salmo fibreni        species
+#> 38        33515                     Salmo carpio        species
+#> 39         8032                     Salmo trutta        species
+#> 40         8030                      Salmo salar        species
 #> 
 #> attr(,"class")
 #> [1] "children"
@@ -302,14 +310,15 @@ Get all species in the genus _Apis_
 ```r
 downstream(as.tsn(154395), db = 'itis', downto = 'species', mesages = FALSE)
 #> $`154395`
-#>      tsn parentname parenttsn rankname          taxonname rankid
-#> 1 154396       Apis    154395  species     Apis mellifera    220
-#> 2 763550       Apis    154395  species Apis andreniformis    220
-#> 3 763551       Apis    154395  species        Apis cerana    220
-#> 4 763552       Apis    154395  species       Apis dorsata    220
-#> 5 763553       Apis    154395  species        Apis florea    220
-#> 6 763554       Apis    154395  species Apis koschevnikovi    220
-#> 7 763555       Apis    154395  species   Apis nigrocincta    220
+#>       tsn parentname parenttsn rankname          taxonname rankid
+#> 1 1128092       Apis    154395  species     Apis laboriosa    220
+#> 2  154396       Apis    154395  species     Apis mellifera    220
+#> 3  763550       Apis    154395  species Apis andreniformis    220
+#> 4  763551       Apis    154395  species        Apis cerana    220
+#> 5  763552       Apis    154395  species       Apis dorsata    220
+#> 6  763553       Apis    154395  species        Apis florea    220
+#> 7  763554       Apis    154395  species Apis koschevnikovi    220
+#> 8  763555       Apis    154395  species   Apis nigrocincta    220
 #> 
 #> attr(,"class")
 #> [1] "downstream"
@@ -472,7 +481,7 @@ get_ids_(c("Chironomus riparius", "Pinus contorta"), db = 'nbn', rows=1:3)
 #>               guid      scientificName    rank taxonomicStatus
 #> 1 NBNSYS0000027573 Chironomus riparius species        accepted
 #> 2 NBNSYS0000007169   Elaphrus riparius species        accepted
-#> 3 NBNSYS0000023573    Quedius riparius species        accepted
+#> 3 NHMSYS0001718585  Hypnoidus riparius species        accepted
 #> 
 #> $nbn$`Pinus contorta`
 #>               guid                scientificName    rank taxonomicStatus
@@ -537,8 +546,8 @@ lowest_common(spp, db = "ncbi")
 #> ● Total: 3 
 #> ● Found: 3 
 #> ● Not Found: 0
-#>             name        rank      id
-#> 21 Boreoeutheria below-class 1437010
+#>             name  rank      id
+#> 21 Boreoeutheria clade 1437010
 ```
 
 ## Coerce codes to taxonomic id classes
@@ -606,12 +615,6 @@ out <- as.uid(c(315567, 3339, 9696))
 
 See our [CONTRIBUTING](https://github.com/ropensci/taxize/blob/master/.github/CONTRIBUTING.md) document.
 
-## Contributors
-
-Collected via GitHub Issues: honors all contributors in alphabetical order. Code contributors are in bold.
-
-[afkoeppel](https://github.com/afkoeppel) - [afredstonhermann](https://github.com/afredstonhermann) - [ahhurlbert](https://github.com/ahhurlbert) - [albnd](https://github.com/albnd) - [Alectoria](https://github.com/Alectoria) - [andzandz11](https://github.com/andzandz11) - **[anirvan](https://github.com/anirvan)** - [antagomir](https://github.com/antagomir) - **[arendsee](https://github.com/arendsee)** - [ArielGreiner](https://github.com/ArielGreiner) - [arw36](https://github.com/arw36) - [ashenkin](https://github.com/ashenkin) - **[ashiklom](https://github.com/ashiklom)** - [benjaminschwetz](https://github.com/benjaminschwetz) - **[benmarwick](https://github.com/benmarwick)** - [bienflorencia](https://github.com/bienflorencia) - [binkySallly](https://github.com/binkySallly) - [bomeara](https://github.com/bomeara) - [BridgettCollis](https://github.com/BridgettCollis) - [bw4sz](https://github.com/bw4sz) - **[cboettig](https://github.com/cboettig)** - [cdeterman](https://github.com/cdeterman) - [ChrKoenig](https://github.com/ChrKoenig) - [chuckrp](https://github.com/chuckrp) - [clarson2191](https://github.com/clarson2191) - [claudenozeres](https://github.com/claudenozeres) - [cmzambranat](https://github.com/cmzambranat) - [cparsania](https://github.com/cparsania) - [daattali](https://github.com/daattali) - [DanielGMead](https://github.com/DanielGMead) - [DarrenObbard](https://github.com/DarrenObbard) - [davharris](https://github.com/davharris) - [davidvilanova](https://github.com/davidvilanova) - [diogoprov](https://github.com/diogoprov) - **[dlebauer](https://github.com/dlebauer)** - [dlenz1](https://github.com/dlenz1) - [dougwyu](https://github.com/dougwyu) - [dschlaep](https://github.com/dschlaep) - **[EDiLD](https://github.com/EDiLD)** - [edwbaker](https://github.com/edwbaker) - [emhart](https://github.com/emhart) - [eregenyi](https://github.com/eregenyi) - [fdschneider](https://github.com/fdschneider) - [fgabriel1891](https://github.com/fgabriel1891) - [fischhoff](https://github.com/fischhoff) - **[fmichonneau](https://github.com/fmichonneau)** - **[fozy81](https://github.com/fozy81)** - **[gedankenstuecke](https://github.com/gedankenstuecke)** - [gimoya](https://github.com/gimoya) - [GISKid](https://github.com/GISKid) - [git-og](https://github.com/git-og) - [glaroc](https://github.com/glaroc) - **[gpli](https://github.com/gpli)** - [gustavobio](https://github.com/gustavobio) - [hlapp](https://github.com/hlapp) - **[ibartomeus](https://github.com/ibartomeus)** - **[Ironholds](https://github.com/Ironholds)** - [jabard89](https://github.com/jabard89) - [jangorecki](https://github.com/jangorecki) - **[jarioksa](https://github.com/jarioksa)** - [jebyrnes](https://github.com/jebyrnes) - **[jeroen](https://github.com/jeroen)** - **[jimmyodonnell](https://github.com/jimmyodonnell)** - [joelnitta](https://github.com/joelnitta) - [johnbaums](https://github.com/johnbaums) - [jonmcalder](https://github.com/jonmcalder) - [jordancasey](https://github.com/jordancasey) - **[josephwb](https://github.com/josephwb)** - [jsgosnell](https://github.com/jsgosnell) - [JulietteLgls](https://github.com/JulietteLgls) - **[jwilk](https://github.com/jwilk)** - [kamapu](https://github.com/kamapu) - **[karthik](https://github.com/karthik)** - **[katrinleinweber](https://github.com/katrinleinweber)** - [KevCaz](https://github.com/KevCaz) - [kgturner](https://github.com/kgturner) - [kmeverson](https://github.com/kmeverson) - [Koalha](https://github.com/Koalha) - **[ljvillanueva](https://github.com/ljvillanueva)** - **[maelle](https://github.com/maelle)** - [Markus2015](https://github.com/Markus2015) - [matutosi](https://github.com/matutosi) - [mcsiple](https://github.com/mcsiple) - [MikkoVihtakari](https://github.com/MikkoVihtakari) - [millerjef](https://github.com/millerjef) - [miriamgrace](https://github.com/miriamgrace) - [MK212](https://github.com/MK212) - [mpnelsen](https://github.com/mpnelsen) - [MUSEZOOLVERT](https://github.com/MUSEZOOLVERT) - [nate-d-olson](https://github.com/nate-d-olson) - [nmatzke](https://github.com/nmatzke) - [npch](https://github.com/npch) - [ocstringham](https://github.com/ocstringham) - [p-neves](https://github.com/p-neves) - [p-schaefer](https://github.com/p-schaefer) - [padpadpadpad](https://github.com/padpadpadpad) - [paternogbc](https://github.com/paternogbc) - **[patperu](https://github.com/patperu)** - [pederengelstad](https://github.com/pederengelstad) - [philippi](https://github.com/philippi) - [Phylloxera](https://github.com/Phylloxera) - **[pmarchand1](https://github.com/pmarchand1)** - [pozsgaig](https://github.com/pozsgaig) - [PrincessPi314](https://github.com/PrincessPi314) - [pssguy](https://github.com/pssguy) - **[raredd](https://github.com/raredd)** - [rec3141](https://github.com/rec3141) - **[Rekyt](https://github.com/Rekyt)** - [RodgerG](https://github.com/RodgerG) - [rossmounce](https://github.com/rossmounce) - [sariya](https://github.com/sariya) - [sastoudt](https://github.com/sastoudt) - [scelmendorf](https://github.com/scelmendorf) - **[sckott](https://github.com/sckott)** - [SimonGoring](https://github.com/SimonGoring) - [snsheth](https://github.com/snsheth) - [snubian](https://github.com/snubian) - [Squiercg](https://github.com/Squiercg) - [sunray1](https://github.com/sunray1) - **[taddallas](https://github.com/taddallas)** - [tdjames1](https://github.com/tdjames1) - [tmkurobe](https://github.com/tmkurobe) - [toczydlowski](https://github.com/toczydlowski) - [tpaulson1](https://github.com/tpaulson1) - [tpoisot](https://github.com/tpoisot) - **[TrashBirdEcology](https://github.com/TrashBirdEcology)** - **[trvinh](https://github.com/trvinh)** - **[vijaybarve](https://github.com/vijaybarve)** - [wcornwell](https://github.com/wcornwell) - [willpearse](https://github.com/willpearse) - [wpetry](https://github.com/wpetry) - [yhg926](https://github.com/yhg926) - **[zachary-foster](https://github.com/zachary-foster)**
-
 
 ## Road map
 
@@ -622,9 +625,6 @@ Check out our [milestones](https://github.com/ropensci/taxize/milestones) to see
 * Please [report any issues or bugs](https://github.com/ropensci/taxize/issues).
 * License: MIT
 * Get citation information for `taxize` in R doing `citation(package = 'taxize')`
-* Please note that this project is released with a [Contributor Code of Conduct][coc].
-By participating in this project you agree to abide by its terms.
+* Please note that this package is released with a [Contributor Code of Conduct](https://ropensci.org/code-of-conduct/). By contributing to this project, you agree to abide by its terms.
 
 [![rofooter](https://ropensci.org/public_images/github_footer.png)](https://ropensci.org)
-
-[coc]: https://github.com/ropensci/taxize/blob/master/CODE_OF_CONDUCT.md
