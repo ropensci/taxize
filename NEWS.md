@@ -1,23 +1,16 @@
 taxize 0.9.98
 =============
 
-### NEW FEATURES
-
-* xxx (#xxx)
-* xxx (#xxx)
-* xxx (#xxx)
-
 ### MINOR IMPROVEMENTS
 
 * improve `worms_downstream()` docs: make it clear that users can use parameters passed down to `worrms::wm_children()` (#831)
 * improve `get_pow_()` docs: add section on rate limits, what are rate limits for KEW POW and a user facing resolution (#836)
-* xxx (#xxx)
+* add 8 new rank names (via NCBI) to the reference rank data.frame (`rank_ref`) in the package: biotype, forma specialis, isolate, pathogroup, series, serogroup, serotype, and strain - queries from `downstream()` and other functions that rely on relative rank information should not fail anymore when they contain these 8 rank names  (#830)
 
 ### BUG FIXES
 
-* xxx (#xxx)
-* xxx (#xxx)
-* xxx (#xxx)
+* new `rank_ref_zoo` reference data.frame specfically for zoological rank types - right now only used for WORMS. main difference is section/subsection in `rank_ref_zoo` are nested between the order and family, whereas in `rank_ref` (used for all other data sources) section/subsection are on the genus rank level (#833)
+* NCBI introduced a new rank "clade", or at least are using it a lot more often - often used instead of "no rank". This was causing some problems in `class2tree()`. Problem sorted out now (#835) (#838) (#839) (#840)
 
 
 taxize 0.9.97
