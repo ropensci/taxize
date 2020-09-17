@@ -612,11 +612,11 @@ taxize 0.7.6
 ### MINOR IMPROVEMENTS
 
 * Changed defunct messages in `eol_invasive()` and `gisd_invasive()`
-to point to new location in the [originr](https://github.com/ropenscilabs/originr)
+to point to new location in the [originr](https://github.com/ropensci/originr)
 package. Also, cleaned out code in those functions as not avail.
 anymore (#494)
 * Access to IUCN taxonomy information is now provided through the newish
-[rredlist](https://github.com/ropenscilabs/rredlist) package. (Two issues
+[rredlist](https://github.com/ropensci/rredlist) package. (Two issues
 dealing with IUCN problems (#475) (#492))
 
 ### BUG FIXES
@@ -659,7 +659,7 @@ taxize 0.7.4
 * New function `lowest_common()` for obtaining the lowest common taxon and
 rank for a given taxon name or ID. Methods so far for ITIS, NCBI, and GBIF (#505)
 * New contributor James O'Donnell (@jimmyodonnell) (via #505)
-* Now importing `rredlist` [rredlist](https://github.com/ropenscilabs/rredlist)
+* Now importing `rredlist` [rredlist](https://github.com/ropensci/rredlist)
 * New function `iucn_summary_id()` - same as `iucn_summary()`, except takes
 IUCN IDs as input instead of taxonomic names (#493)
 * All taxonomic rank columns in data.frame's now given back as lower case.

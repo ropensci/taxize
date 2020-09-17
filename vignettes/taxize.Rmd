@@ -27,7 +27,7 @@ install.packages("taxize")
 library("taxize")
 ```
 
-Advanced users can also download and install the latest development copy from [GitHub](https://github.com/ropensci/taxize_).
+Advanced users can also download and install the latest development copy from [GitHub](https://github.com/ropensci/taxize).
 
 ## Resolve taxonomic name
 
