@@ -1,3 +1,25 @@
+taxize 0.9.98
+=============
+
+### NEW FEATURES
+
+* xxx (#xxx)
+* xxx (#xxx)
+* xxx (#xxx)
+
+### MINOR IMPROVEMENTS
+
+* improve `worms_downstream()` docs: make it clear that users can use parameters passed down to `worrms::wm_children()` (#831)
+* improve `get_pow_()` docs: add section on rate limits, what are rate limits for KEW POW and a user facing resolution (#836)
+* xxx (#xxx)
+
+### BUG FIXES
+
+* xxx (#xxx)
+* xxx (#xxx)
+* xxx (#xxx)
+
+
 taxize 0.9.97
 =============
 
