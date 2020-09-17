@@ -6,7 +6,7 @@
 #' @return A data.frame with results, the submitted names, and the
 #' parsed names with additional information.
 #' @seealso [gbif_parse()], [gni_parse()]
-#' @references <http://gni.globalnames.org/>
+#' @references http://gni.globalnames.org/
 #' @examples \dontrun{
 #' gn_parse("Cyanistes caeruleus")
 #' gn_parse("Plantago minor")

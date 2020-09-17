@@ -34,8 +34,8 @@
 #' @return data.frame of results.
 #' @seealso [gnr_datasources()], [gni_search()]
 #' @keywords globalnamesindex names taxonomy
-#' @references <http://gni.globalnames.org/>,
-#' <https://github.com/dimus/gni/wiki/api>
+#' @references http://gni.globalnames.org/
+#' https://github.com/dimus/gni/wiki/api
 #' @details Note that you can use fuzzy searching, e.g., by attaching an
 #' asterisk to the end of a search term. See the first two examples below
 #' @examples \dontrun{

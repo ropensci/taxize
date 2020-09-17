@@ -53,7 +53,7 @@ invisible(vascan_search(q = "Helianthus annuus", verbose = TRUE))
 }
 }
 \references{
-API docs \url{https://data.canadensys.net/vascan/api}
+API docs https://data.canadensys.net/vascan/api
 }
 \author{
 Scott Chamberlain {myrmecocystus@gmail.com}

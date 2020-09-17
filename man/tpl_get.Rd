@@ -48,7 +48,7 @@ tpl_get(dir2, family = "Echinodiaceae")
 }
 }
 \references{
-The Plant List \url{http://www.theplantlist.org}
+The Plant List http://www.theplantlist.org
 }
 \seealso{
 \code{\link[=tpl_families]{tpl_families()}}

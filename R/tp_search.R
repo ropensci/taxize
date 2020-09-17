@@ -16,7 +16,7 @@
 #' @param commonname Deprecated, see `com`
 #' @param ... Further args passed on to [crul::HttpClient]
 #' @return List or dataframe.
-#' @references <http://services.tropicos.org/help?method=SearchNameXml>
+#' @references http://services.tropicos.org/help?method=SearchNameXml
 #' @details More details on the `name` parameter: Tropicos will fail
 #' if you include a period (`.`) in your name string, e.g., `var.`,
 #' so we replace periods before the request is made to the Tropicos web service.

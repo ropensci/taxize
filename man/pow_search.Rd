@@ -52,7 +52,7 @@ asc$data$name
 }
 }
 \references{
-\url{http://powo.science.kew.org/}
+http://powo.science.kew.org/
 }
 \seealso{
 Other pow: 

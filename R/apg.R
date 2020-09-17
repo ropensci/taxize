@@ -4,7 +4,7 @@
 #' Group III system of flowering plant classification.
 #'
 #' @param ... Curl args passed on to [crul::verb-GET]
-#' @references <http://www.mobot.org/MOBOT/research/APweb/>
+#' @references http://www.mobot.org/MOBOT/research/APweb/
 #' @name apg
 #' @examples \dontrun{
 #' head(apgOrders())

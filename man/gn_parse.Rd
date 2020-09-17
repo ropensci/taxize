@@ -34,7 +34,7 @@ gn_parse("Cyanistes caeruleus", verbose = TRUE)
 }
 }
 \references{
-\url{http://gni.globalnames.org/}
+http://gni.globalnames.org/
 }
 \seealso{
 \code{\link[=gbif_parse]{gbif_parse()}}, \code{\link[=gni_parse]{gni_parse()}}
