@@ -20,7 +20,7 @@ if applicable
 }
 }
 \source{
-\url{http://www.mobot.org/MOBOT/research/APweb/}
+http://www.mobot.org/MOBOT/research/APweb/
 }
 \description{
 Family names and their replacements from the Angiosperm Phylogeny

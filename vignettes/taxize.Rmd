@@ -1,7 +1,7 @@
 ---
 title: Introduction to taxize
 author: Scott Chamberlain
-date: "2020-06-08"
+date: "2020-09-17"
 output: rmarkdown::html_vignette
 vignette: >
     %\VignetteIndexEntry{Introduction to taxize}
@@ -27,11 +27,11 @@ install.packages("taxize")
 library("taxize")
 ```
 
-Advanced users can also download and install the latest development copy from [GitHub](https://github.com/ropensci/taxize_).
+Advanced users can also download and install the latest development copy from GitHub (https://github.com/ropensci/taxize)
 
 ## Resolve taxonomic name
 
-This is a common task in biology. We often have a list of species names and we want to know a) if we have the most up to date names, b) if our names are spelled correctly, and c) the scientific name for a common name. One way to resolve names is via the Global Names Resolver (GNR) service provided by the [Encyclopedia of Life][eol]. Here, we are searching for two misspelled names:
+This is a common task in biology. We often have a list of species names and we want to know a) if we have the most up to date names, b) if our names are spelled correctly, and c) the scientific name for a common name. One way to resolve names is via the Global Names Resolver (GNR) service provided by the Encyclopedia of Life. Here, we are searching for two misspelled names:
 
 
 ```r
@@ -116,7 +116,7 @@ lapply(tsn, itis_acceptname)
 
 Another task biologists often face is getting higher taxonomic names for a taxa list. Having the higher taxonomy allows you to put into context the relationships of your species list. For example, you may find out that species A and species B are in Family C, which may lead to some interesting insight, as opposed to not knowing that Species A and B are closely related. This also makes it easy to aggregate/standardize data to a specific taxonomic level (e.g., family level) or to match data to other databases with different taxonomic resolution (e.g., trait databases).
 
-A number of data sources in taxize provide the capability to retrieve higher taxonomic names, but we will highlight two of the more useful ones: [Integrated Taxonomic Information System (ITIS)][itis] and [National Center for Biotechnology Information (NCBI)][ncbi]. First, we'll search for two species, *Abies procera} and *Pinus contorta* within ITIS.
+A number of data sources in taxize provide the capability to retrieve higher taxonomic names, but we will highlight two of the more useful ones: Integrated Taxonomic Information System (ITIS) and National Center for Biotechnology Information (NCBI). First, we'll search for two species, *Abies procera} and *Pinus contorta* within ITIS.
 
 
 ```r
@@ -410,29 +410,30 @@ These `as.*()` functions do a quick check of the web resource to make sure it's 
 ```r
 system.time( replicate(3, as.gbifid(c("2704179","2435099","3171445"), check=TRUE)) )
 #>    user  system elapsed 
-#>   0.062   0.001   2.762
+#>   0.092   0.003   4.850
 system.time( replicate(3, as.gbifid(c("2704179","2435099","3171445"), check=FALSE)) )
 #>    user  system elapsed 
-#>   0.003   0.000   0.003
+#>   0.002   0.000   0.002
 ```
 
 ## What taxa are downstream of my taxon of interest?
 
-If someone is not a taxonomic specialist on a particular taxon he likely does not know what children taxa are within a family, or within a genus. This task becomes especially unwieldy when there are a large number of taxa downstream. You can of course go to a website like [Wikispecies][wikispecies] or [Encyclopedia of Life][eol] to get downstream names. However, taxize provides an easy way to programatically search for downstream taxa for the [Integrated Taxonomic Information System][itis].
+If someone is not a taxonomic specialist on a particular taxon he likely does not know what children taxa are within a family, or within a genus. This task becomes especially unwieldy when there are a large number of taxa downstream. You can of course go to a website like Wikispecies or Encyclopedia of Life to get downstream names. However, taxize provides an easy way to programatically search for downstream taxa for the Integrated Taxonomic Information System.
 
 
 ```r
 apis_itis_id <- 154395 # id for Apis, fetched beforehand to save time here
 downstream(apis_itis_id, downto = "species", db = "itis")
 #> $`154395`
-#>      tsn parentname parenttsn rankname          taxonname rankid
-#> 1 154396       Apis    154395  species     Apis mellifera    220
-#> 2 763550       Apis    154395  species Apis andreniformis    220
-#> 3 763551       Apis    154395  species        Apis cerana    220
-#> 4 763552       Apis    154395  species       Apis dorsata    220
-#> 5 763553       Apis    154395  species        Apis florea    220
-#> 6 763554       Apis    154395  species Apis koschevnikovi    220
-#> 7 763555       Apis    154395  species   Apis nigrocincta    220
+#>       tsn parentname parenttsn rankname          taxonname rankid
+#> 1 1128092       Apis    154395  species     Apis laboriosa    220
+#> 2  154396       Apis    154395  species     Apis mellifera    220
+#> 3  763550       Apis    154395  species Apis andreniformis    220
+#> 4  763551       Apis    154395  species        Apis cerana    220
+#> 5  763552       Apis    154395  species       Apis dorsata    220
+#> 6  763553       Apis    154395  species        Apis florea    220
+#> 7  763554       Apis    154395  species Apis koschevnikovi    220
+#> 8  763555       Apis    154395  species   Apis nigrocincta    220
 #> 
 #> attr(,"class")
 #> [1] "downstream"
@@ -569,8 +570,3 @@ A_clas[[1]]$rank[tolower(A_clas[[1]]$name) %in% B3]
 ```
 
 If we find a direct match (here *Gammarus roeseli*), we are lucky. But we can also match Gammaridae with *Gammarus roeseli*, but on a lower taxonomic level. A more comprehensive and realistic example (matching a trait table with an abundance table) is given in the vignette on matching.
-
-[eol]: https://www.eol.org/
-[ncbi]: https://www.ncbi.nlm.nih.gov/
-[itis]: https://www.itis.gov/
-[wikispecies]: https://species.wikimedia.org/wiki/Main_Page

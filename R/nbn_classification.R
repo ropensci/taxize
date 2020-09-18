@@ -7,7 +7,7 @@
 #' @return A data.frame
 #' @family nbn
 #' @author Scott Chamberlain, \email{myrmecocystus@@gmail.com}
-#' @references <https://api.nbnatlas.org/>
+#' @references https://api.nbnatlas.org/
 #' @examples \dontrun{
 #' nbn_classification(id="NHMSYS0000376773")
 #'

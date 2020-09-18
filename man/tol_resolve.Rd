@@ -59,7 +59,7 @@ tol_resolve(turducken_spp, context_name="Animals")
 }
 }
 \references{
-\url{https://github.com/OpenTreeOfLife/germinator/wiki/TNRS-API-v3#match_names}
+https://github.com/OpenTreeOfLife/germinator/wiki/TNRS-API-v3#match_names
 }
 \seealso{
 \code{\link[=gnr_resolve]{gnr_resolve()}}, \code{\link[=tnrs]{tnrs()}}

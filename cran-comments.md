@@ -10,13 +10,11 @@
 
 ## Reverse dependencies
 
-* I have run R CMD check on the 23 downstream dependencies
-(<https://github.com/ropensci/taxize/blob/master/revdep/README.md>);
-there were no errors related to taxize.
+* I have run R CMD check on the 23 downstream dependencies; there were no errors related to taxize.
 
 ------
 
-This version standardizes parameters across many functions, and fixes a number of bugs.
+This version improves documentation in a few places, and fixes a few bugs.
 
 Thanks!
 Scott Chamberlain

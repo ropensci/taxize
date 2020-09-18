@@ -50,7 +50,7 @@
 #'
 #' If the source above has a `TRUE` in the `SOAP?` column, it is not available
 #' in this package. They are available from a different package called **taxizesoap**.
-#' See the GitHub repo for how to install <https://github.com/ropensci/taxizesoap>
+#' See the GitHub repo for how to install https://github.com/ropensci/taxizesoap
 #' 
 #' @section Catalogue of Life (COL):
 #' COL introduced rate limiting recently in 2019 - which has made the API
@@ -138,7 +138,7 @@ NULL
 #'   * `genus` genus name
 #'   * `species` specific epithet name
 #' 
-#' @source <http://www.theplantlist.org>
+#' @source http://www.theplantlist.org
 #' @name theplantlist
 #' @docType data
 #' @keywords data
@@ -167,7 +167,7 @@ NULL
 #' are accepted from `family` column, with the new name from `synonym`
 #' if applicable
 #' 
-#' @source <http://www.mobot.org/MOBOT/research/APweb/>
+#' @source http://www.mobot.org/MOBOT/research/APweb/
 #' @name apg_families
 #' @docType data
 #' @keywords data
@@ -195,7 +195,7 @@ NULL
 #' are accepted from `order` column, with the new name from `synonym`
 #' if applicable
 #' 
-#' @source <http://www.mobot.org/MOBOT/research/APweb/>
+#' @source http://www.mobot.org/MOBOT/research/APweb/
 #' @name apg_orders
 #' @docType data
 #' @keywords data

@@ -166,7 +166,7 @@ invisible(get_nbn("Quercus douglasii", verbose = TRUE))
 }
 }
 \references{
-\url{https://api.nbnatlas.org/}
+https://api.nbnatlas.org/
 }
 \seealso{
 \code{\link[=classification]{classification()}}

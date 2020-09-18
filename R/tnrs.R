@@ -40,7 +40,7 @@
 #' `tnrs(sci="Jussiaea linearis Hochst.", source="iPlant_TNRS")` you
 #' get a direct match for that name. So, beware that there's no indication
 #' of homonyms.
-#' @references <http://taxosaurus.org/>
+#' @references http://taxosaurus.org/
 #' @seealso [gnr_resolve()]
 #' @examples \dontrun{
 #' mynames <- c("Helianthus annuus", "Poa annua", "Mimulus bicolor")

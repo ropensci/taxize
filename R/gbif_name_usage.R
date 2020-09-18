@@ -25,7 +25,7 @@
 #' @param ... Curl options passed on to [crul::HttpClient]
 #' @param limit Number of records to return
 #' @param start Record number to start at
-#' @references <https://www.gbif.org/developer/summary>
+#' @references https://www.gbif.org/developer/summary
 #' @return A list of length two. The first element is metadata. The second is
 #' either a data.frame (verbose=FALSE, default) or a list (verbose=TRUE)
 

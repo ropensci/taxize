@@ -164,8 +164,8 @@ gnr_resolve("Scorzonera hispanica L. subsp. asphodeloides Wallr.",
 }
 }
 \references{
-\url{http://gnrd.globalnames.org/api}
-\url{http://gnrd.globalnames.org/}
+http://gnrd.globalnames.org/api
+http://gnrd.globalnames.org/
 }
 \seealso{
 \code{\link[=gnr_datasources]{gnr_datasources()}} \link{tnrs}

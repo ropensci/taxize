@@ -90,8 +90,8 @@
 #'
 #' @seealso [gnr_datasources()] [tnrs]
 #' @keywords resolve names taxonomy
-#' @references <http://gnrd.globalnames.org/api>
-#' <http://gnrd.globalnames.org/>
+#' @references http://gnrd.globalnames.org/api
+#' http://gnrd.globalnames.org/
 #' @examples \dontrun{
 #' gnr_resolve(sci = c("Helianthus annuus", "Homo sapiens"))
 #' gnr_resolve(sci = c("Asteraceae", "Plantae"))

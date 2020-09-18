@@ -24,5 +24,5 @@ head(apgFamilies())
 }
 }
 \references{
-\url{http://www.mobot.org/MOBOT/research/APweb/}
+http://www.mobot.org/MOBOT/research/APweb/
 }

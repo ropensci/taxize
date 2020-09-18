@@ -31,5 +31,5 @@ head(out[['reference']])
 }
 }
 \references{
-\url{http://services.tropicos.org/help?method=GetNameDistributionsXml}
+http://services.tropicos.org/help?method=GetNameDistributionsXml
 }

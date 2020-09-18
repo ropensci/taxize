@@ -24,9 +24,8 @@
 #' @param check logical; Check if ID matches any existing on the DB, only
 #' used in [as.nbn()]
 #' @template getreturn
-#'
-#' @references <https://api.nbnatlas.org/>
-#' @return an object of class nbn, a light wrapper around a character
+#' @references https://api.nbnatlas.org/
+#' @return an object of class nbnid, a light wrapper around a character
 #' string that is the taxonomic ID - includes attributes with relavant
 #' metadata
 #' @family taxonomic-ids

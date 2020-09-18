@@ -27,7 +27,7 @@
 #' Scott Chamberlain \email{myrmecocystus@@gmail.com}
 #' @seealso [gnr_resolve()], [tnrs()]
 #' @references
-#' <https://github.com/OpenTreeOfLife/germinator/wiki/TNRS-API-v3#match_names>
+#' https://github.com/OpenTreeOfLife/germinator/wiki/TNRS-API-v3#match_names
 #' @keywords resolve names taxonomy
 #' @examples \dontrun{
 #' tol_resolve(names=c("echinodermata", "xenacoelomorpha",
