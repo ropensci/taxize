@@ -94,29 +94,29 @@ Filtering narrows down to the set that matches your query, and removes the rest.
 
 \examples{
 \dontrun{
-get_apni(x = "Helianthus")
-get_apni(c("Helianthus","Quercus douglasii"))
+get_apni(x = "Acacia")
+get_apni(c("Acacia","Poa"))
 
 # Get back a subset
-get_apni(x="Helianthus", rows = 1)
-get_apni(x="Helianthus", rows = 1:10)
+get_apni(x="Acacia", rows = 1)
+get_apni(x="Acacia", rows = 1:10)
 
 # When not found
 get_apni("howdy")
-get_apni(c("Helianthus annuus", "howdy"))
+get_apni(c("Acacia acicularis", "howdy"))
 
 # Narrow down results 
 # to accepted names
-get_apni("Helianthus", accepted = TRUE)
+get_apni("Acacia", accepted = TRUE)
 # to a kingom 
-get_apni("Helianthus", rank_filter = "genus")
+get_apni("Acacia", rank_filter = "genus")
 # to accepted names and rank
-get_apni("Helianthus annuus", accepted = TRUE, rank_filter = "species")
+get_apni("Acacia acicularis", accepted = TRUE, rank_filter = "species")
 # to a family
 get_apni("flower", family_filter = "Acanthaceae")
 
 # Convert a apni without class information to a apni class
-z <- get_apni("Helianthus annuus", accepted = TRUE, rank_filter = "species")
+z <- get_apni("Acacia acicularis", accepted = TRUE, rank_filter = "species")
 # already a apni, returns the same
 as.apni(z)
 as.apni("urn:lsid:ipni.org:names:119003-2")

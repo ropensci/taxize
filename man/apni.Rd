@@ -3,13 +3,16 @@
 \name{apni}
 \alias{apni}
 \alias{apni_search}
+\alias{apni_sugggest}
 \alias{apni_classification}
 \alias{apni_children}
 \alias{apni_family}
-\alias{acceptable_names}
+\alias{apni_acceptable_names}
 \title{Search Australian Plant Names Index}
 \usage{
 apni_search(q, ...)
+
+apni_sugggest(q, ...)
 
 apni_classification(id, ...)
 
@@ -17,12 +20,12 @@ apni_children(id, ...)
 
 apni_family(id, ...)
 
-acceptable_names(q, ...)
+apni_acceptable_names(q, ...)
 }
 \arguments{
 \item{q}{(character) name to query}
 
-\item{...}{Further args passed on to \link[crul:HttpClient]{crul::HttpClient}.}
+\item{...}{Further args passed on to \link[crul:verb-GET]{crul::verb-GET}.}
 }
 \value{
 a list with slots for metadata (\code{meta}) with list of response
@@ -48,15 +51,19 @@ apni_classification(id = 61294)
 apni_classification(id = 56859)
 
 # children
-apni_children(id = 51311124)
+x <- apni_children(id = 2902806)
+x
+x$children
+x$children$id
 
-# family?
+# family
 apni_family(id = 158548)
 
 # acceptable names
-acceptable_names(q = 'Poa fax')
-acceptable_names(q = 'Poa fa')
-acceptable_names(q = 'Poa')
+apni_acceptable_names(q = 'Poa fax')
+apni_acceptable_names(q = 'Poa fa')
+apni_acceptable_names(q = 'Poa')
+apni_acceptable_names(q = 'Acacia')
 }
 }
 \references{

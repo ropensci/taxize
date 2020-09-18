@@ -2,7 +2,7 @@
 #' @export
 #' @name apni
 #' @param q (character) name to query
-#' @param ... Further args passed on to [crul::HttpClient].
+#' @param ... Further args passed on to [crul::verb-GET].
 #' @return a list with slots for metadata (`meta`) with list of response
 #' attributes, and data (`data`) with a data.frame of results
 #' @references https://biodiversity.org.au/nsl/docs/main.html
@@ -23,21 +23,37 @@
 #' apni_classification(id = 56859)
 #' 
 #' # children
-#' apni_children(id = 51311124)
+#' x <- apni_children(id = 2902806)
+#' x
+#' x$children
+#' x$children$id
 #' 
-#' # family?
+#' # family
 #' apni_family(id = 158548)
 #' 
 #' # acceptable names
-#' acceptable_names(q = 'Poa fax')
-#' acceptable_names(q = 'Poa fa')
-#' acceptable_names(q = 'Poa')
-#' acceptable_names(q = 'Acacia')
+#' apni_acceptable_names(q = 'Poa fax')
+#' apni_acceptable_names(q = 'Poa fa')
+#' apni_acceptable_names(q = 'Poa')
+#' apni_acceptable_names(q = 'Acacia')
 #' }
 
 #' @export
 #' @rdname apni
 apni_search <- function(q, ...) {
+  assert(q, "character")
+  z <- apni_GET(file.path(apni_base(), "nsl/services/api/name/taxon-search"),
+    list(q = q, tree = "APC"), ...)
+  json <- jsonlite::fromJSON(z$parse("UTF-8"))
+  list(
+    accepted_names = json$records$acceptedNames, 
+    synonyms = json$records$synonyms
+  )
+}
+
+#' @export
+#' @rdname apni
+apni_sugggest <- function(q, ...) {
   assert(q, "character")
   z <- apni_GET(file.path(apni_base(), "nsl/services/api/name/taxon-search"),
     list(q = q, tree = "APC"), ...)
@@ -84,27 +100,30 @@ apni_children <- function(id, ...) {
     args = list(), ...)
   txt <- x$parse("UTF-8")
   json <- jsonlite::fromJSON(txt, FALSE)
-  children <- json$treeElement$children
-  branch <- dt2tibble(lapply(children, function(z) {
+  childs <- json$treeElement$children
+  children <- dt2tibble(lapply(childs, function(z) {
     html <- xml2::read_html(z$displayHtml)
-    xml2::xml_find_all(html, "//scientific//element")
+    name <- xml2::xml_text(xml2::xml_find_all(html, "//scientific//element"))
+    name <- strtrim(Reduce(paste, name, ""))
+    name_id <- xml2::xml_attr(xml2::xml_find_first(html, "//name"), "data-id")
+    name_auth <- xml2::xml_attr(xml2::xml_find_all(html, "//authors//author"), "title")
     list(
+      id = name_id, 
+      name = name,
+      authority = name_auth,
       link_element = z$elementLink,
       link_name = z$nameLink,
-      link_instance = z$instanceLink,
-      # type = z$type,
-      # status = z$status,
-      # parent = z$parent$nameElement,
-      # author = z$author$name
+      link_instance = z$instanceLink
     )
   }))
+  # drop self
+  children <- children[children$name != json$treeElement$simpleName,]
   list(
-    name = json$name$nameElement,
-    link = json$name$`_links`$permalink$link,
-    hierarchy = branch
+    name = json$treeElement$simpleName,
+    link = json$treeElement$`_links`$elementLink,
+    children = children
   )
 }
-# https://biodiversity.org.au/nsl/services/rest/taxon/apni/51311124.json
 
 
 #' @export
@@ -136,18 +155,18 @@ apni_family <- function(id, ...) {
 
 #' @export
 #' @rdname apni
-acceptable_names <- function(q, ...) {
+apni_acceptable_names <- function(q, ...) {
   assert(q, 'character')
   x <- apni_GET(file.path(apni_base(),
     "nsl/services/api/name/acceptable-name.json"),
-    args = list(name = q))
+    args = list(name = q), ...)
   txt <- x$parse("UTF-8")
   json <- jsonlite::fromJSON(txt, FALSE)
   dt2tibble(lapply(json$names, function(w) {
     list(
       name_type = w$nameType,
       status = w$nameStatus,
-      rank = w$nameRank,
+      rank = tolower(w$nameRank),
       name_full = w$fullName,
       name_simple = w$simpleName
     )
