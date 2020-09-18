@@ -105,7 +105,7 @@ Suggests:
     ape,
     phangorn,
     zoo
-Remotes: ropensci/taxa@vectorize-no-taxize
+Remotes: ropensci/taxa@vectorize
 RoxygenNote: 7.1.1
 Roxygen: list(markdown = TRUE)
 X-schema.org-applicationCategory: Taxonomy

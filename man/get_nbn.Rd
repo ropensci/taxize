@@ -108,7 +108,7 @@ you can't pass on to other functions as you normally can.
 See \code{\link{get_id_details}} for further details including
 attributes and exceptions
 
-an object of class nbn, a light wrapper around a character
+an object of class nbnid, a light wrapper around a character
 string that is the taxonomic ID - includes attributes with relavant
 metadata
 }
