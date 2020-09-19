@@ -25,17 +25,7 @@ get_tps(
   ...
 )
 
-get_tpsid(
-  sci,
-  ask = TRUE,
-  messages = TRUE,
-  key = NULL,
-  rows = NA,
-  family = NULL,
-  rank = NULL,
-  sciname = NULL,
-  ...
-)
+get_tpsid(...)
 
 as.tps(x, check = TRUE)
 
@@ -51,7 +41,7 @@ as.tps(x, check = TRUE)
 
 get_tps_(sci, messages = TRUE, key = NULL, rows = NA, sciname = NULL, ...)
 
-get_tpsid_(sci, messages = TRUE, key = NULL, rows = NA, sciname = NULL, ...)
+get_tpsid_(...)
 }
 \arguments{
 \item{sci}{(character) One or more scientific name's as a vector or list. Or,

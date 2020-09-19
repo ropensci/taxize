@@ -83,7 +83,6 @@ get_itis <- function(sci_com, searchtype = "scientific", accepted = FALSE,
   assert(searchtype, "character")
   assert(accepted, "logical")
   assert_rows(rows)
-  fchk(as.character(match.call()[[1]]), "get_itis")
   pchk(searchterm, "sci_com")
 
   if (inherits(sci_com, "character")) {
@@ -241,7 +240,10 @@ get_itis <- function(sci_com, searchtype = "scientific", accepted = FALSE,
 }
 #' @export
 #' @rdname get_itis
-get_tsn <- get_itis
+get_tsn <- function(...) {
+  fchk("get_tsn", "get_itis")
+  get_itis(...)
+}
 
 #' @export
 #' @rdname get_itis
@@ -289,7 +291,10 @@ get_itis_ <- function(sci_com, messages = TRUE, searchtype = "scientific",
 }
 #' @export
 #' @rdname get_itis
-get_tsn_ <- get_itis_
+get_tsn_ <- function(...) {
+  fchk("get_tsn_", "get_itis_")
+  get_itis_(...)
+}
 
 get_itis_help <- function(sci_com, messages, searchtype, accepted,
   rows, ...) {

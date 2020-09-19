@@ -73,7 +73,6 @@ get_tol <- function(sci, ask = TRUE, messages = TRUE, rows = NA,
   assert(sci, c("character", "taxon_state"))
   assert(ask, "logical")
   assert(messages, "logical")
-  fchk(as.character(match.call()[[1]]), "get_tol")
   pchk(sciname, "sci")
   if (!all(is.na(rows))) {
     assert(rows, c("numeric", "integer"))
@@ -216,7 +215,10 @@ get_tol <- function(sci, ask = TRUE, messages = TRUE, rows = NA,
 }
 #' @export
 #' @rdname get_tol
-get_tolid <- get_tol
+get_tolid <- function(...) {
+  fchk("get_tolid", "get_tol")
+  get_tol(...)
+}
 
 #' @export
 #' @rdname get_tol
@@ -266,7 +268,10 @@ get_tol_ <- function(sci, messages = TRUE, rows = NA, sciname = NULL) {
 }
 #' @export
 #' @rdname get_tol
-get_tolid_ <- get_tol_
+get_tolid_ <- function(...) {
+  fchk("get_tolid_", "get_tol_")
+  get_tol_(...)
+}
 
 get_tol_help <- function(sci, messages, rows, ...){
   mssg(messages, "\nRetrieving data for taxon '", sci, "'\n")

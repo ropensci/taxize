@@ -29,20 +29,7 @@ get_gbif(
   ...
 )
 
-get_gbifid(
-  sci,
-  ask = TRUE,
-  messages = TRUE,
-  rows = NA,
-  phylum = NULL,
-  class = NULL,
-  order = NULL,
-  family = NULL,
-  rank = NULL,
-  method = "backbone",
-  sciname = NULL,
-  ...
-)
+get_gbifid(...)
 
 as.gbif(x, check = FALSE)
 
@@ -60,13 +47,7 @@ as.gbif(x, check = FALSE)
 
 get_gbif_(sci, messages = TRUE, rows = NA, method = "backbone", sciname = NULL)
 
-get_gbifid_(
-  sci,
-  messages = TRUE,
-  rows = NA,
-  method = "backbone",
-  sciname = NULL
-)
+get_gbifid_(...)
 }
 \arguments{
 \item{sci}{(character) one or more scientific names. Or, a \code{taxon_state}

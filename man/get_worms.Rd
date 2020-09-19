@@ -26,18 +26,7 @@ get_worms(
   ...
 )
 
-get_wormsid(
-  sci_com,
-  searchtype = "scientific",
-  marine_only = TRUE,
-  fuzzy = NULL,
-  accepted = FALSE,
-  ask = TRUE,
-  messages = TRUE,
-  rows = NA,
-  query = NULL,
-  ...
-)
+get_wormsid(...)
 
 as.worms(x, check = TRUE)
 
@@ -63,17 +52,7 @@ get_worms_(
   ...
 )
 
-get_wormsid_(
-  sci_com,
-  messages = TRUE,
-  searchtype = "scientific",
-  marine_only = TRUE,
-  fuzzy = NULL,
-  accepted = TRUE,
-  rows = NA,
-  query = NULL,
-  ...
-)
+get_wormsid_(...)
 }
 \arguments{
 \item{sci_com}{character; A vector of common or scientific names. Or, a

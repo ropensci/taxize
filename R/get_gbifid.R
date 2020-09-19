@@ -168,7 +168,6 @@ get_gbif <- function(sci, ask = TRUE, messages = TRUE, rows = NA,
   assert(rank, "character")
   assert(method, "character")
   assert_rows(rows)
-  fchk(as.character(match.call()[[1]]), "get_gbif")
   pchk(sciname, "sci")
 
   if (inherits(sci, "character")) {
@@ -327,7 +326,10 @@ get_gbif <- function(sci, ask = TRUE, messages = TRUE, rows = NA,
 }
 #' @export
 #' @rdname get_gbif
-get_gbifid <- get_gbif
+get_gbifid <- function(...) {
+  fchk("get_gbifid", "get_gbif")
+  get_gbif(...)
+}
 
 #' @export
 #' @rdname get_gbif
@@ -387,7 +389,10 @@ get_gbif_ <- function(sci, messages = TRUE, rows = NA, method = "backbone",
 }
 #' @export
 #' @rdname get_gbif
-get_gbifid_ <- get_gbif_
+get_gbifid_ <- function(...) {
+  fchk("get_gbifid_", "get_gbif_")
+  get_gbif_(...)
+}
 
 get_gbifd_help <- function(sci, messages, rows, method){
   mssg(messages, "\nRetrieving data for taxon '", sci, "'\n")

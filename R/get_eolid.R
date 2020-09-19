@@ -120,7 +120,6 @@ get_eol <- function(sci_com, ask = TRUE, messages = TRUE,
   assert(rank, "character")
   assert(data_source, "character")
   assert_rows(rows)
-  fchk(as.character(match.call()[[1]]), "get_eol")
   pchk(sciname, "sci_com")
 
   if (inherits(sci_com, "character")) {
@@ -297,7 +296,10 @@ get_eol <- function(sci_com, ask = TRUE, messages = TRUE,
 }
 #' @export
 #' @rdname get_eol
-get_eolid <- get_eol
+get_eolid <- function(...) {
+  fchk("get_eolid", "get_eol")
+  get_eol(...)
+}
 
 taxize_sort_df <- function(data, vars = names(data)) {
   if (length(vars) == 0 || is.null(vars))
@@ -386,7 +388,10 @@ get_eol_ <- function(sci_com, messages = TRUE, rows = NA, sciname = NULL,
 }
 #' @export
 #' @rdname get_eol
-get_eolid_ <- get_eol_
+get_eolid_ <- function(...) {
+  fchk("get_eolid_", "get_eol_")
+  get_eol_(...)
+}
 
 get_eol_help <- function(sci_com, messages, rows, ...) {
   mssg(messages, "\nRetrieving data for taxon '", sci_com, "'\n")

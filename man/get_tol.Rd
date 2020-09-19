@@ -15,7 +15,7 @@
 \usage{
 get_tol(sci, ask = TRUE, messages = TRUE, rows = NA, sciname = NULL, ...)
 
-get_tolid(sci, ask = TRUE, messages = TRUE, rows = NA, sciname = NULL, ...)
+get_tolid(...)
 
 as.tol(x, check = TRUE)
 
@@ -31,7 +31,7 @@ as.tol(x, check = TRUE)
 
 get_tol_(sci, messages = TRUE, rows = NA, sciname = NULL)
 
-get_tolid_(sci, messages = TRUE, rows = NA, sciname = NULL)
+get_tolid_(...)
 }
 \arguments{
 \item{sci}{character; one or more scientific names. Or, a \code{taxon_state}

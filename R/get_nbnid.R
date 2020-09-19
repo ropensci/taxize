@@ -92,7 +92,6 @@ get_nbn <- function(sci_com, ask = TRUE, messages = TRUE, rec_only = FALSE,
   assert(rank, "character")
   assert(messages, "logical")
   assert_rows(rows)
-  fchk(as.character(match.call()[[1]]), "get_nbn")
   pchk(name, "sci_com")
 
   if (inherits(sci_com, "character")) {
@@ -214,7 +213,10 @@ get_nbn <- function(sci_com, ask = TRUE, messages = TRUE, rec_only = FALSE,
 }
 #' @export
 #' @rdname get_nbn
-get_nbnid <- get_nbn
+get_nbnid <- function(...) {
+  fchk("get_nbnid", "get_nbn")
+  get_nbn(...)
+}
 
 #' @export
 #' @rdname get_nbn
@@ -268,7 +270,10 @@ get_nbn_ <- function(sci_com, messages = TRUE, rec_only = FALSE, rank = NULL,
 }
 #' @export
 #' @rdname get_nbn
-get_nbnid_ <- get_nbn_
+get_nbnid_ <- function(...) {
+  fchk("get_nbnid_", "get_nbn_")
+  get_nbn_(...)
+}
 
 get_nbn_help <- function(name, messages, rec_only, rank, rows, ...){
   mssg(messages, "\nRetrieving data for taxon '", name, "'\n")

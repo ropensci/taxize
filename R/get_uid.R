@@ -170,7 +170,6 @@ get_ncbi <- function(sci_com, ask = TRUE, messages = TRUE, rows = NA,
   assert(rank_filter, "character")
   assert_rows(rows)
   key <- getkey(key, service = "entrez")
-  fchk(as.character(match.call()[[1]]), "get_ncbi")
   pchk(sciname, "sci_com")
 
   if (inherits(sci_com, "character")) {
@@ -342,7 +341,10 @@ get_ncbi <- function(sci_com, ask = TRUE, messages = TRUE, rows = NA,
 }
 #' @export
 #' @rdname get_ncbi
-get_uid <- get_ncbi
+get_uid <- function(...) {
+  fchk("get_uid", "get_ncbi")
+  get_ncbi(...)
+}
 
 repeat_until_it_works <- function(catch, path, query, max_tries = 3,
   wait_time = 10, messages = TRUE, ...) {
@@ -421,7 +423,10 @@ get_ncbi_ <- function(sci_com, messages = TRUE, rows = NA, key = NULL,
 }
 #' @export
 #' @rdname get_ncbi
-get_uid_ <- get_ncbi_
+get_uid_ <- function(...) {
+  fchk("get_uid_", "get_ncbi_")
+  get_ncbi_(...)
+}
 
 get_ncbi_help <- function(sci_com, messages, rows, key, ...) {
   mssg(messages, "\nRetrieving data for taxon '", sci_com, "'\n")

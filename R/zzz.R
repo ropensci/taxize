@@ -315,18 +315,17 @@ pchk <- function(from, to, pkg_version = "v0.9.97") {
 }
 
 taxize_fxn_ck <- conditionz::ConditionKeeper$new(times = 1, condition = "warning")
-fchk <- function(from, to, pkg_version = "v1.0") {
-  assert(from, "character")
-  assert(to, "character")
+fchk <- function(bad, good, pkg_version = "v1.0") {
+  assert(bad, "character")
+  assert(good, "character")
   assert(pkg_version, "character")
   # & will be removed in a future version
   fxn_mssg <- "`%s` function is deprecated as of taxize %s, use `%s` instead."
   fxn_help <- "\nSee `?taxize-deprecated` for more information."
   once_per <- "\nThis warning will be thrown once per R session."
-  mssg <- c(sprintf(fxn_mssg, from, pkg_version, to),
+  mssg <- c(sprintf(fxn_mssg, bad, pkg_version, good),
     fxn_help, once_per)
-  if (from != to)
-    taxize_fxn_ck$handle_conditions(warning(mssg))
+  taxize_fxn_ck$handle_conditions(warning(mssg))
 }
 
 replace_nas <- function(x, with = "") {

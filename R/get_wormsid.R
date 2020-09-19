@@ -113,7 +113,6 @@ get_worms <- function(sci_com, searchtype = "scientific", marine_only = TRUE,
   assert(ask, "logical")
   assert(messages, "logical")
   assert_rows(rows)
-  fchk(as.character(match.call()[[1]]), "get_worms")
   pchk(query, "sci_com")
 
   if (inherits(sci_com, "character")) {
@@ -264,7 +263,10 @@ get_worms <- function(sci_com, searchtype = "scientific", marine_only = TRUE,
 }
 #' @export
 #' @rdname get_worms
-get_wormsid <- get_worms
+get_wormsid <- function(...) {
+  fchk("get_wormsid", "get_worms")
+  get_worms(...)
+}
 
 try_df <- function(expr) {
   res <- tryCatch(expr, error = function(e) e)
@@ -325,7 +327,10 @@ get_worms_ <- function(sci_com, messages = TRUE, searchtype = "scientific",
 }
 #' @export
 #' @rdname get_worms
-get_wormsid_ <- get_worms_
+get_wormsid_ <- function(...) {
+  fchk("get_wormsid_", "get_worms_")
+  get_worms_(...)
+}
 
 get_worms_help <- function(query, messages, searchtype, marine_only,
   fuzzy, accepted, rows, ...) {

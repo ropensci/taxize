@@ -123,7 +123,6 @@ get_bold <- function(sci, fuzzy = FALSE, dataTypes = 'basic',
   assert(division, "character")
   assert(parent, "character")
   assert_rows(rows)
-  fchk(as.character(match.call()[[1]]), "get_bold")
   pchk(searchterm, "sci")
 
   if (inherits(sci, "character")) {
@@ -305,7 +304,10 @@ get_bold <- function(sci, fuzzy = FALSE, dataTypes = 'basic',
 }
 #' @export
 #' @rdname get_bold
-get_boldid <- get_bold
+get_boldid <- function(...) {
+  fchk("get_boldid", "get_bold")
+  get_bold(...)
+}
 
 #' @export
 #' @rdname get_bold
@@ -364,7 +366,10 @@ get_bold_ <- function(sci, messages = TRUE, fuzzy = FALSE,
 }
 #' @export
 #' @rdname get_bold
-get_boldid_ <- get_bold_
+get_boldid_ <- function(...) {
+  fchk("get_boldid_", "get_bold_")
+  get_bold_(...)
+}
 
 get_bold_help <- function(sci, messages, fuzzy, dataTypes,
   includeTree, rows, ...){

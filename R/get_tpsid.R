@@ -110,7 +110,6 @@ get_tps <- function(sci, ask = TRUE, messages = TRUE, key = NULL,
   assert(family, "character")
   assert(rank, "character")
   assert_rows(rows)
-  fchk(as.character(match.call()[[1]]), "get_tps")
   pchk(sciname, "sci")
 
   if (inherits(sci, "character")) {
@@ -254,7 +253,10 @@ get_tps <- function(sci, ask = TRUE, messages = TRUE, key = NULL,
 }
 #' @export
 #' @rdname get_tps
-get_tpsid <- get_tps
+get_tpsid <- function(...) {
+  fchk("get_tpsid", "get_tps")
+  get_tps(...)
+}
 
 #' @export
 #' @rdname get_tps
@@ -298,7 +300,10 @@ get_tps_ <- function(sci, messages = TRUE, key = NULL, rows = NA,
 }
 #' @export
 #' @rdname get_tps
-get_tpsid_ <- get_tps_
+get_tpsid_ <- function(...) {
+  fchk("get_tpsid_", "get_tps_")
+  get_tps_(...)
+}
 
 get_tps_help <- function(sci, messages, key, rows, ...){
   mssg(messages, "\nRetrieving data for taxon '", sci, "'\n")

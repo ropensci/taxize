@@ -23,15 +23,7 @@ get_natserv(
   ...
 )
 
-get_natservid(
-  sci_com,
-  searchtype = "scientific",
-  ask = TRUE,
-  messages = TRUE,
-  rows = NA,
-  query = NULL,
-  ...
-)
+get_natservid(...)
 
 as.natserv(x, check = TRUE)
 
@@ -54,14 +46,7 @@ get_natserv_(
   ...
 )
 
-get_natservid_(
-  sci_com,
-  searchtype = "scientific",
-  messages = TRUE,
-  rows = NA,
-  query = NULL,
-  ...
-)
+get_natservid_(...)
 }
 \arguments{
 \item{sci_com}{character; A vector of common or scientific names. Or, a

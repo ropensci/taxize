@@ -78,7 +78,6 @@ get_natserv <- function(sci_com, searchtype = "scientific", ask = TRUE,
   assert(ask, "logical")
   assert(messages, "logical")
   assert_rows(rows)
-  fchk(as.character(match.call()[[1]]), "get_natserv")
   pchk(query, "sci_com")
 
   if (inherits(sci_com, "character")) {
@@ -218,7 +217,10 @@ get_natserv <- function(sci_com, searchtype = "scientific", ask = TRUE,
 }
 #' @export
 #' @rdname get_natserv
-get_natservid <- get_natserv
+get_natservid <- function(...) {
+  fchk("get_natservid", "get_natserv")
+  get_natserv(...)
+}
 
 #' @export
 #' @rdname get_natserv
@@ -266,7 +268,10 @@ get_natserv_ <- function(sci_com, searchtype = "scientific", messages = TRUE,
 }
 #' @export
 #' @rdname get_natserv
-get_natservid_ <- get_natserv_
+get_natservid_ <- function(...) {
+  fchk("get_natservid_", "get_natserv_")
+  get_natserv_(...)
+}
 
 get_natserv_help <- function(sci_com, searchtype, messages, rows, ...) {
   mssg(messages, "\nRetrieving data for taxon '", sci_com, "'\n")

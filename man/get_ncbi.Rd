@@ -27,19 +27,7 @@ get_ncbi(
   ...
 )
 
-get_uid(
-  sci_com,
-  ask = TRUE,
-  messages = TRUE,
-  rows = NA,
-  modifier = NULL,
-  rank_query = NULL,
-  division_filter = NULL,
-  rank_filter = NULL,
-  key = NULL,
-  sciname = NULL,
-  ...
-)
+get_uid(...)
 
 as.ncbi(x, check = TRUE)
 
@@ -55,7 +43,7 @@ as.ncbi(x, check = TRUE)
 
 get_ncbi_(sci_com, messages = TRUE, rows = NA, key = NULL, sciname = NULL, ...)
 
-get_uid_(sci_com, messages = TRUE, rows = NA, key = NULL, sciname = NULL, ...)
+get_uid_(...)
 }
 \arguments{
 \item{sci_com}{character; scientific or common name. Or, a \code{taxon_state}

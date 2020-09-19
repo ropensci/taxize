@@ -23,16 +23,7 @@ get_nbn(
   ...
 )
 
-get_nbnid(
-  sci_com,
-  ask = TRUE,
-  messages = TRUE,
-  rec_only = FALSE,
-  rank = NULL,
-  rows = NA,
-  name = NULL,
-  ...
-)
+get_nbnid(...)
 
 as.nbn(x, check = TRUE)
 
@@ -54,15 +45,7 @@ get_nbn_(
   ...
 )
 
-get_nbnid_(
-  sci_com,
-  messages = TRUE,
-  rec_only = FALSE,
-  rank = NULL,
-  rows = NA,
-  name = NULL,
-  ...
-)
+get_nbnid_(...)
 }
 \arguments{
 \item{sci_com}{character; a vector of common or scientific names. Or, a

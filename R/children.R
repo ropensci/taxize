@@ -244,7 +244,6 @@ children_worms <- function(sci_id, db = NULL, ...) {
 
 children_ncbi <- function(sci_id, db = NULL, ...) {
   warn_db(list(db = db), "ncbi")
-  sci_id <- as.character(taxa::tax_id(sci_id))
   out <- if (is.na(sci_id)) {
     stats::setNames(list(ncbi_blank), sci_id)
   } else {

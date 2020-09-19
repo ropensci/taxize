@@ -24,16 +24,7 @@ get_eol(
   ...
 )
 
-get_eolid(
-  sci_com,
-  ask = TRUE,
-  messages = TRUE,
-  rows = NA,
-  rank = NULL,
-  data_source = NULL,
-  sciname = NULL,
-  ...
-)
+get_eolid(...)
 
 as.eol(x, check = TRUE)
 
@@ -49,7 +40,7 @@ as.eol(x, check = TRUE)
 
 get_eol_(sci_com, messages = TRUE, rows = NA, sciname = NULL, ...)
 
-get_eolid_(sci_com, messages = TRUE, rows = NA, sciname = NULL, ...)
+get_eolid_(...)
 }
 \arguments{
 \item{sci_com}{character; one or more scientific or common names. Or,

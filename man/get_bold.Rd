@@ -28,20 +28,7 @@ get_bold(
   ...
 )
 
-get_boldid(
-  sci,
-  fuzzy = FALSE,
-  dataTypes = "basic",
-  includeTree = FALSE,
-  ask = TRUE,
-  messages = TRUE,
-  rows = NA,
-  rank = NULL,
-  division = NULL,
-  parent = NULL,
-  searchterm = NULL,
-  ...
-)
+get_boldid(...)
 
 as.bold(x, check = TRUE)
 
@@ -66,16 +53,7 @@ get_bold_(
   ...
 )
 
-get_boldid_(
-  sci,
-  messages = TRUE,
-  fuzzy = FALSE,
-  dataTypes = "basic",
-  includeTree = FALSE,
-  rows = NA,
-  searchterm = NULL,
-  ...
-)
+get_boldid_(...)
 }
 \arguments{
 \item{sci}{character; A vector of scientific names. Or,

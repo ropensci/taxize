@@ -24,16 +24,7 @@ get_itis(
   ...
 )
 
-get_tsn(
-  sci_com,
-  searchtype = "scientific",
-  accepted = FALSE,
-  ask = TRUE,
-  messages = TRUE,
-  rows = NA,
-  searchterm = NULL,
-  ...
-)
+get_tsn(...)
 
 as.itis(x, check = TRUE)
 
@@ -57,15 +48,7 @@ get_itis_(
   ...
 )
 
-get_tsn_(
-  sci_com,
-  messages = TRUE,
-  searchtype = "scientific",
-  accepted = TRUE,
-  rows = NA,
-  searchterm = NULL,
-  ...
-)
+get_tsn_(...)
 }
 \arguments{
 \item{sci_com}{character; A vector of common or scientific names.
