@@ -78,8 +78,10 @@ children("Salmo", db = 'worms')
 children("Salmo", db = 'bold')
 
 # Plug in IDs
+if (interactive()) {
 (id <- get_worms("Gadus"))
 children(id)
+}
 (z <- get_itis("Tragia"))
 children(z)
 
@@ -91,7 +93,7 @@ children(sp, db = 'itis')
 (ids <- get_ids("Apis", db = c('ncbi','itis')))
 children(ids)
 ## same result
-children(get_ids("Apis", db = c('ncbi','itis')))
+# children(get_ids("Apis", db = c('ncbi','itis')))
 
 # Use the rows parameter
 children("Poa", db = 'itis')

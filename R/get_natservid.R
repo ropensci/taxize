@@ -246,7 +246,9 @@ as.natserv.numeric <- function(x, check=TRUE) as.natserv(as.character(x), check)
 #' @rdname get_natserv
 as.natserv.data.frame <- function(x, check=TRUE) as_txid_df(x, check)
 
-make_natserv <- function(x, check=TRUE) make_generic(x, ns_base_uri(), "natserv", check)
+make_natserv <- function(x, check=TRUE) {
+  make_generic(as.character(x), ns_base_uri(), "natserv", check)
+}
 
 check_natserv <- function(x){
   tt <- crul::HttpClient$new(sprintf(ns_base_uri(), x),

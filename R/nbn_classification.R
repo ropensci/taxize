@@ -18,6 +18,8 @@
 #' nbn_classification(id="NHMSYS0000502940", verbose = TRUE)
 #' }
 nbn_classification <- function(id, ...) {
+  assert(id, c("character", "txid"))
+  if (inherits(id, "txid")) id <- txidac(id)
   url <- file.path(nbn_base(), "classification", id)
   nbn_GET_2(url, ...)
 }

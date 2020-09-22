@@ -3,10 +3,11 @@ make_generic <- function(x, uu, clz, check = TRUE) {
     if ( evalfxn(clz)(x) ) {
       toid(x, uu, clz)
     } else {
-      structure(
-        NA, class = clz, match = "not found",
-        multiple_matches = FALSE, pattern_match = FALSE, uri = NA
-      )
+      toid(NA_character_, uu, clz)
+      # structure(
+      #   NA, class = clz, match = "not found",
+      #   multiple_matches = FALSE, pattern_match = FALSE, uri = NA
+      # )
     }
   } else {
     toid(x, uu, clz)
@@ -21,7 +22,7 @@ make_iucn_generic <- function(x, uu, clz, check = TRUE, key = NULL) {
         name = res$result$scientific_name)
     } else {
       structure(
-        NA, class = clz, match = "not found",
+        NA_character_, class = clz, match = "not found",
         multiple_matches = NA, pattern_match = NA, uri = NA,
         name = NA
       )
@@ -34,10 +35,15 @@ make_iucn_generic <- function(x, uu, clz, check = TRUE, key = NULL) {
 make_wiki_generic <- function(x, uu, clz, check = TRUE) {
   if (check) {
     if ( evalfxn(clz)(sprintf(uu, x)) ) {
-      toid(x, uu, clz)
+      structure(x, class = "wiki",
+        match = "found",
+        multiple_matches = FALSE,
+        pattern_match = FALSE,
+        uri = uu
+      )
     } else {
       structure(
-        NA, class = clz, match = "not found",
+        NA_character_, class = clz, match = "not found",
         multiple_matches = FALSE, pattern_match = FALSE, uri = NA
       )
     }

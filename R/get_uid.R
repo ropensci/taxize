@@ -125,7 +125,7 @@
 #'
 #' # Go to a website with more info on the taxon
 #' res <- get_ncbi("Chironomus riparius")
-#' browseURL(attr(res, "uri"))
+#' as.data.frame(res)$uri
 #'
 #' # Convert a uid without class information to a ncbi class
 #' as.ncbi(get_ncbi("Chironomus riparius")) # already ncbi class, returns same
@@ -203,7 +203,7 @@ get_ncbi <- function(sci_com, ask = TRUE, messages = TRUE, rows = NA,
     raw_xml_result <- repeat_until_it_works(try_again_errors,
                                             "esearch",
                                             query = query_args,
-                                            ...)
+                                            )
     xml_result <- xml2::read_xml(raw_xml_result)
 
     # NCBI limits requests to three per second
@@ -227,7 +227,7 @@ get_ncbi <- function(sci_com, ask = TRUE, messages = TRUE, rows = NA,
       try_again_errors <- c("Could not resolve host: eutils.ncbi.nlm.nih.gov")
       query_args <- tc(list(db = "taxonomy", ID = ID, api_key = key))
       tt <- repeat_until_it_works(try_again_errors, "esummary",
-                                  query_args, ...)
+                                  query_args)
       ttp <- xml2::read_xml(tt)
       df <- parse_ncbi(ttp)
       rownames(df) <- 1:nrow(df)
@@ -326,9 +326,9 @@ get_ncbi <- function(sci_com, ask = TRUE, messages = TRUE, rows = NA,
   out <- tstate$get()
   ids <- as.character(unlist(pluck_un(out, "id", "")))
   res <- taxa_taxon(
-    name = unlist(pluck(out, "name")),
+    name = unlist(pluck(out, "name")) %||% NA_character_,
     id = taxa::taxon_id(ids, db = "ncbi"),
-    rank = unlist(pluck(out, "rank")),
+    rank = unlist(pluck(out, "rank")) %||% NA_character_,
     uri = sprintf(get_url_templates$ncbi, ids),
     match = unname(unlist(pluck(out, "att"))),
     multiple_matches = unname(unlist(pluck(out, "multiple"))),

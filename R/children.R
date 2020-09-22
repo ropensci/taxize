@@ -52,8 +52,10 @@
 #' children("Salmo", db = 'bold')
 #'
 #' # Plug in IDs
+#' if (interactive()) {
 #' (id <- get_worms("Gadus"))
 #' children(id)
+#' }
 #' (z <- get_itis("Tragia"))
 #' children(z)
 #'
@@ -65,7 +67,7 @@
 #' (ids <- get_ids("Apis", db = c('ncbi','itis')))
 #' children(ids)
 #' ## same result
-#' children(get_ids("Apis", db = c('ncbi','itis')))
+#' # children(get_ids("Apis", db = c('ncbi','itis')))
 #'
 #' # Use the rows parameter
 #' children("Poa", db = 'itis')
@@ -244,7 +246,7 @@ children_worms <- function(sci_id, db = NULL, ...) {
 
 children_ncbi <- function(sci_id, db = NULL, ...) {
   warn_db(list(db = db), "ncbi")
-  out <- if (is.na(sci_id)) {
+  out <- if (is.na(txidac(sci_id))) {
     stats::setNames(list(ncbi_blank), sci_id)
   } else {
     ncbi_children(id = sci_id, ambiguous = TRUE, ...)

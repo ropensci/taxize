@@ -215,6 +215,7 @@ get_eol <- function(sci_com, ask = TRUE, messages = TRUE,
     if (length(id) == 0 || all(is.na(id))) {
       mssg(messages, m_not_found_sp_altclass)
       mm <- FALSE
+      id <- NA_character_
       att <- "not found"
     }
 
@@ -395,7 +396,7 @@ get_eolid_ <- function(...) {
 
 get_eol_help <- function(sci_com, messages, rows, ...) {
   mssg(messages, "\nRetrieving data for taxon '", sci_com, "'\n")
-  tmp <- eol_search(terms = sci_com, ...)
+  tmp <- eol_search(sci = sci_com, ...)
 
   if (all(is.na(tmp))) {
     NULL

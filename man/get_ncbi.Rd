@@ -199,7 +199,7 @@ get_ncbi('Dugesia', ask = FALSE) # returns NA for multiple matches
 
 # Go to a website with more info on the taxon
 res <- get_ncbi("Chironomus riparius")
-browseURL(attr(res, "uri"))
+as.data.frame(res)$uri
 
 # Convert a uid without class information to a ncbi class
 as.ncbi(get_ncbi("Chironomus riparius")) # already ncbi class, returns same

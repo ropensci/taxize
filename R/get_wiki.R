@@ -264,7 +264,7 @@ make_wiki <- function(x, check = TRUE, wiki_site, wiki) {
     pedia = paste0(sprintf('https://%s.wikipedia.org/wiki', wiki), "/%s"),
     commons = 'https://commons.wikimedia.org/wiki/%s'
   )
-  make_wiki_generic(x, url, "wiki", check)
+  make_wiki_generic(x, sprintf(url, x), "wiki", check)
 }
 
 check_wiki <- function(x) {
