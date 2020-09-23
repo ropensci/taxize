@@ -10,7 +10,7 @@ resolve(sci, db = "gnr", query = NULL, ...)
 \item{sci}{Vector of one or more taxonomic names (common names not
 supported)}
 
-\item{db}{Source to check names against. One of iplant, tnrs, or gnr.
+\item{db}{Source to check names against. One of iplant or gnr.
 Default: gnr. Note that each taxonomic data source has their own
 identifiers, so that if you provide the wrong \code{db} value for the
 identifier you could get a result, but it will likely be wrong (not
@@ -28,17 +28,15 @@ of sources requested), with each element being a data.frame or list
 with results from that source.
 }
 \description{
-Resolve names from iPlant's name resolver, the Taxonomic
-Name Resolution Service (TNRS), and the Global Names Resolver (GNR)
+Resolve names from iPlant's name resolver, and
+the Global Names Resolver (GNR)
 }
 \examples{
 \dontrun{
 resolve(sci=c("Helianthus annuus", "Homo sapiens"))
 resolve(sci="Quercus keloggii", db='gnr')
-resolve(sci=c("Helianthus annuus", "Homo sapiens"), db='tnrs')
 resolve(sci=c("Helianthus annuus", "Homo sapiens"), db=c('iplant', 'gnr'))
 resolve(sci="Quercus keloggii", db=c('iplant', 'gnr'))
-resolve(sci="Quercus keloggii", db=c('iplant', 'gnr', 'tnrs'))
 
 # pass in options specific to each source
 resolve("Helianthus annuus", db = 'gnr', preferred_data_sources = c(3, 4))
@@ -46,14 +44,6 @@ resolve("Helianthus annuus", db = 'iplant', retrieve = 'best')
 identical(
  resolve("Helianthus annuus", db = 'iplant', retrieve = 'best')$iplant,
  iplant_resolve("Helianthus annuus", retrieve = 'best')
-)
-mynames <- c("Helianthus annuus", "Pinus contorta", "Poa annua",
-   "Abies magnifica", "Rosa california")
-resolve(mynames, db = 'tnrs', source = "NCBI")
-resolve(mynames, db = 'tnrs', source = "iPlant_TNRS")
-identical(
- resolve(mynames, db = 'tnrs', source = "iPlant_TNRS")$tnrs,
- tnrs(mynames, source = "iPlant_TNRS")
 )
 
 # pass in curl options

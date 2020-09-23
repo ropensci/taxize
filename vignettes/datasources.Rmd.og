@@ -45,12 +45,6 @@ Data sources currently implemented in taxize
   <td style="text-align:left;">none</td>
 </tr>
 <tr>
-  <td style="text-align:left;">Taxonomic Name Resolution Service</td>
-  <td style="text-align:left;"><code>tnrs</code></td>
-  <td style="text-align:left;">none</td>
-  <td style="text-align:left;">none</td>
-</tr>
-<tr>
   <td style="text-align:left;">Integrated Taxonomic Information Service</td>
   <td style="text-align:left;"><code>itis</code></td>
   <td style="text-align:left;"><a href="https://www.itis.gov/ws_description.html">link</a></td>

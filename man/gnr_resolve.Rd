@@ -168,7 +168,7 @@ http://gnrd.globalnames.org/api
 http://gnrd.globalnames.org/
 }
 \seealso{
-\code{\link[=gnr_datasources]{gnr_datasources()}} \link{tnrs}
+\code{\link[=gnr_datasources]{gnr_datasources()}}
 }
 \author{
 Scott Chamberlain \email{myrmecocystus@gmail.com}

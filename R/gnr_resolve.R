@@ -88,7 +88,7 @@
 #' If `preferred_data_sources` is used, only the preferred data
 #' is returned - if it has any results.
 #'
-#' @seealso [gnr_datasources()] [tnrs]
+#' @seealso [gnr_datasources()]
 #' @keywords resolve names taxonomy
 #' @references http://gnrd.globalnames.org/api
 #' http://gnrd.globalnames.org/

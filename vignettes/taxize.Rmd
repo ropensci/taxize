@@ -48,27 +48,9 @@ head(temp)
 #> 6 Helianthos annus   Helianthos ann… Helianthus annu… Union 4               0.75
 ```
 
-The correct spellings are *Helianthus annuus* and *Homo sapiens*. Another approach uses the Taxonomic Name Resolution Service via the Taxosaurus API developed by iPLant and the Phylotastic organization. In this example, we provide a list of species names, some of which are misspelled, and we'll call the API with the *tnrs* function.
+The correct spellings are *Helianthus annuus* and *Homo sapiens*.
 
-
-```r
-mynames <- c("Helianthus annuus", "Pinus contort", "Poa anua", "Abis magnifica",
-  	"Rosa california", "Festuca arundinace", "Sorbus occidentalos","Madia sateva")
-tnrs(mynames, source = "iPlant_TNRS")[ , -c(5:7)]
-#>         submittedname        acceptedname    sourceid score
-#> 1   Helianthus annuus   Helianthus annuus iPlant_TNRS  1.00
-#> 2       Pinus contort      Pinus contorta iPlant_TNRS  0.98
-#> 3            Poa anua           Poa annua iPlant_TNRS  0.96
-#> 4      Abis magnifica     Abies magnifica iPlant_TNRS  0.96
-#> 5     Rosa california    Rosa californica iPlant_TNRS  0.99
-#> 6  Festuca arundinace Festuca arundinacea iPlant_TNRS  0.99
-#> 7 Sorbus occidentalos Sorbus occidentalis iPlant_TNRS  0.99
-#> 8        Madia sateva        Madia sativa iPlant_TNRS  0.97
-```
-
-It turns out there are a few corrections: e.g., *Madia sateva* should be *Madia sativa*, and *Rosa california* should be *Rosa californica*. Note that this search worked because fuzzy matching was employed to retrieve names that were close, but not exact matches. Fuzzy matching is only available for plants in the TNRS service, so we advise using EOL's Global Names Resolver if you need to resolve animal names.
-
-taxize takes the approach that the user should be able to make decisions about what resource to trust, rather than making the decision. Both the EOL GNR and the TNRS services provide data from a variety of data sources. The user may trust a specific data source, thus may want to use the names from that data source. In the future, we may provide the ability for taxize to suggest the best match from a variety of sources.
+taxize takes the approach that the user should be able to make decisions about what resource to trust, rather than making the decision. The GNR service provides data from a variety of data sources. The user may trust a specific data source, thus may want to use the names from that data source. In the future, we may provide the ability for taxize to suggest the best match from a variety of sources.
 
 Another common use case is when there are many synonyms for a species. In this example, we have three synonyms of the currently accepted name for a species.
 
