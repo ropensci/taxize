@@ -2,11 +2,11 @@
 #' names or identifiers
 #'
 #' @param sci_id Vector of taxa names (character) or IDs (character or numeric)
-#' @param db character; database to query. either `itis`, `tropicos`,
+#' @param db character; database to query. either `itis`, `tps`,
 #' `nbn`, `worms`, or `pow`. Note that each taxonomic data source has their own
 #' identifiers, so that if you provide the wrong `db` value for the identifier
 #' you could get a result, but it will likely be wrong (not what you were
-#' expecting). If using tropicos, we  recommend getting an API key;
+#' expecting). If using tps, we  recommend getting an API key;
 #' see [taxize-authentication]
 #' @param id character; identifiers, returned by [get_itis()], [get_tps()],
 #' [get_nbn()], [get_worms()], [get_pow()]
@@ -42,7 +42,7 @@
 #' @examples \dontrun{
 #' # Plug in taxon IDs
 #' synonyms(183327, db="itis")
-#' synonyms("25509881", db="tropicos")
+#' synonyms("25509881", db="tps")
 #' synonyms("NBNSYS0000004629", db='nbn')
 #' synonyms(105706, db='worms')
 #' synonyms(12392, db='iucn')
@@ -52,9 +52,9 @@
 #' synonyms("Pinus contorta", db="itis")
 #' synonyms("Puma concolor", db="itis")
 #' synonyms(c("Poa annua",'Pinus contorta','Puma concolor'), db="itis")
-#' synonyms("Poa annua", db="tropicos")
-#' synonyms("Pinus contorta", db="tropicos")
-#' synonyms(c("Poa annua",'Pinus contorta'), db="tropicos")
+#' synonyms("Poa annua", db="tps")
+#' synonyms("Pinus contorta", db="tps")
+#' synonyms(c("Poa annua",'Pinus contorta'), db="tps")
 #' synonyms("Pinus sylvestris", db='nbn')
 #' synonyms('Pomatomus', db='worms')
 #' synonyms('Pomatomus saltatrix', db='worms')
@@ -76,16 +76,16 @@
 #' synonyms(get_pow('Lithocarpus mindanaensis'))
 #'
 #' # Pass many ids from class "ids"
-#' out <- get_ids("Poa annua", db = c('itis','tropicos'))
+#' out <- get_ids("Poa annua", db = c('itis','tps'))
 #' synonyms(out)
 #'
 #' # Use the rows parameter to select certain rows
-#' synonyms("Poa annua", db='tropicos', rows=1)
-#' synonyms("Poa annua", db='tropicos', rows=1:3)
+#' synonyms("Poa annua", db='tps', rows=1)
+#' synonyms("Poa annua", db='tps', rows=1:3)
 #' synonyms("Pinus sylvestris", db='nbn', rows=1:3)
 #'
 #' # Use curl options
-#' synonyms("Poa annua", db='tropicos', rows=1, verbose = TRUE)
+#' synonyms("Poa annua", db='tps', rows=1, verbose = TRUE)
 #' synonyms("Poa annua", db='itis', rows=1, verbose = TRUE)
 #'
 #'
@@ -97,7 +97,7 @@
 #' synonyms_df(x)
 #'
 #' ## note here that ids are taxon identifiers b/c you start with them
-#' x <- synonyms(c(25509881, 13100094), db="tropicos")
+#' x <- synonyms(c(25509881, 13100094), db="tps")
 #' synonyms_df(x)
 #'
 #' ## NBN
@@ -123,10 +123,10 @@ synonyms.default <- function(sci_id, db = NULL, rows = NA, x = NULL, ...) {
       structure(stats::setNames(synonyms(id, ...), names_or_ids(id)),
                 class = "synonyms", db = "itis")
     },
-    tropicos = {
+    tps = {
       id <- process_syn_ids(sci_id, db, get_tps, rows = rows, ...)
       structure(stats::setNames(synonyms(id, ...), names_or_ids(id)),
-                class = "synonyms", db = "tropicos")
+                class = "synonyms", db = "tps")
     },
     nbn = {
       id <- process_syn_ids(sci_id, db, get_nbn, rows = rows, ...)
@@ -165,7 +165,7 @@ process_syn_ids <- function(input, db, fxn, ...){
   ) {
     as_fxn <- switch(db,
       itis = as.itis,
-      tropicos = as.tps,
+      tps = as.tps,
       nbn = as.nbn,
       worms = as.worms,
       iucn = as.iucn,
@@ -230,7 +230,7 @@ rit_acc_name <- function(x, ...) {
 }
 
 synonyms_tps <- function(id, ...) {
-  warn_db(list(...), "topicos")
+  warn_db(list(...), "tps")
   fun <- function(x) {
     if (is.na(x)) {
       NA_character_

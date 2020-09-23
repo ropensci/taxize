@@ -7,7 +7,7 @@
 \usage{
 get_ids(
   sci_com,
-  db = c("itis", "ncbi", "eol", "tropicos", "gbif", "nbn", "pow"),
+  db = c("itis", "ncbi", "eol", "tps", "gbif", "nbn", "pow"),
   suppress = FALSE,
   names = NULL,
   ...
@@ -26,11 +26,11 @@ get_ids_(
 \item{sci_com}{(character) Taxonomic name to query.}
 
 \item{db}{(character) database to query. One or more of \code{ncbi}, \code{itis}, \code{eol},
-\code{tropicos}, \code{gbif}, \code{nbn}, or \code{pow}. By default db is set to search
+\code{tps}, \code{gbif}, \code{nbn}, or \code{pow}. By default db is set to search
 all data sources. Note that each taxonomic data source has their own
 identifiers, so that if you give the wrong \code{db} value for the identifier you
 could get a result, it will likely be wrong (not what you were expecting).
-If using ncbi and/or tropicos we recommend getting API keys;
+If using ncbi and/or tps we recommend getting API keys;
 see \link{taxize-authentication}}
 
 \item{suppress}{(logical) suppress \pkg{cli} separators with the database
@@ -86,14 +86,14 @@ get_ids(c("Chironomus riparius", "Pinus contorta"),
 get_ids(c("Chironomus riparius", "Pinus contorta"),
   db = c('ncbi','itis'))
 get_ids("Pinus contorta",
-  db = c('ncbi','itis','eol','tropicos'))
-get_ids("ava avvva", db = c('ncbi','itis','eol','tropicos'))
+  db = c('ncbi','itis','eol','tps'))
+get_ids("ava avvva", db = c('ncbi','itis','eol','tps'))
 
 # Pass on to other functions
 out <- get_ids("Pinus contorta",
- db = c('ncbi','itis','eol','tropicos'))
+ db = c('ncbi','itis','eol','tps'))
 classification(out$itis)
-synonyms(out$tropicos)
+synonyms(out$tps)
 
 # Get all data back
 get_ids_(c("Chironomus riparius", "Pinus contorta"), db = 'nbn',

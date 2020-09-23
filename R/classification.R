@@ -5,11 +5,11 @@
 #' to query. For `db = "eol"`, EOL expects you to pass it a taxon id, called
 #' `eolid` in the output of [get_eol()]. 
 #' @param db character; database to query. either `ncbi`, `itis`, `eol`,
-#' `tropicos`, `gbif`, `nbn`, `worms`, `natserv`, `bold`, `wiki`, or `pow`.
+#' `tps`, `gbif`, `nbn`, `worms`, `natserv`, `bold`, `wiki`, or `pow`.
 #' Note that each taxonomic data source has, their own identifiers, so that
 #' if you provide the wrong `db` value for the identifier you could get a
 #' result, but it will likely be wrong (not what you were expecting). If using
-#' ncbi, and/or tropicos, we recommend getting an API key; see
+#' ncbi, and/or tps, we recommend getting an API key; see
 #' [taxize-authentication]
 #' @param id character; identifiers, returned by [get_itis()], [get_ncbi()],
 #' [get_eol()], [get_tps()], [get_gbif()], [get_tol()],
@@ -86,7 +86,7 @@
 #' classification('Asteraceae', db = 'pow')
 #' classification("134717", db = 'natserv')
 #' classification(c(2704179, 6162875, 8286319, 2441175, 731), db = 'gbif')
-#' classification(25509881, db = 'tropicos')
+#' classification(25509881, db = 'tps')
 #' classification("NBNSYS0000004786", db = 'nbn')
 #' classification(as.nbn("NBNSYS0000004786"), db = 'nbn')
 #' classification(3930798, db = 'tol')
@@ -125,7 +125,7 @@
 #' classification('Aquila chrysaetos', db = 'natserv')
 #' classification(c("Chironomus riparius", "asdfasdfsfdfsd"), db = 'gbif')
 #' classification("Chironomus", db = 'tol')
-#' classification("Poa annua", db = 'tropicos')
+#' classification("Poa annua", db = 'tps')
 #'
 #' # Use methods for get_ncbi, get_itis, get_eol, get_tps
 #' classification(get_ncbi(c("Chironomus riparius", "Puma concolor")))
@@ -190,10 +190,10 @@
 #'   return_id = FALSE)
 #'
 #' # Use rows parameter to select certain
-#' classification('Poa annua', db = 'tropicos')
-#' classification('Poa annua', db = 'tropicos', rows=1:4)
-#' classification('Poa annua', db = 'tropicos', rows=1)
-#' classification('Poa annua', db = 'tropicos', rows=6)
+#' classification('Poa annua', db = 'tps')
+#' classification('Poa annua', db = 'tps', rows=1:4)
+#' classification('Poa annua', db = 'tps', rows=1)
+#' classification('Poa annua', db = 'tps', rows=6)
 #' 
 #' # Queries of many IDs are processed in batches for NCBI
 #' ids <- c("13083", "2650392", "1547764", "230054", "353934", "656984", 
@@ -245,7 +245,7 @@ classification.default <- function(sci_id, db = NULL, callopts = list(),
       stats::setNames(classification(id, callopts = callopts,
         return_id = return_id, ...), sci_id)
     },
-    tropicos = {
+    tps = {
       id <- process_ids(sci_id, db, get_tps, rows = rows, ...)
       stats::setNames(classification(id, callopts = callopts,
         return_id = return_id, ...), sci_id)
@@ -305,7 +305,7 @@ process_ids <- function(input, db, fxn, ...){
            itis = as.itis,
            ncbi = as.ncbi,
            eol = as.eol,
-           tropicos = as.tps,
+           tps = as.tps,
            gbif = as.gbif,
            nbn = as.nbn,
            tol = as.tol,
@@ -475,7 +475,7 @@ classification_eol <- function(id, callopts = list(), return_id = TRUE, ...) {
 }
 
 classification_tps <- function(id, callopts = list(), return_id = TRUE, ...) {
-  warn_db(list(...), "tropicos")
+  warn_db(list(...), "tps")
   fun <- function(x, callopts){
     if (is.na(x)) {
       out <- NA
@@ -498,7 +498,7 @@ classification_tps <- function(id, callopts = list(), return_id = TRUE, ...) {
   }
   out <- lapply(txidac(id), fun, callopts = callopts)
   names(out) <- names_or_ids(id)
-  structure(out, class = 'classification', db = 'tropicos')
+  structure(out, class = 'classification', db = 'tps')
 }
 
 classification_gbif <- function(id, callopts = list(),

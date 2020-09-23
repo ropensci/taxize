@@ -50,11 +50,11 @@ to query. For \code{db = "eol"}, EOL expects you to pass it a taxon id, called
 \code{eolid} in the output of \code{\link[=get_eol]{get_eol()}}.}
 
 \item{db}{character; database to query. either \code{ncbi}, \code{itis}, \code{eol},
-\code{tropicos}, \code{gbif}, \code{nbn}, \code{worms}, \code{natserv}, \code{bold}, \code{wiki}, or \code{pow}.
+\code{tps}, \code{gbif}, \code{nbn}, \code{worms}, \code{natserv}, \code{bold}, \code{wiki}, or \code{pow}.
 Note that each taxonomic data source has, their own identifiers, so that
 if you provide the wrong \code{db} value for the identifier you could get a
 result, but it will likely be wrong (not what you were expecting). If using
-ncbi, and/or tropicos, we recommend getting an API key; see
+ncbi, and/or tps, we recommend getting an API key; see
 \link{taxize-authentication}}
 
 \item{callopts}{Curl options passed on to \link[crul:verb-GET]{crul::verb-GET}}
@@ -145,7 +145,7 @@ classification('Helianthus', db = 'pow')
 classification('Asteraceae', db = 'pow')
 classification("134717", db = 'natserv')
 classification(c(2704179, 6162875, 8286319, 2441175, 731), db = 'gbif')
-classification(25509881, db = 'tropicos')
+classification(25509881, db = 'tps')
 classification("NBNSYS0000004786", db = 'nbn')
 classification(as.nbn("NBNSYS0000004786"), db = 'nbn')
 classification(3930798, db = 'tol')
@@ -184,7 +184,7 @@ classification('Pomatomus saltatrix', db = 'natserv')
 classification('Aquila chrysaetos', db = 'natserv')
 classification(c("Chironomus riparius", "asdfasdfsfdfsd"), db = 'gbif')
 classification("Chironomus", db = 'tol')
-classification("Poa annua", db = 'tropicos')
+classification("Poa annua", db = 'tps')
 
 # Use methods for get_ncbi, get_itis, get_eol, get_tps
 classification(get_ncbi(c("Chironomus riparius", "Puma concolor")))
@@ -249,10 +249,10 @@ classification(c("Alopias vulpinus","Pinus sylvestris"), db = 'ncbi',
   return_id = FALSE)
 
 # Use rows parameter to select certain
-classification('Poa annua', db = 'tropicos')
-classification('Poa annua', db = 'tropicos', rows=1:4)
-classification('Poa annua', db = 'tropicos', rows=1)
-classification('Poa annua', db = 'tropicos', rows=6)
+classification('Poa annua', db = 'tps')
+classification('Poa annua', db = 'tps', rows=1:4)
+classification('Poa annua', db = 'tps', rows=1)
+classification('Poa annua', db = 'tps', rows=6)
 
 # Queries of many IDs are processed in batches for NCBI
 ids <- c("13083", "2650392", "1547764", "230054", "353934", "656984", 

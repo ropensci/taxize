@@ -3,7 +3,7 @@
 #' @export
 #' @param com One or more common names or partial names.
 #' @param db Data source, one of *"ncbi"* (default), *"itis"*,
-#' *"tropicos"*, *"eol"*, or *"worms"*. If using ncbi, we
+#' *"tps"*, *"eol"*, or *"worms"*. If using ncbi, we
 #' recommend getting an API key; see [taxize-authentication]
 #' @param itisby Search for common names across entire names (search, default),
 #' at beginning of names (begin), or at end of names (end).
@@ -36,8 +36,8 @@
 #' comm2sci(com='american black bear', simplify = FALSE)
 #' comm2sci(com='black bear', db='itis')
 #' comm2sci(com='american black bear', db='itis')
-#' comm2sci(com='annual blue grass', db='tropicos')
-#' comm2sci(com=c('annual blue grass','tree of heaven'), db='tropicos')
+#' comm2sci(com='annual blue grass', db='tps')
+#' comm2sci(com=c('annual blue grass','tree of heaven'), db='tps')
 #' comm2sci('blue whale', db = "worms")
 #' comm2sci(c('blue whale', 'dwarf surfclam'), db = "worms")
 #'
@@ -72,13 +72,13 @@ sci_from_comm <- function(nn, db, simplify, itisby, ...) {
     db,
     eol = c2s_eol(sci = nn, simplify, ...),
     itis = c2s_itis(nn, itisby, simplify, ...),
-    tropicos = c2s_tp(simplify, com = nn, ...),
+    tps = c2s_tp(simplify, com = nn, ...),
     ncbi = {
       ids <- get_ncbi(nn, modifier = "Common Name", ...)
       c2s_ncbi(ids, ...)
     },
     worms = c2s_worms(nn, simplify, ...),
-    stop("'db' must be one of 'ncbi', 'itis', 'tropicos', 'eol', 'worms'",
+    stop("'db' must be one of 'ncbi', 'itis', 'tps', 'eol', 'worms'",
          call. = FALSE)
   )
 }

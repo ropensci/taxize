@@ -5,7 +5,7 @@
 #' IDs (character or numeric) to query. Or objects returned from `get_*()`
 #' functions like [get_itis()]
 #' @param db (character) database to query. either `ncbi`, `itis`, `eol`,
-#' `tropicos`, `gbif`,`nbn`, `worms`, `natserv`, `bold`. Note that each
+#' `tps`, `gbif`,`nbn`, `worms`, `natserv`, `bold`. Note that each
 #' taxonomic data source has their own identifiers, so that if you provide the
 #' wrong `db` value for the identifier you may get a result, but it will
 #' likely be wrong (not what you were expecting). If using ncbi we
@@ -30,7 +30,7 @@
 #'
 #' tax_rank(c("Plantae", "Helianthus annuus",
 #'   "Puma", "Homo sapiens"), db = 'itis')
-#' tax_rank(c("Helianthus annuus", "Quercus", "Fabaceae"), db = 'tropicos')
+#' tax_rank(c("Helianthus annuus", "Quercus", "Fabaceae"), db = 'tps')
 #'
 #' tax_rank(names_list("species"), db = 'gbif')
 #' tax_rank(names_list("family"), db = 'gbif')
@@ -67,7 +67,7 @@ tax_rank.character <- function(sci_id, db = NULL, rows = NA, x = NULL, ...) {
       rows = rows), ...), sci_id),
     tol = stats::setNames(tax_rank_(process_ids(sci_id, db, get_tol,
       rows = rows), ...), sci_id),
-    tropicos = stats::setNames(tax_rank_(process_ids(sci_id, db, get_tps,
+    tps = stats::setNames(tax_rank_(process_ids(sci_id, db, get_tps,
       rows = rows), ...), sci_id),
     itis = stats::setNames(tax_rank_(process_ids(sci_id, db, get_itis,
       rows = rows), ...), sci_id),

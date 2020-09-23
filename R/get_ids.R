@@ -1,5 +1,5 @@
 get_ids_dbs <- c(
-  "itis", "ncbi", "eol", "tropicos", "gbif", "nbn", "pow"
+  "itis", "ncbi", "eol", "tps", "gbif", "nbn", "pow"
 )
 
 #' Retrieve taxonomic identifiers for a given taxon name.
@@ -11,11 +11,11 @@ get_ids_dbs <- c(
 #' @export
 #' @param sci_com (character) Taxonomic name to query.
 #' @param db (character) database to query. One or more of `ncbi`, `itis`, `eol`,
-#' `tropicos`, `gbif`, `nbn`, or `pow`. By default db is set to search
+#' `tps`, `gbif`, `nbn`, or `pow`. By default db is set to search
 #' all data sources. Note that each taxonomic data source has their own
 #' identifiers, so that if you give the wrong `db` value for the identifier you
 #' could get a result, it will likely be wrong (not what you were expecting).
-#' If using ncbi and/or tropicos we recommend getting API keys;
+#' If using ncbi and/or tps we recommend getting API keys;
 #' see [taxize-authentication]
 #' @param suppress (logical) suppress \pkg{cli} separators with the database
 #' name being queried. default: `FALSE`
@@ -58,14 +58,14 @@ get_ids_dbs <- c(
 #' get_ids(c("Chironomus riparius", "Pinus contorta"),
 #'   db = c('ncbi','itis'))
 #' get_ids("Pinus contorta",
-#'   db = c('ncbi','itis','eol','tropicos'))
-#' get_ids("ava avvva", db = c('ncbi','itis','eol','tropicos'))
+#'   db = c('ncbi','itis','eol','tps'))
+#' get_ids("ava avvva", db = c('ncbi','itis','eol','tps'))
 #'
 #' # Pass on to other functions
 #' out <- get_ids("Pinus contorta",
-#'  db = c('ncbi','itis','eol','tropicos'))
+#'  db = c('ncbi','itis','eol','tps'))
 #' classification(out$itis)
-#' synonyms(out$tropicos)
+#' synonyms(out$tps)
 #'
 #' # Get all data back
 #' get_ids_(c("Chironomus riparius", "Pinus contorta"), db = 'nbn',
@@ -78,7 +78,7 @@ get_ids_dbs <- c(
 #' }
 
 get_ids <- function(sci_com,
-  db = c("itis", "ncbi", "eol", "tropicos", "gbif", "nbn",
+  db = c("itis", "ncbi", "eol", "tps", "gbif", "nbn",
     "pow"), suppress = FALSE, names = NULL, ...) {
   
   assert(suppress, "logical")
@@ -90,7 +90,7 @@ get_ids <- function(sci_com,
                   itis = get_itis(sci_com, ...),
                   ncbi = get_ncbi(sci_com, ...),
                   eol = get_eol(sci_com, ...),
-                  tropicos = get_tps(sci_com, ...),
+                  tps = get_tps(sci_com, ...),
                   gbif = get_gbif(sci_com, ...),
                   nbn = get_nbn(sci_com, ...),
                   pow = get_pow(sci_com, ...))
@@ -117,7 +117,7 @@ get_ids_ <- function(sci_com, db = get_ids_dbs, rows = NA,
                   itis = get_itis_(sci_com, rows = rows, ...),
                   ncbi = get_ncbi_(sci_com, rows = rows, ...),
                   eol = get_eol_(sci_com, rows = rows, ...),
-                  tropicos = get_tps_(sci_com, rows = rows, ...),
+                  tps = get_tps_(sci_com, rows = rows, ...),
                   gbif = get_gbif_(sci_com, rows = rows, ...),
                   nbn = get_nbn_(sci_com, rows = rows, ...))
     stats::setNames(ids, sci_com)

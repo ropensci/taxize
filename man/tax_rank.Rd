@@ -12,7 +12,7 @@ IDs (character or numeric) to query. Or objects returned from \verb{get_*()}
 functions like \code{\link[=get_itis]{get_itis()}}}
 
 \item{db}{(character) database to query. either \code{ncbi}, \code{itis}, \code{eol},
-\code{tropicos}, \code{gbif},\code{nbn}, \code{worms}, \code{natserv}, \code{bold}. Note that each
+\code{tps}, \code{gbif},\code{nbn}, \code{worms}, \code{natserv}, \code{bold}. Note that each
 taxonomic data source has their own identifiers, so that if you provide the
 wrong \code{db} value for the identifier you may get a result, but it will
 likely be wrong (not what you were expecting). If using ncbi we
@@ -48,7 +48,7 @@ tax_rank(36616, db = "itis")
 
 tax_rank(c("Plantae", "Helianthus annuus",
   "Puma", "Homo sapiens"), db = 'itis')
-tax_rank(c("Helianthus annuus", "Quercus", "Fabaceae"), db = 'tropicos')
+tax_rank(c("Helianthus annuus", "Quercus", "Fabaceae"), db = 'tps')
 
 tax_rank(names_list("species"), db = 'gbif')
 tax_rank(names_list("family"), db = 'gbif')
