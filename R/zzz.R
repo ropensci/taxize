@@ -336,6 +336,12 @@ replace_nas <- function(x, with = "") {
 rank_swap <- function(x) {
   vapply(x, function(w) {
     switch(w,
+      subdiv. = "subdivision",
+      cl. = "class",
+      ord. = "order",
+      fam. = "family",
+      subfam. = "subfamily",
+      trib. = "tribe",
       sp. = "species",
       subsp. = "subspecies",
       gen. = "genus",
@@ -353,7 +359,8 @@ rank_swap <- function(x) {
       lusus = "lusus",
       nothosp. = "nothospecies",
       nothosubsp. = "nothosubspecies",
-      nothovar. = "nothovariety"
+      nothovar. = "nothovariety",
+      stop("rank abbreviation (", w, ") not found; open a GitHub issue")
     )
   }, character(1))
 }
