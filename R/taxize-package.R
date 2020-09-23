@@ -301,7 +301,7 @@ NULL
 #' * [get_uid()]: use [get_ncbi()]
 #'
 #' @name taxize-deprecated
-#' @aliases defunct
+#' @aliases deprecated
 NULL
 
 #' Species names from Species Plantarum

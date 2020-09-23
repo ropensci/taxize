@@ -2,7 +2,7 @@
 % Please edit documentation in R/taxize-package.R
 \name{taxize-deprecated}
 \alias{taxize-deprecated}
-\alias{defunct}
+\alias{deprecated}
 \title{Deprecated functions in taxize}
 \description{
 The following functions are now deprecated:
