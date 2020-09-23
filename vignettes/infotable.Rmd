@@ -16,9 +16,8 @@ Function name | What it does | Source |
 `comm2sci` | Get scientific from common names | EOL, NCBI, ITIS, Tropicos |
 `downstream` | Downstream taxa to specified rank | ITIS, GBIF |
 `get_ids` | Get taxonomic identifiers | NCBI, ITIS, Tropicos, EOL, GBIF, NBN |
-`resolve` | Resolve names using many resolvers | GNR, TNRS, iPlant |
+`resolve` | Resolve names using many resolvers | GNR, iPlant |
 `gnr_resolve` | Resolve names using Global Names Resolver | GNR |
-`tnrs` | Phylotastic Taxonomic Name Resolution Service | NCBI, iPlant, MSW3 |
 `tol_resolve` | Resolve names using any resolver | TOL |
 `iplant_resolve` | iPlant name resolution| iPlant |
 `sci2comm` | Get common from scientific names | EOL, NCBI, ITIS |
@@ -39,7 +38,6 @@ Function name | What it does | Source |
 * NBN: National Biodiversity Network (UK)
 * iPlant: iPlant Name Resolution Service
 * GNR: Global Names Resolver
-* TNRS: Taxonomic Name Resolution Service
 * TOL: Open Tree of Life
 * MSW3: Mammal Species of the World, 3rd Edition
 * TPL: The Plant List

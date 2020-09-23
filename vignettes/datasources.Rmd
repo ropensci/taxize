@@ -1,7 +1,7 @@
 ---
 title: taxize data sources
 author: Scott Chamberlain
-date: "2020-09-17"
+date: "2020-09-23"
 output: rmarkdown::html_vignette
 vignette: >
     %\VignetteIndexEntry{taxize data sources}
@@ -35,12 +35,6 @@ Data sources currently implemented in taxize
   <td style="text-align:left;">Encylopedia of Life</td>
   <td style="text-align:left;"><code>eol</code></td>
   <td style="text-align:left;"><a href="https://eol.org/docs/what-is-eol/data-services">link</a></td>
-  <td style="text-align:left;">none</td>
-</tr>
-<tr>
-  <td style="text-align:left;">Taxonomic Name Resolution Service</td>
-  <td style="text-align:left;"><code>tnrs</code></td>
-  <td style="text-align:left;">none</td>
   <td style="text-align:left;">none</td>
 </tr>
 <tr>

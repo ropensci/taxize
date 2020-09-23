@@ -25,7 +25,6 @@
 #' \tabular{llc}{
 #' API \tab prefix \tab SOAP? \cr
 #' Encyclopedia of Life (EOL)  \tab eol \tab FALSE \cr
-#' Taxonomic Name Resolution Service \tab tnrs \tab FALSE \cr
 #' Integrated Taxonomic Information Service (ITIS)  \tab itis \tab FALSE \cr
 #' Global Names Resolver (from EOL/GBIF) \tab gnr \tab FALSE \cr
 #' Global Names Index (from EOL/GBIF) \tab gni \tab FALSE \cr
@@ -287,6 +286,8 @@ NULL
 #'  `phylomatic_names` in the package \pkg{brranching}
 #' * [iucn_summary_id()]: This function is defunct. Use [iucn_summary()]
 #' * [eubon()]: This function is defunct. Use [eubon_search()]
+#' * [tnrs()]: This function is defunct. Was too unreliable
+#' * [tnrs_sources()]: This function is defunct. Was too unreliable
 #'
 #' @name taxize-defunct
 #' @aliases defunct

@@ -34,7 +34,6 @@ for more information.
 \tabular{llc}{
 API \tab prefix \tab SOAP? \cr
 Encyclopedia of Life (EOL)  \tab eol \tab FALSE \cr
-Taxonomic Name Resolution Service \tab tnrs \tab FALSE \cr
 Integrated Taxonomic Information Service (ITIS)  \tab itis \tab FALSE \cr
 Global Names Resolver (from EOL/GBIF) \tab gnr \tab FALSE \cr
 Global Names Index (from EOL/GBIF) \tab gni \tab FALSE \cr
