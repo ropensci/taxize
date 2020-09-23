@@ -24,9 +24,9 @@
 #' tax_rank(get_itis("Helianthus annuus"))
 #' tax_rank(c("Helianthus", "Pinus", "Poa"), db = "itis")
 #'
-#' tax_rank(get_bold("Helianthus annuus"))
-#' tax_rank("421377", db = "bold")
-#' tax_rank(421377, db = "bold")
+#' tax_rank(get_itis("Helianthus annuus"))
+#' tax_rank("36616", db = "itis")
+#' tax_rank(36616, db = "itis")
 #'
 #' tax_rank(c("Plantae", "Helianthus annuus",
 #'   "Puma", "Homo sapiens"), db = 'itis')
