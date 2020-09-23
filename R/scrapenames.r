@@ -79,7 +79,7 @@ scrapenames <- function(url = NULL, file = NULL, text = NULL, engine = NULL,
     stop("Only one of url, file, or text can be used", call. = FALSE)
   }
 
-  base <- "http://gnrd.globalnames.org/name_finder.json"
+  base <- "https://gnrd.globalnames.org/name_finder.json"
   if (!is.null(data_source_ids))
     data_source_ids <- paste0(data_source_ids, collapse = "|")
   args <- tc(list(url = url, text = text, engine = engine, unique = unique,
