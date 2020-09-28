@@ -50,7 +50,7 @@ worms_downstream <- function(id, downto, intermediate = FALSE, start = 1,
   while (stop_ == "not") {
     iter <- iter + 1
     tt <- dt2df(lapply(id, function(x)
-      worms_children(x, start = start, ...)), idcol = FALSE)
+      worms_children(x, start = start)), idcol = FALSE)
     tt <- prune_too_low(tt, downto, zoo = TRUE)
 
     if (NROW(tt) == 0) {
