@@ -198,14 +198,16 @@ children.wormsid <- function(sci_id, db = NULL, ...) {
     if (is.na(y)) {
       out <- NA
     } else {
-      out <- worrms::wm_children(as.numeric(y))
+      out <- worrms::wm_children(as.numeric(y), ...)
       out <- list(out)
       i <- 1
       while (NROW(out[[length(out)]]) == 50) {
         i <- i + 1
         out[[i]] <- worrms::wm_children(
           as.numeric(y),
-          offset = sum(unlist(sapply(out, NROW))))
+          offset = sum(unlist(sapply(out, NROW))),
+          ...
+        )
       }
       out <- df2dt2tbl(out)
       stats::setNames(

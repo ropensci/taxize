@@ -156,3 +156,15 @@ test_that("works with source bold", {
   expect_is(x_from_get[[1]]$name, "character")
   expect_match(x_from_get[[1]]$name, "Momotus")
 })
+
+test_that("works with worms, passing through marine_only", {
+  skip_on_cran()
+  vcr::use_cassette("children_worms_marine_only", {
+    a <- children("1837", db = "worms")
+    b <- children("1837", db = "worms", marine_only = FALSE)
+  })
+
+  expect_is(a, "children")
+  expect_is(b, 'children')
+  expect_gt(NROW(b[[1]]), NROW(a[[1]]))
+})
