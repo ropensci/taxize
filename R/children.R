@@ -198,18 +198,7 @@ children.wormsid <- function(sci_id, db = NULL, ...) {
     if (is.na(y)) {
       out <- NA
     } else {
-      out <- worrms::wm_children(as.numeric(y), ...)
-      out <- list(out)
-      i <- 1
-      while (NROW(out[[length(out)]]) == 50) {
-        i <- i + 1
-        out[[i]] <- worrms::wm_children(
-          as.numeric(y),
-          offset = sum(unlist(sapply(out, NROW))),
-          ...
-        )
-      }
-      out <- df2dt2tbl(out)
+      out <- worms_children_all(y, ...)
       stats::setNames(
         out[names(out) %in% c('AphiaID', 'scientificname', 'rank')],
         c('childtaxa_id', 'childtaxa_name', 'childtaxa_rank')

@@ -86,7 +86,7 @@ worms_downstream <- function(id, downto, intermediate = FALSE, start = 1,
 
 worms_children <- function(x, start = 1, ...) {
   bb <- tryCatch(
-    worrms::wm_children(id = as.numeric(x), offset = start, ...),
+    worms_children_all(x, start, ...),
     error = function(e) e
   )
   if (inherits(bb, "error")) return(data.frame(NULL))
@@ -107,4 +107,24 @@ worms_children <- function(x, start = 1, ...) {
   names(bb)[names(bb) %in% "AphiaID"] <- "id"
   names(bb)[names(bb) %in% "scientificname"] <- "name"
   bb[c('id', 'name', 'rank')]
+}
+
+worms_children_all <- function(id, start=1, ...) {
+  out <- worrms::wm_children(as.numeric(id), start=start, ...)
+  out <- list(out)
+  i <- 1
+  while (NROW(out[[length(out)]]) == 50) {
+    i <- i + 1
+    tmpres <- tryCatch(
+      worrms::wm_children(
+        as.numeric(id),
+        offset = sum(unlist(sapply(out, NROW))),
+        ...
+      ),
+      error = function(e) e
+    )
+    out[[i]] <- if (inherits(tmpres, "error")) data.frame() else tmpres
+  }
+  res <- df2dt2tbl(out)
+  return(res)
 }

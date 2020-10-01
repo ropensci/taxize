@@ -6,7 +6,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.72.0 r-curl/4.3 crul/1.0.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -16,7 +16,7 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 27 May 2020 00:26:36 GMT
+      date: Thu, 01 Oct 2020 00:58:02 GMT
       server: Apache/2.4.39 (Win64)
       access-control-allow-origin: '*'
       access-control-allow-headers: X-Requested-With, Content-Type, Accept, Origin,
@@ -24,7 +24,7 @@ http_interactions:
       access-control-allow-methods: GET, POST, OPTIONS
       transfer-encoding: chunked
       content-type: application/json
-      set-cookie: vliz_webc=vliz_webc2; path=/
+      set-cookie: vliz_webc=vliz_webc1; path=/
     body:
       encoding: UTF-8
       file: no
@@ -32,124 +32,124 @@ http_interactions:
         1896","status":"nomen dubium","unacceptreason":"in need of redescription","taxonRankID":180,"rank":"Genus","valid_AphiaID":null,"valid_name":null,"valid_authority":null,"parentNameUsageID":123165,"kingdom":"Animalia","phylum":"Echinodermata","class":"Echinoidea","order":"Pedinoida","family":"Pedinidae","genus":"Archaeodiadema","citation":"Kroh,
         A.; Mooi, R. (2020). World Echinoidea Database. Archaeodiadema Gregory, 1896&nbsp;&#8224;.
         Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=689456
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:689456","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":1,"match_type":"exact","modified":"2012-09-16T20:23:00.917Z"},{"AphiaID":123404,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=123404","scientificname":"Caenopedina","authority":"A.
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:689456","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":1,"match_type":"exact","modified":"2012-09-16T20:23:00.917Z"},{"AphiaID":123404,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=123404","scientificname":"Caenopedina","authority":"A.
         Agassiz, 1869","status":"accepted","unacceptreason":null,"taxonRankID":180,"rank":"Genus","valid_AphiaID":123404,"valid_name":"Caenopedina","valid_authority":"A.
         Agassiz, 1869","parentNameUsageID":123165,"kingdom":"Animalia","phylum":"Echinodermata","class":"Echinoidea","order":"Pedinoida","family":"Pedinidae","genus":"Caenopedina","citation":"Kroh,
         A.; Mooi, R. (2020). World Echinoidea Database. Caenopedina A. Agassiz, 1869.
         Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=123404
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:123404","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":0,"match_type":"exact","modified":"2010-09-06T12:28:48.800Z"},{"AphiaID":715477,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=715477","scientificname":"Coenodiadema","authority":null,"status":"unaccepted","unacceptreason":"misspelling","taxonRankID":180,"rank":"Genus","valid_AphiaID":123404,"valid_name":"Caenopedina","valid_authority":"A.
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:123404","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":0,"match_type":"exact","modified":"2010-09-06T12:28:48.800Z"},{"AphiaID":715477,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=715477","scientificname":"Coenodiadema","authority":null,"status":"unaccepted","unacceptreason":"misspelling","taxonRankID":180,"rank":"Genus","valid_AphiaID":123404,"valid_name":"Caenopedina","valid_authority":"A.
         Agassiz, 1869","parentNameUsageID":123165,"kingdom":"Animalia","phylum":"Echinodermata","class":"Echinoidea","order":"Pedinoida","family":"Pedinidae","genus":"Coenodiadema","citation":"Kroh,
         A.; Mooi, R. (2020). World Echinoidea Database. Coenodiadema. Accessed through:
         World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=715477
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:715477","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":0,"match_type":"exact","modified":"2013-01-13T20:41:43.093Z"},{"AphiaID":458855,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=458855","scientificname":"Coenopedina","authority":null,"status":"unaccepted","unacceptreason":"misspelling","taxonRankID":180,"rank":"Genus","valid_AphiaID":123404,"valid_name":"Caenopedina","valid_authority":"A.
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:715477","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":0,"match_type":"exact","modified":"2013-01-13T20:41:43.093Z"},{"AphiaID":458855,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=458855","scientificname":"Coenopedina","authority":null,"status":"unaccepted","unacceptreason":"misspelling","taxonRankID":180,"rank":"Genus","valid_AphiaID":123404,"valid_name":"Caenopedina","valid_authority":"A.
         Agassiz, 1869","parentNameUsageID":123165,"kingdom":"Animalia","phylum":"Echinodermata","class":"Echinoidea","order":"Pedinoida","family":"Pedinidae","genus":"Coenopedina","citation":"Kroh,
         A.; Mooi, R. (2020). World Echinoidea Database. Coenopedina. Accessed through:
         World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=458855
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:458855","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":0,"match_type":"exact","modified":"2017-06-16T10:58:37.837Z"},{"AphiaID":512442,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=512442","scientificname":"Diademopsis","authority":"Desor,
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:458855","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":0,"match_type":"exact","modified":"2017-06-16T10:58:37.837Z"},{"AphiaID":512442,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=512442","scientificname":"Diademopsis","authority":"Desor,
         1855","status":"accepted","unacceptreason":null,"taxonRankID":180,"rank":"Genus","valid_AphiaID":512442,"valid_name":"Diademopsis","valid_authority":"Desor,
         1855","parentNameUsageID":123165,"kingdom":"Animalia","phylum":"Echinodermata","class":"Echinoidea","order":"Pedinoida","family":"Pedinidae","genus":"Diademopsis","citation":"Kroh,
         A.; Mooi, R. (2020). World Echinoidea Database. Diademopsis Desor, 1855&nbsp;&#8224;.
         Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=512442
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:512442","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":1,"match_type":"exact","modified":"2010-09-06T12:28:48.800Z"},{"AphiaID":512443,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=512443","scientificname":"Echinopedina","authority":"Cotteau,
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:512442","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":1,"match_type":"exact","modified":"2010-09-06T12:28:48.800Z"},{"AphiaID":512443,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=512443","scientificname":"Echinopedina","authority":"Cotteau,
         1866","status":"accepted","unacceptreason":null,"taxonRankID":180,"rank":"Genus","valid_AphiaID":512443,"valid_name":"Echinopedina","valid_authority":"Cotteau,
         1866","parentNameUsageID":123165,"kingdom":"Animalia","phylum":"Echinodermata","class":"Echinoidea","order":"Pedinoida","family":"Pedinidae","genus":"Echinopedina","citation":"Kroh,
         A.; Mooi, R. (2020). World Echinoidea Database. Echinopedina Cotteau, 1866&nbsp;&#8224;.
         Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=512443
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:512443","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":1,"match_type":"exact","modified":"2010-09-06T12:28:48.800Z"},{"AphiaID":834457,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=834457","scientificname":"Hecistocyphus","authority":"Pomel,
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:512443","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":1,"match_type":"exact","modified":"2010-09-06T12:28:48.800Z"},{"AphiaID":834457,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=834457","scientificname":"Hecistocyphus","authority":"Pomel,
         1883","status":"unaccepted","unacceptreason":"subjective junior synonym","taxonRankID":180,"rank":"Genus","valid_AphiaID":512442,"valid_name":"Diademopsis","valid_authority":"Desor,
         1855","parentNameUsageID":123165,"kingdom":"Animalia","phylum":"Echinodermata","class":"Echinoidea","order":"Pedinoida","family":"Pedinidae","genus":"Hecistocyphus","citation":"Kroh,
         A.; Mooi, R. (2020). World Echinoidea Database. Hecistocyphus Pomel, 1883&nbsp;&#8224;.
         Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=834457
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:834457","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":1,"match_type":"exact","modified":"2015-02-24T20:24:05.730Z"},{"AphiaID":458836,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=458836","scientificname":"Hemipedina","authority":"Wright,
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:834457","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":1,"match_type":"exact","modified":"2015-02-24T20:24:05.730Z"},{"AphiaID":458836,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=458836","scientificname":"Hemipedina","authority":"Wright,
         1855","status":"accepted","unacceptreason":null,"taxonRankID":180,"rank":"Genus","valid_AphiaID":458836,"valid_name":"Hemipedina","valid_authority":"Wright,
         1855","parentNameUsageID":123165,"kingdom":"Animalia","phylum":"Echinodermata","class":"Echinoidea","order":"Pedinoida","family":"Pedinidae","genus":"Hemipedina","citation":"Kroh,
         A.; Mooi, R. (2020). World Echinoidea Database. Hemipedina Wright, 1855&nbsp;&#8224;.
         Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=458836
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:458836","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":1,"match_type":"exact","modified":"2010-09-06T12:28:48.800Z"},{"AphiaID":512444,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=512444","scientificname":"Leiopedina","authority":"Cotteau,
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:458836","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":1,"match_type":"exact","modified":"2010-09-06T12:28:48.800Z"},{"AphiaID":512444,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=512444","scientificname":"Leiopedina","authority":"Cotteau,
         1866","status":"accepted","unacceptreason":null,"taxonRankID":180,"rank":"Genus","valid_AphiaID":512444,"valid_name":"Leiopedina","valid_authority":"Cotteau,
         1866","parentNameUsageID":123165,"kingdom":"Animalia","phylum":"Echinodermata","class":"Echinoidea","order":"Pedinoida","family":"Pedinidae","genus":"Leiopedina","citation":"Kroh,
         A.; Mooi, R. (2020). World Echinoidea Database. Leiopedina Cotteau, 1866&nbsp;&#8224;.
         Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=512444
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:512444","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":1,"match_type":"exact","modified":"2010-09-06T12:28:48.800Z"},{"AphiaID":512445,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=512445","scientificname":"Leptocidaris","authority":"Quenstedt,
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:512444","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":1,"match_type":"exact","modified":"2010-09-06T12:28:48.800Z"},{"AphiaID":512445,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=512445","scientificname":"Leptocidaris","authority":"Quenstedt,
         1858","status":"accepted","unacceptreason":null,"taxonRankID":180,"rank":"Genus","valid_AphiaID":512445,"valid_name":"Leptocidaris","valid_authority":"Quenstedt,
         1858","parentNameUsageID":123165,"kingdom":"Animalia","phylum":"Echinodermata","class":"Echinoidea","order":"Pedinoida","family":"Pedinidae","genus":"Leptocidaris","citation":"Kroh,
         A.; Mooi, R. (2020). World Echinoidea Database. Leptocidaris Quenstedt, 1858&nbsp;&#8224;.
         Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=512445
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:512445","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":1,"match_type":"exact","modified":"2010-09-06T12:28:48.800Z"},{"AphiaID":834452,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=834452","scientificname":"Loriolipedina","authority":"Lambert,
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:512445","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":1,"match_type":"exact","modified":"2010-09-06T12:28:48.800Z"},{"AphiaID":834452,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=834452","scientificname":"Loriolipedina","authority":"Lambert,
         1910","status":"unaccepted","unacceptreason":"subjective junior synonym","taxonRankID":180,"rank":"Genus","valid_AphiaID":512444,"valid_name":"Leiopedina","valid_authority":"Cotteau,
         1866","parentNameUsageID":123165,"kingdom":"Animalia","phylum":"Echinodermata","class":"Echinoidea","order":"Pedinoida","family":"Pedinidae","genus":"Loriolipedina","citation":"Kroh,
         A.; Mooi, R. (2020). World Echinoidea Database. Loriolipedina Lambert, 1910&nbsp;&#8224;.
         Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=834452
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:834452","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":1,"match_type":"exact","modified":"2015-02-24T20:24:05.730Z"},{"AphiaID":834451,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=834451","scientificname":"Megapedina","authority":"Lambert
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:834452","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":1,"match_type":"exact","modified":"2015-02-24T20:24:05.730Z"},{"AphiaID":834451,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=834451","scientificname":"Megapedina","authority":"Lambert
         & Thi\u00e9ry, 1911","status":"unaccepted","unacceptreason":"subjective junior
         synonym","taxonRankID":180,"rank":"Genus","valid_AphiaID":512447,"valid_name":"Pedina","valid_authority":"L.
         Agassiz, 1838","parentNameUsageID":123165,"kingdom":"Animalia","phylum":"Echinodermata","class":"Echinoidea","order":"Pedinoida","family":"Pedinidae","genus":"Megapedina","citation":"Kroh,
         A.; Mooi, R. (2020). World Echinoidea Database. Megapedina Lambert & Thi\u00e9ry,
         1911&nbsp;&#8224;. Accessed through: World Register of Marine Species at:
-        http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=834451 on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:834451","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":1,"match_type":"exact","modified":"2015-02-24T20:24:05.730Z"},{"AphiaID":834454,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=834454","scientificname":"Miopedina","authority":"Pomel,
+        http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=834451 on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:834451","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":1,"match_type":"exact","modified":"2015-02-24T20:24:05.730Z"},{"AphiaID":834454,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=834454","scientificname":"Miopedina","authority":"Pomel,
         1883","status":"unaccepted","unacceptreason":"subjective junior synonym","taxonRankID":180,"rank":"Genus","valid_AphiaID":123404,"valid_name":"Caenopedina","valid_authority":"A.
         Agassiz, 1869","parentNameUsageID":123165,"kingdom":"Animalia","phylum":"Echinodermata","class":"Echinoidea","order":"Pedinoida","family":"Pedinidae","genus":"Miopedina","citation":"Kroh,
         A.; Mooi, R. (2020). World Echinoidea Database. Miopedina Pomel, 1883. Accessed
         through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=834454
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:834454","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":0,"match_type":"exact","modified":"2015-02-24T20:24:05.730Z"},{"AphiaID":599934,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=599934","scientificname":"Orthocidarinae","authority":"Lambert
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:834454","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":0,"match_type":"exact","modified":"2015-02-24T20:24:05.730Z"},{"AphiaID":599934,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=599934","scientificname":"Orthocidarinae","authority":"Lambert
         & Thi\u00e9ry, 1911","status":"unaccepted","unacceptreason":"monotypic, not
         in use","taxonRankID":155,"rank":"Supertribe","valid_AphiaID":123165,"valid_name":"Pedinidae","valid_authority":"Pomel,
         1883","parentNameUsageID":123165,"kingdom":"Animalia","phylum":"Echinodermata","class":"Echinoidea","order":"Pedinoida","family":"Pedinidae","genus":null,"citation":"Kroh,
         A.; Mooi, R. (2020). World Echinoidea Database. Orthocidarinae Lambert & Thi\u00e9ry,
         1911&nbsp;&#8224;. Accessed through: World Register of Marine Species at:
-        http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=599934 on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:599934","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":1,"match_type":"exact","modified":"2016-09-29T13:53:20.890Z"},{"AphiaID":179619,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=179619","scientificname":"Orthocidaris","authority":"Cotteau,
+        http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=599934 on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:599934","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":1,"match_type":"exact","modified":"2016-09-29T13:53:20.890Z"},{"AphiaID":179619,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=179619","scientificname":"Orthocidaris","authority":"Cotteau,
         1862","status":"accepted","unacceptreason":null,"taxonRankID":180,"rank":"Genus","valid_AphiaID":179619,"valid_name":"Orthocidaris","valid_authority":"Cotteau,
         1862","parentNameUsageID":123165,"kingdom":"Animalia","phylum":"Echinodermata","class":"Echinoidea","order":"Pedinoida","family":"Pedinidae","genus":"Orthocidaris","citation":"Kroh,
         A.; Mooi, R. (2020). World Echinoidea Database. Orthocidaris Cotteau, 1862&nbsp;&#8224;.
         Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=179619
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:179619","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":1,"match_type":"exact","modified":"2012-06-15T06:21:19.607Z"},{"AphiaID":512446,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=512446","scientificname":"Palaeopedina","authority":"Lambert,
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:179619","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":1,"match_type":"exact","modified":"2012-06-15T06:21:19.607Z"},{"AphiaID":512446,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=512446","scientificname":"Palaeopedina","authority":"Lambert,
         1900","status":"accepted","unacceptreason":null,"taxonRankID":180,"rank":"Genus","valid_AphiaID":512446,"valid_name":"Palaeopedina","valid_authority":"Lambert,
         1900","parentNameUsageID":123165,"kingdom":"Animalia","phylum":"Echinodermata","class":"Echinoidea","order":"Pedinoida","family":"Pedinidae","genus":"Palaeopedina","citation":"Kroh,
         A.; Mooi, R. (2020). World Echinoidea Database. Palaeopedina Lambert, 1900&nbsp;&#8224;.
         Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=512446
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:512446","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":1,"match_type":"exact","modified":"2010-09-06T12:28:48.800Z"},{"AphiaID":512447,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=512447","scientificname":"Pedina","authority":"L.
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:512446","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":1,"match_type":"exact","modified":"2010-09-06T12:28:48.800Z"},{"AphiaID":512447,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=512447","scientificname":"Pedina","authority":"L.
         Agassiz, 1838","status":"accepted","unacceptreason":null,"taxonRankID":180,"rank":"Genus","valid_AphiaID":512447,"valid_name":"Pedina","valid_authority":"L.
         Agassiz, 1838","parentNameUsageID":123165,"kingdom":"Animalia","phylum":"Echinodermata","class":"Echinoidea","order":"Pedinoida","family":"Pedinidae","genus":"Pedina","citation":"Kroh,
         A.; Mooi, R. (2020). World Echinoidea Database. Pedina L. Agassiz, 1838&nbsp;&#8224;.
         Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=512447
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:512447","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":1,"match_type":"exact","modified":"2010-09-06T12:28:48.800Z"},{"AphiaID":738215,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=738215","scientificname":"Phalacropedina","authority":"Lambert,
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:512447","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":1,"match_type":"exact","modified":"2010-09-06T12:28:48.800Z"},{"AphiaID":738215,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=738215","scientificname":"Phalacropedina","authority":"Lambert,
         1900","status":"unaccepted","unacceptreason":"subjective junior synonym","taxonRankID":180,"rank":"Genus","valid_AphiaID":458836,"valid_name":"Hemipedina","valid_authority":"Wright,
         1855","parentNameUsageID":123165,"kingdom":"Animalia","phylum":"Echinodermata","class":"Echinoidea","order":"Pedinoida","family":"Pedinidae","genus":"Phalacropedina","citation":"Kroh,
         A.; Mooi, R. (2020). World Echinoidea Database. Phalacropedina Lambert, 1900&nbsp;&#8224;.
         Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=738215
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:738215","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":1,"match_type":"exact","modified":"2013-08-26T16:40:32.230Z"},{"AphiaID":512448,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=512448","scientificname":"Phymopedina","authority":"Pomel,
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:738215","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":1,"match_type":"exact","modified":"2013-08-26T16:40:32.230Z"},{"AphiaID":512448,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=512448","scientificname":"Phymopedina","authority":"Pomel,
         1883","status":"accepted","unacceptreason":null,"taxonRankID":180,"rank":"Genus","valid_AphiaID":512448,"valid_name":"Phymopedina","valid_authority":"Pomel,
         1883","parentNameUsageID":123165,"kingdom":"Animalia","phylum":"Echinodermata","class":"Echinoidea","order":"Pedinoida","family":"Pedinidae","genus":"Phymopedina","citation":"Kroh,
         A.; Mooi, R. (2020). World Echinoidea Database. Phymopedina Pomel, 1883&nbsp;&#8224;.
         Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=512448
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:512448","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":1,"match_type":"exact","modified":"2010-09-06T12:28:48.800Z"},{"AphiaID":738375,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=738375","scientificname":"Polypedina","authority":"Lambert,
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:512448","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":1,"match_type":"exact","modified":"2010-09-06T12:28:48.800Z"},{"AphiaID":738375,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=738375","scientificname":"Polypedina","authority":"Lambert,
         1933","status":"accepted","unacceptreason":null,"taxonRankID":180,"rank":"Genus","valid_AphiaID":738375,"valid_name":"Polypedina","valid_authority":"Lambert,
         1933","parentNameUsageID":123165,"kingdom":"Animalia","phylum":"Echinodermata","class":"Echinoidea","order":"Pedinoida","family":"Pedinidae","genus":"Polypedina","citation":"Kroh,
         A.; Mooi, R. (2020). World Echinoidea Database. Polypedina Lambert, 1933&nbsp;&#8224;.
         Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=738375
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:738375","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":1,"match_type":"exact","modified":"2013-08-28T09:13:51.757Z"},{"AphiaID":512449,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=512449","scientificname":"Pseudopedina","authority":"Cotteau,
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:738375","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":1,"match_type":"exact","modified":"2013-08-28T09:13:51.757Z"},{"AphiaID":512449,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=512449","scientificname":"Pseudopedina","authority":"Cotteau,
         1858","status":"accepted","unacceptreason":null,"taxonRankID":180,"rank":"Genus","valid_AphiaID":512449,"valid_name":"Pseudopedina","valid_authority":"Cotteau,
         1858","parentNameUsageID":123165,"kingdom":"Animalia","phylum":"Echinodermata","class":"Echinoidea","order":"Pedinoida","family":"Pedinidae","genus":"Pseudopedina","citation":"Kroh,
         A.; Mooi, R. (2020). World Echinoidea Database. Pseudopedina Cotteau, 1858&nbsp;&#8224;.
         Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=512449
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:512449","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":1,"match_type":"exact","modified":"2010-09-06T12:28:48.800Z"},{"AphiaID":834453,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=834453","scientificname":"Psilosalenia","authority":"Quenstedt,
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:512449","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":1,"match_type":"exact","modified":"2010-09-06T12:28:48.800Z"},{"AphiaID":834453,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=834453","scientificname":"Psilosalenia","authority":"Quenstedt,
         1873","status":"unaccepted","unacceptreason":"subjective junior synonym","taxonRankID":180,"rank":"Genus","valid_AphiaID":458836,"valid_name":"Hemipedina","valid_authority":"Wright,
         1855","parentNameUsageID":123165,"kingdom":"Animalia","phylum":"Echinodermata","class":"Echinoidea","order":"Pedinoida","family":"Pedinidae","genus":"Psilosalenia","citation":"Kroh,
         A.; Mooi, R. (2020). World Echinoidea Database. Psilosalenia Quenstedt, 1873&nbsp;&#8224;.
         Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=834453
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:834453","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":1,"match_type":"exact","modified":"2015-02-24T20:24:05.730Z"},{"AphiaID":834456,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=834456","scientificname":"Stereopedina","authority":"de
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:834453","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":1,"match_type":"exact","modified":"2015-02-24T20:24:05.730Z"},{"AphiaID":834456,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=834456","scientificname":"Stereopedina","authority":"de
         Loriol, 1903","status":"unaccepted","unacceptreason":"subjective junior synonym","taxonRankID":180,"rank":"Genus","valid_AphiaID":123404,"valid_name":"Caenopedina","valid_authority":"A.
         Agassiz, 1869","parentNameUsageID":123165,"kingdom":"Animalia","phylum":"Echinodermata","class":"Echinoidea","order":"Pedinoida","family":"Pedinidae","genus":"Stereopedina","citation":"Kroh,
         A.; Mooi, R. (2020). World Echinoidea Database. Stereopedina de Loriol, 1903&nbsp;&#8224;.
         Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=834456
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:834456","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":1,"match_type":"exact","modified":"2015-02-24T20:24:05.730Z"},{"AphiaID":512450,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=512450","scientificname":"Thieulinipedina","authority":"Vadet,
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:834456","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":1,"match_type":"exact","modified":"2015-02-24T20:24:05.730Z"},{"AphiaID":512450,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=512450","scientificname":"Thieulinipedina","authority":"Vadet,
         Nicolleau & Pineau, 1996","status":"accepted","unacceptreason":null,"taxonRankID":180,"rank":"Genus","valid_AphiaID":512450,"valid_name":"Thieulinipedina","valid_authority":"Vadet,
         Nicolleau & Pineau, 1996","parentNameUsageID":123165,"kingdom":"Animalia","phylum":"Echinodermata","class":"Echinoidea","order":"Pedinoida","family":"Pedinidae","genus":"Thieulinipedina","citation":"Kroh,
         A.; Mooi, R. (2020). World Echinoidea Database. Thieulinipedina Vadet, Nicolleau
         & Pineau, 1996&nbsp;&#8224;. Accessed through: World Register of Marine Species
-        at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=512450 on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:512450","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":1,"match_type":"exact","modified":"2010-09-06T12:28:48.800Z"}]'
-  recorded_at: 2020-05-27 00:27:10 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+        at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=512450 on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:512450","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":1,"match_type":"exact","modified":"2010-09-06T12:28:48.800Z"}]'
+  recorded_at: 2020-10-01 00:58:12 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
 - request:
     method: get
     uri: http://www.marinespecies.org/rest/AphiaChildrenByAphiaID/599934?marine_only=true&offset=1
@@ -157,7 +157,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.72.0 r-curl/4.3 crul/1.0.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -167,19 +167,19 @@ http_interactions:
       explanation: Request fulfilled, nothing follows
     headers:
       status: HTTP/1.1 204 No Content
-      date: Wed, 27 May 2020 00:26:44 GMT
+      date: Thu, 01 Oct 2020 00:58:04 GMT
       server: Apache/2.4.39 (Win64)
       access-control-allow-origin: '*'
       access-control-allow-headers: X-Requested-With, Content-Type, Accept, Origin,
         Authorization
       access-control-allow-methods: GET, POST, OPTIONS
-      set-cookie: vliz_webc=vliz_webc1; path=/
+      set-cookie: vliz_webc=vliz_webc2; path=/
     body:
       encoding: UTF-8
       file: no
       string: ''
-  recorded_at: 2020-05-27 00:27:10 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2020-10-01 00:58:12 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
 - request:
     method: get
     uri: http://www.marinespecies.org/rest/AphiaChildrenByAphiaID/1424949?marine_only=true&offset=1
@@ -187,7 +187,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.72.0 r-curl/4.3 crul/1.0.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -197,13 +197,13 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 27 May 2020 00:26:44 GMT
+      date: Thu, 01 Oct 2020 00:58:04 GMT
       server: Apache/2.4.39 (Win64)
       access-control-allow-origin: '*'
       access-control-allow-headers: X-Requested-With, Content-Type, Accept, Origin,
         Authorization
       access-control-allow-methods: GET, POST, OPTIONS
-      content-length: '3285'
+      content-length: '3325'
       content-type: application/json
       set-cookie: vliz_webc=vliz_webc1; path=/
     body:
@@ -214,20 +214,22 @@ http_interactions:
         in J. D. Taylor, Williams, Glover & Dyal, 2007","parentNameUsageID":1424949,"kingdom":"Animalia","phylum":"Mollusca","class":"Bivalvia","order":null,"family":null,"genus":null,"citation":"MolluscaBase
         eds. (2020). MolluscaBase. Archiheterodonta. Accessed through: World Register
         of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=382255
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:382255","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2020-03-17T14:16:13.110Z"},{"AphiaID":382296,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=382296","scientificname":"Euheterodonta","authority":null,"status":"accepted","unacceptreason":null,"taxonRankID":85,"rank":"Subterclass","valid_AphiaID":382296,"valid_name":"Euheterodonta","valid_authority":null,"parentNameUsageID":1424949,"kingdom":"Animalia","phylum":"Mollusca","class":"Bivalvia","order":null,"family":null,"genus":null,"citation":"WoRMS
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:382255","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2020-03-17T14:16:13.110Z"},{"AphiaID":382296,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=382296","scientificname":"Euheterodonta","authority":"Giribet
+        & Distel, 2003","status":"accepted","unacceptreason":null,"taxonRankID":85,"rank":"Subterclass","valid_AphiaID":382296,"valid_name":"Euheterodonta","valid_authority":"Giribet
+        & Distel, 2003","parentNameUsageID":1424949,"kingdom":"Animalia","phylum":"Mollusca","class":"Bivalvia","order":null,"family":null,"genus":null,"citation":"WoRMS
         (2020). Euheterodonta. Accessed at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=382296
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:382296","isMarine":1,"isBrackish":1,"isFreshwater":1,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2020-03-17T14:16:13.110Z"},{"AphiaID":216,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=216","scientificname":"Heterodonta","authority":"Neumayr,
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:382296","isMarine":1,"isBrackish":1,"isFreshwater":1,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2020-07-27T14:32:58.180Z"},{"AphiaID":216,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=216","scientificname":"Heterodonta","authority":"Neumayr,
         1884","status":"accepted","unacceptreason":null,"taxonRankID":85,"rank":"Subterclass","valid_AphiaID":216,"valid_name":"Heterodonta","valid_authority":"Neumayr,
         1884","parentNameUsageID":1424949,"kingdom":"Animalia","phylum":"Mollusca","class":"Bivalvia","order":null,"family":null,"genus":null,"citation":"WoRMS
         (2020). Heterodonta. Accessed at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=216
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:216","isMarine":1,"isBrackish":1,"isFreshwater":1,"isTerrestrial":0,"isExtinct":0,"match_type":"exact","modified":"2020-03-17T14:16:13.110Z"},{"AphiaID":382253,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=382253","scientificname":"Palaeoheterodonta","authority":"Newell,
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:216","isMarine":1,"isBrackish":1,"isFreshwater":1,"isTerrestrial":0,"isExtinct":0,"match_type":"exact","modified":"2020-03-17T14:16:13.110Z"},{"AphiaID":382253,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=382253","scientificname":"Palaeoheterodonta","authority":"Newell,
         1965","status":"accepted","unacceptreason":null,"taxonRankID":85,"rank":"Subterclass","valid_AphiaID":382253,"valid_name":"Palaeoheterodonta","valid_authority":"Newell,
         1965","parentNameUsageID":1424949,"kingdom":"Animalia","phylum":"Mollusca","class":"Bivalvia","order":null,"family":null,"genus":null,"citation":"MolluscaBase
         eds. (2020). MolluscaBase. Palaeoheterodonta. Accessed through: World Register
         of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=382253
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:382253","isMarine":1,"isBrackish":null,"isFreshwater":1,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2020-03-17T14:16:13.110Z"}]'
-  recorded_at: 2020-05-27 00:27:10 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:382253","isMarine":1,"isBrackish":null,"isFreshwater":1,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2020-03-17T14:16:13.110Z"}]'
+  recorded_at: 2020-10-01 00:58:12 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
 - request:
     method: get
     uri: http://www.marinespecies.org/rest/AphiaChildrenByAphiaID/382255?marine_only=true&offset=1
@@ -235,7 +237,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.72.0 r-curl/4.3 crul/1.0.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -245,7 +247,7 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 27 May 2020 00:26:45 GMT
+      date: Thu, 01 Oct 2020 00:58:06 GMT
       server: Apache/2.4.39 (Win64)
       access-control-allow-origin: '*'
       access-control-allow-headers: X-Requested-With, Content-Type, Accept, Origin,
@@ -253,7 +255,7 @@ http_interactions:
       access-control-allow-methods: GET, POST, OPTIONS
       content-length: '1701'
       content-type: application/json
-      set-cookie: vliz_webc=vliz_webc2; path=/
+      set-cookie: vliz_webc=vliz_webc1; path=/
     body:
       encoding: UTF-8
       file: no
@@ -262,14 +264,14 @@ http_interactions:
         1952","parentNameUsageID":382255,"kingdom":"Animalia","phylum":"Mollusca","class":"Bivalvia","order":"Actinodontida","family":null,"genus":null,"citation":"MolluscaBase
         eds. (2020). MolluscaBase. Actinodontida&nbsp;&#8224;. Accessed through: World
         Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=833261
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:833261","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":1,"match_type":"exact","modified":"2019-02-20T18:16:25.773Z"},{"AphiaID":382256,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=382256","scientificname":"Carditida","authority":"Dall,
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:833261","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":1,"match_type":"exact","modified":"2019-02-20T18:16:25.773Z"},{"AphiaID":382256,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=382256","scientificname":"Carditida","authority":"Dall,
         1889","status":"accepted","unacceptreason":null,"taxonRankID":100,"rank":"Order","valid_AphiaID":382256,"valid_name":"Carditida","valid_authority":"Dall,
         1889","parentNameUsageID":382255,"kingdom":"Animalia","phylum":"Mollusca","class":"Bivalvia","order":"Carditida","family":null,"genus":null,"citation":"MolluscaBase
         eds. (2020). MolluscaBase. Carditida. Accessed through: World Register of
         Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=382256
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:382256","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2016-02-07T00:40:24.103Z"}]'
-  recorded_at: 2020-05-27 00:27:10 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:382256","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2016-02-07T00:40:24.103Z"}]'
+  recorded_at: 2020-10-01 00:58:12 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
 - request:
     method: get
     uri: http://www.marinespecies.org/rest/AphiaChildrenByAphiaID/382296?marine_only=true&offset=1
@@ -277,7 +279,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.72.0 r-curl/4.3 crul/1.0.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -287,7 +289,7 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 27 May 2020 00:26:46 GMT
+      date: Thu, 01 Oct 2020 00:58:07 GMT
       server: Apache/2.4.39 (Win64)
       access-control-allow-origin: '*'
       access-control-allow-headers: X-Requested-With, Content-Type, Accept, Origin,
@@ -295,7 +297,7 @@ http_interactions:
       access-control-allow-methods: GET, POST, OPTIONS
       content-length: '5144'
       content-type: application/json
-      set-cookie: vliz_webc=vliz_webc1; path=/
+      set-cookie: vliz_webc=vliz_webc2; path=/
     body:
       encoding: UTF-8
       file: no
@@ -305,33 +307,33 @@ http_interactions:
         Euheterodonta","family":null,"genus":null,"citation":"MolluscaBase eds. (2020).
         MolluscaBase. [unassigned] Euheterodonta. Accessed through: World Register
         of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=382297
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:382297","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2010-07-12T18:16:42.360Z"},{"AphiaID":394137,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=394137","scientificname":"Anomalodesmacea","authority":"Dall,
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:382297","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2010-07-12T18:16:42.360Z"},{"AphiaID":394137,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=394137","scientificname":"Anomalodesmacea","authority":"Dall,
         1889","status":"unaccepted","unacceptreason":null,"taxonRankID":100,"rank":"Order","valid_AphiaID":254,"valid_name":"Anomalodesmata","valid_authority":"Dall,
         1889","parentNameUsageID":382296,"kingdom":"Animalia","phylum":"Mollusca","class":"Bivalvia","order":"Anomalodesmacea","family":null,"genus":null,"citation":"MolluscaBase
         eds. (2020). MolluscaBase. Anomalodesmacea. Accessed through: World Register
         of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=394137
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:394137","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2015-11-26T19:42:57.630Z"},{"AphiaID":254,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=254","scientificname":"Anomalodesmata","authority":"Dall,
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:394137","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2015-11-26T19:42:57.630Z"},{"AphiaID":254,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=254","scientificname":"Anomalodesmata","authority":"Dall,
         1889","status":"accepted","unacceptreason":null,"taxonRankID":90,"rank":"Superorder","valid_AphiaID":254,"valid_name":"Anomalodesmata","valid_authority":"Dall,
         1889","parentNameUsageID":382296,"kingdom":"Animalia","phylum":"Mollusca","class":"Bivalvia","order":null,"family":null,"genus":null,"citation":"MolluscaBase
         eds. (2020). MolluscaBase. Anomalodesmata. Accessed through: World Register
         of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=254
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:254","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2020-03-17T14:16:13.110Z"},{"AphiaID":869600,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=869600","scientificname":"Imparidentia","authority":"Bieler,
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:254","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2020-03-17T14:16:13.110Z"},{"AphiaID":869600,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=869600","scientificname":"Imparidentia","authority":"Bieler,
         P. M. Mikkelsen & Giribet, 2014","status":"accepted","unacceptreason":null,"taxonRankID":90,"rank":"Superorder","valid_AphiaID":869600,"valid_name":"Imparidentia","valid_authority":"Bieler,
         P. M. Mikkelsen & Giribet, 2014","parentNameUsageID":382296,"kingdom":"Animalia","phylum":"Mollusca","class":"Bivalvia","order":null,"family":null,"genus":null,"citation":"WoRMS
         (2020). Imparidentia. Accessed at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=869600
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:869600","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2016-02-07T00:40:24.103Z"},{"AphiaID":833260,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=833260","scientificname":"Lipanellidae","authority":"S\u00e1nchez,
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:869600","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2016-02-07T00:40:24.103Z"},{"AphiaID":833260,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=833260","scientificname":"Lipanellidae","authority":"S\u00e1nchez,
         2005","status":"accepted","unacceptreason":null,"taxonRankID":140,"rank":"Family","valid_AphiaID":833260,"valid_name":"Lipanellidae","valid_authority":"S\u00e1nchez,
         2005","parentNameUsageID":382296,"kingdom":"Animalia","phylum":"Mollusca","class":"Bivalvia","order":null,"family":"Lipanellidae","genus":null,"citation":"MolluscaBase
         eds. (2020). MolluscaBase. Lipanellidae S\u00e1nchez, 2005&nbsp;&#8224;. Accessed
         through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=833260
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:833260","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":1,"match_type":"exact","modified":"2020-03-17T14:16:13.110Z"},{"AphiaID":394138,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=394138","scientificname":"Pholadomyida","authority":"Newell,
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:833260","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":1,"match_type":"exact","modified":"2020-03-17T14:16:13.110Z"},{"AphiaID":394138,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=394138","scientificname":"Pholadomyida","authority":"Newell,
         1965","status":"alternate representation","unacceptreason":null,"taxonRankID":100,"rank":"Order","valid_AphiaID":254,"valid_name":"Anomalodesmata","valid_authority":"Dall,
         1889","parentNameUsageID":382296,"kingdom":"Animalia","phylum":"Mollusca","class":"Bivalvia","order":"Pholadomyida","family":null,"genus":null,"citation":"MolluscaBase
         eds. (2020). MolluscaBase. Pholadomyida. Accessed through: World Register
         of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=394138
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:394138","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2016-02-07T00:40:24.103Z"}]'
-  recorded_at: 2020-05-27 00:27:10 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:394138","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2016-02-07T00:40:24.103Z"}]'
+  recorded_at: 2020-10-01 00:58:12 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
 - request:
     method: get
     uri: http://www.marinespecies.org/rest/AphiaChildrenByAphiaID/216?marine_only=true&offset=1
@@ -339,7 +341,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.72.0 r-curl/4.3 crul/1.0.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -349,7 +351,7 @@ http_interactions:
       explanation: Request fulfilled, nothing follows
     headers:
       status: HTTP/1.1 204 No Content
-      date: Wed, 27 May 2020 00:26:49 GMT
+      date: Thu, 01 Oct 2020 00:58:08 GMT
       server: Apache/2.4.39 (Win64)
       access-control-allow-origin: '*'
       access-control-allow-headers: X-Requested-With, Content-Type, Accept, Origin,
@@ -360,8 +362,8 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: ''
-  recorded_at: 2020-05-27 00:27:10 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2020-10-01 00:58:12 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
 - request:
     method: get
     uri: http://www.marinespecies.org/rest/AphiaChildrenByAphiaID/382253?marine_only=true&offset=1
@@ -369,7 +371,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.72.0 r-curl/4.3 crul/1.0.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -379,7 +381,7 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 27 May 2020 00:26:50 GMT
+      date: Thu, 01 Oct 2020 00:58:08 GMT
       server: Apache/2.4.39 (Win64)
       access-control-allow-origin: '*'
       access-control-allow-headers: X-Requested-With, Content-Type, Accept, Origin,
@@ -387,7 +389,7 @@ http_interactions:
       access-control-allow-methods: GET, POST, OPTIONS
       content-length: '2511'
       content-type: application/json
-      set-cookie: vliz_webc=vliz_webc1; path=/
+      set-cookie: vliz_webc=vliz_webc2; path=/
     body:
       encoding: UTF-8
       file: no
@@ -396,17 +398,17 @@ http_interactions:
         Morris, 1980","parentNameUsageID":382253,"kingdom":"Animalia","phylum":"Mollusca","class":"Bivalvia","order":null,"family":"Thoraliidae","genus":null,"citation":"MolluscaBase
         eds. (2020). MolluscaBase. Thoraliidae N. Morris, 1980&nbsp;&#8224;. Accessed
         through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=833207
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:833207","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":1,"match_type":"exact","modified":"2016-12-26T12:32:25.240Z"},{"AphiaID":382254,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=382254","scientificname":"Trigoniida","authority":null,"status":"accepted","unacceptreason":null,"taxonRankID":100,"rank":"Order","valid_AphiaID":382254,"valid_name":"Trigoniida","valid_authority":null,"parentNameUsageID":382253,"kingdom":"Animalia","phylum":"Mollusca","class":"Bivalvia","order":"Trigoniida","family":null,"genus":null,"citation":"MolluscaBase
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:833207","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":1,"match_type":"exact","modified":"2016-12-26T12:32:25.240Z"},{"AphiaID":382254,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=382254","scientificname":"Trigoniida","authority":null,"status":"accepted","unacceptreason":null,"taxonRankID":100,"rank":"Order","valid_AphiaID":382254,"valid_name":"Trigoniida","valid_authority":null,"parentNameUsageID":382253,"kingdom":"Animalia","phylum":"Mollusca","class":"Bivalvia","order":"Trigoniida","family":null,"genus":null,"citation":"MolluscaBase
         eds. (2020). MolluscaBase. Trigoniida. Accessed through: World Register of
         Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=382254
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:382254","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2016-02-07T00:40:24.103Z"},{"AphiaID":160326,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=160326","scientificname":"Unionida","authority":"Gray,
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:382254","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2016-02-07T00:40:24.103Z"},{"AphiaID":160326,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=160326","scientificname":"Unionida","authority":"Gray,
         1854","status":"accepted","unacceptreason":null,"taxonRankID":100,"rank":"Order","valid_AphiaID":160326,"valid_name":"Unionida","valid_authority":"Gray,
         1854","parentNameUsageID":382253,"kingdom":"Animalia","phylum":"Mollusca","class":"Bivalvia","order":"Unionida","family":null,"genus":null,"citation":"MolluscaBase
         eds. (2020). MolluscaBase. Unionida. Accessed through: World Register of Marine
         Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=160326
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:160326","isMarine":0,"isBrackish":1,"isFreshwater":1,"isTerrestrial":0,"isExtinct":0,"match_type":"exact","modified":"2019-02-28T14:21:23.077Z"}]'
-  recorded_at: 2020-05-27 00:27:10 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:160326","isMarine":0,"isBrackish":1,"isFreshwater":1,"isTerrestrial":0,"isExtinct":0,"match_type":"exact","modified":"2019-02-28T14:21:23.077Z"}]'
+  recorded_at: 2020-10-01 00:58:12 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
 - request:
     method: get
     uri: http://www.marinespecies.org/rest/AphiaChildrenByAphiaID/254?marine_only=true&offset=1
@@ -414,7 +416,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.72.0 r-curl/4.3 crul/1.0.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -424,7 +426,7 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 27 May 2020 00:26:52 GMT
+      date: Thu, 01 Oct 2020 00:58:09 GMT
       server: Apache/2.4.39 (Win64)
       access-control-allow-origin: '*'
       access-control-allow-headers: X-Requested-With, Content-Type, Accept, Origin,
@@ -441,54 +443,54 @@ http_interactions:
         1844","parentNameUsageID":254,"kingdom":"Animalia","phylum":"Mollusca","class":"Bivalvia","order":null,"family":null,"genus":null,"citation":"MolluscaBase
         eds. (2020). MolluscaBase. Clavagelloidea d''Orbigny, 1844. Accessed through:
         World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=489109
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:489109","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2010-07-10T09:41:30.773Z"},{"AphiaID":382315,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=382315","scientificname":"Cuspidarioidea","authority":"Dall,
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:489109","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2010-07-10T09:41:30.773Z"},{"AphiaID":382315,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=382315","scientificname":"Cuspidarioidea","authority":"Dall,
         1886","status":"accepted","unacceptreason":null,"taxonRankID":130,"rank":"Superfamily","valid_AphiaID":382315,"valid_name":"Cuspidarioidea","valid_authority":"Dall,
         1886","parentNameUsageID":254,"kingdom":"Animalia","phylum":"Mollusca","class":"Bivalvia","order":null,"family":null,"genus":null,"citation":"MolluscaBase
         eds. (2020). MolluscaBase. Cuspidarioidea Dall, 1886. Accessed through: World
         Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=382315
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:382315","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2014-12-09T16:15:02.493Z"},{"AphiaID":2092,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=2092","scientificname":"Laternulidae","authority":"Hedley,
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:382315","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2014-12-09T16:15:02.493Z"},{"AphiaID":2092,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=2092","scientificname":"Laternulidae","authority":"Hedley,
         1918 (1840)","status":"accepted","unacceptreason":null,"taxonRankID":140,"rank":"Family","valid_AphiaID":2092,"valid_name":"Laternulidae","valid_authority":"Hedley,
         1918 (1840)","parentNameUsageID":254,"kingdom":"Animalia","phylum":"Mollusca","class":"Bivalvia","order":null,"family":"Laternulidae","genus":null,"citation":"MolluscaBase
         eds. (2020). MolluscaBase. Laternulidae Hedley, 1918 (1840). Accessed through:
         World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=2092
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:2092","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2020-01-06T20:45:10.430Z"},{"AphiaID":489108,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=489108","scientificname":"Myochamoidea","authority":"Carpenter,
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:2092","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2020-01-06T20:45:10.430Z"},{"AphiaID":489108,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=489108","scientificname":"Myochamoidea","authority":"Carpenter,
         1861","status":"accepted","unacceptreason":null,"taxonRankID":130,"rank":"Superfamily","valid_AphiaID":489108,"valid_name":"Myochamoidea","valid_authority":"Carpenter,
         1861","parentNameUsageID":254,"kingdom":"Animalia","phylum":"Mollusca","class":"Bivalvia","order":null,"family":null,"genus":null,"citation":"MolluscaBase
         eds. (2020). MolluscaBase. Myochamoidea Carpenter, 1861. Accessed through:
         World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=489108
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:489108","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2010-07-10T09:41:30.773Z"},{"AphiaID":382316,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=382316","scientificname":"Pandoroidea","authority":"Rafinesque,
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:489108","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2010-07-10T09:41:30.773Z"},{"AphiaID":382316,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=382316","scientificname":"Pandoroidea","authority":"Rafinesque,
         1815","status":"accepted","unacceptreason":null,"taxonRankID":130,"rank":"Superfamily","valid_AphiaID":382316,"valid_name":"Pandoroidea","valid_authority":"Rafinesque,
         1815","parentNameUsageID":254,"kingdom":"Animalia","phylum":"Mollusca","class":"Bivalvia","order":null,"family":null,"genus":null,"citation":"MolluscaBase
         eds. (2020). MolluscaBase. Pandoroidea Rafinesque, 1815. Accessed through:
         World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=382316
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:382316","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2010-07-10T09:41:30.773Z"},{"AphiaID":224446,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=224446","scientificname":"Pholadomyoidea","authority":"W.
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:382316","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2010-07-10T09:41:30.773Z"},{"AphiaID":224446,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=224446","scientificname":"Pholadomyoidea","authority":"W.
         King, 1844","status":"accepted","unacceptreason":null,"taxonRankID":130,"rank":"Superfamily","valid_AphiaID":224446,"valid_name":"Pholadomyoidea","valid_authority":"W.
         King, 1844","parentNameUsageID":254,"kingdom":"Animalia","phylum":"Mollusca","class":"Bivalvia","order":null,"family":null,"genus":null,"citation":"MolluscaBase
         eds. (2020). MolluscaBase. Pholadomyoidea W. King, 1844. Accessed through:
         World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=224446
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:224446","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2019-02-22T20:38:17.097Z"},{"AphiaID":382317,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=382317","scientificname":"Poromyoidea","authority":"Dall,
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:224446","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2019-02-22T20:38:17.097Z"},{"AphiaID":382317,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=382317","scientificname":"Poromyoidea","authority":"Dall,
         1886","status":"accepted","unacceptreason":null,"taxonRankID":130,"rank":"Superfamily","valid_AphiaID":382317,"valid_name":"Poromyoidea","valid_authority":"Dall,
         1886","parentNameUsageID":254,"kingdom":"Animalia","phylum":"Mollusca","class":"Bivalvia","order":null,"family":null,"genus":null,"citation":"MolluscaBase
         eds. (2020). MolluscaBase. Poromyoidea Dall, 1886. Accessed through: World
         Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=382317
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:382317","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2010-09-15T04:51:39.517Z"},{"AphiaID":489111,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=489111","scientificname":"Septibranchia","authority":"Pelseneer,
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:382317","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2010-09-15T04:51:39.517Z"},{"AphiaID":489111,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=489111","scientificname":"Septibranchia","authority":"Pelseneer,
         1888","status":"alternate representation","unacceptreason":null,"taxonRankID":110,"rank":"Suborder","valid_AphiaID":489111,"valid_name":"Septibranchia","valid_authority":"Pelseneer,
         1888","parentNameUsageID":254,"kingdom":"Animalia","phylum":"Mollusca","class":"Bivalvia","order":null,"family":null,"genus":null,"citation":"MolluscaBase
         eds. (2020). MolluscaBase. Septibranchia. Accessed through: World Register
         of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=489111
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:489111","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2010-07-10T09:41:30.773Z"},{"AphiaID":382318,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=382318","scientificname":"Thracioidea","authority":"Stoliczka,
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:489111","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2010-07-10T09:41:30.773Z"},{"AphiaID":382318,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=382318","scientificname":"Thracioidea","authority":"Stoliczka,
         1870 (1839)","status":"accepted","unacceptreason":null,"taxonRankID":130,"rank":"Superfamily","valid_AphiaID":382318,"valid_name":"Thracioidea","valid_authority":"Stoliczka,
         1870 (1839)","parentNameUsageID":254,"kingdom":"Animalia","phylum":"Mollusca","class":"Bivalvia","order":null,"family":null,"genus":null,"citation":"MolluscaBase
         eds. (2020). MolluscaBase. Thracioidea Stoliczka, 1870 (1839). Accessed through:
         World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=382318
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:382318","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2010-07-10T09:41:30.773Z"},{"AphiaID":382319,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=382319","scientificname":"Verticordioidea","authority":"Stoliczka,
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:382318","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2010-07-10T09:41:30.773Z"},{"AphiaID":382319,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=382319","scientificname":"Verticordioidea","authority":"Stoliczka,
         1870","status":"accepted","unacceptreason":null,"taxonRankID":130,"rank":"Superfamily","valid_AphiaID":382319,"valid_name":"Verticordioidea","valid_authority":"Stoliczka,
         1870","parentNameUsageID":254,"kingdom":"Animalia","phylum":"Mollusca","class":"Bivalvia","order":null,"family":null,"genus":null,"citation":"MolluscaBase
         eds. (2020). MolluscaBase. Verticordioidea Stoliczka, 1870. Accessed through:
         World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=382319
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:382319","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2014-12-09T16:15:02.493Z"}]'
-  recorded_at: 2020-05-27 00:27:10 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:382319","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2014-12-09T16:15:02.493Z"}]'
+  recorded_at: 2020-10-01 00:58:12 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
 - request:
     method: get
     uri: http://www.marinespecies.org/rest/AphiaChildrenByAphiaID/869600?marine_only=true&offset=1
@@ -496,7 +498,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.72.0 r-curl/4.3 crul/1.0.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -506,7 +508,7 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 27 May 2020 00:26:56 GMT
+      date: Thu, 01 Oct 2020 00:58:09 GMT
       server: Apache/2.4.39 (Win64)
       access-control-allow-origin: '*'
       access-control-allow-headers: X-Requested-With, Content-Type, Accept, Origin,
@@ -523,78 +525,78 @@ http_interactions:
         & Peyrot, 1909","parentNameUsageID":869600,"kingdom":"Animalia","phylum":"Mollusca","class":"Bivalvia","order":"Adapedonta","family":null,"genus":null,"citation":"MolluscaBase
         eds. (2020). MolluscaBase. Adapedonta. Accessed through: World Register of
         Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=869601
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:869601","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2016-02-07T00:40:24.103Z"},{"AphiaID":869602,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=869602","scientificname":"Cardiida","authority":"Ferussac,
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:869601","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2016-02-07T00:40:24.103Z"},{"AphiaID":869602,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=869602","scientificname":"Cardiida","authority":"Ferussac,
         1822","status":"accepted","unacceptreason":null,"taxonRankID":100,"rank":"Order","valid_AphiaID":869602,"valid_name":"Cardiida","valid_authority":"Ferussac,
         1822","parentNameUsageID":869600,"kingdom":"Animalia","phylum":"Mollusca","class":"Bivalvia","order":"Cardiida","family":null,"genus":null,"citation":"MolluscaBase
         eds. (2020). MolluscaBase. Cardiida. Accessed through: World Register of Marine
         Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=869602
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:869602","isMarine":1,"isBrackish":1,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2016-02-07T00:40:24.103Z"},{"AphiaID":14630,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=14630","scientificname":"Cyamioidea","authority":"Sars,
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:869602","isMarine":1,"isBrackish":1,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2016-02-07T00:40:24.103Z"},{"AphiaID":14630,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=14630","scientificname":"Cyamioidea","authority":"Sars,
         1878","status":"accepted","unacceptreason":null,"taxonRankID":130,"rank":"Superfamily","valid_AphiaID":14630,"valid_name":"Cyamioidea","valid_authority":"Sars,
         1878","parentNameUsageID":869600,"kingdom":"Animalia","phylum":"Mollusca","class":"Bivalvia","order":null,"family":null,"genus":null,"citation":"MolluscaBase
         eds. (2020). MolluscaBase. Cyamioidea Sars, 1878. Accessed through: World
         Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=14630
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:14630","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2016-02-07T00:40:24.103Z"},{"AphiaID":382301,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=382301","scientificname":"Gaimardioidea","authority":"Hedley,
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:14630","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2016-02-07T00:40:24.103Z"},{"AphiaID":382301,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=382301","scientificname":"Gaimardioidea","authority":"Hedley,
         1916","status":"accepted","unacceptreason":null,"taxonRankID":130,"rank":"Superfamily","valid_AphiaID":382301,"valid_name":"Gaimardioidea","valid_authority":"Hedley,
         1916","parentNameUsageID":869600,"kingdom":"Animalia","phylum":"Mollusca","class":"Bivalvia","order":null,"family":null,"genus":null,"citation":"MolluscaBase
         eds. (2020). MolluscaBase. Gaimardioidea Hedley, 1916. Accessed through: World
         Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=382301
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:382301","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2016-02-07T00:40:24.103Z"},{"AphiaID":1326015,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=1326015","scientificname":"Galeommatida","authority":"Lemer,
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:382301","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2016-02-07T00:40:24.103Z"},{"AphiaID":1326015,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=1326015","scientificname":"Galeommatida","authority":"Lemer,
         Bieler & Giribet, 2019","status":"accepted","unacceptreason":null,"taxonRankID":100,"rank":"Order","valid_AphiaID":1326015,"valid_name":"Galeommatida","valid_authority":"Lemer,
         Bieler & Giribet, 2019","parentNameUsageID":869600,"kingdom":"Animalia","phylum":"Mollusca","class":"Bivalvia","order":"Galeommatida","family":null,"genus":null,"citation":"MolluscaBase
         eds. (2020). MolluscaBase. Galeommatida. Accessed through: World Register
         of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=1326015
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:1326015","isMarine":1,"isBrackish":null,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2019-02-10T00:24:52.807Z"},{"AphiaID":1326014,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=1326014","scientificname":"Gastrochaenida","authority":"Lange
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:1326015","isMarine":1,"isBrackish":null,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2019-02-10T00:24:52.807Z"},{"AphiaID":1326014,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=1326014","scientificname":"Gastrochaenida","authority":"Lange
         de Morretes, 1949","status":"accepted","unacceptreason":null,"taxonRankID":100,"rank":"Order","valid_AphiaID":1326014,"valid_name":"Gastrochaenida","valid_authority":"Lange
         de Morretes, 1949","parentNameUsageID":869600,"kingdom":"Animalia","phylum":"Mollusca","class":"Bivalvia","order":"Gastrochaenida","family":null,"genus":null,"citation":"MolluscaBase
         eds. (2020). MolluscaBase. Gastrochaenida. Accessed through: World Register
         of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=1326014
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:1326014","isMarine":1,"isBrackish":null,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2019-02-10T00:24:52.807Z"},{"AphiaID":833289,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=833289","scientificname":"Grammysioidea","authority":"S.
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:1326014","isMarine":1,"isBrackish":null,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2019-02-10T00:24:52.807Z"},{"AphiaID":833289,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=833289","scientificname":"Grammysioidea","authority":"S.
         A. Miller, 1877","status":"accepted","unacceptreason":null,"taxonRankID":130,"rank":"Superfamily","valid_AphiaID":833289,"valid_name":"Grammysioidea","valid_authority":"S.
         A. Miller, 1877","parentNameUsageID":869600,"kingdom":"Animalia","phylum":"Mollusca","class":"Bivalvia","order":null,"family":null,"genus":null,"citation":"MolluscaBase
         eds. (2020). MolluscaBase. Grammysioidea S. A. Miller, 1877&nbsp;&#8224;.
         Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=833289
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:833289","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":1,"match_type":"exact","modified":"2016-02-07T00:40:24.103Z"},{"AphiaID":833394,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=833394","scientificname":"Hiatellida","authority":"Carter,
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:833289","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":1,"match_type":"exact","modified":"2016-02-07T00:40:24.103Z"},{"AphiaID":833394,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=833394","scientificname":"Hiatellida","authority":"Carter,
         2011","status":"alternate representation","unacceptreason":null,"taxonRankID":100,"rank":"Order","valid_AphiaID":869601,"valid_name":"Adapedonta","valid_authority":"Cossmann
         & Peyrot, 1909","parentNameUsageID":869600,"kingdom":"Animalia","phylum":"Mollusca","class":"Bivalvia","order":"Hiatellida","family":null,"genus":null,"citation":"MolluscaBase
         eds. (2020). MolluscaBase. Hiatellida. Accessed through: World Register of
         Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=833394
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:833394","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":0,"match_type":"exact","modified":"2016-02-07T00:40:24.103Z"},{"AphiaID":833312,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=833312","scientificname":"Hippuritida","authority":"Newell,
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:833394","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":0,"match_type":"exact","modified":"2016-02-07T00:40:24.103Z"},{"AphiaID":833312,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=833312","scientificname":"Hippuritida","authority":"Newell,
         1965","status":"accepted","unacceptreason":null,"taxonRankID":100,"rank":"Order","valid_AphiaID":833312,"valid_name":"Hippuritida","valid_authority":"Newell,
         1965","parentNameUsageID":869600,"kingdom":"Animalia","phylum":"Mollusca","class":"Bivalvia","order":"Hippuritida","family":null,"genus":null,"citation":"MolluscaBase
         eds. (2020). MolluscaBase. Hippuritida&nbsp;&#8224;. Accessed through: World
         Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=833312
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:833312","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":1,"match_type":"exact","modified":"2016-02-07T00:40:24.103Z"},{"AphiaID":833358,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=833358","scientificname":"Kalenteroidea","authority":"Marwick,
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:833312","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":1,"match_type":"exact","modified":"2016-02-07T00:40:24.103Z"},{"AphiaID":833358,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=833358","scientificname":"Kalenteroidea","authority":"Marwick,
         1953","status":"accepted","unacceptreason":null,"taxonRankID":130,"rank":"Superfamily","valid_AphiaID":833358,"valid_name":"Kalenteroidea","valid_authority":"Marwick,
         1953","parentNameUsageID":869600,"kingdom":"Animalia","phylum":"Mollusca","class":"Bivalvia","order":null,"family":null,"genus":null,"citation":"MolluscaBase
         eds. (2020). MolluscaBase. Kalenteroidea Marwick, 1953&nbsp;&#8224;. Accessed
         through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=833358
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:833358","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":1,"match_type":"exact","modified":"2016-02-07T00:40:24.103Z"},{"AphiaID":489106,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=489106","scientificname":"Lucinida","authority":"Gray,
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:833358","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":1,"match_type":"exact","modified":"2016-02-07T00:40:24.103Z"},{"AphiaID":489106,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=489106","scientificname":"Lucinida","authority":"Gray,
         1854","status":"accepted","unacceptreason":null,"taxonRankID":100,"rank":"Order","valid_AphiaID":489106,"valid_name":"Lucinida","valid_authority":"Gray,
         1854","parentNameUsageID":869600,"kingdom":"Animalia","phylum":"Mollusca","class":"Bivalvia","order":"Lucinida","family":null,"genus":null,"citation":"MolluscaBase
         eds. (2020). MolluscaBase. Lucinida. Accessed through: World Register of Marine
         Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=489106
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:489106","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2016-02-07T00:40:24.103Z"},{"AphiaID":833299,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=833299","scientificname":"Megalodontida","authority":"Starobogatov,
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:489106","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2016-02-07T00:40:24.103Z"},{"AphiaID":833299,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=833299","scientificname":"Megalodontida","authority":"Starobogatov,
         1992","status":"accepted","unacceptreason":null,"taxonRankID":100,"rank":"Order","valid_AphiaID":833299,"valid_name":"Megalodontida","valid_authority":"Starobogatov,
         1992","parentNameUsageID":869600,"kingdom":"Animalia","phylum":"Mollusca","class":"Bivalvia","order":"Megalodontida","family":null,"genus":null,"citation":"MolluscaBase
         eds. (2020). MolluscaBase. Megalodontida&nbsp;&#8224;. Accessed through: World
         Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=833299
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:833299","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":1,"match_type":"exact","modified":"2016-02-07T00:40:24.103Z"},{"AphiaID":833292,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=833292","scientificname":"Modiomorphida","authority":"Newell,
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:833299","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":1,"match_type":"exact","modified":"2016-02-07T00:40:24.103Z"},{"AphiaID":833292,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=833292","scientificname":"Modiomorphida","authority":"Newell,
         1969","status":"accepted","unacceptreason":null,"taxonRankID":100,"rank":"Order","valid_AphiaID":833292,"valid_name":"Modiomorphida","valid_authority":"Newell,
         1969","parentNameUsageID":869600,"kingdom":"Animalia","phylum":"Mollusca","class":"Bivalvia","order":"Modiomorphida","family":null,"genus":null,"citation":"MolluscaBase
         eds. (2020). MolluscaBase. Modiomorphida&nbsp;&#8224;. Accessed through: World
         Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=833292
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:833292","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":1,"match_type":"exact","modified":"2016-02-07T00:40:24.103Z"},{"AphiaID":245,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=245","scientificname":"Myida","authority":"Stoliczka,
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:833292","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":1,"match_type":"exact","modified":"2016-02-07T00:40:24.103Z"},{"AphiaID":245,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=245","scientificname":"Myida","authority":"Stoliczka,
         1870","status":"accepted","unacceptreason":null,"taxonRankID":100,"rank":"Order","valid_AphiaID":245,"valid_name":"Myida","valid_authority":"Stoliczka,
         1870","parentNameUsageID":869600,"kingdom":"Animalia","phylum":"Mollusca","class":"Bivalvia","order":"Myida","family":null,"genus":null,"citation":"MolluscaBase
         eds. (2020). MolluscaBase. Myida. Accessed through: World Register of Marine
         Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=245
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:245","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2016-02-07T00:40:24.103Z"},{"AphiaID":217,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=217","scientificname":"Venerida","authority":"Gray,
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:245","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2016-02-07T00:40:24.103Z"},{"AphiaID":217,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=217","scientificname":"Venerida","authority":"Gray,
         1854","status":"accepted","unacceptreason":null,"taxonRankID":100,"rank":"Order","valid_AphiaID":217,"valid_name":"Venerida","valid_authority":"Gray,
         1854","parentNameUsageID":869600,"kingdom":"Animalia","phylum":"Mollusca","class":"Bivalvia","order":"Venerida","family":null,"genus":null,"citation":"WoRMS
         (2020). Venerida. Accessed at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=217
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:217","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2016-02-07T00:40:24.103Z"}]'
-  recorded_at: 2020-05-27 00:27:10 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:217","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2016-02-07T00:40:24.103Z"}]'
+  recorded_at: 2020-10-01 00:58:12 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
 - request:
     method: get
     uri: http://www.marinespecies.org/rest/AphiaChildrenByAphiaID/224570?marine_only=true&offset=1
@@ -602,7 +604,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.72.0 r-curl/4.3 crul/1.0.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -612,7 +614,7 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 27 May 2020 00:27:03 GMT
+      date: Thu, 01 Oct 2020 00:58:10 GMT
       server: Apache/2.4.39 (Win64)
       access-control-allow-origin: '*'
       access-control-allow-headers: X-Requested-With, Content-Type, Accept, Origin,
@@ -620,7 +622,7 @@ http_interactions:
       access-control-allow-methods: GET, POST, OPTIONS
       content-length: '5124'
       content-type: application/json
-      set-cookie: vliz_webc=vliz_webc1; path=/
+      set-cookie: vliz_webc=vliz_webc2; path=/
     body:
       encoding: UTF-8
       file: no
@@ -630,33 +632,33 @@ http_interactions:
         Caenogastropoda","family":null,"genus":null,"citation":"MolluscaBase eds.
         (2020). MolluscaBase. [unassigned] Caenogastropoda. Accessed through: World
         Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=382204
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:382204","isMarine":1,"isBrackish":1,"isFreshwater":1,"isTerrestrial":1,"isExtinct":null,"match_type":"exact","modified":"2010-06-22T14:47:09.877Z"},{"AphiaID":411667,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=411667","scientificname":"Hypsogastropoda","authority":"Ponder
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:382204","isMarine":1,"isBrackish":1,"isFreshwater":1,"isTerrestrial":1,"isExtinct":null,"match_type":"exact","modified":"2010-06-22T14:47:09.877Z"},{"AphiaID":411667,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=411667","scientificname":"Hypsogastropoda","authority":"Ponder
         & Lindberg, 1997","status":"alternate representation","unacceptreason":null,"taxonRankID":90,"rank":"Superorder","valid_AphiaID":411667,"valid_name":"Hypsogastropoda","valid_authority":"Ponder
         & Lindberg, 1997","parentNameUsageID":224570,"kingdom":"Animalia","phylum":"Mollusca","class":"Gastropoda","order":null,"family":null,"genus":null,"citation":"MolluscaBase
         eds. (2020). MolluscaBase. Hypsogastropoda. Accessed through: World Register
         of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=411667
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:411667","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2010-06-02T13:20:13.800Z"},{"AphiaID":382213,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=382213","scientificname":"Littorinimorpha","authority":"Golikov
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:411667","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2010-06-02T13:20:13.800Z"},{"AphiaID":382213,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=382213","scientificname":"Littorinimorpha","authority":"Golikov
         & Starobogatov, 1975","status":"accepted","unacceptreason":null,"taxonRankID":100,"rank":"Order","valid_AphiaID":382213,"valid_name":"Littorinimorpha","valid_authority":"Golikov
         & Starobogatov, 1975","parentNameUsageID":224570,"kingdom":"Animalia","phylum":"Mollusca","class":"Gastropoda","order":"Littorinimorpha","family":null,"genus":null,"citation":"WoRMS
         (2020). Littorinimorpha. Accessed at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=382213
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:382213","isMarine":1,"isBrackish":1,"isFreshwater":1,"isTerrestrial":1,"isExtinct":null,"match_type":"exact","modified":"2020-04-10T10:39:35.267Z"},{"AphiaID":146,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=146","scientificname":"Neogastropoda","authority":"Wenz,
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:382213","isMarine":1,"isBrackish":1,"isFreshwater":1,"isTerrestrial":1,"isExtinct":null,"match_type":"exact","modified":"2020-04-10T10:39:35.267Z"},{"AphiaID":146,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=146","scientificname":"Neogastropoda","authority":"Wenz,
         1938","status":"accepted","unacceptreason":null,"taxonRankID":100,"rank":"Order","valid_AphiaID":146,"valid_name":"Neogastropoda","valid_authority":"Wenz,
         1938","parentNameUsageID":224570,"kingdom":"Animalia","phylum":"Mollusca","class":"Gastropoda","order":"Neogastropoda","family":null,"genus":null,"citation":"MolluscaBase
         eds. (2020). MolluscaBase. Neogastropoda. Accessed through: World Register
         of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=146
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:146","isMarine":1,"isBrackish":1,"isFreshwater":1,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2018-02-07T13:46:33.493Z"},{"AphiaID":382203,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=382203","scientificname":"Sorbeoconcha","authority":"Ponder
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:146","isMarine":1,"isBrackish":1,"isFreshwater":1,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2018-02-07T13:46:33.493Z"},{"AphiaID":382203,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=382203","scientificname":"Sorbeoconcha","authority":"Ponder
         & Lindberg, 1997","status":"accepted","unacceptreason":null,"taxonRankID":85,"rank":"Subterclass","valid_AphiaID":382203,"valid_name":"Sorbeoconcha","valid_authority":"Ponder
         & Lindberg, 1997","parentNameUsageID":224570,"kingdom":"Animalia","phylum":"Mollusca","class":"Gastropoda","order":null,"family":null,"genus":null,"citation":"MolluscaBase
         eds. (2020). MolluscaBase. Sorbeoconcha. Accessed through: World Register
         of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=382203
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:382203","isMarine":1,"isBrackish":1,"isFreshwater":1,"isTerrestrial":1,"isExtinct":null,"match_type":"exact","modified":"2018-01-13T10:19:06.270Z"},{"AphiaID":390775,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=390775","scientificname":"Stenoglossa","authority":"Bouvier,
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:382203","isMarine":1,"isBrackish":1,"isFreshwater":1,"isTerrestrial":1,"isExtinct":null,"match_type":"exact","modified":"2018-01-13T10:19:06.270Z"},{"AphiaID":390775,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=390775","scientificname":"Stenoglossa","authority":"Bouvier,
         1887","status":"unaccepted","unacceptreason":null,"taxonRankID":100,"rank":"Order","valid_AphiaID":146,"valid_name":"Neogastropoda","valid_authority":"Wenz,
         1938","parentNameUsageID":224570,"kingdom":"Animalia","phylum":"Mollusca","class":"Gastropoda","order":"Stenoglossa","family":null,"genus":null,"citation":"MolluscaBase
         eds. (2020). MolluscaBase. Stenoglossa. Accessed through: World Register of
         Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=390775
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:390775","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2010-06-02T13:20:13.800Z"}]'
-  recorded_at: 2020-05-27 00:27:10 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:390775","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2010-06-02T13:20:13.800Z"}]'
+  recorded_at: 2020-10-01 00:58:12 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
 - request:
     method: get
     uri: http://www.marinespecies.org/rest/AphiaChildrenByAphiaID/411667?marine_only=true&offset=1
@@ -664,7 +666,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.72.0 r-curl/4.3 crul/1.0.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -674,7 +676,7 @@ http_interactions:
       explanation: Request fulfilled, nothing follows
     headers:
       status: HTTP/1.1 204 No Content
-      date: Wed, 27 May 2020 00:27:05 GMT
+      date: Thu, 01 Oct 2020 00:58:11 GMT
       server: Apache/2.4.39 (Win64)
       access-control-allow-origin: '*'
       access-control-allow-headers: X-Requested-With, Content-Type, Accept, Origin,
@@ -685,8 +687,8 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: ''
-  recorded_at: 2020-05-27 00:27:10 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2020-10-01 00:58:12 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
 - request:
     method: get
     uri: http://www.marinespecies.org/rest/AphiaChildrenByAphiaID/382203?marine_only=true&offset=1
@@ -694,7 +696,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.72.0 r-curl/4.3 crul/1.0.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -704,7 +706,7 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 27 May 2020 00:27:06 GMT
+      date: Thu, 01 Oct 2020 00:58:11 GMT
       server: Apache/2.4.39 (Win64)
       access-control-allow-origin: '*'
       access-control-allow-headers: X-Requested-With, Content-Type, Accept, Origin,
@@ -721,22 +723,22 @@ http_interactions:
         Sorbeoconcha","valid_authority":null,"parentNameUsageID":382203,"kingdom":"Animalia","phylum":"Mollusca","class":"Gastropoda","order":null,"family":null,"genus":null,"citation":"MolluscaBase
         eds. (2020). MolluscaBase. [unassigned] Sorbeoconcha. Accessed through: World
         Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=1054477
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:1054477","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2018-01-13T10:19:06.270Z"},{"AphiaID":1251206,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=1251206","scientificname":"Cerithiimorpha","authority":null,"status":"accepted","unacceptreason":null,"taxonRankID":90,"rank":"Superorder","valid_AphiaID":1251206,"valid_name":"Cerithiimorpha","valid_authority":null,"parentNameUsageID":382203,"kingdom":"Animalia","phylum":"Mollusca","class":"Gastropoda","order":null,"family":null,"genus":null,"citation":"MolluscaBase
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:1054477","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2018-01-13T10:19:06.270Z"},{"AphiaID":1251206,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=1251206","scientificname":"Cerithiimorpha","authority":null,"status":"accepted","unacceptreason":null,"taxonRankID":90,"rank":"Superorder","valid_AphiaID":1251206,"valid_name":"Cerithiimorpha","valid_authority":null,"parentNameUsageID":382203,"kingdom":"Animalia","phylum":"Mollusca","class":"Gastropoda","order":null,"family":null,"genus":null,"citation":"MolluscaBase
         eds. (2020). MolluscaBase. Cerithiimorpha. Accessed through: World Register
         of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=1251206
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:1251206","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":0,"isExtinct":0,"match_type":"exact","modified":"2018-05-04T18:48:28.343Z"},{"AphiaID":1052643,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=1052643","scientificname":"Pseudozygopleuroidea","authority":"Knight,
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:1251206","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":0,"isExtinct":0,"match_type":"exact","modified":"2018-05-04T18:48:28.343Z"},{"AphiaID":1052643,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=1052643","scientificname":"Pseudozygopleuroidea","authority":"Knight,
         1930","status":"accepted","unacceptreason":null,"taxonRankID":130,"rank":"Superfamily","valid_AphiaID":1052643,"valid_name":"Pseudozygopleuroidea","valid_authority":"Knight,
         1930","parentNameUsageID":382203,"kingdom":"Animalia","phylum":"Mollusca","class":"Gastropoda","order":null,"family":null,"genus":null,"citation":"MolluscaBase
         eds. (2020). MolluscaBase. Pseudozygopleuroidea Knight, 1930&nbsp;&#8224;.
         Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=1052643
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:1052643","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":1,"match_type":"exact","modified":"2017-12-27T06:42:15.940Z"},{"AphiaID":933023,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=933023","scientificname":"Zygopleuroidea","authority":"Wenz,
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:1052643","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":1,"match_type":"exact","modified":"2017-12-27T06:42:15.940Z"},{"AphiaID":933023,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=933023","scientificname":"Zygopleuroidea","authority":"Wenz,
         1938","status":"unaccepted","unacceptreason":null,"taxonRankID":130,"rank":"Superfamily","valid_AphiaID":1052643,"valid_name":"Pseudozygopleuroidea","valid_authority":"Knight,
         1930","parentNameUsageID":382203,"kingdom":"Animalia","phylum":"Mollusca","class":"Gastropoda","order":null,"family":null,"genus":null,"citation":"MolluscaBase
         eds. (2020). MolluscaBase. Zygopleuroidea Wenz, 1938&nbsp;&#8224;. Accessed
         through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=933023
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:933023","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":1,"match_type":"exact","modified":"2017-12-27T06:42:15.940Z"}]'
-  recorded_at: 2020-05-27 00:27:10 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:933023","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":1,"match_type":"exact","modified":"2017-12-27T06:42:15.940Z"}]'
+  recorded_at: 2020-10-01 00:58:12 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
 - request:
     method: get
     uri: http://www.marinespecies.org/rest/AphiaChildrenByAphiaID/1054477?marine_only=true&offset=1
@@ -744,7 +746,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.72.0 r-curl/4.3 crul/1.0.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -754,7 +756,7 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 27 May 2020 00:27:07 GMT
+      date: Thu, 01 Oct 2020 00:58:12 GMT
       server: Apache/2.4.39 (Win64)
       access-control-allow-origin: '*'
       access-control-allow-headers: X-Requested-With, Content-Type, Accept, Origin,
@@ -771,9 +773,9 @@ http_interactions:
         & Ortea, 2010","parentNameUsageID":1054477,"kingdom":"Animalia","phylum":"Mollusca","class":"Gastropoda","order":null,"family":"Globocornidae","genus":null,"citation":"MolluscaBase
         eds. (2020). MolluscaBase. Globocornidae Espinosa & Ortea, 2010. Accessed
         through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=558222
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:558222","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2018-01-13T10:19:06.270Z"}]'
-  recorded_at: 2020-05-27 00:27:10 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:558222","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2018-01-13T10:19:06.270Z"}]'
+  recorded_at: 2020-10-01 00:58:12 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
 - request:
     method: get
     uri: http://www.marinespecies.org/rest/AphiaChildrenByAphiaID/1251206?marine_only=true&offset=1
@@ -781,7 +783,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.72.0 r-curl/4.3 crul/1.0.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -791,7 +793,7 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 27 May 2020 00:27:09 GMT
+      date: Thu, 01 Oct 2020 00:58:12 GMT
       server: Apache/2.4.39 (Win64)
       access-control-allow-origin: '*'
       access-control-allow-headers: X-Requested-With, Content-Type, Accept, Origin,
@@ -799,7 +801,7 @@ http_interactions:
       access-control-allow-methods: GET, POST, OPTIONS
       content-length: '2763'
       content-type: application/json
-      set-cookie: vliz_webc=vliz_webc1; path=/
+      set-cookie: vliz_webc=vliz_webc2; path=/
     body:
       encoding: UTF-8
       file: no
@@ -808,16 +810,16 @@ http_interactions:
         Gr\u00fcndel & P. A. Maxwell, 2000","parentNameUsageID":1251206,"kingdom":"Animalia","phylum":"Mollusca","class":"Gastropoda","order":null,"family":"Canterburyellidae","genus":null,"citation":"MolluscaBase
         eds. (2020). MolluscaBase. Canterburyellidae Bandel, Gr\u00fcndel & P. A.
         Maxwell, 2000&nbsp;&#8224;. Accessed through: World Register of Marine Species
-        at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=833877 on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:833877","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":1,"match_type":"exact","modified":"2018-05-04T18:48:28.343Z"},{"AphiaID":833879,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=833879","scientificname":"Cassiopidae","authority":"Beurlen,
+        at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=833877 on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:833877","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":1,"match_type":"exact","modified":"2018-05-04T18:48:28.343Z"},{"AphiaID":833879,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=833879","scientificname":"Cassiopidae","authority":"Beurlen,
         1967","status":"accepted","unacceptreason":null,"taxonRankID":140,"rank":"Family","valid_AphiaID":833879,"valid_name":"Cassiopidae","valid_authority":"Beurlen,
         1967","parentNameUsageID":1251206,"kingdom":"Animalia","phylum":"Mollusca","class":"Gastropoda","order":null,"family":"Cassiopidae","genus":null,"citation":"MolluscaBase
         eds. (2020). MolluscaBase. Cassiopidae Beurlen, 1967&nbsp;&#8224;. Accessed
         through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=833879
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:833879","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":1,"match_type":"exact","modified":"2018-05-04T18:48:28.343Z"},{"AphiaID":1251207,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=1251207","scientificname":"Cryptaulacidae","authority":"Gr\u00fcndel,
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:833879","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":1,"match_type":"exact","modified":"2018-05-04T18:48:28.343Z"},{"AphiaID":1251207,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=1251207","scientificname":"Cryptaulacidae","authority":"Gr\u00fcndel,
         1976","status":"accepted","unacceptreason":null,"taxonRankID":140,"rank":"Family","valid_AphiaID":1251207,"valid_name":"Cryptaulacidae","valid_authority":"Gr\u00fcndel,
         1976","parentNameUsageID":1251206,"kingdom":"Animalia","phylum":"Mollusca","class":"Gastropoda","order":null,"family":"Cryptaulacidae","genus":null,"citation":"MolluscaBase
         eds. (2020). MolluscaBase. Cryptaulacidae Gr\u00fcndel, 1976&nbsp;&#8224;.
         Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=1251207
-        on 2020-05-27","lsid":"urn:lsid:marinespecies.org:taxname:1251207","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":1,"match_type":"exact","modified":"2018-05-04T18:48:28.343Z"}]'
-  recorded_at: 2020-05-27 00:27:10 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+        on 2020-10-01","lsid":"urn:lsid:marinespecies.org:taxname:1251207","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":1,"match_type":"exact","modified":"2018-05-04T18:48:28.343Z"}]'
+  recorded_at: 2020-10-01 00:58:12 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
