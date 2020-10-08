@@ -73,8 +73,8 @@ gni_search(sci = "ani*", verbose = TRUE)
 }
 }
 \references{
-\url{http://gni.globalnames.org/},
-\url{https://github.com/dimus/gni/wiki/api}
+http://gni.globalnames.org/
+https://github.com/dimus/gni/wiki/api
 }
 \seealso{
 \code{\link[=gnr_datasources]{gnr_datasources()}}, \code{\link[=gni_search]{gni_search()}}

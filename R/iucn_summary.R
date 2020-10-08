@@ -49,7 +49,7 @@
 #' @section Redlist Authentication:
 #' `iucn_summary` uses the new Redlist API for searching for a IUCN ID, so we
 #' use the [rl_search()] function internally. This function
-#' requires an API key. Get the key at <https://apiv3.iucnredlist.org/api/v3/token>,
+#' requires an API key. Get the key at https://apiv3.iucnredlist.org/api/v3/token,
 #' and pass it to the `key` parameter, or store in your `.Renviron` file like
 #' `IUCN_REDLIST_KEY=yourkey` or in your `.Rprofile` file like
 #' `options(iucn_redlist_key="yourkey")`. We strongly encourage you to not pass

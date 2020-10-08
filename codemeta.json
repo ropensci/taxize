@@ -10,14 +10,13 @@
   "codeRepository": "https://github.com/ropensci/taxize",
   "issueTracker": "https://github.com/ropensci/taxize/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.9.97",
+  "version": "0.9.98",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
-    "version": "4.0.1",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.0.1 (2020-06-06)",
+  "runtimePlatform": "R version 4.0.2 Patched (2020-09-01 r79114)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -459,13 +458,10 @@
       "sameAs": "https://CRAN.R-project.org/package=conditionz"
     }
   ],
-  "contIntegration": [
-    "https://travis-ci.org/ropensci/taxize",
-    "https://ci.appveyor.com/project/sckott/taxize-175/branch/master"
-  ],
+  "contIntegration": "https://codecov.io/gh/ropensci/taxize",
   "releaseNotes": "https://github.com/ropensci/taxize/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/taxize/blob/master/README.md",
-  "fileSize": "1887.739KB",
+  "fileSize": "0KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",
@@ -481,7 +477,7 @@
         }
       ],
       "name": "taxize - taxonomic search and retrieval in R",
-      "url": "http://f1000research.com/articles/2-191/v2",
+      "url": "https://f1000research.com/articles/2-191/v2/",
       "isPartOf": {
         "@type": "PublicationIssue",
         "datePublished": "2013",
@@ -578,7 +574,7 @@
       ],
       "name": "taxize: Taxonomic information from around the web",
       "url": "https://github.com/ropensci/taxize",
-      "description": "R package version 0.9.95"
+      "description": "R package version 0.9.98"
     }
   ],
   "applicationCategory": "Taxonomy",
@@ -591,9 +587,8 @@
     }
   ],
   "relatedLink": [
-    "https://ropenscilabs.github.io/taxize-book/",
     "https://taxize.dev",
-    "https://docs.ropensci.org/taxize"
+    "https://docs.ropensci.org/taxize/"
   ],
   "copyrightHolder": {},
   "developmentStatus": "https://www.repostatus.org/#active"

@@ -12,7 +12,8 @@ README.Rmd
 inst/stuff/
 vignettes/taxize.md
 vignettes/taxize_infotable.md
-vignettes/margins.sty
+vignettes/datasources.Rmd
+vignettes/datasources.md
 vignettes/cache/
 ^CODE_OF_CONDUCT\.md$
 ^cran-comments\.md$
@@ -24,3 +25,4 @@ docs
 ^codemeta\.json$
 ^_pkgdown\.yml$
 taxa-ids-notes.R
+readme_contributors.txt

@@ -4,7 +4,7 @@
 #' @param sci_com (character) The query terms(s), a scientific or common name
 #' @param fq (character) Filters to be applied to the original query. These
 #' are additional params of the form fq=INDEXEDFIELD:VALUE e.g.
-#' fq=rank:kingdom. See <https://species-ws.nbnatlas.org/indexFields> for all
+#' fq=rank:kingdom. See https://species-ws.nbnatlas.org/indexFields for all
 #' the fields that are queryable.
 #' @param rows (integer) Number of records to return
 #' @param start (integer) Record offset, to enable paging
@@ -18,7 +18,7 @@
 #' @return a list with slots for metadata (`meta`) with list of response
 #' attributes, and data (`data`) with a data.frame of results
 #' @author Scott Chamberlain, \email{myrmecocystus@@gmail.com}
-#' @references <https://api.nbnatlas.org/>
+#' @references https://api.nbnatlas.org/
 #'
 #' @examples \dontrun{
 #' x <- nbn_search(sci_com = "Vulpes")

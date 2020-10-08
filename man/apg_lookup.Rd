@@ -24,7 +24,7 @@ Lookup in the APGIII taxonomy and replace family names
 Internally in this function, we use the datasets \link{apg_families}
 and \link{apg_orders} - see their descriptions for the data in them.
 The functions \code{\link[=apgOrders]{apgOrders()}} \code{\link[=apgFamilies]{apgFamilies()}} are for scraping
-current content from the \url{http://www.mobot.org/MOBOT/research/APweb/}
+current content from the http://www.mobot.org/MOBOT/research/APweb/
 website
 
 The datasets used in this function are from the most recent version of

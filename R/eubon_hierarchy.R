@@ -16,7 +16,7 @@
 #' return the responses that have been received so far. The default timeout is
 #' 0 ms (wait for ever)
 #' @param ... Curl options passed on to [crul::verb-GET]
-#' @references <https://cybertaxonomy.eu/eu-bon/utis/1.3/doc.html>
+#' @references https://cybertaxonomy.eu/eu-bon/utis/1.3/doc.html
 #' @note There is no pagination in this method, so you may or may not be
 #' getting all the results for a search. Sorry, out of our control
 #' @family eubon-methods

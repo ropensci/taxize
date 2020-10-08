@@ -1,7 +1,7 @@
 #' @title Resolve names using Global Names Recognition and Discovery.
 #'
 #' @description Uses the Global Names Recognition and Discovery service, see
-#' <http://gnrd.globalnames.org/>.
+#' http://gnrd.globalnames.org/
 #'
 #' Note: this function sometimes gives data back and sometimes not. The API
 #' that this function is extremely buggy.
@@ -26,7 +26,7 @@
 #' against all available Data Sources.
 #' @param data_source_ids (optional) Type: string. Pipe separated list of
 #' data source ids to resolve found names against. See list of Data Sources
-#' <http://resolver.globalnames.org/data_sources>.
+#' http://resolver.globalnames.org/data_sources
 #' @param return_content (logical) return OCR'ed text. returns text
 #' string in `x$meta$content` slot. Default: `FALSE`
 #' @param ... Further args passed to [crul::verb-GET]

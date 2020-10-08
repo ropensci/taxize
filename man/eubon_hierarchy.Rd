@@ -40,7 +40,7 @@ eubon_hierarchy(id = "urn:lsid:marinespecies.org:taxname:274350", 'worms')
 }
 }
 \references{
-\url{https://cybertaxonomy.eu/eu-bon/utis/1.3/doc.html}
+https://cybertaxonomy.eu/eu-bon/utis/1.3/doc.html
 }
 \seealso{
 Other eubon-methods: 

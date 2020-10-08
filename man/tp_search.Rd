@@ -69,5 +69,5 @@ tp_search(sci = 'Poa annua annua')
 }
 }
 \references{
-\url{http://services.tropicos.org/help?method=SearchNameXml}
+http://services.tropicos.org/help?method=SearchNameXml
 }

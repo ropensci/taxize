@@ -13,7 +13,7 @@ A data frame with 10,000 rows and 3 variables:
 }
 }
 \source{
-\url{http://www.theplantlist.org}
+http://www.theplantlist.org
 }
 \description{
 These names are from http://www.theplantlist.org, and are from

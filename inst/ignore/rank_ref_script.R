@@ -48,7 +48,7 @@ ids_zoo <- c(
   '83','84','85','86','87', # cohort
   '90','100','110','120','125', # order
   '126','127', # section/subsection
-  '130','140','150', # family
+  '130','135','140','150', # family
   '155','160','170', # tribe
   '180','190','215','217', # genus
   '220','225','230', # species/etc.
@@ -64,7 +64,7 @@ ranks_zoo <- c(
   'megacohort','supercohort','cohort','subcohort','infracohort', # cohort
   'superorder','order','suborder','infraorder','parvorder', # order
   'section','subsection', # section/subsection
-  'superfamily','family','subfamily', # family
+  'superfamily','epifamily','family','subfamily', # family
   'supertribe','tribe','subtribe', # tribe
   'genus','subgenus','species group,series','species subgroup', # genus
   'species','infraspecies','subspecies,forma specialis', # species/etc.

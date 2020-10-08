@@ -96,7 +96,7 @@ tnrs(sci = mynames, source = "iPlant_TNRS", verbose = TRUE)
 }
 }
 \references{
-\url{http://taxosaurus.org/}
+http://taxosaurus.org/
 }
 \seealso{
 \code{\link[=gnr_resolve]{gnr_resolve()}}

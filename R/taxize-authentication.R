@@ -48,7 +48,7 @@
 #' or environment variables.
 #'
 #' We strongly recommend using environment variables
-#' (<https://en.wikipedia.org/wiki/Environment_variable>) over R options
+#' (https://en.wikipedia.org/wiki/Environment_variable) over R options
 #' because environment variables are widely used across programming
 #' languages, operating systems, and computing environments; whereas
 #' R options are specific to R.

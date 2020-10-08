@@ -32,7 +32,7 @@ out[agrep("zoo", out$title, ignore.case = TRUE), ]
 }
 }
 \references{
-\url{https://resolver.globalnames.org/data_sources}
+https://resolver.globalnames.org/data_sources
 }
 \seealso{
 \code{\link[=gnr_resolve]{gnr_resolve()}}, \code{\link[=gni_search]{gni_search()}}

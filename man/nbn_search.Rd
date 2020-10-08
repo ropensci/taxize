@@ -21,7 +21,7 @@ nbn_search(
 
 \item{fq}{(character) Filters to be applied to the original query. These
 are additional params of the form fq=INDEXEDFIELD:VALUE e.g.
-fq=rank:kingdom. See \url{https://species-ws.nbnatlas.org/indexFields} for all
+fq=rank:kingdom. See https://species-ws.nbnatlas.org/indexFields for all
 the fields that are queryable.}
 
 \item{order}{(character) Supports "asc" or "desc"}
@@ -62,7 +62,7 @@ nbn_search(sci_com = "blackbird", verbose = TRUE)
 }
 }
 \references{
-\url{https://api.nbnatlas.org/}
+https://api.nbnatlas.org/
 }
 \seealso{
 Other nbn: 

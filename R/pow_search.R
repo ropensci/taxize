@@ -11,7 +11,7 @@
 #' @return a list with slots for metadata (`meta`) with list of response
 #' attributes, and data (`data`) with a data.frame of results
 #' @author Scott Chamberlain, \email{myrmecocystus@@gmail.com}
-#' @references <http://powo.science.kew.org/>
+#' @references http://powo.science.kew.org/
 #' @family pow
 #' @examples \dontrun{
 #' x <- pow_search(sci_com = "Quercus")

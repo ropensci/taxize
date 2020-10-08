@@ -25,7 +25,7 @@
 #' used in [as.nbnid()]
 #' @template getreturn
 #'
-#' @references <https://api.nbnatlas.org/>
+#' @references https://api.nbnatlas.org/
 #' @return an object of class nbnid, a light wrapper around a character
 #' string that is the taxonomic ID - includes attributes with relavant
 #' metadata

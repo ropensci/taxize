@@ -38,7 +38,7 @@
 #' * thirdparty Returns information from third parties. Includes wikipedia
 #' summary, wikipedia URL, GBIF map.
 #'
-#' @references <http://www.boldsystems.org/index.php/resources/api>
+#' @references http://www.boldsystems.org/index.php/resources/api
 #' @return A list of data.frame's.
 #' @examples \dontrun{
 #' # A basic example

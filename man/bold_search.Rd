@@ -94,5 +94,5 @@ bold_search(id=88899, includeTree=TRUE)
 }
 }
 \references{
-\url{http://www.boldsystems.org/index.php/resources/api}
+http://www.boldsystems.org/index.php/resources/api
 }
