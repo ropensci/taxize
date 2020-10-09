@@ -46,3 +46,16 @@ test_that("ncbi_downstream handles when taxa searches return themselves", {
   expect_is(tt[[1]], "data.frame")
   expect_equal(attr(tt, "db"), "ncbi")
 })
+
+test_that("ncbi_downstream doesn't fail on no intermediate data", {
+  skip_on_cran() # uses secrets
+  vcr::use_cassette("ncbi_downstream_intermediate", {
+    tt <- ncbi_downstream(1398485, downto = "no rank", intermediate = TRUE)
+  })
+
+  expect_is(tt, "list")
+  expect_is(tt$target, "data.frame")
+  expect_equal(NROW(tt$target), 0)
+  expect_is(tt$intermediate, "list")
+  expect_length(tt$intermediate, 0)
+})
