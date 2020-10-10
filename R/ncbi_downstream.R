@@ -84,7 +84,6 @@ ncbi_downstream <- function(id, downto, intermediate = FALSE, ...) {
         stop_ <- "not"
       }
     }
-    if (intermediate) intermed[[iter]] <- intermed[[iter]]
   } # end while loop
 
   tmp <- unique(dt2df(out, idcol = FALSE))
