@@ -31,6 +31,17 @@
 #' @details See [vegan::taxa2dist()]. Thanks to Jari Oksanen for
 #' making the taxa2dist function and pointing it out, and Clarke & Warwick
 #' (1998, 2001), which taxa2dist was based on.
+#' The taxonomy tree created is not only based on the clustering of the 
+#' taxonomy ranks (e.g. strain, species, genus, ...), but it also utilizes the
+#' actual taxon clades (e.g. mammals, plants or reptiles, etc.). The process of
+#' this function is as following: First, all possible taxonomy ranks and their 
+#' corresponding IDs for each given taxon will be collected from the input.
+#' Then, the rank vectors of all taxa will be aligned, so that they together 
+#' will become a matrix where columns are ordered taxonomy ranks of all taxa and
+#' rows are the rank vectors of those taxa. After that, the rank matrix will be
+#' converted into taxonomy ID matrix, any missing rank will have a pseudo
+#' ID from the previous rank. Finally, this taxonomy ID matrix will be used to
+#' cluster taxa that have similar taxonomy hierarchy together.
 #' @examples \dontrun{
 #' spnames <- c('Quercus robur', 'Iris oratoria', 'Arachis paraguariensis',
 #'  'Helianthus annuus','Madia elegans','Lupinus albicaulis',

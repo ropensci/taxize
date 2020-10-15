@@ -79,3 +79,17 @@ test_that("downstream basic usage works", {
   expect_named(cc, "Ursus")
   expect_is(cc$Ursus$rank, "character")
 })
+
+test_that("worms - can pass through marine_only parameter", {
+  skip_on_cran()
+  vcr::use_cassette("downstream_worms_marine_only_para", {
+    # should return one row, Didelphimorphia
+    aa <- downstream(1837, db = "worms", downto = "order")
+    # should return 10 rows
+    bb <- downstream(1837, db = "worms", downto = "order", marine_only=FALSE)
+  })
+
+  expect_is(aa, "downstream")
+  expect_is(bb, "downstream")
+  expect_gt(NROW(bb[[1]]), NROW(aa[[1]]))
+})

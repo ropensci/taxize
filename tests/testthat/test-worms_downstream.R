@@ -70,3 +70,17 @@ test_that("worms_downstream - rank names that were previously unaccounted for", 
   expect_is(bb, "data.frame")
   expect_is(cc, "data.frame")
 })
+
+test_that("worms_downstream - can pass through marine_only parameter", {
+  skip_on_cran()
+  vcr::use_cassette("worms_downstream_marine_only_para", {
+    # should return one row, Didelphimorphia
+    aa <- worms_downstream(1837, downto = "order")
+    # should return 10 rows
+    bb <- worms_downstream(1837, downto = "order", marine_only=FALSE)
+  })
+
+  expect_is(aa, "data.frame")
+  expect_is(bb, "data.frame")
+  expect_gt(NROW(bb), NROW(aa))
+})
