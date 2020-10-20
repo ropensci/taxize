@@ -1,7 +1,7 @@
 context("test-key_helpers")
 
 test_that("use_iucn produces expected URL and message", {
-  expect_equal(use_iucn(), "http://apiv3.iucnredlist.org/api/v3/token")
+  expect_equal(use_iucn(), "https://apiv3.iucnredlist.org/api/v3/token")
   expect_message(use_iucn(), "After getting your key set")
 })
 
