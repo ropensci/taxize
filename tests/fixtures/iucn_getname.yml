@@ -122,7 +122,7 @@ http_interactions:
   recorded_with: vcr/0.2.2, webmockr/0.3.0
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/Cyanistes%20caeruleus?token=<<rredlist_api_token>>
+    uri: https://apiv3.iucnredlist.org/api/v3/species/Cyanistes%20caeruleus?token=<<rredlist_api_token>>
     body:
       encoding: ''
       string: ''
@@ -156,7 +156,7 @@ http_interactions:
   recorded_with: vcr/0.2.2, webmockr/0.3.0
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/Cyanistes%20caeruleus?token=<<rredlist_api_token>>
+    uri: https://apiv3.iucnredlist.org/api/v3/species/Cyanistes%20caeruleus?token=<<rredlist_api_token>>
     body:
       encoding: ''
       string: ''
@@ -192,7 +192,7 @@ http_interactions:
   recorded_with: vcr/0.2.2, webmockr/0.3.0
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/Cyanistes%20caeruleus?token=<<rredlist_api_token>>
+    uri: https://apiv3.iucnredlist.org/api/v3/species/Cyanistes%20caeruleus?token=<<rredlist_api_token>>
     body:
       encoding: ''
       string: ''
@@ -226,7 +226,7 @@ http_interactions:
   recorded_with: vcr/0.2.2, webmockr/0.3.0
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/Cyanistes%20caeruleus?token=<<rredlist_api_token>>
+    uri: https://apiv3.iucnredlist.org/api/v3/species/Cyanistes%20caeruleus?token=<<rredlist_api_token>>
     body:
       encoding: ''
       string: ''
@@ -262,7 +262,7 @@ http_interactions:
   recorded_with: vcr/0.2.2, webmockr/0.3.0
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/Cyanistes%20caeruleus?token=<<rredlist_api_token>>
+    uri: https://apiv3.iucnredlist.org/api/v3/species/Cyanistes%20caeruleus?token=<<rredlist_api_token>>
     body:
       encoding: ''
       string: ''
@@ -296,7 +296,7 @@ http_interactions:
   recorded_with: vcr/0.2.2, webmockr/0.3.0
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/Cyanistes%20caeruleus%20caeruleus?token=<<rredlist_api_token>>
+    uri: https://apiv3.iucnredlist.org/api/v3/species/Cyanistes%20caeruleus%20caeruleus?token=<<rredlist_api_token>>
     body:
       encoding: ''
       string: ''
@@ -325,7 +325,7 @@ http_interactions:
   recorded_with: vcr/0.2.2, webmockr/0.3.0
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/Cyanistes%20caeruleus%20degener?token=<<rredlist_api_token>>
+    uri: https://apiv3.iucnredlist.org/api/v3/species/Cyanistes%20caeruleus%20degener?token=<<rredlist_api_token>>
     body:
       encoding: ''
       string: ''
@@ -354,7 +354,7 @@ http_interactions:
   recorded_with: vcr/0.2.2, webmockr/0.3.0
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/Cyanistes%20caeruleus%20obscurus?token=<<rredlist_api_token>>
+    uri: https://apiv3.iucnredlist.org/api/v3/species/Cyanistes%20caeruleus%20obscurus?token=<<rredlist_api_token>>
     body:
       encoding: ''
       string: ''
@@ -383,7 +383,7 @@ http_interactions:
   recorded_with: vcr/0.2.2, webmockr/0.3.0
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/Cyanistes%20caeruleus%20ogilastrae?token=<<rredlist_api_token>>
+    uri: https://apiv3.iucnredlist.org/api/v3/species/Cyanistes%20caeruleus%20ogilastrae?token=<<rredlist_api_token>>
     body:
       encoding: ''
       string: ''
@@ -412,7 +412,7 @@ http_interactions:
   recorded_with: vcr/0.2.2, webmockr/0.3.0
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/Cyanistes%20caeruleus%20ombriosus?token=<<rredlist_api_token>>
+    uri: https://apiv3.iucnredlist.org/api/v3/species/Cyanistes%20caeruleus%20ombriosus?token=<<rredlist_api_token>>
     body:
       encoding: ''
       string: ''
@@ -441,7 +441,7 @@ http_interactions:
   recorded_with: vcr/0.2.2, webmockr/0.3.0
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/Cyanistes%20caeruleus%20orientalis?token=<<rredlist_api_token>>
+    uri: https://apiv3.iucnredlist.org/api/v3/species/Cyanistes%20caeruleus%20orientalis?token=<<rredlist_api_token>>
     body:
       encoding: ''
       string: ''
@@ -470,7 +470,7 @@ http_interactions:
   recorded_with: vcr/0.2.2, webmockr/0.3.0
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/Cyanistes%20caeruleus%20palmensis?token=<<rredlist_api_token>>
+    uri: https://apiv3.iucnredlist.org/api/v3/species/Cyanistes%20caeruleus%20palmensis?token=<<rredlist_api_token>>
     body:
       encoding: ''
       string: ''
@@ -499,7 +499,7 @@ http_interactions:
   recorded_with: vcr/0.2.2, webmockr/0.3.0
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/Cyanistes%20caeruleus?token=<<rredlist_api_token>>
+    uri: https://apiv3.iucnredlist.org/api/v3/species/Cyanistes%20caeruleus?token=<<rredlist_api_token>>
     body:
       encoding: ''
       string: ''
@@ -535,7 +535,7 @@ http_interactions:
   recorded_with: vcr/0.2.2, webmockr/0.3.0
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/Cyanistes%20caeruleus?token=<<rredlist_api_token>>
+    uri: https://apiv3.iucnredlist.org/api/v3/species/Cyanistes%20caeruleus?token=<<rredlist_api_token>>
     body:
       encoding: ''
       string: ''
@@ -569,7 +569,7 @@ http_interactions:
   recorded_with: vcr/0.2.2, webmockr/0.3.0
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/Cyanistes%20caeruleus%20teneriffae?token=<<rredlist_api_token>>
+    uri: https://apiv3.iucnredlist.org/api/v3/species/Cyanistes%20caeruleus%20teneriffae?token=<<rredlist_api_token>>
     body:
       encoding: ''
       string: ''
@@ -598,7 +598,7 @@ http_interactions:
   recorded_with: vcr/0.2.2, webmockr/0.3.0
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/Cyanistes%20caeruleus%20teneriffae?token=<<rredlist_api_token>>
+    uri: https://apiv3.iucnredlist.org/api/v3/species/Cyanistes%20caeruleus%20teneriffae?token=<<rredlist_api_token>>
     body:
       encoding: ''
       string: ''
@@ -629,7 +629,7 @@ http_interactions:
   recorded_with: vcr/0.2.2, webmockr/0.3.0
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/Cyanistes%20caeruleus%20teneriffae?token=<<rredlist_api_token>>
+    uri: https://apiv3.iucnredlist.org/api/v3/species/Cyanistes%20caeruleus%20teneriffae?token=<<rredlist_api_token>>
     body:
       encoding: ''
       string: ''
@@ -658,7 +658,7 @@ http_interactions:
   recorded_with: vcr/0.2.2, webmockr/0.3.0
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/Cyanistes%20caeruleus%20ultramarinus?token=<<rredlist_api_token>>
+    uri: https://apiv3.iucnredlist.org/api/v3/species/Cyanistes%20caeruleus%20ultramarinus?token=<<rredlist_api_token>>
     body:
       encoding: ''
       string: ''
@@ -687,7 +687,7 @@ http_interactions:
   recorded_with: vcr/0.2.2, webmockr/0.3.0
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/Parus%20caeruleus?token=<<rredlist_api_token>>
+    uri: https://apiv3.iucnredlist.org/api/v3/species/Parus%20caeruleus?token=<<rredlist_api_token>>
     body:
       encoding: ''
       string: ''
@@ -716,7 +716,7 @@ http_interactions:
   recorded_with: vcr/0.2.2, webmockr/0.3.0
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/Parus%20caeruleus%20degener?token=<<rredlist_api_token>>
+    uri: https://apiv3.iucnredlist.org/api/v3/species/Parus%20caeruleus%20degener?token=<<rredlist_api_token>>
     body:
       encoding: ''
       string: ''
@@ -745,7 +745,7 @@ http_interactions:
   recorded_with: vcr/0.2.2, webmockr/0.3.0
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/Parus%20caeruleus%20ultramarinus?token=<<rredlist_api_token>>
+    uri: https://apiv3.iucnredlist.org/api/v3/species/Parus%20caeruleus%20ultramarinus?token=<<rredlist_api_token>>
     body:
       encoding: ''
       string: ''
@@ -774,7 +774,7 @@ http_interactions:
   recorded_with: vcr/0.2.2, webmockr/0.3.0
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/id/103761667?token=<<rredlist_api_token>>
+    uri: https://apiv3.iucnredlist.org/api/v3/species/id/103761667?token=<<rredlist_api_token>>
     body:
       encoding: ''
       string: ''
@@ -808,7 +808,7 @@ http_interactions:
   recorded_with: vcr/0.2.2, webmockr/0.3.0
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/history/id/103761667?token=<<rredlist_api_token>>
+    uri: https://apiv3.iucnredlist.org/api/v3/species/history/id/103761667?token=<<rredlist_api_token>>
     body:
       encoding: ''
       string: ''
@@ -838,7 +838,7 @@ http_interactions:
   recorded_with: vcr/0.2.2, webmockr/0.3.0
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/countries/id/103761667?token=<<rredlist_api_token>>
+    uri: https://apiv3.iucnredlist.org/api/v3/species/countries/id/103761667?token=<<rredlist_api_token>>
     body:
       encoding: ''
       string: ''
@@ -876,7 +876,7 @@ http_interactions:
   recorded_with: vcr/0.2.2, webmockr/0.3.0
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/id/103761667?token=<<rredlist_api_token>>
+    uri: https://apiv3.iucnredlist.org/api/v3/species/id/103761667?token=<<rredlist_api_token>>
     body:
       encoding: ''
       string: ''
@@ -912,7 +912,7 @@ http_interactions:
   recorded_with: vcr/0.2.2, webmockr/0.3.0
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/id/103761667?token=<<rredlist_api_token>>
+    uri: https://apiv3.iucnredlist.org/api/v3/species/id/103761667?token=<<rredlist_api_token>>
     body:
       encoding: ''
       string: ''
@@ -946,7 +946,7 @@ http_interactions:
   recorded_with: vcr/0.2.2, webmockr/0.3.0
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/history/id/103761667?token=<<rredlist_api_token>>
+    uri: https://apiv3.iucnredlist.org/api/v3/species/history/id/103761667?token=<<rredlist_api_token>>
     body:
       encoding: ''
       string: ''
@@ -978,7 +978,7 @@ http_interactions:
   recorded_with: vcr/0.2.2, webmockr/0.3.0
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/history/id/103761667?token=<<rredlist_api_token>>
+    uri: https://apiv3.iucnredlist.org/api/v3/species/history/id/103761667?token=<<rredlist_api_token>>
     body:
       encoding: ''
       string: ''
@@ -1008,7 +1008,7 @@ http_interactions:
   recorded_with: vcr/0.2.2, webmockr/0.3.0
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/countries/id/103761667?token=<<rredlist_api_token>>
+    uri: https://apiv3.iucnredlist.org/api/v3/species/countries/id/103761667?token=<<rredlist_api_token>>
     body:
       encoding: ''
       string: ''
@@ -1048,7 +1048,7 @@ http_interactions:
   recorded_with: vcr/0.2.2, webmockr/0.3.0
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/countries/id/103761667?token=<<rredlist_api_token>>
+    uri: https://apiv3.iucnredlist.org/api/v3/species/countries/id/103761667?token=<<rredlist_api_token>>
     body:
       encoding: ''
       string: ''
@@ -1086,7 +1086,7 @@ http_interactions:
   recorded_with: vcr/0.2.2, webmockr/0.3.0
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/id/103761667?token=<<rredlist_api_token>>
+    uri: https://apiv3.iucnredlist.org/api/v3/species/id/103761667?token=<<rredlist_api_token>>
     body:
       encoding: ''
       string: ''
@@ -1122,7 +1122,7 @@ http_interactions:
   recorded_with: vcr/0.2.2, webmockr/0.3.0
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/id/103761667?token=<<rredlist_api_token>>
+    uri: https://apiv3.iucnredlist.org/api/v3/species/id/103761667?token=<<rredlist_api_token>>
     body:
       encoding: ''
       string: ''
@@ -1156,7 +1156,7 @@ http_interactions:
   recorded_with: vcr/0.2.2, webmockr/0.3.0
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/history/id/103761667?token=<<rredlist_api_token>>
+    uri: https://apiv3.iucnredlist.org/api/v3/species/history/id/103761667?token=<<rredlist_api_token>>
     body:
       encoding: ''
       string: ''
@@ -1188,7 +1188,7 @@ http_interactions:
   recorded_with: vcr/0.2.2, webmockr/0.3.0
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/history/id/103761667?token=<<rredlist_api_token>>
+    uri: https://apiv3.iucnredlist.org/api/v3/species/history/id/103761667?token=<<rredlist_api_token>>
     body:
       encoding: ''
       string: ''
@@ -1218,7 +1218,7 @@ http_interactions:
   recorded_with: vcr/0.2.2, webmockr/0.3.0
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/countries/id/103761667?token=<<rredlist_api_token>>
+    uri: https://apiv3.iucnredlist.org/api/v3/species/countries/id/103761667?token=<<rredlist_api_token>>
     body:
       encoding: ''
       string: ''
@@ -1258,7 +1258,7 @@ http_interactions:
   recorded_with: vcr/0.2.2, webmockr/0.3.0
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/countries/id/103761667?token=<<rredlist_api_token>>
+    uri: https://apiv3.iucnredlist.org/api/v3/species/countries/id/103761667?token=<<rredlist_api_token>>
     body:
       encoding: ''
       string: ''
@@ -1296,7 +1296,7 @@ http_interactions:
   recorded_with: vcr/0.2.2, webmockr/0.3.0
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/id/103761667?token=<<rredlist_api_token>>
+    uri: https://apiv3.iucnredlist.org/api/v3/species/id/103761667?token=<<rredlist_api_token>>
     body:
       encoding: ''
       string: ''
@@ -1332,7 +1332,7 @@ http_interactions:
   recorded_with: vcr/0.2.2, webmockr/0.3.0
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/id/103761667?token=<<rredlist_api_token>>
+    uri: https://apiv3.iucnredlist.org/api/v3/species/id/103761667?token=<<rredlist_api_token>>
     body:
       encoding: ''
       string: ''
@@ -1366,7 +1366,7 @@ http_interactions:
   recorded_with: vcr/0.2.2, webmockr/0.3.0
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/history/id/103761667?token=<<rredlist_api_token>>
+    uri: https://apiv3.iucnredlist.org/api/v3/species/history/id/103761667?token=<<rredlist_api_token>>
     body:
       encoding: ''
       string: ''
@@ -1398,7 +1398,7 @@ http_interactions:
   recorded_with: vcr/0.2.2, webmockr/0.3.0
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/history/id/103761667?token=<<rredlist_api_token>>
+    uri: https://apiv3.iucnredlist.org/api/v3/species/history/id/103761667?token=<<rredlist_api_token>>
     body:
       encoding: ''
       string: ''
@@ -1428,7 +1428,7 @@ http_interactions:
   recorded_with: vcr/0.2.2, webmockr/0.3.0
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/countries/id/103761667?token=<<rredlist_api_token>>
+    uri: https://apiv3.iucnredlist.org/api/v3/species/countries/id/103761667?token=<<rredlist_api_token>>
     body:
       encoding: ''
       string: ''
@@ -1468,7 +1468,7 @@ http_interactions:
   recorded_with: vcr/0.2.2, webmockr/0.3.0
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/countries/id/103761667?token=<<rredlist_api_token>>
+    uri: https://apiv3.iucnredlist.org/api/v3/species/countries/id/103761667?token=<<rredlist_api_token>>
     body:
       encoding: ''
       string: ''

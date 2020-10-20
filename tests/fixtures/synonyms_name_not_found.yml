@@ -126,7 +126,7 @@ http_interactions:
   recorded_with: vcr/0.5.4, webmockr/0.6.2.91
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/Foo%20bar?token=<<rredlist_api_token>>
+    uri: https://apiv3.iucnredlist.org/api/v3/species/Foo%20bar?token=<<rredlist_api_token>>
     body:
       encoding: ''
       string: ''
