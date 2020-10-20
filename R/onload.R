@@ -19,6 +19,8 @@ tx_itis_cache <- NULL
     desc = "Nature Serve", id_regex = ".+")
   taxa::db_ref$set("pow", url = "http://plantsoftheworldonline.org/",
     desc = "Plants of the World", id_regex = "urn:lsid:ipni.org:names:[0-9]{5,8}-[12]")
+  taxa::db_ref$set("colp", url = "https://github.com/CatalogueOfLife/general",
+    desc = "Catalogue of Life Plus", id_regex = ".+")
 
   # cache object for itis lookup
   x <- hoardr::hoard()

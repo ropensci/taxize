@@ -95,7 +95,8 @@ Imports:
     crayon,
     cli,
     conditionz,
-    hoardr
+    hoardr,
+    colpluz
 Suggests:
     testthat,
     knitr,
