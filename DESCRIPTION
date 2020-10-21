@@ -67,7 +67,6 @@ Authors@R:
              comment = "https://ropensci.org/"))
 LazyLoad: yes
 LazyData: true
-VignetteBuilder: knitr
 Encoding: UTF-8
 Language: en-US
 Depends:
@@ -99,8 +98,6 @@ Imports:
     conditionz
 Suggests:
     testthat,
-    knitr,
-    rmarkdown,
     vegan,
     vcr
 Remotes: ropensci/rredlist
