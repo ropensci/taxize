@@ -9,6 +9,16 @@ vignette: >
     %\VignetteEncoding{UTF-8}
 ---
 
+```{r echo=FALSE}
+library(taxize)
+knitr::opts_chunk$set(
+  comment = "#>",
+  collapse = TRUE,
+  warning = FALSE,
+  message = FALSE
+)
+```
+
 Taxonomic ranks are "whole thing", as I like to say when something is complicated/messy. Taxonomic ranks are the relative placement of a taxon in a taxonomic hierarchy. If there was only one taxonomic hierarchy with the same taxonomic rank names life would be so much easier for all of us. Unfortunately, this is not the case. Nearly every source of taxonomic information has slightly different taxonomic rank names they use, even if many are the same across sources. This article highlights some of the sticky messes in taxonomic ranks.
 
 
@@ -21,17 +31,25 @@ Another one that holds no information which has started to become more common wi
 
 ## Downstream
 
-asdfadfs
+`downstream()` and related functions in taxize require a rank to be given to the `downto` parameter, which says you want taxonomic names down to a particular rank. 
+
+Some ranks are not useful for the `downto` parameter. They include "no rank", "unspecified", "unranked", and "clade"; there are possibly more. They can't be used because they have no rank placement in a hierarchy - they can be anywhere in the hierarchy.
+
+As a work around, try looking at the taxonomic hierarchy for your taxa of interest using `classification()` or on the data providers website and see if there's a taxonomic rank below the rank you want, and use that rank in combination with setting `intermediate=TRUE` in your `downstream()` function call. From the intermediate data you can fetch data you need.
 
 
 ## Rank information within taxize
 
 taxize maintains a taxonomic hierarchy reference within the package. There are two:
 
-- `rank_ref`: data.frame with two columns and around 45 rows (may increase or decrease through time as we incorporate or take away some ranks)
-- `rank_ref_zoo`: same as above but more specifically for zoological rank systems; as of this writing only used for WoRMS; `rank_ref` is used for all other data sourcdes
+- `rank_ref`: data.frame with two columns and around 45 rows (may increase or decrease through time as we incorporate or take away some ranks). `?rank_ref` for more information
+- `rank_ref_zoo`: same as above but more specifically for zoological rank systems; as of this writing only used for WoRMS; `rank_ref` is used for all other data sources. `?rank_ref_zoo` for more information
 
-We reference this rank information in `classification()`, `tax_name()`, and all of the exported `downstream` functions.
+```{r}
+head(rank_ref)
+```
+
+We reference this rank information in `classification()`, `tax_name()`, and all of the exported `downstream` functions. We use the `rankid` numeric column to be able to filter data using `<`/`>`/etc.
 
 We often reference rank information inside the helper functions `which_rank()` and `prune_too_low()`, utility functions to help filter results from data providers by rank information.
 
