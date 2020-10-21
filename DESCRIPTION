@@ -67,7 +67,6 @@ Authors@R:
              comment = "https://ropensci.org/"))
 LazyLoad: yes
 LazyData: true
-VignetteBuilder: knitr
 Encoding: UTF-8
 Language: en-US
 Depends:
@@ -85,7 +84,7 @@ Imports:
     data.table,
     tibble (>= 1.2),
     bold (>= 0.8.6),
-    rredlist (>= 0.5.0),
+    rredlist (>= 0.7.0),
     rotl (>= 3.0.0),
     ritis (>= 0.7.6),
     worrms (>= 0.4.0),
@@ -98,14 +97,12 @@ Imports:
     hoardr
 Suggests:
     testthat,
-    knitr,
-    rmarkdown,
     vcr,
     vegan,
     ape,
     phangorn,
     zoo
-Remotes: ropensci/taxa@vectorize
+Remotes: ropensci/rredlist, ropensci/taxa@vectorize
 RoxygenNote: 7.1.1
 Roxygen: list(markdown = TRUE)
 X-schema.org-applicationCategory: Taxonomy

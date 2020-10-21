@@ -21,6 +21,11 @@ vign_datasources:
 		${RSCRIPT} -e "Sys.setenv(NOT_CRAN='true'); knitr::knit('datasources.Rmd.og', output = 'datasources.Rmd')";\
 		cd ..
 
+vign_taxonomic_ranks:
+		cd vignettes;\
+		${RSCRIPT} -e "Sys.setenv(NOT_CRAN='true'); knitr::knit('taxonomic_ranks.Rmd.og', output = 'taxonomic_ranks.Rmd')";\
+		cd ..
+
 install_vign: doc build
 	${RSCRIPT} -e "Sys.setenv(NOT_CRAN = TRUE); library(devtools); document(); install(build_vignettes=TRUE, dependencies=FALSE)"
 
