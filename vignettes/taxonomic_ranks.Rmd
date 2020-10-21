@@ -1,0 +1,42 @@
+---
+title: taxonomic ranks
+author: Scott Chamberlain
+date: "2020-10-21"
+output: rmarkdown::html_vignette
+vignette: >
+    %\VignetteIndexEntry{taxonomic ranks}
+    %\VignetteEngine{knitr::rmarkdown}
+    %\VignetteEncoding{UTF-8}
+---
+
+Taxonomic ranks are "whole thing", as I like to say when something is complicated/messy. Taxonomic ranks are the relative placement of a taxon in a taxonomic hierarchy. If there was only one taxonomic hierarchy with the same taxonomic rank names life would be so much easier for all of us. Unfortunately, this is not the case. Nearly every source of taxonomic information has slightly different taxonomic rank names they use, even if many are the same across sources. This article highlights some of the sticky messes in taxonomic ranks.
+
+
+## NCBI is weird
+
+NCBI taxonomy (https://www.ncbi.nlm.nih.gov/taxonomy) is an outlier among the taxonomic data sources. They use a lot of rank names that hold no information as to the placement of that taxon within a taxonomic hierarchy. The most common of these is **no rank**. If you've retrieved taxonomic information from NCBI you may have noticed this supposed rank name. When you get data from NCBI in taxize you will most certainly run into this rank; just know that it doesn't tell you where it falls within a taxonomic hierarchy. You can however use `classification()` to hopefully get other rank names that do hold actual information. 
+
+Another one that holds no information which has started to become more common with NCBI is **clade**. It's started to replace **no rank** in at least some cases. As far as we can tell this rank name also holds no information about it's placement within a taxonomic hierarchy.
+
+
+## Downstream
+
+asdfadfs
+
+
+## Rank information within taxize
+
+taxize maintains a taxonomic hierarchy reference within the package. There are two:
+
+- `rank_ref`: data.frame with two columns and around 45 rows (may increase or decrease through time as we incorporate or take away some ranks)
+- `rank_ref_zoo`: same as above but more specifically for zoological rank systems; as of this writing only used for WoRMS; `rank_ref` is used for all other data sourcdes
+
+We reference this rank information in `classification()`, `tax_name()`, and all of the exported `downstream` functions.
+
+We often reference rank information inside the helper functions `which_rank()` and `prune_too_low()`, utility functions to help filter results from data providers by rank information.
+
+We manage these two datasets using the script at `inst/ignore/rank_ref_script.R` in the package, which ends with updating each dataset in the `data/` folder of the package. 
+
+### Let us know
+
+Let us know by opening an issue (https://github.com/ropensci/taxize/issues) if you think you have run into any issues with rank information. The most common issues we see with ranks is with the `downstream()` function and the data source specific functions that support it. 
