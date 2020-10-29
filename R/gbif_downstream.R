@@ -42,7 +42,7 @@
 #' # names that don't have canonicalname entries for some results
 #' # Myosotis: key 2925668
 #' key <- 2925668
-#' res <- gbif_downstream(id, downto = "species")
+#' res <- gbif_downstream(key, downto = "species")
 #' res2 <- downstream(key, db = "gbif", downto = "species")
 #' }
 
