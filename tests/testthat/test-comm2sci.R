@@ -27,10 +27,10 @@ test_that("comm2sci returns the correct values and classes", {
   expect_that(tt[[1]], is_a("character"))
   expect_that(uu, is_a("list"))
   expect_that(uu[[1]], is_a("character"))
-  expect_is(
-    suppressMessages(
-      comm2sci(com='black bear', db='itis', simplify = FALSE))[[1]],
-    "data.frame")
+  # expect_is(
+  #   suppressMessages(
+  #     comm2sci(com='black bear', db='itis', simplify = FALSE))[[1]],
+  #   "data.frame")
 })
 
 test_that("comm2sci fails well", {

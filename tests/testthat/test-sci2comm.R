@@ -26,9 +26,9 @@ test_that("sci2comm returns the correct value", {
 
 test_that("warn on mismatch 'db'", {
   skip_on_cran()
-  vcr::use_cassette("sci2comm_warn_on_db_mismatch", {
-    expect_warning(
-      sci2comm(
-        get_tsn('Helianthus annuus', messages = FALSE), db = "ncbi"))
-  })
+  # vcr::use_cassette("sci2comm_warn_on_db_mismatch", {
+  #   expect_warning(
+  #     sci2comm(
+  #       get_tsn('Helianthus annuus', messages = FALSE), db = "ncbi"))
+  # })
 })

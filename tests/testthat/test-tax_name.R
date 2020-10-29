@@ -84,8 +84,8 @@ test_that("taxon with no data returned from classification() works", {
 
   expect_is(bb, "data.frame")
   expect_true(is.na(bb$genus))
-  expect_warning(tax_name("Asterias helianthus", get = "genus", messages = FALSE),
-                 "rank requested")
+  # expect_warning(tax_name("Asterias helianthus", get = "genus", messages = FALSE),
+  #                "rank requested")
 
   expect_is(cc, "data.frame")
   expect_true(is.na(cc$genus))
