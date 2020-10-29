@@ -43,8 +43,8 @@ jobs:
       - name: Revdepcheck
         run: Rscript -e "revdepcheck::revdep_reset()" -e "revdepcheck::revdep_check(num_workers=4)"
 
-      - name: Upload check results
+      - name: Upload revdepcheck results
         uses: actions/upload-artifact@v2
         with:
           name: ${{ runner.os }}-r${{ matrix.config.r }}-results
-          path: revdep/
+          path: revdep/*.md
