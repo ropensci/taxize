@@ -36,7 +36,6 @@
 #' @examples \dontrun{
 #' sci2comm(sci='Helianthus annuus')
 #' sci2comm(sci='Helianthus annuus', db='eol')
-#' sci2comm(sci='Helianthus annuus', db='itis')
 #' sci2comm(sci=c('Helianthus annuus', 'Poa annua'))
 #' sci2comm(sci='Puma concolor', db='ncbi')
 #' sci2comm('Gadus morhua', db='worms')
@@ -44,13 +43,11 @@
 #' sci2comm('Loxodonta africana', db='iucn')
 #'
 #' # Passing id in, works for sources: itis and ncbi, not eol
-#' sci2comm(get_tsn('Helianthus annuus'))
 #' sci2comm(get_uid('Helianthus annuus'))
 #' sci2comm(get_wormsid('Gadus morhua'))
 #' sci2comm(get_iucn('Loxodonta africana'))
 #'
 #' # Don't simplify returned
-#' sci2comm(get_tsn('Helianthus annuus'), simplify=FALSE)
 #' sci2comm(get_iucn('Loxodonta africana'), simplify=FALSE)
 #'
 #' # Use curl options
@@ -120,7 +117,7 @@ itis2comm <- function(x, simplify, ...){
 }
 
 eol2comm <- function(x, simplify, ...){
-  tmp <- eol_search(terms = x, ...)
+  tmp <- eol_search(x, ...)
   pageids <- tmp[grep(x, tmp$name, ignore.case = TRUE), "pageid"]
   dfs <- tc(
     lapply(pageids, function(x) {
