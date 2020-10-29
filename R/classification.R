@@ -135,7 +135,7 @@
 #' classification(get_gbifid(c("Poa annua", "Bison bison")))
 #'
 #' # Pass many ids from class "ids"
-#' (out <- get_ids(names="Puma concolor", db = c('ncbi','gbif')))
+#' (out <- get_ids("Puma concolor", db = c('ncbi','gbif')))
 #' (cl <- classification(out))
 #'
 #' # Bind width-wise from class classification_ids
@@ -145,7 +145,7 @@
 #' rbind(cl)
 #'
 #' # Many names to get_ids
-#' (out <- get_ids(names=c("Puma concolor","Accipiter striatus"),
+#' (out <- get_ids(c("Puma concolor","Accipiter striatus"),
 #'   db = c('ncbi','itis')))
 #' (cl <- classification(out))
 #' rbind(cl)
