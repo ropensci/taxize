@@ -16,7 +16,7 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Tue, 20 Oct 2020 20:34:36 GMT
+      date: Wed, 28 Oct 2020 23:46:55 GMT
       server: Apache/2.4.39 (Win64)
       access-control-allow-origin: '*'
       access-control-allow-headers: X-Requested-With, Content-Type, Accept, Origin,
@@ -24,7 +24,7 @@ http_interactions:
       access-control-allow-methods: GET, POST, OPTIONS
       content-length: '935'
       content-type: application/json
-      set-cookie: vliz_webc=vliz_webc1; path=/
+      set-cookie: vliz_webc=vliz_webc2; path=/
     body:
       encoding: UTF-8
       file: no
@@ -33,8 +33,8 @@ http_interactions:
         thai","valid_authority":"Prokofiev & Bussarawit, 2012","parentNameUsageID":125967,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Perciformes","family":"Epigonidae","genus":"Epigonus","citation":"Froese,
         R. and D. Pauly. Editors. (2020). FishBase. Epigonus thai Prokofiev & Bussarawit,
         2012. Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=834973
-        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:834973","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"like","modified":"2017-07-04T08:16:25.400Z"}]'
-  recorded_at: 2020-10-20 20:35:17 GMT
+        on 2020-10-29","lsid":"urn:lsid:marinespecies.org:taxname:834973","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"like","modified":"2017-07-04T08:16:25.400Z"}]'
+  recorded_at: 2020-10-28 23:47:03 GMT
   recorded_with: vcr/0.5.4, webmockr/0.7.0
 - request:
     method: get
@@ -53,30 +53,30 @@ http_interactions:
       explanation: Request fulfilled, nothing follows
     headers:
       status: HTTP/1.1 204 No Content
-      date: Tue, 20 Oct 2020 20:34:36 GMT
+      date: Wed, 28 Oct 2020 23:46:56 GMT
       server: Apache/2.4.39 (Win64)
       access-control-allow-origin: '*'
       access-control-allow-headers: X-Requested-With, Content-Type, Accept, Origin,
         Authorization
       access-control-allow-methods: GET, POST, OPTIONS
-      set-cookie: vliz_webc=vliz_webc2; path=/
+      set-cookie: vliz_webc=vliz_webc1; path=/
     body:
       encoding: UTF-8
       file: no
       string: ''
-  recorded_at: 2020-10-20 20:35:17 GMT
+  recorded_at: 2020-10-28 23:47:03 GMT
   recorded_with: vcr/0.5.4, webmockr/0.7.0
 - request:
     method: get
-    uri: https://species-ws.nbnatlas.org/search?q=Arctoa%20anderssonii&fq=idxtype%3ATAXON&pageSize=500&startIndex=0
+    uri: https://species-ws.nbnatlas.org/search?q=Arctoa%20andersonii&fq=idxtype%3ATAXON&pageSize=500&startIndex=0
     body:
       encoding: ''
       string: ''
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.98.96)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.98.96)
+      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.99)
+      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.99)
   response:
     status:
       status_code: '200'
@@ -84,7 +84,7 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Tue, 20 Oct 2020 20:35:45 GMT
+      date: Wed, 28 Oct 2020 23:48:13 GMT
       server: Apache/2.4.7 (Ubuntu)
       x-application-context: application:production
       content-type: application/json;charset=UTF-8
@@ -92,7 +92,7 @@ http_interactions:
     body:
       encoding: UTF-8
       file: no
-      string: '{"searchResults":{"totalRecords":46,"facetResults":[],"results":[{"id":"8063d9ae-218c-4d5e-a977-3da6126fbf34","guid":"NHMSYS0020636842","linkIdentifier":"Arctoa
+      string: '{"searchResults":{"totalRecords":39,"facetResults":[],"results":[{"id":"8063d9ae-218c-4d5e-a977-3da6126fbf34","guid":"NHMSYS0020636842","linkIdentifier":"Arctoa
         anderssonii","idxtype":"TAXON","name":"Arctoa anderssonii","kingdom":"Plantae","nomenclaturalCode":null,"scientificName":"Arctoa
         anderssonii","scientificNameAuthorship":"Wich.","author":"Wich.","nameComplete":"Arctoa
         anderssonii Wich.","nameFormatted":"<span class=\"scientific-name rank-species\"><span
@@ -124,49 +124,7 @@ http_interactions:
         and Countryside Act 1981 - Schedule 9 (GB)","INNS of Interest to Wales July
         2018"],"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":"terrestrial","habitat_m_s":["terrestrial"],"speciesGroup":["Worms"],"synonymComplete":null,"kingdomGuid":"NBNSYS0100001342","orderGuid":"NHMSYS0021057065","subfamilyGuid":"NHMSYS0021057093","order":"Tricladida","subfamily":"Caenoplaninae","infraorderGuid":"NHMSYS0021057090","class":"Rhabditophora","infraorder":"Terricola","genus":"Kontikia","phylum":"Platyhelminthes","genusGuid":"NBNSYS0000188440","family":"Geoplanidae","classGuid":"NHMSYS0021057018","familyGuid":"NHMSYS0021057092","phylumGuid":"NBNSYS0000177256","species":"Kontikia
         andersoni","speciesGuid":"NBNSYS0000040819","highlight":"Kontikia <b>andersoni<\u002fb><br>Kontikia
-        <b>andersoni<\u002fb> Jones, 1981"},{"id":"ffef3b5e-b5f3-4428-abf2-bf7aaed89357","guid":"NHMSYS0021264782","linkIdentifier":"Anthomyza
-        anderssoni","idxtype":"TAXON","name":"Anthomyza anderssoni","kingdom":"Animalia","nomenclaturalCode":null,"scientificName":"Anthomyza
-        anderssoni","scientificNameAuthorship":"Rohácek, 1984","author":"Rohácek,
-        1984","nameComplete":"Anthomyza anderssoni Rohácek, 1984","nameFormatted":"<span
-        class=\"scientific-name rank-species\"><span class=\"name\">Anthomyza anderssoni<\u002fspan>
-        <span class=\"author\">Roh&aacute;cek, 1984<\u002fspan><\u002fspan>","taxonomicStatus":"accepted","nomenclaturalStatus":null,"parentGuid":"NBNSYS0000130325","rank":"species","rankID":7000,"commonName":"","commonNameSingle":"","occurrenceCount":0,"conservationStatus":null,"infoSourceName":"UKSI","infoSourceURL":"https://registry.nbnatlas.org/public/show/null","taxonGroup_s":"insect
-        - true fly (Diptera)","establishmentMeans":"Native","establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":"terrestrial","habitat_m_s":["terrestrial"],"speciesGroup":["Insects"],"synonymComplete":null,"kingdomGuid":"NBNSYS0100001342","orderGuid":"NHMSYS0000841073","order":"Diptera","subphylumGuid":"NHMSYS0020191879","infraorderGuid":"NHMSYS0021262210","class":"Insecta","infraorder":"Schizophora
-        - Acalyptratae","genus":"Anthomyza","phylum":"Arthropoda","subphylum":"Hexapoda","genusGuid":"NBNSYS0000130325","family":"Anthomyzidae","classGuid":"NBNSYS0000160231","familyGuid":"NBNSYS0000050356","superfamilyGuid":"NBNSYS0100023721","phylumGuid":"NHMSYS0020470198","superfamily":"Opomyzoidea","species":"Anthomyza
-        anderssoni","speciesGuid":"NHMSYS0021264782","highlight":"Anthomyza <b>anderssoni<\u002fb>
-        Rohácek, 1984<br>Anthomyza <b>anderssoni<\u002fb>"},{"id":"0ac80d34-853c-424b-8d57-27dc0633b8e8","guid":"NBNSYS0100022949","linkIdentifier":null,"idxtype":"TAXON","name":"Dorylomorpha
-        anderssoni","kingdom":"Animalia","nomenclaturalCode":null,"scientificName":"Dorylomorpha
-        anderssoni","scientificNameAuthorship":"Albrecht, 1979","author":"Albrecht,
-        1979","nameComplete":"Dorylomorpha anderssoni Albrecht, 1979","nameFormatted":"<span
-        class=\"scientific-name rank-species\"><span class=\"name\">Dorylomorpha anderssoni<\u002fspan>
-        <span class=\"author\">Albrecht, 1979<\u002fspan><\u002fspan>","taxonomicStatus":"accepted","nomenclaturalStatus":null,"parentGuid":"NBNSYS0000132604","rank":"species","rankID":7000,"commonName":"","commonNameSingle":"","occurrenceCount":45,"conservationStatus":null,"infoSourceName":"UKSI","infoSourceURL":"https://registry.nbnatlas.org/public/show/null","occurrenceEnglandCount":19,"occurrenceWalesCount":26,"occurrenceWalesBufferCount":31,"taxonGroup_s":"insect
-        - true fly (Diptera)","establishmentMeans":"Native","establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":"terrestrial","habitat_m_s":["terrestrial"],"speciesGroup":["Insects"],"synonymComplete":["Dorylomorpha
-        (Dorylomyza) anderssoni Albrecht, 1979","Dorylomorpha anderssoni (Becker)","Dorylomorpha
-        semimaculata (Becker, 1897)","Tomosvaryella andersonii Albrecht"],"infraorderGuid":"NHMSYS0021262200","infraorder":"Eremoneura
-        - Cyclorrhapha","genus":"Dorylomorpha","subphylum":"Hexapoda","genusGuid":"NBNSYS0000132604","classGuid":"NBNSYS0000160231","superfamilyGuid":"NBNSYS0100022316","kingdomGuid":"NBNSYS0100001342","orderGuid":"NHMSYS0000841073","order":"Diptera","subphylumGuid":"NHMSYS0020191879","class":"Insecta","phylum":"Arthropoda","family":"Pipunculidae","familyGuid":"NBNSYS0000160722","phylumGuid":"NHMSYS0020470198","superfamily":"Syrphoidea","species":"Dorylomorpha
-        anderssoni","speciesGuid":"NBNSYS0100022949","highlight":"Dorylomorpha (Dorylomyza)
-        <b>anderssoni<\u002fb> Albrecht, 1979<br>Dorylomorpha (Dorylomyza) <b>anderssoni<\u002fb><br>Dorylomorpha
-        <b>anderssoni<\u002fb> Albrecht, 1979<br>Dorylomorpha <b>anderssoni<\u002fb>"},{"id":"ca8ba475-47e5-4a09-ae46-3c8f2f12a84c","guid":"NBNSYS0100003168","linkIdentifier":null,"idxtype":"TAXON","name":"Eutrichota
-        anderssoni","kingdom":"Animalia","nomenclaturalCode":null,"scientificName":"Eutrichota
-        anderssoni","scientificNameAuthorship":"(Hennig, 1972)","author":"(Hennig,
-        1972)","nameComplete":"Eutrichota anderssoni (Hennig, 1972)","nameFormatted":"<span
-        class=\"scientific-name rank-species\"><span class=\"name\">Eutrichota anderssoni<\u002fspan>
-        <span class=\"author\">(Hennig, 1972)<\u002fspan><\u002fspan>","taxonomicStatus":"accepted","nomenclaturalStatus":null,"parentGuid":"NHMSYS0000078928","rank":"species","rankID":7000,"commonName":"","commonNameSingle":"","occurrenceCount":2,"conservationStatus":null,"infoSourceName":"UKSI","infoSourceURL":"https://registry.nbnatlas.org/public/show/null","occurrenceScotlandCount":2,"taxonGroup_s":"insect
-        - true fly (Diptera)","establishmentMeans":"Native","establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":"terrestrial","habitat_m_s":["terrestrial"],"speciesGroup":["Insects"],"synonymComplete":["Eremomyia
-        anderssoni Hennig, 1972"],"infraorderGuid":"NHMSYS0021262215","infraorder":"Schizophora
-        - Calyptratae","genus":"Eutrichota","subphylum":"Hexapoda","genusGuid":"NHMSYS0000078928","classGuid":"NBNSYS0000160231","superfamilyGuid":"NBNSYS0100024956","kingdomGuid":"NBNSYS0100001342","orderGuid":"NHMSYS0000841073","order":"Diptera","subphylumGuid":"NHMSYS0020191879","class":"Insecta","phylum":"Arthropoda","family":"Anthomyiidae","familyGuid":"NBNSYS0000159382","phylumGuid":"NHMSYS0020470198","superfamily":"Muscoidea","species":"Eutrichota
-        anderssoni","speciesGuid":"NBNSYS0100003168","highlight":"Eremomyia <b>anderssoni<\u002fb>
-        Hennig, 1972<br>Eremomyia <b>anderssoni<\u002fb><br>Eutrichota <b>anderssoni<\u002fb>
-        (Hennig, 1972)<br>Eutrichota <b>anderssoni<\u002fb>"},{"id":"f440f305-fea0-4f6a-b16c-79d9d4e8f6f5","guid":"NBNSYS0100004386","linkIdentifier":null,"idxtype":"TAXON","name":"Palloptera
-        anderssoni","kingdom":"Animalia","nomenclaturalCode":null,"scientificName":"Palloptera
-        anderssoni","scientificNameAuthorship":"Rotheray & MacGowan, 1999","author":"Rotheray
-        & MacGowan, 1999","nameComplete":"Palloptera anderssoni Rotheray & MacGowan,
-        1999","nameFormatted":"<span class=\"scientific-name rank-species\"><span
-        class=\"name\">Palloptera anderssoni<\u002fspan> <span class=\"author\">Rotheray
-        &amp; MacGowan, 1999<\u002fspan><\u002fspan>","taxonomicStatus":"accepted","nomenclaturalStatus":null,"parentGuid":"NBNSYS0000136021","rank":"species","rankID":7000,"commonName":"","commonNameSingle":"","occurrenceCount":2,"conservationStatus":null,"infoSourceName":"UKSI","infoSourceURL":"https://registry.nbnatlas.org/public/show/null","occurrenceEnglandCount":2,"taxonGroup_s":"insect
-        - true fly (Diptera)","establishmentMeans":"Native","establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":"terrestrial","habitat_m_s":["terrestrial"],"speciesGroup":["Insects"],"synonymComplete":null,"kingdomGuid":"NBNSYS0100001342","orderGuid":"NHMSYS0000841073","order":"Diptera","subphylumGuid":"NHMSYS0020191879","infraorderGuid":"NHMSYS0021262210","class":"Insecta","infraorder":"Schizophora
-        - Acalyptratae","genus":"Palloptera","phylum":"Arthropoda","subphylum":"Hexapoda","genusGuid":"NBNSYS0000136021","family":"Pallopteridae","classGuid":"NBNSYS0000160231","familyGuid":"NBNSYS0000160616","superfamilyGuid":"NBNSYS0100023091","phylumGuid":"NHMSYS0020470198","superfamily":"Tephritoidea","species":"Palloptera
-        anderssoni","speciesGuid":"NBNSYS0100004386","highlight":"Palloptera <b>anderssoni<\u002fb>
-        Rotheray & MacGowan, 1999<br>Palloptera <b>anderssoni<\u002fb>"},{"id":"52dfbb15-22e0-4b86-af53-14277aae427d","guid":"NHMSYS0021059275","linkIdentifier":null,"idxtype":"TAXON","name":"Spongomorpha
+        <b>andersoni<\u002fb> Jones, 1981"},{"id":"52dfbb15-22e0-4b86-af53-14277aae427d","guid":"NHMSYS0021059275","linkIdentifier":null,"idxtype":"TAXON","name":"Spongomorpha
         arcta","kingdom":"Plantae","nomenclaturalCode":null,"scientificName":"Spongomorpha
         arcta","scientificNameAuthorship":"(Dillwyn) Kützing, 1849","author":"(Dillwyn)
         Kützing, 1849","nameComplete":"Spongomorpha arcta (Dillwyn) Kützing, 1849","nameFormatted":"<span
@@ -331,40 +289,7 @@ http_interactions:
         <span class=\"author\">Berk. &amp; Broome<\u002fspan><\u002fspan>","taxonomicStatus":"synonym","nomenclaturalStatus":null,"parentGuid":null,"rank":"species","rankID":7000,"commonName":"","commonNameSingle":"","occurrenceCount":null,"conservationStatus":null,"infoSourceName":"UKSI","infoSourceURL":"https://registry.nbnatlas.org/public/show/null","acceptedConceptID":"NBNSYS0000021872","acceptedConceptName":"Puccinia
         cnici-oleracei Pers.","taxonGroup_s":null,"establishmentMeans":"Native","establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":null,"habitat_m_s":null,"speciesGroup":null,"synonymComplete":null,"species":"Puccinia
         andersonii","speciesGuid":"BMSSYS0000015610","highlight":"Puccinia <b>andersonii<\u002fb>
-        Berk. & Broome<br>Puccinia <b>andersonii<\u002fb>"},{"id":"17322b82-3356-47b4-b613-d2992819ce19","guid":"NBNSYS0000030600","linkIdentifier":null,"idxtype":"TAXON","name":"Eremomyia
-        anderssoni","kingdom":null,"nomenclaturalCode":null,"scientificName":"Eremomyia
-        anderssoni","scientificNameAuthorship":"Hennig, 1972","author":"Hennig, 1972","nameComplete":"Eremomyia
-        anderssoni Hennig, 1972","nameFormatted":"<span class=\"scientific-name rank-species\"><span
-        class=\"name\">Eremomyia anderssoni<\u002fspan> <span class=\"author\">Hennig,
-        1972<\u002fspan><\u002fspan>","taxonomicStatus":"synonym","nomenclaturalStatus":null,"parentGuid":null,"rank":"species","rankID":7000,"commonName":"","commonNameSingle":"","occurrenceCount":null,"conservationStatus":null,"infoSourceName":"UKSI","infoSourceURL":"https://registry.nbnatlas.org/public/show/null","acceptedConceptID":"NBNSYS0100003168","acceptedConceptName":"Eutrichota
-        anderssoni (Hennig, 1972)","taxonGroup_s":null,"establishmentMeans":"Native","establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":null,"habitat_m_s":null,"speciesGroup":null,"synonymComplete":null,"species":"Eremomyia
-        anderssoni","speciesGuid":"NBNSYS0000030600","highlight":"Eremomyia <b>anderssoni<\u002fb>
-        Hennig, 1972<br>Eremomyia <b>anderssoni<\u002fb>"},{"id":"40b2fb38-856c-49e7-bc75-f42393dcec94","guid":"NBNSYS0000028840","linkIdentifier":null,"idxtype":"TAXON","name":"Dorylomorpha
-        anderssoni","kingdom":null,"nomenclaturalCode":null,"scientificName":"Dorylomorpha
-        anderssoni","scientificNameAuthorship":"(Becker)","author":"(Becker)","nameComplete":"Dorylomorpha
-        anderssoni (Becker)","nameFormatted":"<span class=\"scientific-name rank-species\"><span
-        class=\"name\">Dorylomorpha anderssoni<\u002fspan> <span class=\"author\">(Becker)<\u002fspan><\u002fspan>","taxonomicStatus":"synonym","nomenclaturalStatus":null,"parentGuid":null,"rank":"species","rankID":7000,"commonName":"","commonNameSingle":"","occurrenceCount":null,"conservationStatus":null,"infoSourceName":"UKSI","infoSourceURL":"https://registry.nbnatlas.org/public/show/null","acceptedConceptID":"NBNSYS0100022949","acceptedConceptName":"Dorylomorpha
-        anderssoni Albrecht, 1979","taxonGroup_s":null,"establishmentMeans":"Native","establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":null,"habitat_m_s":null,"speciesGroup":null,"synonymComplete":null,"species":"Dorylomorpha
-        anderssoni","speciesGuid":"NBNSYS0000028840","highlight":"Dorylomorpha <b>anderssoni<\u002fb>
-        (Becker)<br>Dorylomorpha <b>anderssoni<\u002fb>"},{"id":"bd57dc5f-4560-4432-b22f-9f86981848e2","guid":"NHMSYS0020706103","linkIdentifier":null,"idxtype":"TAXON","name":"Dorylomorpha
-        (Dorylomyza) anderssoni","kingdom":null,"nomenclaturalCode":null,"scientificName":"Dorylomorpha
-        (Dorylomyza) anderssoni","scientificNameAuthorship":"Albrecht, 1979","author":"Albrecht,
-        1979","nameComplete":"Dorylomorpha (Dorylomyza) anderssoni Albrecht, 1979","nameFormatted":"<span
-        class=\"scientific-name rank-species\"><span class=\"name\">Dorylomorpha (Dorylomyza)
-        anderssoni<\u002fspan> <span class=\"author\">Albrecht, 1979<\u002fspan><\u002fspan>","taxonomicStatus":"synonym","nomenclaturalStatus":null,"parentGuid":null,"rank":"species","rankID":7000,"commonName":"","commonNameSingle":"","occurrenceCount":null,"conservationStatus":null,"infoSourceName":"UKSI","infoSourceURL":"https://registry.nbnatlas.org/public/show/null","acceptedConceptID":"NBNSYS0100022949","acceptedConceptName":"Dorylomorpha
-        anderssoni Albrecht, 1979","taxonGroup_s":null,"establishmentMeans":"Native","establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":null,"habitat_m_s":null,"speciesGroup":null,"synonymComplete":null,"species":"Dorylomorpha
-        (Dorylomyza) anderssoni","speciesGuid":"NHMSYS0020706103","highlight":"Dorylomorpha
-        (Dorylomyza) <b>anderssoni<\u002fb> Albrecht, 1979<br>Dorylomorpha (Dorylomyza)
-        <b>anderssoni<\u002fb>"},{"id":"eb3f021d-3085-4d0f-b7c7-e72787fea45f","guid":"NBNSYS0000036219","linkIdentifier":null,"idxtype":"TAXON","name":"Arctoa
-        fulvella","kingdom":null,"nomenclaturalCode":null,"scientificName":"Arctoa
-        fulvella","scientificNameAuthorship":"(Dicks.) Br.Eur.","author":"(Dicks.)
-        Br.Eur.","nameComplete":"Arctoa fulvella (Dicks.) Br.Eur.","nameFormatted":"<span
-        class=\"scientific-name rank-species\"><span class=\"name\">Arctoa fulvella<\u002fspan>
-        <span class=\"author\">(Dicks.) Br.Eur.<\u002fspan><\u002fspan>","taxonomicStatus":"synonym","nomenclaturalStatus":null,"parentGuid":null,"rank":"species","rankID":7000,"commonName":"","commonNameSingle":"","occurrenceCount":null,"conservationStatus":null,"infoSourceName":"UKSI","infoSourceURL":"https://registry.nbnatlas.org/public/show/null","acceptedConceptID":"NHMSYS0000309380","acceptedConceptName":"Arctoa
-        fulvella (Dicks.) Bruch, Schimp. & W.Guembel","taxonGroup_s":null,"establishmentMeans":"Native","establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":null,"habitat_m_s":null,"speciesGroup":null,"synonymComplete":null,"species":"Arctoa
-        fulvella","speciesGuid":"NBNSYS0000036219","highlight":"<b>Arctoa<\u002fb>
-        fulvella (Dicks.) Br.Eur.<br><b>Arctoa fulvella<\u002fb><br><b>Arctoa<\u002fb>
-        fulvella"},{"id":"c9a24331-36ec-4bcf-b054-f30b8c157528","guid":"BMSSYS0000045103","linkIdentifier":null,"idxtype":"TAXON","name":"Drechslera
+        Berk. & Broome<br>Puccinia <b>andersonii<\u002fb>"},{"id":"c9a24331-36ec-4bcf-b054-f30b8c157528","guid":"BMSSYS0000045103","linkIdentifier":null,"idxtype":"TAXON","name":"Drechslera
         andersenii","kingdom":null,"nomenclaturalCode":null,"scientificName":"Drechslera
         andersenii","scientificNameAuthorship":"A. Lam","author":"A. Lam","nameComplete":"Drechslera
         andersenii A. Lam","nameFormatted":"<span class=\"scientific-name rank-species\"><span
@@ -379,7 +304,16 @@ http_interactions:
         class=\"name\">Drechslera andersenii<\u002fspan> <span class=\"author\">Scharif<\u002fspan><\u002fspan>","taxonomicStatus":"synonym","nomenclaturalStatus":null,"parentGuid":null,"rank":"species","rankID":7000,"commonName":"","commonNameSingle":"","occurrenceCount":null,"conservationStatus":null,"infoSourceName":"UKSI","infoSourceURL":"https://registry.nbnatlas.org/public/show/null","acceptedConceptID":"BMSSYS0000045102","acceptedConceptName":"Drechslera
         andersenii A. Lam","taxonGroup_s":null,"establishmentMeans":"Native","establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":null,"habitat_m_s":null,"speciesGroup":null,"synonymComplete":null,"species":"Drechslera
         andersenii","speciesGuid":"BMSSYS0000006239","highlight":"Drechslera <b>andersenii<\u002fb>
-        Scharif<br>Drechslera <b>andersenii<\u002fb>"},{"id":"8aa108bf-b9a3-484c-8445-9201e86022df","guid":"NBNSYS0000142229","linkIdentifier":null,"idxtype":"TAXON","name":"Arctosa
+        Scharif<br>Drechslera <b>andersenii<\u002fb>"},{"id":"eb3f021d-3085-4d0f-b7c7-e72787fea45f","guid":"NBNSYS0000036219","linkIdentifier":null,"idxtype":"TAXON","name":"Arctoa
+        fulvella","kingdom":null,"nomenclaturalCode":null,"scientificName":"Arctoa
+        fulvella","scientificNameAuthorship":"(Dicks.) Br.Eur.","author":"(Dicks.)
+        Br.Eur.","nameComplete":"Arctoa fulvella (Dicks.) Br.Eur.","nameFormatted":"<span
+        class=\"scientific-name rank-species\"><span class=\"name\">Arctoa fulvella<\u002fspan>
+        <span class=\"author\">(Dicks.) Br.Eur.<\u002fspan><\u002fspan>","taxonomicStatus":"synonym","nomenclaturalStatus":null,"parentGuid":null,"rank":"species","rankID":7000,"commonName":"","commonNameSingle":"","occurrenceCount":null,"conservationStatus":null,"infoSourceName":"UKSI","infoSourceURL":"https://registry.nbnatlas.org/public/show/null","acceptedConceptID":"NHMSYS0000309380","acceptedConceptName":"Arctoa
+        fulvella (Dicks.) Bruch, Schimp. & W.Guembel","taxonGroup_s":null,"establishmentMeans":"Native","establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":null,"habitat_m_s":null,"speciesGroup":null,"synonymComplete":null,"species":"Arctoa
+        fulvella","speciesGuid":"NBNSYS0000036219","highlight":"<b>Arctoa<\u002fb>
+        fulvella (Dicks.) Br.Eur.<br><b>Arctoa fulvella<\u002fb><br><b>Arctoa<\u002fb>
+        fulvella"},{"id":"8aa108bf-b9a3-484c-8445-9201e86022df","guid":"NBNSYS0000142229","linkIdentifier":null,"idxtype":"TAXON","name":"Arctosa
         cambrica","kingdom":null,"nomenclaturalCode":null,"scientificName":"Arctosa
         cambrica","scientificNameAuthorship":"Blackwall","author":"Blackwall","nameComplete":"Arctosa
         cambrica Blackwall","nameFormatted":"<span class=\"scientific-name rank-species\"><span
@@ -476,8 +410,8 @@ http_interactions:
         villica britannica Oberthür, 1911","taxonGroup_s":null,"establishmentMeans":"Native","establishmentStatus_s":null,"datasetID":null,"listMembership_m_s":null,"riskAssessment_m_s":null,"managementPlans_m_s":null,"habitat_s":null,"habitat_m_s":null,"speciesGroup":null,"synonymComplete":null,"subspecies":"Arctia
         villica subsp. britannica","subspeciesGuid":"NHMSYS0000501292","highlight":"<b>Arctia<\u002fb>
         villica subsp. britannica<br><b>Arctia villica subsp. britannica<\u002fb><br><b>Arctia<\u002fb>
-        villica subsp. britannica Oberthür, 1911"}],"queryTitle":"Arctoa anderssonii"}}'
-  recorded_at: 2020-10-20 20:35:17 GMT
+        villica subsp. britannica Oberthür, 1911"}],"queryTitle":"Arctoa andersonii"}}'
+  recorded_at: 2020-10-28 23:47:03 GMT
   recorded_with: vcr/0.5.4, webmockr/0.7.0
 - request:
     method: get
@@ -488,8 +422,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.98.96)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.98.96)
+      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.99)
+      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.99)
   response:
     status:
       status_code: '200'
@@ -497,7 +431,7 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Tue, 20 Oct 2020 20:35:48 GMT
+      date: Wed, 28 Oct 2020 23:48:14 GMT
       server: Apache/2.4.7 (Ubuntu)
       x-application-context: application:production
       content-type: application/json;charset=UTF-8
@@ -510,182 +444,7 @@ http_interactions:
         class=\"scientific-name rank-species\"><span class=\"name\">Arctoa anderssonii<\u002fspan>
         <span class=\"author\">Wich.<\u002fspan><\u002fspan>","author":"Wich.","nomenclaturalCode":null,"taxonomicStatus":"accepted","nomenclaturalStatus":null,"rankString":"species","nameAuthority":"UKSI","rankID":7000,"nameAccordingTo":null,"nameAccordingToID":null,"namePublishedIn":null,"namePublishedInYear":null,"namePublishedInID":null,"taxonRemarks":null,"infoSourceURL":null,"datasetURL":null,"taxonConceptID":"NBNORG0000099329"},"taxonName":[],"classification":{"kingdom":"Plantae","kingdomGuid":"NBNSYS0100004757","orderGuid":"NHMSYS0000066017","order":"Dicranales","class":"Bryopsida","genus":"Arctoa","phylum":"Bryophyta","genusGuid":"NHMSYS0000309379","family":"Rhabdoweisiaceae","classGuid":"NBNSYS0000173038","familyGuid":"NHMSYS0020959458","phylumGuid":"NBNSYS0000172125","scientificName":"Arctoa
         anderssonii","guid":"NHMSYS0020636842","species":"Arctoa anderssonii","speciesGuid":"NHMSYS0020636842"},"synonyms":[],"commonNames":[],"imageIdentifier":null,"conservationStatuses":null,"extantStatuses":[],"habitats":[],"categories":[],"simpleProperties":[],"images":[],"occurrenceCounts":{"occurrenceCount":2,"occurrenceScotlandCount":2},"identifiers":[],"variants":[],"taxonGroup_s":"moss","establishmentMeans":"Native","speciesGroup":["Plants"]}'
-  recorded_at: 2020-10-20 20:35:17 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.7.0
-- request:
-    method: get
-    uri: https://apiv3.iucnredlist.org/api/v3/species/Ursus%20americanus?token=<<rredlist_api_token>>
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(rredlist/0.6.0.91)
-      Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      status: HTTP/1.1 200 OK
-      server: nginx/1.14.0 (Ubuntu)
-      date: Tue, 20 Oct 2020 20:34:50 GMT
-      content-type: application/json; charset=utf-8
-      content-length: '955'
-      connection: keep-alive
-      x-powered-by: Sails <sailsjs.org>
-      etag: W/"3bb-rI+kBM1qcrtMfXsXoG/2Gg"
-      vary: Accept-Encoding
-      set-cookie: sails.sid=s%3AMf9i2u52KAxTkdZxHG0TbhALPVIhHk-n.%2BFnfd9tKUIMH%2BhY5nQl4FF0QPfdS8nLhiWvbG2kISgM;
-        Path=/; HttpOnly
-    body:
-      encoding: UTF-8
-      file: no
-      string: '{"name":"Ursus americanus","result":[{"taxonid":41687,"scientific_name":"Ursus
-        americanus","kingdom":"ANIMALIA","phylum":"CHORDATA","class":"MAMMALIA","order":"CARNIVORA","family":"URSIDAE","genus":"Ursus","main_common_name":"American
-        Black Bear","authority":"Pallas, 1780","published_year":2016,"assessment_date":"2016-03-18","category":"LC","criteria":null,"population_trend":"Increasing","marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"Garshelis,
-        D.L., Scheick, B.K., Doan-Crider, D.L., Beecham, J.J. & Obbard, M.E.","reviewer":"van
-        Manen, F.T.","aoo_km2":null,"eoo_km2":null,"elevation_upper":3500,"elevation_lower":0,"depth_upper":null,"depth_lower":null,"errata_flag":true,"errata_reason":"The
-        previous version of this assessment accidentally used the estimated total
-        number of American Black Bears as the number of mature individuals. That error
-        is corrected here.","amended_flag":null,"amended_reason":null}]}'
-  recorded_at: 2020-10-20 20:35:17 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.7.0
-- request:
-    method: get
-    uri: https://apiv3.iucnredlist.org/api/v3/species/synonym/Ursus%20americanus?token=<<rredlist_api_token>>
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(rredlist/0.6.0.91)
-      Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      status: HTTP/1.1 200 OK
-      server: nginx/1.14.0 (Ubuntu)
-      date: Tue, 20 Oct 2020 20:35:09 GMT
-      content-type: application/json; charset=utf-8
-      content-length: '49'
-      connection: keep-alive
-      x-powered-by: Sails <sailsjs.org>
-      etag: W/"31-4bcud6dAQo26/rDFhOJJjA"
-      vary: Accept-Encoding
-      set-cookie: sails.sid=s%3AKqGIPAVof9DLU3QgbJkBdff4VWbmQC_h.F6AryAoHpCQH%2FZkOT5LiOoMImGYiMr71MrLrn9NZ4JQ;
-        Path=/; HttpOnly
-    body:
-      encoding: UTF-8
-      file: no
-      string: '{"name":"Ursus americanus","count":0,"result":[]}'
-  recorded_at: 2020-10-20 20:35:17 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.7.0
-- request:
-    method: get
-    uri: https://www.itis.gov/ITISWebService/jsonservice/getITISTermsFromScientificName?srchKey=Pinus%20balfouriana
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      User-Agent: libcurl/7.73.0 r-curl/4.3 crul/1.0.0
-      Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      content-length: '918'
-      content-type: text/json;charset=ISO-8859-1
-      date: Tue, 20 Oct 2020 20:35:12 GMT
-      status: 'HTTP/1.1 200 '
-      strict-transport-security:
-      - max-age=63072000; includeSubDomains; preload
-      - max-age=63072000; includeSubDomains; preload
-      x-content-type-options:
-      - nosniff
-      - nosniff
-      x-frame-options: SAMEORIGIN
-    body:
-      encoding: UTF-8
-      file: no
-      string: |
-        {"class":"gov.usgs.itis.itis_service.data.SvcItisTermList","itisTerms":[{"author":"(Engelm.) Engelm.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Pinus balfouriana var. aristata","tsn":"183314"},{"author":"Balf.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["foxtailed pine","foxtail pine"],"nameUsage":"accepted","scientificName":"Pinus balfouriana","tsn":"183316"},{"author":"Balf.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["foxtail pine"],"nameUsage":"accepted","scientificName":"Pinus balfouriana ssp. balfouriana","tsn":"183317"},{"author":"R.J. Mastrog. & J.D. Mastrog.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["foxtail pine"],"nameUsage":"accepted","scientificName":"Pinus balfouriana ssp. austrina","tsn":"183318"}],"requestedName":"Pinus balfouriana"}
-  recorded_at: 2020-10-20 20:35:17 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.7.0
-- request:
-    method: get
-    uri: https://www.itis.gov/ITISWebService/jsonservice/getAcceptedNamesFromTSN?tsn=183316
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      User-Agent: libcurl/7.73.0 r-curl/4.3 crul/1.0.0
-      Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      content-length: '102'
-      content-type: text/json;charset=ISO-8859-1
-      date: Tue, 20 Oct 2020 20:35:12 GMT
-      status: 'HTTP/1.1 200 '
-      strict-transport-security:
-      - max-age=63072000; includeSubDomains; preload
-      - max-age=63072000; includeSubDomains; preload
-      x-content-type-options:
-      - nosniff
-      - nosniff
-      x-frame-options: SAMEORIGIN
-    body:
-      encoding: UTF-8
-      file: no
-      string: |
-        {"acceptedNames":[null],"class":"gov.usgs.itis.itis_service.data.SvcAcceptedNameList","tsn":"183316"}
-  recorded_at: 2020-10-20 20:35:17 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.7.0
-- request:
-    method: get
-    uri: https://www.itis.gov/ITISWebService/jsonservice/getSynonymNamesFromTSN?tsn=183316
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      User-Agent: libcurl/7.73.0 r-curl/4.3 crul/1.0.0
-      Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      content-length: '96'
-      content-type: text/json;charset=ISO-8859-1
-      date: Tue, 20 Oct 2020 20:35:12 GMT
-      status: 'HTTP/1.1 200 '
-      strict-transport-security:
-      - max-age=63072000; includeSubDomains; preload
-      - max-age=63072000; includeSubDomains; preload
-      x-content-type-options:
-      - nosniff
-      - nosniff
-      x-frame-options: SAMEORIGIN
-    body:
-      encoding: UTF-8
-      file: no
-      string: |
-        {"class":"gov.usgs.itis.itis_service.data.SvcSynonymNameList","synonyms":[null],"tsn":"183316"}
-  recorded_at: 2020-10-20 20:35:17 GMT
+  recorded_at: 2020-10-28 23:47:03 GMT
   recorded_with: vcr/0.5.4, webmockr/0.7.0
 - request:
     method: get
@@ -696,8 +455,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.98.96)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.98.96)
+      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.99)
+      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.99)
   response:
     status:
       status_code: '200'
@@ -711,7 +470,7 @@ http_interactions:
       server: Microsoft-IIS/7.5
       x-aspnet-version: 4.0.30319
       x-powered-by: ASP.NET
-      date: Tue, 20 Oct 2020 20:35:14 GMT
+      date: Wed, 28 Oct 2020 23:47:00 GMT
     body:
       encoding: UTF-8
       file: no
@@ -772,7 +531,7 @@ http_interactions:
         yukonensis W.L. Strong","Family":"Pinaceae","RankAbbreviation":"var.","NomenclatureStatusName":"No
         opinion","Author":"W.L. Strong","DisplayReference":"Nordic J. Bot. 28: 448–452,
         f. 1, 2A–C","DisplayDate":"2010","TotalRows":16}]'
-  recorded_at: 2020-10-20 20:35:17 GMT
+  recorded_at: 2020-10-28 23:47:03 GMT
   recorded_with: vcr/0.5.4, webmockr/0.7.0
 - request:
     method: get
@@ -783,8 +542,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.98.96)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.98.96)
+      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.99)
+      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.99)
   response:
     status:
       status_code: '200'
@@ -798,12 +557,12 @@ http_interactions:
       server: Microsoft-IIS/7.5
       x-aspnet-version: 4.0.30319
       x-powered-by: ASP.NET
-      date: Tue, 20 Oct 2020 20:35:14 GMT
+      date: Wed, 28 Oct 2020 23:47:00 GMT
     body:
       encoding: UTF-8
       file: no
       string: '[{"Error":"No synonyms were found"}]'
-  recorded_at: 2020-10-20 20:35:17 GMT
+  recorded_at: 2020-10-28 23:47:03 GMT
   recorded_with: vcr/0.5.4, webmockr/0.7.0
 - request:
     method: get
@@ -814,8 +573,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.98.96)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.98.96)
+      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.99)
+      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.99)
   response:
     status:
       status_code: '200'
@@ -824,7 +583,7 @@ http_interactions:
     headers:
       status: 'HTTP/1.1 200 '
       server: nginx/1.15.12
-      date: Tue, 20 Oct 2020 20:35:16 GMT
+      date: Wed, 28 Oct 2020 23:47:02 GMT
       content-type: application/json;charset=UTF-8
       transfer-encoding: chunked
       connection: keep-alive
@@ -841,7 +600,7 @@ http_interactions:
         & Arn.","kingdom":"Plantae","family":"Fagaceae","name":"Quercus douglasii","rank":"Species","url":"/taxon/urn:lsid:ipni.org:names:296074-1","fqId":"urn:lsid:ipni.org:names:296074-1","images":[{"thumbnail":"http://d2seqvvyy3b8p2.cloudfront.net/fe4669c30e8b782c0d337267b401635b.jpg","fullsize":"http://d2seqvvyy3b8p2.cloudfront.net/f9f081d294d20153f4aad15916759a4f.jpg","caption":"A
         specimen from Kew''s Herbarium"},{"thumbnail":"http://d2seqvvyy3b8p2.cloudfront.net/1d3d5ec04b4d72a0901b83a6c59e52c3.jpg","fullsize":"http://d2seqvvyy3b8p2.cloudfront.net/36ae36c5cbe55c18384ce554453fbc6b.jpg","caption":"A
         specimen from Kew''s Herbarium"}]}]}'
-  recorded_at: 2020-10-20 20:35:17 GMT
+  recorded_at: 2020-10-28 23:47:03 GMT
   recorded_with: vcr/0.5.4, webmockr/0.7.0
 - request:
     method: get
@@ -852,8 +611,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.98.96)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.98.96)
+      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.99)
+      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.99)
   response:
     status:
       status_code: '200'
@@ -862,7 +621,7 @@ http_interactions:
     headers:
       status: 'HTTP/1.1 200 '
       server: nginx/1.15.12
-      date: Tue, 20 Oct 2020 20:35:17 GMT
+      date: Wed, 28 Oct 2020 23:47:02 GMT
       content-type: application/json;charset=UTF-8
       transfer-encoding: chunked
       connection: keep-alive
@@ -879,5 +638,5 @@ http_interactions:
         ransomii","authors":"Kellogg","species":"ransomii","rank":"SPECIES","reference":"Proc.
         Calif. Acad. Sci., ed. 2, 1: 23 (1873)","classification":[{"fqId":"urn:lsid:ipni.org:names:216297-2","name":"Quercus
         ransomii","author":"Kellogg","rank":"SPECIES","taxonomicStatus":"Synonym"}]}'
-  recorded_at: 2020-10-20 20:35:17 GMT
+  recorded_at: 2020-10-28 23:47:03 GMT
   recorded_with: vcr/0.5.4, webmockr/0.7.0
