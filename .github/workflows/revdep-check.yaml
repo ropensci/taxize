@@ -44,8 +44,7 @@ jobs:
         run: Rscript -e "revdepcheck::revdep_reset()" -e "revdepcheck::revdep_check(num_workers=4)"
 
       - name: Upload check results
-        if: failure()
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: ${{ runner.os }}-r${{ matrix.config.r }}-results
-          path: revdepcheck
+          path: revdep/
