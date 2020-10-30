@@ -14,7 +14,7 @@
 
 ------
 
-This version xxx.
+This version makes a few functions defunct for a web service that is no longer up, improves some docs, and fixes a few bugs. In addition, this fixes a failing test due to the latest rredlist on CRAN (an import here).
 
 Thanks!
 Scott Chamberlain

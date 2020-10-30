@@ -1,17 +1,22 @@
 taxize 0.9.99
 =============
 
+### DEFUNCT
+
+* `tnrs()` and `tnrs_sources()` functions are defunct. The service has been unreliable for years now, and AFAICT is down for good. Associated changes have been made throughout the package, eg. `resolve()` no longer has an option for tnrs, etc. (#841) (#842)
+
 ### MINOR IMPROVEMENTS
 
-* asdadf (#xxx)
-* asdadf (#xxx)
-* asdadf (#xxx)
+* new article/vignette added on issues with taxonomic ranks, e.g., "NCBI is weird", and how rank information is maintained and used within taxize (#852)
+* vignettes are no longer on cran - find them at the docs site linked in DESCRIPTION (#855)
+* re-instate a `tol_resolve()` test following new version of `rotl` package on cran (#816)
+* improve `class2tree()` function documentation regarding how the function works in more detail (#849) (#851)
+* improvements for WORMS, applies to functions `worms_downstream()`, `children(..., db="worms")` and `downstream(..., db="worms")`: now paginate automatically for the user to get all results, and allow parameter `marine_only` to be passed through the high level functions `children()`/`downstream()` down to `worrms::wm_children()` where it toggles whether marine only results are returned (#848) thanks @oharac !
 
 ### BUG FIXES
 
-* asdadf (#xxx)
-* asdadf (#xxx)
-* asdadf (#xxx)
+* fix to `ncbi_downstream()` (which cascades up to `downstream(..., db="ncbi")`): an unneeded line of code was removed that was also throwing an error in some cases (#850)
+* fixes for WORMS ranks, applies to functions `worms_downstream()`, `children(..., db="worms")` and `downstream(..., db="worms")`: added ranks `epifamily` and `infraphylum`. In addition, when a rank is missing in data returned from WORMS, we'll change the missing rank to "no rank" (#847)
 
 
 taxize 0.9.98
