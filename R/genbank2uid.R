@@ -15,6 +15,10 @@
 #' @section HTTP version:
 #' We hard code `http_version = 2L` to use HTTP/1.1 in HTTP requests to
 #' the Entrez API. See `curl::curl_symbols('CURL_HTTP_VERSION')` 
+#' 
+#' @section Rate limits:
+#' In case you run into errors due to your rate limit being exceeded, see
+#' [taxize_options()], where you can set `ncbi_sleep`.
 #'
 #' @return one or more NCBI taxonomic IDs
 #' @examples \dontrun{

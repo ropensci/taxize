@@ -37,6 +37,10 @@
 #' @param check logical; Check if ID matches any existing on the DB, only used
 #'   in [as.uid()]
 #' @template getreturn
+#' 
+#' @section Rate limits:
+#' In case you run into errors due to your rate limit being exceeded, see
+#' [taxize_options()], where you can set `ncbi_sleep`.
 #'
 #' @section Querying: The parameter `rank_query` is used in the search sent
 #'   to NCBI, whereas `rank_filter` filters data after it comes back. The
@@ -68,7 +72,7 @@
 #' 
 #' @section HTTP version:
 #' We hard code `http_version = 2L` to use HTTP/1.1 in HTTP requests to
-#' the Entrez API. See `curl::curl_symbols('CURL_HTTP_VERSION')` 
+#' the Entrez API. See `curl::curl_symbols('CURL_HTTP_VERSION')`
 #'
 #' @family taxonomic-ids
 #' @seealso [classification()]

@@ -103,6 +103,12 @@ attributes and exceptions
 \description{
 Retrieve the Unique Identifier (UID) of a taxon from NCBI taxonomy browser.
 }
+\section{Rate limits}{
+
+In case you run into errors due to your rate limit being exceeded, see
+\code{\link[=taxize_options]{taxize_options()}}, where you can set \code{ncbi_sleep}.
+}
+
 \section{Querying}{
  The parameter \code{rank_query} is used in the search sent
 to NCBI, whereas \code{rank_filter} filters data after it comes back. The
