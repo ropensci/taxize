@@ -102,7 +102,9 @@ pow_GET <- function(url, args, ...){
   tt <- cli$get(query = argsnull(args))
   tt$raise_for_status()
   json <- jsonlite::fromJSON(tt$parse("UTF-8"))
-  list(meta = pop(json, "results"), data = json$results)
+  meta <- pop(json, "results")
+  meta$message <- NULL
+  list(meta = meta, data = json$results)
 }
 
 pow_base <- function() "http://www.plantsoftheworldonline.org"

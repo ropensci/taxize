@@ -65,6 +65,12 @@ We hard code \code{http_version = 2L} to use HTTP/1.1 in HTTP requests to
 the Entrez API. See \code{curl::curl_symbols('CURL_HTTP_VERSION')}
 }
 
+\section{Rate limits}{
+
+In case you run into errors due to your rate limit being exceeded, see
+\code{\link[=taxize_options]{taxize_options()}}, where you can set \code{ncbi_sleep}.
+}
+
 \examples{
 \dontrun{
 comm2sci(com='american black bear')

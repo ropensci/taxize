@@ -6,7 +6,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.2.91
+      User-Agent: libcurl/7.73.0 r-curl/4.3 crul/1.0.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -15,24 +15,24 @@ http_interactions:
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      connection: keep-alive
       content-length: '105'
       content-type: text/json;charset=ISO-8859-1
-      date: Mon, 30 Mar 2020 21:49:13 GMT
+      date: Wed, 28 Oct 2020 23:34:38 GMT
       status: 'HTTP/1.1 200 '
       strict-transport-security:
-      - max-age=63072000; includeSubdomains; preload
-      - max-age=63072000; includeSubdomains; preload
-      x-application: itis_webservices
-      x-node-name: not shown
-      x-upstream-member: not shown
+      - max-age=63072000; includeSubDomains; preload
+      - max-age=63072000; includeSubDomains; preload
+      x-content-type-options:
+      - nosniff
+      - nosniff
+      x-frame-options: SAMEORIGIN
     body:
       encoding: UTF-8
       file: no
       string: |
         {"class":"gov.usgs.itis.itis_service.data.SvcItisTermList","itisTerms":[null],"requestedName":"Foo bar"}
-  recorded_at: 2020-03-30 21:49:21 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
+  recorded_at: 2020-10-28 23:34:46 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
 - request:
     method: get
     uri: http://services.tropicos.org/Name/Search?format=json&name=Foo%20bar&apikey=<<tropicos_api_token>>
@@ -42,8 +42,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(taxize/0.9.93.95)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.2.91 rOpenSci(taxize/0.9.93.95)
+      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.99)
+      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.99)
   response:
     status:
       status_code: '200'
@@ -57,13 +57,13 @@ http_interactions:
       server: Microsoft-IIS/7.5
       x-aspnet-version: 4.0.30319
       x-powered-by: ASP.NET
-      date: Mon, 30 Mar 2020 21:49:12 GMT
+      date: Wed, 28 Oct 2020 23:34:39 GMT
     body:
       encoding: UTF-8
       file: no
       string: '[{"Error":"No names were found"}]'
-  recorded_at: 2020-03-30 21:49:21 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
+  recorded_at: 2020-10-28 23:34:46 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
 - request:
     method: get
     uri: https://species-ws.nbnatlas.org/search?q=Foo%20barasdfasdf&fq=idxtype%3ATAXON&pageSize=500&startIndex=0
@@ -73,8 +73,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(taxize/0.9.93.95)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.2.91 rOpenSci(taxize/0.9.93.95)
+      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.99)
+      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.99)
   response:
     status:
       status_code: '200'
@@ -82,7 +82,7 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Mon, 30 Mar 2020 21:49:17 GMT
+      date: Wed, 28 Oct 2020 23:35:56 GMT
       server: Apache/2.4.7 (Ubuntu)
       x-application-context: application:production
       content-type: application/json;charset=UTF-8
@@ -92,8 +92,8 @@ http_interactions:
       file: no
       string: '{"searchResults":{"totalRecords":0,"facetResults":[],"results":[],"queryTitle":"Foo
         barasdfasdf"}}'
-  recorded_at: 2020-03-30 21:49:21 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
+  recorded_at: 2020-10-28 23:34:46 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
 - request:
     method: get
     uri: http://www.marinespecies.org/rest/AphiaRecordsByName/Foo%20bar?like=true&marine_only=true&offset=1
@@ -101,7 +101,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.2.91
+      User-Agent: libcurl/7.73.0 r-curl/4.3 crul/1.0.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -111,52 +111,19 @@ http_interactions:
       explanation: Request fulfilled, nothing follows
     headers:
       status: HTTP/1.1 204 No Content
-      date: Mon, 30 Mar 2020 21:49:17 GMT
+      date: Wed, 28 Oct 2020 23:34:44 GMT
       server: Apache/2.4.39 (Win64)
       access-control-allow-origin: '*'
       access-control-allow-headers: X-Requested-With, Content-Type, Accept, Origin,
         Authorization
       access-control-allow-methods: GET, POST, OPTIONS
-      set-cookie: vliz_webc=vliz_webc2; path=/
+      set-cookie: vliz_webc=vliz_webc1; path=/
     body:
       encoding: UTF-8
       file: no
       string: ''
-  recorded_at: 2020-03-30 21:49:21 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
-- request:
-    method: get
-    uri: https://apiv3.iucnredlist.org/api/v3/species/Foo%20bar?token=<<rredlist_api_token>>
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
-      Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      status: HTTP/1.1 200 OK
-      server: nginx/1.14.0 (Ubuntu)
-      date: Mon, 30 Mar 2020 21:49:20 GMT
-      content-type: application/json; charset=utf-8
-      content-length: '30'
-      connection: keep-alive
-      x-powered-by: Sails <sailsjs.org>
-      etag: W/"1e-fn+VewOrayhj3UVF/dhl7w"
-      vary: Accept-Encoding
-      set-cookie: sails.sid=s%3AejHJL3vycN4Tz7wIkHOcqIBukd7k9Syf.%2FZZOHJ13qam%2FIx9vTa4mONNbaDOlBhh%2BQkgK9F%2FD6IY;
-        Path=/; HttpOnly
-    body:
-      encoding: UTF-8
-      file: no
-      string: '{"name":"Foo bar","result":[]}'
-  recorded_at: 2020-03-30 21:49:21 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
+  recorded_at: 2020-10-28 23:34:46 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
 - request:
     method: get
     uri: http://www.plantsoftheworldonline.org/api/2/search?q=Foo%20bar&perPage=100&cursor=%2A
@@ -166,8 +133,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(taxize/0.9.93.95)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.2.91 rOpenSci(taxize/0.9.93.95)
+      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.99)
+      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.99)
   response:
     status:
       status_code: '200'
@@ -176,7 +143,7 @@ http_interactions:
     headers:
       status: 'HTTP/1.1 200 '
       server: nginx/1.15.12
-      date: Mon, 30 Mar 2020 21:49:20 GMT
+      date: Wed, 28 Oct 2020 23:34:46 GMT
       content-type: application/json;charset=UTF-8
       transfer-encoding: chunked
       connection: keep-alive
@@ -188,5 +155,5 @@ http_interactions:
       string: '{"totalResults":0,"page":1,"totalPages":0,"perPage":100,"cursor":"*","message":"If
         you would like to download and use the POWO data in a conciencious way, please
         use our official library pykew [https://github.com/RBGKew/pykew]."}'
-  recorded_at: 2020-03-30 21:49:21 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
+  recorded_at: 2020-10-28 23:34:46 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0

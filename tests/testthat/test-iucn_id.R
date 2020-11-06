@@ -10,7 +10,10 @@ test_that("iucn_id returns the correct class", {
     aa <- iucn_id("Branta canadensis")
     bb <- iucn_id("Panthera uncia")
     cc <- iucn_id("Lynx lynx")
-  }, preserve_exact_body_bytes = TRUE)
+  },
+    preserve_exact_body_bytes = TRUE,
+    match_requests_on = c("method", "query")
+  )
 
   expect_is(aa, "integer")
   expect_is(bb, "integer")
@@ -31,5 +34,5 @@ test_that("iucn_id fails well", {
   
   vcr::use_cassette("iucn_id_fail", {
     expect_equal(suppressWarnings(iucn_id("foo bar")), NA)
-  })
+  }, match_requests_on = c("method", "query"))
 })

@@ -1,0 +1,34 @@
+http_interactions:
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/Foo%20bar?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(rredlist/0.6.0)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Wed, 28 Oct 2020 23:33:32 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '30'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      etag: W/"1e-fn+VewOrayhj3UVF/dhl7w"
+      vary: Accept-Encoding
+      set-cookie: sails.sid=s%3AaTmS6oeIMtZIukyZ683_hOadqDA9QSUD.uACG3EvfQzgIszy%2Ba%2BbAB5BERJThgmmBaJgD9%2F5FCLU;
+        Path=/; HttpOnly
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"name":"Foo bar","result":[]}'
+  recorded_at: 2020-10-28 23:33:33 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0

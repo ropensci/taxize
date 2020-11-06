@@ -1,0 +1,74 @@
+http_interactions:
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/Ursus%20americanus?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(rredlist/0.6.0)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Wed, 28 Oct 2020 23:40:12 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '955'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      etag: W/"3bb-rI+kBM1qcrtMfXsXoG/2Gg"
+      vary: Accept-Encoding
+      set-cookie: sails.sid=s%3A7cgZLVxUQMC4FzQ11yP5DvWgNeqwRoc2.KB1kM%2Bam1rwXMKlWQPsjjJbqimiMeVshiOM6cjWV4B0;
+        Path=/; HttpOnly
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"name":"Ursus americanus","result":[{"taxonid":41687,"scientific_name":"Ursus
+        americanus","kingdom":"ANIMALIA","phylum":"CHORDATA","class":"MAMMALIA","order":"CARNIVORA","family":"URSIDAE","genus":"Ursus","main_common_name":"American
+        Black Bear","authority":"Pallas, 1780","published_year":2016,"assessment_date":"2016-03-18","category":"LC","criteria":null,"population_trend":"Increasing","marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"Garshelis,
+        D.L., Scheick, B.K., Doan-Crider, D.L., Beecham, J.J. & Obbard, M.E.","reviewer":"van
+        Manen, F.T.","aoo_km2":null,"eoo_km2":null,"elevation_upper":3500,"elevation_lower":0,"depth_upper":null,"depth_lower":null,"errata_flag":true,"errata_reason":"The
+        previous version of this assessment accidentally used the estimated total
+        number of American Black Bears as the number of mature individuals. That error
+        is corrected here.","amended_flag":null,"amended_reason":null}]}'
+  recorded_at: 2020-10-28 23:40:16 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: http://apiv3.iucnredlist.org/api/v3/species/synonym/Ursus%20americanus?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(rredlist/0.6.0)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Wed, 28 Oct 2020 23:40:16 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '49'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      etag: W/"31-4bcud6dAQo26/rDFhOJJjA"
+      vary: Accept-Encoding
+      set-cookie: sails.sid=s%3AQRJdt63qq4g29Ah--z05-y-C2gtKUH1d.dFt7BcXQ8Dho5TCRCc%2F%2Bm0zi9AEq%2BNiUwLpUn3NQCXc;
+        Path=/; HttpOnly
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"name":"Ursus americanus","count":0,"result":[]}'
+  recorded_at: 2020-10-28 23:40:16 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0

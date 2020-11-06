@@ -396,7 +396,7 @@ get_eolid_ <- function(...) {
 
 get_eol_help <- function(sci_com, messages, rows, ...) {
   mssg(messages, "\nRetrieving data for taxon '", sci_com, "'\n")
-  tmp <- eol_search(sci = sci_com, ...)
+  tmp <- eol_search(sci_com, ...)
 
   if (all(is.na(tmp))) {
     NULL

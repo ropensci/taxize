@@ -7,7 +7,10 @@ test_that("iucn_summary returns the correct value", {
 
   vcr::use_cassette("iucn_summary", {
     temp <- iucn_summary(c("Panthera uncia", "Lynx lynx"))
-  }, preserve_exact_body_bytes = TRUE)
+  }, 
+    preserve_exact_body_bytes = TRUE,
+    match_requests_on = c("method", "query")
+  )
 
   expect_that(length(temp[[1]]), equals(4))
   expect_is(temp, "iucn_summary")
@@ -30,7 +33,10 @@ test_that("iucn_summary gives expected result for lots of names", {
     ff <- iucn_summary("Chamaecrista onusta")
     gg <- iucn_summary("Cyornis lemprieri")
     hh <- iucn_summary("Frailea pumila")
-  }, preserve_exact_body_bytes = TRUE)
+  }, 
+    preserve_exact_body_bytes = TRUE, 
+    match_requests_on = c("method", "query")
+  )
 
   expect_equal(aa$`Abies koreana`$status, "EN")
   expect_equal(bb$`Xylopia collina`$status, "NT")

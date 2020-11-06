@@ -1,30 +1,3 @@
-taxize_env <- new.env()
-taxize_env$options <- list()
-
-#' taxon state options
-#'
-#' @export
-#' @keywords internal
-#' @param taxon_state_messages (logical) suppress messages? default: `NULL`
-#' (same as setting `FALSE`). Set to `TRUE` to suppress messages, and `FALSE`
-#' to not suppress messages
-#' @param quiet (logical) quiet informational output from this function.
-#' default: `TRUE`
-#' @examples
-#' taxize_options()
-#' taxize_options(FALSE)
-#' taxize_options(TRUE)
-taxize_options <- function(taxon_state_messages = NULL, quiet = FALSE) {
-  taxize_env$options$taxon_state_messages <- taxon_state_messages
-  tseo <- taxize_env$options
-  if (!quiet) cat("taxize options", sep = "\n")
-  if (length(tseo) == 0) return(cat(""))
-  for (i in seq_along(tseo)) {
-    if (!quiet) cat(sprintf("  %s: %s", names(tseo)[i], tseo[[i]]),
-      sep = "\n")
-  }
-}
-
 #' methods for preparing/printing info for prompts for `get_*` functions
 #'
 #' @keywords internal

@@ -56,8 +56,6 @@ reference:
       - gni_search
       - starts_with("gnr_")
       - iplant_resolve
-      - tnrs
-      - tnrs_sources
       - tol_resolve
   - title: "Name Parsers"
     contents:
@@ -131,3 +129,5 @@ reference:
     contents:
       - taxize-defunct
       - ubio_ping
+      - tnrs
+      - tnrs_sources

@@ -41,9 +41,6 @@ get_ids_dbs <- c(
 #'
 #' @examples \dontrun{
 #' # Plug in taxon names directly
-#' ## By default you get ids for all data sources
-#' get_ids("Quercus lobata")
-#'
 #' # specify rows to limit choices available
 #' get_ids("Poa annua", db="eol", rows=1)
 #' get_ids("Poa annua", db="eol", rows=1:2)
@@ -53,19 +50,12 @@ get_ids_dbs <- c(
 #' get_ids("Salvelinus fontinalis", db = 'nbn')
 #'
 #' get_ids(c("Chironomus riparius", "Pinus contorta"), db = 'ncbi')
-#' get_ids(c("Chironomus riparius", "Pinus contorta"),
-#'   db = c('ncbi','itis'))
-#' get_ids(c("Chironomus riparius", "Pinus contorta"),
-#'   db = c('ncbi','itis'))
-#' get_ids("Pinus contorta",
-#'   db = c('ncbi','itis','eol','tps'))
-#' get_ids("ava avvva", db = c('ncbi','itis','eol','tps'))
+#' get_ids("Pinus contorta", db = c('ncbi','eol','tropicos'))
+#' get_ids("ava avvva", db = c('ncbi','eol','tropicos'))
 #'
 #' # Pass on to other functions
-#' out <- get_ids("Pinus contorta",
-#'  db = c('ncbi','itis','eol','tps'))
-#' classification(out$itis)
-#' synonyms(out$tps)
+#' out <- get_ids("Pinus contorta", db = c('ncbi','eol','tropicos'))
+#' classification(out$ncbi)
 #'
 #' # Get all data back
 #' get_ids_(c("Chironomus riparius", "Pinus contorta"), db = 'nbn',
