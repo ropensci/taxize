@@ -202,6 +202,7 @@ get_uid <- function(sci_com, ask = TRUE, messages = TRUE, rows = NA,
                                             "esearch",
                                             query = query_args,
                                             ...)
+    if (grepl("error", raw_xml_result)) stop(raw_xml_result, call.=FALSE)
     xml_result <- xml2::read_xml(raw_xml_result)
 
     # NCBI limits requests to three per second
