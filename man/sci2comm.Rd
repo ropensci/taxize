@@ -55,7 +55,6 @@ the Entrez API. See \code{curl::curl_symbols('CURL_HTTP_VERSION')}
 \dontrun{
 sci2comm(sci='Helianthus annuus')
 sci2comm(sci='Helianthus annuus', db='eol')
-sci2comm(sci='Helianthus annuus', db='itis')
 sci2comm(sci=c('Helianthus annuus', 'Poa annua'))
 sci2comm(sci='Puma concolor', db='ncbi')
 sci2comm('Gadus morhua', db='worms')
@@ -63,13 +62,11 @@ sci2comm('Pomatomus saltatrix', db='worms')
 sci2comm('Loxodonta africana', db='iucn')
 
 # Passing id in, works for sources: itis and ncbi, not eol
-sci2comm(get_itis('Helianthus annuus'))
-sci2comm(get_ncbi('Helianthus annuus'))
-sci2comm(get_worms('Gadus morhua'))
+sci2comm(get_uid('Helianthus annuus'))
+sci2comm(get_wormsid('Gadus morhua'))
 sci2comm(get_iucn('Loxodonta africana'))
 
 # Don't simplify returned
-sci2comm(get_itis('Helianthus annuus'), simplify=FALSE)
 sci2comm(get_iucn('Loxodonta africana'), simplify=FALSE)
 
 # Use curl options

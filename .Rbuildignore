@@ -10,11 +10,7 @@ CONTRIBUTING.md
 README.html
 README.Rmd
 inst/stuff/
-vignettes/taxize.md
-vignettes/taxize_infotable.md
-vignettes/datasources.Rmd
-vignettes/datasources.md
-vignettes/cache/
+vignettes/
 ^CODE_OF_CONDUCT\.md$
 ^cran-comments\.md$
 ^revdep$
@@ -26,3 +22,5 @@ docs
 ^_pkgdown\.yml$
 taxa-ids-notes.R
 readme_contributors.txt
+^LICENSE\.md$
+colp_search.R

@@ -59,7 +59,7 @@ ids_zoo <- c(
 ranks_zoo <- c(
   'domain', # domain
   'superkingdom','kingdom','subkingdom','infrakingdom,superphylum', # kingdom
-  'phylum,division','subphylum,subdivision','infradivision', # phylum/division
+  'phylum,division','subphylum,subdivision','infraphylum,infradivision', # phylum/division
   'superclass','class','subclass','infraclass','subterclass','parvclass', # class
   'megacohort','supercohort','cohort','subcohort','infracohort', # cohort
   'superorder','order','suborder','infraorder','parvorder', # order

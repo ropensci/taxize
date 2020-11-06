@@ -126,6 +126,12 @@ not an appropriate error; it's probably that that ID does not exist
 in their database, but we can't know for sure. Isn't that fun?
 }
 
+\section{NCBI Rate limits}{
+
+In case you run into NCBI errors due to your rate limit being exceeded, see
+\code{\link[=taxize_options]{taxize_options()}}, where you can set \code{ncbi_sleep}.
+}
+
 \section{HTTP version for NCBI requests}{
 
 We hard code \code{http_version = 2L} to use HTTP/1.1 in HTTP requests to

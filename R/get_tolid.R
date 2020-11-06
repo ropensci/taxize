@@ -304,6 +304,7 @@ tol_fetch_fuzzy <- function(x) {
       )
     }))
   }))
+  if (NROW(df) == 0) return(df)
   df <- move_col_begin(df, "matched_name")
   df <- move_col_begin(df, "unique_name")
   df$tax_sources <- NULL

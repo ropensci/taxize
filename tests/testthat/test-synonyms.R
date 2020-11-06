@@ -46,9 +46,12 @@ test_that("synonyms: data sources return consistent outputs", {
     bb <- synonyms("Foo bar", db="tropicos", messages = FALSE)
     cc <- synonyms("Foo barasdfasdf", db="nbn", messages = FALSE)
     ee <- synonyms("Foo bar", db="worms", messages = FALSE)
-    ff <- synonyms("Foo bar", db="iucn", messages = FALSE)
     gg <- synonyms("Foo bar", db="pow", messages = FALSE)
   })
+
+  vcr::use_cassette("synonyms_name_not_found_redlist", {
+    ff <- synonyms("Foo bar", db="iucn", messages = FALSE)
+  }, match_requests_on = c("method", "query"))
 
   for (i in list(aa, bb, cc, ee, ff, gg)) expect_true(is.na(i[[1]]))
   
@@ -56,19 +59,22 @@ test_that("synonyms: data sources return consistent outputs", {
   # when name found, but no synonyms found, returns empty data.frame
   vcr::use_cassette("synonyms_name_found_but_no_synonyms", {
     gg <- synonyms("Epigonus thai", db="worms", messages = FALSE)
-    hh <- synonyms("Arctoa anderssonii", db="nbn", rank = "species", messages = FALSE)
-    ii <- synonyms(get_iucn('Ursus americanus'), db="iucn", messages = FALSE)
-    kk <- synonyms("Pinus balfouriana", db="itis", messages = FALSE)
+    hh <- synonyms("Arctoa andersonii", db="nbn", rank = "species", rows=1, messages = FALSE)
+    # kk <- synonyms("Pinus balfouriana", db="itis", messages = FALSE)
     ll <- synonyms("Pinus contorta", db="tropicos", messages = FALSE)
     mm <- synonyms("Quercus ransomii", db="pow", accepted=FALSE, messages = FALSE)
   })
+
+  vcr::use_cassette("synonyms_name_found_but_no_synonyms_redlist", {
+    ii <- synonyms(get_iucn('Ursus americanus'), db="iucn", messages = FALSE)
+  }, match_requests_on = c("method", "query"))
   
   # type is data.frame
-  for (i in list(gg, hh, ii, kk, ll, mm)) expect_is(i[[1]], "data.frame")
+  for (i in list(gg, hh, ii, ll, mm)) expect_is(i[[1]], "data.frame")
   # no rows
-  for (i in list(gg, hh, ii, kk, ll, mm)) expect_equal(NROW(i[[1]]), 0)
+  for (i in list(gg, hh, ii, ll, mm)) expect_equal(NROW(i[[1]]), 0)
   # no names
-  for (i in list(gg, hh, ii, kk, ll, mm)) expect_equal(length(names(i[[1]])), 0)
+  for (i in list(gg, hh, ii, ll, mm)) expect_equal(length(names(i[[1]])), 0)
 })
 
 test_that("warn on mismatch 'db'", {

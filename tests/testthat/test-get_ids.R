@@ -43,7 +43,7 @@ test_that("works on a variety of names", {
 
   expect_is(sw(get_ids(nn[13], db = c("ncbi", "itis", "tropicos"),
     suppress = TRUE, ask = FALSE, messages = FALSE)), "ids")
-  expect_is(sw(get_ids(nn[14], db = c("ncbi", "itis", "tropicos"),
+  expect_is(sw(get_ids(nn[14], db = c("ncbi", "tropicos"),
     suppress = TRUE, ask = FALSE, messages = FALSE)), "ids")
   expect_is(sw(get_ids(nn[15], db = c("ncbi", "itis", "tropicos"),
     suppress = TRUE, ask = FALSE, messages = FALSE)), "ids")

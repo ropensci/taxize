@@ -285,10 +285,15 @@ strexec <- function(str, pattern) regmatches(str, regexec(pattern, str))
 
 ncbi_rate_limit_pause <- function(key) {
   # NCBI limits requests to three per second when no key and ten per second with key
+  ncbi_sleep <- taxize_env$options$ncbi_sleep_sec
   if (is.null(key)) {
-    Sys.sleep(0.334)
+    tmz <- c(ncbi_sleep, 0.334)
+    time_sleep <- tmz[which.max(tmz)]
+    Sys.sleep(time_sleep)
   } else {
-    Sys.sleep(0.101)
+    tmz <- c(ncbi_sleep, 0.101)
+    time_sleep <- tmz[which.max(tmz)]
+    Sys.sleep(tmz)
   }
 }
 
