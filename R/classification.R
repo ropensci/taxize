@@ -66,6 +66,10 @@
 #' not an appropriate error; it's probably that that ID does not exist 
 #' in their database, but we can't know for sure. Isn't that fun?
 #' 
+#' @section NCBI Rate limits:
+#' In case you run into NCBI errors due to your rate limit being exceeded, see
+#' [taxize_options()], where you can set `ncbi_sleep`.
+#' 
 #' @section HTTP version for NCBI requests:
 #' We hard code `http_version = 2L` to use HTTP/1.1 in HTTP requests to
 #' the Entrez API. See `curl::curl_symbols('CURL_HTTP_VERSION')` 
@@ -135,7 +139,7 @@
 #' classification(get_gbifid(c("Poa annua", "Bison bison")))
 #'
 #' # Pass many ids from class "ids"
-#' (out <- get_ids(names="Puma concolor", db = c('ncbi','gbif')))
+#' (out <- get_ids("Puma concolor", db = c('ncbi','gbif')))
 #' (cl <- classification(out))
 #'
 #' # Bind width-wise from class classification_ids
@@ -145,7 +149,7 @@
 #' rbind(cl)
 #'
 #' # Many names to get_ids
-#' (out <- get_ids(names=c("Puma concolor","Accipiter striatus"),
+#' (out <- get_ids(c("Puma concolor","Accipiter striatus"),
 #'   db = c('ncbi','itis')))
 #' (cl <- classification(out))
 #' rbind(cl)

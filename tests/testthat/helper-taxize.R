@@ -15,7 +15,7 @@ invisible(vcr::vcr_configure(
 vcr::check_cassette_names()
 
 # suppress messages in progressor class in get_* fxns
-taxize_options(TRUE)
+taxize_options(TRUE, quiet = TRUE)
 
 has_internet <- function() {
   z <- try(suppressWarnings(readLines('https://www.google.com', n = 1)),

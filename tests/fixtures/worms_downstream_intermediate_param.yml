@@ -1,48 +1,12 @@
 http_interactions:
 - request:
     method: get
-    uri: http://www.marinespecies.org/rest/AphiaRecordsByAphiaIDs?aphiaids%5B%5D=125732
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.4.9315
-      Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      status: HTTP/1.1 200 OK
-      date: Wed, 26 Jun 2019 18:19:59 GMT
-      server: Apache/2.4.25 (Win32) PHP/5.6.29
-      x-powered-by: PHP/5.6.29
-      access-control-allow-origin: '*'
-      access-control-allow-headers: X-Requested-With, Content-Type, Accept, Origin,
-        Authorization
-      access-control-allow-methods: GET, POST, OPTIONS
-      content-length: '861'
-      content-type: application/json
-    body:
-      encoding: UTF-8
-      string: '[{"AphiaID":125732,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=125732","scientificname":"Gadus","authority":"Linnaeus,
-        1758","status":"accepted","unacceptreason":null,"taxonRankID":180,"rank":"Genus","valid_AphiaID":125732,"valid_name":"Gadus","valid_authority":"Linnaeus,
-        1758","parentNameUsageID":125469,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
-        R. and D. Pauly. Editors. (2019). FishBase. Gadus Linnaeus, 1758. Accessed
-        through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=125732
-        on 2019-06-26","lsid":"urn:lsid:marinespecies.org:taxname:125732","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2014-11-21T13:09:37.943Z"}]'
-  recorded_at: 2019-06-26 18:20:02 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4
-- request:
-    method: get
     uri: http://www.marinespecies.org/rest/AphiaChildrenByAphiaID/125732?marine_only=true&offset=1
     body:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.4.9315
+      User-Agent: libcurl/7.73.0 r-curl/4.3 crul/1.0.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -52,267 +16,545 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 26 Jun 2019 18:20:00 GMT
-      server: Apache/2.4.25 (Win32) PHP/5.6.29
-      x-powered-by: PHP/5.6.29
+      date: Tue, 20 Oct 2020 19:46:47 GMT
+      server: Apache/2.4.39 (Win64)
       access-control-allow-origin: '*'
       access-control-allow-headers: X-Requested-With, Content-Type, Accept, Origin,
         Authorization
       access-control-allow-methods: GET, POST, OPTIONS
       transfer-encoding: chunked
       content-type: application/json
+      set-cookie: vliz_webc=vliz_webc1; path=/
     body:
       encoding: UTF-8
+      file: no
       string: '[{"AphiaID":300720,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300720","scientificname":"Gadus
         abyssorum","authority":"Nilsson, 1832","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":126459,"valid_name":"Molva
         dypterygia","valid_authority":"(Pennant, 1784)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
-        R. and D. Pauly. Editors. (2019). FishBase. Gadus abyssorum Nilsson, 1832.
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus abyssorum Nilsson, 1832.
         Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300720
-        on 2019-06-26","lsid":"urn:lsid:marinespecies.org:taxname:300720","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":154763,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=154763","scientificname":"Gadus
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300720","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":154763,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=154763","scientificname":"Gadus
         aeglefinus","authority":"Linnaeus, 1758","status":"unaccepted","unacceptreason":"basionym","taxonRankID":220,"rank":"Species","valid_AphiaID":126437,"valid_name":"Melanogrammus
         aeglefinus","valid_authority":"(Linnaeus, 1758)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
-        R. and D. Pauly. Editors. (2019). FishBase. Gadus aeglefinus Linnaeus, 1758.
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus aeglefinus Linnaeus, 1758.
         Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=154763
-        on 2019-06-26","lsid":"urn:lsid:marinespecies.org:taxname:154763","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300721,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300721","scientificname":"Gadus
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:154763","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300721,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300721","scientificname":"Gadus
         agilis","authority":"Reinhardt, 1837","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":126433,"valid_name":"Boreogadus
         saida","valid_authority":"(Lepechin, 1774)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
-        R. and D. Pauly. Editors. (2019). FishBase. Gadus agilis Reinhardt, 1837.
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus agilis Reinhardt, 1837.
         Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300721
-        on 2019-06-26","lsid":"urn:lsid:marinespecies.org:taxname:300721","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300723,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300723","scientificname":"Gadus
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300721","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300723,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300723","scientificname":"Gadus
         albidus","authority":"Mitchill, 1818","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":158748,"valid_name":"Merluccius
         albidus","valid_authority":"(Mitchill, 1818)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
-        R. and D. Pauly. Editors. (2019). FishBase. Gadus albidus Mitchill, 1818.
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus albidus Mitchill, 1818.
         Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300723
-        on 2019-06-26","lsid":"urn:lsid:marinespecies.org:taxname:300723","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300722,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300722","scientificname":"Gadus
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300723","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300722,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300722","scientificname":"Gadus
         albidus","authority":"Gmelin, 1789","status":"unaccepted","unacceptreason":"synonym","taxonRankID":220,"rank":"Species","valid_AphiaID":126501,"valid_name":"Phycis
         blennoides","valid_authority":"(Br\u00fcnnich, 1768)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
-        R. and D. Pauly. Editors. (2019). FishBase. Gadus albidus Gmelin, 1789. Accessed
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus albidus Gmelin, 1789. Accessed
         through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300722
-        on 2019-06-26","lsid":"urn:lsid:marinespecies.org:taxname:300722","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2017-08-17T13:35:34.540Z"},{"AphiaID":300724,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300724","scientificname":"Gadus
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300722","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2017-08-17T13:35:34.540Z"},{"AphiaID":300724,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300724","scientificname":"Gadus
         arenosus","authority":"Mitchill, 1815","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":126436,"valid_name":"Gadus
         morhua","valid_authority":"Linnaeus, 1758","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
-        R. and D. Pauly. Editors. (2019). FishBase. Gadus arenosus Mitchill, 1815.
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus arenosus Mitchill, 1815.
         Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300724
-        on 2019-06-26","lsid":"urn:lsid:marinespecies.org:taxname:300724","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300725,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300725","scientificname":"Gadus
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300724","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300725,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300725","scientificname":"Gadus
         argenteolus","authority":"Montagu, 1818","status":"unaccepted","unacceptreason":"synonym","taxonRankID":220,"rank":"Species","valid_AphiaID":126457,"valid_name":"Gaidropsarus
         mediterraneus","valid_authority":"(Linnaeus, 1758)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
-        R. and D. Pauly. Editors. (2019). FishBase. Gadus argenteolus Montagu, 1818.
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus argenteolus Montagu, 1818.
         Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300725
-        on 2019-06-26","lsid":"urn:lsid:marinespecies.org:taxname:300725","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2017-08-17T13:35:34.540Z"},{"AphiaID":300726,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300726","scientificname":"Gadus
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300725","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2019-10-31T08:14:00.613Z"},{"AphiaID":300726,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300726","scientificname":"Gadus
         auratus","authority":"Cope, 1873","status":"unaccepted","unacceptreason":"synonym","taxonRankID":220,"rank":"Species","valid_AphiaID":254538,"valid_name":"Gadus
         macrocephalus","valid_authority":"Tilesius, 1810","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
-        R. and D. Pauly. Editors. (2019). FishBase. Gadus auratus Cope, 1873. Accessed
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus auratus Cope, 1873. Accessed
         through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300726
-        on 2019-06-26","lsid":"urn:lsid:marinespecies.org:taxname:300726","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2017-08-17T13:35:34.540Z"},{"AphiaID":300727,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300727","scientificname":"Gadus
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300726","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2017-08-17T13:35:34.540Z"},{"AphiaID":300727,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300727","scientificname":"Gadus
         australis","authority":"Hutton, 1872","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":272452,"valid_name":"Merluccius
         australis","valid_authority":"(Hutton, 1872)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
-        R. and D. Pauly. Editors. (2019). FishBase. Gadus australis Hutton, 1872.
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus australis Hutton, 1872.
         Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300727
-        on 2019-06-26","lsid":"urn:lsid:marinespecies.org:taxname:300727","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300728,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300728","scientificname":"Gadus
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300727","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300728,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300728","scientificname":"Gadus
         barbatus","authority":"Linnaeus, 1758","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":126445,"valid_name":"Trisopterus
         luscus","valid_authority":"(Linnaeus, 1758)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
-        R. and D. Pauly. Editors. (2019). FishBase. Gadus barbatus Linnaeus, 1758.
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus barbatus Linnaeus, 1758.
         Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300728
-        on 2019-06-26","lsid":"urn:lsid:marinespecies.org:taxname:300728","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300729,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300729","scientificname":"Gadus
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300728","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300729,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300729","scientificname":"Gadus
         bifurcus","authority":"Walbaum, 1792","status":"unaccepted","unacceptreason":"synonym","taxonRankID":220,"rank":"Species","valid_AphiaID":126501,"valid_name":"Phycis
         blennoides","valid_authority":"(Br\u00fcnnich, 1768)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
-        R. and D. Pauly. Editors. (2019). FishBase. Gadus bifurcus Walbaum, 1792.
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus bifurcus Walbaum, 1792.
         Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300729
-        on 2019-06-26","lsid":"urn:lsid:marinespecies.org:taxname:300729","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2017-08-17T13:35:34.540Z"},{"AphiaID":300730,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300730","scientificname":"Gadus
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300729","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2017-08-17T13:35:34.540Z"},{"AphiaID":300730,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300730","scientificname":"Gadus
         blennoides","authority":"Br\u00fcnnich, 1768","status":"unaccepted","unacceptreason":"synonym","taxonRankID":220,"rank":"Species","valid_AphiaID":126501,"valid_name":"Phycis
         blennoides","valid_authority":"(Br\u00fcnnich, 1768)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
-        R. and D. Pauly. Editors. (2019). FishBase. Gadus blennoides Br\u00fcnnich,
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus blennoides Br\u00fcnnich,
         1768. Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300730
-        on 2019-06-26","lsid":"urn:lsid:marinespecies.org:taxname:300730","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2017-08-17T13:35:34.540Z"},{"AphiaID":400581,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=400581","scientificname":"Gadus
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300730","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2017-08-17T13:35:34.540Z"},{"AphiaID":400581,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=400581","scientificname":"Gadus
         brandti","authority":"Hilgendorf, 1876","status":"unaccepted","unacceptreason":"misspelling","taxonRankID":220,"rank":"Species","valid_AphiaID":254538,"valid_name":"Gadus
         macrocephalus","valid_authority":"Tilesius, 1810","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
-        R. and D. Pauly. Editors. (2019). FishBase. Gadus brandti Hilgendorf, 1876.
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus brandti Hilgendorf, 1876.
         Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=400581
-        on 2019-06-26","lsid":"urn:lsid:marinespecies.org:taxname:400581","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2009-06-15T12:24:27.480Z"},{"AphiaID":300731,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300731","scientificname":"Gadus
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:400581","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2009-06-15T12:24:27.480Z"},{"AphiaID":300731,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300731","scientificname":"Gadus
         brandtii","authority":"Hilgendorf, 1875","status":"unaccepted","unacceptreason":"synonym","taxonRankID":220,"rank":"Species","valid_AphiaID":254538,"valid_name":"Gadus
         macrocephalus","valid_authority":"Tilesius, 1810","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
-        R. and D. Pauly. Editors. (2019). FishBase. Gadus brandtii Hilgendorf, 1875.
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus brandtii Hilgendorf, 1875.
         Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300731
-        on 2019-06-26","lsid":"urn:lsid:marinespecies.org:taxname:300731","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2017-08-17T13:35:34.540Z"},{"AphiaID":300732,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300732","scientificname":"Gadus
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300731","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2017-08-17T13:35:34.540Z"},{"AphiaID":300732,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300732","scientificname":"Gadus
         brosme","authority":"Ascanius, 1772","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":126447,"valid_name":"Brosme
         brosme","valid_authority":"(Ascanius, 1772)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
-        R. and D. Pauly. Editors. (2019). FishBase. Gadus brosme Ascanius, 1772. Accessed
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus brosme Ascanius, 1772. Accessed
         through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300732
-        on 2019-06-26","lsid":"urn:lsid:marinespecies.org:taxname:300732","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":154809,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=154809","scientificname":"Gadus
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300732","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":154809,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=154809","scientificname":"Gadus
         byrkelange","authority":"Walbaum, 1792","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":126484,"valid_name":"Merluccius
         merluccius","valid_authority":"(Linnaeus, 1758)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
-        R. and D. Pauly. Editors. (2019). FishBase. Gadus byrkelange Walbaum, 1792.
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus byrkelange Walbaum, 1792.
         Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=154809
-        on 2019-06-26","lsid":"urn:lsid:marinespecies.org:taxname:154809","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2013-01-08T14:50:09.150Z"},{"AphiaID":300733,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300733","scientificname":"Gadus
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:154809","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2013-01-08T14:50:09.150Z"},{"AphiaID":300733,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300733","scientificname":"Gadus
         californicus","authority":"(Ayres, 1854)","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":275873,"valid_name":"Microgadus
         proximus","valid_authority":"(Girard, 1854)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
-        R. and D. Pauly. Editors. (2019). FishBase. Gadus californicus (Ayres, 1854).
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus californicus (Ayres, 1854).
         Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300733
-        on 2019-06-26","lsid":"urn:lsid:marinespecies.org:taxname:300733","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":154378,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=154378","scientificname":"Gadus
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300733","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":154378,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=154378","scientificname":"Gadus
         callarias","authority":"Linnaeus, 1758","status":"unaccepted","unacceptreason":"synonym","taxonRankID":220,"rank":"Species","valid_AphiaID":126436,"valid_name":"Gadus
         morhua","valid_authority":"Linnaeus, 1758","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
-        R. and D. Pauly. Editors. (2019). FishBase. Gadus callarias Linnaeus, 1758.
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus callarias Linnaeus, 1758.
         Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=154378
-        on 2019-06-26","lsid":"urn:lsid:marinespecies.org:taxname:154378","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":163020,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=163020","scientificname":"Gadus
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:154378","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":163020,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=163020","scientificname":"Gadus
         capelanus","authority":"Lacep\u00e8de, 1800","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":712475,"valid_name":"Trisopterus
         capelanus","valid_authority":"(Lacep\u00e8de, 1800)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
-        R. and D. Pauly. Editors. (2019). FishBase. Gadus capelanus Lacep\u00e8de,
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus capelanus Lacep\u00e8de,
         1800. Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=163020
-        on 2019-06-26","lsid":"urn:lsid:marinespecies.org:taxname:163020","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2013-01-08T14:50:09.150Z"},{"AphiaID":300734,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300734","scientificname":"Gadus
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:163020","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2013-01-08T14:50:09.150Z"},{"AphiaID":300734,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300734","scientificname":"Gadus
         carbonarius","authority":"Linnaeus, 1758","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":126441,"valid_name":"Pollachius
         virens","valid_authority":"(Linnaeus, 1758)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
-        R. and D. Pauly. Editors. (2019). FishBase. Gadus carbonarius Linnaeus, 1758.
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus carbonarius Linnaeus, 1758.
         Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300734
-        on 2019-06-26","lsid":"urn:lsid:marinespecies.org:taxname:300734","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300735,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300735","scientificname":"Gadus
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300734","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300735,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300735","scientificname":"Gadus
         chalcogrammus","authority":"Pallas, 1814","status":"accepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":300735,"valid_name":"Gadus
         chalcogrammus","valid_authority":"Pallas, 1814","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
-        R. and D. Pauly. Editors. (2019). FishBase. Gadus chalcogrammus Pallas, 1814.
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus chalcogrammus Pallas, 1814.
         Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300735
-        on 2019-06-26","lsid":"urn:lsid:marinespecies.org:taxname:300735","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2017-04-17T15:09:35.800Z"},{"AphiaID":300736,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300736","scientificname":"Gadus
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300735","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2017-04-17T15:09:35.800Z"},{"AphiaID":300736,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300736","scientificname":"Gadus
         cimbrius","authority":"Linnaeus, 1766","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":126450,"valid_name":"Enchelyopus
         cimbrius","valid_authority":"(Linnaeus, 1766)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
-        R. and D. Pauly. Editors. (2019). FishBase. Gadus cimbrius Linnaeus, 1766.
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus cimbrius Linnaeus, 1766.
         Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300736
-        on 2019-06-26","lsid":"urn:lsid:marinespecies.org:taxname:300736","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300737,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300737","scientificname":"Gadus
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300736","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300737,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300737","scientificname":"Gadus
         colias","authority":"Gronow, 1854","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":126445,"valid_name":"Trisopterus
         luscus","valid_authority":"(Linnaeus, 1758)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
-        R. and D. Pauly. Editors. (2019). FishBase. Gadus colias Gronow, 1854. Accessed
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus colias Gronow, 1854. Accessed
         through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300737
-        on 2019-06-26","lsid":"urn:lsid:marinespecies.org:taxname:300737","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300738,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300738","scientificname":"Gadus
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300737","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300738,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300738","scientificname":"Gadus
         colinus","authority":"Lacep\u00e8de, 1800","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":126441,"valid_name":"Pollachius
         virens","valid_authority":"(Linnaeus, 1758)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
-        R. and D. Pauly. Editors. (2019). FishBase. Gadus colinus Lacep\u00e8de, 1800.
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus colinus Lacep\u00e8de, 1800.
         Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300738
-        on 2019-06-26","lsid":"urn:lsid:marinespecies.org:taxname:300738","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300740,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300740","scientificname":"Gadus
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300738","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300739,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300739","scientificname":"Gadus
+        compressus","authority":"Lesueur, 1817","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":154388,"valid_name":"Lota
+        lota","valid_authority":"(Linnaeus, 1758)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus compressus Lesueur, 1817.
+        Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300739
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300739","isMarine":0,"isBrackish":1,"isFreshwater":1,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2019-10-31T08:14:00.613Z"},{"AphiaID":300740,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300740","scientificname":"Gadus
         dypterygius","authority":"Pennant, 1784","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":126459,"valid_name":"Molva
         dypterygia","valid_authority":"(Pennant, 1784)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
-        R. and D. Pauly. Editors. (2019). FishBase. Gadus dypterygius Pennant, 1784.
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus dypterygius Pennant, 1784.
         Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300740
-        on 2019-06-26","lsid":"urn:lsid:marinespecies.org:taxname:300740","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300741,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300741","scientificname":"Gadus
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300740","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300741,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300741","scientificname":"Gadus
         elongatus","authority":"Otto, 1821","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":126460,"valid_name":"Molva
         macrophthalma","valid_authority":"(Rafinesque, 1810)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
-        R. and D. Pauly. Editors. (2019). FishBase. Gadus elongatus Otto, 1821. Accessed
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus elongatus Otto, 1821. Accessed
         through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300741
-        on 2019-06-26","lsid":"urn:lsid:marinespecies.org:taxname:300741","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300742,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300742","scientificname":"Gadus
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300741","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300742,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300742","scientificname":"Gadus
         esmarkii","authority":"Nilsson, 1855","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":126444,"valid_name":"Trisopterus
         esmarkii","valid_authority":"(Nilsson, 1855)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
-        R. and D. Pauly. Editors. (2019). FishBase. Gadus esmarkii Nilsson, 1855.
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus esmarkii Nilsson, 1855.
         Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300742
-        on 2019-06-26","lsid":"urn:lsid:marinespecies.org:taxname:300742","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":154381,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=154381","scientificname":"Gadus
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300742","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":154381,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=154381","scientificname":"Gadus
         euxinus","authority":"Nordmann, 1840","status":"unaccepted","unacceptreason":"synonym","taxonRankID":220,"rank":"Species","valid_AphiaID":126438,"valid_name":"Merlangius
         merlangus","valid_authority":"(Linnaeus, 1758)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
-        R. and D. Pauly. Editors. (2019). FishBase. Gadus euxinus Nordmann, 1840.
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus euxinus Nordmann, 1840.
         Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=154381
-        on 2019-06-26","lsid":"urn:lsid:marinespecies.org:taxname:154381","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2017-08-17T13:35:34.540Z"},{"AphiaID":300743,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300743","scientificname":"Gadus
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:154381","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2017-08-17T13:35:34.540Z"},{"AphiaID":300743,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300743","scientificname":"Gadus
         fabricii","authority":"Richardson, 1836","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":126433,"valid_name":"Boreogadus
         saida","valid_authority":"(Lepechin, 1774)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
-        R. and D. Pauly. Editors. (2019). FishBase. Gadus fabricii Richardson, 1836.
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus fabricii Richardson, 1836.
         Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300743
-        on 2019-06-26","lsid":"urn:lsid:marinespecies.org:taxname:300743","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300744,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300744","scientificname":"Gadus
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300743","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300744,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300744","scientificname":"Gadus
         fimbria","authority":"Pallas, 1814","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":159463,"valid_name":"Anoplopoma
         fimbria","valid_authority":"(Pallas, 1814)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
-        R. and D. Pauly. Editors. (2019). FishBase. Gadus fimbria Pallas, 1814. Accessed
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus fimbria Pallas, 1814. Accessed
         through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300744
-        on 2019-06-26","lsid":"urn:lsid:marinespecies.org:taxname:300744","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":990089,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=990089","scientificname":"Gadus
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300744","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":990089,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=990089","scientificname":"Gadus
         finnmarchicus","authority":"(Koefoed, 1956)","status":"accepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":990089,"valid_name":"Gadus
         finnmarchicus","valid_authority":"(Koefoed, 1956)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
-        R. and D. Pauly. Editors. (2019). FishBase. Gadus finnmarchicus (Koefoed,
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus finnmarchicus (Koefoed,
         1956). Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=990089
-        on 2019-06-26","lsid":"urn:lsid:marinespecies.org:taxname:990089","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2017-04-18T12:46:49.590Z"},{"AphiaID":300745,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300745","scientificname":"Gadus
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:990089","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2017-04-18T12:46:49.590Z"},{"AphiaID":300745,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300745","scientificname":"Gadus
         frost","authority":"Walbaum, 1792","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":158928,"valid_name":"Microgadus
         tomcod","valid_authority":"(Walbaum, 1792)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
-        R. and D. Pauly. Editors. (2019). FishBase. Gadus frost Walbaum, 1792. Accessed
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus frost Walbaum, 1792. Accessed
         through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300745
-        on 2019-06-26","lsid":"urn:lsid:marinespecies.org:taxname:300745","isMarine":1,"isBrackish":1,"isFreshwater":1,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300746,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300746","scientificname":"Gadus
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300745","isMarine":1,"isBrackish":1,"isFreshwater":1,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300746,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300746","scientificname":"Gadus
         fuliginosus","authority":"Walbaum, 1784","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":126442,"valid_name":"Raniceps
         raninus","valid_authority":"(Linnaeus, 1758)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
-        R. and D. Pauly. Editors. (2019). FishBase. Gadus fuliginosus Walbaum, 1784.
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus fuliginosus Walbaum, 1784.
         Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300746
-        on 2019-06-26","lsid":"urn:lsid:marinespecies.org:taxname:300746","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300747,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300747","scientificname":"Gadus
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300746","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300747,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300747","scientificname":"Gadus
         fuscus","authority":"Risso, 1810","status":"unaccepted","unacceptreason":"synonym","taxonRankID":220,"rank":"Species","valid_AphiaID":126457,"valid_name":"Gaidropsarus
         mediterraneus","valid_authority":"(Linnaeus, 1758)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
-        R. and D. Pauly. Editors. (2019). FishBase. Gadus fuscus Risso, 1810. Accessed
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus fuscus Risso, 1810. Accessed
         through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300747
-        on 2019-06-26","lsid":"urn:lsid:marinespecies.org:taxname:300747","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2017-08-17T13:35:34.540Z"},{"AphiaID":300748,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300748","scientificname":"Gadus
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300747","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2017-08-17T13:35:34.540Z"},{"AphiaID":300748,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300748","scientificname":"Gadus
         glacialis","authority":"Peters, 1872","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":126432,"valid_name":"Arctogadus
         glacialis","valid_authority":"(Peters, 1872)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
-        R. and D. Pauly. Editors. (2019). FishBase. Gadus glacialis Peters, 1872.
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus glacialis Peters, 1872.
         Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300748
-        on 2019-06-26","lsid":"urn:lsid:marinespecies.org:taxname:300748","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300749,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300749","scientificname":"Gadus
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300748","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300749,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300749","scientificname":"Gadus
         gracilis","authority":"Tilesius, 1810","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":254537,"valid_name":"Eleginus
         gracilis","valid_authority":"(Tilesius, 1810)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
-        R. and D. Pauly. Editors. (2019). FishBase. Gadus gracilis Tilesius, 1810.
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus gracilis Tilesius, 1810.
         Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300749
-        on 2019-06-26","lsid":"urn:lsid:marinespecies.org:taxname:300749","isMarine":1,"isBrackish":1,"isFreshwater":1,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300750,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300750","scientificname":"Gadus
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300749","isMarine":1,"isBrackish":1,"isFreshwater":1,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300750,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300750","scientificname":"Gadus
         heteroglossus","authority":"Walbaum, 1792","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":126436,"valid_name":"Gadus
         morhua","valid_authority":"Linnaeus, 1758","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
-        R. and D. Pauly. Editors. (2019). FishBase. Gadus heteroglossus Walbaum, 1792.
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus heteroglossus Walbaum, 1792.
         Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300750
-        on 2019-06-26","lsid":"urn:lsid:marinespecies.org:taxname:300750","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300751,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300751","scientificname":"Gadus
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300750","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300751,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300751","scientificname":"Gadus
         jubatus","authority":"Pallas, 1814","status":"unaccepted","unacceptreason":"synonym","taxonRankID":220,"rank":"Species","valid_AphiaID":126457,"valid_name":"Gaidropsarus
         mediterraneus","valid_authority":"(Linnaeus, 1758)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
-        R. and D. Pauly. Editors. (2019). FishBase. Gadus jubatus Pallas, 1814. Accessed
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus jubatus Pallas, 1814. Accessed
         through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300751
-        on 2019-06-26","lsid":"urn:lsid:marinespecies.org:taxname:300751","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2017-08-17T13:35:34.540Z"},{"AphiaID":300753,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300753","scientificname":"Gadus
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300751","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2017-08-17T13:35:34.540Z"},{"AphiaID":300752,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300752","scientificname":"Gadus
+        lacustris","authority":"Walbaum, 1792","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":154388,"valid_name":"Lota
+        lota","valid_authority":"(Linnaeus, 1758)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus lacustris Walbaum, 1792.
+        Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300752
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300752","isMarine":0,"isBrackish":1,"isFreshwater":1,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2019-10-30T08:37:28.023Z"},{"AphiaID":300753,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300753","scientificname":"Gadus
         lepidion","authority":"Risso, 1810","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":126495,"valid_name":"Lepidion
         lepidion","valid_authority":"(Risso, 1810)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
-        R. and D. Pauly. Editors. (2019). FishBase. Gadus lepidion Risso, 1810. Accessed
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus lepidion Risso, 1810. Accessed
         through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300753
-        on 2019-06-26","lsid":"urn:lsid:marinespecies.org:taxname:300753","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300754,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300754","scientificname":"Gadus
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300753","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300754,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300754","scientificname":"Gadus
         longipes","authority":"Mitchill, 1814","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":126503,"valid_name":"Urophycis
         chuss","valid_authority":"(Walbaum, 1792)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
-        R. and D. Pauly. Editors. (2019). FishBase. Gadus longipes Mitchill, 1814.
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus longipes Mitchill, 1814.
         Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300754
-        on 2019-06-26","lsid":"urn:lsid:marinespecies.org:taxname:300754","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300755,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300755","scientificname":"Gadus
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300754","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":154679,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=154679","scientificname":"Gadus
+        lota","authority":"Linnaeus, 1758","status":"unaccepted","unacceptreason":"synonym","taxonRankID":220,"rank":"Species","valid_AphiaID":154388,"valid_name":"Lota
+        lota","valid_authority":"(Linnaeus, 1758)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus lota Linnaeus, 1758. Accessed
+        through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=154679
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:154679","isMarine":0,"isBrackish":1,"isFreshwater":1,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2019-10-30T08:37:28.023Z"},{"AphiaID":300755,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300755","scientificname":"Gadus
         lubb","authority":"Euphrasen, 1794","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":126447,"valid_name":"Brosme
         brosme","valid_authority":"(Ascanius, 1772)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
-        R. and D. Pauly. Editors. (2019). FishBase. Gadus lubb Euphrasen, 1794. Accessed
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus lubb Euphrasen, 1794. Accessed
         through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300755
-        on 2019-06-26","lsid":"urn:lsid:marinespecies.org:taxname:300755","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":154762,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=154762","scientificname":"Gadus
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300755","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":154762,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=154762","scientificname":"Gadus
         luscus","authority":"Linnaeus, 1758","status":"unaccepted","unacceptreason":"basionym","taxonRankID":220,"rank":"Species","valid_AphiaID":126445,"valid_name":"Trisopterus
         luscus","valid_authority":"(Linnaeus, 1758)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
-        R. and D. Pauly. Editors. (2019). FishBase. Gadus luscus Linnaeus, 1758. Accessed
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus luscus Linnaeus, 1758. Accessed
         through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=154762
-        on 2019-06-26","lsid":"urn:lsid:marinespecies.org:taxname:154762","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300756,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300756","scientificname":"Gadus
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:154762","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300756,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300756","scientificname":"Gadus
         lycostomus","authority":"Faber, 1828","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":126440,"valid_name":"Pollachius
         pollachius","valid_authority":"(Linnaeus, 1758)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
-        R. and D. Pauly. Editors. (2019). FishBase. Gadus lycostomus Faber, 1828.
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus lycostomus Faber, 1828.
         Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300756
-        on 2019-06-26","lsid":"urn:lsid:marinespecies.org:taxname:300756","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":254538,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=254538","scientificname":"Gadus
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300756","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":254538,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=254538","scientificname":"Gadus
         macrocephalus","authority":"Tilesius, 1810","status":"accepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":254538,"valid_name":"Gadus
         macrocephalus","valid_authority":"Tilesius, 1810","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
-        R. and D. Pauly. Editors. (2019). FishBase. Gadus macrocephalus Tilesius,
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus macrocephalus Tilesius,
         1810. Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=254538
-        on 2019-06-26","lsid":"urn:lsid:marinespecies.org:taxname:254538","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2017-07-20T07:00:16.353Z"},{"AphiaID":300758,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300758","scientificname":"Gadus
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:254538","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2017-07-20T07:00:16.353Z"},{"AphiaID":300757,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300757","scientificname":"Gadus
+        maculosus","authority":"Lesueur, 1817","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":154388,"valid_name":"Lota
+        lota","valid_authority":"(Linnaeus, 1758)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus maculosus Lesueur, 1817.
+        Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300757
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300757","isMarine":0,"isBrackish":1,"isFreshwater":1,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2019-10-31T08:14:00.613Z"},{"AphiaID":300758,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300758","scientificname":"Gadus
         magellanicus","authority":"Forster, 1801","status":"unaccepted","unacceptreason":"synonym","taxonRankID":220,"rank":"Species","valid_AphiaID":234645,"valid_name":"Paranotothenia
         magellanica","valid_authority":"(Forster, 1801)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
-        R. and D. Pauly. Editors. (2019). FishBase. Gadus magellanicus Forster, 1801.
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus magellanicus Forster, 1801.
         Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300758
-        on 2019-06-26","lsid":"urn:lsid:marinespecies.org:taxname:300758","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2017-08-17T13:35:34.540Z"},{"AphiaID":300759,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300759","scientificname":"Gadus
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300758","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2017-08-17T13:35:34.540Z"},{"AphiaID":300759,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300759","scientificname":"Gadus
         maraldi","authority":"Risso, 1810","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":126488,"valid_name":"Gadella
         maraldi","valid_authority":"(Risso, 1810)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
-        R. and D. Pauly. Editors. (2019). FishBase. Gadus maraldi Risso, 1810. Accessed
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus maraldi Risso, 1810. Accessed
         through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300759
-        on 2019-06-26","lsid":"urn:lsid:marinespecies.org:taxname:300759","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300760,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300760","scientificname":"Gadus
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300759","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"}]'
+  recorded_at: 2020-10-20 19:46:54 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
+- request:
+    method: get
+    uri: http://www.marinespecies.org/rest/AphiaChildrenByAphiaID/125732?marine_only=true&offset=50
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.73.0 r-curl/4.3 crul/1.0.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Tue, 20 Oct 2020 19:46:50 GMT
+      server: Apache/2.4.39 (Win64)
+      access-control-allow-origin: '*'
+      access-control-allow-headers: X-Requested-With, Content-Type, Accept, Origin,
+        Authorization
+      access-control-allow-methods: GET, POST, OPTIONS
+      transfer-encoding: chunked
+      content-type: application/json
+      set-cookie: vliz_webc=vliz_webc1; path=/
+    body:
+      encoding: UTF-8
+      file: no
+      string: '[{"AphiaID":300759,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300759","scientificname":"Gadus
+        maraldi","authority":"Risso, 1810","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":126488,"valid_name":"Gadella
+        maraldi","valid_authority":"(Risso, 1810)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus maraldi Risso, 1810. Accessed
+        through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300759
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300759","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300760,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300760","scientificname":"Gadus
         mediterraneus","authority":"Linnaeus, 1758","status":"unaccepted","unacceptreason":"synonym","taxonRankID":220,"rank":"Species","valid_AphiaID":126457,"valid_name":"Gaidropsarus
         mediterraneus","valid_authority":"(Linnaeus, 1758)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
-        R. and D. Pauly. Editors. (2019). FishBase. Gadus mediterraneus Linnaeus,
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus mediterraneus Linnaeus,
         1758. Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300760
-        on 2019-06-26","lsid":"urn:lsid:marinespecies.org:taxname:300760","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2017-08-17T13:35:34.540Z"},{"AphiaID":300761,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300761","scientificname":"Gadus
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300760","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2019-10-30T08:37:28.023Z"},{"AphiaID":300761,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300761","scientificname":"Gadus
         melanostomus","authority":"Nilsson, 1855","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":126439,"valid_name":"Micromesistius
         poutassou","valid_authority":"(Risso, 1827)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
-        R. and D. Pauly. Editors. (2019). FishBase. Gadus melanostomus Nilsson, 1855.
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus melanostomus Nilsson, 1855.
         Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300761
-        on 2019-06-26","lsid":"urn:lsid:marinespecies.org:taxname:300761","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":154818,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=154818","scientificname":"Gadus
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300761","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":154818,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=154818","scientificname":"Gadus
         merlangus","authority":"Linnaeus, 1758","status":"unaccepted","unacceptreason":"synonym","taxonRankID":220,"rank":"Species","valid_AphiaID":126438,"valid_name":"Merlangius
         merlangus","valid_authority":"(Linnaeus, 1758)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
-        R. and D. Pauly. Editors. (2019). FishBase. Gadus merlangus Linnaeus, 1758.
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus merlangus Linnaeus, 1758.
         Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=154818
-        on 2019-06-26","lsid":"urn:lsid:marinespecies.org:taxname:154818","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2017-08-17T13:35:34.540Z"},{"AphiaID":300762,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300762","scientificname":"Gadus
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:154818","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2019-10-30T08:37:28.023Z"},{"AphiaID":300762,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300762","scientificname":"Gadus
         merluccius","authority":"Linnaeus, 1758","status":"unaccepted","unacceptreason":"basionym","taxonRankID":220,"rank":"Species","valid_AphiaID":126484,"valid_name":"Merluccius
         merluccius","valid_authority":"(Linnaeus, 1758)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
-        R. and D. Pauly. Editors. (2019). FishBase. Gadus merluccius Linnaeus, 1758.
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus merluccius Linnaeus, 1758.
         Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300762
-        on 2019-06-26","lsid":"urn:lsid:marinespecies.org:taxname:300762","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"}]'
-  recorded_at: 2019-06-26 18:20:02 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300762","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300763,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300763","scientificname":"Gadus
+        minimus","authority":"Walbaum, 1792","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":126442,"valid_name":"Raniceps
+        raninus","valid_authority":"(Linnaeus, 1758)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus minimus Walbaum, 1792. Accessed
+        through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300763
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300763","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300764,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300764","scientificname":"Gadus
+        minor","authority":"D\u00f6derlein, 1887","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":300735,"valid_name":"Gadus
+        chalcogrammus","valid_authority":"Pallas, 1814","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus minor D\u00f6derlein, 1887.
+        Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300764
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300764","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2017-04-18T12:46:49.590Z"},{"AphiaID":154819,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=154819","scientificname":"Gadus
+        minutus","authority":"Linnaeus, 1758","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":126446,"valid_name":"Trisopterus
+        minutus","valid_authority":"(Linnaeus, 1758)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus minutus Linnaeus, 1758.
+        Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=154819
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:154819","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300765,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300765","scientificname":"Gadus
+        molva","authority":"Linnaeus, 1758","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":126461,"valid_name":"Molva
+        molva","valid_authority":"(Linnaeus, 1758)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus molva Linnaeus, 1758. Accessed
+        through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300765
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300765","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":126436,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=126436","scientificname":"Gadus
+        morhua","authority":"Linnaeus, 1758","status":"accepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":126436,"valid_name":"Gadus
+        morhua","valid_authority":"Linnaeus, 1758","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus morhua Linnaeus, 1758. Accessed
+        through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=126436
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:126436","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2008-01-15T17:27:08.177Z"},{"AphiaID":300766,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300766","scientificname":"Gadus
+        moro","authority":"Risso, 1810","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":126497,"valid_name":"Mora
+        moro","valid_authority":"(Risso, 1810)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus moro Risso, 1810. Accessed
+        through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300766
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300766","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":400582,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=400582","scientificname":"Gadus
+        morrhua","authority":"Linnaeus, 1758","status":"unaccepted","unacceptreason":"misspelling","taxonRankID":220,"rank":"Species","valid_AphiaID":126436,"valid_name":"Gadus
+        morhua","valid_authority":"Linnaeus, 1758","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus morrhua Linnaeus, 1758.
+        Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=400582
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:400582","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2009-06-15T12:24:27.480Z"},{"AphiaID":300767,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300767","scientificname":"Gadus
+        mustela","authority":"Linnaeus, 1758","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":126448,"valid_name":"Ciliata
+        mustela","valid_authority":"(Linnaeus, 1758)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus mustela Linnaeus, 1758.
+        Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300767
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300767","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300768,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300768","scientificname":"Gadus
+        nanus","authority":"Faber, 1829","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":126436,"valid_name":"Gadus
+        morhua","valid_authority":"Linnaeus, 1758","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus nanus Faber, 1829. Accessed
+        through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300768
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300768","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":400580,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=400580","scientificname":"Gadus
+        navaga","authority":"Walbaum, 1792","status":"unaccepted","unacceptreason":"misspelling","taxonRankID":220,"rank":"Species","valid_AphiaID":272298,"valid_name":"Eleginus
+        nawaga","valid_authority":"(Walbaum, 1792)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus navaga Walbaum, 1792. Accessed
+        through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=400580
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:400580","isMarine":1,"isBrackish":1,"isFreshwater":1,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2013-01-08T10:48:02.203Z"},{"AphiaID":713129,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=713129","scientificname":"Gadus
+        nawaga","authority":"Walbaum, 1792","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":272298,"valid_name":"Eleginus
+        nawaga","valid_authority":"(Walbaum, 1792)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus nawaga Walbaum, 1792. Accessed
+        through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=713129
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:713129","isMarine":1,"isBrackish":1,"isFreshwater":1,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2012-12-21T14:19:52.620Z"},{"AphiaID":713130,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=713130","scientificname":"Gadus
+        nawaga","authority":"Koelreuter, 1770","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":272298,"valid_name":"Eleginus
+        nawaga","valid_authority":"(Walbaum, 1792)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus nawaga Koelreuter, 1770.
+        Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=713130
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:713130","isMarine":1,"isBrackish":1,"isFreshwater":1,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2012-12-21T14:19:52.620Z"},{"AphiaID":158926,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=158926","scientificname":"Gadus
+        ogac","authority":"Richardson, 1836","status":"unaccepted","unacceptreason":"synonym","taxonRankID":220,"rank":"Species","valid_AphiaID":254538,"valid_name":"Gadus
+        macrocephalus","valid_authority":"Tilesius, 1810","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus ogac Richardson, 1836. Accessed
+        through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=158926
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:158926","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2017-08-17T13:35:34.540Z"},{"AphiaID":300769,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300769","scientificname":"Gadus
+        ogat","authority":"Kr\u00f8yer, 1847","status":"unaccepted","unacceptreason":"synonym","taxonRankID":220,"rank":"Species","valid_AphiaID":254538,"valid_name":"Gadus
+        macrocephalus","valid_authority":"Tilesius, 1810","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus ogat Kr\u00f8yer, 1847.
+        Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300769
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300769","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2017-08-17T13:35:34.540Z"},{"AphiaID":300770,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300770","scientificname":"Gadus
+        ovak","authority":"Reinhardt, 1837","status":"unaccepted","unacceptreason":"synonym","taxonRankID":220,"rank":"Species","valid_AphiaID":254538,"valid_name":"Gadus
+        macrocephalus","valid_authority":"Tilesius, 1810","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus ovak Reinhardt, 1837. Accessed
+        through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300770
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300770","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2017-08-17T13:35:34.540Z"},{"AphiaID":300771,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300771","scientificname":"Gadus
+        periscopus","authority":"Cope, 1873","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":300735,"valid_name":"Gadus
+        chalcogrammus","valid_authority":"Pallas, 1814","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus periscopus Cope, 1873. Accessed
+        through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300771
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300771","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2017-04-18T12:46:49.590Z"},{"AphiaID":154154,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=154154","scientificname":"Gadus
+        pollachius","authority":"Linnaeus, 1758","status":"unaccepted","unacceptreason":"synonym","taxonRankID":220,"rank":"Species","valid_AphiaID":126440,"valid_name":"Pollachius
+        pollachius","valid_authority":"(Linnaeus, 1758)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus pollachius Linnaeus, 1758.
+        Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=154154
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:154154","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300772,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300772","scientificname":"Gadus
+        polymorphus","authority":"Mitchill, 1815","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":158928,"valid_name":"Microgadus
+        tomcod","valid_authority":"(Walbaum, 1792)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus polymorphus Mitchill, 1815.
+        Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300772
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300772","isMarine":1,"isBrackish":1,"isFreshwater":1,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":400590,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=400590","scientificname":"Gadus
+        potassoa","authority":"(Risso, 1827)","status":"unaccepted","unacceptreason":"misspelling","taxonRankID":220,"rank":"Species","valid_AphiaID":126439,"valid_name":"Micromesistius
+        poutassou","valid_authority":"(Risso, 1827)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus potassoa (Risso, 1827).
+        Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=400590
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:400590","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2009-06-15T12:24:27.480Z"},{"AphiaID":300773,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300773","scientificname":"Gadus
+        poutassou","authority":"(Risso, 1827)","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":126439,"valid_name":"Micromesistius
+        poutassou","valid_authority":"(Risso, 1827)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus poutassou (Risso, 1827).
+        Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300773
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300773","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300774,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300774","scientificname":"Gadus
+        proximus","authority":"Girard, 1854","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":275873,"valid_name":"Microgadus
+        proximus","valid_authority":"(Girard, 1854)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus proximus Girard, 1854. Accessed
+        through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300774
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300774","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300775,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300775","scientificname":"Gadus
+        pruinosus","authority":"Mitchill, 1814","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":158928,"valid_name":"Microgadus
+        tomcod","valid_authority":"(Walbaum, 1792)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus pruinosus Mitchill, 1814.
+        Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300775
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300775","isMarine":1,"isBrackish":1,"isFreshwater":1,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300776,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300776","scientificname":"Gadus
+        punctatus","authority":"Mitchill, 1814","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":158991,"valid_name":"Urophycis
+        regia","valid_authority":"(Walbaum, 1792)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus punctatus Mitchill, 1814.
+        Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300776
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300776","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300777,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300777","scientificname":"Gadus
+        purpureus","authority":"Mitchill, 1814","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":126441,"valid_name":"Pollachius
+        virens","valid_authority":"(Linnaeus, 1758)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus purpureus Mitchill, 1814.
+        Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300777
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300777","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300778,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300778","scientificname":"Gadus
+        pygmaeus","authority":"Pallas, 1814","status":"unaccepted","unacceptreason":"synonym","taxonRankID":220,"rank":"Species","valid_AphiaID":254538,"valid_name":"Gadus
+        macrocephalus","valid_authority":"Tilesius, 1810","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus pygmaeus Pallas, 1814. Accessed
+        through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300778
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300778","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2017-08-17T13:35:34.540Z"},{"AphiaID":300779,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300779","scientificname":"Gadus
+        raninus","authority":"(Linnaeus, 1758)","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":126442,"valid_name":"Raniceps
+        raninus","valid_authority":"(Linnaeus, 1758)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus raninus (Linnaeus, 1758).
+        Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300779
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300779","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300780,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300780","scientificname":"Gadus
+        raptor","authority":"Nilsson, 1832","status":"unaccepted","unacceptreason":"synonym","taxonRankID":220,"rank":"Species","valid_AphiaID":126461,"valid_name":"Molva
+        molva","valid_authority":"(Linnaeus, 1758)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus raptor Nilsson, 1832. Accessed
+        through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300780
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300780","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2017-08-17T13:35:34.540Z"},{"AphiaID":300781,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300781","scientificname":"Gadus
+        rhacinus","authority":"Forster, 1801","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":281403,"valid_name":"Lotella
+        rhacina","valid_authority":"(Forster, 1801)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus rhacinus Forster, 1801.
+        Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300781
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300781","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":400583,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=400583","scientificname":"Gadus
+        ruber","authority":"Lacep\u00e8de, 1803","status":"unaccepted","unacceptreason":"synonym","taxonRankID":220,"rank":"Species","valid_AphiaID":126436,"valid_name":"Gadus
+        morhua","valid_authority":"Linnaeus, 1758","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus ruber Lacep\u00e8de, 1803.
+        Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=400583
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:400583","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2009-06-15T12:24:27.480Z"},{"AphiaID":400613,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=400613","scientificname":"Gadus
+        ruber","authority":"Lacep\u00e8de, 1803","status":"unaccepted","unacceptreason":"synonym","taxonRankID":220,"rank":"Species","valid_AphiaID":126484,"valid_name":"Merluccius
+        merluccius","valid_authority":"(Linnaeus, 1758)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus ruber Lacep\u00e8de, 1803.
+        Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=400613
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:400613","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2009-06-15T12:24:27.480Z"},{"AphiaID":300782,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300782","scientificname":"Gadus
+        rupestris","authority":"Mitchill, 1815","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":126436,"valid_name":"Gadus
+        morhua","valid_authority":"Linnaeus, 1758","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus rupestris Mitchill, 1815.
+        Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300782
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300782","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":154823,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=154823","scientificname":"Gadus
+        saida","authority":"Lepechin, 1774","status":"unaccepted","unacceptreason":"basionym","taxonRankID":220,"rank":"Species","valid_AphiaID":126433,"valid_name":"Boreogadus
+        saida","valid_authority":"(Lepechin, 1774)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus saida Lepechin, 1774. Accessed
+        through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=154823
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:154823","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300783,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300783","scientificname":"Gadus
+        sey","authority":"Lacep\u00e8de, 1800","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":126441,"valid_name":"Pollachius
+        virens","valid_authority":"(Linnaeus, 1758)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus sey Lacep\u00e8de, 1800.
+        Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300783
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300783","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300784,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300784","scientificname":"Gadus
+        tacaud","authority":"Lacep\u00e8de, 1800","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":126446,"valid_name":"Trisopterus
+        minutus","valid_authority":"(Linnaeus, 1758)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus tacaud Lacep\u00e8de, 1800.
+        Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300784
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300784","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300785,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300785","scientificname":"Gadus
+        tau","authority":"Linnaeus, 1766","status":"unaccepted","unacceptreason":"synonym","taxonRankID":220,"rank":"Species","valid_AphiaID":158782,"valid_name":"Opsanus
+        tau","valid_authority":"(Linnaeus, 1766)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus tau Linnaeus, 1766. Accessed
+        through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300785
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300785","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2019-10-30T08:37:28.023Z"},{"AphiaID":300786,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300786","scientificname":"Gadus
+        tenuis","authority":"Mitchill, 1814","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":126504,"valid_name":"Urophycis
+        tenuis","valid_authority":"(Mitchill, 1814)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus tenuis Mitchill, 1814. Accessed
+        through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300786
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300786","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300787,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300787","scientificname":"Gadus
+        tomcod","authority":"Walbaum, 1792","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":158928,"valid_name":"Microgadus
+        tomcod","valid_authority":"(Walbaum, 1792)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus tomcod Walbaum, 1792. Accessed
+        through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300787
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300787","isMarine":1,"isBrackish":1,"isFreshwater":1,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300788,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300788","scientificname":"Gadus
+        torsk","authority":"Bonnaterre, 1788","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":126447,"valid_name":"Brosme
+        brosme","valid_authority":"(Ascanius, 1772)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus torsk Bonnaterre, 1788.
+        Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300788
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300788","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300789,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300789","scientificname":"Gadus
+        tricirratus","authority":"Br\u00fcnnich, 1768","status":"unaccepted","unacceptreason":"synonym","taxonRankID":220,"rank":"Species","valid_AphiaID":126457,"valid_name":"Gaidropsarus
+        mediterraneus","valid_authority":"(Linnaeus, 1758)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus tricirratus Br\u00fcnnich,
+        1768. Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300789
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300789","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2019-10-30T08:37:28.023Z"},{"AphiaID":300790,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300790","scientificname":"Gadus
+        trifurcus","authority":"Walbaum, 1792","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":126442,"valid_name":"Raniceps
+        raninus","valid_authority":"(Linnaeus, 1758)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus trifurcus Walbaum, 1792.
+        Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300790
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300790","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300791,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300791","scientificname":"Gadus
+        vertagus","authority":"Walbaum, 1792","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":126436,"valid_name":"Gadus
+        morhua","valid_authority":"Linnaeus, 1758","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus vertagus Walbaum, 1792.
+        Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300791
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300791","isMarine":1,"isBrackish":1,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300792,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300792","scientificname":"Gadus
+        virens","authority":"Linnaeus, 1758","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":126441,"valid_name":"Pollachius
+        virens","valid_authority":"(Linnaeus, 1758)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus virens Linnaeus, 1758. Accessed
+        through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300792
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300792","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300793,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300793","scientificname":"Gadus
+        viridis","authority":"Gronow, 1854","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":126440,"valid_name":"Pollachius
+        pollachius","valid_authority":"(Linnaeus, 1758)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus viridis Gronow, 1854. Accessed
+        through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300793
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300793","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"},{"AphiaID":300794,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300794","scientificname":"Gadus
+        wachna","authority":"Pallas, 1814","status":"unaccepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":254537,"valid_name":"Eleginus
+        gracilis","valid_authority":"(Tilesius, 1810)","parentNameUsageID":125732,"kingdom":"Animalia","phylum":"Chordata","class":"Actinopterygii","order":"Gadiformes","family":"Gadidae","genus":"Gadus","citation":"Froese,
+        R. and D. Pauly. Editors. (2020). FishBase. Gadus wachna Pallas, 1814. Accessed
+        through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300794
+        on 2020-10-20","lsid":"urn:lsid:marinespecies.org:taxname:300794","isMarine":1,"isBrackish":1,"isFreshwater":1,"isTerrestrial":null,"isExtinct":null,"match_type":"exact","modified":"2008-02-28T13:41:07.550Z"}]'
+  recorded_at: 2020-10-20 19:46:54 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0

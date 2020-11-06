@@ -1,16 +1,9 @@
 context("test-key_helpers")
 
-test_that("use_iucn produces expected URL and message", {
-  expect_equal(use_iucn(), "http://apiv3.iucnredlist.org/api/v3/token")
-  expect_message(use_iucn(), "After getting your key set")
-})
-
-
 test_that("use_tropicos produces expected URL and message", {
   expect_equal(use_tropicos(), "http://services.tropicos.org/help?requestkey")
   expect_message(use_tropicos(), "After getting your key set")
 })
-
 
 test_that("use_eol is defunct", {
   expect_error(use_eol())

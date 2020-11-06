@@ -1,7 +1,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/Panthera%20uncia?token=<<rredlist_api_token>>
+    uri: https://apiv3.iucnredlist.org/api/v3/species/Panthera%20uncia?token=<<rredlist_api_token>>
     body:
       encoding: ''
       string: ''
@@ -34,7 +34,7 @@ http_interactions:
   recorded_with: vcr/0.5.4, webmockr/0.6.2.91
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/Lynx%20lynx?token=<<rredlist_api_token>>
+    uri: https://apiv3.iucnredlist.org/api/v3/species/Lynx%20lynx?token=<<rredlist_api_token>>
     body:
       encoding: ''
       string: ''
@@ -67,7 +67,7 @@ http_interactions:
   recorded_with: vcr/0.5.4, webmockr/0.6.2.91
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/id/22732?token=<<rredlist_api_token>>
+    uri: https://apiv3.iucnredlist.org/api/v3/species/id/22732?token=<<rredlist_api_token>>
     body:
       encoding: ''
       string: ''
@@ -100,7 +100,7 @@ http_interactions:
   recorded_with: vcr/0.5.4, webmockr/0.6.2.91
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/history/id/22732?token=<<rredlist_api_token>>
+    uri: https://apiv3.iucnredlist.org/api/v3/species/history/id/22732?token=<<rredlist_api_token>>
     body:
       encoding: ''
       string: ''
@@ -133,7 +133,7 @@ http_interactions:
   recorded_with: vcr/0.5.4, webmockr/0.6.2.91
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/countries/id/22732?token=<<rredlist_api_token>>
+    uri: https://apiv3.iucnredlist.org/api/v3/species/countries/id/22732?token=<<rredlist_api_token>>
     body:
       encoding: ''
       string: ''
@@ -167,7 +167,7 @@ http_interactions:
   recorded_with: vcr/0.5.4, webmockr/0.6.2.91
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/id/12519?token=<<rredlist_api_token>>
+    uri: https://apiv3.iucnredlist.org/api/v3/species/id/12519?token=<<rredlist_api_token>>
     body:
       encoding: ''
       string: ''
@@ -200,7 +200,7 @@ http_interactions:
   recorded_with: vcr/0.5.4, webmockr/0.6.2.91
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/history/id/12519?token=<<rredlist_api_token>>
+    uri: https://apiv3.iucnredlist.org/api/v3/species/history/id/12519?token=<<rredlist_api_token>>
     body:
       encoding: ''
       string: ''
@@ -233,7 +233,7 @@ http_interactions:
   recorded_with: vcr/0.5.4, webmockr/0.6.2.91
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/countries/id/12519?token=<<rredlist_api_token>>
+    uri: https://apiv3.iucnredlist.org/api/v3/species/countries/id/12519?token=<<rredlist_api_token>>
     body:
       encoding: ''
       string: ''
