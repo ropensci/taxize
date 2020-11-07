@@ -3,7 +3,7 @@
 \name{apni}
 \alias{apni}
 \alias{apni_search}
-\alias{apni_sugggest}
+\alias{apni_suggest}
 \alias{apni_classification}
 \alias{apni_children}
 \alias{apni_family}
@@ -12,7 +12,7 @@
 \usage{
 apni_search(q, ...)
 
-apni_sugggest(q, ...)
+apni_suggest(q, ...)
 
 apni_classification(id, ...)
 

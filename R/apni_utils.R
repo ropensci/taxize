@@ -53,7 +53,7 @@ apni_search <- function(q, ...) {
 
 #' @export
 #' @rdname apni
-apni_sugggest <- function(q, ...) {
+apni_suggest <- function(q, ...) {
   assert(q, "character")
   z <- apni_GET(file.path(apni_base(), "nsl/services/api/name/taxon-search"),
     list(q = q, tree = "APC"), ...)
