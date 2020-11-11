@@ -63,5 +63,5 @@ get_url_templates <- list(
   nbn = "https://species.nbnatlas.org/species/%s",
   natserv = "https://explorer.natureserve.org/Taxon/ELEMENT_GLOBAL.2.%s",
   iucn = iucn_base_url,
-  apni = ""
+  apni = "https://id.biodiversity.org.au/name/apni/%s"
 )

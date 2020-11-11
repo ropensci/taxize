@@ -4,6 +4,7 @@
 \alias{get_apni}
 \alias{as.apni}
 \alias{as.apni.apni}
+\alias{as.apni.numeric}
 \alias{as.apni.character}
 \alias{as.apni.list}
 \alias{as.apni.data.frame}
@@ -11,20 +12,13 @@
 \alias{get_apni_}
 \title{Get Australian Plant Names Index identifier for a taxon}
 \usage{
-get_apni(
-  x,
-  accepted = FALSE,
-  ask = TRUE,
-  messages = TRUE,
-  rows = NA,
-  family_filter = NULL,
-  rank_filter = NULL,
-  ...
-)
+get_apni(sci, ask = TRUE, messages = TRUE, rows = NA, rank_filter = NULL, ...)
 
 as.apni(x, check = TRUE)
 
 \method{as.apni}{apni}(x, check = TRUE)
+
+\method{as.apni}{numeric}(x, check = TRUE)
 
 \method{as.apni}{character}(x, check = TRUE)
 
@@ -37,16 +31,12 @@ as.apni(x, check = TRUE)
 get_apni_(x, messages = TRUE, rows = NA, ...)
 }
 \arguments{
-\item{x}{character; A vector of common or scientific names. Or, a
+\item{sci}{character; A vector of scientific names. Or, a
 \code{taxon_state} object (see \link{taxon-state})}
 
-\item{accepted}{logical; If TRUE, removes names that are not accepted
-valid names by ITIS. Set to \code{FALSE} (default) to give back both
-accepted and unaccepted names.}
-
 \item{ask}{logical; should \code{get_apni} be run in interactive mode?
-If TRUE and more than one pow is found for teh species, the user is
-asked for input. If FALSE NA is returned for multiple matches.}
+If \code{TRUE} and more than one pow is found for teh species, the user is
+asked for input. If \code{FALSE} NA is returned for multiple matches.}
 
 \item{messages}{logical; should progress be printed?}
 
@@ -56,15 +46,14 @@ a pow class object with one to many identifiers. See
 \code{\link[=get_apni_]{get_apni_()}} to get back all, or a subset,
 of the raw data that you are presented during the ask process.}
 
-\item{family_filter}{(character) A division (aka phylum) name to filter
-data after retrieved from NCBI. Optional. See \code{Filtering} below.}
-
 \item{rank_filter}{(character) A taxonomic rank name to filter data after
-retrieved from NCBI. See \code{\link[=rank_ref]{rank_ref()}} for possible options.
+retrieved from APNI. See \code{\link[=rank_ref]{rank_ref()}} for possible options.
 Though note that some data sources use atypical ranks, so inspect the data
 itself for options. Optional. See \code{Filtering} below.}
 
-\item{...}{Curl options passed on to \link[crul:HttpClient]{crul::HttpClient}}
+\item{...}{Curl options passed on to \link[crul:verb-GET]{crul::verb-GET}}
+
+\item{x}{Input to \code{\link[=as.apni]{as.apni()}}}
 
 \item{check}{logical; Check if ID matches any existing on the DB, only
 used in \code{\link[=as.apni]{as.apni()}}}
@@ -85,48 +74,53 @@ Get Australian Plant Names Index identifier for a taxon
 }
 \section{Filtering}{
 
-The parameters \code{family_filter} an\code{rank_filter}er are not
-used in the search to the data provider, but are used in filtering the data down to a
-subset that is closer to the target you want.  For these two parameters,
+The parameter \code{rank_filter} is not used in the search to the data
+provider, but is used in filtering the data down to a subset that is
+closer to the target you want.  For these two parameters,
 you can use regex strings since we use \code{\link[=grep]{grep()}} internally to match.
-Filtering narrows down to the set that matches your query, and removes the rest.
+Filtering narrows down to the set that matches your query, and removes
+the rest.
+}
+
+\section{Pagination}{
+
+APNI does not allow pagination. It appears that 100 is the max number
+of results that can be returned. That is, if there's more than 100
+results \emph{found}, you can only get 100, and no more. So the only
+way around it is to refine/change your query.
 }
 
 \examples{
 \dontrun{
-get_apni(x = "Acacia")
-get_apni(c("Acacia","Poa"))
+get_apni("Pinus")
+get_apni("Acacia ab")
+get_apni(c("Acacia","Pinus"))
 
 # Get back a subset
-get_apni(x="Acacia", rows = 1)
-get_apni(x="Acacia", rows = 1:10)
+get_apni("Acacia a", rows = 1)
+get_apni("Acacia a", rows = 1:10)
 
 # When not found
 get_apni("howdy")
 get_apni(c("Acacia acicularis", "howdy"))
 
 # Narrow down results 
-# to accepted names
-get_apni("Acacia", accepted = TRUE)
-# to a kingom 
-get_apni("Acacia", rank_filter = "genus")
-# to accepted names and rank
-get_apni("Acacia acicularis", accepted = TRUE, rank_filter = "species")
-# to a family
-get_apni("flower", family_filter = "Acanthaceae")
+# to a rank
+get_apni("Acacia a", rank_filter = "species", rows = 1:10)
 
 # Convert a apni without class information to a apni class
-z <- get_apni("Acacia acicularis", accepted = TRUE, rank_filter = "species")
+z <- get_apni("Acacia abbreviata")
 # already a apni, returns the same
 as.apni(z)
-as.apni("urn:lsid:ipni.org:names:119003-2")
+as.apni(57932)
+as.apni("57932")
 # character vector, length > 1
-ids <- c("urn:lsid:ipni.org:names:119003-2","urn:lsid:ipni.org:names:328247-2")
+ids <- c("57932","57943")
 as.apni(ids)
 # list, with character strings
 as.apni(as.list(ids)) 
 ## dont check, much faster
-as.apni("urn:lsid:ipni.org:names:119003-2", check=FALSE)
+as.apni("57932", check=FALSE)
 as.apni(ids, check=FALSE)
 as.apni(as.list(ids), check=FALSE)
 
@@ -135,6 +129,8 @@ data.frame(out)
 as.apni( data.frame(out) )
 
 # Get all data back
+get_apni_("Quercus")
+get_apni_("Acacia")
 get_apni_("Quercus", rows=1:5)
 get_apni_("Quercus", rows=1)
 get_apni_(c("Pinus", "Abies"), rows = 1:3)
@@ -144,7 +140,11 @@ get_apni_(c("Pinus", "Abies"), rows = 1:3)
 \code{\link[=classification]{classification()}}
 
 Other apni: 
-\code{\link{apni}}
+\code{\link{apni-search}},
+\code{\link{apni_children}()},
+\code{\link{apni_classification}()},
+\code{\link{apni_family}()},
+\code{\link{apni_id}()}
 
 Other taxonomic-ids: 
 \code{\link{get_boldid}()},

@@ -8,6 +8,7 @@
 \alias{children.ids}
 \alias{children.uid}
 \alias{children.boldid}
+\alias{children.apni}
 \title{Retrieve immediate children taxa for a given taxon name or ID.}
 \usage{
 children(...)
@@ -23,6 +24,8 @@ children(...)
 \method{children}{uid}(sci_id, db = NULL, ...)
 
 \method{children}{boldid}(sci_id, db = NULL, ...)
+
+\method{children}{apni}(sci_id, db = NULL, ...)
 }
 \arguments{
 \item{...}{Further args passed on to \code{\link[ritis:hierarchy]{ritis::hierarchy_down()}},
@@ -79,12 +82,14 @@ children(8028, db = "ncbi")
 children(161994, db = "itis")
 children(88899, db = "bold")
 children(as.boldid(88899))
+children(2902806, db = "apni")
 
 # Plug in taxon names
 children("Salmo", db = 'itis')
 children("Salmo", db = 'ncbi')
 children("Salmo", db = 'worms')
 children("Salmo", db = 'bold')
+children("Quercus", db = 'apni')
 
 # Plug in IDs
 (id <- get_wormsid("Gadus"))

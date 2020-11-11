@@ -115,7 +115,8 @@ filt <- function(df, rank, z) {
     df
   } else {
     if (!is.null(z)) {
-      mtch <- grep(sprintf("^%s$", tolower(z)), tolower(df[,rank]))
+      tdf <- data.frame(df)
+      mtch <- grep(sprintf("^%s$", tolower(z)), tolower(as.character(tdf[,rank])))
       if (length(mtch) != 0) {
         df[mtch, ]
       } else {

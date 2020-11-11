@@ -44,12 +44,14 @@
 #' children(161994, db = "itis")
 #' children(88899, db = "bold")
 #' children(as.boldid(88899))
+#' children(2902806, db = "apni")
 #'
 #' # Plug in taxon names
 #' children("Salmo", db = 'itis')
 #' children("Salmo", db = 'ncbi')
 #' children("Salmo", db = 'worms')
 #' children("Salmo", db = 'bold')
+#' children("Quercus", db = 'apni')
 #'
 #' # Plug in IDs
 #' (id <- get_wormsid("Gadus"))
@@ -112,6 +114,12 @@ children.default <- function(sci_id, db = NULL, rows = NA, x = NULL, ...) {
       stats::setNames(children(id, ...), sci_id)
     },
 
+    apni = {
+      id <- process_children_ids(as.character(sci_id), db, get_apni,
+        rows = rows, ...)
+      stats::setNames(children(id, ...), sci_id)
+    },
+
     stop("the provided db value was not recognised", call. = FALSE)
   )
 
@@ -127,7 +135,7 @@ itis_blank <- data.frame(
   tsn        = character(0),
   stringsAsFactors = FALSE
 )
-worms_blank <- ncbi_blank <- bold_blank <-
+worms_blank <- ncbi_blank <- bold_blank <- apni_blank <-
   data.frame(
     childtaxa_id     = character(0),
     childtaxa_name   = character(0),
@@ -141,7 +149,8 @@ set_output_types <- function(x, x_names, db){
     itis  = function(w) if (nrow(w) == 0 || all(is.na(w))) itis_blank else w,
     ncbi  = function(w) if (nrow(w) == 0 || all(is.na(w))) ncbi_blank else w,
     worms = function(w) if (nrow(w) == 0 || all(is.na(w))) worms_blank else w,
-    bold = function(w) if (nrow(w) == 0 || all(is.na(w))) bold_blank else w
+    bold = function(w) if (nrow(w) == 0 || all(is.na(w))) bold_blank else w,
+    apni = function(w) if (nrow(w) == 0 || all(is.na(w))) apni_blank else w
   )
 
   typed_results <- lapply(seq_along(x), function(i) blank_fun(x[[i]]))
@@ -154,7 +163,8 @@ process_children_ids <- function(input, db, fxn, ...){
   g <- tryCatch(as.numeric(as.character(input)), warning = function(e) e)
   if (inherits(g, "condition")) return(eval(fxn)(input, ...))
   if (is.numeric(g) || is.character(input) && all(grepl("[[:digit:]]", input))) {
-    as_fxn <- switch(db, itis = as.tsn, worms = as.wormsid, bold = as.boldid)
+    as_fxn <- switch(db, itis = as.tsn, worms = as.wormsid, bold = as.boldid,
+      apni = as.apni)
     as_fxn(input, check = FALSE)
   } else {
     eval(fxn)(input, ...)
@@ -254,5 +264,21 @@ children.boldid <- function(sci_id, db = NULL, ...) {
   }
   class(out) <- 'children'
   attr(out, 'db') <- 'bold'
+  return(out)
+}
+
+#' @export
+#' @rdname children
+children.apni <- function(sci_id, db = NULL, ...) {
+  warn_db(list(db = db), "apni")
+  out <- if (is.na(sci_id)) {
+    stats::setNames(list(apni_blank), sci_id)
+  } else {
+    tmp <- apni_children(as.numeric(sci_id), ...)[[1]]$children
+    stats::setNames(list(tmp[,c("id", "name", "authority", "link_name")]),
+      as.character(sci_id))
+  }
+  class(out) <- 'children'
+  attr(out, 'db') <- 'apni'
   return(out)
 }
