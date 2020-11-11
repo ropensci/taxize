@@ -15,6 +15,7 @@
 \alias{classification.boldid}
 \alias{classification.wiki}
 \alias{classification.pow}
+\alias{classification.apni}
 \alias{classification.ids}
 \alias{cbind.classification}
 \alias{rbind.classification}
@@ -65,6 +66,8 @@ classification(...)
 
 \method{classification}{pow}(id, callopts = list(), return_id = TRUE, ...)
 
+\method{classification}{apni}(id, callopts = list(), return_id = TRUE, ...)
+
 \method{classification}{ids}(id, ...)
 
 \method{cbind}{classification}(...)
@@ -79,15 +82,16 @@ classification(...)
 \item{...}{For \code{classification}: other arguments passed to \code{\link[=get_tsn]{get_tsn()}},
 \code{\link[=get_uid]{get_uid()}}, \code{\link[=get_eolid]{get_eolid()}}, \code{\link[=get_tpsid]{get_tpsid()}}, \code{\link[=get_gbifid]{get_gbifid()}},
 \code{\link[=get_wormsid]{get_wormsid()}}, \code{\link[=get_natservid]{get_natservid()}}, \code{\link[=get_wormsid]{get_wormsid()}}, \code{\link[=get_wiki]{get_wiki()}},
-\code{\link[=get_pow]{get_pow()}}. For \code{rbind.classification} and \code{cbind.classification}: one or
-more objects of class \code{classification}}
+\code{\link[=get_pow]{get_pow()}}, \code{\link[=get_apni]{get_apni()}}. For \code{rbind.classification} and
+\code{cbind.classification}: one or more objects of class \code{classification}}
 
 \item{sci_id}{Vector of taxa names (character) or IDs (character or numeric)
 to query. For \code{db = "eol"}, EOL expects you to pass it a taxon id, called
 \code{eolid} in the output of \code{\link[=get_eolid]{get_eolid()}}.}
 
 \item{db}{character; database to query. either \code{ncbi}, \code{itis}, \code{eol},
-\code{tropicos}, \code{gbif}, \code{nbn}, \code{worms}, \code{natserv}, \code{bold}, \code{wiki}, or \code{pow}.
+\code{tropicos}, \code{gbif}, \code{nbn}, \code{worms}, \code{natserv}, \code{bold}, \code{wiki}, \code{pow},
+or \code{apni}.
 Note that each taxonomic data source has, their own identifiers, so that
 if you provide the wrong \code{db} value for the identifier you could get a
 result, but it will likely be wrong (not what you were expecting). If using
@@ -110,7 +114,7 @@ in a taxonomic id instead of a name of class character.}
 \item{id}{character; identifiers, returned by \code{\link[=get_tsn]{get_tsn()}}, \code{\link[=get_uid]{get_uid()}},
 \code{\link[=get_eolid]{get_eolid()}}, \code{\link[=get_tpsid]{get_tpsid()}}, \code{\link[=get_gbifid]{get_gbifid()}}, \code{\link[=get_tolid]{get_tolid()}},
 \code{\link[=get_wormsid]{get_wormsid()}}, \code{\link[=get_natservid]{get_natservid()}}, \code{\link[=get_wormsid]{get_wormsid()}}, \code{\link[=get_wiki]{get_wiki()}},
-\code{\link[=get_pow]{get_pow()}}}
+\code{\link[=get_pow]{get_pow()}}, \code{\link[=get_apni]{get_apni()}}}
 
 \item{batch_size}{(numeric) For NCBI queries, specify the number of IDs to
 lookup for each query.}
@@ -187,6 +191,7 @@ classification(25509881, db = 'tropicos')
 classification("NBNSYS0000004786", db = 'nbn')
 classification(as.nbnid("NBNSYS0000004786"), db = 'nbn')
 classification(3930798, db = 'tol')
+classification(61294, db = "apni")
 
 ## works the same if IDs are in class character
 classification(c("2704179", "2441176"), db = 'gbif')
@@ -199,7 +204,6 @@ classification("Pinus contorta", db = "wiki", wiki_site = "commons")
 classification("Pinus contorta", db = "wiki", wiki_site = "pedia")
 classification("Pinus contorta", db = "wiki", wiki_site = "pedia",
   wiki = "fr")
-
 classification(get_wiki("Malus domestica", "commons"))
 classification(get_wiki("Malus domestica", "species"))
 classification(c("Pinus contorta", "Malus domestica"), db = "wiki")
@@ -223,6 +227,7 @@ classification('Aquila chrysaetos', db = 'natserv')
 classification(c("Chironomus riparius", "asdfasdfsfdfsd"), db = 'gbif')
 classification("Chironomus", db = 'tol')
 classification("Poa annua", db = 'tropicos')
+classification("Acacia dealbata", db = "apni")
 
 # Use methods for get_uid, get_tsn, get_eolid, get_tpsid
 classification(get_uid(c("Chironomus riparius", "Puma concolor")))
@@ -320,5 +325,5 @@ result <- classification(ids, db = 'ncbi')
 \seealso{
 \code{\link[=get_tsn]{get_tsn()}}, \code{\link[=get_uid]{get_uid()}}, \code{\link[=get_eolid]{get_eolid()}},
 \code{\link[=get_tpsid]{get_tpsid()}}, \code{\link[=get_gbifid]{get_gbifid()}}, \code{\link[=get_wormsid]{get_wormsid()}}, \code{\link[=get_natservid]{get_natservid()}},
-\code{\link[=get_boldid]{get_boldid()}}, \code{\link[=get_wiki]{get_wiki()}}, \code{\link[=get_pow]{get_pow()}}
+\code{\link[=get_boldid]{get_boldid()}}, \code{\link[=get_wiki]{get_wiki()}}, \code{\link[=get_pow]{get_pow()}}, \code{\link[=get_apni]{get_apni()}}
 }

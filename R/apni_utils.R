@@ -114,15 +114,18 @@ apni_classification <- function(id, ...) {
   lapply(id, apni_classification1, ...)
 }
 apni_classification1 <- function(id, ...) {
-  x <- apni_GET(file.path(apni_base(TRUE),
-    sprintf("name/apni/%s/api/branch", id)), args = list(), ...)
+  x <- apni_GET(file.path(apni_base(),
+    sprintf("nsl/services/rest/name/apni/%s/api/branch", id)), args = list(), ...)
+          #  nsl/services/rest/name/apni/61294/api/branch
   txt <- x$parse("UTF-8")
   json <- jsonlite::fromJSON(txt, FALSE)
   bb <- json$branch
   branch <- dt2tibble(lapply(bb, function(z) {
     list(
-      name = z$fullName,
+      name = z$simpleName,
       rank = z$rank$name,
+      id = basename(
+        Filter(function(w) w$preferred, z$`_links`$permalinks)[[1]]$link),
       rank_order = z$rank$sortOrder,
       type = z$type,
       status = z$status,
@@ -146,10 +149,12 @@ apni_classification1 <- function(id, ...) {
 #' @references https://biodiversity.org.au/nsl/docs/main.html
 #' @family apni
 #' @examples \dontrun{
-#' x <- apni_children(id = 2902806)
-#' x
-#' x$children
-#' x$children$id
+#' x <- apni_children(id = 56859)
+#' x[[1]]
+#' x[[1]]$name
+#' x[[1]]$link
+#' x[[1]]$children
+#' x[[1]]$children$id
 #' }
 apni_children <- function(id, ...) {
   assert(id, c('numeric', 'integer'))
@@ -157,11 +162,12 @@ apni_children <- function(id, ...) {
 }
 apni_children1 <- function(id, ...) {
   x <- apni_GET(file.path(apni_base(),
-    sprintf("nsl/services/rest/taxon/apni/%s.json", id)),
+    sprintf("nsl/services/rest/name/apni/%s/api/apc.json", id)),
     args = list(), ...)
-  txt <- x$parse("UTF-8")
-  json <- jsonlite::fromJSON(txt, FALSE)
-  childs <- json$treeElement$children
+  json <- jsonlite::fromJSON(x$parse("UTF-8"), FALSE)
+  z <- apni_GET(json$taxonId, list(), ...)
+  jsn <- jsonlite::fromJSON(z$parse("UTF-8"), FALSE)
+  childs <- jsn$treeElement$children
   children <- dt2tibble(lapply(childs, function(z) {
     html <- xml2::read_html(z$displayHtml)
     name <- xml2::xml_text(xml2::xml_find_all(html, "//scientific//element"))
@@ -178,10 +184,10 @@ apni_children1 <- function(id, ...) {
     )
   }))
   # drop self
-  children <- children[children$name != json$treeElement$simpleName,]
+  children <- children[children$name != jsn$treeElement$simpleName,]
   list(
-    name = json$treeElement$simpleName,
-    link = json$treeElement$`_links`$elementLink,
+    name = jsn$treeElement$simpleName,
+    link = jsn$treeElement$`_links`$elementLink,
     children = children
   )
 }

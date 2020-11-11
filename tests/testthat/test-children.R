@@ -168,3 +168,24 @@ test_that("works with worms, passing through marine_only", {
   expect_is(b, 'children')
   expect_gt(NROW(b[[1]]), NROW(a[[1]]))
 })
+
+test_that("works with source apni", {
+  skip_on_cran()
+  vcr::use_cassette("children_apni", {
+    x_id <- children(71130, db = "apni", messages = FALSE)
+    x_from_get <- children(get_boldid("Pinus", messages = FALSE))
+  })
+
+  expect_named(x_id, '71130')
+  expect_named(x_from_get, 'species')
+
+  expect_is(x_id, "children")
+  expect_is(x_id[[1]], "data.frame")
+  expect_is(x_id[[1]]$name, "character")
+  expect_match(x_id[[1]]$name, "Pinus")
+
+  expect_is(x_from_get, "children")
+  expect_is(x_from_get[[1]], "data.frame")
+  expect_is(x_from_get[[1]]$name, "character")
+  expect_match(x_from_get[[1]]$name, "Pinus")
+})

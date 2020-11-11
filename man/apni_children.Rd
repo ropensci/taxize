@@ -20,10 +20,12 @@ Australian Plant Names Index children
 }
 \examples{
 \dontrun{
-x <- apni_children(id = 2902806)
-x
-x$children
-x$children$id
+x <- apni_children(id = 56859)
+x[[1]]
+x[[1]]$name
+x[[1]]$link
+x[[1]]$children
+x[[1]]$children$id
 }
 }
 \references{

@@ -191,3 +191,23 @@ test_that("ncbi classification - taxon merged", {
   # input id is different from id returned
   expect_false(identical("668400", a[[1]]$id[NROW(a[[1]])]))
 })
+
+test_that("works with source apni", {
+  skip_on_cran()
+  vcr::use_cassette("classification_apni", {
+    x_id <- classification(61294, db = "apni", messages = FALSE)
+    x_from_get <- classification("Acacia dealbata", db = "apni",
+      messages = FALSE)
+  })
+
+  expect_named(x_id, '61294')
+  expect_named(x_from_get, 'Acacia dealbata')
+
+  expect_is(x_id, "classification")
+  expect_is(x_id[[1]], "data.frame")
+  expect_is(x_id[[1]]$name, "character")
+
+  expect_is(x_from_get, "classification")
+  expect_is(x_from_get[[1]], "data.frame")
+  expect_is(x_from_get[[1]]$name, "character")
+})

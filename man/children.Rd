@@ -29,14 +29,15 @@ children(...)
 }
 \arguments{
 \item{...}{Further args passed on to \code{\link[ritis:hierarchy]{ritis::hierarchy_down()}},
-\code{\link[=ncbi_children]{ncbi_children()}}, \code{\link[worrms:wm_children]{worrms::wm_children()}}, \code{\link[=bold_children]{bold_children()}}
-See those functions for what parameters can be passed on.}
+\code{\link[=ncbi_children]{ncbi_children()}}, \code{\link[worrms:wm_children]{worrms::wm_children()}}, \code{\link[=bold_children]{bold_children()}},
+\code{\link[=apni_children]{apni_children()}}. See those functions for what parameters can be
+passed on.}
 
 \item{sci_id}{Vector of taxa names (character) or IDs (character or numeric)
 to query.}
 
 \item{db}{character; database to query. One or more of \code{itis},
-\code{ncbi}, \code{worms}, or \code{bold}. Note that each taxonomic data
+\code{ncbi}, \code{worms}, \code{bold}, or \code{apni}. Note that each taxonomic data
 source has their own identifiers, so that if you provide the wrong
 \code{db} value for the identifier you could get a result, but it will
 likely be wrong (not what you were expecting). If using ncbi, we recommend
@@ -82,14 +83,14 @@ children(8028, db = "ncbi")
 children(161994, db = "itis")
 children(88899, db = "bold")
 children(as.boldid(88899))
-children(2902806, db = "apni")
+children(71130, db = "apni")
 
 # Plug in taxon names
 children("Salmo", db = 'itis')
 children("Salmo", db = 'ncbi')
 children("Salmo", db = 'worms')
 children("Salmo", db = 'bold')
-children("Quercus", db = 'apni')
+children("Pinus", db = 'apni')
 
 # Plug in IDs
 (id <- get_wormsid("Gadus"))

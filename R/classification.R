@@ -5,7 +5,8 @@
 #' to query. For `db = "eol"`, EOL expects you to pass it a taxon id, called
 #' `eolid` in the output of [get_eolid()]. 
 #' @param db character; database to query. either `ncbi`, `itis`, `eol`,
-#' `tropicos`, `gbif`, `nbn`, `worms`, `natserv`, `bold`, `wiki`, or `pow`.
+#' `tropicos`, `gbif`, `nbn`, `worms`, `natserv`, `bold`, `wiki`, `pow`,
+#' or `apni`.
 #' Note that each taxonomic data source has, their own identifiers, so that
 #' if you provide the wrong `db` value for the identifier you could get a
 #' result, but it will likely be wrong (not what you were expecting). If using
@@ -14,13 +15,13 @@
 #' @param id character; identifiers, returned by [get_tsn()], [get_uid()],
 #' [get_eolid()], [get_tpsid()], [get_gbifid()], [get_tolid()],
 #' [get_wormsid()], [get_natservid()], [get_wormsid()], [get_wiki()],
-#' [get_pow()]
+#' [get_pow()], [get_apni()]
 #' @param callopts Curl options passed on to [crul::verb-GET]
 #' @param ... For `classification`: other arguments passed to [get_tsn()],
 #' [get_uid()], [get_eolid()], [get_tpsid()], [get_gbifid()],
 #' [get_wormsid()], [get_natservid()], [get_wormsid()], [get_wiki()],
-#' [get_pow()]. For `rbind.classification` and `cbind.classification`: one or
-#' more objects of class `classification`
+#' [get_pow()], [get_apni()]. For `rbind.classification` and
+#' `cbind.classification`: one or more objects of class `classification`
 #' @param return_id (logical) If `TRUE` (default), return the taxon id
 #' as well as the name and rank of taxa in the lineage returned.
 #' Ignored for natserv as they don't return IDs in their taxonomic
@@ -45,8 +46,8 @@
 #' This behavior is different from the other data sources.
 #'
 #' @seealso [get_tsn()], [get_uid()], [get_eolid()],
-#'    [get_tpsid()], [get_gbifid()], [get_wormsid()], [get_natservid()],
-#'    [get_boldid()], [get_wiki()], [get_pow()]
+#' [get_tpsid()], [get_gbifid()], [get_wormsid()], [get_natservid()],
+#' [get_boldid()], [get_wiki()], [get_pow()], [get_apni()]
 #'
 #' @section Lots of results:
 #' It may happen sometimes that you get more results back from your query
@@ -90,6 +91,7 @@
 #' classification("NBNSYS0000004786", db = 'nbn')
 #' classification(as.nbnid("NBNSYS0000004786"), db = 'nbn')
 #' classification(3930798, db = 'tol')
+#' classification(61294, db = "apni")
 #'
 #' ## works the same if IDs are in class character
 #' classification(c("2704179", "2441176"), db = 'gbif')
@@ -102,7 +104,6 @@
 #' classification("Pinus contorta", db = "wiki", wiki_site = "pedia")
 #' classification("Pinus contorta", db = "wiki", wiki_site = "pedia",
 #'   wiki = "fr")
-#'
 #' classification(get_wiki("Malus domestica", "commons"))
 #' classification(get_wiki("Malus domestica", "species"))
 #' classification(c("Pinus contorta", "Malus domestica"), db = "wiki")
@@ -126,6 +127,7 @@
 #' classification(c("Chironomus riparius", "asdfasdfsfdfsd"), db = 'gbif')
 #' classification("Chironomus", db = 'tol')
 #' classification("Poa annua", db = 'tropicos')
+#' classification("Acacia dealbata", db = "apni")
 #'
 #' # Use methods for get_uid, get_tsn, get_eolid, get_tpsid
 #' classification(get_uid(c("Chironomus riparius", "Puma concolor")))
@@ -290,6 +292,11 @@ classification.default <- function(sci_id, db = NULL, callopts = list(),
       stats::setNames(classification(id, callopts = callopts,
         return_id = return_id, ...), sci_id)
     },
+    apni = {
+      id <- process_ids(sci_id, db, get_apni, rows = rows, ...)
+      stats::setNames(classification(id, callopts = callopts,
+        return_id = return_id, ...), sci_id)
+    },
     stop("the provided db value was not recognised", call. = FALSE)
   )
 }
@@ -313,7 +320,8 @@ process_ids <- function(input, db, fxn, ...){
            natserv = as.natservid,
            bold = as.boldid,
            wiki = as.wiki,
-           pow = as.pow)
+           pow = as.pow,
+           apni = as.apni)
     as_fxn(input, check = FALSE)
   } else {
     eval(fxn)(input, ...)
@@ -772,6 +780,31 @@ classification.pow <- function(id, callopts = list(), return_id = TRUE, ...) {
   out <- lapply(id, fun, callopts = callopts)
   names(out) <- id
   structure(out, class = 'classification', db = 'pow')
+}
+
+#' @export
+#' @rdname classification
+classification.apni <- function(id, callopts = list(), return_id = TRUE, ...) {
+  warn_db(list(...), "apni")
+  fun <- function(x, callopts) {
+    if (is.na(x)) {
+      out <- NA
+    } else {
+      out <- tryCatch(apni_classification(as.numeric(x)), error = function(e) e)
+      if (inherits(out, "error")) {
+        NA
+      } else {
+        if (is.null(out)) return(NA)
+        tmp <- out[[1]]$hierarchy[,c('name', 'rank', 'id')]
+        df <- data.frame(name = tmp$name, rank = tolower(tmp$rank),
+          id = tmp$id, stringsAsFactors = FALSE)
+        return(df)
+      }
+    }
+  }
+  out <- lapply(id, fun, callopts = callopts)
+  names(out) <- id
+  structure(out, class = 'classification', db = 'apni')
 }
 
 # ---------

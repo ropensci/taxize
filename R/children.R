@@ -9,7 +9,7 @@
 #' @param sci_id Vector of taxa names (character) or IDs (character or numeric)
 #' to query.
 #' @param db character; database to query. One or more of `itis`,
-#' `ncbi`, `worms`, or `bold`. Note that each taxonomic data
+#' `ncbi`, `worms`, `bold`, or `apni`. Note that each taxonomic data
 #' source has their own identifiers, so that if you provide the wrong
 #' `db` value for the identifier you could get a result, but it will
 #' likely be wrong (not what you were expecting). If using ncbi, we recommend
@@ -20,8 +20,9 @@
 #' method for this function but rows doesn't work.
 #' @param x Deprecated, see `sci_id`
 #' @param ... Further args passed on to [ritis::hierarchy_down()],
-#' [ncbi_children()], [worrms::wm_children()], [bold_children()]
-#' See those functions for what parameters can be passed on.
+#' [ncbi_children()], [worrms::wm_children()], [bold_children()],
+#' [apni_children()]. See those functions for what parameters can be
+#' passed on.
 #'
 #' @section ncbi:
 #' note that with `db = "ncbi"`, we set `ambiguous = TRUE`; that is, children
@@ -44,14 +45,14 @@
 #' children(161994, db = "itis")
 #' children(88899, db = "bold")
 #' children(as.boldid(88899))
-#' children(2902806, db = "apni")
+#' children(71130, db = "apni")
 #'
 #' # Plug in taxon names
 #' children("Salmo", db = 'itis')
 #' children("Salmo", db = 'ncbi')
 #' children("Salmo", db = 'worms')
 #' children("Salmo", db = 'bold')
-#' children("Quercus", db = 'apni')
+#' children("Pinus", db = 'apni')
 #'
 #' # Plug in IDs
 #' (id <- get_wormsid("Gadus"))
