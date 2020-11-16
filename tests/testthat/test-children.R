@@ -78,7 +78,7 @@ test_that("rows parameter, when used, works", {
 test_that("expected results for no query match when using get_* fxns", {
   skip_on_cran() # uses secrets
   vcr::use_cassette("children_no_results_structure_ncbi_x", {
-    ncbi_x <- children(get_uid("23424234234", messages = FALSE))
+    ncbi_x <- children(get_ncbi("23424234234", messages = FALSE))
   })
 
   vcr::use_cassette("children_no_results_structure_ncbi_y", {
@@ -92,13 +92,13 @@ test_that("expected results for no query match when using get_* fxns", {
 test_that("expected results for no query match when using get_* fxns", {
   skip_on_cran()
   vcr::use_cassette("children_no_results_structure_x", {
-    itis_x <- children(get_tsn("23424234234", messages = FALSE))
-    worms_x <- children(get_wormsid("23424234234", messages = FALSE))
+    itis_x <- children(get_itis("23424234234", messages = FALSE))
+    worms_x <- children(get_worms("23424234234", messages = FALSE))
   })
 
   vcr::use_cassette("children_no_results_structure_y", {
     itis_y <- children("23424234234", db = "itis", messages = FALSE)
-    worms_y <- children(get_wormsid("23424234234", messages = FALSE))
+    worms_y <- children(get_worms("23424234234", messages = FALSE))
   })
   
   expect_named(itis_x, NA_character_)
@@ -140,7 +140,7 @@ test_that("works with source bold", {
   skip_on_cran()
   vcr::use_cassette("children_bold", {
     x_id <- children("88899", db = "bold", messages = FALSE)
-    x_from_get <- children(get_boldid("Momotus", messages = FALSE))
+    x_from_get <- children(get_bold("Momotus", messages = FALSE))
   })
 
   expect_named(x_id, "88899")

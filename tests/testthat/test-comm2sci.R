@@ -6,8 +6,8 @@ test_that("comm2sci returns the correct values and classes", {
   vcr::use_cassette("comm2sci", {
     tt <- suppressMessages(comm2sci(com='american black bear'))
     uu <- suppressMessages(comm2sci('annual blue grass', 
-      db='tropicos'))
-    temp2 <- suppressMessages(comm2sci(com='black bear', db='tropicos'))
+      db='tps'))
+    temp2 <- suppressMessages(comm2sci(com='black bear', db='tps'))
     # FIXME: skip EOL for now until they're bad cert issue sorted out
     # temp3 <- suppressMessages(comm2sci(com=c('black bear','roe deer'),
     #   db='eol'))
@@ -41,7 +41,7 @@ test_that("comm2sci fails well", {
   expect_error(comm2sci(mtcars), "com must be of class character")
 
   expect_error(comm2sci("bear", db = "adsf"),
-               "'db' must be one of 'ncbi', 'itis', 'tropicos', 'eol', 'worms'")
+               "'db' must be one of 'ncbi', 'itis', 'tps', 'eol', 'worms'")
 
   expect_error(comm2sci("bear", simplify = "Asdf"),
                "simplify must be of class logical")

@@ -43,7 +43,7 @@ test_that("synonyms: data sources return consistent outputs", {
   # when name not found, returns NA
   vcr::use_cassette("synonyms_name_not_found", {
     aa <- synonyms("Foo bar", db="itis", messages = FALSE)
-    bb <- synonyms("Foo bar", db="tropicos", messages = FALSE)
+    bb <- synonyms("Foo bar", db="tps", messages = FALSE)
     cc <- synonyms("Foo barasdfasdf", db="nbn", messages = FALSE)
     ee <- synonyms("Foo bar", db="worms", messages = FALSE)
     gg <- synonyms("Foo bar", db="pow", messages = FALSE)
@@ -61,7 +61,7 @@ test_that("synonyms: data sources return consistent outputs", {
     gg <- synonyms("Epigonus thai", db="worms", messages = FALSE)
     hh <- synonyms("Arctoa andersonii", db="nbn", rank = "species", rows=1, messages = FALSE)
     # kk <- synonyms("Pinus balfouriana", db="itis", messages = FALSE)
-    ll <- synonyms("Pinus contorta", db="tropicos", messages = FALSE)
+    ll <- synonyms("Pinus contorta", db="tps", messages = FALSE)
     mm <- synonyms("Quercus ransomii", db="pow", accepted=FALSE, messages = FALSE)
   })
 
@@ -82,6 +82,6 @@ test_that("warn on mismatch 'db'", {
   vcr::use_cassette("synonyms_warn_on_db_mismatch", {
     expect_warning(
       synonyms(
-        get_tsn("Poa annua"), db = "tropicos"))
+        get_tsn("Poa annua"), db = "tps"))
   })
 })

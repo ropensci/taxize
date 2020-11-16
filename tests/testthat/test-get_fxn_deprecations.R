@@ -1,27 +1,16 @@
 skip_on_cran()
 
+fchk_match_any <- function(fun) {
+  body <- deparse(functionBody(eval(parse(text = fun))))
+  expect_true(any(grepl("fchk", body)))
+}
+
 test_that("get_* fxn deprecations", {
-  # new fxn - old fxn
-  expect_identical(get_bold, get_boldid)
-  expect_identical(get_bold_, get_boldid_)
-  expect_identical(get_eol, get_eolid)
-  expect_identical(get_eol_, get_eolid_)
-  expect_identical(get_gbif, get_gbifid)
-  expect_identical(get_gbif_, get_gbifid_)
-  expect_identical(get_itis, get_tsn)
-  expect_identical(get_itis_, get_tsn_)
-  expect_identical(get_natserv, get_natservid)
-  expect_identical(get_natserv_, get_natservid_)
-  expect_identical(get_nbn, get_nbnid)
-  expect_identical(get_nbn_, get_nbnid_)
-  expect_identical(get_ncbi, get_uid)
-  expect_identical(get_ncbi_, get_uid_)
-  expect_identical(get_tol, get_tolid)
-  expect_identical(get_tol_, get_tolid_)
-  expect_identical(get_tps, get_tpsid)
-  expect_identical(get_tps_, get_tpsid_)
-  expect_identical(get_worms, get_wormsid)
-  expect_identical(get_worms_, get_wormsid_)
+  old_funs = c('get_boldid_', 'get_eolid', 'get_eolid_', 'get_gbifid',
+    'get_gbifid_', 'get_tsn', 'get_tsn_', 'get_natservid', 'get_natservid_',
+    'get_nbnid', 'get_nbnid_', 'get_uid', 'get_uid_', 'get_tolid',
+    'get_tolid_', 'get_tpsid', 'get_tpsid_', 'get_wormsid', 'get_wormsid_')
+  for (i in old_funs) fchk_match_any(i)
 })
 
 test_that("get_* fxn throws warning when old function used", {

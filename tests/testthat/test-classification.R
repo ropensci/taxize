@@ -159,7 +159,7 @@ test_that("rows parameter, when used, works", {
     # a <- classification("Asdfafsfd", db = 'ncbi', rows = 1, messages = FALSE)
     b <- classification("Asdfafsfd", db = 'itis', rows = 1, messages = FALSE)
     d <- classification("Asdfafsfd", db = 'gbif', rows = 1, messages = FALSE)
-    g <- classification("Asdfafsfd", db = 'tropicos', rows = 1, messages = FALSE)
+    g <- classification("Asdfafsfd", db = 'tps', rows = 1, messages = FALSE)
     h <- classification("Asdfafsfd", db = 'nbn', rows = 1, messages = FALSE)
   })
 

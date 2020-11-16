@@ -16,7 +16,7 @@ test_that("classification works for GBIF data", {
   expect_false(all(grepl("[A-Z]", clas_gbif[[1]]$rank)))
 
   vcr::use_cassette("classification_gbif_get_fxn", {
-    gbifs <- get_gbifid(c("Quercus douglasii", "aaa vva"), rows = 1,
+    gbifs <- get_gbif(c("Quercus douglasii", "aaa vva"), rows = 1,
       messages = FALSE)
     clas_gbifs <- classification(gbifs, messages = FALSE)
     names(clas_gbifs) <- NULL
