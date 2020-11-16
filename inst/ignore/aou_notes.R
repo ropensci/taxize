@@ -1,8 +1,7 @@
-#  from http://www.birdpop.org/alphacodes.htm
-download.file("http://www.birdpop.org/docs/misc/List18.zip", destfile = "~/List18.zip")
-unzip("~/List18.zip", exdir = "~/")
-library(foreign)
-res <- foreign::read.dbf("~/List18.DBF", as.is = TRUE)
+#  from https://www.birdpop.org/pages/birdSpeciesCodes.php
+download.file("http://www.birdpop.org/docs/misc/IBPAOU.zip", destfile = "~/IBPAOU.zip")
+unzip("~/IBPAOU.zip", exdir = "~/")
+res <- read.csv("~/IBP-Alpha-Codes20.csv")
 head(res)
 
 # checklist from http://checklist.aou.org/taxa/
