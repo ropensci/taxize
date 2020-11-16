@@ -72,7 +72,7 @@ Language: en-US
 Depends:
     R(>= 3.2.1)
 Imports:
-    taxa,
+    taxa2,
     vctrs,
     graphics,
     methods,
@@ -102,7 +102,7 @@ Suggests:
     ape,
     phangorn,
     zoo
-Remotes: ropensci/rredlist, ropensci/taxa@vectorize
+Remotes: ropensci/rredlist, zachary-foster/taxa2
 RoxygenNote: 7.1.1
 Roxygen: list(markdown = TRUE)
 X-schema.org-applicationCategory: Taxonomy

@@ -332,7 +332,7 @@ get_ncbi <- function(sci_com, ask = TRUE, messages = TRUE, rows = NA,
   ids <- as.character(unlist(pluck_un(out, "id", "")))
   res <- taxa_taxon(
     name = unlist(pluck(out, "name")) %||% NA_character_,
-    id = taxa::taxon_id(ids, db = "ncbi"),
+    id = taxa2::taxon_id(ids, db = "ncbi"),
     rank = unlist(pluck(out, "rank")) %||% NA_character_,
     uri = sprintf(get_url_templates$ncbi, ids),
     match = unname(unlist(pluck(out, "att"))),

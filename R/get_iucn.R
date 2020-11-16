@@ -119,7 +119,7 @@ get_iucn <- function(sci, messages = TRUE, key = NULL, x = NULL, ...) {
   ids <- as.character(unlist(pluck(out, "id")))
   res <- taxa_taxon(
     name = unlist(pluck(out, "name")),
-    id = taxa::taxon_id(ids, db = "iucn"),
+    id = taxa2::taxon_id(ids, db = "iucn"),
     rank = "species",
     uri = sprintf(get_url_templates$iucn, ids),
     match = unname(unlist(pluck(out, "att"))),

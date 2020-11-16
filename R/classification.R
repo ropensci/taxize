@@ -327,7 +327,7 @@ process_ids <- function(input, db, fxn, ...){
 #' @export
 #' @rdname classification
 classification.txid <- function(id, return_id = TRUE, ...) {
-  db <- as.character(taxa::tax_db(id))[1]
+  db <- as.character(taxa2::tax_db(id))[1]
   fun <- parse(text=paste0("classification_", id_class(id)))
   eval(fun)(id, return_id = return_id, ...)
 }

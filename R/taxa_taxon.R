@@ -1,6 +1,6 @@
 .new_taxa_taxon <- function(.names = NULL, name = character(),
-  rank = taxa::taxon_rank(), id = taxa::taxon_id(),
-  auth = taxa::taxon_authority(),
+  rank = taxa2::taxon_rank(), id = taxa2::taxon_id(),
+  auth = taxa2::taxon_authority(),
   uri = character(), match = character(),
   multiple_matches = character(), pattern_match = character(),
   class = NULL, ...) {
@@ -16,8 +16,8 @@
   
   # Check that values are the correct type
   vctrs::vec_assert(name, ptype = character())
-  vctrs::vec_assert(id, ptype = taxa::taxon_id())
-  vctrs::vec_assert(auth, ptype = taxa::taxon_authority())
+  vctrs::vec_assert(id, ptype = taxa2::taxon_id())
+  vctrs::vec_assert(auth, ptype = taxa2::taxon_authority())
   vctrs::vec_assert(uri, ptype = character())
   vctrs::vec_assert(match, ptype = character())
   vctrs::vec_assert(multiple_matches, ptype = logical())
@@ -37,9 +37,9 @@ taxa_taxon <- function(name = character(0), rank = NA, id = NA,
 
   # Cast inputs to correct values
   name <- vctrs::vec_cast(name, character())
-  rank <- vctrs::vec_cast(rank, taxa::taxon_rank())
-  id <- vctrs::vec_cast(id, taxa::taxon_id())
-  auth <- vctrs::vec_cast(auth, taxa::taxon_authority())
+  rank <- vctrs::vec_cast(rank, taxa2::taxon_rank())
+  id <- vctrs::vec_cast(id, taxa2::taxon_id())
+  auth <- vctrs::vec_cast(auth, taxa2::taxon_authority())
   uri <- vctrs::vec_cast(uri, character())
   match <- vctrs::vec_cast(match, character())
   multiple_matches <- vctrs::vec_cast(multiple_matches, logical())
@@ -77,7 +77,7 @@ vec_cast.txid.default <- function(x, to, ..., x_arg, to_arg) {
 
 vec_cast.txid.txid <- function(x, to, ..., x_arg, to_arg) x
 
-vec_cast.txid.character <- function(x, to, ..., x_arg, to_arg) taxa::taxon(x)
+vec_cast.txid.character <- function(x, to, ..., x_arg, to_arg) taxa2::taxon(x)
 
 vec_cast.character.txid <- function(x, to, ..., x_arg, to_arg) {
   as.character(vctrs::field(x, "name"))
@@ -131,10 +131,10 @@ txac_template <- function(fun) {
     if (is.character(x)) x else as.character(fun(x))
   }
 }
-txidac <- txac_template(taxa::tax_id)
-txnameac <- txac_template(taxa::tax_name)
-txdbac <- txac_template(taxa::tax_db)
-txrankac <- txac_template(taxa::tax_rank)
+txidac <- txac_template(taxa2::tax_id)
+txnameac <- txac_template(taxa2::tax_name)
+txdbac <- txac_template(taxa2::tax_db)
+txrankac <- txac_template(taxa2::tax_rank)
 
 names_or_ids <- function(x) {
   z <- txnameac(x)

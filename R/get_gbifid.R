@@ -74,7 +74,7 @@
 #' class(w)
 #' 
 #' # extract parts (maintains the txid/taxa_taxon class)
-#' library(taxa)
+#' library(taxa2)
 #' tax_rank(w)
 #' as.character(tax_rank(w))
 #' tax_id(w)
@@ -312,7 +312,7 @@ get_gbif <- function(sci, ask = TRUE, messages = TRUE, rows = NA,
   ids <- as.character(unlist(pluck(out, "id")))
   res <- taxa_taxon(
     name = unlist(pluck(out, "name")),
-    id = taxa::taxon_id(ids, db = "gbif"),
+    id = taxa2::taxon_id(ids, db = "gbif"),
     rank = unlist(pluck(out, "rank")),
     uri = sprintf(get_url_templates$gbif, ids),
     match = unname(unlist(pluck(out, "att"))),
@@ -359,9 +359,9 @@ as.gbif.data.frame <- function(x, check = TRUE) as_txid_df(x, check)
 #' @rdname get_gbif
 as.data.frame.txid <- function(x, ...){
   tibble::as_tibble(
-    data.frame(ids = as.character(taxa::tax_id(x)),
-      name = as.character(taxa::tax_name(x)),
-      rank = unname(as.character(taxa::tax_rank(x))),
+    data.frame(ids = as.character(taxa2::tax_id(x)),
+      name = as.character(taxa2::tax_name(x)),
+      rank = unname(as.character(taxa2::tax_rank(x))),
       uri = txz_uri(x),
       match = txz_match(x),
       multiple_matches = txz_mm(x),

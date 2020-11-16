@@ -205,9 +205,9 @@ children_itis <- function(sci_id, db = NULL, ...) {
 		  out <- ritis::hierarchy_down(y, ...)
     }
   }
-  ids <- as.character(taxa::tax_id(sci_id))
+  ids <- as.character(taxa2::tax_id(sci_id))
   out <- lapply(ids, fun)
-  names(out) <- taxa::tax_name(sci_id)
+  names(out) <- taxa2::tax_name(sci_id)
   class(out) <- 'children'
   attr(out, 'db') <- 'itis'
   return(out)
@@ -227,9 +227,9 @@ children_worms <- function(sci_id, db = NULL, ...) {
       )
     }
   }
-  ids <- as.character(taxa::tax_id(sci_id))
+  ids <- as.character(taxa2::tax_id(sci_id))
   out <- lapply(ids, fun)
-  names(out) <- taxa::tax_name(sci_id)
+  names(out) <- taxa2::tax_name(sci_id)
   class(out) <- 'children'
   attr(out, 'db') <- 'worms'
   return(out)
@@ -238,7 +238,7 @@ children_worms <- function(sci_id, db = NULL, ...) {
 children_ncbi <- function(sci_id, db = NULL, ...) {
   warn_db(list(db = db), "ncbi")
   out <- if (is.na(txidac(sci_id))) {
-    stats::setNames(list(ncbi_blank), sci_id)
+    stats::setNames(list(ncbi_blank), NA_character_)
   } else {
     ncbi_children(id = sci_id, ambiguous = TRUE, ...)
   }
@@ -249,7 +249,7 @@ children_ncbi <- function(sci_id, db = NULL, ...) {
 
 children_bold <- function(sci_id, db = NULL, ...) {
   warn_db(list(db = db), "bold")
-  sci_id <- as.character(taxa::tax_id(sci_id))
+  sci_id <- as.character(taxa2::tax_id(sci_id))
   out <- if (is.na(sci_id)) {
     stats::setNames(list(bold_blank), sci_id)
   } else {

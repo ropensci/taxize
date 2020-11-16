@@ -290,7 +290,7 @@ get_bold <- function(sci, fuzzy = FALSE, dataTypes = 'basic',
   ids <- as.character(unlist(pluck(out, "id")))
   res <- taxa_taxon(
     name = unlist(pluck(out, "name")),
-    id = taxa::taxon_id(ids, db = "bold"),
+    id = taxa2::taxon_id(ids, db = "bold"),
     rank = unlist(pluck(out, "rank")),
     uri = sprintf(get_url_templates$bold, ids),
     match = unname(unlist(pluck(out, "att"))),

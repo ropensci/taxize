@@ -239,7 +239,7 @@ get_tps <- function(sci, ask = TRUE, messages = TRUE, key = NULL,
   ids <- as.character(unlist(pluck(out, "id")))
   res <- taxa_taxon(
     name = unlist(pluck(out, "name")),
-    id = taxa::taxon_id(ids, db = "tps"),
+    id = taxa2::taxon_id(ids, db = "tps"),
     rank = unlist(pluck(out, "rank")),
     uri = sprintf(get_url_templates$tropicos, ids),
     match = unname(unlist(pluck(out, "att"))),

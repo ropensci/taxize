@@ -249,7 +249,7 @@ get_worms <- function(sci_com, searchtype = "scientific", marine_only = TRUE,
   ids <- as.character(unlist(pluck(out, "id")))
   res <- taxa_taxon(
     name = unlist(pluck(out, "name")),
-    id = taxa::taxon_id(ids, db = "worms"),
+    id = taxa2::taxon_id(ids, db = "worms"),
     rank = unlist(pluck(out, "rank")),
     uri = sprintf(get_url_templates$worms, ids),
     match = unname(unlist(pluck(out, "att"))),

@@ -27,7 +27,7 @@
 #' @note Authentication no longer required
 #' @examples \dontrun{
 #' (x <- get_natserv("Helianthus annuus"))
-#' library(taxa)
+#' library(taxa2)
 #' tax_name(x)
 #' tax_id(x)
 #'
@@ -203,7 +203,7 @@ get_natserv <- function(sci_com, searchtype = "scientific", ask = TRUE,
   ids <- as.character(unlist(pluck(out, "id")))
   res <- taxa_taxon(
     name = unlist(pluck(out, "name")),
-    id = taxa::taxon_id(ids, db = "natserv"),
+    id = taxa2::taxon_id(ids, db = "natserv"),
     rank = "species",
     uri = sprintf(get_url_templates$natserv, ids),
     match = unname(unlist(pluck(out, "att"))),

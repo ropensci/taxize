@@ -237,7 +237,7 @@ get_pow <- function(sci_com, accepted = FALSE, ask = TRUE, messages = TRUE,
   ids <- as.character(unlist(pluck(out, "id")))
   res <- taxa_taxon(
     name = unlist(pluck(out, "name")),
-    id = taxa::taxon_id(ids, db = "pow"),
+    id = taxa2::taxon_id(ids, db = "pow"),
     rank = unlist(pluck(out, "rank")),
     uri = sprintf(get_url_templates$pow, ids),
     match = unname(unlist(pluck(out, "att"))),

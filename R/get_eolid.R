@@ -283,7 +283,7 @@ get_eol <- function(sci_com, ask = TRUE, messages = TRUE,
   ids <- pluck_un(out, "id", "")
   res <- taxa_taxon(
     name = unlist(pluck(out, "name")),
-    id = taxa::taxon_id(ids, db = "eol"),
+    id = taxa2::taxon_id(ids, db = "eol"),
     rank = unlist(pluck(out, "rank")),
     uri = sprintf(get_url_templates$eol, ids),
     match = unname(unlist(pluck(out, "att"))),

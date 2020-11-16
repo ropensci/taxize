@@ -199,7 +199,7 @@ get_nbn <- function(sci_com, ask = TRUE, messages = TRUE, rec_only = FALSE,
   ids <- as.character(unlist(pluck(out, "id")))
   res <- taxa_taxon(
     name = unlist(pluck(out, "name")),
-    id = taxa::taxon_id(ids, db = "nbn"),
+    id = taxa2::taxon_id(ids, db = "nbn"),
     rank = unlist(pluck(out, "rank")),
     uri = sprintf(get_url_templates$nbn, ids),
     match = unname(unlist(pluck(out, "att"))),
