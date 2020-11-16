@@ -1,4 +1,5 @@
 skip_on_cran()
+skip_on_ci()
 
 took <- function(x) round(system.time(x)[[3]], 1)
 
