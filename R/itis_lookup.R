@@ -10,16 +10,17 @@ il_fetch <- function() {
   }
 }
 
-il_vec <- NULL
+itis_env <- new.env()
+itis_env$il_vec <- NULL
 il_make_vec <- function() {
   il_fetch()
-  if (is.null(il_vec)) {
+  if (is.null(itis_env$il_vec)) {
     df = data.table::fread(itis_lookup_file())
-    il_vec <<- stats::setNames(df$rank_name, df$tsn)
+    itis_env$il_vec <- stats::setNames(df$rank_name, df$tsn)
   }
 }
 
 il_tsn2rank <- function(tsns) {
   il_make_vec()
-  unname(il_vec[match(tsns, names(il_vec))])
+  unname(itis_env$il_vec[match(tsns, names(itis_env$il_vec))])
 }
