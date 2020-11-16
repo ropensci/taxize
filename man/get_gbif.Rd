@@ -150,7 +150,7 @@ as.data.frame(w)
 class(w)
 
 # extract parts (maintains the txid/taxa_taxon class)
-library(taxa)
+library(taxa2)
 tax_rank(w)
 as.character(tax_rank(w))
 tax_id(w)

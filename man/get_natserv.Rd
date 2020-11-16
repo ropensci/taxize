@@ -98,7 +98,7 @@ Authentication no longer required
 \examples{
 \dontrun{
 (x <- get_natserv("Helianthus annuus"))
-library(taxa)
+library(taxa2)
 tax_name(x)
 tax_id(x)
 
