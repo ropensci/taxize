@@ -1,0 +1,96 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Chironomus%2Briparius&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.99.92)
+      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.99.92)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Mon, 16 Nov 2020 21:14:28 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      x-ratelimit-remaining: '9'
+      ncbi-phid: D0BD5728429EFD75000023EC2E464E62.1.1.m_1
+      cache-control: private
+      ncbi-sid: D75738A82DD3D967_6AAFSID
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      access-control-allow-origin: '*'
+      content-type: text/xml; charset=UTF-8
+      set-cookie: ncbi_sid=D75738A82DD3D967_6AAFSID; domain=.nih.gov; path=/; expires=Tue,
+        16 Nov 2021 21:14:29 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      file: no
+      string: |
+        <?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
+        <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
+        <Id>315576</Id>
+        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Chironomus+riparius[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Chironomus+riparius[All Names]</QueryTranslation></eSearchResult>
+  recorded_at: 2020-11-16 21:14:29 GMT
+  recorded_with: vcr/0.5.5.91, webmockr/0.7.0.91
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&ID=315576&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.99.92)
+      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.99.92)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Mon, 16 Nov 2020 21:14:28 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      x-ratelimit-remaining: '8'
+      ncbi-phid: D0BD5728429EFD75000023EC2ED2CF4F.1.1.m_1
+      cache-control: private
+      ncbi-sid: 92208207C1AB0414_D171SID
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      access-control-allow-origin: '*'
+      content-type: text/xml; charset=UTF-8
+      set-cookie: ncbi_sid=92208207C1AB0414_D171SID; domain=.nih.gov; path=/; expires=Tue,
+        16 Nov 2021 21:14:29 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      file: no
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!DOCTYPE eSummaryResult
+        PUBLIC \"-//NLM//DTD esummary v1 20041029//EN\" \"https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20041029/esummary-v1.dtd\">\n<eSummaryResult>\n<DocSum>\n\t<Id>315576</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">flies</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Chironomus riparius</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">315576</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Chironomus</Item>\n\t<Item Name=\"Species\"
+        Type=\"String\">riparius</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2005/12/31 00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
+  recorded_at: 2020-11-16 21:14:29 GMT
+  recorded_with: vcr/0.5.5.91, webmockr/0.7.0.91

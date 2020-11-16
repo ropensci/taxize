@@ -5,8 +5,10 @@ context("get_ids")
 test_that("get_ids returns the correct values and classses", {
   skip_on_cran()
 
-  tt <- get_ids("Chironomus riparius", db = "ncbi",
-    messages = FALSE, suppress = TRUE)
+  vcr::use_cassette("get_ids", {
+    tt <- get_ids("Chironomus riparius", db = "ncbi",
+      messages = FALSE, suppress = TRUE)
+  })
 
   expect_equal(unname(txidac(tt$ncbi)), "315576")
   expect_is(tt, "ids")
@@ -39,12 +41,13 @@ nn <- c('Imperata brasiliensis','Hylebates cordatus','Apocopis intermedius',
 
 test_that("works on a variety of names", {
   skip_on_cran()
-  skip_on_ci()
-
-  expect_is(sw(get_ids(nn[13], db = c("ncbi", "itis", "tropicos"),
-    suppress = TRUE, ask = FALSE, messages = FALSE)), "ids")
-  expect_is(sw(get_ids(nn[14], db = c("ncbi", "tropicos"),
-    suppress = TRUE, ask = FALSE, messages = FALSE)), "ids")
-  expect_is(sw(get_ids(nn[15], db = c("ncbi", "itis", "tropicos"),
-    suppress = TRUE, ask = FALSE, messages = FALSE)), "ids")
+  
+  vcr::use_cassette("get_ids_more_examples", {
+    expect_is(sw(get_ids(nn[13], db = c("ncbi", "itis", "tropicos"),
+      suppress = TRUE, ask = FALSE, messages = FALSE)), "ids")
+    expect_is(sw(get_ids(nn[14], db = c("ncbi", "tropicos"),
+      suppress = TRUE, ask = FALSE, messages = FALSE)), "ids")
+    expect_is(sw(get_ids(nn[15], db = c("ncbi", "itis", "tropicos"),
+      suppress = TRUE, ask = FALSE, messages = FALSE)), "ids")
+  })
 })

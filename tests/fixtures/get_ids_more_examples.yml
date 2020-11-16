@@ -1,0 +1,356 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Boissiera%2Bsquarrosa&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.99.92)
+      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.99.92)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Mon, 16 Nov 2020 21:14:30 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      x-ratelimit-remaining: '5'
+      ncbi-phid: D0BD5728429EFD7500002DEC30578081.1.1.m_1
+      cache-control: private
+      ncbi-sid: 71356095B624CDFC_D474SID
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      access-control-allow-origin: '*'
+      content-type: text/xml; charset=UTF-8
+      set-cookie: ncbi_sid=71356095B624CDFC_D474SID; domain=.nih.gov; path=/; expires=Tue,
+        16 Nov 2021 21:14:31 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      file: no
+      string: |
+        <?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
+        <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
+        <Id>416015</Id>
+        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Boissiera+squarrosa[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Boissiera+squarrosa[All Names]</QueryTranslation></eSearchResult>
+  recorded_at: 2020-11-16 21:14:40 GMT
+  recorded_with: vcr/0.5.5.91, webmockr/0.7.0.91
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&ID=416015&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.99.92)
+      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.99.92)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Mon, 16 Nov 2020 21:14:30 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      x-ratelimit-remaining: '7'
+      ncbi-phid: D0BD5728429EFD75000036EC30F261A9.1.1.m_1
+      cache-control: private
+      ncbi-sid: 1B5391A0168C0001_96D4SID
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      access-control-allow-origin: '*'
+      content-type: text/xml; charset=UTF-8
+      set-cookie: ncbi_sid=1B5391A0168C0001_96D4SID; domain=.nih.gov; path=/; expires=Tue,
+        16 Nov 2021 21:14:31 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      file: no
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!DOCTYPE eSummaryResult
+        PUBLIC \"-//NLM//DTD esummary v1 20041029//EN\" \"https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20041029/esummary-v1.dtd\">\n<eSummaryResult>\n<DocSum>\n\t<Id>416015</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">monocots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Bromus pumilio</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">416015</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Bromus</Item>\n\t<Item Name=\"Species\" Type=\"String\">pumilio</Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2015/08/12 00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
+  recorded_at: 2020-11-16 21:14:40 GMT
+  recorded_with: vcr/0.5.5.91, webmockr/0.7.0.91
+- request:
+    method: get
+    uri: https://www.itis.gov/ITISWebService/jsonservice/getITISTermsFromScientificName?srchKey=Boissiera%20squarrosa
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.73.0 r-curl/4.3 crul/1.0.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      content-length: '117'
+      content-type: text/json;charset=ISO-8859-1
+      date: Mon, 16 Nov 2020 21:14:34 GMT
+      status: 'HTTP/1.1 200 '
+      strict-transport-security:
+      - max-age=63072000; includeSubDomains; preload
+      - max-age=63072000; includeSubDomains; preload
+      x-content-type-options:
+      - nosniff
+      - nosniff
+      x-frame-options: SAMEORIGIN
+    body:
+      encoding: UTF-8
+      file: no
+      string: |
+        {"class":"gov.usgs.itis.itis_service.data.SvcItisTermList","itisTerms":[null],"requestedName":"Boissiera squarrosa"}
+  recorded_at: 2020-11-16 21:14:40 GMT
+  recorded_with: vcr/0.5.5.91, webmockr/0.7.0.91
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Arthrostylidium%2Bpubescens&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.99.92)
+      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.99.92)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Mon, 16 Nov 2020 21:14:34 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      x-ratelimit-remaining: '9'
+      ncbi-phid: 322C6CD5EACBEB4500003BE581A35953.1.1.m_1
+      cache-control: private
+      ncbi-sid: AAF4A8CCC611BECB_1357SID
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      access-control-allow-origin: '*'
+      content-type: text/xml; charset=UTF-8
+      set-cookie: ncbi_sid=AAF4A8CCC611BECB_1357SID; domain=.nih.gov; path=/; expires=Tue,
+        16 Nov 2021 21:14:35 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      file: no
+      string: |
+        <?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
+        <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
+        <Id>1175568</Id>
+        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Arthrostylidium+pubescens[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Arthrostylidium+pubescens[All Names]</QueryTranslation></eSearchResult>
+  recorded_at: 2020-11-16 21:14:40 GMT
+  recorded_with: vcr/0.5.5.91, webmockr/0.7.0.91
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&ID=1175568&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.99.92)
+      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.99.92)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Mon, 16 Nov 2020 21:14:35 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      x-ratelimit-remaining: '8'
+      ncbi-phid: 322C6CD5EACBEB45000031E5821F6C85.1.1.m_1
+      cache-control: private
+      ncbi-sid: C94040D3935FD373_9698SID
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      access-control-allow-origin: '*'
+      content-type: text/xml; charset=UTF-8
+      set-cookie: ncbi_sid=C94040D3935FD373_9698SID; domain=.nih.gov; path=/; expires=Tue,
+        16 Nov 2021 21:14:35 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      file: no
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!DOCTYPE eSummaryResult
+        PUBLIC \"-//NLM//DTD esummary v1 20041029//EN\" \"https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20041029/esummary-v1.dtd\">\n<eSummaryResult>\n<DocSum>\n\t<Id>1175568</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">monocots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Arthrostylidium pubescens</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">1175568</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Arthrostylidium</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">pubescens</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2012/04/21
+        00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
+  recorded_at: 2020-11-16 21:14:40 GMT
+  recorded_with: vcr/0.5.5.91, webmockr/0.7.0.91
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Neyraudia%2Breynaudiana&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.99.92)
+      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.99.92)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Mon, 16 Nov 2020 21:14:35 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      x-ratelimit-remaining: '7'
+      ncbi-phid: 322C6CD5EACBEB4500003CE58281450A.1.1.m_1
+      cache-control: private
+      ncbi-sid: C5CADAD4F79CCD0D_CD54SID
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      access-control-allow-origin: '*'
+      content-type: text/xml; charset=UTF-8
+      set-cookie: ncbi_sid=C5CADAD4F79CCD0D_CD54SID; domain=.nih.gov; path=/; expires=Tue,
+        16 Nov 2021 21:14:35 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      file: no
+      string: |
+        <?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
+        <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
+        <Id>416032</Id>
+        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Neyraudia+reynaudiana[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Neyraudia+reynaudiana[All Names]</QueryTranslation></eSearchResult>
+  recorded_at: 2020-11-16 21:14:40 GMT
+  recorded_with: vcr/0.5.5.91, webmockr/0.7.0.91
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&ID=416032&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.99.92)
+      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.99.92)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Mon, 16 Nov 2020 21:14:36 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      x-ratelimit-remaining: '6'
+      ncbi-phid: 322C6CD5EACBEB45000048E58357B9AB.1.1.m_1
+      cache-control: private
+      ncbi-sid: 0CFB976C987DA8E7_546FSID
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      access-control-allow-origin: '*'
+      content-type: text/xml; charset=UTF-8
+      set-cookie: ncbi_sid=0CFB976C987DA8E7_546FSID; domain=.nih.gov; path=/; expires=Tue,
+        16 Nov 2021 21:14:41 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      file: no
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!DOCTYPE eSummaryResult
+        PUBLIC \"-//NLM//DTD esummary v1 20041029//EN\" \"https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20041029/esummary-v1.dtd\">\n<eSummaryResult>\n<DocSum>\n\t<Id>416032</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">monocots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Neyraudia reynaudiana</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">416032</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Neyraudia</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">reynaudiana</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2016/08/18
+        00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
+  recorded_at: 2020-11-16 21:14:40 GMT
+  recorded_with: vcr/0.5.5.91, webmockr/0.7.0.91
+- request:
+    method: get
+    uri: https://www.itis.gov/ITISWebService/jsonservice/getITISTermsFromScientificName?srchKey=Neyraudia%20reynaudiana
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.73.0 r-curl/4.3 crul/1.0.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      content-length: '335'
+      content-type: text/json;charset=ISO-8859-1
+      date: Mon, 16 Nov 2020 21:14:40 GMT
+      status: 'HTTP/1.1 200 '
+      strict-transport-security:
+      - max-age=63072000; includeSubDomains; preload
+      - max-age=63072000; includeSubDomains; preload
+      x-content-type-options:
+      - nosniff
+      - nosniff
+      x-frame-options: SAMEORIGIN
+    body:
+      encoding: UTF-8
+      file: no
+      string: |
+        {"class":"gov.usgs.itis.itis_service.data.SvcItisTermList","itisTerms":[{"author":"(Kunth) Keng ex Hitchc.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["silkreed","Burma reed","silk reed"],"nameUsage":"accepted","scientificName":"Neyraudia reynaudiana","tsn":"41961"}],"requestedName":"Neyraudia reynaudiana"}
+  recorded_at: 2020-11-16 21:14:40 GMT
+  recorded_with: vcr/0.5.5.91, webmockr/0.7.0.91
