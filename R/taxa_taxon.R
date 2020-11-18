@@ -67,14 +67,22 @@ taxa_taxon <- function(name = character(0), rank = NA, id = NA,
 }
 
 
+#' @method vec_cast txid
+#' @importFrom vctrs vec_cast
+#' @export
+#' @keywords internal
 vec_cast.txid <- function(x, to, ..., x_arg, to_arg) {
   UseMethod("vec_cast.txid")
 }
 
+#' @method vec_cast.txid default
+#' @export
 vec_cast.txid.default <- function(x, to, ..., x_arg, to_arg) {
   vctrs::vec_default_cast(x, to, x_arg, to_arg)
 }
 
+#' @method vec_cast.txid txid
+#' @export
 vec_cast.txid.txid <- function(x, to, ..., x_arg, to_arg) x
 
 vec_cast.txid.character <- function(x, to, ..., x_arg, to_arg) taxa2::taxon(x)
@@ -82,6 +90,32 @@ vec_cast.txid.character <- function(x, to, ..., x_arg, to_arg) taxa2::taxon(x)
 vec_cast.character.txid <- function(x, to, ..., x_arg, to_arg) {
   as.character(vctrs::field(x, "name"))
 }
+
+
+
+#' @method vec_ptype2 txid
+#' @importFrom vctrs vec_ptype2
+#' @export
+#' @keywords internal
+vec_ptype2.txid <- function(x, y, ...) UseMethod("vec_ptype2.txid", y)
+
+
+#' @method vec_ptype2.txid default
+#' @export
+vec_ptype2.txid.default <- function(x, y, ..., x_arg = "", y_arg = "") {
+  vctrs::stop_incompatible_type(x, y, x_arg = x_arg, y_arg = y_arg)
+}
+
+
+#' @method vec_ptype2.txid vctrs_unspecified
+#' @export
+vec_ptype2.txid.vctrs_unspecified <- function(x, y, ...) x
+
+
+#' @method vec_ptype2.txid txid
+#' @export
+vec_ptype2.txid.txid <- function(x, y, ...) x
+
 
 txz_named_field <- function(x, name) {
   out <- vctrs::field(x, name)
