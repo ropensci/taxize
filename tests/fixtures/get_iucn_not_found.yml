@@ -1,0 +1,34 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://apiv3.iucnredlist.org/api/v3/species/howdy?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(rredlist/0.7.0)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Fri, 20 Nov 2020 01:14:59 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '28'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      etag: W/"1c-mjKTgtwxLBzFiZ5DapqJvQ"
+      vary: Accept-Encoding
+      set-cookie: sails.sid=s%3ApCmCTxS29t87yKZYTlAEHKFNItQ04FEk.qwPL5B9g4QcACeSIRhEAS67eQ3V6a1kVv03PWhTrY5w;
+        Path=/; HttpOnly
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"name":"howdy","result":[]}'
+  recorded_at: 2020-11-20 01:14:59 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0

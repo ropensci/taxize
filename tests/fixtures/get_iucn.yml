@@ -1,0 +1,37 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://apiv3.iucnredlist.org/api/v3/species/Poa%20annua?token=<<rredlist_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(rredlist/0.7.0)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.14.0 (Ubuntu)
+      date: Fri, 20 Nov 2020 01:14:58 GMT
+      content-type: application/json; charset=utf-8
+      content-length: '688'
+      connection: keep-alive
+      x-powered-by: Sails <sailsjs.org>
+      etag: W/"2b0-NjMXqteLqvoszOTZqUYumg"
+      vary: Accept-Encoding
+      set-cookie: sails.sid=s%3A-ckwtmw4CITxt5ubsgRu2ufQ5Srka7O0.3FiLEUFF%2FN0%2FumIJTGJIxSDJLtxoB9S5IaiQDPsz8Tc;
+        Path=/; HttpOnly
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"name":"Poa annua","result":[{"taxonid":168729,"scientific_name":"Poa
+        annua","kingdom":"PLANTAE","phylum":"TRACHEOPHYTA","class":"LILIOPSIDA","order":"POALES","family":"POACEAE","genus":"Poa","main_common_name":"Annual
+        Meadow Grass","authority":"L.","published_year":2013,"assessment_date":"2010-02-18","category":"LC","criteria":null,"population_trend":"Increasing","marine_system":false,"freshwater_system":false,"terrestrial_system":true,"assessor":"Brummitt,
+        N.","reviewer":"Scott, J.A.","aoo_km2":null,"eoo_km2":null,"elevation_upper":4800,"elevation_lower":0,"depth_upper":null,"depth_lower":null,"errata_flag":null,"errata_reason":null,"amended_flag":null,"amended_reason":null}]}'
+  recorded_at: 2020-11-20 01:14:58 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
