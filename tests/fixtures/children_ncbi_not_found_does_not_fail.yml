@@ -1,0 +1,45 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=999999999&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.73.0 r-curl/4.3 crul/1.0.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 20 Nov 2020 19:07:23 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      x-ratelimit-remaining: '9'
+      ncbi-phid: D0BD28DF0040960500005FE5C2319DFC.1.1.m_3
+      cache-control: private
+      ncbi-sid: E4B8CEDFE56C9C5C_9FEBSID
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      access-control-allow-origin: '*'
+      content-type: text/xml; charset=UTF-8
+      set-cookie: ncbi_sid=E4B8CEDFE56C9C5C_9FEBSID; domain=.nih.gov; path=/; expires=Sat,
+        20 Nov 2021 19:07:23 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: UTF-8
+      file: no
+      string: |-
+        <?xml version="1.0" ?>
+        <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
+        <TaxaSet>
+        </TaxaSet>
+  recorded_at: 2020-11-20 19:07:23 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0

@@ -191,3 +191,13 @@ test_that("ncbi classification - taxon merged", {
   # input id is different from id returned
   expect_false(identical("668400", a[[1]]$id[NROW(a[[1]])]))
 })
+
+test_that("with ncbi, doesn't fail with not found taxon", {
+  skip_on_cran()
+  vcr::use_cassette("classification_ncbi_not_found_does_not_fail", {
+    a <- classification(999999999, db = "ncbi")
+  })
+
+  expect_is(a, "classification")
+  expect_true(is.na(a[[1]]))
+})

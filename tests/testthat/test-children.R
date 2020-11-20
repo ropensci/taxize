@@ -168,3 +168,14 @@ test_that("works with worms, passing through marine_only", {
   expect_is(b, 'children')
   expect_gt(NROW(b[[1]]), NROW(a[[1]]))
 })
+
+test_that("with ncbi, doesn't fail with not found taxon", {
+  skip_on_cran()
+  vcr::use_cassette("children_ncbi_not_found_does_not_fail", {
+    a <- children(999999999, db = "ncbi")
+  })
+
+  expect_is(a, "children")
+  expect_equal(NROW(a[[1]]), 0)
+})
+

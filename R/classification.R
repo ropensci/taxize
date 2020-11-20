@@ -417,17 +417,20 @@ classification_ncbi <- function(id, callopts = list(), return_id = TRUE,
     }
     # return NA if NA is supplied
     out <- rep(list(NA), length(x))
-    out[! is.na(x)] <- query_ncbi(x[! is.na(x)])
-    # Optionally return taxon id of lineage taxa
-    if (!return_id) {
-      out[! is.na(out)] <- lapply(out[! is.na(out)],
-        function(o) o[, c('name', 'rank')])
+    query_res <- query_ncbi(x[! is.na(x)])
+    if (length(query_res) > 0) {
+      out[!is.na(x)] <- query_res
+      # Optionally return taxon id of lineage taxa
+      if (!return_id) {
+        out[! is.na(out)] <- lapply(out[! is.na(out)],
+          function(o) o[, c('name', 'rank')])
+      }
+      # Return ranks in all lower case
+      out[! is.na(out)] <- lapply(out[! is.na(out)], function(o) {
+        o$rank <- tolower(o$rank)
+        return(o)
+      })
     }
-    # Return ranks in all lower case
-    out[! is.na(out)] <- lapply(out[! is.na(out)], function(o) {
-      o$rank <- tolower(o$rank)
-      return(o)
-    })
     return(out)
   }
   nmz <- names_or_ids(id)
