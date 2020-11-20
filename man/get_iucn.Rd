@@ -47,8 +47,7 @@ A vector of taxonomic identifiers as an S3 class.
 
 Comes with the following attributes:
 \itemize{
-\item \emph{match} (character) - the reason for NA, either 'not found',
-'found' or if \code{ask = FALSE} then 'NA due to ask=FALSE')
+\item \emph{match} (character) - the reason for NA, either 'not found' or 'found'
 \item \emph{name} (character) - the taxonomic name, which is needed in
 \code{\link[=synonyms]{synonyms()}} and \code{\link[=sci2comm]{sci2comm()}} methods since they
 internally use \pkg{rredlist} functions which require the taxonomic name,

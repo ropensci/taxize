@@ -7,7 +7,7 @@ http_interactions:
       string: '{"criteriaType":"species","textCriteria":[{"paramType":"textSearch","searchToken":"Pomatomus
         saltatrix","matchAgainst":"allScientificNames","operator":"similarTo"}]}'
     headers:
-      User-Agent: libcurl/7.72.0 r-curl/4.3 crul/1.0.0
+      User-Agent: libcurl/7.73.0 r-curl/4.3 crul/1.0.0
       Content-Type: application/json
       Accept-Encoding: gzip, deflate
       Accept: application/json
@@ -18,7 +18,7 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 200
-      date: Wed, 16 Sep 2020 17:28:59 GMT
+      date: Fri, 20 Nov 2020 18:00:43 GMT
       server: Apache/2.4.41 (Win64) OpenSSL/1.1.1c
       content-type: application/json;charset=UTF-8
       transfer-encoding: chunked
@@ -26,11 +26,11 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '{"results":[{"recordType":"SPECIES","elementGlobalId":101998,"uniqueId":"ELEMENT_GLOBAL.2.101998","nsxUrl":"/Taxon/ELEMENT_GLOBAL.2.101998/Pomatomus_saltatrix","elcode":"AFCQS01010","scientificName":"Pomatomus
-        saltatrix","formattedScientificName":"<i>Pomatomus saltatrix</i>","primaryCommonName":"Bluefish","primaryCommonNameLanguage":"EN","roundedGRank":"G5","nations":[{"nationCode":"US","roundedNRank":"N5","subnations":[{"subnationCode":"RI","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"LA","roundedSRank":"S4","exotic":false,"native":true},{"subnationCode":"NY","roundedSRank":"SNRN","exotic":false,"native":true},{"subnationCode":"GA","roundedSRank":"SNR","exotic":false,"native":true}],"exotic":false,"native":true}],"lastModified":"2020-09-05T01:23:30.259166Z","classificationStatus":"Standard","speciesGlobal":{"usesaCode":null,"cosewicCode":null,"saraCode":null,"synonyms":[],"otherCommonNames":[],"kingdom":"Animalia","phylum":"Craniata","taxclass":"Actinopterygii","taxorder":"Perciformes","family":"Pomatomidae","genus":"Pomatomus","taxonomicComments":null,"informalTaxonomy":"Animals
+        saltatrix","formattedScientificName":"<i>Pomatomus saltatrix</i>","primaryCommonName":"Bluefish","primaryCommonNameLanguage":"EN","roundedGRank":"G5","nations":[{"nationCode":"US","roundedNRank":"N5","subnations":[{"subnationCode":"NY","roundedSRank":"SNRN","exotic":false,"native":true},{"subnationCode":"GA","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"RI","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"LA","roundedSRank":"S4","exotic":false,"native":true}],"exotic":false,"native":true}],"lastModified":"2020-11-11T02:06:30.328108Z","classificationStatus":"Standard","speciesGlobal":{"usesaCode":null,"cosewicCode":null,"saraCode":null,"synonyms":[],"otherCommonNames":[],"kingdom":"Animalia","phylum":"Craniata","taxclass":"Actinopterygii","taxorder":"Perciformes","family":"Pomatomidae","genus":"Pomatomus","taxonomicComments":null,"informalTaxonomy":"Animals
         - Vertebrates - Fishes - Marine Bony and Cartilaginous; Hagfishes","infraspecies":false,"completeDistribution":false},"gRank":"G5"}],"resultsSummary":{"page":0,"recordsPerPage":20,"totalPages":1,"totalResults":1,"speciesResults":{"total":1}},"searchCriteria":{"criteriaType":"species","textCriteria":[{"paramType":"textSearch","searchToken":"Pomatomus
         saltatrix","matchAgainst":"allScientificNames","operator":"similarTo"}],"statusCriteria":null,"locationCriteria":null,"pagingOptions":{"page":0,"recordsPerPage":20},"recordSubtypeCriteria":null,"modifiedSince":null,"locationOptions":null,"classificationOptions":null,"speciesTaxonomyCriteria":null}}'
-  recorded_at: 2020-09-16 17:30:34 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2020-11-20 18:02:33 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
 - request:
     method: post
     uri: https://explorer.natureserve.org/api/data/speciesSearch
@@ -38,7 +38,7 @@ http_interactions:
       encoding: ''
       string: '{"criteriaType":"species","textCriteria":[{"paramType":"textSearch","searchToken":"howdy","matchAgainst":"allScientificNames","operator":"similarTo"}]}'
     headers:
-      User-Agent: libcurl/7.72.0 r-curl/4.3 crul/1.0.0
+      User-Agent: libcurl/7.73.0 r-curl/4.3 crul/1.0.0
       Content-Type: application/json
       Accept-Encoding: gzip, deflate
       Accept: application/json
@@ -49,7 +49,7 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 200
-      date: Wed, 16 Sep 2020 17:28:59 GMT
+      date: Fri, 20 Nov 2020 18:00:43 GMT
       server: Apache/2.4.41 (Win64) OpenSSL/1.1.1c
       content-type: application/json;charset=UTF-8
       transfer-encoding: chunked
@@ -57,8 +57,8 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '{"results":[],"resultsSummary":{"page":0,"recordsPerPage":20,"totalPages":0,"totalResults":0,"speciesResults":{"total":0}},"searchCriteria":{"criteriaType":"species","textCriteria":[{"paramType":"textSearch","searchToken":"howdy","matchAgainst":"allScientificNames","operator":"similarTo"}],"statusCriteria":null,"locationCriteria":null,"pagingOptions":{"page":0,"recordsPerPage":20},"recordSubtypeCriteria":null,"modifiedSince":null,"locationOptions":null,"classificationOptions":null,"speciesTaxonomyCriteria":null}}'
-  recorded_at: 2020-09-16 17:30:34 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2020-11-20 18:02:33 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
 - request:
     method: post
     uri: https://explorer.natureserve.org/api/data/speciesSearch
@@ -67,7 +67,7 @@ http_interactions:
       string: '{"criteriaType":"species","textCriteria":[{"paramType":"textSearch","searchToken":"Helianthus
         annuus","matchAgainst":"allScientificNames","operator":"similarTo"}]}'
     headers:
-      User-Agent: libcurl/7.72.0 r-curl/4.3 crul/1.0.0
+      User-Agent: libcurl/7.73.0 r-curl/4.3 crul/1.0.0
       Content-Type: application/json
       Accept-Encoding: gzip, deflate
       Accept: application/json
@@ -78,7 +78,7 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 200
-      date: Wed, 16 Sep 2020 17:28:59 GMT
+      date: Fri, 20 Nov 2020 18:00:43 GMT
       server: Apache/2.4.41 (Win64) OpenSSL/1.1.1c
       content-type: application/json;charset=UTF-8
       transfer-encoding: chunked
@@ -87,13 +87,13 @@ http_interactions:
       file: no
       string: '{"results":[{"recordType":"SPECIES","elementGlobalId":134717,"uniqueId":"ELEMENT_GLOBAL.2.134717","nsxUrl":"/Taxon/ELEMENT_GLOBAL.2.134717/Helianthus_annuus","elcode":"PDAST4N030","scientificName":"Helianthus
         annuus","formattedScientificName":"<i>Helianthus annuus</i>","primaryCommonName":"Common
-        Sunflower","primaryCommonNameLanguage":"EN","roundedGRank":"G5","nations":[{"nationCode":"CA","roundedNRank":"N4","subnations":[{"subnationCode":"NT","roundedSRank":"SNA","exotic":true,"native":false},{"subnationCode":"NS","roundedSRank":"SNA","exotic":true,"native":false},{"subnationCode":"AB","roundedSRank":"S4","exotic":false,"native":true},{"subnationCode":"SK","roundedSRank":"S4","exotic":false,"native":true},{"subnationCode":"MB","roundedSRank":"S3","exotic":false,"native":true},{"subnationCode":"NB","roundedSRank":"SNA","exotic":true,"native":false},{"subnationCode":"QC","roundedSRank":"SNA","exotic":true,"native":false},{"subnationCode":"PE","roundedSRank":"SNA","exotic":true,"native":false},{"subnationCode":"ON","roundedSRank":"SNA","exotic":true,"native":false},{"subnationCode":"BC","roundedSRank":"SNA","exotic":true,"native":false}],"exotic":false,"native":true},{"nationCode":"US","roundedNRank":"N5","subnations":[{"subnationCode":"IA","roundedSRank":"S5","exotic":false,"native":true},{"subnationCode":"KS","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"OH","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"WY","roundedSRank":"S5","exotic":false,"native":true},{"subnationCode":"NY","roundedSRank":"SNA","exotic":true,"native":false},{"subnationCode":"ID","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"MN","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"LA","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"DE","roundedSRank":"SNA","exotic":true,"native":false},{"subnationCode":"CT","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"NJ","roundedSRank":"SNA","exotic":true,"native":false},{"subnationCode":"FL","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"MO","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"DC","roundedSRank":"SNA","exotic":true,"native":false},{"subnationCode":"TN","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"TX","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"AK","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"NM","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"CO","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"OR","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"NC","roundedSRank":"SNA","exotic":true,"native":false},{"subnationCode":"OK","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"CA","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"MD","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"AR","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"PA","roundedSRank":"SNA","exotic":true,"native":false},{"subnationCode":"KY","roundedSRank":"SNA","exotic":true,"native":false},{"subnationCode":"UT","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"IN","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"MS","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"IL","roundedSRank":"SNA","exotic":true,"native":false},{"subnationCode":"ND","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"VT","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"WI","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"NE","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"MT","roundedSRank":"S5","exotic":false,"native":true},{"subnationCode":"RI","roundedSRank":"SNA","exotic":true,"native":false},{"subnationCode":"VA","roundedSRank":"SNA","exotic":true,"native":false},{"subnationCode":"NH","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"MI","roundedSRank":"SNA","exotic":true,"native":false},{"subnationCode":"MA","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"NV","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"AZ","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"WV","roundedSRank":"SNA","exotic":true,"native":false},{"subnationCode":"ME","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"SC","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"GA","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"AL","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"SD","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"HI","roundedSRank":"SNA","exotic":true,"native":false},{"subnationCode":"WA","roundedSRank":"SNR","exotic":false,"native":true}],"exotic":false,"native":true}],"lastModified":"2020-09-04T23:35:59.588624Z","classificationStatus":"Standard","speciesGlobal":{"usesaCode":null,"cosewicCode":null,"saraCode":null,"synonyms":["Helianthus
+        Sunflower","primaryCommonNameLanguage":"EN","roundedGRank":"G5","nations":[{"nationCode":"US","roundedNRank":"N5","subnations":[{"subnationCode":"WY","roundedSRank":"S5","exotic":false,"native":true},{"subnationCode":"MN","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"WA","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"VA","roundedSRank":"SNA","exotic":true,"native":false},{"subnationCode":"NE","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"CA","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"PA","roundedSRank":"SNA","exotic":true,"native":false},{"subnationCode":"MI","roundedSRank":"SNA","exotic":true,"native":false},{"subnationCode":"KY","roundedSRank":"SNA","exotic":true,"native":false},{"subnationCode":"ND","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"KS","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"IL","roundedSRank":"SNA","exotic":true,"native":false},{"subnationCode":"MS","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"TX","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"FL","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"TN","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"IA","roundedSRank":"S5","exotic":false,"native":true},{"subnationCode":"OH","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"AR","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"MT","roundedSRank":"S5","exotic":false,"native":true},{"subnationCode":"ME","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"OK","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"IN","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"CO","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"AK","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"NJ","roundedSRank":"SNA","exotic":true,"native":false},{"subnationCode":"DE","roundedSRank":"SNA","exotic":true,"native":false},{"subnationCode":"NM","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"HI","roundedSRank":"SNA","exotic":true,"native":false},{"subnationCode":"ID","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"AZ","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"NC","roundedSRank":"SNA","exotic":true,"native":false},{"subnationCode":"WI","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"WV","roundedSRank":"SNA","exotic":true,"native":false},{"subnationCode":"MA","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"AL","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"MO","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"UT","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"CT","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"OR","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"LA","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"DC","roundedSRank":"SNA","exotic":true,"native":false},{"subnationCode":"MD","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"NY","roundedSRank":"SNA","exotic":true,"native":false},{"subnationCode":"NV","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"RI","roundedSRank":"SNA","exotic":true,"native":false},{"subnationCode":"NH","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"SD","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"SC","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"GA","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"VT","roundedSRank":"SNR","exotic":false,"native":true}],"exotic":false,"native":true},{"nationCode":"CA","roundedNRank":"N4","subnations":[{"subnationCode":"NS","roundedSRank":"SNA","exotic":true,"native":false},{"subnationCode":"ON","roundedSRank":"SNA","exotic":true,"native":false},{"subnationCode":"QC","roundedSRank":"SNA","exotic":true,"native":false},{"subnationCode":"PE","roundedSRank":"SNA","exotic":true,"native":false},{"subnationCode":"AB","roundedSRank":"S4","exotic":false,"native":true},{"subnationCode":"MB","roundedSRank":"S3","exotic":false,"native":true},{"subnationCode":"BC","roundedSRank":"SNA","exotic":true,"native":false},{"subnationCode":"NB","roundedSRank":"SNA","exotic":true,"native":false},{"subnationCode":"NT","roundedSRank":"SNA","exotic":true,"native":false},{"subnationCode":"SK","roundedSRank":"S4","exotic":false,"native":true}],"exotic":false,"native":true}],"lastModified":"2020-11-11T00:14:13.918966Z","classificationStatus":"Standard","speciesGlobal":{"usesaCode":null,"cosewicCode":null,"saraCode":null,"synonyms":["Helianthus
         annuus var. lenticularis"],"otherCommonNames":["Common Annual Sunflower","common
         sunflower","Tournesol"],"kingdom":"Plantae","phylum":"Anthophyta","taxclass":"Dicotyledoneae","taxorder":"Asterales","family":"Asteraceae","genus":"Helianthus","taxonomicComments":null,"informalTaxonomy":"Plants
         - Vascular Plants - Flowering Plants - Dicots","infraspecies":false,"completeDistribution":true},"gRank":"G5"}],"resultsSummary":{"page":0,"recordsPerPage":20,"totalPages":1,"totalResults":1,"speciesResults":{"total":1}},"searchCriteria":{"criteriaType":"species","textCriteria":[{"paramType":"textSearch","searchToken":"Helianthus
         annuus","matchAgainst":"allScientificNames","operator":"similarTo"}],"statusCriteria":null,"locationCriteria":null,"pagingOptions":{"page":0,"recordsPerPage":20},"recordSubtypeCriteria":null,"modifiedSince":null,"locationOptions":null,"classificationOptions":null,"speciesTaxonomyCriteria":null}}'
-  recorded_at: 2020-09-16 17:30:34 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2020-11-20 18:02:33 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0
 - request:
     method: post
     uri: https://explorer.natureserve.org/api/data/speciesSearch
@@ -102,7 +102,7 @@ http_interactions:
       string: '{"criteriaType":"species","textCriteria":[{"paramType":"textSearch","searchToken":"Pomatomus
         saltatrix","matchAgainst":"allScientificNames","operator":"similarTo"}]}'
     headers:
-      User-Agent: libcurl/7.72.0 r-curl/4.3 crul/1.0.0
+      User-Agent: libcurl/7.73.0 r-curl/4.3 crul/1.0.0
       Content-Type: application/json
       Accept-Encoding: gzip, deflate
       Accept: application/json
@@ -113,7 +113,7 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 200
-      date: Wed, 16 Sep 2020 17:29:00 GMT
+      date: Fri, 20 Nov 2020 18:00:44 GMT
       server: Apache/2.4.41 (Win64) OpenSSL/1.1.1c
       content-type: application/json;charset=UTF-8
       transfer-encoding: chunked
@@ -121,8 +121,8 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '{"results":[{"recordType":"SPECIES","elementGlobalId":101998,"uniqueId":"ELEMENT_GLOBAL.2.101998","nsxUrl":"/Taxon/ELEMENT_GLOBAL.2.101998/Pomatomus_saltatrix","elcode":"AFCQS01010","scientificName":"Pomatomus
-        saltatrix","formattedScientificName":"<i>Pomatomus saltatrix</i>","primaryCommonName":"Bluefish","primaryCommonNameLanguage":"EN","roundedGRank":"G5","nations":[{"nationCode":"US","roundedNRank":"N5","subnations":[{"subnationCode":"RI","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"LA","roundedSRank":"S4","exotic":false,"native":true},{"subnationCode":"NY","roundedSRank":"SNRN","exotic":false,"native":true},{"subnationCode":"GA","roundedSRank":"SNR","exotic":false,"native":true}],"exotic":false,"native":true}],"lastModified":"2020-09-05T01:23:30.259166Z","classificationStatus":"Standard","speciesGlobal":{"usesaCode":null,"cosewicCode":null,"saraCode":null,"synonyms":[],"otherCommonNames":[],"kingdom":"Animalia","phylum":"Craniata","taxclass":"Actinopterygii","taxorder":"Perciformes","family":"Pomatomidae","genus":"Pomatomus","taxonomicComments":null,"informalTaxonomy":"Animals
+        saltatrix","formattedScientificName":"<i>Pomatomus saltatrix</i>","primaryCommonName":"Bluefish","primaryCommonNameLanguage":"EN","roundedGRank":"G5","nations":[{"nationCode":"US","roundedNRank":"N5","subnations":[{"subnationCode":"NY","roundedSRank":"SNRN","exotic":false,"native":true},{"subnationCode":"GA","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"RI","roundedSRank":"SNR","exotic":false,"native":true},{"subnationCode":"LA","roundedSRank":"S4","exotic":false,"native":true}],"exotic":false,"native":true}],"lastModified":"2020-11-11T02:06:30.328108Z","classificationStatus":"Standard","speciesGlobal":{"usesaCode":null,"cosewicCode":null,"saraCode":null,"synonyms":[],"otherCommonNames":[],"kingdom":"Animalia","phylum":"Craniata","taxclass":"Actinopterygii","taxorder":"Perciformes","family":"Pomatomidae","genus":"Pomatomus","taxonomicComments":null,"informalTaxonomy":"Animals
         - Vertebrates - Fishes - Marine Bony and Cartilaginous; Hagfishes","infraspecies":false,"completeDistribution":false},"gRank":"G5"}],"resultsSummary":{"page":0,"recordsPerPage":20,"totalPages":1,"totalResults":1,"speciesResults":{"total":1}},"searchCriteria":{"criteriaType":"species","textCriteria":[{"paramType":"textSearch","searchToken":"Pomatomus
         saltatrix","matchAgainst":"allScientificNames","operator":"similarTo"}],"statusCriteria":null,"locationCriteria":null,"pagingOptions":{"page":0,"recordsPerPage":20},"recordSubtypeCriteria":null,"modifiedSince":null,"locationOptions":null,"classificationOptions":null,"speciesTaxonomyCriteria":null}}'
-  recorded_at: 2020-09-16 17:30:34 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2020-11-20 18:02:33 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.0

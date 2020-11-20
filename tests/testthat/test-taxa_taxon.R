@@ -32,7 +32,7 @@ test_that("taxa_taxon", {
   # coercion to data.frame
   adf <- as.data.frame(a)
   expect_is(adf, "data.frame")
-  expect_equal(dim(adf), c(0, 7))
+  expect_equal(dim(adf), c(0, 8))
 
 
   # all parts filled
@@ -84,7 +84,7 @@ test_that("taxa_taxon", {
   # coercion to data.frame
   bdf <- as.data.frame(b)
   expect_is(bdf, "data.frame")
-  expect_equal(dim(bdf), c(1, 7))
+  expect_equal(dim(bdf), c(1, 8))
 })
 
 

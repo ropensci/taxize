@@ -5,7 +5,7 @@ test_that("get_natserv returns the correct value", {
 
   vcr::use_cassette("get_natserv", {
     x <- get_natserv(c('Pomatomus saltatrix', "howdy"), messages=FALSE)
-    w <- get_natserv(c("Helianthus annuus", 'Pomatomus saltatrix'), 
+    w <- get_natserv(c("Helianthus annuus", 'Pomatomus saltatrix'),
         messages=FALSE)
   })
     

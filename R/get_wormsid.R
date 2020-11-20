@@ -246,17 +246,7 @@ get_worms <- function(sci_com, searchtype = "scientific", marine_only = TRUE,
     tstate$add(sci_com[i], res)
   }
   out <- tstate$get()
-  ids <- as.character(unlist(pluck(out, "id")))
-  res <- taxa_taxon(
-    name = unlist(pluck(out, "name")),
-    id = taxa2::taxon_id(ids, db = "worms"),
-    rank = unlist(pluck(out, "rank")),
-    uri = sprintf(get_url_templates$worms, ids),
-    match = unname(unlist(pluck(out, "att"))),
-    multiple_matches = unname(unlist(pluck(out, "multiple"))),
-    pattern_match = unname(unlist(pluck(out, "direct"))),
-    class = "worms"
-  )
+  res <- make_taxa_taxon(out, "worms")
   on.exit(prog$prog_summary(), add = TRUE)
   on.exit(tstate$exit, add = TRUE)
   return(res)

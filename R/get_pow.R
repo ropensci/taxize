@@ -234,17 +234,7 @@ get_pow <- function(sci_com, accepted = FALSE, ask = TRUE, messages = TRUE,
     tstate$add(sci_com[i], res)
   }
   out <- tstate$get()
-  ids <- as.character(unlist(pluck(out, "id")))
-  res <- taxa_taxon(
-    name = unlist(pluck(out, "name")),
-    id = taxa2::taxon_id(ids, db = "pow"),
-    rank = unlist(pluck(out, "rank")),
-    uri = sprintf(get_url_templates$pow, ids),
-    match = unname(unlist(pluck(out, "att"))),
-    multiple_matches = unname(unlist(pluck(out, "multiple"))),
-    pattern_match = unname(unlist(pluck(out, "direct"))),
-    class = "pow"
-  )
+  res <- make_taxa_taxon(out, "pow")
   on.exit(prog$prog_summary(), add = TRUE)
   on.exit(tstate$exit, add = TRUE)
   return(res)

@@ -17,8 +17,7 @@
 #'
 #' Comes with the following attributes:
 #' 
-#' * *match* (character) - the reason for NA, either 'not found',
-#'  'found' or if `ask = FALSE` then 'NA due to ask=FALSE')
+#' * *match* (character) - the reason for NA, either 'not found' or 'found'
 #' * *name* (character) - the taxonomic name, which is needed in
 #'  [synonyms()] and [sci2comm()] methods since they
 #'  internally use \pkg{rredlist} functions which require the taxonomic name,
@@ -84,6 +83,7 @@ get_iucn <- function(sci, messages = TRUE, key = NULL, x = NULL, ...) {
 
     if (!inherits(df$result, "data.frame") || NROW(df$result) == 0) {
       id <- NA_character_
+      name <- NA_character_
       att <- "not found"
     } else {
       df <- df$result[, c("taxonid", "scientific_name", "kingdom",
@@ -101,30 +101,24 @@ get_iucn <- function(sci, messages = TRUE, key = NULL, x = NULL, ...) {
 
       if (!all(is.na(direct))) {
         id <- df$taxonid[!is.na(direct)]
+        name <- df$scientific_name[!is.na(direct)]
         direct <- TRUE
         att <- "found"
       } else {
         direct <- FALSE
         id <- df$taxonid
+        name <- df$scientific_name
         att <- "found"
       }
       # multiple matches not possible because no real search
     }
-    res <- list(id = id, name = sci[i], att = att, direct = direct)
+    res <- list(id = id, name = name, att = att, direct = direct)
     prog$completed(sci[i], att)
     prog$prog(att)
     tstate$add(sci[i], res)
   }
   out <- tstate$get()
-  ids <- as.character(unlist(pluck(out, "id")))
-  res <- taxa_taxon(
-    name = unlist(pluck(out, "name")),
-    id = taxa2::taxon_id(ids, db = "iucn"),
-    rank = "species",
-    uri = sprintf(get_url_templates$iucn, ids),
-    match = unname(unlist(pluck(out, "att"))),
-    class = "iucn"
-  )
+  res <- make_taxa_taxon(out, "iucn", rank = "species")
   on.exit(prog$prog_summary(), add = TRUE)
   on.exit(tstate$exit, add = TRUE)
   return(res)
@@ -168,10 +162,7 @@ as.iucn.numeric <- function(x, check=TRUE, key = NULL) {
 
 #' @export
 #' @rdname get_iucn
-as.iucn.data.frame <- function(x, check=TRUE, key = NULL) {
-  structure(x$ids, class = "iucn", match = x$match,
-            name = x$name, uri = x$uri)
-}
+as.iucn.data.frame <- function(x, check=TRUE, key = NULL) as_txid_df(x, check)
 
 make_iucn <- function(x, check = TRUE, key = NULL) {
   make_iucn_generic(x, uu = iucn_base_url, clz = "iucn", check, key)

@@ -277,9 +277,9 @@ get_eol <- function(sci_com, ask = TRUE, messages = TRUE,
     tstate$add(sci_com[i], res)
   }
   out <- tstate$get()
-  # FIXME: ignoring page ids and providers, would need to put in to taxa_taxon
-  # page_ids <- as.character(unlist(pluck(out, "page_id")))
-  # provider <- pluck_un(out, "source", ""),
+  page_ids <- as.character(unlist(pluck(out, "page_id")))
+  provider <- pluck_un(out, "source", "")
+  misc <- jsonlite::toJSON(list(page_ids=page_ids, provider=provider))
   ids <- pluck_un(out, "id", "")
   res <- taxa_taxon(
     name = unlist(pluck(out, "name")),
@@ -287,8 +287,9 @@ get_eol <- function(sci_com, ask = TRUE, messages = TRUE,
     rank = unlist(pluck(out, "rank")),
     uri = sprintf(get_url_templates$eol, ids),
     match = unname(unlist(pluck(out, "att"))),
-    multiple_matches = unname(unlist(pluck(out, "multiple"))),
-    pattern_match = unname(unlist(pluck(out, "direct"))),
+    multiple_matches = unname(unlist(pluck(out, "multiple"))) %||% NA,
+    pattern_match = unname(unlist(pluck(out, "direct"))) %||% NA,
+    misc = as.character(misc),
     class = "eol"
   )
   on.exit(prog$prog_summary(), add = TRUE)

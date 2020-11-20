@@ -309,17 +309,7 @@ get_gbif <- function(sci, ask = TRUE, messages = TRUE, rows = NA,
     tstate$add(sci[i], res)
   }
   out <- tstate$get()
-  ids <- as.character(unlist(pluck(out, "id")))
-  res <- taxa_taxon(
-    name = unlist(pluck(out, "name")),
-    id = taxa2::taxon_id(ids, db = "gbif"),
-    rank = unlist(pluck(out, "rank")),
-    uri = sprintf(get_url_templates$gbif, ids),
-    match = unname(unlist(pluck(out, "att"))),
-    multiple_matches = unname(unlist(pluck(out, "multiple"))),
-    pattern_match = unname(unlist(pluck(out, "direct"))),
-    class = "gbif"
-  )
+  res <- make_taxa_taxon(out, "gbif")
   on.exit(prog$prog_summary(), add = TRUE)
   on.exit(tstate$exit, add = TRUE)
   return(res)
@@ -354,22 +344,6 @@ as.gbif.numeric <- function(x, check=TRUE) as.gbif(as.character(x), check)
 #' @export
 #' @rdname get_gbif
 as.gbif.data.frame <- function(x, check = TRUE) as_txid_df(x, check)
-
-#' @export
-#' @rdname get_gbif
-as.data.frame.txid <- function(x, ...){
-  tibble::as_tibble(
-    data.frame(ids = as.character(taxa2::tax_id(x)),
-      name = as.character(taxa2::tax_name(x)),
-      rank = unname(as.character(taxa2::tax_rank(x))),
-      uri = txz_uri(x),
-      match = txz_match(x),
-      multiple_matches = txz_mm(x),
-      pattern_match = txz_pm(x),
-      stringsAsFactors = FALSE)
-  )
-}
-
 
 make_gbif <- function(x, check=TRUE) make_generic(x, 'https://www.gbif.org/species/%s', "gbif", check)
 

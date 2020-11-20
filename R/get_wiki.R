@@ -169,16 +169,8 @@ get_wiki <- function(sci_com, wiki_site = "species", wiki = "en", ask = TRUE,
     tstate$add(sci_com[i], res)
   }
   out <- tstate$get()
-  ids <- structure(pluck_un(out, "id", ""), class = "wiki",
-    match = pluck_un(out, "att", ""),
-    multiple_matches = pluck_un(out, "multiple", logical(1)),
-    pattern_match = pluck_un(out, "direct", logical(1))
-  )
-  on.exit(prog$prog_summary(), add = TRUE)
-  on.exit(tstate$exit, add = TRUE)
-  attr(ids, 'wiki_site') <- wiki_site
-  attr(ids, 'wiki_lang') <- wiki
-  if ( !all(is.na(ids)) ) {
+  ids <- unlist(pluck_un(out, "id"))
+  if (!all(is.na(ids))) {
     zz <- gsub("\\s", "_", na.omit(ids))
     base_url <- switch(
       wiki_site,
@@ -186,9 +178,23 @@ get_wiki <- function(sci_com, wiki_site = "species", wiki = "en", ask = TRUE,
       pedia = sprintf('https://%s.wikipedia.org/wiki/', wiki),
       commons = 'https://commons.wikimedia.org/wiki/'
     )
-    attr(ids, 'uri') <- paste0(base_url, zz)
+    uris <- paste0(base_url, zz)
   }
-  return(ids)
+  misc <- jsonlite::toJSON(list(wiki_site=wiki_site, wiki_lang=wiki),
+    auto_unbox = TRUE)
+  res <- taxa_taxon(
+    name = NA_character_,
+    id = taxa2::taxon_id(ids, db = "wiki"),
+    uri = uris,
+    match = pluck_un(out, "att", ""),
+    multiple_matches = pluck_un(out, "multiple", logical(1)) %||% NA,
+    pattern_match = pluck_un(out, "direct", logical(1)) %||% NA,
+    misc = as.character(misc),
+    class = "wiki"
+  )
+  on.exit(prog$prog_summary(), add = TRUE)
+  on.exit(tstate$exit, add = TRUE)
+  return(res)
 }
 
 #' @export
@@ -233,29 +239,8 @@ as.wiki.numeric <- function(x, check=TRUE, wiki_site = "species",
 
 #' @export
 #' @rdname get_wiki
-as.wiki.data.frame <- function(x, check=TRUE, wiki_site = "species",
-                               wiki = "en") {
-
-  structure(x$ids, class = "wiki", match = x$match,
-            multiple_matches = x$multiple_matches,
-            pattern_match = x$pattern_match,
-            wiki_site = x$wiki_site,
-            wiki_lang = x$wiki_lang, uri = x$uri)
-}
-
-#' @export
-#' @rdname get_wiki
-as.data.frame.wiki <- function(x, ...){
-  data.frame(ids = unclass(x),
-             class = "wiki",
-             match = attr(x, "match"),
-             multiple_matches = attr(x, "multiple_matches"),
-             pattern_match = attr(x, "pattern_match"),
-             wiki_site = attr(x, 'wiki_site'),
-             wiki_lang = attr(x, 'wiki_lang'),
-             uri = attr(x, "uri"),
-             stringsAsFactors = FALSE)
-}
+as.wiki.data.frame <- function(x, check = TRUE,
+  wiki_site = "species", wiki = "en") as_txid_df(x, check)
 
 make_wiki <- function(x, check = TRUE, wiki_site, wiki) {
   url <- switch(

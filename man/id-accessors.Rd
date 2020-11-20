@@ -6,6 +6,7 @@
 \alias{txz_match}
 \alias{txz_mm}
 \alias{txz_pm}
+\alias{txz_misc}
 \title{Access various metadata from taxonomic id objects}
 \usage{
 txz_uri(x)
@@ -15,6 +16,8 @@ txz_match(x)
 txz_mm(x)
 
 txz_pm(x)
+
+txz_misc(x)
 }
 \arguments{
 \item{x}{result of a call to a \verb{get_*} function, an object

@@ -198,17 +198,7 @@ get_tol <- function(sci, ask = TRUE, messages = TRUE, rows = NA,
     tstate$add(sci[i], res)
   }
   out <- tstate$get()
-  ids <- as.character(unlist(pluck(out, "id")))
-  res <- taxa_taxon(
-    name = unlist(pluck(out, "name")),
-    id = taxa2::taxon_id(ids, db = "tol"),
-    rank = unlist(pluck(out, "rank")),
-    uri = sprintf(get_url_templates$tol, ids),
-    match = unname(unlist(pluck(out, "att"))),
-    multiple_matches = unname(unlist(pluck(out, "multiple"))),
-    pattern_match = unname(unlist(pluck(out, "direct"))),
-    class = "tol"
-  )
+  res <- make_taxa_taxon(out, "tol")
   on.exit(prog$prog_summary(), add = TRUE)
   on.exit(tstate$exit, add = TRUE)
   return(res)

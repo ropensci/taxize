@@ -287,17 +287,7 @@ get_bold <- function(sci, fuzzy = FALSE, dataTypes = 'basic',
     tstate$add(sci[i], res)
   }
   out <- tstate$get()
-  ids <- as.character(unlist(pluck(out, "id")))
-  res <- taxa_taxon(
-    name = unlist(pluck(out, "name")),
-    id = taxa2::taxon_id(ids, db = "bold"),
-    rank = unlist(pluck(out, "rank")),
-    uri = sprintf(get_url_templates$bold, ids),
-    match = unname(unlist(pluck(out, "att"))),
-    multiple_matches = unname(unlist(pluck(out, "multiple"))),
-    pattern_match = unname(unlist(pluck(out, "direct"))),
-    class = "bold"
-  )
+  res <- make_taxa_taxon(out, "bold")
   on.exit(prog$prog_summary(), add = TRUE)
   on.exit(tstate$exit, add = TRUE)
   return(res)

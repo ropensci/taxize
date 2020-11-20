@@ -329,17 +329,7 @@ get_ncbi <- function(sci_com, ask = TRUE, messages = TRUE, rows = NA,
     tstate$add(sci_com[i], res)
   }
   out <- tstate$get()
-  ids <- as.character(unlist(pluck_un(out, "id", "")))
-  res <- taxa_taxon(
-    name = unlist(pluck(out, "name")) %||% NA_character_,
-    id = taxa2::taxon_id(ids, db = "ncbi"),
-    rank = unlist(pluck(out, "rank")) %||% NA_character_,
-    uri = sprintf(get_url_templates$ncbi, ids),
-    match = unname(unlist(pluck(out, "att"))),
-    multiple_matches = unname(unlist(pluck(out, "multiple"))),
-    pattern_match = unname(unlist(pluck(out, "direct"))),
-    class = "ncbi"
-  )
+  res <- make_taxa_taxon(out, "ncbi")
   on.exit(prog$prog_summary(), add = TRUE)
   on.exit(tstate$exit, add = TRUE)
   return(res)

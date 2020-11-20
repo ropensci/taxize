@@ -8,7 +8,6 @@
 \alias{as.wiki.list}
 \alias{as.wiki.numeric}
 \alias{as.wiki.data.frame}
-\alias{as.data.frame.wiki}
 \alias{get_wiki_}
 \title{Get the page name for a Wiki taxon}
 \usage{
@@ -35,8 +34,6 @@ as.wiki(x, check = TRUE, wiki_site = "species", wiki = "en")
 \method{as.wiki}{numeric}(x, check = TRUE, wiki_site = "species", wiki = "en")
 
 \method{as.wiki}{data.frame}(x, check = TRUE, wiki_site = "species", wiki = "en")
-
-\method{as.data.frame}{wiki}(x, ...)
 
 get_wiki_(
   x,

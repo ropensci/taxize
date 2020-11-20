@@ -9,7 +9,6 @@
 \alias{as.gbif.list}
 \alias{as.gbif.numeric}
 \alias{as.gbif.data.frame}
-\alias{as.data.frame.txid}
 \alias{get_gbif_}
 \alias{get_gbifid_}
 \title{Get the GBIF backbone taxon ID from taxonomic names.}
@@ -42,8 +41,6 @@ as.gbif(x, check = FALSE)
 \method{as.gbif}{numeric}(x, check = TRUE)
 
 \method{as.gbif}{data.frame}(x, check = TRUE)
-
-\method{as.data.frame}{txid}(x, ...)
 
 get_gbif_(sci, messages = TRUE, rows = NA, method = "backbone", sciname = NULL)
 
