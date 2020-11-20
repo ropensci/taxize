@@ -1,0 +1,56 @@
+on: push
+
+name: examples
+
+jobs:
+  examples:
+    runs-on: ${{ matrix.config.os }}
+    if: startsWith(github.event.head_commit.message, 'EXAMPLES')
+    name: ${{ matrix.config.os }} (${{ matrix.config.r }})
+    strategy:
+      fail-fast: false
+      matrix:
+        config:
+        - { os: macOS-latest, r: 'latest'}
+
+    env:
+      R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
+      CRAN: ${{ matrix.config.cran }}
+      ENTREZ_KEY: ${{ secrets.ENTREZ_KEY }}
+      IUCN_REDLIST_KEY: ${{ secrets.IUCN_REDLIST_KEY }}
+      TROPICOS_KEY: ${{ secrets.ENTREZ_KEY }}
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: r-lib/actions/setup-r@v1
+        with:
+          r-version: ${{ matrix.config.r }}
+
+      - uses: r-lib/actions/setup-pandoc@v1
+
+      - name: Cache R packages
+        uses: actions/cache@v2
+        with:
+          path: ${{ env.R_LIBS_USER }}
+          key: ${{ runner.os }}-r-${{ matrix.config.r }}-${{ hashFiles('DESCRIPTION') }}
+      
+      - name: Install pak
+        run: |
+          install.packages("pak", repos = "https://r-lib.github.io/p/pak/dev/")
+        shell: Rscript {0}
+      
+      - name: Install dependencies
+        run: |
+          pak::local_install_dev_deps()
+          pak::pkg_install(c("devtools", 'zachary-foster/taxa2'))
+        shell: Rscript {0}
+
+      - name: Run examples
+        run: Rscript -e "devtools::run_examples(run = TRUE)"
+
+      - name: Upload examples results
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ runner.os }}-r${{ matrix.config.r }}-results
+          path: revdep/*.md
