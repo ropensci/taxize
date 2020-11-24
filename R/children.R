@@ -191,7 +191,7 @@ children.txid <- function(sci_id, db = NULL, ...) {
 
 id_class <- function(x) {
   clazess <- c("worms", "ncbi", "itis", "pow", "gbif",
-    "iucn", "natserv", "bold", "eol", "nbn", "tol", "tps")
+    "iucn", "natserv", "bold", "eol", "nbn", "tol", "tps", "wiki")
   clazess[clazess %in% class(x)]
 }
 

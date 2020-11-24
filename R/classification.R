@@ -723,12 +723,15 @@ classification.wiki <- function(id, callopts = list(), return_id = TRUE, ...) {
   out <- list()
   for (i in seq_along(id)) {
     out[[i]] <-
-      fun(id[i], attr(id, "wiki_site"), attr(id, "wiki_lang"))
+      fun(txidac(id)[i], wiki_misc(id, "wiki_site")[i],
+        wiki_misc(id, "wiki_lang")[i])
   }
-  names(out) <- id
+  names(out) <- txidac(id)
   structure(out, class = 'classification', db = 'wiki',
-            wiki_site = attr(id, "wiki_site"), wiki = attr(id, "wiki_lang"))
+            wiki_site = wiki_misc(id, "wiki_site")[1],
+            wiki = wiki_misc(id, "wiki_lang")[1])
 }
+classification_wiki <- classification.wiki
 
 classification_pow <- function(id, callopts = list(), return_id = TRUE, ...) {
   warn_db(list(...), "pow")
