@@ -49,5 +49,11 @@ jobs:
       - name: Run examples
         run: |
           source("inst/ignore/scott_run_examples.R")
-          scott_run_examples(run_dontrun = TRUE)
+          scott_run_examples(run_dontrun = TRUE, out_file = "taxize_examples_out.txt")
         shell: Rscript {0}
+
+      - name: Upload examples results
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ runner.os }}-r${{ matrix.config.r }}-results
+          path: taxize_examples_out.txt
