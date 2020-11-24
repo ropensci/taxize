@@ -343,9 +343,11 @@ rank_swap <- function(x) {
     switch(w,
       subdiv. = "subdivision",
       cl. = "class",
+      superord. = "superorder",
       ord. = "order",
       fam. = "family",
       subfam. = "subfamily",
+      supertrib. = "supertribe",
       trib. = "tribe",
       sp. = "species",
       subsp. = "subspecies",
@@ -355,6 +357,7 @@ rank_swap <- function(x) {
       subvar. = "subvariety",
       "[unranked]" = "unranked",
       unranked = "unranked",
+      supersect. = "supersection",
       sect. = "section",
       subsect. = "subsection",
       ser. = "series",
@@ -365,7 +368,10 @@ rank_swap <- function(x) {
       nothosp. = "nothospecies",
       nothosubsp. = "nothosubspecies",
       nothovar. = "nothovariety",
-      stop("rank abbreviation (", w, ") not found; open a GitHub issue")
+      monstr. = "monstrositatum",
+      cv. = "cultivar",
+      group = "group",
+      w
     )
   }, character(1))
 }
