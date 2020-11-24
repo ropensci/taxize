@@ -26,6 +26,7 @@ scott_run_examples <- function (pkg = ".", out_file = NULL, run_donttest = FALSE
   invisible()
 }
 
+
 # runegsafe <- plyr::failwith(NULL, pkgload::run_example)
 # scott_run_examples <- function(pkg = ".", start = NULL, show = TRUE,
 #   run_donttest = FALSE, run_dontrun = FALSE, fresh = FALSE,
