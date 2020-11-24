@@ -75,7 +75,7 @@
 #' # filter results to a rank or data source, or both
 #' get_eol("Satyrium")
 #' get_eol("Satyrium", rank = "genus")
-#' get_eol("Satyrium", data_source = "INAT")
+#' get_eol("Satyrium", data_source = "inaturalist")
 #' get_eol("Satyrium", rank = "genus",
 #'   data_source = "North Pacific Species List")
 #'
@@ -195,7 +195,7 @@ get_eol <- function(sci_com, ask = TRUE, messages = TRUE,
     if (length(id) == 1 & !all(is.na(id))) {
       id <- df$eolid
       page_id <- df$pageid
-      datasource <- df$source
+      datasource <- df$source %||% NA_character_
       name <- df$name
       rank_taken <- df$rank
       direct <- TRUE
@@ -208,7 +208,7 @@ get_eol <- function(sci_com, ask = TRUE, messages = TRUE,
       df <- filt(df, "source", data_source)
       id <- df$eolid
       page_id <- df$pageid
-      datasource <- df$source
+      datasource <- df$source %||% NA_character_
       att <- "found"
     }
 

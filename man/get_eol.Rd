@@ -136,7 +136,7 @@ get_eol(c("Chironomus riparius", "uaudnadndj"))
 # filter results to a rank or data source, or both
 get_eol("Satyrium")
 get_eol("Satyrium", rank = "genus")
-get_eol("Satyrium", data_source = "INAT")
+get_eol("Satyrium", data_source = "inaturalist")
 get_eol("Satyrium", rank = "genus",
   data_source = "North Pacific Species List")
 

@@ -118,10 +118,6 @@
 #' get_ncbi(sci_com = "Pinus", rank_filter = "genus")
 #' get_ncbi(sci_com = "Pinus", rank_filter = "subgenus")
 #'
-#' # Fuzzy filter on any filtering fields
-#' ## uses grep on the inside
-#' get_ncbi("Satyrium", division_filter = "m")
-#'
 #' # specify rows to limit choices available
 #' get_ncbi('Dugesia') # user prompt needed
 #' get_ncbi('Dugesia', rows=1) # 2 choices, so returns only 1 row, so no choices
@@ -258,7 +254,7 @@ get_ncbi <- function(sci_com, ask = TRUE, messages = TRUE, rows = NA,
           uid <- NA_character_
         }
 
-        if (length(uid) == 1) {
+        if (length(uid) == 1 && !is.na(uid)) {
           direct <- TRUE
           att <- "found"
           rank_taken <- df$rank

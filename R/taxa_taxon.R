@@ -155,6 +155,18 @@ txz_pm <- function(x) txz_named_field(x, "pattern_match")
 #' @rdname id-accessors
 txz_misc <- function(x) txz_named_field(x, "misc")
 
+wiki_misc <- function(x, attr) {
+  z <- txz_misc(x)
+  if (
+    is.character(z) &&
+    all(vapply(z, jsonlite::validate, logical(1)))
+  ) {
+    tmp <- unname(vapply(z, function(w) jsonlite::fromJSON(w)[[attr]], ""))
+    return(tmp)
+  }
+  return("")
+}
+
 #' txid
 #' 
 #' txid is the class all `get_*()` functions return. It is extended from
@@ -227,7 +239,7 @@ make_taxa_taxon <- function(x, class, rank = NULL, ...) {
   ids <- as.character(unlist(pluck(x, "id")))
   if (!is.null(rank)) rank <- if (all(is.na(ids))) NA_character_ else rank
   res <- taxa_taxon(
-    name = unlist(pluck(x, "name")),
+    name = unlist(pluck(x, "name")) %||% NA_character_,
     id = taxa2::taxon_id(ids, db = class),
     rank = if (!is.null(rank)) rank else unlist(pluck(x, "rank")),
     uri = sprintf(get_url_templates[[class]], ids),
