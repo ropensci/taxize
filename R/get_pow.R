@@ -135,14 +135,14 @@ get_pow <- function(sci_com, accepted = FALSE, ask = TRUE, messages = TRUE,
     } else {
       pow_df <- pow_df[, c("name","rank","accepted","kingdom","family","fqId")]
 
+      if (accepted) {
+        pow_df <- pow_df[pow_df$accepted, ]
+      }
+      
       # should return NA if spec not found
       if (nrow(pow_df) == 0) {
         mssg(messages, "Not found. Consider checking the spelling or alternate classification")
         att <- 'not found'
-      }
-
-      if (accepted) {
-        pow_df <- pow_df[pow_df$accepted, ]
       }
 
       # take the one pow from data.frame

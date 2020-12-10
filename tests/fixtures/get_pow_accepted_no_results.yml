@@ -1,0 +1,35 @@
+http_interactions:
+- request:
+    method: get
+    uri: http://www.plantsoftheworldonline.org/api/2/search?q=Homalium%20leucophloeum&perPage=100&cursor=%2A
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.99.92)
+      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.99.92)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: 'HTTP/1.1 200 '
+      server: nginx/1.15.12
+      date: Thu, 10 Dec 2020 17:36:53 GMT
+      content-type: application/json;charset=UTF-8
+      transfer-encoding: chunked
+      connection: keep-alive
+      etag: W/"0f15cc2c11fb3cb77b02dbc1df01b8868"
+      content-encoding: gzip
+    body:
+      encoding: UTF-8
+      file: no
+      string: '{"totalResults":1,"page":1,"totalPages":1,"perPage":100,"cursor":"AoMIQVleSj8CNjAwU2FsaWNhY2VhZUhvbWFsaXVtbGV1Y29waGxvZXVtLFRheG9uXzkzMTAwMQ==","message":"If
+        you would like to download and use the POWO data in a conciencious way, please
+        use our official library pykew [https://github.com/RBGKew/pykew].","results":[{"accepted":false,"author":"(Tul.)
+        Baill.","kingdom":"Plantae","family":"Salicaceae","name":"Homalium leucophloeum","rank":"Species","url":"/taxon/urn:lsid:ipni.org:names:779816-1","fqId":"urn:lsid:ipni.org:names:779816-1"}]}'
+  recorded_at: 2020-12-10 17:36:53 GMT
+  recorded_with: vcr/0.5.4, webmockr/0.7.4
