@@ -42,7 +42,7 @@ getkey <- function(x = NULL, service) {
                 "44f1a53227f1c0b6238a997fcfe7513415f948d2")
       names(keys) <- keynames[1:2]
       key <- keys[[service]]
-      key_helpers <- c("taxize::use_tropicos()")
+      key_helpers <- c("taxize::use_tropicos()", "taxize::use_iucn()")
       names(key_helpers) <- keynames[1:2]
       message(paste("Using default key: Please get your own API key via ",
                     key_helpers[service], sep = ""))
