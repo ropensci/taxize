@@ -1,0 +1,117 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://api.catalogueoflife.org/nameusage/search?q=Chironomus%20riparius&dataset_key=3LR&fuzzy=false&status=accepted&offset=0&limit=100
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(rcol/0.1.0)
+      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(rcol/0.1.0)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: 'HTTP/2 200 '
+      date: Sat, 09 Jan 2021 01:21:14 GMT
+      content-type: application/json
+      cache-control: must-revalidate,no-cache,no-store
+      content-encoding: gzip
+      content-length: '935'
+      x-varnish: '131382869'
+      age: '0'
+      via: 1.1 varnish (Varnish/6.0)
+      x-cache: miss uncacheable
+      vary: Origin, Accept-Encoding
+      accept-ranges: bytes
+    body:
+      encoding: ASCII-8BIT
+      file: no
+      string: |-
+        eyJvZmZzZXQiOjAsImxpbWl0IjoxMDAsInRvdGFsIjoyLCJyZXN1bHQiOlt7ImlkIjoiNjlWNEsiLCJj
+        bGFzc2lmaWNhdGlvbiI6W3siaWQiOiI1VDZNWCIsIm5hbWUiOiJCaW90YSIsInJhbmsiOiJ1bnJhbmtl
+        ZCJ9LHsiaWQiOiJOIiwibmFtZSI6IkFuaW1hbGlhIiwicmFuayI6Imtpbmdkb20ifSx7ImlkIjoiUlQi
+        LCJuYW1lIjoiQXJ0aHJvcG9kYSIsInJhbmsiOiJwaHlsdW0ifSx7ImlkIjoiSDYiLCJuYW1lIjoiSW5z
+        ZWN0YSIsInJhbmsiOiJjbGFzcyJ9LHsiaWQiOiJEMlAiLCJuYW1lIjoiRGlwdGVyYSIsInJhbmsiOiJv
+        cmRlciJ9LHsiaWQiOiI4NFgiLCJuYW1lIjoiQ2hpcm9ub21pZGFlIiwicmFuayI6ImZhbWlseSJ9LHsi
+        aWQiOiIzTkNNIiwibmFtZSI6IkNoaXJvbm9tdXMiLCJyYW5rIjoiZ2VudXMifSx7ImlkIjoiNjlWNEsi
+        LCJuYW1lIjoiQ2hpcm9ub211cyByaXBhcml1cyIsInJhbmsiOiJzcGVjaWVzIn1dLCJ1c2FnZSI6eyJj
+        cmVhdGVkIjoiMjAyMC0wNy0xOFQwNToyOTo1My44MjQwMzYiLCJjcmVhdGVkQnkiOjEwMywibW9kaWZp
+        ZWQiOiIyMDIwLTA3LTE4VDA1OjI5OjUzLjgyNDAzNiIsIm1vZGlmaWVkQnkiOjEwMywiZGF0YXNldEtl
+        eSI6MjI0MiwiaWQiOiI2OVY0SyIsInNlY3RvcktleSI6NTM3LCJuYW1lIjp7ImNyZWF0ZWQiOiIyMDIw
+        LTA3LTE4VDA1OjI5OjUzLjgyNDAzNiIsImNyZWF0ZWRCeSI6MTAzLCJtb2RpZmllZCI6IjIwMjAtMDkt
+        MzBUMDM6MjU6MzUuODc5NDQyIiwibW9kaWZpZWRCeSI6MTAzLCJkYXRhc2V0S2V5IjoyMjQyLCJpZCI6
+        IjJhMDQ2NjMxLWE0MDAtNDFjZi04NTNjLTI3MmM0NWFkZTEyZiIsInNlY3RvcktleSI6NTM3LCJob21v
+        dHlwaWNOYW1lSWQiOiIyYTA0NjYzMS1hNDAwLTQxY2YtODUzYy0yNzJjNDVhZGUxMmYiLCJzY2llbnRp
+        ZmljTmFtZSI6IkNoaXJvbm9tdXMgcmlwYXJpdXMiLCJhdXRob3JzaGlwIjoiTWVpZ2VuLCAxODA0Iiwi
+        cmFuayI6InNwZWNpZXMiLCJnZW51cyI6IkNoaXJvbm9tdXMiLCJzcGVjaWZpY0VwaXRoZXQiOiJyaXBh
+        cml1cyIsImNvbWJpbmF0aW9uQXV0aG9yc2hpcCI6eyJhdXRob3JzIjpbIk1laWdlbiJdLCJ5ZWFyIjoi
+        MTgwNCJ9LCJjb2RlIjoiem9vbG9naWNhbCIsIm9yaWdpbiI6InNvdXJjZSIsInR5cGUiOiJzY2llbnRp
+        ZmljIiwicGFyc2VkIjp0cnVlfSwic3RhdHVzIjoiYWNjZXB0ZWQiLCJvcmlnaW4iOiJzb3VyY2UiLCJw
+        YXJlbnRJZCI6IjNOQ00iLCJzY3J1dGluaXplciI6IlN5c3RlbWEgRGlwdGVyb3J1bSB3b3JraW5nIHJl
+        Y29yZCIsInNjcnV0aW5pemVyRGF0ZSI6IjIwMTAiLCJleHRpbmN0IjpmYWxzZSwibGFiZWwiOiJDaGly
+        b25vbXVzIHJpcGFyaXVzIE1laWdlbiwgMTgwNCIsImxhYmVsSHRtbCI6IjxpPkNoaXJvbm9tdXMgcmlw
+        YXJpdXM8L2k+IE1laWdlbiwgMTgwNCJ9LCJzZWN0b3JEYXRhc2V0S2V5IjoxMTAxfSx7ImlkIjoiNVhW
+        NEwiLCJjbGFzc2lmaWNhdGlvbiI6W3siaWQiOiI1VDZNWCIsIm5hbWUiOiJCaW90YSIsInJhbmsiOiJ1
+        bnJhbmtlZCJ9LHsiaWQiOiJWIiwibmFtZSI6IlZpcnVzZXMiLCJyYW5rIjoia2luZ2RvbSJ9LHsiaWQi
+        OiI1UyIsIm5hbWUiOiJQaXN1dmlyaWNvdGEiLCJyYW5rIjoicGh5bHVtIn0seyJpZCI6IkdIIiwibmFt
+        ZSI6IlBpc29uaXZpcmljZXRlcyIsInJhbmsiOiJjbGFzcyJ9LHsiaWQiOiI2MjNGQiIsIm5hbWUiOiJQ
+        aWNvcm5hdmlyYWxlcyIsInJhbmsiOiJvcmRlciJ9LHsiaWQiOiI2MjdKRyIsIm5hbWUiOiJQb2x5Y2lw
+        aXZpcmlkYWUiLCJyYW5rIjoiZmFtaWx5In0seyJpZCI6IjYyTFZZIiwibmFtZSI6IkNoaXBvbHljaXZp
+        cnVzIiwicmFuayI6ImdlbnVzIn0seyJpZCI6IjVYVjRMIiwibmFtZSI6IkNoaXJvbm9tdXMgcmlwYXJp
+        dXMgdmlydXMgMSIsInJhbmsiOiJzcGVjaWVzIn1dLCJ1c2FnZSI6eyJjcmVhdGVkIjoiMjAyMC0wOS0w
+        MVQxMzo0NDo0NS43NDgyMTIiLCJjcmVhdGVkQnkiOjEwMiwibW9kaWZpZWQiOiIyMDIwLTA5LTAxVDEz
+        OjQ0OjQ1Ljc0ODIxMiIsIm1vZGlmaWVkQnkiOjEwMiwiZGF0YXNldEtleSI6MjI0MiwiaWQiOiI1WFY0
+        TCIsInNlY3RvcktleSI6ODY5LCJuYW1lIjp7ImNyZWF0ZWQiOiIyMDIwLTA5LTAxVDEzOjQ0OjQ1Ljc0
+        ODIxMiIsImNyZWF0ZWRCeSI6MTAyLCJtb2RpZmllZCI6IjIwMjAtMDktMzBUMDM6MzY6NTkuNjQ0NjY1
+        IiwibW9kaWZpZWRCeSI6MTAyLCJkYXRhc2V0S2V5IjoyMjQyLCJpZCI6ImVkY2EzZGI0LTdjZWItNGFk
+        My1iYWI2LTYzMzZiN2M2ZWRmMCIsInNlY3RvcktleSI6ODY5LCJob21vdHlwaWNOYW1lSWQiOiJlZGNh
+        M2RiNC03Y2ViLTRhZDMtYmFiNi02MzM2YjdjNmVkZjAiLCJzY2llbnRpZmljTmFtZSI6IkNoaXJvbm9t
+        dXMgcmlwYXJpdXMgdmlydXMgMSIsInJhbmsiOiJzcGVjaWVzIiwiY29kZSI6InZpcnVzIiwib3JpZ2lu
+        Ijoic291cmNlIiwidHlwZSI6InZpcnVzIiwibGluayI6Imh0dHA6Ly9pY3R2b25saW5lLm9yZy90YXhv
+        bm9teS9wL3RheG9ub215LWhpc3Rvcnk/dGF4bm9kZV9pZD0yMDE5MDU2MDgiLCJwYXJzZWQiOmZhbHNl
+        fSwic3RhdHVzIjoiYWNjZXB0ZWQiLCJvcmlnaW4iOiJzb3VyY2UiLCJwYXJlbnRJZCI6IjYyTFZZIiwi
+        bGluayI6Imh0dHA6Ly9pY3R2b25saW5lLm9yZy90YXhvbm9teS9wL3RheG9ub215LWhpc3Rvcnk/dGF4
+        bm9kZV9pZD0yMDE5MDU2MDgiLCJyZW1hcmtzIjoic3NSTkEoKykiLCJsYWJlbCI6IkNoaXJvbm9tdXMg
+        cmlwYXJpdXMgdmlydXMgMSIsImxhYmVsSHRtbCI6IkNoaXJvbm9tdXMgcmlwYXJpdXMgdmlydXMgMSJ9
+        LCJzZWN0b3JEYXRhc2V0S2V5IjoxMDE0fV0sImxhc3QiOnRydWUsImVtcHR5IjpmYWxzZX0=
+  recorded_at: 2021-01-09 01:21:15 GMT
+  recorded_with: vcr/0.6.0, webmockr/0.7.4
+- request:
+    method: get
+    uri: https://api.catalogueoflife.org/nameusage/search?q=aaasdfadsfasdf&dataset_key=3LR&fuzzy=false&status=accepted&offset=0&limit=100
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(rcol/0.1.0)
+      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(rcol/0.1.0)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: 'HTTP/2 200 '
+      date: Sat, 09 Jan 2021 01:21:15 GMT
+      content-type: application/json
+      cache-control: must-revalidate,no-cache,no-store
+      content-length: '59'
+      x-varnish: '131382870'
+      age: '0'
+      via: 1.1 varnish (Varnish/6.0)
+      x-cache: miss uncacheable
+      vary: Origin, Accept-Encoding
+      accept-ranges: bytes
+    body:
+      encoding: ASCII-8BIT
+      file: no
+      string: eyJvZmZzZXQiOjAsImxpbWl0IjoxMDAsInRvdGFsIjowLCJsYXN0Ijp0cnVlLCJlbXB0eSI6dHJ1ZX0=
+  recorded_at: 2021-01-09 01:21:15 GMT
+  recorded_with: vcr/0.6.0, webmockr/0.7.4

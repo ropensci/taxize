@@ -1,0 +1,155 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://api.catalogueoflife.org/nameusage/search?q=Ilex%20zygophylla&dataset_key=3LR&fuzzy=false&status=accepted&offset=0&limit=100
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(rcol/0.1.0)
+      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(rcol/0.1.0)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: 'HTTP/2 200 '
+      date: Sat, 09 Jan 2021 01:21:17 GMT
+      content-type: application/json
+      cache-control: must-revalidate,no-cache,no-store
+      content-encoding: gzip
+      content-length: '607'
+      x-varnish: '131382872'
+      age: '0'
+      via: 1.1 varnish (Varnish/6.0)
+      x-cache: miss uncacheable
+      vary: Origin, Accept-Encoding
+      accept-ranges: bytes
+    body:
+      encoding: ASCII-8BIT
+      file: no
+      string: |-
+        eyJvZmZzZXQiOjAsImxpbWl0IjoxMDAsInRvdGFsIjoxLCJyZXN1bHQiOlt7ImlkIjoiM1BHNEsiLCJj
+        bGFzc2lmaWNhdGlvbiI6W3siaWQiOiI1VDZNWCIsIm5hbWUiOiJCaW90YSIsInJhbmsiOiJ1bnJhbmtl
+        ZCJ9LHsiaWQiOiJQIiwibmFtZSI6IlBsYW50YWUiLCJyYW5rIjoia2luZ2RvbSJ9LHsiaWQiOiJUUCIs
+        Im5hbWUiOiJUcmFjaGVvcGh5dGEiLCJyYW5rIjoicGh5bHVtIn0seyJpZCI6Ik1HIiwibmFtZSI6Ik1h
+        Z25vbGlvcHNpZGEiLCJyYW5rIjoiY2xhc3MifSx7ImlkIjoiUUciLCJuYW1lIjoiQXF1aWZvbGlhbGVz
+        IiwicmFuayI6Im9yZGVyIn0seyJpZCI6IjZMWSIsIm5hbWUiOiJBcXVpZm9saWFjZWFlIiwicmFuayI6
+        ImZhbWlseSJ9LHsiaWQiOiI2MldKNSIsIm5hbWUiOiJJbGV4IiwicmFuayI6ImdlbnVzIn0seyJpZCI6
+        IjNQRzRLIiwibmFtZSI6IklsZXggenlnb3BoeWxsYSIsInJhbmsiOiJzcGVjaWVzIn1dLCJ1c2FnZSI6
+        eyJjcmVhdGVkIjoiMjAyMC0xMC0xNVQxNzowMzo1MS40NzE5NzMiLCJjcmVhdGVkQnkiOjEwMywibW9k
+        aWZpZWQiOiIyMDIwLTEwLTE1VDE3OjAzOjUxLjQ3MTk3MyIsIm1vZGlmaWVkQnkiOjEwMywiZGF0YXNl
+        dEtleSI6MjI0MiwiaWQiOiIzUEc0SyIsInNlY3RvcktleSI6OTg2LCJuYW1lIjp7ImNyZWF0ZWQiOiIy
+        MDIwLTEwLTE1VDE3OjAzOjUxLjQ3MTk3MyIsImNyZWF0ZWRCeSI6MTAzLCJtb2RpZmllZCI6IjIwMjAt
+        MTAtMTVUMTc6MDM6NTEuNDcxOTczIiwibW9kaWZpZWRCeSI6MTAzLCJkYXRhc2V0S2V5IjoyMjQyLCJp
+        ZCI6IjIwZDUyNThhLTgwNzgtNGJjNy04Njk4LWY5MzA5Zjk4ZjFlNiIsInNlY3RvcktleSI6OTg2LCJo
+        b21vdHlwaWNOYW1lSWQiOiIyMGQ1MjU4YS04MDc4LTRiYzctODY5OC1mOTMwOWY5OGYxZTYiLCJzY2ll
+        bnRpZmljTmFtZSI6IklsZXggenlnb3BoeWxsYSIsImF1dGhvcnNoaXAiOiJNZXJyLiIsInJhbmsiOiJz
+        cGVjaWVzIiwiZ2VudXMiOiJJbGV4Iiwic3BlY2lmaWNFcGl0aGV0Ijoienlnb3BoeWxsYSIsImNvbWJp
+        bmF0aW9uQXV0aG9yc2hpcCI6eyJhdXRob3JzIjpbIk1lcnIuIl19LCJjb2RlIjoiYm90YW5pY2FsIiwi
+        cHVibGlzaGVkSW5JZCI6IjFhZGNiZTA2LTliODctNDQwOC05YWVmLWE1NTJjZjk1YjM4ZiIsInB1Ymxp
+        c2hlZEluUGFnZSI6IjIyNCIsIm9yaWdpbiI6InNvdXJjZSIsInR5cGUiOiJzY2llbnRpZmljIiwicGFy
+        c2VkIjp0cnVlfSwic3RhdHVzIjoiYWNjZXB0ZWQiLCJvcmlnaW4iOiJzb3VyY2UiLCJwYXJlbnRJZCI6
+        IjYyV0o1IiwiZXh0aW5jdCI6ZmFsc2UsImxhYmVsIjoiSWxleCB6eWdvcGh5bGxhIE1lcnIuIiwibGFi
+        ZWxIdG1sIjoiPGk+SWxleCB6eWdvcGh5bGxhPC9pPiBNZXJyLiJ9LCJzZWN0b3JEYXRhc2V0S2V5Ijox
+        MTQxfV0sImxhc3QiOnRydWUsImVtcHR5IjpmYWxzZX0=
+  recorded_at: 2021-01-09 01:21:18 GMT
+  recorded_with: vcr/0.6.0, webmockr/0.7.4
+- request:
+    method: get
+    uri: https://api.catalogueoflife.org/nameusage/search?q=Astronia%20shungolensis&dataset_key=3LR&fuzzy=false&status=accepted&offset=0&limit=100
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(rcol/0.1.0)
+      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(rcol/0.1.0)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: 'HTTP/2 200 '
+      date: Sat, 09 Jan 2021 01:21:17 GMT
+      content-type: application/json
+      cache-control: must-revalidate,no-cache,no-store
+      content-encoding: gzip
+      content-length: '636'
+      x-varnish: '131382873'
+      age: '0'
+      via: 1.1 varnish (Varnish/6.0)
+      x-cache: miss uncacheable
+      vary: Origin, Accept-Encoding
+      accept-ranges: bytes
+    body:
+      encoding: ASCII-8BIT
+      file: no
+      string: |-
+        eyJvZmZzZXQiOjAsImxpbWl0IjoxMDAsInRvdGFsIjoxLCJyZXN1bHQiOlt7ImlkIjoiSjRNNCIsImNs
+        YXNzaWZpY2F0aW9uIjpbeyJpZCI6IjVUNk1YIiwibmFtZSI6IkJpb3RhIiwicmFuayI6InVucmFua2Vk
+        In0seyJpZCI6IlAiLCJuYW1lIjoiUGxhbnRhZSIsInJhbmsiOiJraW5nZG9tIn0seyJpZCI6IlRQIiwi
+        bmFtZSI6IlRyYWNoZW9waHl0YSIsInJhbmsiOiJwaHlsdW0ifSx7ImlkIjoiTUciLCJuYW1lIjoiTWFn
+        bm9saW9wc2lkYSIsInJhbmsiOiJjbGFzcyJ9LHsiaWQiOiIzTFkiLCJuYW1lIjoiTXlydGFsZXMiLCJy
+        YW5rIjoib3JkZXIifSx7ImlkIjoiQ0s5IiwibmFtZSI6Ik1lbGFzdG9tYXRhY2VhZSIsInJhbmsiOiJm
+        YW1pbHkifSx7ImlkIjoiSlZWIiwibmFtZSI6Ik1lbGFzdG9tYXRvaWRlYWUiLCJyYW5rIjoic3ViZmFt
+        aWx5In0seyJpZCI6IjM0TVgiLCJuYW1lIjoiQXN0cm9uaWEiLCJyYW5rIjoiZ2VudXMifSx7ImlkIjoi
+        SjRNNCIsIm5hbWUiOiJBc3Ryb25pYSBzaHVuZ29sZW5zaXMiLCJyYW5rIjoic3BlY2llcyJ9XSwidXNh
+        Z2UiOnsiY3JlYXRlZCI6IjIwMjAtMTAtMTVUMTQ6NDM6NTMuMTcwMzg3IiwiY3JlYXRlZEJ5IjoxMDMs
+        Im1vZGlmaWVkIjoiMjAyMC0xMC0xNVQxNDo0Mzo1My4xNzAzODciLCJtb2RpZmllZEJ5IjoxMDMsImRh
+        dGFzZXRLZXkiOjIyNDIsImlkIjoiSjRNNCIsInNlY3RvcktleSI6MTEzMSwibmFtZSI6eyJjcmVhdGVk
+        IjoiMjAyMC0xMC0xNVQxNDo0Mzo1My4xNzAzODciLCJjcmVhdGVkQnkiOjEwMywibW9kaWZpZWQiOiIy
+        MDIwLTEwLTE1VDE0OjQzOjUzLjE3MDM4NyIsIm1vZGlmaWVkQnkiOjEwMywiZGF0YXNldEtleSI6MjI0
+        MiwiaWQiOiI1YmYzZTY4NS0xMmUxLTRhOTctYWNhYS1lNDFhZWI4NzkyMWUiLCJzZWN0b3JLZXkiOjEx
+        MzEsImhvbW90eXBpY05hbWVJZCI6IjViZjNlNjg1LTEyZTEtNGE5Ny1hY2FhLWU0MWFlYjg3OTIxZSIs
+        InNjaWVudGlmaWNOYW1lIjoiQXN0cm9uaWEgc2h1bmdvbGVuc2lzIiwiYXV0aG9yc2hpcCI6IkouIEYu
+        IE1heHdlbGwiLCJyYW5rIjoic3BlY2llcyIsImdlbnVzIjoiQXN0cm9uaWEiLCJzcGVjaWZpY0VwaXRo
+        ZXQiOiJzaHVuZ29sZW5zaXMiLCJjb21iaW5hdGlvbkF1dGhvcnNoaXAiOnsiYXV0aG9ycyI6WyJKLkYu
+        TWF4d2VsbCJdfSwiY29kZSI6ImJvdGFuaWNhbCIsInB1Ymxpc2hlZEluSWQiOiJjNmNlNDQ0NS1kOTNh
+        LTQ4ZTUtYWY3ZS1lNjcxZGYwN2ZhZGYiLCJwdWJsaXNoZWRJblBhZ2UiOiIxMDAiLCJvcmlnaW4iOiJz
+        b3VyY2UiLCJ0eXBlIjoic2NpZW50aWZpYyIsInBhcnNlZCI6dHJ1ZX0sInN0YXR1cyI6ImFjY2VwdGVk
+        Iiwib3JpZ2luIjoic291cmNlIiwicGFyZW50SWQiOiIzNE1YIiwiZXh0aW5jdCI6ZmFsc2UsImxhYmVs
+        IjoiQXN0cm9uaWEgc2h1bmdvbGVuc2lzIEouIEYuIE1heHdlbGwiLCJsYWJlbEh0bWwiOiI8aT5Bc3Ry
+        b25pYSBzaHVuZ29sZW5zaXM8L2k+IEouIEYuIE1heHdlbGwifSwic2VjdG9yRGF0YXNldEtleSI6MTE0
+        MX1dLCJsYXN0Ijp0cnVlLCJlbXB0eSI6ZmFsc2V9
+  recorded_at: 2021-01-09 01:21:18 GMT
+  recorded_with: vcr/0.6.0, webmockr/0.7.4
+- request:
+    method: get
+    uri: https://api.catalogueoflife.org/nameusage/search?q=Uromorus%20anthopophagorum&dataset_key=3LR&fuzzy=false&status=accepted&offset=0&limit=100
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(rcol/0.1.0)
+      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(rcol/0.1.0)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: 'HTTP/2 200 '
+      date: Sat, 09 Jan 2021 01:21:17 GMT
+      content-type: application/json
+      cache-control: must-revalidate,no-cache,no-store
+      content-length: '59'
+      x-varnish: '131382874'
+      age: '0'
+      via: 1.1 varnish (Varnish/6.0)
+      x-cache: miss uncacheable
+      vary: Origin, Accept-Encoding
+      accept-ranges: bytes
+    body:
+      encoding: ASCII-8BIT
+      file: no
+      string: eyJvZmZzZXQiOjAsImxpbWl0IjoxMDAsInRvdGFsIjowLCJsYXN0Ijp0cnVlLCJlbXB0eSI6dHJ1ZX0=
+  recorded_at: 2021-01-09 01:21:18 GMT
+  recorded_with: vcr/0.6.0, webmockr/0.7.4

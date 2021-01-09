@@ -30,8 +30,8 @@ col_search <- function(...) .Defunct(msg = col_defunct_mssg)
 
 #' @export
 #' @rdname col-defunct
-get_colid <- function(...) .Defunct(msg = col_defunct_mssg)
+get_colid <- function(...) .Defunct(msg = "See ?get_col")
 
 #' @export
 #' @rdname col-defunct
-get_colid_ <- function(...) .Defunct(msg = col_defunct_mssg)
+get_colid_ <- function(...) .Defunct(msg = "See ?get_col_")

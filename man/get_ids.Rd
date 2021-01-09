@@ -100,6 +100,7 @@ get_ids("Agapostemon", db = "ncbi", verbose = TRUE)
 
 Other taxonomic-ids: 
 \code{\link{get_boldid}()},
+\code{\link{get_col}()},
 \code{\link{get_eolid}()},
 \code{\link{get_gbifid}()},
 \code{\link{get_iucn}()},

@@ -91,6 +91,7 @@ Imports:
     worrms (>= 0.4.0),
     natserv (>= 1.0.0),
     wikitaxa (>= 0.3.0),
+    rcol,
     R6,
     crayon,
     cli,
@@ -100,6 +101,7 @@ Suggests:
     testthat,
     vegan,
     vcr
+Remotes: ropensci/rcol
 RoxygenNote: 7.1.1
 Roxygen: list(markdown = TRUE)
 X-schema.org-applicationCategory: Taxonomy

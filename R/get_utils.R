@@ -62,5 +62,6 @@ get_url_templates <- list(
   itis = "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=%s",
   nbn = "https://species.nbnatlas.org/species/%s",
   natserv = "https://explorer.natureserve.org/Taxon/ELEMENT_GLOBAL.2.%s",
-  iucn = iucn_base_url
+  iucn = iucn_base_url,
+  col = "https://data.catalogueoflife.org/dataset/3LR/taxon/%s"
 )

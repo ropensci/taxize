@@ -118,6 +118,7 @@ get_tolid_(c("asdfadfasd","Pinus contorta"))
 
 Other taxonomic-ids: 
 \code{\link{get_boldid}()},
+\code{\link{get_col}()},
 \code{\link{get_eolid}()},
 \code{\link{get_gbifid}()},
 \code{\link{get_ids}()},
