@@ -20,6 +20,7 @@ get_col(
   minRank = NULL,
   maxRank = NULL,
   fuzzy = FALSE,
+  match_type = "whole_words",
   ...
 )
 
@@ -106,8 +107,8 @@ get_col(c("Poa annua", "Pinus contorta"))
 
 # specify rows to limit choices available
 get_col(sci='Satyrium', status = NULL)
-get_col(sci='Satyrium', rows=10)
-get_col(sci='Satyrium', rows=1:3)
+get_col(sci='Satyrium', status = NULL, rows=10)
+get_col(sci='Satyrium', status = NULL, rows=1:3)
 
 # When not found, NA given
 get_col(sci="uaudnadndj")
@@ -117,11 +118,9 @@ get_col(c("Chironomus riparius", "uaudnadndj"))
 ## Satyrium example
 ### Results w/o narrowing
 get_col("Satyrium")
-### w/ phylum
-get_col("Satyrium", phylum = "Tracheophyta")
-get_col("Satyrium", phylum = "Arthropoda")
-### w/ phylum & rank
-get_col("Satyrium", phylum = "Arthropoda", rank = "genus")
+### w/ maxRank
+get_col("Satyrium", maxRank = "subspecies")
+get_col("Satyrium", maxRank = "species")
 
 ## min/max rank example
 get_col("Poa", rank = "genus")
@@ -129,7 +128,11 @@ get_col("Poa", family = "Thripidae")
 
 # Fuzzy filter
 get_col("A*", fuzzy = FALSE)
-get_col("A*", fuzzy = TRUE)
+get_col("Aba", fuzzy = TRUE, match_type = "whole_words")
+get_col("Aba", fuzzy = TRUE, match_type = "prefix")
+get_col("Aba", fuzzy = TRUE, match_type = "exact")
+get_col("Aba", fuzzy = FALSE)
+get_col("Aba", fuzzy = TRUE)
 
 # Convert a uid without class information to a uid class
 as.col(get_col("Poa annua")) # already a uid, returns the same

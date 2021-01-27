@@ -44,8 +44,8 @@
 #'
 #' # specify rows to limit choices available
 #' get_col(sci='Satyrium', status = NULL)
-#' get_col(sci='Satyrium', rows=10)
-#' get_col(sci='Satyrium', rows=1:3)
+#' get_col(sci='Satyrium', status = NULL, rows=10)
+#' get_col(sci='Satyrium', status = NULL, rows=1:3)
 #'
 #' # When not found, NA given
 #' get_col(sci="uaudnadndj")
@@ -55,11 +55,9 @@
 #' ## Satyrium example
 #' ### Results w/o narrowing
 #' get_col("Satyrium")
-#' ### w/ phylum
-#' get_col("Satyrium", phylum = "Tracheophyta")
-#' get_col("Satyrium", phylum = "Arthropoda")
-#' ### w/ phylum & rank
-#' get_col("Satyrium", phylum = "Arthropoda", rank = "genus")
+#' ### w/ maxRank
+#' get_col("Satyrium", maxRank = "subspecies")
+#' get_col("Satyrium", maxRank = "species")
 #'
 #' ## min/max rank example
 #' get_col("Poa", rank = "genus")
@@ -67,7 +65,11 @@
 #'
 #' # Fuzzy filter
 #' get_col("A*", fuzzy = FALSE)
-#' get_col("A*", fuzzy = TRUE)
+#' get_col("Aba", fuzzy = TRUE, match_type = "whole_words")
+#' get_col("Aba", fuzzy = TRUE, match_type = "prefix")
+#' get_col("Aba", fuzzy = TRUE, match_type = "exact")
+#' get_col("Aba", fuzzy = FALSE)
+#' get_col("Aba", fuzzy = TRUE)
 #'
 #' # Convert a uid without class information to a uid class
 #' as.col(get_col("Poa annua")) # already a uid, returns the same
@@ -98,7 +100,8 @@
 #' invisible(get_col("Quercus douglasii", verbose = TRUE))
 #' }
 get_col <- function(sci, ask = TRUE, messages = TRUE, rows = NA,
-  status = "accepted", minRank = NULL, maxRank = NULL, fuzzy = FALSE, ...) {
+  status = "accepted", minRank = NULL, maxRank = NULL, fuzzy = FALSE,
+  match_type = "whole_words", ...) {
 
   assert(sci, c("character", "taxon_state"))
   assert(ask, "logical")
@@ -129,7 +132,7 @@ get_col <- function(sci, ask = TRUE, messages = TRUE, rows = NA,
     mssg(messages, "\nRetrieving data for taxon '", sci[i], "'\n")
     res <- rcol::cp_nu_search(q=sci[i], status = status,
       minRank = minRank, maxRank = maxRank,
-      fuzzy = fuzzy, dataset_key = "3LR", limit = 100)
+      fuzzy = fuzzy, dataset_key = "3LR", type = match_type, limit = 100)
     df <- res$result
     mm <- NROW(df) > 1
 
