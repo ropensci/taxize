@@ -24,3 +24,4 @@ taxa-ids-notes.R
 readme_contributors.txt
 ^LICENSE\.md$
 colp_search.R
+notes-email-question.R
