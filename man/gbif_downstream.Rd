@@ -2,7 +2,7 @@
 % Please edit documentation in R/gbif_downstream.R
 \name{gbif_downstream}
 \alias{gbif_downstream}
-\title{Retrieve all taxa names downstream in hierarchy for GBIF}
+\title{Retrieve all taxonomic names downstream in hierarchy for GBIF}
 \usage{
 gbif_downstream(
   id,
@@ -25,9 +25,11 @@ correctly. See \code{data(rank_ref)} for spelling.}
 target taxon rank names, with additional list of data.frame's of
 intermediate taxonomic groups. Default: FALSE}
 
-\item{limit}{Number of records to return}
+\item{limit}{Number of records to return. default: 100. max: 1000. use in
+combination with the \code{start} parameter}
 
-\item{start}{Record number to start at}
+\item{start}{Record number to start at. default: 0. use in combination
+with the \code{limit} parameter}
 
 \item{key}{Deprecated, see \code{id}}
 
@@ -39,7 +41,7 @@ Order, Class, etc., or if \code{intermediated=TRUE}, list of length two,
 with target taxon rank names, and intermediate names.
 }
 \description{
-Retrieve all taxa names downstream in hierarchy for GBIF
+Retrieve all taxonomic names downstream in hierarchy for GBIF
 }
 \details{
 Sometimes records don't have a \code{canonicalName} entry which is
@@ -57,6 +59,7 @@ gbif_downstream(id = 1227, "family")
 ## here, intermediate leads to the same result as the target
 gbif_downstream(id = 1227, "family", intermediate=TRUE)
 
+if (interactive()) {
 # Lepidoptera
 gbif_downstream(id = 797, "family")
 
@@ -72,8 +75,22 @@ gbif_downstream(id = 7799978, downto="species", intermediate=TRUE)
 key <- 2925668
 res <- gbif_downstream(key, downto = "species")
 res2 <- downstream(key, db = "gbif", downto = "species")
+
+# Pagination
+# GBIF limits queries to a maximum of 1000 records per request, so if
+# there's more than 1000, use the start parameter
+# Piper, taxonKey = 3075433
+x1 <- gbif_downstream(id = 3075433, downto = "species", limit=1000)
+x2 <- gbif_downstream(id = 3075433, downto = "species", limit=1000,
+  start=1000)
+x3 <- gbif_downstream(id = 3075433, downto = "species", limit=1000,
+  start=2000)
+x4 <- gbif_downstream(id = 3075433, downto = "species", limit=1000,
+  start=3000)
+rbind(x1, x2, x3, x4)
+}
 }
 }
 \author{
-Scott Chamberlain \email{myrmecocystus@gmail.com}
+Scott Chamberlain
 }

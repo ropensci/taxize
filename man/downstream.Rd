@@ -77,9 +77,11 @@ taxonomic id of any of the acceptable classes: tsn.}
 
 \item{x}{Deprecated, see \code{sci_id}}
 
-\item{limit}{Number of records to return}
+\item{limit}{Number of records to return. Applies to gbif only.
+default: 100. max: 1000. use in combination with the \code{start} parameter}
 
-\item{start}{Record number to start at}
+\item{start}{Record number to start at. Applies to gbif only. default: 0.
+use in combination with the \code{limit} parameter}
 }
 \value{
 A named list of data.frames with the downstream names of every
@@ -110,6 +112,8 @@ encounter an error: https://github.com/ropensci/taxize/issues
 # Plug in taxon IDs
 downstream(125732, db = 'worms', downto = 'species')
 downstream(3451, db = 'bold', downto = 'species')
+
+if (interactive()) {
 
 # Plug in taxon names
 downstream("Apis", db = 'ncbi', downto = 'species')
@@ -145,5 +149,18 @@ downstream("Poa", db = 'gbif', downto="species", rows=1)
 
 # use curl options
 res <- downstream("Apis", db = 'gbif', downto = 'species', verbose = TRUE)
-}
+
+# Pagination
+# GBIF limits queries to a maximum of 1000 records per request, so if
+# there's more than 1000, use the start parameter
+# Piper, taxonKey = 3075433
+z1 <- downstream(3075433, db = 'gbif', downto = "species", limit=1000)
+z2 <- downstream(3075433, db = 'gbif', downto = "species", limit=1000,
+  start=1000)
+z3 <- downstream(3075433, db = 'gbif', downto = "species", limit=1000,
+  start=2000)
+z4 <- downstream(3075433, db = 'gbif', downto = "species", limit=1000,
+  start=3000)
+NROW(rbind(z1[[1]], z2[[1]], z3[[1]], z4[[1]]))
+}}
 }
