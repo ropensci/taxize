@@ -135,5 +135,5 @@ lowest_common(nms, db = "itis")
 }
 \author{
 Jimmy O'Donnell \email{jodonnellbio@gmail.com}
-Scott Chamberlain \email{myrmecocystus@gmail.com}
+Scott Chamberlain
 }

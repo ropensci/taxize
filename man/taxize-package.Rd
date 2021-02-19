@@ -70,7 +70,7 @@ R implementation for CoL+
 }
 
 \author{
-Scott Chamberlain \email{myrmecocystus@gmail.com}
+Scott Chamberlain
 
 Eduard Szoecs \email{eduardszoecs@gmail.com}
 

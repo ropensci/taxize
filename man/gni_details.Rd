@@ -32,7 +32,7 @@ gni_details(id = 17802847, verbose = TRUE)
 \code{\link[=gnr_datasources]{gnr_datasources()}}, \code{\link[=gni_search]{gni_search()}}.
 }
 \author{
-Scott Chamberlain {myrmecocystus@gmail.com}
+Scott Chamberlain
 }
 \keyword{globalnamesindex}
 \keyword{names}

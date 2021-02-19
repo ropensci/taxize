@@ -97,5 +97,5 @@ Eduard Szoecs, \email{eduardszoecs@gmail.com}
 
 Philippe Marchand, \email{marchand.philippe@gmail.com}
 
-Scott Chamberlain, \email{myrmecocystus@gmail.com}
+Scott Chamberlain,
 }

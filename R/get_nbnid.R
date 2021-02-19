@@ -32,7 +32,7 @@
 #' @family nbn
 #' @seealso [classification()]
 #'
-#' @author Scott Chamberlain, \email{myrmecocystus@@gmail.com}
+#' @author Scott Chamberlain, 
 #'
 #' @examples \dontrun{
 #' get_nbn(sci_com='Poa annua')

@@ -176,7 +176,7 @@ Other nbn:
 \code{\link{nbn_synonyms}()}
 }
 \author{
-Scott Chamberlain, \email{myrmecocystus@gmail.com}
+Scott Chamberlain,
 }
 \concept{nbn}
 \concept{taxonomic-ids}

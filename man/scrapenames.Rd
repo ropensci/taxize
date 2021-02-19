@@ -105,5 +105,5 @@ scrapenames(url='https://www.mapress.com/zootaxa/2012/f/z03372p265f.pdf',
 }
 }
 \author{
-Scott Chamberlain \email{myrmecocystus@gmail.com}
+Scott Chamberlain
 }

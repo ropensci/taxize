@@ -34,7 +34,7 @@
 #' @family taxonomic-ids
 #' @seealso [classification()]
 #'
-#' @author Scott Chamberlain, \email{myrmecocystus@@gmail.com}
+#' @author Scott Chamberlain
 #'
 #' @details EOL is a bit odd in that they have page IDs for each taxon, but
 #' then within that, they have taxon ids for various taxa within that page

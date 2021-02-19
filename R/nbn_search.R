@@ -17,7 +17,7 @@
 #' @family nbn
 #' @return a list with slots for metadata (`meta`) with list of response
 #' attributes, and data (`data`) with a data.frame of results
-#' @author Scott Chamberlain, \email{myrmecocystus@@gmail.com}
+#' @author Scott Chamberlain, 
 #' @references https://api.nbnatlas.org/
 #'
 #' @examples \dontrun{

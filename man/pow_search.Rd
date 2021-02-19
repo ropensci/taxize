@@ -61,6 +61,6 @@ Other pow:
 \code{\link{pow_synonyms}()}
 }
 \author{
-Scott Chamberlain, \email{myrmecocystus@gmail.com}
+Scott Chamberlain,
 }
 \concept{pow}

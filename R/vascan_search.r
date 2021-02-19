@@ -7,7 +7,7 @@
 #' @param raw (logical) If TRUE, raw json or xml returned, if FALSE, parsed
 #' data returned.
 #' @param ... (list) Further args passed on to [crul::verb-GET]
-#' @author Scott Chamberlain {myrmecocystus@@gmail.com}
+#' @author Scott Chamberlain
 #' @return json, xml or a list.
 #' @references API docs https://data.canadensys.net/vascan/api
 #' @keywords names taxonomy

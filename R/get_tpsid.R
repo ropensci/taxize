@@ -32,9 +32,7 @@
 #'
 #' @family taxonomic-ids
 #' @seealso [classification()]
-#'
 #' @author Scott Chamberlain
-#'
 #' @examples \dontrun{
 #' get_tps(sci='Poa annua')
 #' get_tps(sci='Pinus contorta')

@@ -3,6 +3,7 @@
 ## Bugs?
 
 * Submit an issue on the [Issues page](https://github.com/ropensci/taxize/issues) - be sure to include R session information and a reproducible example.
+* Prefer email? Please don't. It benefits everyone for discussions to happen in public where they're indexed by search engines, enabling users to find solutions to their problems from previous public discussions. 
 
 ## Code contributions
 

@@ -29,7 +29,7 @@
 #'
 #' @seealso [comm2sci()]
 #'
-#' @author Scott Chamberlain (myrmecocystus@@gmail.com)
+#' @author Scott Chamberlain
 #'
 #' @examples \dontrun{
 #' sci2comm(sci='Helianthus annuus')

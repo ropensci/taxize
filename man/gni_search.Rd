@@ -80,7 +80,7 @@ https://github.com/dimus/gni/wiki/api
 \code{\link[=gnr_datasources]{gnr_datasources()}}, \code{\link[=gni_search]{gni_search()}}
 }
 \author{
-Scott Chamberlain \email{myrmecocystus@gmail.com}
+Scott Chamberlain
 }
 \keyword{globalnamesindex}
 \keyword{names}

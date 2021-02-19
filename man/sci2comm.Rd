@@ -77,5 +77,5 @@ sci2comm('Helianthus annuus', db="ncbi", verbose = TRUE)
 \code{\link[=comm2sci]{comm2sci()}}
 }
 \author{
-Scott Chamberlain (myrmecocystus@gmail.com)
+Scott Chamberlain
 }

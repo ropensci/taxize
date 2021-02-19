@@ -10,6 +10,6 @@ ncbi_getbyid(...)
 THIS FUNCTION IS DEFUNCT.
 }
 \author{
-Scott Chamberlain \email{myrmecocystus@gmail.com}
+Scott Chamberlain
 }
 \keyword{internal}

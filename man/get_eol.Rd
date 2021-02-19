@@ -192,6 +192,6 @@ Other taxonomic-ids:
 \code{\link{id-accessors}}
 }
 \author{
-Scott Chamberlain, \email{myrmecocystus@gmail.com}
+Scott Chamberlain
 }
 \concept{taxonomic-ids}

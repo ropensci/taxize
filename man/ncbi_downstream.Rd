@@ -59,5 +59,5 @@ ncbi_downstream(id = id, downto = "order")
 }
 }
 \author{
-Scott Chamberlain \email{myrmecocystus@gmail.com}
+Scott Chamberlain
 }
