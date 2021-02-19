@@ -9,7 +9,7 @@
 #' @param size (integer/numeric) Number of names to get. Maximum depends on
 #' the rank
 #' @return character vector of taxonomic names
-#' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
+#' @author Scott Chamberlain 
 #' @examples
 #' names_list()
 #' names_list('species')

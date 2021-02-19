@@ -12,7 +12,7 @@
 #' @return Data.frame of taxonomic information downstream to family from e.g.,
 #' 		Order, Class, etc., or if `intermediate=TRUE`, list of length two,
 #'   	with target taxon rank names, and intermediate names.
-#' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
+#' @author Scott Chamberlain
 #' @section No Rank:
 #' A sticky point with NCBI is that they can have designation for taxonomic
 #' rank of "No Rank". So we have no way of programatically knowing what to

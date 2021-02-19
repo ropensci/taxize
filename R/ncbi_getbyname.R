@@ -3,7 +3,7 @@
 #' THIS FUNCTION IS DEFUNCT.
 #'
 #' @export
-#' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
+#' @author Scott Chamberlain 
 #' @rdname ncbi_getbyname-defunct
 #' @keywords internal
 ncbi_getbyname <- function(...) {

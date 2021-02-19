@@ -181,6 +181,6 @@ Other taxonomic-ids:
 \code{\link{get_wormsid}()}
 }
 \author{
-Scott Chamberlain, \email{myrmecocystus@gmail.com}
+Scott Chamberlain,
 }
 \concept{taxonomic-ids}

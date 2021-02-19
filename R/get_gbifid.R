@@ -30,7 +30,7 @@
 #' @family taxonomic-ids
 #' @seealso [classification()]
 #'
-#' @author Scott Chamberlain, \email{myrmecocystus@@gmail.com}
+#' @author Scott Chamberlain, 
 #'
 #' @details Internally in this function we use a function to search GBIF's taxonomy,
 #' and if we find an exact match we return the ID for that match. If there isn't an

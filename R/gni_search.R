@@ -30,7 +30,7 @@
 #' names. Default: `FALSE`
 #' @param search_term Deprecated, see `sci`
 #' @param ... Curl options passed on to [crul::verb-GET]
-#' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
+#' @author Scott Chamberlain
 #' @return data.frame of results.
 #' @seealso [gnr_datasources()], [gni_search()]
 #' @keywords globalnamesindex names taxonomy

@@ -33,7 +33,7 @@
 #' @family taxonomic-ids
 #' @seealso [classification()]
 #'
-#' @author Scott Chamberlain, \email{myrmecocystus@@gmail.com}
+#' @author Scott Chamberlain, 
 #'
 #' @examples \dontrun{
 #' get_tpsid(sci='Poa annua')

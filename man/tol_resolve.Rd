@@ -66,7 +66,7 @@ https://github.com/OpenTreeOfLife/germinator/wiki/TNRS-API-v3#match_names
 }
 \author{
 Francois Michonneau \email{francois.michonneau@gmail.com}
-Scott Chamberlain \email{myrmecocystus@gmail.com}
+Scott Chamberlain
 }
 \keyword{names}
 \keyword{resolve}

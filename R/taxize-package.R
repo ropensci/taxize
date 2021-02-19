@@ -76,7 +76,7 @@
 #' @name taxize-package
 #' @aliases taxize
 #' @docType package
-#' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
+#' @author Scott Chamberlain 
 #' @author Eduard Szoecs \email{eduardszoecs@@gmail.com}
 #' @author Zachary Foster \email{zacharyfoster1989@@gmail.com}
 #' @author Carl Boettiger \email{cboettig@@gmail.com}

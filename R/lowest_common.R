@@ -26,7 +26,7 @@
 #' See [taxize-authentication] for help on authentication
 #' 
 #' @author Jimmy O'Donnell \email{jodonnellbio@@gmail.com}
-#' Scott Chamberlain \email{myrmecocystus@@gmail.com}
+#' Scott Chamberlain
 #' @examples \dontrun{
 #' id <- c("9031", "9823", "9606", "9470")
 #' id_class <- classification(id, db = 'ncbi')

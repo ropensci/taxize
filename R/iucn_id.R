@@ -9,7 +9,7 @@
 #' @param ... Curl options passed on to [crul::HttpClient]
 #' @return A named list (names are input taxa names) of one or more IUCN IDs.
 #' Taxa that aren't found are silently dropped.
-#' @author Scott Chamberlain, \email{myrmecocystus@@gmail.com}
+#' @author Scott Chamberlain, 
 #' @examples \dontrun{
 #' iucn_id("Branta canadensis")
 #' iucn_id("Branta bernicla")

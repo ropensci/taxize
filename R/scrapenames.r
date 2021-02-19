@@ -30,7 +30,7 @@
 #' @param return_content (logical) return OCR'ed text. returns text
 #' string in `x$meta$content` slot. Default: `FALSE`
 #' @param ... Further args passed to [crul::verb-GET]
-#' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
+#' @author Scott Chamberlain 
 #' @return A list of length two, first is metadata, second is the data as a
 #' data.frame.
 #' @details One of url, file, or text must be specified - and only one of them.

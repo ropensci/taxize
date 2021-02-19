@@ -171,7 +171,7 @@ http://gnrd.globalnames.org/
 \code{\link[=gnr_datasources]{gnr_datasources()}}
 }
 \author{
-Scott Chamberlain \email{myrmecocystus@gmail.com}
+Scott Chamberlain
 }
 \keyword{names}
 \keyword{resolve}

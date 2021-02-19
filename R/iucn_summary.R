@@ -44,7 +44,7 @@
 #'
 #' @author Eduard Szoecs, \email{eduardszoecs@@gmail.com}
 #' @author Philippe Marchand, \email{marchand.philippe@@gmail.com}
-#' @author Scott Chamberlain, \email{myrmecocystus@@gmail.com}
+#' @author Scott Chamberlain, 
 #'
 #' @section Redlist Authentication:
 #' `iucn_summary` uses the new Redlist API for searching for a IUCN ID, so we

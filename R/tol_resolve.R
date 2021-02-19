@@ -24,7 +24,7 @@
 #' @param ... Curl options passed on to `httr::POST` within
 #' [rotl::tnrs_match_names()]
 #' @author Francois Michonneau \email{francois.michonneau@@gmail.com}
-#' Scott Chamberlain \email{myrmecocystus@@gmail.com}
+#' Scott Chamberlain
 #' @seealso [gnr_resolve()], [tnrs()]
 #' @references
 #' https://github.com/OpenTreeOfLife/germinator/wiki/TNRS-API-v3#match_names

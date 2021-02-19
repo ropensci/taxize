@@ -144,5 +144,5 @@ lowest_common(x = nms, db = "gbif")
 }
 \author{
 Jimmy O'Donnell \email{jodonnellbio@gmail.com}
-Scott Chamberlain \email{myrmecocystus@gmail.com}
+Scott Chamberlain
 }
