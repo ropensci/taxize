@@ -34,15 +34,22 @@ gni_parser <- function(x) {
   pv <- data.frame(as.list(setNames(nums, positions_names)),
     stringsAsFactors = FALSE)
 
-  singles <- data.frame(x$scientificName[c("verbatim","canonical",
-    "normalized","hybrid","parsed")], stringsAsFactors = FALSE)
-  details_ <- x$scientificName$details[[1]]
-  details_ <- details_[!names(details_) %in% 'status']
-  details <- dt2df(Map(function(x, y) data.frame(y, x,
-    stringsAsFactors = FALSE), details_, names(details_)),
-    idcol = FALSE)[,-3]
-  details2 <- as.data.frame(t(data.frame(details[,2])))
-  names(details2) <- details[,1]
-  row.names(details2) <- NULL
-  data.frame(details2, singles, pv, stringsAsFactors = FALSE)
+  nmz <- c("verbatim","canonical", "normalized","hybrid","parsed")
+  singles <- data.frame(x$scientificName[names(x$scientificName) %in% nmz],
+    stringsAsFactors = FALSE)
+  
+  details2 <- data.frame()
+  if (x$scientificName$parsed) {
+    details_ <- x$scientificName$details[[1]]
+    details_ <- details_[!names(details_) %in% 'status']
+    details <- dt2df(Map(function(x, y) data.frame(y, x,
+      stringsAsFactors = FALSE), details_, names(details_)),
+      idcol = FALSE)[,-3]
+    details2 <- as.data.frame(t(data.frame(details[,2])))
+    names(details2) <- details[,1]
+    row.names(details2) <- NULL
+  }
+  
+  data.frame(Filter(NROW, list(details2, singles, pv)),
+    stringsAsFactors = FALSE)
 }
