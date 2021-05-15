@@ -61,10 +61,11 @@
 #' tr <- class2tree(out)
 #' plot(tr)
 #' }
+#' 
 
 class2tree <- function(input, varstep = TRUE, check = TRUE, ...) {
   if (any(is.na(input))) {
-    message('Removed species without classification.')
+    message('Removed species without classification')
     input <- input[!is.na(input)]
   }
 
@@ -76,6 +77,7 @@ class2tree <- function(input, varstep = TRUE, check = TRUE, ...) {
     stop("Input list of classifications contains duplicates")
 
   # Get rank and ID list
+  message('Get all ranks and their taxIDs')
   rankList <- dt2df(lapply(input, get_rank), idcol = FALSE)
   nameList <- dt2df(lapply(input, get_name), idcol = FALSE)
   strainIndex <- grep("norank", rankList$X1)
@@ -84,11 +86,13 @@ class2tree <- function(input, varstep = TRUE, check = TRUE, ...) {
     gsub("norank_[[:digit:]]+", "strain", nameList$X1[strainIndex])
 
   # Create taxonomy matrix
+  message('Align taxonomy hierarchies...')
   df <- taxonomy_table_creator(nameList, rankList)
 
   if (!inherits(df, "data.frame")) {
     stop("no taxon ranks in common - try different inputs")
   }
+  message('Taxonomy alignment done!')
 
   row.names(df) <- df[,1]
   df <- df[,-1]
@@ -105,10 +109,11 @@ class2tree <- function(input, varstep = TRUE, check = TRUE, ...) {
   # check for incorrect dimensions error
   if (is(taxdis, 'simpleError'))
     stop("Try check=FALSE, but see docs for taxa2dist function in the vegan package for details.")
-  
+  message('Calculate distance matrix')
   out <- as.phylo.hclust(hclust(taxdis, ...))
   out <- ape::di2multi(out)
   # Add node labels
+  message('Add node labels')
   node_ids <- sort(unique(out$edge[,1]))
   node_labels <- sapply(phangorn::Descendants(out, node_ids), function(x) {
     sub_df <- df[out$tip.label[x],]
@@ -291,13 +296,13 @@ rank_indexing <- function (rankList) {
     filter <- vapply(
       subList, function(x) x %in% allInputRank, FUN.VALUE = logical(1))
     subList <- subList[filter]
+    
     ## indexing
     tmpEnv <- new.env(hash = TRUE)
     flag <- 0
     for (i in seq_len(length(subList))) {
       iRank <- subList[i]
       if (is.null(rank2index[[iRank]])) {
-        # for new rank: get index of prev avail from this taxon
         for (j in seq_len(length(subList))) {
           if (j < i) {
             if (!is.null(tmpEnv[[subList[i - j]]])) {
@@ -310,27 +315,46 @@ rank_indexing <- function (rankList) {
         # for old rank
         if (i > 1) {
           if (flag == 0) {
+            if (!(iRank %in% ls(rank2index))) stop(paste(iRank,"not found!"))
             currentIndex <- rank2index[[iRank]]
           } else {
+            if (!(iRank %in% ls(tmpEnv))) {
+              tmpEnv[[iRank]] <- tmpEnv[[subList[i-1]]]
+            }
             currentIndex <- tmpEnv[[iRank]]
           }
+          
           if (currentIndex <= tmpEnv[[subList[i-1]]]) {
             if (flag == 0) {
               tmpEnv[[iRank]] <- tmpEnv[[subList[i-1]]] + 1
-              for (
-                r in ls(rank2index)[!(ls(rank2index) %in% ls(tmpEnv))]
-              ) {
-                if (rank2index[[r]] > currentIndex) {
-                  tmpEnv[[r]] <- 
+              # list of current ranks that whose index should be increased
+              candidateList <- unlist(
+                mget(
+                  ls(rank2index)[!(ls(rank2index) %in% ls(tmpEnv))], rank2index
+                )
+              )
+              candidateList <- candidateList[order(unlist(candidateList))]
+              for (c in seq_len(length(candidateList))) {
+                r <- names(candidateList)[c]
+                fromIndex <- rank2index[[iRank]]
+                if(subList[i-1] %in% ls(rank2index)) {
+                  fromIndex <- rank2index[[subList[i-1]]]
+                }
+                
+                if (rank2index[[r]] > fromIndex) {
+                  tmpEnv[[r]] <-
                     rank2index[[r]] + (tmpEnv[[iRank]] - rank2index[[iRank]])
                   flag <- 1
                 }
               }
             } else {
-              step <- tmpEnv[[subList[i-1]]] - currentIndex + 1
-              for (n in ls(rank2index)) {
-                if (rank2index[[n]] >= currentIndex) {
-                  tmpEnv[[n]] <- rank2index[[n]] + step
+              step <- tmpEnv[[subList[i-1]]] - rank2index[[iRank]] + 1
+              tmpEnv[[iRank]] <- tmpEnv[[subList[i-1]]] + 1
+              for (t in ls(tmpEnv)) {
+                if (tmpEnv[[t]] >= tmpEnv[[subList[i-1]]]){
+                  if (!(t == iRank) & !(t == subList[i-1])){
+                    tmpEnv[[t]] <- tmpEnv[[t]] + step
+                  }
                 }
               }
             }
