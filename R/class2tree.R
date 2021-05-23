@@ -206,11 +206,10 @@ taxa2dist <- function(x, varstep = FALSE, check = TRUE, labels) {
 mainTaxonomyRank <- function() {
   return(
     c(
-      "isolate","strain","pathogroup","serotype","serogroup",
-      "forma","formaspecialis","varietas",
-      "genotype","morph","subvariety","biotype",
-      "subspecies","species","speciessubgroup",
-      "speciesgroup","series","section","subgenus","genus","subtribe","tribe",
+      "strain","biotype","isolate","pathogroup","serogroup","serotype",
+      "genotype","morph","forma","subspecies","subvariety","varietas",
+      "formaspecialis","subspecies","species","speciessubgroup",
+      "speciesgroup","series","subgenus","genus","subtribe","tribe",
       "subfamily","family","superfamily",
       "parvorder","infraorder","suborder","order","superorder",
       "subcohort","cohort","infraclass","subclass","class","superclass",
