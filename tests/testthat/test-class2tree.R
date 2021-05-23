@@ -11,6 +11,8 @@ spnames <- c("Klattia flava", "Trollius sibiricus", "Arachis paraguariensis",
 dupnames <- c("Mus musculus", "Escherichia coli",
               "Haloferax denitrificans", "Mus musculus")
 
+
+
 test_that("internal functions of class2tree", {
   skip_on_cran() # uses secrets
   vcr::use_cassette("class2tree_internal_fxns", {
@@ -35,7 +37,21 @@ test_that("internal functions of class2tree", {
   taxMatrix <- taxonomy_table_creator(nameList, rankList)
   expect_is(taxMatrix, "data.frame")
   expect_true(nrow(taxMatrix) == 17)
-}) 
+  
+  # wrong indexing
+  spnames <- c("Proteus mirabilis","Citrus sinensis","Cyanophora paradoxa")
+  out <- classification(spnames, db = "ncbi", messages = FALSE)
+  rankList <- dt2df(lapply(out, get_rank), idcol = FALSE)
+  rankList[3,] <- c(
+    "Cyanophora paradoxa","species","genus","family","superkingdom",
+    "norank_131567","class",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+  )
+  indexedRank <- rank_indexing(rankList)
+  expect_true(
+    indexedRank$index[indexedRank$rank == "kingdom"] <
+      indexedRank$index[indexedRank$rank == "class"]
+  )
+})
 
 test_that("class2tree returns the correct value and class", {
   skip_on_cran() # uses secrets
