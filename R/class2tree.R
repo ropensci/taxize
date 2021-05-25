@@ -334,8 +334,8 @@ rank_indexing <- function (rankList) {
                 )
               )
               candidateList <- candidateList[order(unlist(candidateList))]
-              for (c in seq_len(length(candidateList))) {
-                r <- names(candidateList)[c]
+              for (cl in seq_len(length(candidateList))) {
+                r <- names(candidateList)[cl]
                 fromIndex <- rank2index[[iRank]]
                 if(subList[i-1] %in% ls(rank2index)) {
                   fromIndex <- rank2index[[subList[i-1]]]
@@ -350,10 +350,10 @@ rank_indexing <- function (rankList) {
             } else {
               step <- tmpEnv[[subList[i-1]]] - rank2index[[iRank]] + 1
               tmpEnv[[iRank]] <- tmpEnv[[subList[i-1]]] + 1
-              for (t in ls(tmpEnv)) {
-                if (tmpEnv[[t]] >= tmpEnv[[subList[i-1]]]){
-                  if (!(t == iRank) & !(t == subList[i-1])){
-                    tmpEnv[[t]] <- tmpEnv[[t]] + step
+              for (tmpRank in ls(tmpEnv)) {
+                if (tmpEnv[[tmpRank]] >= tmpEnv[[subList[i-1]]]){
+                  if (!(tmpRank == iRank) && !(tmpRank == subList[i-1])){
+                    tmpEnv[[tmpRank]] <- tmpEnv[[tmpRank]] + step
                   }
                 }
               }
