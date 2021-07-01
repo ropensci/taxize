@@ -73,7 +73,7 @@
 #' @importFrom hoardr hoard
 #' @importFrom vctrs field new_rcrd vec_assert vec_cast vec_default_cast
 #' vec_recycle vec_recycle_common
-#' @importFrom taxa2 db_ref tax_db tax_id tax_name tax_rank taxon
+#' @importFrom taxa db_ref tax_db tax_id tax_name tax_rank taxon
 #' taxon_authority taxon_id taxon_rank
 #' @name taxize-package
 #' @aliases taxize

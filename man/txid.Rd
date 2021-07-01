@@ -17,12 +17,12 @@ a tibble
 }
 \description{
 txid is the class all \verb{get_*()} functions return. It is extended from
-\code{\link[vctrs:new_rcrd]{vctrs::new_rcrd()}} and is adapted from \code{\link[taxa2:taxon]{taxa2::taxon()}} with modificaitons
+\code{\link[vctrs:new_rcrd]{vctrs::new_rcrd()}} and is adapted from \code{\link[taxa:taxon]{taxa::taxon()}} with modificaitons
 specifically for taxize.
 }
 \details{
 Additional classes attached include \code{taxa_taxon} (mostly to differentiate
-it from objects created from \code{\link[taxa2:taxon]{taxa2::taxon()}}), vctrs classes
+it from objects created from \code{\link[taxa:taxon]{taxa::taxon()}}), vctrs classes
 \code{vctrs_rcrd} and \code{vctrs_vctr} (because rcrd is extended from vctr),
 and a class for which data source the data is from (e.g., \code{gbif}).
 

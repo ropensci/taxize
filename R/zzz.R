@@ -17,8 +17,8 @@ collapse <- function(x, fxn, class, match=TRUE, ...) {
   tmp <- lapply(x, fxn, ...)
   if (match) {
     taxa_taxon(
-      id = vapply(tmp, function(z) as.character(taxa2::tax_id(z)), ""),
-      name = vapply(tmp, taxa2::tax_name, ""),
+      id = vapply(tmp, function(z) as.character(taxa::tax_id(z)), ""),
+      name = vapply(tmp, taxa::tax_name, ""),
       match = vapply(tmp, txz_match, ""),
       multiple_matches = vapply(tmp, txz_mm, logical(1)),
       pattern_match = vapply(tmp, txz_pm, logical(1)),
@@ -37,7 +37,7 @@ toid <- function(x, url, class, ...) {
   uri <- sprintf(url, x)
   taxa_taxon(
     name = NA_character_,
-    id = taxa2::taxon_id(x, db = class),
+    id = taxa::taxon_id(x, db = class),
     rank = NA_character_,
     uri = uri,
     match = "found",

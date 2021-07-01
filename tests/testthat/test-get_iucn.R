@@ -7,8 +7,8 @@ test_that("get_iucn", {
     
   expect_is(x, c("txid", "taxa_taxon", "iucn"))
   expect_null(names(x))
-  expect_is(taxa2::tax_db(x), "taxa_taxon_db")
-  expect_equal(as.character(taxa2::tax_db(x)), "iucn")
+  expect_is(taxa::tax_db(x), "taxa_taxon_db")
+  expect_equal(as.character(taxa::tax_db(x)), "iucn")
 })
 
 test_that("get_iucn accepts ask-argument", {

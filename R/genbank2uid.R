@@ -105,7 +105,7 @@ genbank2uid <- function(id, batch_size = 100, key = NULL, ...) {
   ids <- as.character(result$id, "id")
   output <- taxa_taxon(
     name = result$name,
-    id = taxa2::taxon_id(ids, db = "ncbi"),
+    id = taxa::taxon_id(ids, db = "ncbi"),
     uri = sprintf(get_url_templates$ncbi, ids),
     match = vapply(!is.na(ids), function(w) ifelse(w, "found", "not found"), ""),
     class = "ncbi"

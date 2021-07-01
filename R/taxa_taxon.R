@@ -1,6 +1,6 @@
 .new_taxa_taxon <- function(.names = NULL, name = character(),
-  rank = taxa2::taxon_rank(), id = taxa2::taxon_id(),
-  auth = taxa2::taxon_authority(),
+  rank = taxa::taxon_rank(), id = taxa::taxon_id(),
+  auth = taxa::taxon_authority(),
   uri = character(), match = character(),
   multiple_matches = logical(), pattern_match = logical(),
   misc = character(), class = NULL, ...) {
@@ -16,8 +16,8 @@
   
   # Check that values are the correct type
   vctrs::vec_assert(name, ptype = character())
-  vctrs::vec_assert(id, ptype = taxa2::taxon_id())
-  vctrs::vec_assert(auth, ptype = taxa2::taxon_authority())
+  vctrs::vec_assert(id, ptype = taxa::taxon_id())
+  vctrs::vec_assert(auth, ptype = taxa::taxon_authority())
   vctrs::vec_assert(uri, ptype = character())
   vctrs::vec_assert(match, ptype = character())
   vctrs::vec_assert(multiple_matches, ptype = logical())
@@ -40,9 +40,9 @@ taxa_taxon <- function(name = character(0), rank = NA, id = NA,
 
   # Cast inputs to correct values
   name <- vctrs::vec_cast(name, character())
-  rank <- vctrs::vec_cast(rank, taxa2::taxon_rank())
-  id <- vctrs::vec_cast(id, taxa2::taxon_id())
-  auth <- vctrs::vec_cast(auth, taxa2::taxon_authority())
+  rank <- vctrs::vec_cast(rank, taxa::taxon_rank())
+  id <- vctrs::vec_cast(id, taxa::taxon_id())
+  auth <- vctrs::vec_cast(auth, taxa::taxon_authority())
   uri <- vctrs::vec_cast(uri, character())
   match <- vctrs::vec_cast(match, character())
   multiple_matches <- vctrs::vec_cast(multiple_matches, logical())
@@ -90,7 +90,7 @@ vec_cast.txid.default <- function(x, to, ..., x_arg, to_arg) {
 #' @export
 vec_cast.txid.txid <- function(x, to, ..., x_arg, to_arg) x
 
-vec_cast.txid.character <- function(x, to, ..., x_arg, to_arg) taxa2::taxon(x)
+vec_cast.txid.character <- function(x, to, ..., x_arg, to_arg) taxa::taxon(x)
 
 vec_cast.character.txid <- function(x, to, ..., x_arg, to_arg) {
   as.character(vctrs::field(x, "name"))
@@ -170,11 +170,11 @@ wiki_misc <- function(x, attr) {
 #' txid
 #' 
 #' txid is the class all `get_*()` functions return. It is extended from
-#' [vctrs::new_rcrd()] and is adapted from [taxa2::taxon()] with modificaitons
+#' [vctrs::new_rcrd()] and is adapted from [taxa::taxon()] with modificaitons
 #' specifically for taxize.
 #' 
 #' Additional classes attached include `taxa_taxon` (mostly to differentiate
-#' it from objects created from [taxa2::taxon()]), vctrs classes
+#' it from objects created from [taxa::taxon()]), vctrs classes
 #' `vctrs_rcrd` and `vctrs_vctr` (because rcrd is extended from vctr),
 #' and a class for which data source the data is from (e.g., `gbif`).
 #' 
@@ -192,9 +192,9 @@ NULL
 #' @rdname txid
 as.data.frame.txid <- function(x, ...) {
   tibble::as_tibble(
-    data.frame(ids = as.character(taxa2::tax_id(x)),
-      name = as.character(taxa2::tax_name(x)),
-      rank = unname(as.character(taxa2::tax_rank(x))),
+    data.frame(ids = as.character(taxa::tax_id(x)),
+      name = as.character(taxa::tax_name(x)),
+      rank = unname(as.character(taxa::tax_rank(x))),
       uri = txz_uri(x),
       match = txz_match(x),
       multiple_matches = txz_mm(x),
@@ -224,10 +224,10 @@ txac_template <- function(fun) {
     if (is.character(x)) x else as.character(fun(x))
   }
 }
-txidac <- txac_template(taxa2::tax_id)
-txnameac <- txac_template(taxa2::tax_name)
-txdbac <- txac_template(taxa2::tax_db)
-txrankac <- txac_template(taxa2::tax_rank)
+txidac <- txac_template(taxa::tax_id)
+txnameac <- txac_template(taxa::tax_name)
+txdbac <- txac_template(taxa::tax_db)
+txrankac <- txac_template(taxa::tax_rank)
 
 names_or_ids <- function(x) {
   z <- txnameac(x)
@@ -240,7 +240,7 @@ make_taxa_taxon <- function(x, class, rank = NULL, ...) {
   if (!is.null(rank)) rank <- if (all(is.na(ids))) NA_character_ else rank
   res <- taxa_taxon(
     name = unlist(pluck(x, "name")) %||% NA_character_,
-    id = taxa2::taxon_id(ids, db = class),
+    id = taxa::taxon_id(ids, db = class),
     rank = if (!is.null(rank)) rank else unlist(pluck(x, "rank")),
     uri = sprintf(get_url_templates[[class]], ids),
     match = unname(unlist(pluck(x, "att"))),

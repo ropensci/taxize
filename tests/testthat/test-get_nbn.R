@@ -7,8 +7,8 @@ test_that("get_nbn", {
     
   expect_is(x, c("txid", "taxa_taxon", "nbn"))
   expect_null(names(x))
-  expect_is(taxa2::tax_db(x), "taxa_taxon_db")
-  expect_equal(as.character(taxa2::tax_db(x)), "nbn")
+  expect_is(taxa::tax_db(x), "taxa_taxon_db")
+  expect_equal(as.character(taxa::tax_db(x)), "nbn")
 })
 
 test_that("get_nbn accepts ask-argument", {

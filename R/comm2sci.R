@@ -98,16 +98,16 @@ comm2sci.txid <- function(id, db='ncbi', itisby='search',
 comm2sci_itis <- function(id, db='itis', itisby='search',
                          simplify=TRUE, ...) {
   warn_db(list(db = db), "itis")
-  temp <- lapply(as.character(taxa2::tax_id(id)), c2s_itis_,
+  temp <- lapply(as.character(taxa::tax_id(id)), c2s_itis_,
     simplify = simplify, ...)
-  stats::setNames(temp, as.character(taxa2::tax_id(id)))
+  stats::setNames(temp, as.character(taxa::tax_id(id)))
 }
 
 comm2sci_ncbi <- function(id, db='ncbi', itisby='search',
                          simplify=TRUE, ...) {
   warn_db(list(db = db), "ncbi")
   temp <- lapply(id, c2s_ncbi, simplify = simplify, ...)
-  stats::setNames(temp, as.character(taxa2::tax_id(id)))
+  stats::setNames(temp, as.character(taxa::tax_id(id)))
 }
 
 # helpers ------------
@@ -151,7 +151,7 @@ c2s_itis_ <- function(x, by='search', simplify, ...){
 
 c2s_ncbi <- function(x, simplify, ...) {
   key <- getkey(NULL, "ENTREZ_KEY")
-  query <- tc(list(db = "taxonomy", ID = as.character(taxa2::tax_id(x)),
+  query <- tc(list(db = "taxonomy", ID = as.character(taxa::tax_id(x)),
     api_key = key))
   cli <- crul::HttpClient$new(url = ncbi_base(),
     headers = tx_ual, opts = list(http_version = 2L, ...))

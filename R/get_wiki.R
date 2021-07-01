@@ -184,7 +184,7 @@ get_wiki <- function(sci_com, wiki_site = "species", wiki = "en", ask = TRUE,
     auto_unbox = TRUE)
   res <- taxa_taxon(
     name = NA_character_,
-    id = taxa2::taxon_id(ids, db = "wiki"),
+    id = taxa::taxon_id(ids, db = "wiki"),
     uri = uris,
     match = pluck_un(out, "att", ""),
     multiple_matches = pluck_un(out, "multiple", logical(1)) %||% NA,

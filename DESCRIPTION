@@ -72,8 +72,6 @@ Language: en-US
 Depends:
     R(>= 3.2.1)
 Imports:
-    taxa2,
-    vctrs,
     graphics,
     methods,
     stats,
@@ -94,7 +92,9 @@ Imports:
     crayon,
     cli,
     conditionz,
-    hoardr
+    hoardr,
+    taxa (>= 0.4.0),
+    vctrs
 Suggests:
     testthat,
     vcr,
@@ -102,7 +102,6 @@ Suggests:
     ape,
     phangorn,
     zoo
-Remotes: ropensci/rredlist, zachary-foster/taxa2
 RoxygenNote: 7.1.1
 Roxygen: list(markdown = TRUE)
 X-schema.org-applicationCategory: Taxonomy

@@ -6,20 +6,20 @@ test_that("taxa_taxon", {
   expect_named(a, NULL) # not named
 
   # extract parts of ids
-  ## fxns from taxa2
-  rank <- taxa2::tax_rank(a)
+  ## fxns from taxa
+  rank <- taxa::tax_rank(a)
   expect_is(rank, "taxa_taxon_rank")
   expect_length(as.character(rank), 0)
 
-  id <- taxa2::tax_id(a)
+  id <- taxa::tax_id(a)
   expect_is(id, "taxa_taxon_id")
   expect_length(as.character(id), 0)
 
-  name <- taxa2::tax_name(a)
+  name <- taxa::tax_name(a)
   expect_is(name, "character")
   expect_length(name, 0)
 
-  db <- taxa2::tax_db(a)
+  db <- taxa::tax_db(a)
   expect_is(db, "taxa_taxon_db")
   expect_length(as.character(db), 0)
 
@@ -37,7 +37,7 @@ test_that("taxa_taxon", {
 
   # all parts filled
   b <- taxa_taxon("Puma concolor", rank = "species",
-    id = taxa2::taxon_id("34567", db = "gbif"),
+    id = taxa::taxon_id("34567", db = "gbif"),
     uri = sprintf(get_url_templates$gbif, 34567),
     match = "found", multiple_matches = FALSE, pattern_match = TRUE,
     class = "gbif")
@@ -47,20 +47,20 @@ test_that("taxa_taxon", {
   expect_error(as.character(b)) # can't coerce to character
   
   # extract parts of ids
-  ## fxns from taxa2
-  rank <- taxa2::tax_rank(b)
+  ## fxns from taxa
+  rank <- taxa::tax_rank(b)
   expect_is(rank, "taxa_taxon_rank")
   expect_equal(as.character(rank), "species")
 
-  id <- taxa2::tax_id(b)
+  id <- taxa::tax_id(b)
   expect_is(id, "taxa_taxon_id")
   expect_equal(as.character(id), "34567")
 
-  name <- taxa2::tax_name(b)
+  name <- taxa::tax_name(b)
   expect_is(name, "character")
   expect_equal(name, "Puma concolor")
 
-  db <- taxa2::tax_db(b)
+  db <- taxa::tax_db(b)
   expect_is(db, "taxa_taxon_db")
   expect_equal(as.character(db), "gbif")
 
@@ -106,7 +106,7 @@ test_that("taxa_taxon - we can combine get_ and as. outputs", {
   df <- c(d, f)
   expect_is(df, c("txid", "gbif"))
   expect_length(df, 2)
-  df_ids <- as.character(taxa2::tax_id(df))
+  df_ids <- as.character(taxa::tax_id(df))
   expect_length(df_ids, 2)
   expect_is(df_ids, "character")
 
@@ -114,7 +114,7 @@ test_that("taxa_taxon - we can combine get_ and as. outputs", {
   g <- get_ncbi("Abies magnifica", messages=FALSE)
   expect_is(g, c("txid", "ncbi"))
   dg <- c(d, g)
-  dg_dbs <- as.character(taxa2::tax_db(dg))
+  dg_dbs <- as.character(taxa::tax_db(dg))
   expect_is(dg_dbs, "character")
   expect_equal(dg_dbs, c("gbif", "ncbi"))
 })
