@@ -85,4 +85,5 @@ out <- classification(spnames, db='ncbi')
 tr <- class2tree(out)
 plot(tr)
 }
+
 }

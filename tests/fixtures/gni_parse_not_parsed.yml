@@ -1,0 +1,42 @@
+http_interactions:
+- request:
+    method: get
+    uri: http://gni.globalnames.org/parsers.json?names=Nu%20aakhu
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3.1 crul/1.1.0 rOpenSci(taxize/0.9.99.94)
+      X-USER-AGENT: r-curl/4.3.1 crul/1.1.0 rOpenSci(taxize/0.9.99.94)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      accept-ranges: bytes
+      age: '0'
+      cache-control: private, max-age=0, must-revalidate
+      connection: keep-alive
+      content-length: '87'
+      content-type: application/json; charset=utf-8
+      date: Mon, 03 May 2021 21:27:05 GMT
+      etag: '"f003ec2832883ef62f03058c185ec25d"'
+      server: nginx/1.8.1
+      set-cookie: ''
+      status:
+      - HTTP/1.1 200 OK
+      - 200 OK
+      via: 1.1 varnish
+      x-runtime: '2'
+      x-varnish: '203005162'
+    body:
+      encoding: UTF-8
+      file: no
+      string: |-
+        [{"scientificName":{"parsed":false,"parser_version":"3.1.4","verbatim":"Nu aakhu\n"}}
+        ]
+  recorded_at: 2021-05-03 21:27:05 GMT
+  recorded_with: vcr/0.6.5.93, webmockr/0.8.0
