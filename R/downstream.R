@@ -30,10 +30,6 @@
 #' @param rows (numeric) Any number from 1 to infinity. If the default NA, all
 #' rows are considered. Note that this parameter is ignored if you pass in a
 #' taxonomic id of any of the acceptable classes: tsn.
-#' @param limit Number of records to return. Applies to gbif only.
-#' default: 100. max: 1000. use in combination with the `start` parameter
-#' @param start Record number to start at. Applies to gbif only. default: 0.
-#' use in combination with the `limit` parameter
 #' @param x Deprecated, see `sci_id`
 #' @param ... Further args passed on to [itis_downstream()],
 #' [gbif_downstream()], [ncbi_downstream()],
@@ -48,8 +44,10 @@
 #' @section GBIF parameters:
 #' The following two parameters can be passed through when using GBIF
 #' 
-#' - `limit` Number of records to return
-#' - `start` Record number to start at
+#' - limit: Number of records to return. Applies to gbif only.
+#' default: 100. max: 1000. use in combination with the `start` parameter
+#' - start: Record number to start at. Applies to gbif only. default: 0.
+#' use in combination with the `limit` parameter
 #' 
 #' @section bold:
 #' BEWARE: `db="bold"` scrapes the BOLD website, so may be unstable. That is,

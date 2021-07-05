@@ -56,12 +56,6 @@ rows are considered. Note that this parameter is ignored if you pass in a
 taxonomic id of any of the acceptable classes: tsn.}
 
 \item{x}{Deprecated, see \code{sci_id}}
-
-\item{limit}{Number of records to return. Applies to gbif only.
-default: 100. max: 1000. use in combination with the \code{start} parameter}
-
-\item{start}{Record number to start at. Applies to gbif only. default: 0.
-use in combination with the \code{limit} parameter}
 }
 \value{
 A named list of data.frames with the downstream names of every
@@ -84,8 +78,10 @@ See \link{taxize-authentication} for help on authentication
 
 The following two parameters can be passed through when using GBIF
 \itemize{
-\item \code{limit} Number of records to return
-\item \code{start} Record number to start at
+\item limit: Number of records to return. Applies to gbif only.
+default: 100. max: 1000. use in combination with the \code{start} parameter
+\item start: Record number to start at. Applies to gbif only. default: 0.
+use in combination with the \code{limit} parameter
 }
 }
 
