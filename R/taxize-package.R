@@ -288,6 +288,9 @@ NULL
 #' * [eubon()]: This function is defunct. Use [eubon_search()]
 #' * [tnrs()]: This function is defunct. Was too unreliable
 #' * [tnrs_sources()]: This function is defunct. Was too unreliable
+#' * [iplant_resolve()]: This function is defunct. See package `RTNRS`
+#' * [resolve()]: This function is defunct. As `iplant_resolve()` was marked defunct,
+#' `resolve()` only had one data source; see [gnr_resolve()] for name resolution
 #'
 #' @name taxize-defunct
 #' @aliases defunct

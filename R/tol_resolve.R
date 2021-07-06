@@ -25,7 +25,7 @@
 #' [rotl::tnrs_match_names()]
 #' @author Francois Michonneau \email{francois.michonneau@@gmail.com}
 #' Scott Chamberlain
-#' @seealso [gnr_resolve()], [tnrs()]
+#' @seealso [gnr_resolve()]
 #' @references
 #' https://github.com/OpenTreeOfLife/germinator/wiki/TNRS-API-v3#match_names
 #' @keywords resolve names taxonomy

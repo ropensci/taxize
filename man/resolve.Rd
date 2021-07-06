@@ -2,51 +2,17 @@
 % Please edit documentation in R/resolve.R
 \name{resolve}
 \alias{resolve}
-\title{Resolve names from different data sources}
+\title{Resolve names from different data sources
+
+DEFUNCT}
 \usage{
-resolve(sci, db = "gnr", query = NULL, ...)
+resolve(...)
 }
 \arguments{
-\item{sci}{Vector of one or more taxonomic names (common names not
-supported)}
-
-\item{db}{Source to check names against. One of iplant or gnr.
-Default: gnr. Note that each taxonomic data source has their own
-identifiers, so that if you provide the wrong \code{db} value for the
-identifier you could get a result, but it will likely be wrong (not
-what you were expecting).}
-
-\item{query}{Deprecated, see \code{sci}}
-
-\item{...}{Curl options passed on to \link[crul:verb-GET]{crul::verb-GET} or
-\link[crul:verb-POST]{crul::verb-POST}. In addition, further named args passed
-on to  each respective function. See examples}
-}
-\value{
-A list with length equal to length of the db parameter (number
-of sources requested), with each element being a data.frame or list
-with results from that source.
+\item{...}{ignored}
 }
 \description{
-Resolve names from iPlant's name resolver, and
-the Global Names Resolver (GNR)
-}
-\examples{
-\dontrun{
-resolve(sci=c("Helianthus annuus", "Homo sapiens"))
-resolve(sci="Quercus keloggii", db='gnr')
-resolve(sci=c("Helianthus annuus", "Homo sapiens"), db=c('iplant', 'gnr'))
-resolve(sci="Quercus keloggii", db=c('iplant', 'gnr'))
+Resolve names from different data sources
 
-# pass in options specific to each source
-resolve("Helianthus annuus", db = 'gnr', preferred_data_sources = c(3, 4))
-resolve("Helianthus annuus", db = 'iplant', retrieve = 'best')
-identical(
- resolve("Helianthus annuus", db = 'iplant', retrieve = 'best')$iplant,
- iplant_resolve("Helianthus annuus", retrieve = 'best')
-)
-
-# pass in curl options
-resolve(sci="Qercuss", db = "iplant", verbose = TRUE)
-}
+DEFUNCT
 }

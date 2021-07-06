@@ -43,5 +43,8 @@ now (as of 2016-05-09) back up, but we don't trust that it will stay up and avai
 \item \code{\link[=eubon]{eubon()}}: This function is defunct. Use \code{\link[=eubon_search]{eubon_search()}}
 \item \code{\link[=tnrs]{tnrs()}}: This function is defunct. Was too unreliable
 \item \code{\link[=tnrs_sources]{tnrs_sources()}}: This function is defunct. Was too unreliable
+\item \code{\link[=iplant_resolve]{iplant_resolve()}}: This function is defunct. See package \code{RTNRS}
+\item \code{\link[=resolve]{resolve()}}: This function is defunct. As \code{iplant_resolve()} was marked defunct,
+\code{resolve()} only had one data source; see \code{\link[=gnr_resolve]{gnr_resolve()}} for name resolution
 }
 }

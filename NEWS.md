@@ -1,3 +1,27 @@
+taxize 1.0
+==========
+
+### NEW FEATURES
+* xxx (#xxx)
+* xxx (#xxx)
+* xxx (#xxx)
+
+### MINOR IMPROVEMENTS
+* xxx (#xxx)
+* xxx (#xxx)
+* xxx (#xxx)
+
+### DEFUNCT
+* xxx (#xxx)
+* xxx (#xxx)
+* xxx (#xxx)
+
+### BUG FIXES
+* xxx (#xxx)
+* xxx (#xxx)
+* xxx (#xxx)
+
+
 taxize 0.9.99
 =============
 

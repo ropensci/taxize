@@ -4,30 +4,11 @@
 \alias{iplant_resolve}
 \title{iPlant name resolution}
 \usage{
-iplant_resolve(sci, retrieve = "all", query = NULL, ...)
+iplant_resolve(...)
 }
 \arguments{
-\item{sci}{Vector of one or more taxonomic names (no common names)}
-
-\item{retrieve}{Specifies whether to retrieve all matches for the
-names submitted. One of 'best' (retrieves only the single best match
-for each name submitted) or 'all' (retrieves all matches)}
-
-\item{query}{Deprecated, see \code{sci}}
-
-\item{...}{Curl options passed on to \link[crul:verb-GET]{crul::verb-GET}}
-}
-\value{
-A data.frame
+\item{...}{ignored}
 }
 \description{
-iPlant name resolution
-}
-\examples{
-\dontrun{
-iplant_resolve(sci=c("Helianthus annuus", "Homo sapiens"))
-iplant_resolve("Helianthusss")
-iplant_resolve("Pooa")
-iplant_resolve("Helianthusss", verbose = TRUE)
-}
+DEFUNCT - see package \code{RTNRS}
 }
