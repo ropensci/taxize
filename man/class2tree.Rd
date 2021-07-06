@@ -72,7 +72,9 @@ spnames <- c('Quercus robur', 'Iris oratoria', 'Arachis paraguariensis',
  'Pinus lambertiana')
 out <- classification(spnames, db='itis')
 tr <- class2tree(out)
+if (requireNamespace("ape", quietly=TRUE)) {
 plot(tr)
+}
 
 spnames <- c('Klattia flava', 'Trollius sibiricus',
  'Arachis paraguariensis',
@@ -83,7 +85,9 @@ spnames <- c('Klattia flava', 'Trollius sibiricus',
  'Pinus lambertiana')
 out <- classification(spnames, db='ncbi')
 tr <- class2tree(out)
+if (requireNamespace("ape", quietly=TRUE)) {
 plot(tr)
+}
 }
 
 }

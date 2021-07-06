@@ -48,7 +48,9 @@
 #'  'Pinus lambertiana')
 #' out <- classification(spnames, db='itis')
 #' tr <- class2tree(out)
+#' if (requireNamespace("ape", quietly=TRUE)) {
 #' plot(tr)
+#' }
 #'
 #' spnames <- c('Klattia flava', 'Trollius sibiricus',
 #'  'Arachis paraguariensis',
@@ -59,11 +61,16 @@
 #'  'Pinus lambertiana')
 #' out <- classification(spnames, db='ncbi')
 #' tr <- class2tree(out)
+#' if (requireNamespace("ape", quietly=TRUE)) {
 #' plot(tr)
+#' }
 #' }
 #' 
 
 class2tree <- function(input, varstep = TRUE, check = TRUE, ...) {
+  checkpkg("zoo")
+  checkpkg("phangorn")
+  checkpkg("ape")
   if (any(is.na(input))) {
     message('Removed species without classification')
     input <- input[!is.na(input)]
@@ -110,7 +117,7 @@ class2tree <- function(input, varstep = TRUE, check = TRUE, ...) {
   if (is(taxdis, 'simpleError'))
     stop("Try check=FALSE, but see docs for taxa2dist function in the vegan package for details.")
   message('Calculate distance matrix')
-  out <- as.phylo.hclust(hclust(taxdis, ...))
+  out <- ape::as.phylo.hclust(hclust(taxdis, ...))
   out <- ape::di2multi(out)
   # Add node labels
   message('Add node labels')
