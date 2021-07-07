@@ -2,24 +2,30 @@ taxize 1.0
 ==========
 
 ### NEW FEATURES
-* xxx (#xxx)
-* xxx (#xxx)
-* xxx (#xxx)
+
+* All `get_*` function outputs have changed. Important: this is a breaking change. Breaking in that any code you previously used to manipulate outputs of `get_*` functions likely no longer will work. All functions output objects created using the `taxa` package, and can be manipulated/etc. using the `taxa` package. See examples in `get_*` function docs for examples of the new behavior (#508) (#858) (#859) (#860) (#861) 
+* new function `taxize_options()` to set package wide options for various things, so far for `taxon_state_messages` and `ncbi_sleep` time (the time between NCBI HTTP requests to try to avoid rate limiting issues) (#856)
 
 ### MINOR IMPROVEMENTS
-* xxx (#xxx)
-* xxx (#xxx)
-* xxx (#xxx)
+
+* fixes for `class2tree()`: improve taxonomy ranks (#875) (#876) work by @trvinh
+* fixes for `class2tree()`: improve rank indexing function (#873) (#874) work by @trvinh
+* simplification of `get_*` functions: a number of issues of factoring out helper functions to reduce replicated code  (#845)
+* update AOU notes - a script in `inst/ignore` for updating AOU data (#857) thanks @robitalec
+
+### DOCUMENTATION
+
+* clarify documentation for `downstream.gbifid` and `gbif_downstream` (#867) thanks @azizka
 
 ### DEFUNCT
-* xxx (#xxx)
-* xxx (#xxx)
-* xxx (#xxx)
+
+* `resolve()` and `iplant_resolve()` are defunct. See the newish package `RTNRS` for iPlant name resolution; and see `gnr_resolve()` for the other option that was available in `resolve()` (#880)
 
 ### BUG FIXES
-* xxx (#xxx)
-* xxx (#xxx)
-* xxx (#xxx)
+
+* fix for `gni_parse()` - was throwing an error for names that could not be parsed (#870)
+* fix for looking up API keys (#865)
+* fix `get_pow()` (#864) thanks for the report @azizka
 
 
 taxize 0.9.99
