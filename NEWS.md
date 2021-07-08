@@ -3,6 +3,7 @@ taxize 1.0
 
 ### NEW FEATURES
 
+* New maintainer: Zachary Foster
 * All `get_*` function outputs have changed. Important: this is a breaking change. Breaking in that any code you previously used to manipulate outputs of `get_*` functions likely no longer will work. All functions output objects created using the `taxa` package, and can be manipulated/etc. using the `taxa` package. See examples in `get_*` function docs for examples of the new behavior (#508) (#858) (#859) (#860) (#861) 
 * new function `taxize_options()` to set package wide options for various things, so far for `taxon_state_messages` and `ncbi_sleep` time (the time between NCBI HTTP requests to try to avoid rate limiting issues) (#856)
 
