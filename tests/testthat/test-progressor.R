@@ -35,9 +35,9 @@ test_that("progressor works", {
   
   # expect_output(aa$prog_summary(), "══")
   expect_output(aa$prog_summary(), "Results")
-  expect_output(aa$prog_summary(), "Total: 2")
-  expect_output(aa$prog_summary(), "Found: 1")
-  expect_output(aa$prog_summary(), "Not Found: 1")
+  expect_output(aa$prog_summary(), "Total: \033[32m2", fixed=TRUE)
+  expect_output(aa$prog_summary(), "Found: \033[32m1", fixed=TRUE)
+  expect_output(aa$prog_summary(), "Not Found: \033[32m1", fixed=TRUE)
 })
 
 test_that("progressor fails well", {
