@@ -8,8 +8,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/3.3 crul/0.7.4.9315 rOpenSci(taxize/0.9.7.9921)
-      X-USER-AGENT: r-curl/3.3 crul/0.7.4.9315 rOpenSci(taxize/0.9.7.9921)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -18,17 +18,17 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.2
-      date: Wed, 26 Jun 2019 18:36:47 GMT
+      date: Wed, 15 Sep 2021 22:47:43 GMT
       content-type: application/json; charset=utf-8
       transfer-encoding: chunked
       connection: keep-alive
       x-ua-compatible: IE=Edge,chrome=1
-      etag: '"90a4e2f8ce6fb92ec5a0bdba6589e589"'
+      etag: '"ad2a88d8562c39d2cba023924eca2797"'
       cache-control: max-age=0, private, must-revalidate
-      x-request-id: 69f3fa22964d46acaf386ed5780f26a0
-      x-runtime: '0.029374'
+      x-request-id: 049db3483267a049b48e703b51b6541f
+      x-runtime: '0.032087'
       x-rack-cache: miss
-      x-varnish: '8024867'
+      x-varnish: '14770541'
       age: '0'
       via: 1.1 varnish (Varnish/6.0)
       access-control-allow-origin: '*'
@@ -36,62 +36,41 @@ http_interactions:
       accept-ranges: bytes
     body:
       encoding: UTF-8
-      string: '[{"created_at":"2012-07-06T11:36:36Z","data_hash":null,"data_url":null,"description":"[\"This
-        release of the Catalogue of Life contains contributions from 169 databases
-        with information on 1,803,488 species, 158,708 infraspecific taxa and also
-        includes 1,638,520 synonyms and 428,289 common names covering the following
-        groups:\", \"Viruses * Viruses and Subviral agents from ICTV_MSL\\nBacteria
-        and Archaea from BIOS\\nChromista * Chromistan fungi from Species Fungorum\\nProtozoa
-        * Major groups from ITIS Regional, * Ciliates from CilCat, * Polycystines
-        from WoRMS Polycystina UPDATED!, * Protozoan fungi from Species Fungorum and
-        Trichomycetes database * Slime moulds from Nomen.eumycetozoa.com\\nFungi *
-        Various taxa in whole or in part from CABI Bioservices databases (Species
-        Fungorum, Phyllachorales, Rhytismatales, Saccharomycetes and Zygomycetes databases)
-        and from three other databases covering Xylariaceae, Glomeromycota, Trichomycetes,
-        Dothideomycetes * Lichens from LIAS\\nPlantae (Plants) * Mosses from MOST
-        * Liverworts and hornworts from ELPT * Conifers from Conifer Database * Cycads
-        and 6 flowering plant families from IOPI-GPC, and 99 families from WCSP *
-        Plus individual flowering plants families from AnnonBase, Brassicaceae, ChenoBase,
-        Droseraceae Database, EbenaBase, GCC, ILDIS, LecyPages, LHD, MELnet, RJB Geranium,
-        Solanaceae Source, Umbellifers.\\nAnimalia (Animals) * Marine groups from
-        URMO, ITIS Global, Hexacorals, ETI WBD (Euphausiacea), WoRMS: WoRMS Asteroidea
-        UPDATED!, WoRMS Bochusacea UPDATED!, WoRMS Brachiopoda UPDATED!, WoRMS Brachypoda
-        UPDATED!, WoRMS Brachyura UPDATED!, WoRMS Bryozoa UPDATED!, WoRMS Cestoda
-        UPDATED!, WoRMS Chaetognatha UPDATED!, WoRMS Cumacea UPDATED!, WoRMS Echinoidea
-        UPDATED!, WoRMS Gastrotricha UPDATED!, WoRMS Gnathostomulida UPDATED!, WoRMS
-        Holothuroidea UPDATED!, WoRMS Hydrozoa UPDATED!, WoRMS Isopoda UPDATED!, WoRMS
-        Leptostraca UPDATED!, WoRMS Monogenea UPDATED!, WoRMS Mystacocarida UPDATED!,
-        WoRMS Myxozoa UPDATED!, WoRMS Nemertea UPDATED!, WoRMS Oligochaeta UPDATED!,
-        WoRMS Ophiuroidea UPDATED!, WoRMS Phoronida UPDATED!, WoRMS Placozoa UPDATED!,
-        WoRMS Polychaeta UPDATED!, WoRMS Polycystina UPDATED!, WoRMS Porifera UPDATED!,
-        WoRMS Priapulida UPDATED!, WoRMS Proseriata-Kalyptorhynchia UPDATED!, WoRMS
-        Remipedia UPDATED!, WoRMS Scaphopoda UPDATED!, WoRMS Tanaidacea UPDATED!,
-        WoRMS Tantulocarida UPDATED!, WoRMS Thermosbaenacea UPDATED!, WoRMS Trematoda
-        UPDATED!, WoRMS Xenoturbellida UPDATED! * Rotifers, mayflies, freshwater hairworms,
-        planarians from FADA databases: FADA Rotifera, FADA Ephemeroptera, FADA Nematomorpha
-        & FADA Turbellaria * Entoprocts, water bears from ITIS Global * Spiders, scorpions,
-        ticks & mites from SpidCat via ITIS, SalticidDB , ITIS Global, TicksBase,
-        SpmWeb BdelloideaBase UPDATED! & Mites GSDs: OlogamasidBase, PhytoseiidBase,
-        RhodacaridBase & TenuipalpidBase * Diplopods, centipedes, pauropods and symphylans
-        from SysMyr UPDATED! & ChiloBase * Dragonflies and damselflies from Odonata
-        database * Stoneflies from PlecopteraSF * Cockroaches from BlattodeaSF * Praying
-        mantids from MantodeaSF * Stick and leaf insects from PhasmidaSF * Grasshoppers,
-        locusts, katydids and crickets from OrthopteraSF * Webspinners from EmbiopteraSF
-        * Bark & parasitic lices from PsocodeaSF * Some groups of true bugs from ScaleNet,
-        FLOW, COOL, Psyllist, AphidSF , MBB, 3i Cicadellinae, 3i Typhlocybinae, MOWD
-        & CoreoideaSF* Twisted-wing parasites from Strepsiptera Database * Lacewings,
-        antlions, owlflies, fishflies, dobsonflies & snakeflies from LDL Neuropterida
-        * Some beetle groups from the Scarabs UPDATED!, TITAN, WTaxa & ITIS Global
-        * Fleas from Parhost * Flies, mosquitoes, bots, midges and gnats from Systema
-        Dipterorum, CCW & CIPA * Butterflies and moths from LepIndex, GloBIS (GART),
-        Tineidae NHM, World Gracillariidae * Bees & wasps from ITIS Bees, Taxapad
-        Ichneumonoidea, UCD, ZOBODAT Vespoidea & HymIS Rhopalosomatidae* Molluscs
-        from WoRMS Mollusca UPDATED!, FADA Bivalvia, MolluscaFW & AFD (Pulmonata)
-        * Fishes from FishBase * Reptiles from ReptileDB UPDATED! * Amphibians, birds
-        and mammals from ITIS Global PLUS additional species of many groups from ITIS
-        Regional, NZIB and CoL China\"]","id":1,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Catalogue
-        of Life","unique_names_count":0,"updated_at":"2018-07-16T18:31:45Z","web_site_url":null},{"created_at":"2012-07-06T11:38:14Z","data_hash":null,"data_url":null,"description":"The
-        free species directory that anyone can edit.","id":2,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Wikispecies","unique_names_count":0,"updated_at":"2016-06-28T22:17:44Z","web_site_url":null},{"created_at":"2012-02-09T10:31:13Z","data_hash":null,"data_url":null,"description":"The
+      file: no
+      string: '[{"created_at":"2012-07-06T11:36:36Z","data_hash":null,"data_url":null,"description":"The
+        Catalogue of Life (CoL) is an assembly of expert-based global species checklists
+        with the aim to build a comprehensive catalogue of all known species of organisms
+        on Earth. Continuous progress is made towards completion, but for now, it
+        probably includes just over 80% of the world''s known species. The Catalogue
+        of Life estimates 2.5M extant species on the planet recognised by taxonomists
+        at present time. This means that for many groups it continues to be deficient,
+        and users may notice that many species are still missing from the Catalogue.
+        \n\n### What''s new in this edition (June 2021)?\n\n#### 4 new checklists:\n*
+        WoRMS Crinoidea\n* WoRMS Nematoda, Nemys\n* WoRMS Brachiopoda (it\u2019s a
+        replacement for Brachiopoda by Emig & al.)\n* WoRMS Euphausiacea (it\u2019s
+        a replacement for ETI Euphausiacea) \n\n#### 71 checklists have been updated:\n*
+        ITIS (9th update since AC19; new sectors: family Smarididae, superfamily Calyptostomatoidea,
+        infraorder Stenopodidea)\n* Alucitoidea (5th update)\n* Brassicaceae\n* CCW\n*
+        Eumycetozoa.com\n* Pterophoroidea (4th update)\n* ReptileDB\n* Scarabs (10th
+        update)\n* Systema Dipterorum\n* World Ferns (6th update)\n* World Plants
+        (5th update)\n\n_including automated updates for:_\n* WoRMS Actiniaria\n*
+        WoRMS Amphipoda\n* WoRMS Antipatharia\n* WoRMS Appendicularia\n* WoRMS Ascidiacea\n*
+        WoRMS Asteroidea\n* WoRMS Bochusacea\n* WoRMS Brachypoda\n* WoRMS Brachyura\n*
+        WoRMS Bryozoa\n* WoRMS Cephalochordata\n* WoRMS Ceriantharia\n* WoRMS Cestoda\n*
+        WoRMS Chaetognatha\n* WoRMS Copepoda\n* WoRMS Corallimorpharia\n* WoRMS Ctenophora\n*
+        WoRMS Cubozoa\n* WoRMS Cumacea\n* WoRMS Echinoidea\n* WoRMS Foraminifera\n*
+        WoRMS Gastrotricha\n* WoRMS Gnathostomulida\n* WoRMS Holothuroidea\n* WoRMS
+        Hydrozoa\n* WoRMS Isopoda\n* WoRMS Kinorhyncha\n* WoRMS Leptostraca\n* WoRMS
+        Loricifera\n* WoRMS Merostomata\n* WoRMS MilliBase \n* WoRMS Mollusca\n* WoRMS
+        Monogenea\n* WoRMS Mystacocarida\n* WoRMS Myxozoa\n* WoRMS Nemertea\n* WoRMS
+        Octocorallia\n* WoRMS Oligochaeta\n* WoRMS Ophiuroidea\n* WoRMS Orthonectida\n*
+        WoRMS Ostracoda\n* WoRMS Placozoa\n* WoRMS Polychaeta\n* WoRMS Polycystina\n*
+        WoRMS Porifera\n* WoRMS Priapulida\n* WoRMS Pycnogonida\n* WoRMS Remipedia\n*
+        WoRMS Rhombozoa\n* WoRMS Scleractinia\n* WoRMS Scyphozoa\n* WoRMS Staurozoa\n*
+        WoRMS Tanaidacea\n* WoRMS Tantulocarida\n* WoRMS Thaliacea\n* WoRMS Thermosbaenacea\n*
+        WoRMS Trematoda\n* WoRMS Turbellarians\n* WoRMS Xenoturbellida\n* WoRMS Zoantharia","id":1,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Catalogue
+        of Life - June 2021","unique_names_count":0,"updated_at":"2021-06-21T21:17:13Z","web_site_url":null},{"created_at":"2012-07-06T11:38:14Z","data_hash":null,"data_url":null,"description":"The
+        free species directory that anyone can edit.","id":2,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Wikispecies","unique_names_count":0,"updated_at":"2021-07-05T10:10:32Z","web_site_url":null},{"created_at":"2012-02-09T10:31:13Z","data_hash":null,"data_url":null,"description":"The
         White House Subcommittee on Biodiversity and Ecosystem Dynamics has identified
         systematics as a research priority that is fundamental to ecosystem management
         and biodiversity conservation. This primary need identified by the Subcommittee
@@ -99,11 +78,29 @@ http_interactions:
         nomenclature. ITIS (originally referred to as the Interagency Taxonomic Information
         System) was designed to fulfill these requirements. In the future, the ITIS
         will provide taxonomic data and a directory of taxonomic expertise that will
-        support the system","id":3,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"ITIS","unique_names_count":0,"updated_at":"2018-07-05T18:37:29Z","web_site_url":null},{"created_at":"2012-02-09T10:47:55Z","data_hash":null,"data_url":null,"description":"The
+        support the system","id":3,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Integrated
+        Taxonomic Information SystemITIS","unique_names_count":0,"updated_at":"2021-06-23T03:46:32Z","web_site_url":null},{"created_at":"2012-02-09T10:47:55Z","data_hash":null,"data_url":null,"description":"The
         National Center for Biotechnology Information advances science and health
-        by providing access to biomedical and genomic information.","id":4,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"NCBI","unique_names_count":0,"updated_at":"2018-07-05T21:26:56Z","web_site_url":null},{"created_at":"2012-02-09T11:16:43Z","data_hash":null,"data_url":null,"description":"Classification
-        of Fungi","id":5,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Index
-        Fungorum","unique_names_count":0,"updated_at":"2012-02-09T06:28:49Z","web_site_url":null},{"created_at":"2012-02-09T11:28:38Z","data_hash":null,"data_url":null,"description":"GRIN
+        by providing access to biomedical and genomic information.","id":4,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"National
+        Center for Biotechnology Information","unique_names_count":0,"updated_at":"2021-06-23T09:10:13Z","web_site_url":null},{"created_at":"2012-02-09T11:16:43Z","data_hash":null,"data_url":null,"description":"The
+        Index Fungorum, the global fungal nomenclator coordinated and supported by
+        the Index Fungorum Partnership, contains names of fungi (including yeasts,
+        lichens, chromistan fungal analogues, protozoan fungal analogues and fossil
+        forms) at all ranks.\n\nAs a result of changes to the ICN (previously ICBN)
+        relating to registration of names and following the lead taken by MycoBank,
+        Index Fungorum now provides a mechanism to register names of new taxa, new
+        names, new combinations and new typifications \u2014 no login is required.
+        Names registered at Index Fungorum can be published immediately through the
+        Index Fungorum e-Publication facility \u2014 an authorized login is required
+        for this.\n\nSpecies Fungorum is currently an RBG Kew coordinated initiative
+        to compile a global checklist of the fungi. You may search systematically
+        defined and taxonomically complete datasets - global species databases - or
+        the entire Species Fungorum. Species Fungorum contributes the fungal component
+        to the Species 2000 project and, in partnership with ITIS, to the Catalogue
+        of Life (currently used in the GBIF and EoL portal); for more information
+        regarding these global initiative visit their websites. Please contact Paul
+        Kirk if you you would like to contribute to Species Fungorum.","id":5,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Index
+        Fungorum (Species Fungorum)","unique_names_count":0,"updated_at":"2021-01-07T21:49:58Z","web_site_url":null},{"created_at":"2012-02-09T11:28:38Z","data_hash":null,"data_url":null,"description":"GRIN
         taxonomic data provide the structure and nomeclature for accessions of the
         National Plant Germplasm System (NPGS), part of the National Genetic Resources
         Program (NGRP) of the United States Department of Agriculture''s (USDA''s)
@@ -126,21 +123,130 @@ http_interactions:
         and recent taxa","id":8,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"The
         Interim Register of Marine and Nonmarine Genera","unique_names_count":0,"updated_at":"2016-10-21T20:54:21Z","web_site_url":null},{"created_at":"2012-02-09T12:40:45Z","data_hash":null,"data_url":null,"description":"An
         authoritative classification and catalogue of marine names","id":9,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"World
-        Register of Marine Species","unique_names_count":0,"updated_at":"2018-07-05T16:31:51Z","web_site_url":null},{"created_at":"2012-02-09T12:55:04Z","data_hash":null,"data_url":null,"description":"An
+        Register of Marine Species","unique_names_count":0,"updated_at":"2021-06-23T14:17:42Z","web_site_url":null},{"created_at":"2012-02-09T12:55:04Z","data_hash":null,"data_url":null,"description":"An
         entity graph of people, places and things, built by a community that loves
-        open data.","id":10,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Freebase","unique_names_count":0,"updated_at":"2012-08-01T14:10:26Z","web_site_url":null},{"created_at":"2012-02-09T13:01:40Z","data_hash":null,"data_url":null,"description":"The
-        GBIF Backbone Taxonomy, often called the Nub taxonomy, is a single synthetic
-        management classification with the goal of covering all names GBIF is dealing
-        with. It&#39;s the taxonomic backbone that allows GBIF to integrate name based
-        information from different resources, no matter if these are occurrence datasets,
-        species pages, names from nomenclators or external sources like EOL, Genbank
-        or IUCN. This backbone allows taxonomic search, browse and reporting operations
-        across all those resources in a consistent way and to provide means to crosswalk
-        names from one source to another. It is updated regulary through an automated
+        open data.","id":10,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Freebase","unique_names_count":0,"updated_at":"2012-08-01T14:10:26Z","web_site_url":null},{"created_at":"2012-02-09T13:01:40Z","data_hash":null,"data_url":null,"description":"<p>The
+        GBIF Backbone Taxonomy is a single, synthetic management classification with
+        the goal of covering all names GBIF is dealing with.          It&#39;s the
+        taxonomic backbone that allows GBIF to integrate name based information from
+        different resources, no matter if these are occurrence datasets, species pages,
+        names from nomenclators or external sources like EOL, Genbank or IUCN. This
+        backbone allows taxonomic search, browse and reporting operations across all
+        those resources in a consistent way and to provide means to crosswalk names
+        from one source to another.</p><p>It is updated regulary through an automated
         process in which the Catalogue of Life acts as a starting point also providing
-        the complete higher classification above families.","id":11,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"GBIF
-        Backbone Taxonomy","unique_names_count":0,"updated_at":"2017-09-20T12:41:16Z","web_site_url":null},{"created_at":"2012-02-09T15:36:33Z","data_hash":null,"data_url":null,"description":"Encyclopedia
-        of Life, page for every species on Earth","id":12,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"EOL","unique_names_count":0,"updated_at":"2012-05-08T03:02:34Z","web_site_url":null},{"created_at":"2012-02-09T18:21:08Z","data_hash":null,"data_url":null,"description":"Passiflora
+        the complete higher classification above families. Additional scientific names
+        only found in other authoritative nomenclatural and taxonomic datasets are
+        then merged into the tree, thus extending the original catalogue and broadening
+        the backbones name coverage.          The GBIF Backbone taxonomy also includes
+        identifiers for Operational Taxonomic Units (OTUs) drawn from the barcoding
+        resources iBOL and UNITE.</p><p>International Barcode of Life project (iBOL),
+        Barcode Index Numbers (BINs).  BINs are connected to a taxon name and its
+        classification by taking into account all names applied to the BIN and picking
+        names with at least 80% consensus. If there is no consensus of name at the
+        species level, the selection process is repeated moving up the major Linnaean
+        ranks until consensus is achieved.</p><p>UNITE - Unified system for the DNA
+        based fungal species, Species Hypotheses (SHs).  SHs are connected to a taxon
+        name and its classification based on the determination of the RefS (reference
+        sequence) if present or the RepS (representative sequence). In the latter
+        case, if there is no match in the UNITE taxonomy, the lowest rank with 100%
+        consensus within the SH will be used.</p><p>The GBIF Backbone Taxonomy is
+        available for download at http://rs.gbif.org/datasets/backbone/ in different
+        formats          together with an archive of all previous versions.</p><p>The
+        following 94 sources have been used to assemble the GBIF backbone with number
+        of names given in brackets:</p><ul><li>Catalogue of Life - April 2021 - 3834939
+        names</li><li>International Barcode of Life project (iBOL) Barcode Index Numbers
+        (BINs) - 564649 names</li><li>World Register of Marine Species - 378787 names</li><li>The
+        World Checklist of Vascular Plants (WCVP) - 294141 names</li><li>The Interim
+        Register of Marine and Nonmarine Genera - 212450 names</li><li>UNITE - Unified
+        system for the DNA based fungal species linked to the classification - 185492
+        names</li><li>The Paleobiology Database - 176625 names</li><li>The Plant List
+        with literature - 140464 names</li><li>TAXREF - 121484 names</li><li>GBIF
+        Backbone Taxonomy - 117268 names</li><li>Index Fungorum - 110358 names</li><li>Integrated
+        Taxonomic Information System (ITIS) - 81904 names</li><li>Plazi.org taxonomic
+        treatments database - 66789 names</li><li>International Plant Names Index
+        - 56277 names</li><li>ZooBank - 52581 names</li><li>Fauna Europaea - 50006
+        names</li><li>Artsnavnebasen - 41708 names</li><li>Dyntaxa. Svensk taxonomisk
+        databas - 36911 names</li><li>Genome Taxonomy Database - 28534 names</li><li>The
+        IUCN Red List of Threatened Species - 23677 names</li><li>Afromoths, online
+        database of Afrotropical moth species (Lepidoptera) - 22988 names</li><li>Fauna
+        Europaea - Lepidoptera - 22880 names</li><li>The National Checklist of Taiwan
+        (Catalogue of Life in Taiwan, TaiCoL) - 17540 names</li><li>Brazilian Flora
+        2020 project - Projeto Flora do Brasil 2020 - 17022 names</li><li>Prokaryotic
+        Nomenclature Up-to-Date (PNU) - 11399 names</li><li>Checklist Dutch Species
+        Register - Nederlands Soortenregister - 9615 names</li><li>GRIN Taxonomy -
+        6793 names</li><li>Catalogue of Tenebrionidae (Coleoptera) of North America
+        - 6536 names</li><li>Taxon list of fungi and fungal-like organisms from Germany
+        compiled by the DGfM - 4648 names</li><li>Catalogue of Afrotropical Bees -
+        4073 names</li><li>Checklist of Beetles (Coleoptera) of Canada and Alaska.
+        Second Edition. - 3307 names</li><li>Catalogue of the Pterophoroidea of the
+        World - 2809 names</li><li>The Clements Checklist - 2626 names</li><li>Database
+        of Vascular Plants of Canada (VASCAN) - 2606 names</li><li>Taxon list of Hymenoptera
+        from Germany compiled in the context of the GBOL project - 2512 names</li><li>Official
+        Lists and Indexes of Names in Zoology - 2058 names</li><li>IOC World Bird
+        List, v10.2 - 1962 names</li><li>Taxon list of vascular plants from Bavaria,
+        Germany compiled in the context of the BFL project - 1946 names</li><li>National
+        checklist of all species occurring in Denmark - 1881 names</li><li>A list
+        of the terrestrial fungi, flora and fauna of Madeira and Selvagens archipelagos
+        - 1747 names</li><li>Orthoptera Species File - 1709 names</li><li>Taxon list
+        of Jurassic Pisces of the Tethys Palaeo-Environment compiled at the SNSB-JME
+        - 1263 names</li><li>International Cichorieae Network (ICN): Cichorieae Portal
+        - 1187 names</li><li>Aphid Species File - 1136 names</li><li>GBIF Algae Classification
+        - 1103 names</li><li>Lygaeoidea Species File - 582 names</li><li>Taxon list
+        of animals with German names (worldwide) compiled at the SMNS - 478 names</li><li>Catalogue
+        of the Alucitoidea of the World - 469 names</li><li>Psocodea Species File
+        - 450 names</li><li>Mantodea Species File - 397 names</li><li>Taxon list of
+        mosses from Germany compiled in the context of the GBOL project - 314 names</li><li>Coreoidea
+        Species File - 285 names</li><li>Cockroach Species File - 224 names</li><li>GBIF
+        Backbone Patch - 207 names</li><li>Phasmida Species File - 194 names</li><li>GTDB
+        supplement - 122 names</li><li>Taxon list of Araneae from Germany compiled
+        in the context of the GBOL project - 120 names</li><li>Plecoptera Species
+        File - 119 names</li><li>Dermaptera Species File - 113 names</li><li>Taxon
+        list of Auchenorrhyncha from Germany compiled in the context of the GBOL project
+        - 92 names</li><li>Mammal Species of the World - 71 names</li><li>Taxon list
+        of liverworts from Germany compiled in the context of the GBOL project - 68
+        names</li><li>Taxon list of Sternorrhyncha from Germany compiled in the context
+        of the GBOL project - 58 names</li><li>Grylloblattodea Species File - 46 names</li><li>Catalogue
+        of the type specimens of Cosmopterigidae (Lepidoptera: Gelechioidea) from
+        research collections of the Zoological Institute, Russian Academy of Sciences
+        - 43 names</li><li>Species named after famous people - 38 names</li><li>True
+        Fruit Flies (Diptera, Tephritidae) of the Afrotropical Region - 36 names</li><li>Taxon
+        list of Trichoptera from Germany compiled in the context of the GBOL project
+        - 34 names</li><li>Taxon list of Diplura from Germany compiled in the context
+        of the GBOL project - 30 names</li><li>Catalogue of the type specimens of
+        Polycestinae (Coleoptera: Buprestidae) from research collections of the Zoological
+        Institute, Russian Academy of Sciences - 19 names</li><li>Coleorrhyncha Species
+        File - 19 names</li><li>Taxon list of Thysanoptera from Germany compiled in
+        the context of the GBOL project - 19 names</li><li>Embioptera Species File
+        - 18 names</li><li>Taxon list of Microcoryphia (Archaeognatha) from Germany
+        compiled in the context of the GBOL project - 15 names</li><li>Chrysididae
+        Species File - 14 names</li><li>Catalogue of the type specimens of Bufonidae
+        and Megophryidae (Amphibia: Anura) from research collections of the Zoological
+        Institute, Russian Academy of Sciences - 12 names</li><li>Asiloid Flies: new
+        taxa of Diptera: Apioceridae, Asilidae, and Mydidae - 10 names</li><li>Taxon
+        list of Pauropoda from Germany compiled in the context of the GBOL project
+        - 9 names</li><li>Taxon list of Pisces and Cyclostoma from Germany compiled
+        in the context of the GBOL project - 7 names</li><li>Backbone Family Classification
+        Patch - 6 names</li><li>Taxon list of Siphonaptera from Germany compiled in
+        the context of the GBOL project - 6 names</li><li>Taxon list of Pteridophyta
+        from Germany compiled in the context of the GBOL project - 5 names</li><li>Taxon
+        list of Dermaptera from Germany compiled in the context of the GBOL project
+        - 4 names</li><li>Taxon list of Orthoptera (Grashoppers) from Germany compiled
+        at the SNSB - 4 names</li><li>Taxon list of Zygentoma from Germany compiled
+        in the context of the GBOL project - 4 names</li><li>Taxon list of Protura
+        from Germany compiled in the context of the GBOL project - 3 names</li><li>Endemic
+        species in Taiwan - 2 names</li><li>Taxon list of hornworts from Germany compiled
+        in the context of the GBOL project - 2 names</li><li>Mantophasmatodea Species
+        File - 1 names</li><li>Taxon list of Diplopoda from Germany in the context
+        of the GBOL project - 1 names</li><li>Taxon list of Pscoptera from Germany
+        compiled in the context of the GBOL project - 1 names</li><li>Taxon list of
+        Pseudoscorpiones from Germany compiled in the context of the GBOL project
+        - 1 names</li><li>Taxon list of Raphidioptera from Germany compiled in the
+        context of the GBOL project - 1 names</li><li>Taxon list of Strepsiptera from
+        Germany compiled in the context of the GBOL project - 1 names</li></ul>","id":11,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"GBIF
+        Backbone Taxonomy","unique_names_count":0,"updated_at":"2021-06-23T23:39:43Z","web_site_url":null},{"created_at":"2012-02-09T15:36:33Z","data_hash":null,"data_url":null,"description":"Global
+        access to knowledge about life on Earth","id":12,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Encyclopedia
+        of Life","unique_names_count":0,"updated_at":"2021-06-24T17:08:35Z","web_site_url":null},{"created_at":"2012-02-09T18:21:08Z","data_hash":null,"data_url":null,"description":"Passiflora
         vernacular names","id":93,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Passiflora
         vernacular names","unique_names_count":0,"updated_at":"2012-02-09T13:21:28Z","web_site_url":null},{"created_at":"2012-02-09T18:21:09Z","data_hash":null,"data_url":null,"description":"Inventory
         of fish fauna for use in assessing the environmental flow of the Wami River
@@ -594,14 +700,21 @@ http_interactions:
         bibliographic information about plant names. The data are freely available
         and are gradually being standardized and checked. IPNI will be a dynamic resource,
         depending on direct contributions by all members of the botanical community.","id":167,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"The
-        International Plant Names Index","unique_names_count":0,"updated_at":"2012-07-31T10:21:41Z","web_site_url":null},{"created_at":"2012-05-07T13:45:07Z","data_hash":null,"data_url":null,"description":"ION
-        will ultimately contain all the organism names related data found within the
-        Thomson Reuters life science literature databases.","id":168,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Index
-        to Organism Names","unique_names_count":0,"updated_at":"2012-02-09T16:34:11Z","web_site_url":null},{"created_at":"2012-05-07T13:50:15Z","data_hash":null,"data_url":null,"description":"uBio
+        International Plant Names Index","unique_names_count":0,"updated_at":"2021-06-24T19:22:07Z","web_site_url":null},{"created_at":"2012-05-07T13:45:07Z","data_hash":null,"data_url":null,"description":"ION
+        contains millions of animal names, both fossil and recent, at all taxonomic
+        ranks, reported from the scientific literature. (Bacteria, plant and virus
+        names will be added soon).\n\nThese names are derived from premier Clarivate
+        databases: Zoological Record\u00ae, BIOSIS Previews\u00ae, and Biological
+        Abstracts\u00ae. All names are tied to at least one published article. Together,
+        these resources cover every aspect of the life sciences - providing names
+        from over 30 million scientific records, including approximately ,000 international
+        journals, patents, books, and conference proceedings. They provide a powerful
+        foundation for the most complete collection of organism names available today.","id":168,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Index
+        to Organism Names","unique_names_count":0,"updated_at":"2021-01-27T18:15:59Z","web_site_url":null},{"created_at":"2012-05-07T13:50:15Z","data_hash":null,"data_url":null,"description":"uBio
         uses names and taxonomic intelligence to manage information about organisms.","id":169,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"uBio
         NameBank","unique_names_count":0,"updated_at":"2013-05-31T13:36:47Z","web_site_url":null},{"created_at":"2013-05-31T01:17:28Z","data_hash":null,"data_url":null,"description":"Arctos
         is an ongoing effort to integrate access to specimen data, collection-management
-        tools, and external resources on the internet.","id":170,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Arctos","unique_names_count":0,"updated_at":"2013-06-04T00:34:16Z","web_site_url":null},{"created_at":"2013-12-10T03:02:58Z","data_hash":null,"data_url":null,"description":"All
+        tools, and external resources on the internet.","id":170,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Arctos","unique_names_count":0,"updated_at":"2021-06-24T21:45:14Z","web_site_url":null},{"created_at":"2013-12-10T03:02:58Z","data_hash":null,"data_url":null,"description":"All
         8238 species-group taxa of Coleoptera known to occur in Canada and Alaska
         are recorded by province/territory or state, along with their author(s) and
         year of publication, in a classification framework. Only presence of taxa
@@ -609,11 +722,17 @@ http_interactions:
         a distinct geographical entity. Adventive and Holarctic species-group taxa
         are indicated. References to pertinent identification keys are given under
         the corresponding supraspecific taxa.","id":171,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Checklist
-        of Beetles (Coleoptera) of Canada and Alaska. Second Edition.","unique_names_count":0,"updated_at":"2014-03-11T10:32:26Z","web_site_url":null},{"created_at":"2014-12-08T11:17:24Z","data_hash":null,"data_url":null,"description":"Thanks
-        to our membership, which includes 350 scientists from 133 institutions in
-        24 countries, the Paleobiology Database is able to provide scientists and
-        the public with information about the fossil record.","id":172,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"The
-        Paleobiology Database","unique_names_count":0,"updated_at":"2014-12-08T07:24:16Z","web_site_url":"http://paleobiodb.org"},{"created_at":"2014-12-08T19:50:56Z","data_hash":null,"data_url":null,"description":"This
+        of Beetles (Coleoptera) of Canada and Alaska. Second Edition.","unique_names_count":0,"updated_at":"2014-03-11T10:32:26Z","web_site_url":null},{"created_at":"2014-12-08T11:17:24Z","data_hash":null,"data_url":null,"description":"The
+        Paleobiology Database (PBDB) is a non-governmental, non-profit public resource
+        for paleontological data. It has been organized and operated by a multi-disciplinary,
+        multi-institutional, international group of paleobiological researchers. Its
+        purpose is to provide global, collection-based occurrence and taxonomic data
+        for organisms of all geological ages, as well data services to allow easy
+        access to data for independent development of analytical tools, visualization
+        software, and applications of all types. The Database\u2019s broader goal
+        is to encourage and enable data-driven collaborative efforts that address
+        large-scale paleobiological questions.","id":172,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"The
+        Paleobiology Database","unique_names_count":0,"updated_at":"2021-07-05T16:50:38Z","web_site_url":"http://paleobiodb.org"},{"created_at":"2014-12-08T19:50:56Z","data_hash":null,"data_url":null,"description":"This
         database provides a catalogue of all living reptile species and their classification.
         The database covers all living snakes, lizards, turtles, amphisbaenians, tuataras,
         and crocodiles. Currently there are about 9,500 species including another
@@ -641,12 +760,12 @@ http_interactions:
         da Flora de Portugal (Continental, A\u00e7ores e Madeira)","unique_names_count":0,"updated_at":"2015-03-03T09:09:07Z","web_site_url":null},{"created_at":"2016-07-20T11:13:25Z","data_hash":null,"data_url":null,"description":"FishBase
         is a global species database of fish species(specifically finfish). It is
         the largest and the mostextensively accessed online database of finfish","id":177,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"FishBase
-        Cache","unique_names_count":0,"updated_at":"2017-05-08T21:56:28Z","web_site_url":null},{"created_at":"2016-10-18T20:00:31Z","data_hash":null,"data_url":null,"description":"High
+        Cache","unique_names_count":0,"updated_at":"2019-11-08T16:06:04Z","web_site_url":null},{"created_at":"2016-10-18T20:00:31Z","data_hash":null,"data_url":null,"description":"High
         quality ribosomal RNA databases","id":178,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Silva","unique_names_count":0,"updated_at":"2016-10-18T20:00:31Z","web_site_url":"https://www.arb-silva.de/"},{"created_at":"2016-10-19T10:13:10Z","data_hash":null,"data_url":null,"description":"Open
         Tree of Life aims to construct a comprehensive, dynamic and digitally-available
         tree of life by synthesizing published phylogenetic trees along withtaxonomic
         data. The project is a collaborative effortbetween 11 PIs across 10 institutions.","id":179,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Open
-        Tree of Life Reference Taxonomy","unique_names_count":0,"updated_at":"2018-07-17T16:33:49Z","web_site_url":null},{"created_at":"2016-10-30T00:46:40Z","data_hash":null,"data_url":null,"description":"iNaturalist.org
+        Tree of Life Reference Taxonomy","unique_names_count":0,"updated_at":"2021-07-05T11:50:23Z","web_site_url":null},{"created_at":"2016-10-30T00:46:40Z","data_hash":null,"data_url":null,"description":"iNaturalist.org
         is a place where you can record what you see in nature, meet other nature
         lovers, and learn about the natural world.","id":180,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"iNaturalist","unique_names_count":0,"updated_at":"2016-10-30T00:55:27Z","web_site_url":null},{"created_at":"2016-11-03T16:09:05Z","data_hash":null,"data_url":null,"description":"The
         Interim Register of Marine and Nonmarine Genera is a provisional (or \u2018interim\u2019)
@@ -655,9 +774,56 @@ http_interactions:
         and other queries dealing with e.g. homonyms, authorities, parent-child relationships,
         spelling variations and distinctions between marine and non-marine or fossil
         and recent taxa","id":181,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"The
-        Interim Register of Marine and Nonmarine Genera","unique_names_count":0,"updated_at":"2018-07-05T16:52:18Z","web_site_url":null},{"created_at":"2017-03-22T15:26:50Z","data_hash":null,"data_url":null,"description":"This
+        Interim Register of Marine and Nonmarine Genera","unique_names_count":0,"updated_at":"2021-07-05T09:34:25Z","web_site_url":null},{"created_at":"2017-03-22T15:26:50Z","data_hash":null,"data_url":null,"description":"This
         classification is primarily focused on Gymnodinium, a genus of dinoflagellate.
         I tried to include all Gymnodinium name strings (even invalid names and lexical
-        variants).","id":182,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Gymno","unique_names_count":0,"updated_at":"2017-03-22T15:37:54Z","web_site_url":null}]'
-  recorded_at: 2019-06-26 18:36:47 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4
+        variants).","id":182,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Gymno","unique_names_count":0,"updated_at":"2019-11-12T16:03:04Z","web_site_url":null},{"created_at":"2020-05-25T02:43:22Z","data_hash":null,"data_url":null,"description":"Index
+        Animalium is a monumental work that covers 400 000 zoological names registered
+        by science between 1758 and 1850","id":183,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Index
+        Animalium","unique_names_count":0,"updated_at":"2020-05-25T02:55:37Z","web_site_url":null},{"created_at":"2020-05-25T10:32:16Z","data_hash":null,"data_url":null,"description":"Mammal
+        Diversity Database. 2021. www.mammaldiversity.org. American Society of Mammalogists.
+        Accessed 2021-01-28.","id":184,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"ASM
+        Mammal Diversity Database","unique_names_count":0,"updated_at":"2021-07-05T16:44:43Z","web_site_url":null},{"created_at":"2020-05-27T01:41:11Z","data_hash":null,"data_url":null,"description":"The
+        IOC World Bird List is an open access resource of the international community
+        of ornithologists.","id":185,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"IOC
+        World Bird List","unique_names_count":0,"updated_at":"2021-01-28T18:08:24Z","web_site_url":null},{"created_at":"2020-05-28T00:01:22Z","data_hash":null,"data_url":null,"description":"The
+        Museum of Comparative Zoology was founded in 1859 on the concept that collections
+        are an integral and fundamental component of zoological research and teaching.
+        This more than 150-year-old commitment remains a strong and proud tradition
+        for the MCZ. The present-day MCZ contains over 21-million specimens in ten
+        research collections which comprise one of the world''s richest and most varied
+        resources for studying the diversity of life. The museum serves as the primary
+        repository for zoological specimens collected by past and present Harvard
+        faculty-curators, staff and associates conducting research around the world.
+        As a premier university museum and research institution, the specimens and
+        their related data are available to researchers of the scientific and museum
+        community. doi:10.5281/zenodo.891420","id":186,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"MCZbase","unique_names_count":0,"updated_at":"2021-02-04T13:47:03Z","web_site_url":null},{"created_at":"2020-05-28T16:50:17Z","data_hash":null,"data_url":null,"description":"The
+        eBird/Clements Checklist of Birds of the World: v2019. Downloaded from https://www.birds.cornell.edu/clementschecklist/download/","id":187,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"The
+        eBird/Clements Checklist of Birds of the World","unique_names_count":0,"updated_at":"2020-05-28T16:50:39Z","web_site_url":null},{"created_at":"2020-05-30T00:58:32Z","data_hash":null,"data_url":null,"description":"The
+        American Ornithological Society''s (AOS) Checklist is the official source
+        on the taxonomy of birds found in North and Middle America, including adjacent
+        islands. This list is produced by the North American Classification and Nomenclature
+        Committee (NACC) of the AOS.\n\nRecommended citation: Chesser, R. T., K. J.
+        Burns, C. Cicero, J. L. Dunn, A. W. Kratter, I. J. Lovette, P. C. Rasmussen,
+        J. V. Remsen, Jr., D. F. Stotz, and K. Winker. 2019. Check-list of North American
+        Birds (online). American Ornithological Society. http://checklist.aou.org/taxa","id":188,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"American
+        Ornithological Society","unique_names_count":0,"updated_at":"2020-05-30T00:58:35Z","web_site_url":null},{"created_at":"2020-05-31T00:36:35Z","data_hash":null,"data_url":null,"description":"Christidis
+        et al. 2018. The Howard and Moore Complete Checklist of the Birds of the World,
+        version 4.1 (Downloadable checklist). Accessed from https://www.howardandmoore.org.","id":189,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Howard
+        and Moore Complete Checklist of the Birds of the World","unique_names_count":0,"updated_at":"2020-05-31T01:05:24Z","web_site_url":null},{"created_at":"2020-05-31T01:23:24Z","data_hash":null,"data_url":null,"description":"Myriatrix
+        is a Scratchpads-based Virtual Research Environment proposed to the International
+        Society of Myriapodology. It allows collaborative editing and linking of the
+        classification, literature, and morphological traits of the many-legged terrestrial
+        invertebrate groups Onychophora and Myriapoda (to the inclusion of Euthycarcinoidea).
+        The taxonomic backbone is based on the Species 2000 & ITIS Catalogue of Life
+        (2015 release). The literature database contains 1000+ references, spanning
+        from 1535 to present. This dataset represents the output of an ongoing endeavor,
+        and therefore is periodically updated. For more information, please see http://myriatrix.myspecies.info
+        and the original database proposal on https://www.researchgate.net/publication/337844165\n\n\n\nHow
+        to cite:\n\nThe Fellegship of the Rings (2020 onwards): Myriatrix. Available
+        from http://myriatrix.myspecies.info","id":193,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"Myriatrix","unique_names_count":0,"updated_at":"2021-07-06T11:30:49Z","web_site_url":null},{"created_at":"2021-03-19T16:48:41Z","data_hash":null,"data_url":null,"description":"Plazi
+        is an association supporting and promoting the development of persistent and
+        openly accessible digital taxonomic literature.","id":194,"logo_url":null,"name_strings_count":0,"refresh_period_days":14,"title":"PLAZI
+        treatments","unique_names_count":0,"updated_at":"2021-06-28T19:46:21Z","web_site_url":null}]'
+  recorded_at: 2021-09-15 22:47:44 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0

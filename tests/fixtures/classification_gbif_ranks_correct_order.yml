@@ -8,8 +8,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.93.91)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.93.91)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -17,23 +17,23 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: 'HTTP/2 200 '
-      date: Wed, 25 Mar 2020 18:51:29 GMT
+      date: Wed, 15 Sep 2021 22:44:04 GMT
       content-type: application/json
       access-control-allow-origin: '*'
       access-control-allow-methods: HEAD, GET, POST, DELETE, PUT, OPTIONS
       server: Jetty(9.3.z-SNAPSHOT)
       cache-control: public, max-age=3601
-      x-varnish: 1061913124 961253968
-      age: '1454'
-      via: 1.1 varnish (Varnish/5.2)
+      x-varnish: '887756999'
+      age: '0'
+      via: 1.1 varnish (Varnish/6.0)
       accept-ranges: bytes
-      content-length: '886'
+      content-length: '894'
     body:
       encoding: UTF-8
       file: no
-      string: '{"key":2704179,"nubKey":2704179,"nameKey":8951503,"taxonID":"gbif:2704179","sourceTaxonKey":145221120,"kingdom":"Plantae","phylum":"Tracheophyta","order":"Poales","family":"Poaceae","genus":"Poa","species":"Poa
+      string: '{"key":2704179,"nubKey":2704179,"nameKey":8951503,"taxonID":"gbif:2704179","sourceTaxonKey":175115369,"kingdom":"Plantae","phylum":"Tracheophyta","order":"Poales","family":"Poaceae","genus":"Poa","species":"Poa
         annua","kingdomKey":6,"phylumKey":7707728,"classKey":196,"orderKey":1369,"familyKey":3073,"genusKey":2704173,"speciesKey":2704179,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":2704173,"parent":"Poa","scientificName":"Poa
-        annua L.","canonicalName":"Poa annua","authorship":"L.","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","publishedIn":"Sp.
-        pl. 1:68.  1753","numDescendants":4,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T05:20:35.316+0000","issues":[],"synonym":false,"class":"Liliopsida"}'
-  recorded_at: 2020-03-25 19:15:44 GMT
-  recorded_with: vcr/0.5.0, webmockr/0.6.2
+        annua L.","canonicalName":"Poa annua","authorship":"L.","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","publishedIn":"L.
+        In: Sp. Pl.: 68. (1753).","numDescendants":3,"lastCrawled":"2021-03-03T06:32:33.335+0000","lastInterpreted":"2021-03-03T06:26:57.379+0000","issues":[],"synonym":false,"class":"Liliopsida"}'
+  recorded_at: 2021-09-15 22:44:04 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0

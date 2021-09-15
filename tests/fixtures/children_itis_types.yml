@@ -6,7 +6,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      User-Agent: libcurl/7.68.0 r-curl/4.3.2 crul/1.1.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -15,23 +15,24 @@ http_interactions:
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      connection: keep-alive
       content-length: '148'
       content-type: text/json;charset=ISO-8859-1
-      date: Sat, 26 Jan 2019 17:32:47 GMT
+      date: Wed, 15 Sep 2021 22:42:54 GMT
       status: 'HTTP/1.1 200 '
       strict-transport-security:
-      - max-age=63072000; includeSubdomains; preload
-      - max-age=63072000; includeSubdomains; preload
-      x-application: itis_webservices
-      x-node-name: not shown
-      x-upstream-member: not shown
+      - max-age=63072000; includeSubDomains; preload
+      - max-age=63072000; includeSubDomains; preload
+      x-content-type-options:
+      - nosniff
+      - nosniff
+      x-frame-options: SAMEORIGIN
     body:
       encoding: UTF-8
+      file: no
       string: |
         {"author":"","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecordList","hierarchyList":[null],"rankName":"","sciName":"","tsn":"1234123434"}
-  recorded_at: 2019-01-26 17:32:48 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2021-09-15 22:42:54 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://www.itis.gov/ITISWebService/jsonservice/getHierarchyDownFromTSN?tsn=161994
@@ -39,7 +40,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      User-Agent: libcurl/7.68.0 r-curl/4.3.2 crul/1.1.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -48,20 +49,21 @@ http_interactions:
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      connection: keep-alive
       content-length: '6082'
       content-type: text/json;charset=ISO-8859-1
-      date: Sat, 26 Jan 2019 17:32:47 GMT
+      date: Wed, 15 Sep 2021 22:42:54 GMT
       status: 'HTTP/1.1 200 '
       strict-transport-security:
-      - max-age=63072000; includeSubdomains; preload
-      - max-age=63072000; includeSubdomains; preload
-      x-application: itis_webservices
-      x-node-name: not shown
-      x-upstream-member: not shown
+      - max-age=63072000; includeSubDomains; preload
+      - max-age=63072000; includeSubDomains; preload
+      x-content-type-options:
+      - nosniff
+      - nosniff
+      x-frame-options: SAMEORIGIN
     body:
       encoding: UTF-8
+      file: no
       string: |
         {"author":"Linnaeus, 1758","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecordList","hierarchyList":[{"author":"Linnaeus, 1758","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Salmo","parentTsn":"161994","rankName":"Species","taxonName":"Salmo salar","tsn":"161996"},{"author":"Linnaeus, 1758","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Salmo","parentTsn":"161994","rankName":"Species","taxonName":"Salmo trutta","tsn":"161997"},{"author":"(Karaman, 1924)","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Salmo","parentTsn":"161994","rankName":"Species","taxonName":"Salmo letnica","tsn":"161998"},{"author":"Behnke, 1968","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Salmo","parentTsn":"161994","rankName":"Species","taxonName":"Salmo platycephalus","tsn":"201903"},{"author":"Kottelat, 1997","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Salmo","parentTsn":"161994","rankName":"Species","taxonName":"Salmo aphelios","tsn":"623488"},{"author":"(Karaman, 1927)","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Salmo","parentTsn":"161994","rankName":"Species","taxonName":"Salmo balcanicus","tsn":"623489"},{"author":"Linnaeus, 1758","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Salmo","parentTsn":"161994","rankName":"Species","taxonName":"Salmo carpio","tsn":"623490"},{"author":"Nardo, 1847","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Salmo","parentTsn":"161994","rankName":"Species","taxonName":"Salmo cenerinus","tsn":"623491"},{"author":"Rafinesque, 1810","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Salmo","parentTsn":"161994","rankName":"Species","taxonName":"Salmo cettii","tsn":"623492"},{"author":"(Heckel, 1851)","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Salmo","parentTsn":"161994","rankName":"Species","taxonName":"Salmo dentex","tsn":"623493"},{"author":"Berg, 1948","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Salmo","parentTsn":"161994","rankName":"Species","taxonName":"Salmo ezenami","tsn":"623494"},{"author":"Karaman, 1938","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Salmo","parentTsn":"161994","rankName":"Species","taxonName":"Salmo farioides","tsn":"623495"},{"author":"Jardine, 1835","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Salmo","parentTsn":"161994","rankName":"Species","taxonName":"Salmo ferox","tsn":"623496"},{"author":"Zerunian and Gandolfi, 1990","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Salmo","parentTsn":"161994","rankName":"Species","taxonName":"Salmo fibreni","tsn":"623497"},{"author":"Kessler, 1877","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Salmo","parentTsn":"161994","rankName":"Species","taxonName":"Salmo ischchan","tsn":"623498"},{"author":"Pallas, 1814","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Salmo","parentTsn":"161994","rankName":"Species","taxonName":"Salmo labrax","tsn":"623499"},{"author":"Poljakov, Filipi and Basho, 1958","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Salmo","parentTsn":"161994","rankName":"Species","taxonName":"Salmo lumi","tsn":"623500"},{"author":"(Karaman, 1924)","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Salmo","parentTsn":"161994","rankName":"Species","taxonName":"Salmo macedonicus","tsn":"623501"},{"author":"Cuvier, 1829","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Salmo","parentTsn":"161994","rankName":"Species","taxonName":"Salmo marmoratus","tsn":"623502"},{"author":"G<fc>nther, 1866","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Salmo","parentTsn":"161994","rankName":"Species","taxonName":"Salmo nigripinnis","tsn":"623503"},{"author":"(Heckel, 1851)","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Salmo","parentTsn":"161994","rankName":"Species","taxonName":"Salmo obtusirostris","tsn":"623504"},{"author":"Steindachner, 1892","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Salmo","parentTsn":"161994","rankName":"Species","taxonName":"Salmo ohridanus","tsn":"623505"},{"author":"Karaman, 1938","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Salmo","parentTsn":"161994","rankName":"Species","taxonName":"Salmo pelagonicus","tsn":"623506"},{"author":"Karaman, 1938","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Salmo","parentTsn":"161994","rankName":"Species","taxonName":"Salmo peristericus","tsn":"623507"},{"author":"Fowler, 1974","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Salmo","parentTsn":"161994","rankName":"Species","taxonName":"Salmo rhodanensis","tsn":"623508"},{"author":"Bloch, 1784","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Salmo","parentTsn":"161994","rankName":"Species","taxonName":"Salmo schiefermuelleri","tsn":"623509"},{"author":"G<fc>nther, 1866","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Salmo","parentTsn":"161994","rankName":"Species","taxonName":"Salmo stomachicus","tsn":"623510"},{"author":"(Karaman, 1933)","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Salmo","parentTsn":"161994","rankName":"Species","taxonName":"Salmo taleri","tsn":"623511"},{"author":"Taler, 1950","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Salmo","parentTsn":"161994","rankName":"Species","taxonName":"Salmo visovacensis","tsn":"623512"},{"author":"Karaman, 1938","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Salmo","parentTsn":"161994","rankName":"Species","taxonName":"Salmo zrmanjaensis","tsn":"623513"}],"rankName":"Genus","sciName":"Salmo","tsn":"161994"}
-  recorded_at: 2019-01-26 17:32:48 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2021-09-15 22:42:54 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0

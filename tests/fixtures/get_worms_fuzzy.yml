@@ -6,7 +6,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.72.0 r-curl/4.3 crul/1.0.0
+      User-Agent: libcurl/7.68.0 r-curl/4.3.2 crul/1.1.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -16,7 +16,7 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 18:11:15 GMT
+      date: Wed, 15 Sep 2021 22:47:36 GMT
       server: Apache/2.4.39 (Win64)
       access-control-allow-origin: '*'
       access-control-allow-headers: X-Requested-With, Content-Type, Accept, Origin,
@@ -24,30 +24,30 @@ http_interactions:
       access-control-allow-methods: GET, POST, OPTIONS
       content-length: '3060'
       content-type: application/json
-      set-cookie: vliz_webc=vliz_webc1; path=/
+      set-cookie: vliz_webc=vliz_webc2; path=/
     body:
       encoding: UTF-8
       file: no
       string: '[{"AphiaID":105519,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=105519","scientificname":"Platypleura","authority":"Thomsen","status":"accepted","unacceptreason":null,"taxonRankID":180,"rank":"Genus","valid_AphiaID":105519,"valid_name":"Platypleura","valid_authority":"Thomsen","parentNameUsageID":580084,"kingdom":"Protozoa","phylum":"Choanozoa","class":"Choanoflagellatea","order":"Acanthoecida","family":"Acanthoecidae","genus":"Platypleura","citation":"Guiry,
-        M.D. & Guiry, G.M. (2020). AlgaeBase. World-wide electronic publication, National
+        M.D. & Guiry, G.M. (2021). AlgaeBase. World-wide electronic publication, National
         University of Ireland, Galway (taxonomic information republished from AlgaeBase
         with permission of M.D. Guiry). Platypleura Thomsen. Accessed through: World
         Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=105519
-        on 2020-09-16","lsid":"urn:lsid:marinespecies.org:taxname:105519","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"like","modified":"2011-09-14T13:41:44.730Z"},{"AphiaID":526597,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=526597","scientificname":"Platypleura","authority":"Pomel,
+        on 2021-09-16","lsid":"urn:lsid:marinespecies.org:taxname:105519","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"like","modified":"2011-09-14T13:41:44.730Z"},{"AphiaID":526597,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=526597","scientificname":"Platypleura","authority":"Pomel,
         1887","status":"unaccepted","unacceptreason":"preoccupied (non Amyot & Audinet-Serville,
         1849, a hemipter)","taxonRankID":180,"rank":"Genus","valid_AphiaID":205242,"valid_name":"Clypeaster","valid_authority":"Lamarck,
         1801","parentNameUsageID":196177,"kingdom":"Animalia","phylum":"Echinodermata","class":"Echinoidea","order":"Clypeasteroida","family":"Clypeasteridae","genus":"Platypleura","citation":"Kroh,
-        A.; Mooi, R. (2020). World Echinoidea Database. Platypleura Pomel, 1887. Accessed
+        A.; Mooi, R. (2021). World Echinoidea Database. Platypleura Pomel, 1887. Accessed
         through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=526597
-        on 2020-09-16","lsid":"urn:lsid:marinespecies.org:taxname:526597","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":0,"match_type":"like","modified":"2012-01-12T21:06:49.627Z"},{"AphiaID":105591,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=105591","scientificname":"Platypleura
+        on 2021-09-16","lsid":"urn:lsid:marinespecies.org:taxname:526597","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":0,"match_type":"like","modified":"2012-01-12T21:06:49.627Z"},{"AphiaID":105591,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=105591","scientificname":"Platypleura
         infundibuliformis","authority":"(Leadbeater) Thomsen","status":"uncertain","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":null,"valid_name":null,"valid_authority":null,"parentNameUsageID":105519,"kingdom":"Protozoa","phylum":"Choanozoa","class":"Choanoflagellatea","order":"Acanthoecida","family":"Acanthoecidae","genus":"Platypleura","citation":"Guiry,
-        M.D. & Guiry, G.M. (2020). AlgaeBase. World-wide electronic publication, National
+        M.D. & Guiry, G.M. (2021). AlgaeBase. World-wide electronic publication, National
         University of Ireland, Galway (taxonomic information republished from AlgaeBase
         with permission of M.D. Guiry). Platypleura infundibuliformis (Leadbeater)
         Thomsen. Accessed through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=105591
-        on 2020-09-16","lsid":"urn:lsid:marinespecies.org:taxname:105591","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"like","modified":"2019-08-13T06:47:24.613Z"}]'
-  recorded_at: 2020-09-16 18:11:15 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+        on 2021-09-16","lsid":"urn:lsid:marinespecies.org:taxname:105591","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":null,"isExtinct":null,"match_type":"like","modified":"2019-08-13T06:47:24.613Z"}]'
+  recorded_at: 2021-09-15 22:47:36 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: http://www.marinespecies.org/rest/AphiaRecordsByName/Platypleu?like=false&marine_only=true&offset=1
@@ -55,7 +55,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.72.0 r-curl/4.3 crul/1.0.0
+      User-Agent: libcurl/7.68.0 r-curl/4.3.2 crul/1.1.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -65,16 +65,16 @@ http_interactions:
       explanation: Request fulfilled, nothing follows
     headers:
       status: HTTP/1.1 204 No Content
-      date: Wed, 16 Sep 2020 18:11:15 GMT
+      date: Wed, 15 Sep 2021 22:47:36 GMT
       server: Apache/2.4.39 (Win64)
       access-control-allow-origin: '*'
       access-control-allow-headers: X-Requested-With, Content-Type, Accept, Origin,
         Authorization
       access-control-allow-methods: GET, POST, OPTIONS
-      set-cookie: vliz_webc=vliz_webc2; path=/
+      set-cookie: vliz_webc=vliz_webc1; path=/
     body:
       encoding: UTF-8
       file: no
       string: ''
-  recorded_at: 2020-09-16 18:11:15 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:47:36 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0

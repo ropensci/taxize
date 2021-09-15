@@ -8,8 +8,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -17,7 +17,7 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 17:12:11 GMT
+      date: Wed, 15 Sep 2021 22:46:03 GMT
       content-type: application/json; charset=utf-8
       content-length: '64'
       connection: keep-alive
@@ -25,12 +25,9 @@ http_interactions:
       x-robots-tag: noindex
       etag: W/"dc0e79a0d15459ce916f533908820166"
       cache-control: max-age=0, private, must-revalidate
-      x-request-id: 76a0cbbc-a6c6-40fc-a9a3-ed517411bfa0
-      x-runtime: '0.011348'
-      access-control-allow-origin: '*'
-      access-control-allow-methods: GET, POST, OPTIONS
-      access-control-allow-headers: DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range
-      access-control-expose-headers: Content-Length,Content-Range
+      x-request-id: b3771921-a017-4c59-ace8-740c60b4a9b9
+      x-runtime: '0.019772'
+      vary: Origin
       age: '0'
       x-cache: MISS
       x-cache-hits: '0'
@@ -39,5 +36,5 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '{"totalResults":0,"startIndex":1,"itemsPerPage":50,"results":[]}'
-  recorded_at: 2020-09-16 17:12:11 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:46:03 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0

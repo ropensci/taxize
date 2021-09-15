@@ -6,9 +6,10 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '500'
@@ -19,10 +20,11 @@ http_interactions:
       server: Apache-Coyote/1.1
       content-type: text/html;charset=utf-8
       content-length: '2803'
-      date: Thu, 24 Jan 2019 06:36:51 GMT
+      date: Wed, 15 Sep 2021 22:47:51 GMT
       connection: close
     body:
       encoding: UTF-8
+      file: no
       string: "<html><head><title>Apache Tomcat/7.0.32 - Error report</title><style><!--H1
         {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:22px;}
         H2 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:16px;}
@@ -43,8 +45,8 @@ http_interactions:
         Source)\n\torg.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter.handle(SimpleControllerHandlerAdapter.java:48)\n\torg.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:875)\n\torg.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:807)\n\torg.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:571)\n\torg.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:501)\n\tjavax.servlet.http.HttpServlet.service(HttpServlet.java:621)\n\tjavax.servlet.http.HttpServlet.service(HttpServlet.java:722)\n</pre></p><p><b>note</b>
         <u>The full stack trace of the root cause is available in the Apache Tomcat/7.0.32
         logs.</u></p><HR size=\"1\" noshade=\"noshade\"><h3>Apache Tomcat/7.0.32</h3></body></html>"
-  recorded_at: 2019-01-24 06:36:51 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2021-09-15 22:47:51 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: http://www.organismnames.com/lsidmetadata.htm?lsid=asdfasfs
@@ -52,9 +54,10 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '500'
@@ -65,10 +68,11 @@ http_interactions:
       server: Apache-Coyote/1.1
       content-type: text/html;charset=utf-8
       content-length: '2783'
-      date: Thu, 24 Jan 2019 06:36:51 GMT
+      date: Wed, 15 Sep 2021 22:47:51 GMT
       connection: close
     body:
       encoding: UTF-8
+      file: no
       string: "<html><head><title>Apache Tomcat/7.0.32 - Error report</title><style><!--H1
         {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:22px;}
         H2 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:16px;}
@@ -89,5 +93,5 @@ http_interactions:
         Source)\n\torg.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter.handle(SimpleControllerHandlerAdapter.java:48)\n\torg.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:875)\n\torg.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:807)\n\torg.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:571)\n\torg.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:501)\n\tjavax.servlet.http.HttpServlet.service(HttpServlet.java:621)\n\tjavax.servlet.http.HttpServlet.service(HttpServlet.java:722)\n</pre></p><p><b>note</b>
         <u>The full stack trace of the root cause is available in the Apache Tomcat/7.0.32
         logs.</u></p><HR size=\"1\" noshade=\"noshade\"><h3>Apache Tomcat/7.0.32</h3></body></html>"
-  recorded_at: 2019-01-24 06:36:51 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2021-09-15 22:47:51 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0

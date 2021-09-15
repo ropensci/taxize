@@ -8,8 +8,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -23,13 +23,13 @@ http_interactions:
       server: Microsoft-IIS/7.5
       x-aspnet-version: 4.0.30319
       x-powered-by: ASP.NET
-      date: Wed, 16 Sep 2020 18:02:07 GMT
+      date: Wed, 15 Sep 2021 22:47:05 GMT
     body:
       encoding: ASCII-8BIT
       file: no
       string: W3siRXJyb3IiOiJObyBuYW1lcyB3ZXJlIGZvdW5kIn1d
-  recorded_at: 2020-09-16 18:02:09 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:47:07 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: http://services.tropicos.org/Name/Search?format=json&name=Pinus%20contorta%20yukonensis&apikey=<<tropicos_api_token>>
@@ -39,8 +39,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -54,10 +54,16 @@ http_interactions:
       server: Microsoft-IIS/7.5
       x-aspnet-version: 4.0.30319
       x-powered-by: ASP.NET
-      date: Wed, 16 Sep 2020 18:02:08 GMT
+      date: Wed, 15 Sep 2021 22:47:06 GMT
     body:
       encoding: ASCII-8BIT
       file: no
-      string: W3siTmFtZUlkIjoxMDAzNjM3MDUsIlNjaWVudGlmaWNOYW1lIjoiUGludXMgY29udG9ydGEgdmFyLiB5dWtvbmVuc2lzIiwiU2NpZW50aWZpY05hbWVXaXRoQXV0aG9ycyI6IlBpbnVzIGNvbnRvcnRhIHZhci4geXVrb25lbnNpcyBXLkwuIFN0cm9uZyIsIkZhbWlseSI6IlBpbmFjZWFlIiwiUmFua0FiYnJldmlhdGlvbiI6InZhci4iLCJOb21lbmNsYXR1cmVTdGF0dXNOYW1lIjoiTm8gb3BpbmlvbiIsIkF1dGhvciI6IlcuTC4gU3Ryb25nIiwiRGlzcGxheVJlZmVyZW5jZSI6Ik5vcmRpYyBKLiBCb3QuIDI4OiA0NDjigJM0NTIsIGYuIDEsIDJB4oCTQyIsIkRpc3BsYXlEYXRlIjoiMjAxMCIsIlRvdGFsUm93cyI6MX1d
-  recorded_at: 2020-09-16 18:02:09 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+      string: |-
+        W3siTmFtZUlkIjoxMDAzNjM3MDUsIlNjaWVudGlmaWNOYW1lIjoiUGludXMgY29udG9ydGEgdmFyLiB5
+        dWtvbmVuc2lzIiwiU2NpZW50aWZpY05hbWVXaXRoQXV0aG9ycyI6IlBpbnVzIGNvbnRvcnRhIHZhci4g
+        eXVrb25lbnNpcyBXLkwuIFN0cm9uZyIsIkZhbWlseSI6IlBpbmFjZWFlIiwiUmFua0FiYnJldmlhdGlv
+        biI6InZhci4iLCJOb21lbmNsYXR1cmVTdGF0dXNOYW1lIjoiTm8gb3BpbmlvbiIsIkF1dGhvciI6Ilcu
+        TC4gU3Ryb25nIiwiRGlzcGxheVJlZmVyZW5jZSI6Ik5vcmRpYyBKLiBCb3QuIDI4OiA0NDjigJM0NTIs
+        IGYuIDEsIDJB4oCTQyIsIkRpc3BsYXlEYXRlIjoiMjAxMCIsIlRvdGFsUm93cyI6MX1d
+  recorded_at: 2021-09-15 22:47:07 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0

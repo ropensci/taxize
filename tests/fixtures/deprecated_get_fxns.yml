@@ -8,8 +8,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.97)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.97)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -17,20 +17,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 22:00:22 GMT
+      date: Wed, 15 Sep 2021 22:46:05 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '9'
-      ncbi-phid: 322C5A3BB066D85500002AFF4CDB27C1.1.1.m_1
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: D9CC65744691DD5F_4784SID
+      ncbi-phid: D0BD2729693488A500004846B7ECFF4D.1.1.m_1
+      x-ratelimit-remaining: '9'
+      ncbi-sid: C02874489E2C6259_D9EASID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=D9CC65744691DD5F_4784SID; domain=.nih.gov; path=/; expires=Thu,
-        16 Sep 2021 22:00:23 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=C02874489E2C6259_D9EASID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:46:05 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -41,8 +43,8 @@ http_interactions:
         <?xml version="1.0" encoding="UTF-8" ?>
         <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
         <eSearchResult><Count>0</Count><RetMax>0</RetMax><RetStart>0</RetStart><IdList/><TranslationSet/><QueryTranslation>(howdy[All Names])</QueryTranslation><ErrorList><PhraseNotFound>howdy</PhraseNotFound></ErrorList><WarningList><OutputMessage>No items found.</OutputMessage></WarningList></eSearchResult>
-  recorded_at: 2020-09-16 22:00:54 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:46:30 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=howdy&api_key=<<entrez_api_token>>
@@ -52,8 +54,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.97)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.97)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -61,20 +63,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 22:00:23 GMT
+      date: Wed, 15 Sep 2021 22:46:05 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '8'
-      ncbi-phid: 322C5A3BB066D855000015FF4DF6E3E8.1.1.m_1
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: 4691CF913631C9BD_F207SID
+      ncbi-phid: D0BD2729693488A500004446B8DB36D9.1.1.m_1
+      x-ratelimit-remaining: '8'
+      ncbi-sid: C2C0D91BBD09CF51_426DSID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=4691CF913631C9BD_F207SID; domain=.nih.gov; path=/; expires=Thu,
-        16 Sep 2021 22:00:24 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=C2C0D91BBD09CF51_426DSID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:46:06 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -85,8 +89,8 @@ http_interactions:
         <?xml version="1.0" encoding="UTF-8" ?>
         <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
         <eSearchResult><Count>0</Count><RetMax>0</RetMax><RetStart>0</RetStart><IdList/><TranslationSet/><QueryTranslation>(howdy[All Names])</QueryTranslation><ErrorList><PhraseNotFound>howdy</PhraseNotFound></ErrorList><WarningList><OutputMessage>No items found.</OutputMessage></WarningList></eSearchResult>
-  recorded_at: 2020-09-16 22:00:54 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:46:30 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://www.itis.gov/ITISWebService/jsonservice/getITISTermsFromScientificName?srchKey=howdy
@@ -94,7 +98,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.72.0 r-curl/4.3 crul/1.0.0
+      User-Agent: libcurl/7.68.0 r-curl/4.3.2 crul/1.1.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -103,24 +107,24 @@ http_interactions:
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      connection: keep-alive
       content-length: '103'
       content-type: text/json;charset=ISO-8859-1
-      date: Wed, 16 Sep 2020 22:00:34 GMT
+      date: Wed, 15 Sep 2021 22:46:09 GMT
       status: 'HTTP/1.1 200 '
       strict-transport-security:
       - max-age=63072000; includeSubDomains; preload
-      - max-age=63072000; includeSubdomains; preload
-      x-content-type-options: nosniff
-      x-node-name: not shown
-      x-upstream-member: not shown
+      - max-age=63072000; includeSubDomains; preload
+      x-content-type-options:
+      - nosniff
+      - nosniff
+      x-frame-options: SAMEORIGIN
     body:
       encoding: UTF-8
       file: no
       string: |
         {"class":"gov.usgs.itis.itis_service.data.SvcItisTermList","itisTerms":[null],"requestedName":"howdy"}
-  recorded_at: 2020-09-16 22:00:54 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:46:30 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://www.itis.gov/ITISWebService/jsonservice/getITISTermsFromScientificName?srchKey=howdy
@@ -128,7 +132,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.72.0 r-curl/4.3 crul/1.0.0
+      User-Agent: libcurl/7.68.0 r-curl/4.3.2 crul/1.1.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -137,24 +141,24 @@ http_interactions:
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      connection: keep-alive
       content-length: '103'
       content-type: text/json;charset=ISO-8859-1
-      date: Wed, 16 Sep 2020 22:00:44 GMT
+      date: Wed, 15 Sep 2021 22:46:12 GMT
       status: 'HTTP/1.1 200 '
       strict-transport-security:
       - max-age=63072000; includeSubDomains; preload
-      - max-age=63072000; includeSubdomains; preload
-      x-content-type-options: nosniff
-      x-node-name: not shown
-      x-upstream-member: not shown
+      - max-age=63072000; includeSubDomains; preload
+      x-content-type-options:
+      - nosniff
+      - nosniff
+      x-frame-options: SAMEORIGIN
     body:
       encoding: UTF-8
       file: no
       string: |
         {"class":"gov.usgs.itis.itis_service.data.SvcItisTermList","itisTerms":[null],"requestedName":"howdy"}
-  recorded_at: 2020-09-16 22:00:54 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:46:30 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://v4.boldsystems.org/index.php/API_Tax/TaxonSearch?taxName=howdy
@@ -162,7 +166,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.72.0 r-curl/4.3 crul/1.0.0
+      User-Agent: libcurl/7.68.0 r-curl/4.3.2 crul/1.1.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -171,20 +175,19 @@ http_interactions:
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: HTTP/1.1 200 OK
+      status: 'HTTP/2 200 '
       server: nginx
-      date: Wed, 16 Sep 2020 22:00:45 GMT
+      date: Wed, 15 Sep 2021 22:46:13 GMT
       content-type: text/html; charset=utf-8
       content-length: '48'
-      connection: keep-alive
       x-powered-by: PHP/5.3.15
       set-cookie: https=on;Path=/;Max-Age=3600;httponly;SameSite=Lax
     body:
       encoding: UTF-8
       file: no
       string: '{"top_matched_names":[],"total_matched_names":0}'
-  recorded_at: 2020-09-16 22:00:54 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:46:30 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://v4.boldsystems.org/index.php/API_Tax/TaxonSearch?taxName=howdy
@@ -192,7 +195,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.72.0 r-curl/4.3 crul/1.0.0
+      User-Agent: libcurl/7.68.0 r-curl/4.3.2 crul/1.1.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -201,20 +204,19 @@ http_interactions:
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: HTTP/1.1 200 OK
+      status: 'HTTP/2 200 '
       server: nginx
-      date: Wed, 16 Sep 2020 22:00:45 GMT
+      date: Wed, 15 Sep 2021 22:46:14 GMT
       content-type: text/html; charset=utf-8
       content-length: '48'
-      connection: keep-alive
       x-powered-by: PHP/5.3.15
       set-cookie: https=on;Path=/;Max-Age=3600;httponly;SameSite=Lax
     body:
       encoding: UTF-8
       file: no
       string: '{"top_matched_names":[],"total_matched_names":0}'
-  recorded_at: 2020-09-16 22:00:54 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:46:30 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://api.gbif.org/v1/species/match?name=howdy&strict=FALSE&verbose=TRUE&limit=500
@@ -224,33 +226,32 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.97)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.97)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 21:57:28 GMT
+      status: 'HTTP/2 200 '
+      date: Wed, 15 Sep 2021 22:46:15 GMT
       content-type: application/json
       access-control-allow-origin: '*'
       access-control-allow-methods: HEAD, GET, POST, DELETE, PUT, OPTIONS
       server: Jetty(9.3.z-SNAPSHOT)
       cache-control: public, max-age=3601
-      x-varnish: 69305525 5705569
-      age: '197'
-      via: 1.1 varnish (Varnish/5.2)
+      x-varnish: '903158897'
+      age: '0'
+      via: 1.1 varnish (Varnish/6.0)
       accept-ranges: bytes
       content-length: '53'
-      connection: keep-alive
     body:
       encoding: UTF-8
       file: no
       string: '{"confidence":100,"matchType":"NONE","synonym":false}'
-  recorded_at: 2020-09-16 22:00:54 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:46:30 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://api.gbif.org/v1/species/match?name=howdy&strict=FALSE&verbose=TRUE&limit=500
@@ -260,33 +261,32 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.97)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.97)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 21:57:28 GMT
+      status: 'HTTP/2 200 '
+      date: Wed, 15 Sep 2021 22:46:15 GMT
       content-type: application/json
       access-control-allow-origin: '*'
       access-control-allow-methods: HEAD, GET, POST, DELETE, PUT, OPTIONS
       server: Jetty(9.3.z-SNAPSHOT)
       cache-control: public, max-age=3601
-      x-varnish: 71042626 5705569
-      age: '198'
-      via: 1.1 varnish (Varnish/5.2)
+      x-varnish: 903158898 904336318
+      age: '0'
+      via: 1.1 varnish (Varnish/6.0)
       accept-ranges: bytes
       content-length: '53'
-      connection: keep-alive
     body:
       encoding: UTF-8
       file: no
       string: '{"confidence":100,"matchType":"NONE","synonym":false}'
-  recorded_at: 2020-09-16 22:00:54 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:46:30 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://eol.org/api/search/1.0.json?q=howdy&page=1
@@ -296,8 +296,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.97)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.97)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -305,7 +305,7 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 22:00:47 GMT
+      date: Wed, 15 Sep 2021 22:46:17 GMT
       content-type: application/json; charset=utf-8
       content-length: '64'
       connection: keep-alive
@@ -313,12 +313,9 @@ http_interactions:
       x-robots-tag: noindex
       etag: W/"dc0e79a0d15459ce916f533908820166"
       cache-control: max-age=0, private, must-revalidate
-      x-request-id: 130f3340-246a-4814-bd0b-60f2cbc01d42
-      x-runtime: '0.016194'
-      access-control-allow-origin: '*'
-      access-control-allow-methods: GET, POST, OPTIONS
-      access-control-allow-headers: DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range
-      access-control-expose-headers: Content-Length,Content-Range
+      x-request-id: e1450849-a1d3-4900-9671-fc8a5c8034e6
+      x-runtime: '0.013976'
+      vary: Origin
       age: '0'
       x-cache: MISS
       x-cache-hits: '0'
@@ -327,8 +324,8 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '{"totalResults":0,"startIndex":1,"itemsPerPage":50,"results":[]}'
-  recorded_at: 2020-09-16 22:00:54 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:46:30 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://eol.org/api/search/1.0.json?q=howdy&page=1
@@ -338,8 +335,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.97)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.97)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -347,7 +344,7 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 22:00:47 GMT
+      date: Wed, 15 Sep 2021 22:46:17 GMT
       content-type: application/json; charset=utf-8
       content-length: '64'
       connection: keep-alive
@@ -355,12 +352,9 @@ http_interactions:
       x-robots-tag: noindex
       etag: W/"dc0e79a0d15459ce916f533908820166"
       cache-control: max-age=0, private, must-revalidate
-      x-request-id: d0ad6161-36ec-4147-b026-1a2a3dc3b4f8
-      x-runtime: '0.013614'
-      access-control-allow-origin: '*'
-      access-control-allow-methods: GET, POST, OPTIONS
-      access-control-allow-headers: DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range
-      access-control-expose-headers: Content-Length,Content-Range
+      x-request-id: 72a01998-c40f-497e-9409-299135eb9b4a
+      x-runtime: '0.017143'
+      vary: Origin
       age: '0'
       x-cache: MISS
       x-cache-hits: '0'
@@ -369,8 +363,8 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '{"totalResults":0,"startIndex":1,"itemsPerPage":50,"results":[]}'
-  recorded_at: 2020-09-16 22:00:54 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:46:30 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: post
     uri: https://explorer.natureserve.org/api/data/speciesSearch
@@ -378,7 +372,7 @@ http_interactions:
       encoding: ''
       string: '{"criteriaType":"species","textCriteria":[{"paramType":"textSearch","searchToken":"howdy","matchAgainst":"allScientificNames","operator":"similarTo"}]}'
     headers:
-      User-Agent: libcurl/7.72.0 r-curl/4.3 crul/1.0.0
+      User-Agent: libcurl/7.68.0 r-curl/4.3.2 crul/1.1.0
       Content-Type: application/json
       Accept-Encoding: gzip, deflate
       Accept: application/json
@@ -389,7 +383,7 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 200
-      date: Wed, 16 Sep 2020 21:59:15 GMT
+      date: Wed, 15 Sep 2021 22:46:18 GMT
       server: Apache/2.4.41 (Win64) OpenSSL/1.1.1c
       content-type: application/json;charset=UTF-8
       transfer-encoding: chunked
@@ -397,8 +391,8 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '{"results":[],"resultsSummary":{"page":0,"recordsPerPage":20,"totalPages":0,"totalResults":0,"speciesResults":{"total":0}},"searchCriteria":{"criteriaType":"species","textCriteria":[{"paramType":"textSearch","searchToken":"howdy","matchAgainst":"allScientificNames","operator":"similarTo"}],"statusCriteria":null,"locationCriteria":null,"pagingOptions":{"page":0,"recordsPerPage":20},"recordSubtypeCriteria":null,"modifiedSince":null,"locationOptions":null,"classificationOptions":null,"speciesTaxonomyCriteria":null}}'
-  recorded_at: 2020-09-16 22:00:54 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:46:30 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: post
     uri: https://explorer.natureserve.org/api/data/speciesSearch
@@ -406,7 +400,7 @@ http_interactions:
       encoding: ''
       string: '{"criteriaType":"species","textCriteria":[{"paramType":"textSearch","searchToken":"howdy","matchAgainst":"allScientificNames","operator":"similarTo"}]}'
     headers:
-      User-Agent: libcurl/7.72.0 r-curl/4.3 crul/1.0.0
+      User-Agent: libcurl/7.68.0 r-curl/4.3.2 crul/1.1.0
       Content-Type: application/json
       Accept-Encoding: gzip, deflate
       Accept: application/json
@@ -417,7 +411,7 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 200
-      date: Wed, 16 Sep 2020 21:59:15 GMT
+      date: Wed, 15 Sep 2021 22:46:18 GMT
       server: Apache/2.4.41 (Win64) OpenSSL/1.1.1c
       content-type: application/json;charset=UTF-8
       transfer-encoding: chunked
@@ -425,8 +419,8 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '{"results":[],"resultsSummary":{"page":0,"recordsPerPage":20,"totalPages":0,"totalResults":0,"speciesResults":{"total":0}},"searchCriteria":{"criteriaType":"species","textCriteria":[{"paramType":"textSearch","searchToken":"howdy","matchAgainst":"allScientificNames","operator":"similarTo"}],"statusCriteria":null,"locationCriteria":null,"pagingOptions":{"page":0,"recordsPerPage":20},"recordSubtypeCriteria":null,"modifiedSince":null,"locationOptions":null,"classificationOptions":null,"speciesTaxonomyCriteria":null}}'
-  recorded_at: 2020-09-16 22:00:54 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:46:30 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://species-ws.nbnatlas.org/search?q=howdy&fq=idxtype%3ATAXON&pageSize=500&startIndex=0
@@ -436,8 +430,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.97)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.97)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -445,7 +439,7 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 22:01:24 GMT
+      date: Wed, 15 Sep 2021 22:46:25 GMT
       server: Apache/2.4.7 (Ubuntu)
       x-application-context: application:production
       content-type: application/json;charset=UTF-8
@@ -454,8 +448,8 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '{"searchResults":{"totalRecords":0,"facetResults":[],"results":[],"queryTitle":"howdy"}}'
-  recorded_at: 2020-09-16 22:00:54 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:46:30 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://species-ws.nbnatlas.org/search?q=howdy&fq=idxtype%3ATAXON&pageSize=500&startIndex=0
@@ -465,8 +459,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.97)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.97)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -474,7 +468,7 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 22:01:24 GMT
+      date: Wed, 15 Sep 2021 22:46:25 GMT
       server: Apache/2.4.7 (Ubuntu)
       x-application-context: application:production
       content-type: application/json;charset=UTF-8
@@ -483,8 +477,8 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '{"searchResults":{"totalRecords":0,"facetResults":[],"results":[],"queryTitle":"howdy"}}'
-  recorded_at: 2020-09-16 22:00:54 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:46:30 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: post
     uri: https://api.opentreeoflife.org/v3/tnrs/match_names
@@ -501,7 +495,7 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Wed, 16 Sep 2020 22:00:50 GMT
+      date: Wed, 15 Sep 2021 22:46:26 GMT
       server: waitress
       access-control-allow-credentials: 'true'
       access-control-allow-origin: '*'
@@ -509,7 +503,7 @@ http_interactions:
       cache-control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
       content-length: '1314'
       content-type: application/json;
-      expires: Wed, 16 Sep 2020 22:00:50 GMT
+      expires: Wed, 15 Sep 2021 22:46:26 GMT
       pragma: no-cache
       vary: Accept-Encoding
       x-powered-by: otc-tol-ws
@@ -543,14 +537,14 @@ http_interactions:
               "name": "Helianthus",
               "ott_id": 515718,
               "rank": "genus",
-              "source": "ott3.2draft9",
+              "source": "ott3.3draft1",
               "synonyms": [
-               "Echinomeria",
-               "Linsecomia",
-               "Harpalium",
-               "Discomela",
+               "Chrysis",
                "Diomedea",
-               "Chrysis"
+               "Discomela",
+               "Echinomeria",
+               "Harpalium",
+               "Linsecomia"
               ],
               "tax_sources": [
                "ncbi:4231",
@@ -570,17 +564,17 @@ http_interactions:
          "taxonomy": {
           "author": "open tree of life project",
           "name": "ott",
-          "source": "ott3.2draft9",
-          "version": "3.2",
-          "weburl": "https://tree.opentreeoflife.org/about/taxonomy-version/ott3.2"
+          "source": "ott3.3draft1",
+          "version": "3.3",
+          "weburl": "https://tree.opentreeoflife.org/about/taxonomy-version/ott3.3"
          },
          "unambiguous_names": [
           "helianthus"
          ],
          "unmatched_names": []
         }
-  recorded_at: 2020-09-16 22:00:54 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:46:30 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: post
     uri: https://api.opentreeoflife.org/v3/tnrs/match_names
@@ -597,7 +591,7 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Wed, 16 Sep 2020 22:00:50 GMT
+      date: Wed, 15 Sep 2021 22:46:26 GMT
       server: waitress
       access-control-allow-credentials: 'true'
       access-control-allow-origin: '*'
@@ -605,7 +599,7 @@ http_interactions:
       cache-control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
       content-length: '1314'
       content-type: application/json;
-      expires: Wed, 16 Sep 2020 22:00:50 GMT
+      expires: Wed, 15 Sep 2021 22:46:26 GMT
       pragma: no-cache
       vary: Accept-Encoding
       x-powered-by: otc-tol-ws
@@ -639,14 +633,14 @@ http_interactions:
               "name": "Helianthus",
               "ott_id": 515718,
               "rank": "genus",
-              "source": "ott3.2draft9",
+              "source": "ott3.3draft1",
               "synonyms": [
-               "Echinomeria",
-               "Linsecomia",
-               "Harpalium",
-               "Discomela",
+               "Chrysis",
                "Diomedea",
-               "Chrysis"
+               "Discomela",
+               "Echinomeria",
+               "Harpalium",
+               "Linsecomia"
               ],
               "tax_sources": [
                "ncbi:4231",
@@ -666,17 +660,17 @@ http_interactions:
          "taxonomy": {
           "author": "open tree of life project",
           "name": "ott",
-          "source": "ott3.2draft9",
-          "version": "3.2",
-          "weburl": "https://tree.opentreeoflife.org/about/taxonomy-version/ott3.2"
+          "source": "ott3.3draft1",
+          "version": "3.3",
+          "weburl": "https://tree.opentreeoflife.org/about/taxonomy-version/ott3.3"
          },
          "unambiguous_names": [
           "helianthus"
          ],
          "unmatched_names": []
         }
-  recorded_at: 2020-09-16 22:00:54 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:46:30 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: http://services.tropicos.org/Name/Search?format=json&name=howdy&apikey=<<tropicos_api_token>>
@@ -686,8 +680,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.97)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.97)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -701,13 +695,13 @@ http_interactions:
       server: Microsoft-IIS/7.5
       x-aspnet-version: 4.0.30319
       x-powered-by: ASP.NET
-      date: Wed, 16 Sep 2020 22:00:51 GMT
+      date: Wed, 15 Sep 2021 22:46:27 GMT
     body:
       encoding: UTF-8
       file: no
       string: '[{"Error":"No names were found"}]'
-  recorded_at: 2020-09-16 22:00:54 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:46:30 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: http://services.tropicos.org/Name/Search?format=json&name=howdy&apikey=<<tropicos_api_token>>
@@ -717,8 +711,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.97)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.97)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -732,13 +726,13 @@ http_interactions:
       server: Microsoft-IIS/7.5
       x-aspnet-version: 4.0.30319
       x-powered-by: ASP.NET
-      date: Wed, 16 Sep 2020 22:00:52 GMT
+      date: Wed, 15 Sep 2021 22:46:29 GMT
     body:
       encoding: UTF-8
       file: no
       string: '[{"Error":"No names were found"}]'
-  recorded_at: 2020-09-16 22:00:54 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:46:30 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: http://www.marinespecies.org/rest/AphiaRecordsByName/howdy?like=true&marine_only=true&offset=1
@@ -746,7 +740,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.72.0 r-curl/4.3 crul/1.0.0
+      User-Agent: libcurl/7.68.0 r-curl/4.3.2 crul/1.1.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -756,7 +750,37 @@ http_interactions:
       explanation: Request fulfilled, nothing follows
     headers:
       status: HTTP/1.1 204 No Content
-      date: Wed, 16 Sep 2020 22:00:53 GMT
+      date: Wed, 15 Sep 2021 22:46:29 GMT
+      server: Apache/2.4.39 (Win64)
+      access-control-allow-origin: '*'
+      access-control-allow-headers: X-Requested-With, Content-Type, Accept, Origin,
+        Authorization
+      access-control-allow-methods: GET, POST, OPTIONS
+      set-cookie: vliz_webc=vliz_webc1; path=/
+    body:
+      encoding: UTF-8
+      file: no
+      string: ''
+  recorded_at: 2021-09-15 22:46:30 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
+- request:
+    method: get
+    uri: http://www.marinespecies.org/rest/AphiaRecordsByName/howdy?like=true&marine_only=true&offset=1
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.68.0 r-curl/4.3.2 crul/1.1.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '204'
+      message: No Content
+      explanation: Request fulfilled, nothing follows
+    headers:
+      status: HTTP/1.1 204 No Content
+      date: Wed, 15 Sep 2021 22:46:30 GMT
       server: Apache/2.4.39 (Win64)
       access-control-allow-origin: '*'
       access-control-allow-headers: X-Requested-With, Content-Type, Accept, Origin,
@@ -767,35 +791,5 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: ''
-  recorded_at: 2020-09-16 22:00:54 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
-- request:
-    method: get
-    uri: http://www.marinespecies.org/rest/AphiaRecordsByName/howdy?like=true&marine_only=true&offset=1
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      User-Agent: libcurl/7.72.0 r-curl/4.3 crul/1.0.0
-      Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
-  response:
-    status:
-      status_code: '204'
-      message: No Content
-      explanation: Request fulfilled, nothing follows
-    headers:
-      status: HTTP/1.1 204 No Content
-      date: Wed, 16 Sep 2020 22:00:53 GMT
-      server: Apache/2.4.39 (Win64)
-      access-control-allow-origin: '*'
-      access-control-allow-headers: X-Requested-With, Content-Type, Accept, Origin,
-        Authorization
-      access-control-allow-methods: GET, POST, OPTIONS
-      set-cookie: vliz_webc=vliz_webc2; path=/
-    body:
-      encoding: UTF-8
-      file: no
-      string: ''
-  recorded_at: 2020-09-16 22:00:54 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:46:30 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0

@@ -8,8 +8,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -17,20 +17,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 18:07:12 GMT
+      date: Wed, 15 Sep 2021 22:47:25 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '6'
-      ncbi-phid: D0BD6B87A4E45FE5000022D13C97377C.1.1.m_1
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: 1BC8ED300E5E4EF4_BC2ASID
+      ncbi-phid: 322C52E213039F4500002A38A1B53B57.1.1.m_1
+      x-ratelimit-remaining: '6'
+      ncbi-sid: DF6A11BF5111ED70_26C9SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=1BC8ED300E5E4EF4_BC2ASID; domain=.nih.gov; path=/; expires=Thu,
-        16 Sep 2021 18:07:13 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=DF6A11BF5111ED70_26C9SID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:47:25 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -44,8 +46,8 @@ http_interactions:
         <Id>121909</Id>
         <Id>6160</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Dugesia[All Names]</Term>    <Field>All Names</Field>    <Count>2</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Dugesia[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2020-09-16 18:07:13 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:47:26 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&ID=121909%2C6160&api_key=<<entrez_api_token>>
@@ -55,8 +57,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -64,20 +66,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 18:07:13 GMT
+      date: Wed, 15 Sep 2021 22:47:25 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '6'
-      ncbi-phid: D0BD6B87A4E45FE5000031D13CF62130.1.1.m_1
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: 282CE40C989E076D_5DCESID
+      ncbi-phid: 939B971E50EAD78500005448665787CA.1.1.m_1
+      x-ratelimit-remaining: '5'
+      ncbi-sid: 8759AAFFB1B84FD9_0C39SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=282CE40C989E076D_5DCESID; domain=.nih.gov; path=/; expires=Thu,
-        16 Sep 2021 18:07:13 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=8759AAFFB1B84FD9_0C39SID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:47:25 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -100,5 +104,5 @@ http_interactions:
         Name=\"Genus\" Type=\"String\"></Item>\n\t<Item Name=\"Species\" Type=\"String\"></Item>\n\t<Item
         Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
         Type=\"Date\">2015/09/16 00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
-  recorded_at: 2020-09-16 18:07:13 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:47:26 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0

@@ -6,9 +6,10 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -16,20 +17,17 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx
-      date: Thu, 24 Jan 2019 01:37:37 GMT
-      content-type: text/xml; charset=utf-8
-      transfer-encoding: chunked
-      connection: keep-alive
-      keep-alive: timeout=20
-      vary: Accept-Encoding
+      date: Wed, 15 Sep 2021 22:45:26 GMT
+      server: Microsoft-IIS/10.0
       cache-control: private, max-age=0
+      content-type: text/xml; charset=utf-8
       x-aspnet-version: 2.0.50727
       x-powered-by: ASP.NET
-      content-encoding: gzip
+      content-length: '118'
     body:
       encoding: UTF-8
+      file: no
       string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<string xmlns=\"http://Cabi/FungusServer/\">Omphalotaceae
         Bresinsky1985</string>"
-  recorded_at: 2019-01-24 01:38:11 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2021-09-15 22:45:27 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0

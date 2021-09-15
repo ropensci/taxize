@@ -6,9 +6,10 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -16,26 +17,28 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Fri, 25 Jan 2019 23:12:48 GMT
+      date: Wed, 15 Sep 2021 22:50:04 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '8'
-      ncbi-phid: D0BD37B365326FC500001BCA190312C6.1.1.m_1
+      x-test-test: test42
       cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: 5D73874915950DCA_6D05SID
+      ncbi-phid: 322C52E213039F4500003F39176E7A8F.1.1.m_1
+      x-ratelimit-remaining: '9'
+      ncbi-sid: 513E64684D454ABB_CCDESID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=5D73874915950DCA_6D05SID; domain=.nih.gov; path=/; expires=Sat,
-        25 Jan 2020 23:12:48 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=513E64684D454ABB_CCDESID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:50:04 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
     body:
       encoding: UTF-8
+      file: no
       string: |
         <?xml version="1.0" encoding="UTF-8" ?>
         <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
@@ -43,8 +46,8 @@ http_interactions:
         <Id>55087</Id>
         <Id>1386</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Bacillus[All Names]</Term>    <Field>All Names</Field>    <Count>2</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Bacillus[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2019-01-25 23:12:49 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2021-09-15 22:50:06 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&ID=55087%2C1386&api_key=<<entrez_api_token>>
@@ -52,9 +55,10 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -62,26 +66,28 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Fri, 25 Jan 2019 23:12:48 GMT
+      date: Wed, 15 Sep 2021 22:50:05 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '6'
-      ncbi-phid: 939B131039D6F975000023F4529B09DF.1.1.m_1
+      x-test-test: test42
       cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: B6E30DBE9C2367B7_5EA9SID
+      ncbi-phid: 322C52E213039F4500002839182EF5D4.1.1.m_1
+      x-ratelimit-remaining: '8'
+      ncbi-sid: E1F42A88D0700924_8E99SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=B6E30DBE9C2367B7_5EA9SID; domain=.nih.gov; path=/; expires=Sat,
-        25 Jan 2020 23:12:48 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=E1F42A88D0700924_8E99SID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:50:05 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
     body:
       encoding: UTF-8
+      file: no
       string: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!DOCTYPE eSummaryResult
         PUBLIC \"-//NLM//DTD esummary v1 20041029//EN\" \"https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20041029/esummary-v1.dtd\">\n<eSummaryResult>\n<DocSum>\n\t<Id>55087</Id>\n\t<Item
         Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">genus</Item>\n\t<Item
@@ -98,8 +104,8 @@ http_interactions:
         Name=\"Genus\" Type=\"String\"></Item>\n\t<Item Name=\"Species\" Type=\"String\"></Item>\n\t<Item
         Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
         Type=\"Date\">2015/09/16 00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
-  recorded_at: 2019-01-25 23:12:49 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2021-09-15 22:50:06 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=55087&api_key=<<entrez_api_token>>
@@ -107,7 +113,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      User-Agent: libcurl/7.68.0 r-curl/4.3.2 crul/1.1.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -117,26 +123,28 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Fri, 25 Jan 2019 23:12:48 GMT
+      date: Wed, 15 Sep 2021 22:50:05 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '4'
-      ncbi-phid: 322CDAEFF3EFD7B5000013F9754B5084.1.1.m_3
+      x-test-test: test42
       cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: B456B42BFD0AA579_D8B2SID
+      ncbi-phid: 322C52E213039F4500005939185186D8.1.1.m_3
+      x-ratelimit-remaining: '8'
+      ncbi-sid: EB86D3D4FE661F0D_04FDSID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=B456B42BFD0AA579_D8B2SID; domain=.nih.gov; path=/; expires=Sat,
-        25 Jan 2020 23:12:48 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=EB86D3D4FE661F0D_04FDSID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:50:05 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
     body:
       encoding: UTF-8
+      file: no
       string: |-
         <?xml version="1.0" ?>
         <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
@@ -169,7 +177,7 @@ http_interactions:
                 <Taxon>
                     <TaxId>33154</TaxId>
                     <ScientificName>Opisthokonta</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>33208</TaxId>
@@ -179,27 +187,27 @@ http_interactions:
                 <Taxon>
                     <TaxId>6072</TaxId>
                     <ScientificName>Eumetazoa</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>33213</TaxId>
                     <ScientificName>Bilateria</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>33317</TaxId>
                     <ScientificName>Protostomia</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>1206794</TaxId>
                     <ScientificName>Ecdysozoa</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>88770</TaxId>
                     <ScientificName>Panarthropoda</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>6656</TaxId>
@@ -209,12 +217,12 @@ http_interactions:
                 <Taxon>
                     <TaxId>197563</TaxId>
                     <ScientificName>Mandibulata</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>197562</TaxId>
                     <ScientificName>Pancrustacea</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>6960</TaxId>
@@ -229,7 +237,7 @@ http_interactions:
                 <Taxon>
                     <TaxId>85512</TaxId>
                     <ScientificName>Dicondylia</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>7496</TaxId>
@@ -283,10 +291,10 @@ http_interactions:
                 </Taxon>
             </LineageEx>
             <CreateDate>1996/12/05 17:09:00</CreateDate>
-            <UpdateDate>2015/09/16 10:19:19</UpdateDate>
+            <UpdateDate>2015/09/16 10:19:20</UpdateDate>
             <PubDate>1996/12/05 17:09:00</PubDate>
         </Taxon>
 
         </TaxaSet>
-  recorded_at: 2019-01-25 23:12:49 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2021-09-15 22:50:06 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0

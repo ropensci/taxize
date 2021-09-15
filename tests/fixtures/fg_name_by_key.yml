@@ -8,8 +8,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/0.9.2.92 rOpenSci(taxize/0.9.97.93)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.2.92 rOpenSci(taxize/0.9.97.93)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -17,17 +17,13 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx
-      date: Tue, 30 Jun 2020 17:09:47 GMT
-      content-type: text/xml; charset=utf-8
-      transfer-encoding: chunked
-      connection: keep-alive
-      keep-alive: timeout=20
-      vary: Accept-Encoding
+      date: Wed, 15 Sep 2021 22:45:26 GMT
+      server: Microsoft-IIS/10.0
       cache-control: private, max-age=0
+      content-type: text/xml; charset=utf-8
       x-aspnet-version: 2.0.50727
       x-powered-by: ASP.NET
-      content-encoding: gzip
+      content-length: '3660'
     body:
       encoding: UTF-8
       file: no
@@ -68,5 +64,5 @@ http_interactions:
         \   <IsUnique>n</IsUnique>\r\n    <FUNINDEX_x0020_Record_x0020_Number_x0020_of_x0020_type_x0020_species>486466</FUNINDEX_x0020_Record_x0020_Number_x0020_of_x0020_type_x0020_species>\r\n
         \   <UpdatedBy1>CABI_UK\\kirk</UpdatedBy1>\r\n    <UpdatedDate1>2001-11-29T09:05:32+00:00</UpdatedDate1>\r\n
         \   <timestamp>AAAAAAhmqQY=</timestamp>\r\n  </IndexFungorum>\r\n</NewDataSet>"
-  recorded_at: 2020-06-30 17:07:49 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:45:26 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0

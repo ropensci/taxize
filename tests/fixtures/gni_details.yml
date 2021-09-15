@@ -6,9 +6,10 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -21,28 +22,27 @@ http_interactions:
       connection: keep-alive
       content-length: '1352'
       content-type: application/json; charset=utf-8
-      date: Sat, 26 Jan 2019 00:43:57 GMT
-      etag: '"dad22422a1edf0c9406b7c894fcdba46"'
+      date: Wed, 15 Sep 2021 22:47:40 GMT
+      etag: '"b501c1bee6cc2f16679e15f39dbc40de"'
       server: nginx/1.8.1
       set-cookie: ''
       status:
       - HTTP/1.1 200 OK
       - 200 OK
       via: 1.1 varnish
-      x-runtime: '7'
-      x-varnish: '398772045'
+      x-runtime: '8'
+      x-varnish: '210781773'
     body:
       encoding: UTF-8
-      string: '{"data":[{"data_source":{"web_site_url":"http://www.organismnames.com/","data_url":"http://gnapartnership.org/gna_test/ion/data.xml","data_hash":"da39a3ee5e6b4b0d3255bfef95601890afd80709","name_strings_count":4104326,"created_at":"2009/08/14
-        18:56:01 +0000","id":30,"data_zip_compressed":null,"title":"Index to Organism
-        Names","unique_names_count":2511782,"refresh_period_days":14,"description":"ION
+      file: no
+      string: '{"data":[{"data_source":{"created_at":"2009/08/14 18:56:01 +0000","title":"Index
+        to Organism Names","web_site_url":"http://www.organismnames.com/","refresh_period_days":14,"description":"ION
         will ultimately contain all the organism names related data found within the
-        Thomson Reuters life science literature databases.","updated_at":"2010/05/14
-        22:47:59 +0000"},"name_index_id":98448788,"records":[{"local_id":"2521957","record_hash":null,"name_index_id":98448788,"global_id":null,"created_at":"2009/09/27
-        10:27:31 +0000","original_name_string":null,"id":127858346,"name_rank_id":2,"kingdom_id":null,"url":"http://www.organismnames.com/details.htm?lsid=2521957","updated_at":"2009/09/27
-        10:27:31 +0000","nomenclatural_code_id":null}],"records_number":1}],"name_string":{"normalized":"ACALLEPITRIX
-        ANILA","is_canonical_form":1,"resource_uri":null,"name":"Acallepitrix anila","canonical_form_id":5703176,"uuid_hex":"35fa270e-1a07-5e5d-914c-90230dc8680a","has_words":true,"created_at":"2009/08/14
-        15:14:10 +0000","id":17802847,"lsid":"urn:lsid:globalnames.org:index:35fa270e-1a07-5e5d-914c-90230dc8680a","updated_at":"2009/08/14
-        15:14:10 +0000"}}'
-  recorded_at: 2019-01-26 00:43:57 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+        Thomson Reuters life science literature databases.","data_url":"http://gnapartnership.org/gna_test/ion/data.xml","name_strings_count":4104326,"data_zip_compressed":null,"updated_at":"2010/05/14
+        22:47:59 +0000","data_hash":"da39a3ee5e6b4b0d3255bfef95601890afd80709","unique_names_count":2511782,"id":30},"name_index_id":98448788,"records":[{"url":"http://www.organismnames.com/details.htm?lsid=2521957","original_name_string":null,"created_at":"2009/09/27
+        10:27:31 +0000","global_id":null,"record_hash":null,"name_index_id":98448788,"local_id":"2521957","updated_at":"2009/09/27
+        10:27:31 +0000","kingdom_id":null,"nomenclatural_code_id":null,"name_rank_id":2,"id":127858346}],"records_number":1}],"name_string":{"normalized":"ACALLEPITRIX
+        ANILA","created_at":"2009/08/14 15:14:10 +0000","name":"Acallepitrix anila","is_canonical_form":1,"resource_uri":null,"canonical_form_id":5703176,"uuid_hex":"35fa270e-1a07-5e5d-914c-90230dc8680a","has_words":true,"lsid":"urn:lsid:globalnames.org:index:35fa270e-1a07-5e5d-914c-90230dc8680a","updated_at":"2009/08/14
+        15:14:10 +0000","id":17802847}}'
+  recorded_at: 2021-09-15 22:47:40 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0

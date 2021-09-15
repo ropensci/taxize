@@ -8,27 +8,26 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 17:22:06 GMT
+      status: 'HTTP/2 200 '
+      date: Wed, 15 Sep 2021 22:46:37 GMT
       content-type: application/json
       access-control-allow-origin: '*'
       access-control-allow-methods: HEAD, GET, POST, DELETE, PUT, OPTIONS
       server: Jetty(9.3.z-SNAPSHOT)
       cache-control: public, max-age=3601
-      x-varnish: 948274740 927107310
-      age: '174'
-      via: 1.1 varnish (Varnish/5.2)
+      x-varnish: '910066586'
+      age: '0'
+      via: 1.1 varnish (Varnish/6.0)
       accept-ranges: bytes
       content-length: '2066'
-      connection: keep-alive
     body:
       encoding: UTF-8
       file: no
@@ -41,8 +40,8 @@ http_interactions:
         name=100; authorship=0; classification=-2; rank=0; status=0","matchType":"EXACT","kingdom":"Plantae","phylum":"Tracheophyta","order":"Asparagales","family":"Orchidaceae","genus":"Dactylorhiza","kingdomKey":6,"phylumKey":7707728,"classKey":196,"orderKey":1169,"familyKey":7689,"genusKey":2809736,"synonym":true,"class":"Liliopsida"},{"usageKey":3651296,"scientificName":"Satirium
         Neck.","canonicalName":"Satirium","rank":"GENUS","status":"DOUBTFUL","confidence":68,"note":"Similarity:
         name=75; authorship=0; classification=-2; rank=0; status=-5","matchType":"FUZZY","kingdom":"Plantae","phylum":"Tracheophyta","order":"Asparagales","family":"Orchidaceae","genus":"Satirium","kingdomKey":6,"phylumKey":7707728,"classKey":196,"orderKey":1169,"familyKey":7689,"genusKey":3651296,"synonym":false,"class":"Liliopsida"}],"synonym":false}'
-  recorded_at: 2020-09-16 17:25:01 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:46:38 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://api.gbif.org/v1/species/match?name=Satyrium&strict=FALSE&verbose=TRUE&limit=500
@@ -52,27 +51,26 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 17:22:06 GMT
+      status: 'HTTP/2 200 '
+      date: Wed, 15 Sep 2021 22:46:37 GMT
       content-type: application/json
       access-control-allow-origin: '*'
       access-control-allow-methods: HEAD, GET, POST, DELETE, PUT, OPTIONS
       server: Jetty(9.3.z-SNAPSHOT)
       cache-control: public, max-age=3601
-      x-varnish: 948274743 927107310
-      age: '174'
-      via: 1.1 varnish (Varnish/5.2)
+      x-varnish: 910066587 896701100
+      age: '0'
+      via: 1.1 varnish (Varnish/6.0)
       accept-ranges: bytes
       content-length: '2066'
-      connection: keep-alive
     body:
       encoding: UTF-8
       file: no
@@ -85,5 +83,5 @@ http_interactions:
         name=100; authorship=0; classification=-2; rank=0; status=0","matchType":"EXACT","kingdom":"Plantae","phylum":"Tracheophyta","order":"Asparagales","family":"Orchidaceae","genus":"Dactylorhiza","kingdomKey":6,"phylumKey":7707728,"classKey":196,"orderKey":1169,"familyKey":7689,"genusKey":2809736,"synonym":true,"class":"Liliopsida"},{"usageKey":3651296,"scientificName":"Satirium
         Neck.","canonicalName":"Satirium","rank":"GENUS","status":"DOUBTFUL","confidence":68,"note":"Similarity:
         name=75; authorship=0; classification=-2; rank=0; status=-5","matchType":"FUZZY","kingdom":"Plantae","phylum":"Tracheophyta","order":"Asparagales","family":"Orchidaceae","genus":"Satirium","kingdomKey":6,"phylumKey":7707728,"classKey":196,"orderKey":1169,"familyKey":7689,"genusKey":3651296,"synonym":false,"class":"Liliopsida"}],"synonym":false}'
-  recorded_at: 2020-09-16 17:25:01 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:46:38 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0

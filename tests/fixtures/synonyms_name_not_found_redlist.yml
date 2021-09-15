@@ -1,12 +1,12 @@
 http_interactions:
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/Foo%20bar?token=<<rredlist_api_token>>
+    uri: https://apiv3.iucnredlist.org/api/v3/species/Foo%20bar?token=<<rredlist_api_token>>
     body:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(rredlist/0.6.0)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(rredlist/0.7.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -17,18 +17,18 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Wed, 28 Oct 2020 23:33:32 GMT
+      date: Wed, 15 Sep 2021 22:49:39 GMT
       content-type: application/json; charset=utf-8
       content-length: '30'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       etag: W/"1e-fn+VewOrayhj3UVF/dhl7w"
       vary: Accept-Encoding
-      set-cookie: sails.sid=s%3AaTmS6oeIMtZIukyZ683_hOadqDA9QSUD.uACG3EvfQzgIszy%2Ba%2BbAB5BERJThgmmBaJgD9%2F5FCLU;
+      set-cookie: sails.sid=s%3AzG6037h0vDGKuWp3KjLxqH2d4jaQpuRg.0eWPc09Pr21pxkEuGFl5A%2BMS9BUsA7CISn97nmCvSKI;
         Path=/; HttpOnly
     body:
       encoding: UTF-8
       file: no
       string: '{"name":"Foo bar","result":[]}'
-  recorded_at: 2020-10-28 23:33:33 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.7.0
+  recorded_at: 2021-09-15 22:49:39 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0

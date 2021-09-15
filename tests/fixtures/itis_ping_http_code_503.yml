@@ -8,25 +8,25 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.94)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.94)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      connection: keep-alive
       content-type: application/xml;charset=UTF-8
-      date: Fri, 06 Mar 2020 19:31:13 GMT
+      date: Wed, 15 Sep 2021 22:48:03 GMT
       status: 'HTTP/1.1 200 '
       strict-transport-security:
-      - max-age=63072000; includeSubdomains; preload
-      - max-age=63072000; includeSubdomains; preload
+      - max-age=63072000; includeSubDomains; preload
+      - max-age=63072000; includeSubDomains; preload
       transfer-encoding: chunked
-      x-application: itis_webservices
-      x-node-name: not shown
-      x-upstream-member: not shown
+      x-content-type-options:
+      - nosniff
+      - nosniff
+      x-frame-options: SAMEORIGIN
     body:
       encoding: UTF-8
       file: no
@@ -34,7 +34,7 @@ http_interactions:
         xmlns:ax21="http://data.itis_service.itis.usgs.gov/xsd" xmlns:ax23="http://metadata.itis_service.itis.usgs.gov/xsd"
         xmlns:ax26="http://itis_service.itis.usgs.gov/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:type="ax26:SvcDescription"><ax26:description>This is the ITIS Web Service,
-        providing access to the data behind www.itis.gov. The database contains 833,588
-        scientific names (600,075 of them valid/accepted) and 131,214 common names.</ax26:description></ns:return></ns:getDescriptionResponse>
-  recorded_at: 2020-03-06 19:31:14 GMT
-  recorded_with: vcr/0.5.0, webmockr/0.6.0
+        providing access to the data behind www.itis.gov. The database contains 868,307
+        scientific names (616,470 of them valid/accepted) and 133,287 common names.</ax26:description></ns:return></ns:getDescriptionResponse>
+  recorded_at: 2021-09-15 22:48:03 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0

@@ -8,8 +8,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -17,20 +17,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 01:01:50 GMT
+      date: Wed, 15 Sep 2021 22:44:16 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '9'
-      ncbi-phid: D0BD7762B13BBE4500003443C66ABA8B.1.1.m_1
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: 4C405802916509EA_EBE6SID
+      ncbi-phid: 322C52E213039F4500003338033F2155.1.1.m_1
+      x-ratelimit-remaining: '9'
+      ncbi-sid: 7070D362125B0B54_80ECSID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=4C405802916509EA_EBE6SID; domain=.nih.gov; path=/; expires=Thu,
-        16 Sep 2021 01:01:49 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=7070D362125B0B54_80ECSID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:44:17 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -43,8 +45,8 @@ http_interactions:
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>315576</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Chironomus+riparius[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Chironomus+riparius[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2020-09-16 01:01:53 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:44:21 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&ID=315576&api_key=<<entrez_api_token>>
@@ -54,8 +56,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -63,20 +65,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 01:01:50 GMT
+      date: Wed, 15 Sep 2021 22:44:16 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '8'
-      ncbi-phid: D0BD7762B13BBE4500005C43C6DDCB5F.1.1.m_1
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: 828ACD464CBEC323_E1C4SID
+      ncbi-phid: 322C52E213039F4500003C380371F32B.1.1.m_1
+      x-ratelimit-remaining: '8'
+      ncbi-sid: CEEA8EFA7EA44814_8E6DSID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=828ACD464CBEC323_E1C4SID; domain=.nih.gov; path=/; expires=Thu,
-        16 Sep 2021 01:01:50 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=CEEA8EFA7EA44814_8E6DSID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:44:17 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -92,8 +96,8 @@ http_interactions:
         Name=\"Genus\" Type=\"String\">Chironomus</Item>\n\t<Item Name=\"Species\"
         Type=\"String\">riparius</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
         Name=\"ModificationDate\" Type=\"Date\">2005/12/31 00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
-  recorded_at: 2020-09-16 01:01:53 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:44:21 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=aaa%2Bvva&api_key=<<entrez_api_token>>
@@ -103,8 +107,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -112,20 +116,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 01:01:50 GMT
+      date: Wed, 15 Sep 2021 22:44:18 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '7'
-      ncbi-phid: D0BD7762B13BBE4500003E43C71D5B9F.1.1.m_1
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: F80D21DF48966304_C978SID
+      ncbi-phid: 322C52E213039F4500003038047EFAA3.1.1.m_1
+      x-ratelimit-remaining: '9'
+      ncbi-sid: D0AFE1A4954C2386_8DE6SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=F80D21DF48966304_C978SID; domain=.nih.gov; path=/; expires=Thu,
-        16 Sep 2021 01:01:50 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=D0AFE1A4954C2386_8DE6SID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:44:18 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -136,8 +142,8 @@ http_interactions:
         <?xml version="1.0" encoding="UTF-8" ?>
         <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
         <eSearchResult><Count>0</Count><RetMax>0</RetMax><RetStart>0</RetStart><IdList/><TranslationSet/><QueryTranslation>(aaa+vva[All Names])</QueryTranslation><ErrorList><PhraseNotFound>aaa+vva</PhraseNotFound></ErrorList><WarningList><OutputMessage>No items found.</OutputMessage></WarningList></eSearchResult>
-  recorded_at: 2020-09-16 01:01:53 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:44:21 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://www.itis.gov/ITISWebService/jsonservice/getITISTermsFromScientificName?srchKey=Chironomus%20riparius
@@ -145,7 +151,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.72.0 r-curl/4.3 crul/1.0.0
+      User-Agent: libcurl/7.68.0 r-curl/4.3.2 crul/1.1.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -154,24 +160,24 @@ http_interactions:
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      connection: keep-alive
       content-length: '287'
       content-type: text/json;charset=ISO-8859-1
-      date: Wed, 16 Sep 2020 01:01:51 GMT
+      date: Wed, 15 Sep 2021 22:44:19 GMT
       status: 'HTTP/1.1 200 '
       strict-transport-security:
       - max-age=63072000; includeSubDomains; preload
-      - max-age=63072000; includeSubdomains; preload
-      x-content-type-options: nosniff
-      x-node-name: not shown
-      x-upstream-member: not shown
+      - max-age=63072000; includeSubDomains; preload
+      x-content-type-options:
+      - nosniff
+      - nosniff
+      x-frame-options: SAMEORIGIN
     body:
       encoding: UTF-8
       file: no
       string: |
         {"class":"gov.usgs.itis.itis_service.data.SvcItisTermList","itisTerms":[{"author":"Meigen, 1804","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"valid","scientificName":"Chironomus riparius","tsn":"129313"}],"requestedName":"Chironomus riparius"}
-  recorded_at: 2020-09-16 01:01:53 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:44:21 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://www.itis.gov/ITISWebService/jsonservice/getITISTermsFromScientificName?srchKey=aaa%20vva
@@ -179,7 +185,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.72.0 r-curl/4.3 crul/1.0.0
+      User-Agent: libcurl/7.68.0 r-curl/4.3.2 crul/1.1.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -188,24 +194,24 @@ http_interactions:
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      connection: keep-alive
       content-length: '105'
       content-type: text/json;charset=ISO-8859-1
-      date: Wed, 16 Sep 2020 01:01:52 GMT
+      date: Wed, 15 Sep 2021 22:44:20 GMT
       status: 'HTTP/1.1 200 '
       strict-transport-security:
       - max-age=63072000; includeSubDomains; preload
-      - max-age=63072000; includeSubdomains; preload
-      x-content-type-options: nosniff
-      x-node-name: not shown
-      x-upstream-member: not shown
+      - max-age=63072000; includeSubDomains; preload
+      x-content-type-options:
+      - nosniff
+      - nosniff
+      x-frame-options: SAMEORIGIN
     body:
       encoding: UTF-8
       file: no
       string: |
         {"class":"gov.usgs.itis.itis_service.data.SvcItisTermList","itisTerms":[null],"requestedName":"aaa vva"}
-  recorded_at: 2020-09-16 01:01:53 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:44:21 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=315576&api_key=<<entrez_api_token>>
@@ -213,7 +219,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.72.0 r-curl/4.3 crul/1.0.0
+      User-Agent: libcurl/7.68.0 r-curl/4.3.2 crul/1.1.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -223,20 +229,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 01:01:53 GMT
+      date: Wed, 15 Sep 2021 22:44:20 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '9'
-      ncbi-phid: D0BD7762B13BBE4500004243CA0E34F5.1.1.m_3
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: 763660AB6C92419F_EB29SID
+      ncbi-phid: 322C52E213039F450000223806BDA401.1.1.m_3
+      x-ratelimit-remaining: '9'
+      ncbi-sid: 3F576FD1753B864A_01ECSID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=763660AB6C92419F_EB29SID; domain=.nih.gov; path=/; expires=Thu,
-        16 Sep 2021 01:01:52 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=3F576FD1753B864A_01ECSID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:44:21 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -260,7 +268,7 @@ http_interactions:
                 <MGCId>5</MGCId>
                 <MGCName>Invertebrate Mitochondrial</MGCName>
             </MitoGeneticCode>
-            <Lineage>cellular organisms; Eukaryota; Opisthokonta; Metazoa; Eumetazoa; Bilateria; Protostomia; Ecdysozoa; Panarthropoda; Arthropoda; Mandibulata; Pancrustacea; Hexapoda; Insecta; Dicondylia; Pterygota; Neoptera; Holometabola; Diptera; Nematocera; Culicomorpha; Chironomoidea; Chironomidae; Chironominae; Chironomini; Chironomus; Chironomus incertae sedis</Lineage>
+            <Lineage>cellular organisms; Eukaryota; Opisthokonta; Metazoa; Eumetazoa; Bilateria; Protostomia; Ecdysozoa; Panarthropoda; Arthropoda; Mandibulata; Pancrustacea; Hexapoda; Insecta; Dicondylia; Pterygota; Neoptera; Endopterygota; Diptera; Nematocera; Culicomorpha; Chironomoidea; Chironomidae; Chironominae; Chironomini; Chironomus; Chironomus incertae sedis</Lineage>
             <LineageEx>
                 <Taxon>
                     <TaxId>131567</TaxId>
@@ -349,7 +357,7 @@ http_interactions:
                 </Taxon>
                 <Taxon>
                     <TaxId>33392</TaxId>
-                    <ScientificName>Holometabola</ScientificName>
+                    <ScientificName>Endopterygota</ScientificName>
                     <Rank>cohort</Rank>
                 </Taxon>
                 <Taxon>
@@ -404,8 +412,8 @@ http_interactions:
         </Taxon>
 
         </TaxaSet>
-  recorded_at: 2020-09-16 01:01:53 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:44:21 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://www.itis.gov/ITISWebService/jsonservice/getFullHierarchyFromTSN?tsn=129313
@@ -413,7 +421,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.72.0 r-curl/4.3 crul/1.0.0
+      User-Agent: libcurl/7.68.0 r-curl/4.3.2 crul/1.1.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -422,21 +430,21 @@ http_interactions:
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      connection: keep-alive
       content-length: '3475'
       content-type: text/json;charset=ISO-8859-1
-      date: Wed, 16 Sep 2020 01:01:53 GMT
+      date: Wed, 15 Sep 2021 22:44:20 GMT
       status: 'HTTP/1.1 200 '
       strict-transport-security:
       - max-age=63072000; includeSubDomains; preload
-      - max-age=63072000; includeSubdomains; preload
-      x-content-type-options: nosniff
-      x-node-name: not shown
-      x-upstream-member: not shown
+      - max-age=63072000; includeSubDomains; preload
+      x-content-type-options:
+      - nosniff
+      - nosniff
+      x-frame-options: SAMEORIGIN
     body:
       encoding: UTF-8
       file: no
       string: |
         {"author":"","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecordList","hierarchyList":[{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"","parentTsn":"","rankName":"Kingdom","taxonName":"Animalia","tsn":"202423"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Animalia","parentTsn":"202423","rankName":"Subkingdom","taxonName":"Bilateria","tsn":"914154"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Bilateria","parentTsn":"914154","rankName":"Infrakingdom","taxonName":"Protostomia","tsn":"914155"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Protostomia","parentTsn":"914155","rankName":"Superphylum","taxonName":"Ecdysozoa","tsn":"914158"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ecdysozoa","parentTsn":"914158","rankName":"Phylum","taxonName":"Arthropoda","tsn":"82696"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Arthropoda","parentTsn":"82696","rankName":"Subphylum","taxonName":"Hexapoda","tsn":"563886"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Hexapoda","parentTsn":"563886","rankName":"Class","taxonName":"Insecta","tsn":"99208"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Insecta","parentTsn":"99208","rankName":"Subclass","taxonName":"Pterygota","tsn":"100500"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Pterygota","parentTsn":"100500","rankName":"Infraclass","taxonName":"Neoptera","tsn":"563890"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Neoptera","parentTsn":"563890","rankName":"Superorder","taxonName":"Holometabola","tsn":"914213"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Holometabola","parentTsn":"914213","rankName":"Order","taxonName":"Diptera","tsn":"118831"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Diptera","parentTsn":"118831","rankName":"Suborder","taxonName":"Nematocera","tsn":"118832"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Nematocera","parentTsn":"118832","rankName":"Infraorder","taxonName":"Culicomorpha","tsn":"125808"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Culicomorpha","parentTsn":"125808","rankName":"Family","taxonName":"Chironomidae","tsn":"127917"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Chironomidae","parentTsn":"127917","rankName":"Subfamily","taxonName":"Chironominae","tsn":"129228"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Chironominae","parentTsn":"129228","rankName":"Tribe","taxonName":"Chironomini","tsn":"129229"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Chironomini","parentTsn":"129229","rankName":"Genus","taxonName":"Chironomus","tsn":"129254"},{"author":"Meigen, 1804","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Chironomus","parentTsn":"129254","rankName":"Species","taxonName":"Chironomus riparius","tsn":"129313"}],"rankName":"","sciName":"","tsn":"129313"}
-  recorded_at: 2020-09-16 01:01:53 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:44:21 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0

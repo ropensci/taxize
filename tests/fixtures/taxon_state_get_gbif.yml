@@ -8,27 +8,25 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 19:09:59 GMT
+      status: 'HTTP/2 200 '
+      date: Wed, 15 Sep 2021 22:50:34 GMT
       content-type: application/json
       access-control-allow-origin: '*'
       access-control-allow-methods: HEAD, GET, POST, DELETE, PUT, OPTIONS
       server: Jetty(9.3.z-SNAPSHOT)
       cache-control: public, max-age=3601
-      x-varnish: '1025802390'
+      x-varnish: '897094336'
       age: '0'
-      via: 1.1 varnish (Varnish/5.2)
+      via: 1.1 varnish (Varnish/6.0)
       accept-ranges: bytes
-      content-length: '625'
-      connection: keep-alive
     body:
       encoding: UTF-8
       file: no
@@ -36,8 +34,8 @@ http_interactions:
         marianus (Gottsche) Mizut.","canonicalName":"Spruceanthus marianus","rank":"SPECIES","status":"SYNONYM","confidence":98,"note":"Similarity:
         name=110; authorship=0; classification=-2; rank=5; status=0; singleMatch=5","matchType":"EXACT","kingdom":"Plantae","phylum":"Marchantiophyta","order":"Porellales","family":"Lejeuneaceae","genus":"Cheilolejeunea","species":"Cheilolejeunea
         mariana","kingdomKey":6,"phylumKey":9,"classKey":126,"orderKey":377,"familyKey":6118,"genusKey":9189034,"speciesKey":7362076,"synonym":true,"class":"Jungermanniopsida"}'
-  recorded_at: 2020-09-16 19:10:00 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:50:36 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://api.gbif.org/v1/species/match?name=Bomarea%20costaricensis&strict=FALSE&verbose=TRUE&limit=500
@@ -47,27 +45,26 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 19:09:59 GMT
+      status: 'HTTP/2 200 '
+      date: Wed, 15 Sep 2021 22:50:35 GMT
       content-type: application/json
       access-control-allow-origin: '*'
       access-control-allow-methods: HEAD, GET, POST, DELETE, PUT, OPTIONS
       server: Jetty(9.3.z-SNAPSHOT)
       cache-control: public, max-age=3601
-      x-varnish: '1006077385'
+      x-varnish: '897094337'
       age: '0'
-      via: 1.1 varnish (Varnish/5.2)
+      via: 1.1 varnish (Varnish/6.0)
       accept-ranges: bytes
       content-length: '582'
-      connection: keep-alive
     body:
       encoding: UTF-8
       file: no
@@ -75,8 +72,8 @@ http_interactions:
         costaricensis","rank":"SPECIES","status":"ACCEPTED","confidence":98,"note":"Similarity:
         name=110; authorship=0; classification=-2; rank=5; status=1; singleMatch=5","matchType":"EXACT","kingdom":"Plantae","phylum":"Tracheophyta","order":"Liliales","family":"Alstroemeriaceae","genus":"Bomarea","species":"Bomarea
         costaricensis","kingdomKey":6,"phylumKey":7707728,"classKey":196,"orderKey":1172,"familyKey":7695,"genusKey":2753928,"speciesKey":2753985,"synonym":false,"class":"Liliopsida"}'
-  recorded_at: 2020-09-16 19:10:00 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:50:36 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://api.gbif.org/v1/species/match?name=Rubus%20mindanaensis&strict=FALSE&verbose=TRUE&limit=500
@@ -86,27 +83,25 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 19:10:00 GMT
+      status: 'HTTP/2 200 '
+      date: Wed, 15 Sep 2021 22:50:36 GMT
       content-type: application/json
       access-control-allow-origin: '*'
       access-control-allow-methods: HEAD, GET, POST, DELETE, PUT, OPTIONS
       server: Jetty(9.3.z-SNAPSHOT)
       cache-control: public, max-age=3601
-      x-varnish: '1029931541'
+      x-varnish: '897094338'
       age: '0'
-      via: 1.1 varnish (Varnish/5.2)
+      via: 1.1 varnish (Varnish/6.0)
       accept-ranges: bytes
-      content-length: '561'
-      connection: keep-alive
     body:
       encoding: UTF-8
       file: no
@@ -114,8 +109,8 @@ http_interactions:
         mindanaensis","rank":"SPECIES","status":"ACCEPTED","confidence":98,"note":"Similarity:
         name=110; authorship=0; classification=-2; rank=5; status=1; singleMatch=5","matchType":"EXACT","kingdom":"Plantae","phylum":"Tracheophyta","order":"Rosales","family":"Rosaceae","genus":"Rubus","species":"Rubus
         mindanaensis","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":691,"familyKey":5015,"genusKey":2988638,"speciesKey":2997235,"synonym":false,"class":"Magnoliopsida"}'
-  recorded_at: 2020-09-16 19:10:00 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:50:36 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://api.gbif.org/v1/species/match?name=Columnea%20mira&strict=FALSE&verbose=TRUE&limit=500
@@ -125,42 +120,40 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 19:10:00 GMT
+      status: 'HTTP/2 200 '
+      date: Wed, 15 Sep 2021 22:50:36 GMT
       content-type: application/json
       access-control-allow-origin: '*'
       access-control-allow-methods: HEAD, GET, POST, DELETE, PUT, OPTIONS
       server: Jetty(9.3.z-SNAPSHOT)
       cache-control: public, max-age=3601
-      x-varnish: '1027342907'
+      x-varnish: '897094339'
       age: '0'
-      via: 1.1 varnish (Varnish/5.2)
+      via: 1.1 varnish (Varnish/6.0)
       accept-ranges: bytes
-      transfer-encoding: chunked
-      connection: keep-alive
     body:
       encoding: UTF-8
       file: no
-      string: '{"usageKey":5589428,"scientificName":"Columnea mira B.Morley","canonicalName":"Columnea
+      string: '{"usageKey":5589428,"scientificName":"Columnea mira B.D.Morley","canonicalName":"Columnea
         mira","rank":"SPECIES","status":"ACCEPTED","confidence":98,"note":"Similarity:
         name=110; authorship=0; classification=-2; rank=5; status=1; nextMatch=5","matchType":"EXACT","alternatives":[{"usageKey":6365355,"scientificName":"Columnea
         hirta Klotzsch & Hanst.","canonicalName":"Columnea hirta","rank":"SPECIES","status":"ACCEPTED","confidence":9,"note":"Similarity:
         name=5; authorship=0; classification=-2; rank=5; status=1","matchType":"FUZZY","kingdom":"Plantae","phylum":"Tracheophyta","order":"Lamiales","family":"Gesneriaceae","genus":"Columnea","species":"Columnea
         hirta","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":408,"familyKey":6654,"genusKey":3172890,"speciesKey":6365355,"synonym":false,"class":"Magnoliopsida"},{"usageKey":5589396,"scientificName":"Columnea
-        moorei Morton","canonicalName":"Columnea moorei","rank":"SPECIES","status":"ACCEPTED","confidence":9,"note":"Similarity:
+        moorei C.V.Morton","canonicalName":"Columnea moorei","rank":"SPECIES","status":"ACCEPTED","confidence":9,"note":"Similarity:
         name=5; authorship=0; classification=-2; rank=5; status=1","matchType":"FUZZY","kingdom":"Plantae","phylum":"Tracheophyta","order":"Lamiales","family":"Gesneriaceae","genus":"Columnea","species":"Columnea
         moorei","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":408,"familyKey":6654,"genusKey":3172890,"speciesKey":5589396,"synonym":false,"class":"Magnoliopsida"},{"usageKey":5163912,"acceptedUsageKey":8404492,"scientificName":"Columnea
         mierii Targioni Tozzetti, 1866","canonicalName":"Columnea mierii","rank":"SPECIES","status":"SYNONYM","confidence":8,"note":"Similarity:
         name=5; authorship=0; classification=-2; rank=5; status=0","matchType":"FUZZY","kingdom":"Animalia","phylum":"Arthropoda","order":"Hemiptera","family":"Coccidae","genus":"Ceroplastes","species":"Ceroplastes
         mierii","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":809,"familyKey":6963,"genusKey":2092293,"speciesKey":8404492,"synonym":true,"class":"Insecta"}],"kingdom":"Plantae","phylum":"Tracheophyta","order":"Lamiales","family":"Gesneriaceae","genus":"Columnea","species":"Columnea
         mira","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":408,"familyKey":6654,"genusKey":3172890,"speciesKey":5589428,"synonym":false,"class":"Magnoliopsida"}'
-  recorded_at: 2020-09-16 19:10:00 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:50:36 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0

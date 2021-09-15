@@ -6,7 +6,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.72.0 r-curl/4.3 crul/1.0.0
+      User-Agent: libcurl/7.68.0 r-curl/4.3.2 crul/1.1.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -15,17 +15,16 @@ http_interactions:
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: HTTP/1.1 200 OK
+      status: 'HTTP/2 200 '
       server: nginx
-      date: Wed, 16 Sep 2020 17:09:18 GMT
+      date: Wed, 15 Sep 2021 22:45:48 GMT
       content-type: text/html; charset=utf-8
       content-length: '48'
-      connection: keep-alive
       x-powered-by: PHP/5.3.15
       set-cookie: https=on;Path=/;Max-Age=3600;httponly;SameSite=Lax
     body:
       encoding: UTF-8
       file: no
       string: '{"top_matched_names":[],"total_matched_names":0}'
-  recorded_at: 2020-09-16 17:09:18 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:45:48 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0

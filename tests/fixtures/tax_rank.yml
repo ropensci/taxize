@@ -8,8 +8,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -17,20 +17,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 19:14:14 GMT
+      date: Wed, 15 Sep 2021 22:50:16 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '9'
-      ncbi-phid: 939B5FAD2C30BAE500003BE9B4B26311.1.1.m_1
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: AE91C6B1248DC2C9_7E4DSID
+      ncbi-phid: D0BD2729693488A500004E47E1A93537.1.1.m_1
+      x-ratelimit-remaining: '9'
+      ncbi-sid: 54D404FC740F5AFC_DB6ASID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=AE91C6B1248DC2C9_7E4DSID; domain=.nih.gov; path=/; expires=Thu,
-        16 Sep 2021 19:14:14 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=54D404FC740F5AFC_DB6ASID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:50:17 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -43,8 +45,8 @@ http_interactions:
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>4232</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Helianthus+annuus[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Helianthus+annuus[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2020-09-16 19:14:33 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:50:29 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&ID=4232&api_key=<<entrez_api_token>>
@@ -54,8 +56,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -63,20 +65,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 19:14:13 GMT
+      date: Wed, 15 Sep 2021 22:50:17 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '8'
-      ncbi-phid: 939B5FAD2C30BAE5000048E9B542F88B.1.1.m_1
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: 04DAA8C6173FF73F_18EBSID
+      ncbi-phid: D0BD2729693488A500004147E2300474.1.1.m_1
+      x-ratelimit-remaining: '8'
+      ncbi-sid: CC11DEFCD4D1BE1D_D41FSID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=04DAA8C6173FF73F_18EBSID; domain=.nih.gov; path=/; expires=Thu,
-        16 Sep 2021 19:14:14 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=CC11DEFCD4D1BE1D_D41FSID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:50:17 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -92,8 +96,8 @@ http_interactions:
         Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
         Name=\"Species\" Type=\"String\">annuus</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
         Name=\"ModificationDate\" Type=\"Date\">2018/11/23 00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
-  recorded_at: 2020-09-16 19:14:33 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:50:29 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Baetis&api_key=<<entrez_api_token>>
@@ -103,8 +107,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -112,20 +116,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 19:14:14 GMT
+      date: Wed, 15 Sep 2021 22:50:17 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '7'
-      ncbi-phid: 939B5FAD2C30BAE500002CE9B5DD07A9.1.1.m_1
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: 41D26D6BA1F8255B_5548SID
+      ncbi-phid: D0BD2729693488A500005F47E27CD665.1.1.m_1
+      x-ratelimit-remaining: '7'
+      ncbi-sid: 57F6C529FEAB95D2_686ASID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=41D26D6BA1F8255B_5548SID; domain=.nih.gov; path=/; expires=Thu,
-        16 Sep 2021 19:14:15 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=57F6C529FEAB95D2_686ASID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:50:17 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -138,8 +144,8 @@ http_interactions:
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>189838</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Baetis[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Baetis[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2020-09-16 19:14:33 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:50:29 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&ID=189838&api_key=<<entrez_api_token>>
@@ -149,8 +155,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -158,20 +164,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 19:14:15 GMT
+      date: Wed, 15 Sep 2021 22:50:17 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '7'
-      ncbi-phid: 939B5FAD2C30BAE500004AE9B64BFE89.1.1.m_1
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: 9EAD147EACF59215_AF69SID
+      ncbi-phid: D0BD2729693488A500003947E2F4AFFC.1.1.m_1
+      x-ratelimit-remaining: '6'
+      ncbi-sid: 87C3FCA3BCB689EF_F4C3SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=9EAD147EACF59215_AF69SID; domain=.nih.gov; path=/; expires=Thu,
-        16 Sep 2021 19:14:15 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=87C3FCA3BCB689EF_F4C3SID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:50:17 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -187,8 +195,8 @@ http_interactions:
         Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\"></Item>\n\t<Item
         Name=\"Species\" Type=\"String\"></Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
         Name=\"ModificationDate\" Type=\"Date\">2017/06/14 00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
-  recorded_at: 2020-09-16 19:14:33 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:50:29 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=4232&api_key=<<entrez_api_token>>
@@ -196,7 +204,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.72.0 r-curl/4.3 crul/1.0.0
+      User-Agent: libcurl/7.68.0 r-curl/4.3.2 crul/1.1.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -206,20 +214,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 19:14:15 GMT
+      date: Wed, 15 Sep 2021 22:50:17 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '6'
-      ncbi-phid: 939B5FAD2C30BAE5000025E9B68AE32F.1.1.m_3
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: DEDF168239BC5A45_F82DSID
+      ncbi-phid: D0BD2729693488A500005D47E3424CC2.1.1.m_3
+      x-ratelimit-remaining: '6'
+      ncbi-sid: 305DD90827AB87BC_7220SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=DEDF168239BC5A45_F82DSID; domain=.nih.gov; path=/; expires=Thu,
-        16 Sep 2021 19:14:15 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=305DD90827AB87BC_7220SID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:50:18 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -387,8 +397,8 @@ http_interactions:
         </Taxon>
 
         </TaxaSet>
-  recorded_at: 2020-09-16 19:14:33 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:50:29 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=189838&api_key=<<entrez_api_token>>
@@ -396,7 +406,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.72.0 r-curl/4.3 crul/1.0.0
+      User-Agent: libcurl/7.68.0 r-curl/4.3.2 crul/1.1.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -406,20 +416,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 19:14:16 GMT
+      date: Wed, 15 Sep 2021 22:50:18 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '9'
-      ncbi-phid: 322C5A3BB066D855000044D9536CBA46.1.1.m_3
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: FD6E303874F6D08C_8CB6SID
+      ncbi-phid: D0BD2729693488A500004947E3CA633E.1.1.m_5
+      x-ratelimit-remaining: '6'
+      ncbi-sid: A64372C3DC8EB141_81ECSID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=FD6E303874F6D08C_8CB6SID; domain=.nih.gov; path=/; expires=Thu,
-        16 Sep 2021 19:14:16 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=A64372C3DC8EB141_81ECSID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:50:18 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -555,8 +567,8 @@ http_interactions:
         </Taxon>
 
         </TaxaSet>
-  recorded_at: 2020-09-16 19:14:33 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:50:29 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://www.itis.gov/ITISWebService/jsonservice/getITISTermsFromScientificName?srchKey=Helianthus
@@ -564,7 +576,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.72.0 r-curl/4.3 crul/1.0.0
+      User-Agent: libcurl/7.68.0 r-curl/4.3.2 crul/1.1.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -573,24 +585,24 @@ http_interactions:
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      connection: keep-alive
       content-type: text/json;charset=ISO-8859-1
-      date: Wed, 16 Sep 2020 19:14:25 GMT
+      date: Wed, 15 Sep 2021 22:50:20 GMT
       status: 'HTTP/1.1 200 '
       strict-transport-security:
       - max-age=63072000; includeSubDomains; preload
-      - max-age=63072000; includeSubdomains; preload
+      - max-age=63072000; includeSubDomains; preload
       transfer-encoding: chunked
-      x-content-type-options: nosniff
-      x-node-name: not shown
-      x-upstream-member: not shown
+      x-content-type-options:
+      - nosniff
+      - nosniff
+      x-frame-options: SAMEORIGIN
     body:
       encoding: UTF-8
       file: no
       string: |
-        {"class":"gov.usgs.itis.itis_service.data.SvcItisTermList","itisTerms":[{"author":"L.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["sunflower"],"nameUsage":"accepted","scientificName":"Helianthus","tsn":"36611"},{"author":"L.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["giant sunflower"],"nameUsage":"accepted","scientificName":"Helianthus giganteus","tsn":"36612"},{"author":"Pollard","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["southeastern sunflower"],"nameUsage":"accepted","scientificName":"Helianthus agrestis","tsn":"36613"},{"author":"(A. Gray) Britton (pro sp.)","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["ambiguous sunflower"],"nameUsage":"accepted","scientificName":"Helianthus X ambiguus","tsn":"36614"},{"author":"L.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus agustifolius","tsn":"36615"},{"author":"L.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["annual sunflower","sunflower","wild sunflower","common sunflower"],"nameUsage":"accepted","scientificName":"Helianthus annuus","tsn":"36616"},{"author":"S.F. Blake","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["desert sunflower","western sunflower"],"nameUsage":"accepted","scientificName":"Helianthus anomalus","tsn":"36617"},{"author":"Torr. & A. Gray","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus argophyllis","tsn":"36618"},{"author":"R.C. Jacks.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus arizonicus","tsn":"36619"},{"author":"L.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["purpledisk sunflower"],"nameUsage":"accepted","scientificName":"Helianthus atrorubens","tsn":"36620"},{"author":"A. Gray","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["serpentine sunflower"],"nameUsage":"accepted","scientificName":"Helianthus bolanderi","tsn":"36621"},{"author":"E.E. Watson (pro sp.)","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["shortleaf sunflower"],"nameUsage":"accepted","scientificName":"Helianthus X brevifolius","tsn":"36622"},{"author":"DC.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["California sunflower"],"nameUsage":"accepted","scientificName":"Helianthus californicus","tsn":"36623"},{"author":"Small","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["lakeside sunflower"],"nameUsage":"accepted","scientificName":"Helianthus carnosus","tsn":"36624"},{"author":"DC.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["blueweed sunflower","Texas-blueweed","blueweed","yerba parda","Texas blueweed"],"nameUsage":"accepted","scientificName":"Helianthus ciliaris","tsn":"36625"},{"author":"Torr. & A. Gray (pro sp.)","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["sunflower"],"nameUsage":"accepted","scientificName":"Helianthus X cinereus","tsn":"36626"},{"author":"A. Gray","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["Cusick's sunflower"],"nameUsage":"accepted","scientificName":"Helianthus cusickii","tsn":"36627"},{"author":"Nutt.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["cucumberleaf sunflower"],"nameUsage":"accepted","scientificName":"Helianthus debilis","tsn":"36628"},{"author":"Nutt.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["cucumberleaf sunflower"],"nameUsage":"accepted","scientificName":"Helianthus debilis ssp. debilis","tsn":"36629"},{"author":"(Torr. & A. Gray) Heiser","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["cucumberleaf sunflower"],"nameUsage":"accepted","scientificName":"Helianthus debilis ssp. cucumerifolius","tsn":"36630"},{"author":"Heiser","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["cucumberleaf sunflower"],"nameUsage":"accepted","scientificName":"Helianthus debilis ssp. silvestris","tsn":"36631"},{"author":"Heiser","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["cucumberleaf sunflower"],"nameUsage":"accepted","scientificName":"Helianthus debilis ssp. tardiflorus","tsn":"36632"},{"author":"(E.E. Watson) Heiser","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["cucumberleaf sunflower"],"nameUsage":"accepted","scientificName":"Helianthus debilis ssp. vestitus","tsn":"36633"},{"author":"L.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus decapetalis","tsn":"36634"},{"author":"Heiser","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["desert sunflower"],"nameUsage":"accepted","scientificName":"Helianthus deserticola","tsn":"36635"},{"author":"L.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["woodland sunflower","h<e9>lianthe <e0> feuilles <e9>tal<e9>es"],"nameUsage":"accepted","scientificName":"Helianthus divaricatus","tsn":"36636"},{"author":"R.W. Long","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["sunflower"],"nameUsage":"accepted","scientificName":"Helianthus X divariserratus","tsn":"36637"},{"author":"Lam. (pro sp.)","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["sunflower","perennial sunflower"],"nameUsage":"accepted","scientificName":"Helianthus X doronicoides","tsn":"36638"},{"author":"Small","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["Eggert's sunflower"],"nameUsage":"accepted","scientificName":"Helianthus eggertii","tsn":"36639"},{"author":"A. Gray ex Chapm.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["Florida sunflower"],"nameUsage":"accepted","scientificName":"Helianthus floridanus","tsn":"36640"},{"author":"D.M. Sm.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["whiteleaf sunflower"],"nameUsage":"accepted","scientificName":"Helianthus glaucophyllus","tsn":"36641"},{"author":"Small (pro sp.)","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["glaucous sunflower"],"nameUsage":"accepted","scientificName":"Helianthus X glaucus","tsn":"36642"},{"author":"A. Gray","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["slender sunflower"],"nameUsage":"accepted","scientificName":"Helianthus gracilentus","tsn":"36643"},{"author":"M. Martens","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["saw-tooth sunflower","sawtooth sunflower"],"nameUsage":"accepted","scientificName":"Helianthus grosseserratus","tsn":"36644"},{"author":"Nutt.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["variableleaf sunflower"],"nameUsage":"accepted","scientificName":"Helianthus heterophyllus","tsn":"36645"},{"author":"Raf.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["hairy sunflower"],"nameUsage":"accepted","scientificName":"Helianthus hirsutus","tsn":"36646"},{"author":"R.W. Long","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["intermediate sunflower"],"nameUsage":"accepted","scientificName":"Helianthus X intermedius","tsn":"36647"},{"author":"Britton (pro sp.)","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["Kellerman's sunflower"],"nameUsage":"accepted","scientificName":"Helianthus X kellermanii","tsn":"36648"},{"author":"A. Gray","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["alkali sunflower"],"nameUsage":"accepted","scientificName":"Helianthus laciniatus","tsn":"36649"},{"author":"Torr. & A. Gray","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["smooth sunflower"],"nameUsage":"accepted","scientificName":"Helianthus laevigatus","tsn":"36650"},{"author":"Pursh","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["longleaf sunflower"],"nameUsage":"accepted","scientificName":"Helianthus longifolius","tsn":"36651"},{"author":"E.E. Watson (pro sp.)","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["luxuriant sunflower"],"nameUsage":"accepted","scientificName":"Helianthus X luxurians","tsn":"36652"},{"author":"Schrad.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["Maximilian sunflower"],"nameUsage":"accepted","scientificName":"Helianthus maximiliani","tsn":"36653"},{"author":"Torr. & A. Gray","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["small woodland sunflower"],"nameUsage":"accepted","scientificName":"Helianthus microcephalus","tsn":"36654"},{"author":"Lam.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["ashy sunflower"],"nameUsage":"accepted","scientificName":"Helianthus mollis","tsn":"36655"},{"author":"L. (pro sp.)","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["manyflower sunflower"],"nameUsage":"accepted","scientificName":"Helianthus X multiflorus","tsn":"36656"},{"author":"Heiser","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["neglected sunflower"],"nameUsage":"accepted","scientificName":"Helianthus neglectus","tsn":"36657"},{"author":"(Benth.) Brandegee","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["snowy sunflower","showy sunflower"],"nameUsage":"accepted","scientificName":"Helianthus niveus","tsn":"36658"},{"author":"(Benth.) Brandegee","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus niveus var. niveus","tsn":"36659"},{"author":"(A. Gray) Heiser","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["showy sunflower"],"nameUsage":"not accepted","scientificName":"Helianthus niveus ssp. canescens","tsn":"36660"},{"author":"(A. Gray) Heiser","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["Algodones sunflower"],"nameUsage":"accepted","scientificName":"Helianthus niveus ssp. tephrodes","tsn":"36661"},{"author":"Torr. & A. Gray","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["Nuttall's sunflower"],"nameUsage":"accepted","scientificName":"Helianthus nuttallii","tsn":"36662"},{"author":"Torr. & A. Gray","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["Nuttall's sunflower"],"nameUsage":"accepted","scientificName":"Helianthus nuttallii ssp. nuttallii","tsn":"36663"},{"author":"(A. Gray) Heiser","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["Parish's sunflower"],"nameUsage":"accepted","scientificName":"Helianthus nuttallii ssp. parishii","tsn":"36664"},{"author":"(Britton) R.W. Long","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["Rydberg's sunflower"],"nameUsage":"accepted","scientificName":"Helianthus nuttallii ssp. rydbergii","tsn":"36665"},{"author":"Riddell","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["fewleaf sunflower"],"nameUsage":"accepted","scientificName":"Helianthus occidentalis","tsn":"36666"},{"author":"Riddell","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["fewleaf sunflower"],"nameUsage":"accepted","scientificName":"Helianthus occidentalis ssp. occidentalis","tsn":"36667"},{"author":"(Torr. & A. Gray) Shinners","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["Gewleaf sunflower","fewleaf sunflower"],"nameUsage":"accepted","scientificName":"Helianthus occidentalis ssp. plantagineus","tsn":"36668"},{"author":"Cockerell (pro sp.)","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["sunflower"],"nameUsage":"accepted","scientificName":"Helianthus X orgyaloides","tsn":"36669"},{"author":"Heiser","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["paradox sunflower","puzzle sunflower","Pecos sunflower"],"nameUsage":"accepted","scientificName":"Helianthus paradoxus","tsn":"36670"},{"author":"Nutt.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["prairie sunflower","showy sunflower"],"nameUsage":"accepted","scientificName":"Helianthus petiolaris","tsn":"36671"},{"author":"Nutt.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["prairie sunflower"],"nameUsage":"accepted","scientificName":"Helianthus petiolaris ssp. petiolaris","tsn":"36672"},{"author":"Heiser","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["prairie sunflower"],"nameUsage":"accepted","scientificName":"Helianthus petiolaris ssp. fallax","tsn":"36673"},{"author":"Engelm. & A. Gray","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["Texas sunflower"],"nameUsage":"accepted","scientificName":"Helianthus praecox","tsn":"36674"},{"author":"Engelm. & A. Gray","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["Texas sunflower"],"nameUsage":"accepted","scientificName":"Helianthus praecox ssp. praecox","tsn":"36675"},{"author":"(Heiser) Heiser","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["Texas sunflower"],"nameUsage":"accepted","scientificName":"Helianthus praecox ssp. hirtus","tsn":"36676"},{"author":"(Heiser) Heiser","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["Runyon's sunflower"],"nameUsage":"accepted","scientificName":"Helianthus praecox ssp. runyonii","tsn":"36677"},{"author":"E.E. Watson","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["New Mexico sunflower"],"nameUsage":"accepted","scientificName":"Helianthus praetermissus","tsn":"36678"},{"author":"Nutt.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["little sunflower"],"nameUsage":"accepted","scientificName":"Helianthus pumilus","tsn":"36679"},{"author":"(Pursh) Torr. & A. Gray","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["stiff sunflower","rayless sunflower"],"nameUsage":"accepted","scientificName":"Helianthus radula","tsn":"36680"},{"author":"Small","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["resindot sunflower"],"nameUsage":"accepted","scientificName":"Helianthus resinosus","tsn":"36681"},{"author":"(Cass.) Desf.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus rigidus","tsn":"36682"},{"author":"(Cass.) Desf.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus rigidus var. rigidus","tsn":"36683"},{"author":"(Rydb.) Heiser","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus rigidus ssp. subrhomboideus","tsn":"36684"},{"author":"A. Dietr.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["willowleaf sunflower"],"nameUsage":"accepted","scientificName":"Helianthus salicifolius","tsn":"36685"},{"author":"Torr. & A. Gray","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["Schweinitz's sunflower"],"nameUsage":"accepted","scientificName":"Helianthus schweinitzii","tsn":"36686"},{"author":"Nutt.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["rosinweed sunflower"],"nameUsage":"accepted","scientificName":"Helianthus silphioides","tsn":"36687"},{"author":"E.E. Watson","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["muck sunflower"],"nameUsage":"accepted","scientificName":"Helianthus simulans","tsn":"36688"},{"author":"Heiser","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["Smith's sunflower"],"nameUsage":"accepted","scientificName":"Helianthus smithii","tsn":"36689"},{"author":"L.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["paleleaf woodland sunflower"],"nameUsage":"accepted","scientificName":"Helianthus strumosus","tsn":"36690"},{"author":"L.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["Jerusalem-artichoke","girasole","Jerusalem sunflower","Jerusalem artichoke"],"nameUsage":"accepted","scientificName":"Helianthus tuberosus","tsn":"36691"},{"author":"E.E. Watson (pro sp.)","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["sunflower"],"nameUsage":"accepted","scientificName":"Helianthus X verticillatus","tsn":"36692"},{"author":"(Ellis, 1768)","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["sun anemone"],"nameUsage":"valid","scientificName":"Stichodactyla helianthus","tsn":"52830"},{"author":"(Ellis, 1768)","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"invalid","scientificName":"Stoichactis helianthus","tsn":"52831"},{"author":"Boivin","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["Alex sunflower"],"nameUsage":"not accepted","scientificName":"Helianthus X alexidis","tsn":"502918"},{"author":"L.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["swamp sneezeweed","swamp sunflower"],"nameUsage":"accepted","scientificName":"Helianthus angustifolius","tsn":"502919"},{"author":"Torr. & A. Gray","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["silverleaf sunflower"],"nameUsage":"accepted","scientificName":"Helianthus argophyllus","tsn":"502920"},{"author":"R.C. Jacks.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["Arizona sunflower"],"nameUsage":"accepted","scientificName":"Helianthus arizonensis","tsn":"502921"},{"author":"Boivin","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["Coupland's sunflower"],"nameUsage":"not accepted","scientificName":"Helianthus couplandii","tsn":"502922"},{"author":"L.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["thinleaf sunflower"],"nameUsage":"accepted","scientificName":"Helianthus decapetalus","tsn":"502923"},{"author":"Pers. (pro sp.)","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["mountain sunflower","cheerful sunflower"],"nameUsage":"accepted","scientificName":"Helianthus X laetiflorus","tsn":"502924"},{"author":"Nutt.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["stiff sunflower"],"nameUsage":"accepted","scientificName":"Helianthus pauciflorus","tsn":"502925"},{"author":"(A. Gray) Pruski","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["Porter's sunflower"],"nameUsage":"accepted","scientificName":"Helianthus porteri","tsn":"502926"},{"author":"E.E. Watson","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus alienus","tsn":"514570"},{"author":"Rydb.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus aridus","tsn":"514571"},{"author":"Elliot","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus aristatus","tsn":"514572"},{"author":"E.E. Watson","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus borealis","tsn":"514573"},{"author":"(A. Gray) S. Watson","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus canescens","tsn":"514574"},{"author":"(Britton) Woot. & Standl.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus canus","tsn":"514575"},{"author":"R.C. Jacks.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus crenatus","tsn":"514576"},{"author":"Torr. & A. Gray","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus cucumerifolius","tsn":"514577"},{"author":"Britton","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus dalyi","tsn":"514578"},{"author":"Cav.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus dentatus","tsn":"514579"},{"author":"M.A. Curtis","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus dowellianus","tsn":"514580"},{"author":"A. Gray","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["serpentine sunflower"],"nameUsage":"accepted","scientificName":"Helianthus exilis","tsn":"514581"},{"author":"Greene","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus fascicularis","tsn":"514582"},{"author":"Small","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus filiformis","tsn":"514583"},{"author":"R.C. Jacks.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus heiseri","tsn":"514584"},{"author":"E.E. Watson","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus instabilis","tsn":"514585"},{"author":"L.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus laevis","tsn":"514586"},{"author":"Douglas ex Lindl.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus lenticularis","tsn":"514587"},{"author":"Shinners","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus ludens","tsn":"514588"},{"author":"E.E. Watson","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus montanus","tsn":"514589"},{"author":"DC.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus orgyalis","tsn":"514590"},{"author":"A. Gray","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus parishii","tsn":"514591"},{"author":"Tausch","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus pilosus","tsn":"514592"},{"author":"Hook.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus quinquenervis","tsn":"514593"},{"author":"(Steele) E.E. Watson","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus reindutus","tsn":"514594"},{"author":"Britton","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus rydbergii","tsn":"514595"},{"author":"Small","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus saxicola","tsn":"514596"},{"author":"Elliot","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus scaberrimus","tsn":"514597"},{"author":"Britton","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus scrophulariifolius","tsn":"514598"},{"author":"(Torr. & A. Gray) E.E. Watson","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus stenophyllus","tsn":"514599"},{"author":"Rydb.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus subrhomboideus","tsn":"514600"},{"author":"(Britton) Britton","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus subtuberosus","tsn":"514601"},{"author":"A. Gray","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus tephrodes","tsn":"514602"},{"author":"auct. non Michx.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus tomentosus","tsn":"514603"},{"author":"Michx.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus tomentosus","tsn":"514604"},{"author":"Mill.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus tracheliifolius","tsn":"514605"},{"author":"Nutt.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus uniflorus","tsn":"514606"},{"author":"E.E. Watson","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus validus","tsn":"514607"},{"author":"E.E. Watson","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus vestitus","tsn":"514608"},{"author":"Nutt.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["stiff sunflower"],"nameUsage":"accepted","scientificName":"Helianthus pauciflorus ssp. pauciflorus","tsn":"524126"},{"author":"(Rydb.) O. Spring & E.E. Schill.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["stiff sunflower"],"nameUsage":"accepted","scientificName":"Helianthus pauciflorus ssp. subrhomboideus","tsn":"524127"},{"author":"(Heiser) Heiser","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus annuus ssp. jaegeri","tsn":"525928"},{"author":"(Douglas ex Lindl.) Cockerell","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus annuus ssp. lenticularis","tsn":"525929"},{"author":"Heiser","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus annuus ssp. texanus","tsn":"525930"},{"author":"Heiser","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus debilis ssp. hirtus","tsn":"525931"},{"author":"(Engelm. & A. Gray) Heiser","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus debilis ssp. praecox","tsn":"525932"},{"author":"Heiser","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus debilis ssp. runyonii","tsn":"525933"},{"author":"(E.E. Watson) R.W. Long","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus giganteus ssp. alienus","tsn":"525934"},{"author":"R.W. Long","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus grosseserratus ssp. maximus","tsn":"525935"},{"author":"R.W. Long","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus nuttallii ssp. canadensis","tsn":"525936"},{"author":"(Cockerell) R.W. Long","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus nuttallii ssp. coloradensis","tsn":"525937"},{"author":"(Rydb.) Heiser","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus rigidus ssp. laetiflorus","tsn":"525938"},{"author":"Fernald","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus angustifolius var. planifolius","tsn":"536094"},{"author":"(Douglas ex Lindl.) Steyerm.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus annuus var. lenticularis","tsn":"536095"},{"author":"(DC.) Cockerell","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus annuus var. macrocarpus","tsn":"536096"},{"author":"(Heiser) Shinners","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus annuus var. texanus","tsn":"536097"},{"author":"Fernald","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus atrorubens var. alsodes","tsn":"536098"},{"author":"Kuntze","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus atrorubens var. pubescens","tsn":"536099"},{"author":"Torr. & A. Gray","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus cinereus var. sullivantii","tsn":"536100"},{"author":"(Torr. & A. Gray) A. Gray","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus debilis var. cucumerifolius","tsn":"536101"},{"author":"(Heiser) Cronquist","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus debilis var. silvestris","tsn":"536102"},{"author":"(Heiser) Cronquist","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus debilis var. tardiflorus","tsn":"536103"},{"author":"(E.E. Watson) Cronquist","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus debilis var. vestitus","tsn":"536104"},{"author":"Kuntze","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus divaricatus var. angustifolius","tsn":"536105"},{"author":"Britton","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus giganteus var. subtuberosus","tsn":"536106"},{"author":"A. Gray","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus grosseserratus var. hypoleucus","tsn":"536107"},{"author":"Torr. & A. Gray","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus hirsutus var. stenophyllus","tsn":"536108"},{"author":"Torr. & A. Gray","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus hirsutus var. trachyphyllus","tsn":"536109"},{"author":"(Cass.) Fernald","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus laetiflorus var. rigidus","tsn":"536110"},{"author":"(Rydb.) Fernald","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus laetiflorus var. subrhomboideus","tsn":"536111"},{"author":"S. Watson","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus mollis var. cordatus","tsn":"536112"},{"author":"(Britton) B. Boivin","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus nuttallii var. rydbergii","tsn":"536113"},{"author":"(Britton) B. Boivin","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus nuttallii var. subtuberosus","tsn":"536114"},{"author":"(M.A. Curtis) Torr. & A. Gray","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus occidentalis var. dowellianus","tsn":"536115"},{"author":"Torr. & A. Gray","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus occidentalis var. plantagineus","tsn":"536116"},{"author":"(Rydb.) Cronquist","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus pauciflorus var. subrhomboideus","tsn":"536117"},{"author":"A. Gray","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus petiolaris var. canescens","tsn":"536118"},{"author":"(Heiser) B.L. Turner","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus petiolaris var. fallax","tsn":"536119"},{"author":"(Heiser) B.L. Turner","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus praecox var. runyonii","tsn":"536120"},{"author":"(Rydb.) Cronquist","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus rigidus var. subrhomboideus","tsn":"536121"},{"author":"A. Gray","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus tuberosus var. subcanescens","tsn":"536122"},{"author":"(Hemprich and Ehrenberg in Ehrenberg, 1834)","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"valid","scientificName":"Gyrostoma helianthus","tsn":"612091"},{"author":"(Hatch, 1971)","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"valid","scientificName":"Cylindrocopturus helianthus","tsn":"617961"},{"author":"B<fc>scher, 1997","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"valid","scientificName":"Neolamprologus helianthus","tsn":"648802"},{"author":"Small","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["whorled sunflower"],"nameUsage":"accepted","scientificName":"Helianthus verticillatus","tsn":"780365"},{"author":"(Benth.) Brandegee","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"accepted","scientificName":"Helianthus niveus ssp. niveus","tsn":"780806"},{"author":"Verrill, 1894","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"valid","scientificName":"Crossaster helianthus","tsn":"989688"},{"author":"(Lamarck, 1816)","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"valid","scientificName":"Heliaster helianthus","tsn":"990429"},{"author":"(Lamarck, 1816)","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"invalid","scientificName":"Asteracanthion helianthus","tsn":"990982"},{"author":"Lamarck, 1816","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"invalid","scientificName":"Asterias helianthus","tsn":"991153"},{"author":"(Lamarck, 1816)","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"invalid","scientificName":"Stellonia helianthus","tsn":"992502"}],"requestedName":"Helianthus"}
-  recorded_at: 2020-09-16 19:14:33 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+        {"class":"gov.usgs.itis.itis_service.data.SvcItisTermList","itisTerms":[{"author":"L.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["sunflower"],"nameUsage":"accepted","scientificName":"Helianthus","tsn":"36611"},{"author":"L.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["giant sunflower"],"nameUsage":"accepted","scientificName":"Helianthus giganteus","tsn":"36612"},{"author":"Pollard","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["southeastern sunflower"],"nameUsage":"accepted","scientificName":"Helianthus agrestis","tsn":"36613"},{"author":"(A. Gray) Britton (pro sp.)","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["ambiguous sunflower"],"nameUsage":"accepted","scientificName":"Helianthus X ambiguus","tsn":"36614"},{"author":"L.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus agustifolius","tsn":"36615"},{"author":"L.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["annual sunflower","sunflower","wild sunflower","common sunflower"],"nameUsage":"accepted","scientificName":"Helianthus annuus","tsn":"36616"},{"author":"S.F. Blake","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["desert sunflower","western sunflower"],"nameUsage":"accepted","scientificName":"Helianthus anomalus","tsn":"36617"},{"author":"Torr. & A. Gray","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus argophyllis","tsn":"36618"},{"author":"R.C. Jacks.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus arizonicus","tsn":"36619"},{"author":"L.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["purpledisk sunflower"],"nameUsage":"accepted","scientificName":"Helianthus atrorubens","tsn":"36620"},{"author":"A. Gray","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["serpentine sunflower"],"nameUsage":"accepted","scientificName":"Helianthus bolanderi","tsn":"36621"},{"author":"E.E. Watson (pro sp.)","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["shortleaf sunflower"],"nameUsage":"accepted","scientificName":"Helianthus X brevifolius","tsn":"36622"},{"author":"DC.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["California sunflower"],"nameUsage":"accepted","scientificName":"Helianthus californicus","tsn":"36623"},{"author":"Small","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["lakeside sunflower"],"nameUsage":"accepted","scientificName":"Helianthus carnosus","tsn":"36624"},{"author":"DC.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["blueweed sunflower","Texas-blueweed","blueweed","yerba parda","Texas blueweed"],"nameUsage":"accepted","scientificName":"Helianthus ciliaris","tsn":"36625"},{"author":"Torr. & A. Gray (pro sp.)","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["sunflower"],"nameUsage":"accepted","scientificName":"Helianthus X cinereus","tsn":"36626"},{"author":"A. Gray","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["Cusick's sunflower"],"nameUsage":"accepted","scientificName":"Helianthus cusickii","tsn":"36627"},{"author":"Nutt.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["cucumberleaf sunflower"],"nameUsage":"accepted","scientificName":"Helianthus debilis","tsn":"36628"},{"author":"Nutt.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["cucumberleaf sunflower"],"nameUsage":"accepted","scientificName":"Helianthus debilis ssp. debilis","tsn":"36629"},{"author":"(Torr. & A. Gray) Heiser","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["cucumberleaf sunflower"],"nameUsage":"accepted","scientificName":"Helianthus debilis ssp. cucumerifolius","tsn":"36630"},{"author":"Heiser","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["cucumberleaf sunflower"],"nameUsage":"accepted","scientificName":"Helianthus debilis ssp. silvestris","tsn":"36631"},{"author":"Heiser","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["cucumberleaf sunflower"],"nameUsage":"accepted","scientificName":"Helianthus debilis ssp. tardiflorus","tsn":"36632"},{"author":"(E.E. Watson) Heiser","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["cucumberleaf sunflower"],"nameUsage":"accepted","scientificName":"Helianthus debilis ssp. vestitus","tsn":"36633"},{"author":"L.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus decapetalis","tsn":"36634"},{"author":"Heiser","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["desert sunflower"],"nameUsage":"accepted","scientificName":"Helianthus deserticola","tsn":"36635"},{"author":"L.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["woodland sunflower","h<e9>lianthe <e0> feuilles <e9>tal<e9>es"],"nameUsage":"accepted","scientificName":"Helianthus divaricatus","tsn":"36636"},{"author":"R.W. Long","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["sunflower"],"nameUsage":"accepted","scientificName":"Helianthus X divariserratus","tsn":"36637"},{"author":"Lam. (pro sp.)","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["sunflower","perennial sunflower"],"nameUsage":"accepted","scientificName":"Helianthus X doronicoides","tsn":"36638"},{"author":"Small","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["Eggert's sunflower"],"nameUsage":"accepted","scientificName":"Helianthus eggertii","tsn":"36639"},{"author":"A. Gray ex Chapm.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["Florida sunflower"],"nameUsage":"accepted","scientificName":"Helianthus floridanus","tsn":"36640"},{"author":"D.M. Sm.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["whiteleaf sunflower"],"nameUsage":"accepted","scientificName":"Helianthus glaucophyllus","tsn":"36641"},{"author":"Small (pro sp.)","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["glaucous sunflower"],"nameUsage":"accepted","scientificName":"Helianthus X glaucus","tsn":"36642"},{"author":"A. Gray","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["slender sunflower"],"nameUsage":"accepted","scientificName":"Helianthus gracilentus","tsn":"36643"},{"author":"M. Martens","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["saw-tooth sunflower","sawtooth sunflower"],"nameUsage":"accepted","scientificName":"Helianthus grosseserratus","tsn":"36644"},{"author":"Nutt.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["variableleaf sunflower"],"nameUsage":"accepted","scientificName":"Helianthus heterophyllus","tsn":"36645"},{"author":"Raf.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["hairy sunflower"],"nameUsage":"accepted","scientificName":"Helianthus hirsutus","tsn":"36646"},{"author":"R.W. Long","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["intermediate sunflower"],"nameUsage":"accepted","scientificName":"Helianthus X intermedius","tsn":"36647"},{"author":"Britton (pro sp.)","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["Kellerman's sunflower"],"nameUsage":"accepted","scientificName":"Helianthus X kellermanii","tsn":"36648"},{"author":"A. Gray","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["alkali sunflower"],"nameUsage":"accepted","scientificName":"Helianthus laciniatus","tsn":"36649"},{"author":"Torr. & A. Gray","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["smooth sunflower"],"nameUsage":"accepted","scientificName":"Helianthus laevigatus","tsn":"36650"},{"author":"Pursh","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["longleaf sunflower"],"nameUsage":"accepted","scientificName":"Helianthus longifolius","tsn":"36651"},{"author":"E.E. Watson (pro sp.)","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["luxuriant sunflower"],"nameUsage":"accepted","scientificName":"Helianthus X luxurians","tsn":"36652"},{"author":"Schrad.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["Maximilian sunflower"],"nameUsage":"accepted","scientificName":"Helianthus maximiliani","tsn":"36653"},{"author":"Torr. & A. Gray","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["small woodland sunflower"],"nameUsage":"accepted","scientificName":"Helianthus microcephalus","tsn":"36654"},{"author":"Lam.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["ashy sunflower"],"nameUsage":"accepted","scientificName":"Helianthus mollis","tsn":"36655"},{"author":"L. (pro sp.)","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["manyflower sunflower"],"nameUsage":"accepted","scientificName":"Helianthus X multiflorus","tsn":"36656"},{"author":"Heiser","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["neglected sunflower"],"nameUsage":"accepted","scientificName":"Helianthus neglectus","tsn":"36657"},{"author":"(Benth.) Brandegee","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["snowy sunflower","showy sunflower"],"nameUsage":"accepted","scientificName":"Helianthus niveus","tsn":"36658"},{"author":"(Benth.) Brandegee","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus niveus var. niveus","tsn":"36659"},{"author":"(A. Gray) Heiser","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["showy sunflower"],"nameUsage":"not accepted","scientificName":"Helianthus niveus ssp. canescens","tsn":"36660"},{"author":"(A. Gray) Heiser","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["Algodones sunflower"],"nameUsage":"accepted","scientificName":"Helianthus niveus ssp. tephrodes","tsn":"36661"},{"author":"Torr. & A. Gray","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["Nuttall's sunflower"],"nameUsage":"accepted","scientificName":"Helianthus nuttallii","tsn":"36662"},{"author":"Torr. & A. Gray","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["Nuttall's sunflower"],"nameUsage":"accepted","scientificName":"Helianthus nuttallii ssp. nuttallii","tsn":"36663"},{"author":"(A. Gray) Heiser","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["Parish's sunflower"],"nameUsage":"accepted","scientificName":"Helianthus nuttallii ssp. parishii","tsn":"36664"},{"author":"(Britton) R.W. Long","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["Rydberg's sunflower"],"nameUsage":"accepted","scientificName":"Helianthus nuttallii ssp. rydbergii","tsn":"36665"},{"author":"Riddell","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["fewleaf sunflower"],"nameUsage":"accepted","scientificName":"Helianthus occidentalis","tsn":"36666"},{"author":"Riddell","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["fewleaf sunflower"],"nameUsage":"accepted","scientificName":"Helianthus occidentalis ssp. occidentalis","tsn":"36667"},{"author":"(Torr. & A. Gray) Shinners","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["Gewleaf sunflower","fewleaf sunflower"],"nameUsage":"accepted","scientificName":"Helianthus occidentalis ssp. plantagineus","tsn":"36668"},{"author":"Cockerell (pro sp.)","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["sunflower"],"nameUsage":"accepted","scientificName":"Helianthus X orgyaloides","tsn":"36669"},{"author":"Heiser","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["paradox sunflower","puzzle sunflower","Pecos sunflower"],"nameUsage":"accepted","scientificName":"Helianthus paradoxus","tsn":"36670"},{"author":"Nutt.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["prairie sunflower","showy sunflower"],"nameUsage":"accepted","scientificName":"Helianthus petiolaris","tsn":"36671"},{"author":"Nutt.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["prairie sunflower"],"nameUsage":"accepted","scientificName":"Helianthus petiolaris ssp. petiolaris","tsn":"36672"},{"author":"Heiser","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["prairie sunflower"],"nameUsage":"accepted","scientificName":"Helianthus petiolaris ssp. fallax","tsn":"36673"},{"author":"Engelm. & A. Gray","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["Texas sunflower"],"nameUsage":"accepted","scientificName":"Helianthus praecox","tsn":"36674"},{"author":"Engelm. & A. Gray","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["Texas sunflower"],"nameUsage":"accepted","scientificName":"Helianthus praecox ssp. praecox","tsn":"36675"},{"author":"(Heiser) Heiser","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["Texas sunflower"],"nameUsage":"accepted","scientificName":"Helianthus praecox ssp. hirtus","tsn":"36676"},{"author":"(Heiser) Heiser","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["Runyon's sunflower"],"nameUsage":"accepted","scientificName":"Helianthus praecox ssp. runyonii","tsn":"36677"},{"author":"E.E. Watson","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["New Mexico sunflower"],"nameUsage":"accepted","scientificName":"Helianthus praetermissus","tsn":"36678"},{"author":"Nutt.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["little sunflower"],"nameUsage":"accepted","scientificName":"Helianthus pumilus","tsn":"36679"},{"author":"(Pursh) Torr. & A. Gray","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["stiff sunflower","rayless sunflower"],"nameUsage":"accepted","scientificName":"Helianthus radula","tsn":"36680"},{"author":"Small","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["resindot sunflower"],"nameUsage":"accepted","scientificName":"Helianthus resinosus","tsn":"36681"},{"author":"(Cass.) Desf.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus rigidus","tsn":"36682"},{"author":"(Cass.) Desf.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus rigidus var. rigidus","tsn":"36683"},{"author":"(Rydb.) Heiser","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus rigidus ssp. subrhomboideus","tsn":"36684"},{"author":"A. Dietr.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["willowleaf sunflower"],"nameUsage":"accepted","scientificName":"Helianthus salicifolius","tsn":"36685"},{"author":"Torr. & A. Gray","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["Schweinitz's sunflower"],"nameUsage":"accepted","scientificName":"Helianthus schweinitzii","tsn":"36686"},{"author":"Nutt.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["rosinweed sunflower"],"nameUsage":"accepted","scientificName":"Helianthus silphioides","tsn":"36687"},{"author":"E.E. Watson","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["muck sunflower"],"nameUsage":"accepted","scientificName":"Helianthus simulans","tsn":"36688"},{"author":"Heiser","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["Smith's sunflower"],"nameUsage":"accepted","scientificName":"Helianthus smithii","tsn":"36689"},{"author":"L.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["paleleaf woodland sunflower"],"nameUsage":"accepted","scientificName":"Helianthus strumosus","tsn":"36690"},{"author":"L.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["Jerusalem-artichoke","girasole","Jerusalem sunflower","Jerusalem artichoke"],"nameUsage":"accepted","scientificName":"Helianthus tuberosus","tsn":"36691"},{"author":"E.E. Watson (pro sp.)","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["sunflower"],"nameUsage":"accepted","scientificName":"Helianthus X verticillatus","tsn":"36692"},{"author":"(Ellis, 1768)","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["sun anemone"],"nameUsage":"valid","scientificName":"Stichodactyla helianthus","tsn":"52830"},{"author":"(Ellis, 1768)","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"invalid","scientificName":"Stoichactis helianthus","tsn":"52831"},{"author":"Boivin","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["Alex sunflower"],"nameUsage":"not accepted","scientificName":"Helianthus X alexidis","tsn":"502918"},{"author":"L.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["swamp sneezeweed","swamp sunflower"],"nameUsage":"accepted","scientificName":"Helianthus angustifolius","tsn":"502919"},{"author":"Torr. & A. Gray","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["silverleaf sunflower"],"nameUsage":"accepted","scientificName":"Helianthus argophyllus","tsn":"502920"},{"author":"R.C. Jacks.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["Arizona sunflower"],"nameUsage":"accepted","scientificName":"Helianthus arizonensis","tsn":"502921"},{"author":"Boivin","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["Coupland's sunflower"],"nameUsage":"not accepted","scientificName":"Helianthus couplandii","tsn":"502922"},{"author":"L.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["thinleaf sunflower"],"nameUsage":"accepted","scientificName":"Helianthus decapetalus","tsn":"502923"},{"author":"Pers. (pro sp.)","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["mountain sunflower","cheerful sunflower"],"nameUsage":"accepted","scientificName":"Helianthus X laetiflorus","tsn":"502924"},{"author":"Nutt.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["stiff sunflower"],"nameUsage":"accepted","scientificName":"Helianthus pauciflorus","tsn":"502925"},{"author":"(A. Gray) Pruski","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["Porter's sunflower"],"nameUsage":"accepted","scientificName":"Helianthus porteri","tsn":"502926"},{"author":"E.E. Watson","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus alienus","tsn":"514570"},{"author":"Rydb.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus aridus","tsn":"514571"},{"author":"Elliot","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus aristatus","tsn":"514572"},{"author":"E.E. Watson","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus borealis","tsn":"514573"},{"author":"(A. Gray) S. Watson","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus canescens","tsn":"514574"},{"author":"(Britton) Woot. & Standl.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus canus","tsn":"514575"},{"author":"R.C. Jacks.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus crenatus","tsn":"514576"},{"author":"Torr. & A. Gray","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus cucumerifolius","tsn":"514577"},{"author":"Britton","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus dalyi","tsn":"514578"},{"author":"Cav.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus dentatus","tsn":"514579"},{"author":"M.A. Curtis","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus dowellianus","tsn":"514580"},{"author":"A. Gray","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["serpentine sunflower"],"nameUsage":"accepted","scientificName":"Helianthus exilis","tsn":"514581"},{"author":"Greene","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus fascicularis","tsn":"514582"},{"author":"Small","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus filiformis","tsn":"514583"},{"author":"R.C. Jacks.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus heiseri","tsn":"514584"},{"author":"E.E. Watson","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus instabilis","tsn":"514585"},{"author":"L.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus laevis","tsn":"514586"},{"author":"Douglas ex Lindl.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus lenticularis","tsn":"514587"},{"author":"Shinners","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus ludens","tsn":"514588"},{"author":"E.E. Watson","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus montanus","tsn":"514589"},{"author":"DC.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus orgyalis","tsn":"514590"},{"author":"A. Gray","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus parishii","tsn":"514591"},{"author":"Tausch","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus pilosus","tsn":"514592"},{"author":"Hook.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus quinquenervis","tsn":"514593"},{"author":"(Steele) E.E. Watson","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus reindutus","tsn":"514594"},{"author":"Britton","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus rydbergii","tsn":"514595"},{"author":"Small","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus saxicola","tsn":"514596"},{"author":"Elliot","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus scaberrimus","tsn":"514597"},{"author":"Britton","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus scrophulariifolius","tsn":"514598"},{"author":"(Torr. & A. Gray) E.E. Watson","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus stenophyllus","tsn":"514599"},{"author":"Rydb.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus subrhomboideus","tsn":"514600"},{"author":"(Britton) Britton","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus subtuberosus","tsn":"514601"},{"author":"A. Gray","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus tephrodes","tsn":"514602"},{"author":"auct. non Michx.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus tomentosus","tsn":"514603"},{"author":"Michx.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus tomentosus","tsn":"514604"},{"author":"Mill.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus tracheliifolius","tsn":"514605"},{"author":"Nutt.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus uniflorus","tsn":"514606"},{"author":"E.E. Watson","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus validus","tsn":"514607"},{"author":"E.E. Watson","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus vestitus","tsn":"514608"},{"author":"Nutt.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["stiff sunflower"],"nameUsage":"accepted","scientificName":"Helianthus pauciflorus ssp. pauciflorus","tsn":"524126"},{"author":"(Rydb.) O. Spring & E.E. Schill.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["stiff sunflower"],"nameUsage":"accepted","scientificName":"Helianthus pauciflorus ssp. subrhomboideus","tsn":"524127"},{"author":"(Heiser) Heiser","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus annuus ssp. jaegeri","tsn":"525928"},{"author":"(Douglas ex Lindl.) Cockerell","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus annuus ssp. lenticularis","tsn":"525929"},{"author":"Heiser","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus annuus ssp. texanus","tsn":"525930"},{"author":"Heiser","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus debilis ssp. hirtus","tsn":"525931"},{"author":"(Engelm. & A. Gray) Heiser","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus debilis ssp. praecox","tsn":"525932"},{"author":"Heiser","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus debilis ssp. runyonii","tsn":"525933"},{"author":"(E.E. Watson) R.W. Long","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus giganteus ssp. alienus","tsn":"525934"},{"author":"R.W. Long","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus grosseserratus ssp. maximus","tsn":"525935"},{"author":"R.W. Long","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus nuttallii ssp. canadensis","tsn":"525936"},{"author":"(Cockerell) R.W. Long","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus nuttallii ssp. coloradensis","tsn":"525937"},{"author":"(Rydb.) Heiser","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus rigidus ssp. laetiflorus","tsn":"525938"},{"author":"Fernald","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus angustifolius var. planifolius","tsn":"536094"},{"author":"(Douglas ex Lindl.) Steyerm.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus annuus var. lenticularis","tsn":"536095"},{"author":"(DC.) Cockerell","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus annuus var. macrocarpus","tsn":"536096"},{"author":"(Heiser) Shinners","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus annuus var. texanus","tsn":"536097"},{"author":"Fernald","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus atrorubens var. alsodes","tsn":"536098"},{"author":"Kuntze","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus atrorubens var. pubescens","tsn":"536099"},{"author":"Torr. & A. Gray","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus cinereus var. sullivantii","tsn":"536100"},{"author":"(Torr. & A. Gray) A. Gray","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus debilis var. cucumerifolius","tsn":"536101"},{"author":"(Heiser) Cronquist","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus debilis var. silvestris","tsn":"536102"},{"author":"(Heiser) Cronquist","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus debilis var. tardiflorus","tsn":"536103"},{"author":"(E.E. Watson) Cronquist","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus debilis var. vestitus","tsn":"536104"},{"author":"Kuntze","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus divaricatus var. angustifolius","tsn":"536105"},{"author":"Britton","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus giganteus var. subtuberosus","tsn":"536106"},{"author":"A. Gray","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus grosseserratus var. hypoleucus","tsn":"536107"},{"author":"Torr. & A. Gray","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus hirsutus var. stenophyllus","tsn":"536108"},{"author":"Torr. & A. Gray","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus hirsutus var. trachyphyllus","tsn":"536109"},{"author":"(Cass.) Fernald","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus laetiflorus var. rigidus","tsn":"536110"},{"author":"(Rydb.) Fernald","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus laetiflorus var. subrhomboideus","tsn":"536111"},{"author":"S. Watson","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus mollis var. cordatus","tsn":"536112"},{"author":"(Britton) B. Boivin","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus nuttallii var. rydbergii","tsn":"536113"},{"author":"(Britton) B. Boivin","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus nuttallii var. subtuberosus","tsn":"536114"},{"author":"(M.A. Curtis) Torr. & A. Gray","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus occidentalis var. dowellianus","tsn":"536115"},{"author":"Torr. & A. Gray","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus occidentalis var. plantagineus","tsn":"536116"},{"author":"(Rydb.) Cronquist","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus pauciflorus var. subrhomboideus","tsn":"536117"},{"author":"A. Gray","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus petiolaris var. canescens","tsn":"536118"},{"author":"(Heiser) B.L. Turner","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus petiolaris var. fallax","tsn":"536119"},{"author":"(Heiser) B.L. Turner","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus praecox var. runyonii","tsn":"536120"},{"author":"(Rydb.) Cronquist","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus rigidus var. subrhomboideus","tsn":"536121"},{"author":"A. Gray","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus tuberosus var. subcanescens","tsn":"536122"},{"author":"(Hemprich and Ehrenberg in Ehrenberg, 1834)","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"valid","scientificName":"Gyrostoma helianthus","tsn":"612091"},{"author":"(Hatch, 1971)","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"valid","scientificName":"Cylindrocopturus helianthus","tsn":"617961"},{"author":"B<fc>scher, 1997","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"valid","scientificName":"Neolamprologus helianthus","tsn":"648802"},{"author":"Small","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["whorled sunflower"],"nameUsage":"accepted","scientificName":"Helianthus verticillatus","tsn":"780365"},{"author":"(Benth.) Brandegee","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"accepted","scientificName":"Helianthus niveus ssp. niveus","tsn":"780806"},{"author":"Verrill, 1894","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"valid","scientificName":"Crossaster helianthus","tsn":"989688"},{"author":"(Lamarck, 1816)","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"valid","scientificName":"Heliaster helianthus","tsn":"990429"},{"author":"(Lamarck, 1816)","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"invalid","scientificName":"Asteracanthion helianthus","tsn":"990982"},{"author":"Lamarck, 1816","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"invalid","scientificName":"Asterias helianthus","tsn":"991153"},{"author":"(Lamarck, 1816)","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"invalid","scientificName":"Stellonia helianthus","tsn":"992502"},{"author":"Epler, 2020","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"valid","scientificName":"Uvarus sinofelihelianthus","tsn":"1157118"}],"requestedName":"Helianthus"}
+  recorded_at: 2021-09-15 22:50:29 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://www.itis.gov/ITISWebService/jsonservice/getFullHierarchyFromTSN?tsn=36611
@@ -598,7 +610,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.72.0 r-curl/4.3 crul/1.0.0
+      User-Agent: libcurl/7.68.0 r-curl/4.3.2 crul/1.1.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -607,24 +619,24 @@ http_interactions:
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      connection: keep-alive
       content-type: text/json;charset=ISO-8859-1
-      date: Wed, 16 Sep 2020 19:14:27 GMT
+      date: Wed, 15 Sep 2021 22:50:20 GMT
       status: 'HTTP/1.1 200 '
       strict-transport-security:
       - max-age=63072000; includeSubDomains; preload
-      - max-age=63072000; includeSubdomains; preload
+      - max-age=63072000; includeSubDomains; preload
       transfer-encoding: chunked
-      x-content-type-options: nosniff
-      x-node-name: not shown
-      x-upstream-member: not shown
+      x-content-type-options:
+      - nosniff
+      - nosniff
+      x-frame-options: SAMEORIGIN
     body:
       encoding: UTF-8
       file: no
       string: |
         {"author":"","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecordList","hierarchyList":[{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"","parentTsn":"","rankName":"Kingdom","taxonName":"Plantae","tsn":"202422"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Plantae","parentTsn":"202422","rankName":"Subkingdom","taxonName":"Viridiplantae","tsn":"954898"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Viridiplantae","parentTsn":"954898","rankName":"Infrakingdom","taxonName":"Streptophyta","tsn":"846494"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Streptophyta","parentTsn":"846494","rankName":"Superdivision","taxonName":"Embryophyta","tsn":"954900"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Embryophyta","parentTsn":"954900","rankName":"Division","taxonName":"Tracheophyta","tsn":"846496"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Tracheophyta","parentTsn":"846496","rankName":"Subdivision","taxonName":"Spermatophytina","tsn":"846504"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Spermatophytina","parentTsn":"846504","rankName":"Class","taxonName":"Magnoliopsida","tsn":"18063"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Magnoliopsida","parentTsn":"18063","rankName":"Superorder","taxonName":"Asteranae","tsn":"846535"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Asteranae","parentTsn":"846535","rankName":"Order","taxonName":"Asterales","tsn":"35419"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Asterales","parentTsn":"35419","rankName":"Family","taxonName":"Asteraceae","tsn":"35420"},{"author":"L.","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Asteraceae","parentTsn":"35420","rankName":"Genus","taxonName":"Helianthus","tsn":"36611"},{"author":"Pollard","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus agrestis","tsn":"36613"},{"author":"L.","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus angustifolius","tsn":"502919"},{"author":"L.","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus annuus","tsn":"36616"},{"author":"S.F. Blake","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus anomalus","tsn":"36617"},{"author":"Torr. & A. Gray","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus argophyllus","tsn":"502920"},{"author":"R.C. Jacks.","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus arizonensis","tsn":"502921"},{"author":"L.","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus atrorubens","tsn":"36620"},{"author":"A. Gray","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus bolanderi","tsn":"36621"},{"author":"DC.","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus californicus","tsn":"36623"},{"author":"Small","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus carnosus","tsn":"36624"},{"author":"DC.","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus ciliaris","tsn":"36625"},{"author":"A. Gray","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus cusickii","tsn":"36627"},{"author":"Nutt.","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus debilis","tsn":"36628"},{"author":"L.","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus decapetalus","tsn":"502923"},{"author":"Heiser","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus deserticola","tsn":"36635"},{"author":"L.","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus divaricatus","tsn":"36636"},{"author":"Small","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus eggertii","tsn":"36639"},{"author":"A. Gray","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus exilis","tsn":"514581"},{"author":"A. Gray ex Chapm.","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus floridanus","tsn":"36640"},{"author":"L.","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus giganteus","tsn":"36612"},{"author":"D.M. Sm.","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus glaucophyllus","tsn":"36641"},{"author":"A. Gray","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus gracilentus","tsn":"36643"},{"author":"M. Martens","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus grosseserratus","tsn":"36644"},{"author":"Nutt.","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus heterophyllus","tsn":"36645"},{"author":"Raf.","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus hirsutus","tsn":"36646"},{"author":"A. Gray","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus laciniatus","tsn":"36649"},{"author":"Torr. & A. Gray","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus laevigatus","tsn":"36650"},{"author":"Pursh","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus longifolius","tsn":"36651"},{"author":"Schrad.","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus maximiliani","tsn":"36653"},{"author":"Torr. & A. Gray","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus microcephalus","tsn":"36654"},{"author":"Lam.","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus mollis","tsn":"36655"},{"author":"Heiser","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus neglectus","tsn":"36657"},{"author":"(Benth.) Brandegee","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus niveus","tsn":"36658"},{"author":"Torr. & A. Gray","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus nuttallii","tsn":"36662"},{"author":"Riddell","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus occidentalis","tsn":"36666"},{"author":"Heiser","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus paradoxus","tsn":"36670"},{"author":"Nutt.","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus pauciflorus","tsn":"502925"},{"author":"Nutt.","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus petiolaris","tsn":"36671"},{"author":"(A. Gray) Pruski","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus porteri","tsn":"502926"},{"author":"Engelm. & A. Gray","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus praecox","tsn":"36674"},{"author":"E.E. Watson","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus praetermissus","tsn":"36678"},{"author":"Nutt.","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus pumilus","tsn":"36679"},{"author":"(Pursh) Torr. & A. Gray","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus radula","tsn":"36680"},{"author":"Small","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus resinosus","tsn":"36681"},{"author":"A. Dietr.","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus salicifolius","tsn":"36685"},{"author":"Torr. & A. Gray","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus schweinitzii","tsn":"36686"},{"author":"Nutt.","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus silphioides","tsn":"36687"},{"author":"E.E. Watson","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus simulans","tsn":"36688"},{"author":"Heiser","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus smithii","tsn":"36689"},{"author":"L.","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus strumosus","tsn":"36690"},{"author":"L.","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus tuberosus","tsn":"36691"},{"author":"Small","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus verticillatus","tsn":"780365"},{"author":"(A. Gray) Britton (pro sp.)","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus X ambiguus","tsn":"36614"},{"author":"E.E. Watson (pro sp.)","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus X brevifolius","tsn":"36622"},{"author":"Torr. & A. Gray (pro sp.)","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus X cinereus","tsn":"36626"},{"author":"R.W. Long","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus X divariserratus","tsn":"36637"},{"author":"Lam. (pro sp.)","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus X doronicoides","tsn":"36638"},{"author":"Small (pro sp.)","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus X glaucus","tsn":"36642"},{"author":"R.W. Long","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus X intermedius","tsn":"36647"},{"author":"Britton (pro sp.)","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus X kellermanii","tsn":"36648"},{"author":"Pers. (pro sp.)","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus X laetiflorus","tsn":"502924"},{"author":"E.E. Watson (pro sp.)","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus X luxurians","tsn":"36652"},{"author":"L. (pro sp.)","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus X multiflorus","tsn":"36656"},{"author":"Cockerell (pro sp.)","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus X orgyaloides","tsn":"36669"},{"author":"E.E. Watson (pro sp.)","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus X verticillatus","tsn":"36692"}],"rankName":"","sciName":"","tsn":"36611"}
-  recorded_at: 2020-09-16 19:14:33 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:50:29 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Helianthus%2Bannuus&api_key=<<entrez_api_token>>
@@ -634,8 +646,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -643,20 +655,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 19:14:27 GMT
+      date: Wed, 15 Sep 2021 22:50:21 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '9'
-      ncbi-phid: 939B5FAD2C30BAE5000053E9C5AADA07.1.1.m_1
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: 12864374232A81B7_19A8SID
+      ncbi-phid: D0BD2729693488A500001A47E7F2C416.1.1.m_1
+      x-ratelimit-remaining: '9'
+      ncbi-sid: FAD34F1BC95BF320_9C59SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=12864374232A81B7_19A8SID; domain=.nih.gov; path=/; expires=Thu,
-        16 Sep 2021 19:14:27 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=FAD34F1BC95BF320_9C59SID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:50:21 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -669,8 +683,8 @@ http_interactions:
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>4232</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Helianthus+annuus[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Helianthus+annuus[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2020-09-16 19:14:33 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:50:29 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&ID=4232&api_key=<<entrez_api_token>>
@@ -680,8 +694,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -689,20 +703,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 19:14:28 GMT
+      date: Wed, 15 Sep 2021 22:50:21 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '8'
-      ncbi-phid: 939B5FAD2C30BAE5000047E9C600BCDE.1.1.m_1
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: 4B952ED53A39AC22_2004SID
+      ncbi-phid: D0BD2729693488A500002B47E8F56276.1.1.m_1
+      x-ratelimit-remaining: '8'
+      ncbi-sid: 5F5E9B5E61291D75_85DASID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=4B952ED53A39AC22_2004SID; domain=.nih.gov; path=/; expires=Thu,
-        16 Sep 2021 19:14:27 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=5F5E9B5E61291D75_85DASID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:50:22 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -718,8 +734,8 @@ http_interactions:
         Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
         Name=\"Species\" Type=\"String\">annuus</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
         Name=\"ModificationDate\" Type=\"Date\">2018/11/23 00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
-  recorded_at: 2020-09-16 19:14:33 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:50:29 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=xxxxxx&api_key=<<entrez_api_token>>
@@ -729,8 +745,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -738,20 +754,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 19:14:28 GMT
+      date: Wed, 15 Sep 2021 22:50:22 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '8'
-      ncbi-phid: 939B5FAD2C30BAE500004CE9C62B3CF2.1.1.m_1
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: D374D37C1F7789F9_A393SID
+      ncbi-phid: D0BD2729693488A500006147E9462E54.1.1.m_1
+      x-ratelimit-remaining: '7'
+      ncbi-sid: 5A1C8554622B101D_EAC9SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=D374D37C1F7789F9_A393SID; domain=.nih.gov; path=/; expires=Thu,
-        16 Sep 2021 19:14:28 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=5A1C8554622B101D_EAC9SID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:50:22 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -762,8 +780,8 @@ http_interactions:
         <?xml version="1.0" encoding="UTF-8" ?>
         <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
         <eSearchResult><Count>0</Count><RetMax>0</RetMax><RetStart>0</RetStart><IdList/><TranslationSet/><QueryTranslation>(xxxxxx[All Names])</QueryTranslation><ErrorList><PhraseNotFound>xxxxxx</PhraseNotFound></ErrorList><WarningList><OutputMessage>No items found.</OutputMessage></WarningList></eSearchResult>
-  recorded_at: 2020-09-16 19:14:33 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:50:29 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=4232&api_key=<<entrez_api_token>>
@@ -771,7 +789,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.72.0 r-curl/4.3 crul/1.0.0
+      User-Agent: libcurl/7.68.0 r-curl/4.3.2 crul/1.1.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -781,20 +799,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 19:14:28 GMT
+      date: Wed, 15 Sep 2021 22:50:23 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '6'
-      ncbi-phid: 939B5FAD2C30BAE500004BE9C6838ED2.1.1.m_3
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: 1549564A88BC19A5_BFF9SID
+      ncbi-phid: D0BD2729693488A500003147EA2091F4.1.1.m_3
+      x-ratelimit-remaining: '7'
+      ncbi-sid: 3C5872F716CE5104_3DFBSID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=1549564A88BC19A5_BFF9SID; domain=.nih.gov; path=/; expires=Thu,
-        16 Sep 2021 19:14:28 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=3C5872F716CE5104_3DFBSID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:50:23 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -962,8 +982,8 @@ http_interactions:
         </Taxon>
 
         </TaxaSet>
-  recorded_at: 2020-09-16 19:14:33 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:50:29 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=&api_key=<<entrez_api_token>>
@@ -971,7 +991,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.72.0 r-curl/4.3 crul/1.0.0
+      User-Agent: libcurl/7.68.0 r-curl/4.3.2 crul/1.1.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -981,20 +1001,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 19:14:28 GMT
+      date: Wed, 15 Sep 2021 22:50:23 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '6'
-      ncbi-phid: 939B5FAD2C30BAE5000054E9C6E1BE74.1.1.m_1
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: 6250E30B3FA1D8F6_D2EDSID
+      ncbi-phid: D0BD2729693488A500005447EA8EA0BA.1.1.m_1
+      x-ratelimit-remaining: '8'
+      ncbi-sid: 983D3CB858797EEA_A5DCSID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=6250E30B3FA1D8F6_D2EDSID; domain=.nih.gov; path=/; expires=Thu,
-        16 Sep 2021 19:14:28 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=983D3CB858797EEA_A5DCSID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:50:23 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -1004,8 +1026,8 @@ http_interactions:
       string: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!DOCTYPE eEfetchResult
         PUBLIC \"-//NLM//DTD efetch 20131226//EN\" \"https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20131226/efetch.dtd\">\n<eFetchResult>\n\t<ERROR>Supplied
         id parameter is empty.</ERROR>\n</eFetchResult>\n"
-  recorded_at: 2020-09-16 19:14:33 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:50:29 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=&api_key=<<entrez_api_token>>
@@ -1013,7 +1035,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.72.0 r-curl/4.3 crul/1.0.0
+      User-Agent: libcurl/7.68.0 r-curl/4.3.2 crul/1.1.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -1023,20 +1045,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 19:14:29 GMT
+      date: Wed, 15 Sep 2021 22:50:25 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
+      x-test-test: test42
+      cache-control: private
+      ncbi-phid: D0BD2729693488A500004B47EC9C7B25.1.1.m_1
       x-ratelimit-remaining: '9'
-      ncbi-phid: 322C5A3BB066D855000034D9644E0AA4.1.1.m_1
-      cache-control: private
-      ncbi-sid: 6250E30B3FA1D8F6_D2EDSID
+      ncbi-sid: 983D3CB858797EEA_A5DCSID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=6250E30B3FA1D8F6_D2EDSID; domain=.nih.gov; path=/; expires=Thu,
-        16 Sep 2021 19:14:30 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=983D3CB858797EEA_A5DCSID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:50:25 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -1046,8 +1070,8 @@ http_interactions:
       string: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!DOCTYPE eEfetchResult
         PUBLIC \"-//NLM//DTD efetch 20131226//EN\" \"https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20131226/efetch.dtd\">\n<eFetchResult>\n\t<ERROR>Supplied
         id parameter is empty.</ERROR>\n</eFetchResult>\n"
-  recorded_at: 2020-09-16 19:14:33 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:50:29 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=&api_key=<<entrez_api_token>>
@@ -1055,7 +1079,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.72.0 r-curl/4.3 crul/1.0.0
+      User-Agent: libcurl/7.68.0 r-curl/4.3.2 crul/1.1.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -1065,20 +1089,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 19:14:31 GMT
+      date: Wed, 15 Sep 2021 22:50:27 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '9'
-      ncbi-phid: 322C5A3BB066D85500005BD9667DC697.1.1.m_1
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: 6250E30B3FA1D8F6_D2EDSID
+      ncbi-phid: D0BD2729693488A500004747EE84D850.1.1.m_1
+      x-ratelimit-remaining: '9'
+      ncbi-sid: 983D3CB858797EEA_A5DCSID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=6250E30B3FA1D8F6_D2EDSID; domain=.nih.gov; path=/; expires=Thu,
-        16 Sep 2021 19:14:32 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=983D3CB858797EEA_A5DCSID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:50:27 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -1088,5 +1114,5 @@ http_interactions:
       string: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!DOCTYPE eEfetchResult
         PUBLIC \"-//NLM//DTD efetch 20131226//EN\" \"https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20131226/efetch.dtd\">\n<eFetchResult>\n\t<ERROR>Supplied
         id parameter is empty.</ERROR>\n</eFetchResult>\n"
-  recorded_at: 2020-09-16 19:14:33 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:50:29 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0

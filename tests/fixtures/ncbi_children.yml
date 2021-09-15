@@ -6,7 +6,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.68.0 r-curl/4.3.2 crul/1.1.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -16,20 +16,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Fri, 06 Mar 2020 16:47:12 GMT
+      date: Wed, 15 Sep 2021 22:48:35 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '9'
-      ncbi-phid: D0BD116037FAA20500002EBAE3B95218.1.1.m_3
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: 203C5618A52C13D5_5650SID
+      ncbi-phid: 939B971E50EAD78500005C48A4B87B90.1.1.m_3
+      x-ratelimit-remaining: '9'
+      ncbi-sid: 20E11423D9481A10_F5CBSID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=203C5618A52C13D5_5650SID; domain=.nih.gov; path=/; expires=Sat,
-        06 Mar 2021 16:47:12 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=20E11423D9481A10_F5CBSID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:48:35 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -43,8 +45,9 @@ http_interactions:
             <TaxId>4751</TaxId>
             <ScientificName>Fungi</ScientificName>
             <OtherNames>
-                <GenbankCommonName>fungi</GenbankCommonName>
                 <BlastName>fungi</BlastName>
+                <GenbankSynonym>Mycota</GenbankSynonym>
+                <Inpart>fungi</Inpart>
             </OtherNames>
             <ParentTaxId>33154</ParentTaxId>
             <Rank>kingdom</Rank>
@@ -72,17 +75,17 @@ http_interactions:
                 <Taxon>
                     <TaxId>33154</TaxId>
                     <ScientificName>Opisthokonta</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
             </LineageEx>
             <CreateDate>1995/02/27 09:24:00</CreateDate>
-            <UpdateDate>2017/06/14 10:56:24</UpdateDate>
+            <UpdateDate>2020/04/01 15:22:56</UpdateDate>
             <PubDate>1993/04/20 01:00:00</PubDate>
         </Taxon>
 
         </TaxaSet>
-  recorded_at: 2020-03-06 16:47:14 GMT
-  recorded_with: vcr/0.5.0, webmockr/0.6.0
+  recorded_at: 2021-09-15 22:48:37 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Fungi%5BNext%20Level%5D%20AND%20Opisthokonta%5Bsubtree%5D&RetMax=1000&RetStart=0&api_key=<<entrez_api_token>>
@@ -92,8 +95,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -101,20 +104,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Fri, 06 Mar 2020 16:47:12 GMT
+      date: Wed, 15 Sep 2021 22:48:35 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '8'
-      ncbi-phid: D0BD116037FAA205000051BAE481CDFE.1.1.m_1
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: 267EF062D1372D22_6750SID
+      ncbi-phid: 939B971E50EAD78500004048A51F46DF.1.1.m_1
+      x-ratelimit-remaining: '8'
+      ncbi-sid: D36E68A567A04946_1B2CSID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=267EF062D1372D22_6750SID; domain=.nih.gov; path=/; expires=Sat,
-        06 Mar 2021 16:47:13 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=D36E68A567A04946_1B2CSID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:48:35 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -130,9 +135,9 @@ http_interactions:
         <Id>112252</Id>
         <Id>89443</Id>
         <Id>57731</Id>
-        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Fungi[Next Level]</Term>    <Field>Next Level</Field>    <Count>5</Count>    <Explode>N</Explode>   </TermSet>   <TermSet>    <Term>Opisthokonta[subtree]</Term>    <Field>subtree</Field>    <Count>1212655</Count>    <Explode>N</Explode>   </TermSet>   <OP>AND</OP>  </TranslationStack><QueryTranslation>Fungi[Next Level] AND Opisthokonta[subtree]</QueryTranslation></eSearchResult>
-  recorded_at: 2020-03-06 16:47:14 GMT
-  recorded_with: vcr/0.5.0, webmockr/0.6.0
+        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Fungi[Next Level]</Term>    <Field>Next Level</Field>    <Count>5</Count>    <Explode>N</Explode>   </TermSet>   <TermSet>    <Term>Opisthokonta[subtree]</Term>    <Field>subtree</Field>    <Count>1291953</Count>    <Explode>N</Explode>   </TermSet>   <OP>AND</OP>  </TranslationStack><QueryTranslation>Fungi[Next Level] AND Opisthokonta[subtree]</QueryTranslation></eSearchResult>
+  recorded_at: 2021-09-15 22:48:37 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&id=584652%2B451864%2B112252%2B89443%2B57731&api_key=<<entrez_api_token>>
@@ -142,8 +147,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -151,20 +156,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Fri, 06 Mar 2020 16:47:12 GMT
+      date: Wed, 15 Sep 2021 22:48:35 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '7'
-      ncbi-phid: D0BD116037FAA205000039BAE4C7E240.1.1.m_1
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: 7F9A5DA5227C0DA2_1410SID
+      ncbi-phid: 939B971E50EAD78500005A48A5544352.1.1.m_1
+      x-ratelimit-remaining: '7'
+      ncbi-sid: D268910DC81C35F6_25A7SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=7F9A5DA5227C0DA2_1410SID; domain=.nih.gov; path=/; expires=Sat,
-        06 Mar 2021 16:47:13 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=D268910DC81C35F6_25A7SID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:48:35 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -208,8 +215,8 @@ http_interactions:
         Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\"></Item>\n\t<Item
         Name=\"Species\" Type=\"String\"></Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
         Name=\"ModificationDate\" Type=\"Date\">2018/10/18 00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
-  recorded_at: 2020-03-06 16:47:14 GMT
-  recorded_with: vcr/0.5.0, webmockr/0.6.0
+  recorded_at: 2021-09-15 22:48:37 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=4751&api_key=<<entrez_api_token>>
@@ -217,7 +224,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.68.0 r-curl/4.3.2 crul/1.1.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -227,20 +234,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Fri, 06 Mar 2020 16:47:13 GMT
+      date: Wed, 15 Sep 2021 22:48:36 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '7'
-      ncbi-phid: D0BD116037FAA20500004FBAE57A6026.1.1.m_3
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: 52B96398C4254031_046DSID
+      ncbi-phid: 939B971E50EAD78500002B48A604CBBE.1.1.m_3
+      x-ratelimit-remaining: '7'
+      ncbi-sid: 07DD5D4DCDD6C1B3_9422SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=52B96398C4254031_046DSID; domain=.nih.gov; path=/; expires=Sat,
-        06 Mar 2021 16:47:13 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=07DD5D4DCDD6C1B3_9422SID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:48:36 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -254,8 +263,9 @@ http_interactions:
             <TaxId>4751</TaxId>
             <ScientificName>Fungi</ScientificName>
             <OtherNames>
-                <GenbankCommonName>fungi</GenbankCommonName>
                 <BlastName>fungi</BlastName>
+                <GenbankSynonym>Mycota</GenbankSynonym>
+                <Inpart>fungi</Inpart>
             </OtherNames>
             <ParentTaxId>33154</ParentTaxId>
             <Rank>kingdom</Rank>
@@ -283,17 +293,17 @@ http_interactions:
                 <Taxon>
                     <TaxId>33154</TaxId>
                     <ScientificName>Opisthokonta</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
             </LineageEx>
             <CreateDate>1995/02/27 09:24:00</CreateDate>
-            <UpdateDate>2017/06/14 10:56:24</UpdateDate>
+            <UpdateDate>2020/04/01 15:22:56</UpdateDate>
             <PubDate>1993/04/20 01:00:00</PubDate>
         </Taxon>
 
         </TaxaSet>
-  recorded_at: 2020-03-06 16:47:14 GMT
-  recorded_with: vcr/0.5.0, webmockr/0.6.0
+  recorded_at: 2021-09-15 22:48:37 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Fungi%5BNext%20Level%5D%20AND%20Opisthokonta%5Bsubtree%5D&RetMax=1000&RetStart=0&api_key=<<entrez_api_token>>
@@ -303,8 +313,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -312,20 +322,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Fri, 06 Mar 2020 16:47:14 GMT
+      date: Wed, 15 Sep 2021 22:48:36 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '7'
-      ncbi-phid: D0BD116037FAA20500003EBAE636F82C.1.1.m_1
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: 45FC5C0CBBD972A7_7757SID
+      ncbi-phid: 939B971E50EAD78500003048A6CAB936.1.1.m_1
+      x-ratelimit-remaining: '8'
+      ncbi-sid: 5F89F02E1E3BE467_64E6SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=45FC5C0CBBD972A7_7757SID; domain=.nih.gov; path=/; expires=Sat,
-        06 Mar 2021 16:47:14 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=5F89F02E1E3BE467_64E6SID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:48:37 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -341,6 +353,6 @@ http_interactions:
         <Id>112252</Id>
         <Id>89443</Id>
         <Id>57731</Id>
-        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Fungi[Next Level]</Term>    <Field>Next Level</Field>    <Count>5</Count>    <Explode>N</Explode>   </TermSet>   <TermSet>    <Term>Opisthokonta[subtree]</Term>    <Field>subtree</Field>    <Count>1212655</Count>    <Explode>N</Explode>   </TermSet>   <OP>AND</OP>  </TranslationStack><QueryTranslation>Fungi[Next Level] AND Opisthokonta[subtree]</QueryTranslation></eSearchResult>
-  recorded_at: 2020-03-06 16:47:14 GMT
-  recorded_with: vcr/0.5.0, webmockr/0.6.0
+        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Fungi[Next Level]</Term>    <Field>Next Level</Field>    <Count>5</Count>    <Explode>N</Explode>   </TermSet>   <TermSet>    <Term>Opisthokonta[subtree]</Term>    <Field>subtree</Field>    <Count>1291953</Count>    <Explode>N</Explode>   </TermSet>   <OP>AND</OP>  </TranslationStack><QueryTranslation>Fungi[Next Level] AND Opisthokonta[subtree]</QueryTranslation></eSearchResult>
+  recorded_at: 2021-09-15 22:48:37 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0

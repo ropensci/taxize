@@ -6,7 +6,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.68.0 r-curl/4.3.2 crul/1.1.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -16,20 +16,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Tue, 17 Mar 2020 23:06:19 GMT
+      date: Wed, 15 Sep 2021 22:48:43 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '9'
-      ncbi-phid: 322C6F094A3EACC500002F2281236532.1.1.m_3
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: B1E7740DD8C6A667_B01FSID
+      ncbi-phid: 939B971E50EAD78500003C48ADD33A23.1.1.m_3
+      x-ratelimit-remaining: '7'
+      ncbi-sid: 7EDCCAC9D7D0495F_0742SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=B1E7740DD8C6A667_B01FSID; domain=.nih.gov; path=/; expires=Wed,
-        17 Mar 2021 23:06:20 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=7EDCCAC9D7D0495F_0742SID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:48:43 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -53,7 +55,7 @@ http_interactions:
                 <MGCId>5</MGCId>
                 <MGCName>Invertebrate Mitochondrial</MGCName>
             </MitoGeneticCode>
-            <Lineage>cellular organisms; Eukaryota; Opisthokonta; Metazoa; Eumetazoa; Bilateria; Protostomia; Ecdysozoa; Panarthropoda; Arthropoda; Mandibulata; Pancrustacea; Hexapoda; Insecta; Dicondylia; Pterygota; Neoptera; Holometabola; Hymenoptera; Apocrita; Aculeata; Apoidea; Apidae; Apinae; Apini</Lineage>
+            <Lineage>cellular organisms; Eukaryota; Opisthokonta; Metazoa; Eumetazoa; Bilateria; Protostomia; Ecdysozoa; Panarthropoda; Arthropoda; Mandibulata; Pancrustacea; Hexapoda; Insecta; Dicondylia; Pterygota; Neoptera; Endopterygota; Hymenoptera; Apocrita; Aculeata; Apoidea; Apidae; Apinae; Apini</Lineage>
             <LineageEx>
                 <Taxon>
                     <TaxId>131567</TaxId>
@@ -68,7 +70,7 @@ http_interactions:
                 <Taxon>
                     <TaxId>33154</TaxId>
                     <ScientificName>Opisthokonta</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>33208</TaxId>
@@ -78,27 +80,27 @@ http_interactions:
                 <Taxon>
                     <TaxId>6072</TaxId>
                     <ScientificName>Eumetazoa</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>33213</TaxId>
                     <ScientificName>Bilateria</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>33317</TaxId>
                     <ScientificName>Protostomia</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>1206794</TaxId>
                     <ScientificName>Ecdysozoa</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>88770</TaxId>
                     <ScientificName>Panarthropoda</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>6656</TaxId>
@@ -108,12 +110,12 @@ http_interactions:
                 <Taxon>
                     <TaxId>197563</TaxId>
                     <ScientificName>Mandibulata</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>197562</TaxId>
                     <ScientificName>Pancrustacea</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>6960</TaxId>
@@ -128,7 +130,7 @@ http_interactions:
                 <Taxon>
                     <TaxId>85512</TaxId>
                     <ScientificName>Dicondylia</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>7496</TaxId>
@@ -142,7 +144,7 @@ http_interactions:
                 </Taxon>
                 <Taxon>
                     <TaxId>33392</TaxId>
-                    <ScientificName>Holometabola</ScientificName>
+                    <ScientificName>Endopterygota</ScientificName>
                     <Rank>cohort</Rank>
                 </Taxon>
                 <Taxon>
@@ -187,8 +189,8 @@ http_interactions:
         </Taxon>
 
         </TaxaSet>
-  recorded_at: 2020-03-17 23:06:21 GMT
-  recorded_with: vcr/0.5.0.92, webmockr/0.6.0.92
+  recorded_at: 2021-09-15 22:48:44 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Apis%5BNext%20Level%5D%20AND%20Apini%5Bsubtree%5D&RetMax=1000&RetStart=0&api_key=<<entrez_api_token>>
@@ -198,8 +200,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.96)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.96)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -207,20 +209,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Tue, 17 Mar 2020 23:06:20 GMT
+      date: Wed, 15 Sep 2021 22:48:43 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '8'
-      ncbi-phid: 322C6F094A3EACC500004B2281B67F2A.1.1.m_1
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: 815623555925DCDB_DF83SID
+      ncbi-phid: 939B971E50EAD78500004548AE36BF7E.1.1.m_1
+      x-ratelimit-remaining: '7'
+      ncbi-sid: C2B9377F71245644_EC4ASID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=815623555925DCDB_DF83SID; domain=.nih.gov; path=/; expires=Wed,
-        17 Mar 2021 23:06:21 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=C2B9377F71245644_EC4ASID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:48:43 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -241,9 +245,9 @@ http_interactions:
         <Id>7462</Id>
         <Id>7461</Id>
         <Id>7460</Id>
-        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Apis[Next Level]</Term>    <Field>Next Level</Field>    <Count>10</Count>    <Explode>N</Explode>   </TermSet>   <TermSet>    <Term>Apini[subtree]</Term>    <Field>subtree</Field>    <Count>63</Count>    <Explode>N</Explode>   </TermSet>   <OP>AND</OP>  </TranslationStack><QueryTranslation>Apis[Next Level] AND Apini[subtree]</QueryTranslation></eSearchResult>
-  recorded_at: 2020-03-17 23:06:21 GMT
-  recorded_with: vcr/0.5.0.92, webmockr/0.6.0.92
+        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Apis[Next Level]</Term>    <Field>Next Level</Field>    <Count>10</Count>    <Explode>N</Explode>   </TermSet>   <TermSet>    <Term>Apini[subtree]</Term>    <Field>subtree</Field>    <Count>64</Count>    <Explode>N</Explode>   </TermSet>   <OP>AND</OP>  </TranslationStack><QueryTranslation>Apis[Next Level] AND Apini[subtree]</QueryTranslation></eSearchResult>
+  recorded_at: 2021-09-15 22:48:44 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&id=2635979%2B183418%2B96030%2B83312%2B7468%2B7464%2B7463%2B7462%2B7461%2B7460&api_key=<<entrez_api_token>>
@@ -253,8 +257,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.96)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.96)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -262,20 +266,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Tue, 17 Mar 2020 23:06:21 GMT
+      date: Wed, 15 Sep 2021 22:48:43 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '7'
-      ncbi-phid: 322C6F094A3EACC500005C22821875BF.1.1.m_1
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: 0DF930AD4C427920_6C72SID
+      ncbi-phid: 939B971E50EAD78500004B48AE6B1C50.1.1.m_1
+      x-ratelimit-remaining: '6'
+      ncbi-sid: 0C8EA36197653704_526ESID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=0DF930AD4C427920_6C72SID; domain=.nih.gov; path=/; expires=Wed,
-        17 Mar 2021 23:06:21 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=0C8EA36197653704_526ESID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:48:43 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -356,5 +362,5 @@ http_interactions:
         Name=\"Species\" Type=\"String\">mellifera</Item>\n\t<Item Name=\"Subsp\"
         Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2017/06/14
         00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
-  recorded_at: 2020-03-17 23:06:21 GMT
-  recorded_with: vcr/0.5.0.92, webmockr/0.6.0.92
+  recorded_at: 2021-09-15 22:48:44 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0

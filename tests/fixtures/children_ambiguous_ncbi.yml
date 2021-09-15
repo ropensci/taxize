@@ -6,7 +6,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.68.0 r-curl/4.3.2 crul/1.1.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -16,20 +16,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Fri, 06 Mar 2020 16:41:45 GMT
+      date: Wed, 15 Sep 2021 22:42:58 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '9'
-      ncbi-phid: 322C5C5EEFB977C5000037AD2433E458.1.1.m_5
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: B8B9A763B4D78891_D315SID
+      ncbi-phid: 939B971E50EAD78500003947B7CC7298.1.1.m_3
+      x-ratelimit-remaining: '9'
+      ncbi-sid: EFBD8762381C1D29_B785SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=B8B9A763B4D78891_D315SID; domain=.nih.gov; path=/; expires=Sat,
-        06 Mar 2021 16:41:46 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=EFBD8762381C1D29_B785SID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:42:58 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -479,8 +481,8 @@ http_interactions:
         </Taxon>
 
         </TaxaSet>
-  recorded_at: 2020-03-06 16:41:48 GMT
-  recorded_with: vcr/0.5.0, webmockr/0.6.0
+  recorded_at: 2021-09-15 22:43:05 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Salmonella%20enterica%5BNext%20Level%5D%20AND%20Salmonella%5Bsubtree%5D&RetMax=1000&RetStart=0&api_key=<<entrez_api_token>>
@@ -490,8 +492,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -499,20 +501,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Fri, 06 Mar 2020 16:41:46 GMT
+      date: Wed, 15 Sep 2021 22:42:59 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '8'
-      ncbi-phid: 322C5C5EEFB977C5000061AD24C67965.1.1.m_1
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: A6014DFE9D59749D_B518SID
+      ncbi-phid: 939B971E50EAD78500002847B8E2BDAA.1.1.m_1
+      x-ratelimit-remaining: '9'
+      ncbi-sid: EB43647D9A2BA59B_7784SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=A6014DFE9D59749D_B518SID; domain=.nih.gov; path=/; expires=Sat,
-        06 Mar 2021 16:41:46 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=EB43647D9A2BA59B_7784SID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:42:59 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -530,9 +534,9 @@ http_interactions:
         <Id>59203</Id>
         <Id>59202</Id>
         <Id>59201</Id>
-        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Salmonella enterica[Next Level]</Term>    <Field>Next Level</Field>    <Count>7</Count>    <Explode>N</Explode>   </TermSet>   <TermSet>    <Term>Salmonella[subtree]</Term>    <Field>subtree</Field>    <Count>3798</Count>    <Explode>N</Explode>   </TermSet>   <OP>AND</OP>  </TranslationStack><QueryTranslation>Salmonella enterica[Next Level] AND Salmonella[subtree]</QueryTranslation></eSearchResult>
-  recorded_at: 2020-03-06 16:41:48 GMT
-  recorded_with: vcr/0.5.0, webmockr/0.6.0
+        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Salmonella enterica[Next Level]</Term>    <Field>Next Level</Field>    <Count>7</Count>    <Explode>N</Explode>   </TermSet>   <TermSet>    <Term>Salmonella[subtree]</Term>    <Field>subtree</Field>    <Count>4479</Count>    <Explode>N</Explode>   </TermSet>   <OP>AND</OP>  </TranslationStack><QueryTranslation>Salmonella enterica[Next Level] AND Salmonella[subtree]</QueryTranslation></eSearchResult>
+  recorded_at: 2021-09-15 22:43:05 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&id=59208%2B59207%2B59205%2B59204%2B59203%2B59202%2B59201&api_key=<<entrez_api_token>>
@@ -542,8 +546,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -551,20 +555,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Fri, 06 Mar 2020 16:41:46 GMT
+      date: Wed, 15 Sep 2021 22:42:59 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '7'
-      ncbi-phid: 322C5C5EEFB977C500005AAD24ECD901.1.1.m_1
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: 3EC42AD0D5948584_7C33SID
+      ncbi-phid: 939B971E50EAD78500004D47B91F0D22.1.1.m_1
+      x-ratelimit-remaining: '8'
+      ncbi-sid: 9251A3AA956D7E9E_95B4SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=3EC42AD0D5948584_7C33SID; domain=.nih.gov; path=/; expires=Sat,
-        06 Mar 2021 16:41:47 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=9251A3AA956D7E9E_95B4SID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:43:00 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -607,7 +613,7 @@ http_interactions:
         Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">59203</Item>\n\t<Item
         Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmonella</Item>\n\t<Item
         Name=\"Species\" Type=\"String\">enterica</Item>\n\t<Item Name=\"Subsp\" Type=\"String\">arizonae</Item>\n\t<Item
-        Name=\"ModificationDate\" Type=\"Date\">2019/10/16 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>59202</Id>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2020/07/29 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>59202</Id>\n\t<Item
         Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">subspecies</Item>\n\t<Item
         Name=\"Division\" Type=\"String\">enterobacteria</Item>\n\t<Item Name=\"ScientificName\"
         Type=\"String\">Salmonella enterica subsp. salamae</Item>\n\t<Item Name=\"CommonName\"
@@ -621,9 +627,9 @@ http_interactions:
         Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">59201</Item>\n\t<Item
         Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmonella</Item>\n\t<Item
         Name=\"Species\" Type=\"String\">enterica</Item>\n\t<Item Name=\"Subsp\" Type=\"String\">enterica</Item>\n\t<Item
-        Name=\"ModificationDate\" Type=\"Date\">2019/10/17 00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
-  recorded_at: 2020-03-06 16:41:48 GMT
-  recorded_with: vcr/0.5.0, webmockr/0.6.0
+        Name=\"ModificationDate\" Type=\"Date\">2021/05/11 00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
+  recorded_at: 2021-09-15 22:43:05 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=2508041&api_key=<<entrez_api_token>>
@@ -631,7 +637,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.68.0 r-curl/4.3.2 crul/1.1.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -641,20 +647,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Fri, 06 Mar 2020 16:41:47 GMT
+      date: Wed, 15 Sep 2021 22:43:02 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '7'
-      ncbi-phid: 322C5C5EEFB977C500002BAD257DDFF4.1.1.m_3
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: 7928E9DBBD12764C_244ESID
+      ncbi-phid: 939B971E50EAD78500005947BB697704.1.1.m_3
+      x-ratelimit-remaining: '9'
+      ncbi-sid: 7836419A09E8E851_E943SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=7928E9DBBD12764C_244ESID; domain=.nih.gov; path=/; expires=Sat,
-        06 Mar 2021 16:41:47 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=7836419A09E8E851_E943SID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:43:02 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -708,22 +716,22 @@ http_interactions:
                 <Taxon>
                     <TaxId>3193</TaxId>
                     <ScientificName>Embryophyta</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>58023</TaxId>
                     <ScientificName>Tracheophyta</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>78536</TaxId>
                     <ScientificName>Euphyllophyta</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>58024</TaxId>
                     <ScientificName>Spermatophyta</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>3398</TaxId>
@@ -733,32 +741,32 @@ http_interactions:
                 <Taxon>
                     <TaxId>1437183</TaxId>
                     <ScientificName>Mesangiospermae</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>71240</TaxId>
                     <ScientificName>eudicotyledons</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>91827</TaxId>
                     <ScientificName>Gunneridae</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>1437201</TaxId>
                     <ScientificName>Pentapetalae</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>71274</TaxId>
                     <ScientificName>asterids</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>91882</TaxId>
                     <ScientificName>campanulids</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>4209</TaxId>
@@ -778,7 +786,7 @@ http_interactions:
                 <Taxon>
                     <TaxId>911341</TaxId>
                     <ScientificName>Heliantheae alliance</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>102814</TaxId>
@@ -803,8 +811,8 @@ http_interactions:
         </Taxon>
 
         </TaxaSet>
-  recorded_at: 2020-03-06 16:41:48 GMT
-  recorded_with: vcr/0.5.0, webmockr/0.6.0
+  recorded_at: 2021-09-15 22:43:05 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=unclassified%20Helianthus%5BNext%20Level%5D%20AND%20Helianthus%5Bsubtree%5D&RetMax=1000&RetStart=0&api_key=<<entrez_api_token>>
@@ -814,8 +822,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -823,20 +831,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Fri, 06 Mar 2020 16:41:47 GMT
+      date: Wed, 15 Sep 2021 22:43:02 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '7'
-      ncbi-phid: 322C5C5EEFB977C5000037AD25D5AA0F.1.1.m_1
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: F1E69DDE38D11FE6_2C22SID
+      ncbi-phid: 939B971E50EAD78500003147BBCA5D77.1.1.m_1
+      x-ratelimit-remaining: '8'
+      ncbi-sid: 880684D876A3C7AC_1BDBSID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=F1E69DDE38D11FE6_2C22SID; domain=.nih.gov; path=/; expires=Sat,
-        06 Mar 2021 16:41:47 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=880684D876A3C7AC_1BDBSID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:43:02 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -865,8 +875,8 @@ http_interactions:
         <Id>585498</Id>
         <Id>50471</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>unclassified Helianthus[Next Level]</Term>    <Field>Next Level</Field>    <Count>17</Count>    <Explode>N</Explode>   </TermSet>   <TermSet>    <Term>Helianthus[subtree]</Term>    <Field>subtree</Field>    <Count>100</Count>    <Explode>N</Explode>   </TermSet>   <OP>AND</OP>  </TranslationStack><QueryTranslation>unclassified Helianthus[Next Level] AND Helianthus[subtree]</QueryTranslation></eSearchResult>
-  recorded_at: 2020-03-06 16:41:48 GMT
-  recorded_with: vcr/0.5.0, webmockr/0.6.0
+  recorded_at: 2021-09-15 22:43:05 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&id=2508000%2B2507999%2B2507998%2B2507997%2B2507996%2B2507995%2B2507994%2B2507993%2B2507992%2B2507991%2B2507990%2B2507989%2B1720378%2B1577454%2B1261137%2B585498%2B50471&api_key=<<entrez_api_token>>
@@ -876,8 +886,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.92)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -885,20 +895,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Fri, 06 Mar 2020 16:41:47 GMT
+      date: Wed, 15 Sep 2021 22:43:02 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '6'
-      ncbi-phid: 322C5C5EEFB977C5000032AD25F88831.1.1.m_1
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: 6898ECEF9650C1C6_8C30SID
+      ncbi-phid: 939B971E50EAD78500003347BC1E3046.1.1.m_1
+      x-ratelimit-remaining: '7'
+      ncbi-sid: F7F6499636B03B44_487CSID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=6898ECEF9650C1C6_8C30SID; domain=.nih.gov; path=/; expires=Sat,
-        06 Mar 2021 16:41:48 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=F7F6499636B03B44_487CSID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:43:02 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -1042,5 +1054,5 @@ http_interactions:
         Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item Name=\"Species\"
         Type=\"String\">sp.</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
         Name=\"ModificationDate\" Type=\"Date\">2005/01/19 00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
-  recorded_at: 2020-03-06 16:41:48 GMT
-  recorded_with: vcr/0.5.0, webmockr/0.6.0
+  recorded_at: 2021-09-15 22:43:05 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0

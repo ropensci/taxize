@@ -6,9 +6,10 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -16,26 +17,23 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx
-      date: Thu, 24 Jan 2019 01:37:36 GMT
-      content-type: text/xml; charset=utf-8
-      transfer-encoding: chunked
-      connection: keep-alive
-      keep-alive: timeout=20
-      vary: Accept-Encoding
+      date: Wed, 15 Sep 2021 22:45:25 GMT
+      server: Microsoft-IIS/10.0
       cache-control: private, max-age=0
+      content-type: text/xml; charset=utf-8
       x-aspnet-version: 2.0.50727
       x-powered-by: ASP.NET
-      content-encoding: gzip
+      content-length: '4135'
     body:
       encoding: UTF-8
+      file: no
       string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<NewDataSet>\r\n  <IndexFungorum>\r\n
         \   <NAME_x0020_OF_x0020_FUNGUS>Agaricus phalloides</NAME_x0020_OF_x0020_FUNGUS>\r\n
         \   <AUTHORS>Vaill. ex Fr.</AUTHORS>\r\n    <SPECIFIC_x0020_EPITHET>phalloides</SPECIFIC_x0020_EPITHET>\r\n
         \   <INFRASPECIFIC_x0020_RANK>sp.</INFRASPECIFIC_x0020_RANK>\r\n    <VOLUME>1</VOLUME>\r\n
         \   <PAGE>13</PAGE>\r\n    <YEAR_x0020_OF_x0020_PUBLICATION>1821</YEAR_x0020_OF_x0020_PUBLICATION>\r\n
-        \   <CORRECTION>$Nhttp://www.librifungorum.org/Image.asp?ItemID=21&amp;ImageFileName=0013b.jpg</CORRECTION>\r\n
-        \   <SANCTIONING_x0020_AUTHOR>Fr.$http://www.librifungorum.org/Image.asp?ItemID=21&amp;ImageFileName=0013b.jpg</SANCTIONING_x0020_AUTHOR>\r\n
+        \   <CORRECTION>https://biodiversitylibrary.org/page/4338020</CORRECTION>\r\n
+        \   <SANCTIONING_x0020_AUTHOR>Fr.$https://biodiversitylibrary.org/page/4338020</SANCTIONING_x0020_AUTHOR>\r\n
         \   <SANCTIONING_x0020_REFERENCE_x0020_VOLUME>1</SANCTIONING_x0020_REFERENCE_x0020_VOLUME>\r\n
         \   <SANCTIONING_x0020_REFERENCE_x0020_PAGE>13</SANCTIONING_x0020_REFERENCE_x0020_PAGE>\r\n
         \   <SANCTIONING_x0020_REFERENCE_x0020_YEAR>1821</SANCTIONING_x0020_REFERENCE_x0020_YEAR>\r\n
@@ -47,23 +45,29 @@ http_interactions:
         \   <CURRENT_x0020_NAME>Amanita phalloides</CURRENT_x0020_NAME>\r\n    <CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>178962</CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>\r\n
         \   <CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17045</CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
         \   <GSD_x0020_FLAG>GSD25</GSD_x0020_FLAG>\r\n    <SQLTimeStamp>AAAAAAhdJ0A=</SQLTimeStamp>\r\n
-        \   <UpdatedBy>IUSR_KPPIND01</UpdatedBy>\r\n    <AddedBy>CABI_UK\\kirk</AddedBy>\r\n
-        \   <UpdatedDate>2015-06-21T08:19:02.11+01:00</UpdatedDate>\r\n    <AddedDate>2001-01-12T07:55:00+00:00</AddedDate>\r\n
+        \   <UpdatedBy>sa</UpdatedBy>\r\n    <AddedBy>CABI_UK\\kirk</AddedBy>\r\n
+        \   <UpdatedDate>2019-04-30T09:48:22.69+01:00</UpdatedDate>\r\n    <AddedDate>2001-01-12T07:55:00+00:00</AddedDate>\r\n
         \   <UUID>1cb1aea7-36b9-11d5-9548-00d0592d548c</UUID>\r\n  </IndexFungorum>\r\n
-        \ <IndexFungorum>\r\n    <NAME_x0020_OF_x0020_FUNGUS>Agaricus phalloides</NAME_x0020_OF_x0020_FUNGUS>\r\n
-        \   <AUTHORS>Bull.</AUTHORS>\r\n    <SPECIFIC_x0020_EPITHET>phalloides</SPECIFIC_x0020_EPITHET>\r\n
-        \   <INFRASPECIFIC_x0020_RANK>sp.</INFRASPECIFIC_x0020_RANK>\r\n    <PAGE>tab.
-        2, 577</PAGE>\r\n    <YEAR_x0020_OF_x0020_PUBLICATION>1792</YEAR_x0020_OF_x0020_PUBLICATION>\r\n
-        \   <EDITORIAL_x0020_COMMENT>Unpriorable because of sanctioned name</EDITORIAL_x0020_COMMENT>\r\n
-        \   <LITERATURE_x0020_LINK>7184</LITERATURE_x0020_LINK>\r\n    <RECORD_x0020_NUMBER>490346</RECORD_x0020_NUMBER>\r\n
-        \   <BASIONYM_x0020_RECORD_x0020_NUMBER>490346</BASIONYM_x0020_RECORD_x0020_NUMBER>\r\n
-        \   <PROTONYM_x0020_RECORD_x0020_NUMBER>490346</PROTONYM_x0020_RECORD_x0020_NUMBER>\r\n
-        \   <NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17030</NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
-        \   <CURRENT_x0020_NAME>Amanita phalloides</CURRENT_x0020_NAME>\r\n    <CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>178962</CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>\r\n
+        \ <IndexFungorum>\r\n    <NAME_x0020_OF_x0020_FUNGUS>Amanita austrophalloides</NAME_x0020_OF_x0020_FUNGUS>\r\n
+        \   <AUTHORS>A.E. Wood</AUTHORS>\r\n    <PUBLISHED_x0020_LIST_x0020_REFERENCE>Index
+        of Fungi 6: 896</PUBLISHED_x0020_LIST_x0020_REFERENCE>\r\n    <SPECIFIC_x0020_EPITHET>austrophalloides</SPECIFIC_x0020_EPITHET>\r\n
+        \   <INFRASPECIFIC_x0020_RANK>sp.</INFRASPECIFIC_x0020_RANK>\r\n    <TYPIFICATION_x0020_DETAILS>Holotype
+        UNSW 82/5</TYPIFICATION_x0020_DETAILS>\r\n    <VOLUME>10</VOLUME>\r\n    <PART>5</PART>\r\n
+        \   <PAGE>843</PAGE>\r\n    <YEAR_x0020_OF_x0020_PUBLICATION>1997</YEAR_x0020_OF_x0020_PUBLICATION>\r\n
+        \   <HOST>under &lt;i&gt;Allocasuarina distyla&lt;/i&gt; and &lt;i&gt;Casuarina
+        glauca&lt;/i&gt;</HOST>\r\n    <LOCATION>New South Wales</LOCATION>\r\n    <LITERATURE_x0020_LINK>172</LITERATURE_x0020_LINK>\r\n
+        \   <BSM_x0020_LINK>34433</BSM_x0020_LINK>\r\n    <RECORD_x0020_NUMBER>443210</RECORD_x0020_NUMBER>\r\n
+        \   <BASIONYM_x0020_RECORD_x0020_NUMBER>443210</BASIONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <PROTONYM_x0020_RECORD_x0020_NUMBER>443210</PROTONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <IXF_x0020_RECORD_x0020_NUMBER>34376</IXF_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17045</NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <CURRENT_x0020_NAME>Amanita austrophalloides</CURRENT_x0020_NAME>\r\n
+        \   <CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>443210</CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>\r\n
         \   <CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17045</CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
-        \   <GSD_x0020_FLAG>GSD25</GSD_x0020_FLAG>\r\n    <UpdatedBy>IUSR_KPPIND01</UpdatedBy>\r\n
-        \   <AddedBy>CABI_UK\\KIRK</AddedBy>\r\n    <UpdatedDate>2015-06-21T08:19:02.11+01:00</UpdatedDate>\r\n
-        \   <AddedDate>2007-03-26T12:35:00+01:00</AddedDate>\r\n    <UUID>dc643e71-308d-4564-ba9d-42e0e7891c40</UUID>\r\n
-        \ </IndexFungorum>\r\n</NewDataSet>"
-  recorded_at: 2019-01-24 01:38:10 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+        \   <GSD_x0020_FLAG>GSD25</GSD_x0020_FLAG>\r\n    <TAXONOMIC_x0020_REFEREE>Kew
+        Mycology (2015)</TAXONOMIC_x0020_REFEREE>\r\n    <SQLTimeStamp>AAAAAAhdNO8=</SQLTimeStamp>\r\n
+        \   <UpdatedBy>sa</UpdatedBy>\r\n    <AddedBy>CABI_UK\\kirk</AddedBy>\r\n
+        \   <UpdatedDate>2015-11-12T09:47:27.673+00:00</UpdatedDate>\r\n    <AddedDate>2002-07-22T09:16:00+01:00</AddedDate>\r\n
+        \   <UUID>59b9f491-3528-402d-8498-5df929ab48d3</UUID>\r\n  </IndexFungorum>\r\n</NewDataSet>"
+  recorded_at: 2021-09-15 22:45:25 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0

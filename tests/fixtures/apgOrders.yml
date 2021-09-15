@@ -6,9 +6,10 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -18,16 +19,17 @@ http_interactions:
       status: HTTP/1.1 200 OK
       content-type: text/html
       content-encoding: gzip
-      last-modified: Fri, 28 Dec 2018 20:48:48 GMT
+      last-modified: Tue, 29 Jun 2021 13:20:20 GMT
       accept-ranges: bytes
-      etag: '"0b828bbee9ed41:0"'
+      etag: '"8422d882e96cd71:0"'
       vary: Accept-Encoding
       server: Microsoft-IIS/7.5
       x-powered-by: ASP.NET
-      date: Sat, 26 Jan 2019 00:21:32 GMT
-      content-length: '6708'
+      date: Wed, 15 Sep 2021 22:40:49 GMT
+      content-length: '10700'
     body:
       encoding: UTF-8
+      file: no
       string: "\r\n<html>\r\n<head>\r\n\t<title>Synonymy Orders</title>\r\n\t<font
         face=\"verdana, georgia, arial, serif\">\r\n\t<style>A {text-decoration :
         none;}</style>\r\n\t<style>A {text-decoration : none;}A:HOVER {background-color
@@ -145,24 +147,23 @@ http_interactions:
         target=\"home\">Alismatales</a>.<br>\r\n<a href=\"../orders/buxalesweb.htm#Buxales\"
         target=\"home\">Buxales</a> - Accepted.<br>\r\nByblidales = <a href=\"../orders/lamialesweb.htm#Lamiales\"
         target=\"home\">Lamiales</a>.<br>\r\nByttneriales = <a href=\"../orders/malvalesweb.htm#Malvales\"
-        target=\"home\">Malvales</a>.<br>\r\n<br>\r\n<a name=Cactales>Cabombales =
-        <a href=\"../orders/nymphaealesweb.htm#Nymphaeales\" target=\"home\">Nymphaeales</a>.<br></a>\r\nCactales
-        = <a href=\"../orders/caryophyllalesweb.htm#Caryophyllales\" target=\"home\">Caryophyllales</a>.<br>\r\nCaesalpiniales
-        = <a href=\"../orders/fabalesweb.htm#Fabales\" target=\"home\">Fabales</a>.<br>\r\nCalendulales
-        = <a href=\"../orders/asteralesweb.htm#Asterales\" target=\"home\">Asterales</a>.<br>\r\nCallitrichales
-        = <a href=\"../orders/lamialesweb.htm#Lamiales\" target=\"home\">Lamiales</a>.<br>\r\nCalycanthales
-        = <a href=\"../orders/lauralesweb.htm#Laurales\" target=\"home\">Laurales</a>.<br>\r\nCalycerales
-        = <a href=\"../orders/asteralesweb.htm#Asterales\" target=\"home\">Asterales</a>.<br>\r\nCamelliales
-        = <a href=\"../orders/ericalesweb.htm#Ericales\" target=\"home\">Ericales</a>.<br>\r\nCampanulales
-        = <a href=\"../orders/asteralesweb.htm#Asterales\" target=\"home\">Asterales</a>.<br>\r\nCampynematales
-        = <a href=\"../orders/lilialesweb.htm#Liliales\" target=\"home\">Liliales</a>.<br>\r\n<a
-        href=\"../orders/canellalesweb.htm#Canellales\" target=\"home\">Canellales</a>
-        - Accepted.<br>\r\nCannabales = <a href=\"../orders/rosalesweb.htm#Rosales\"
+        target=\"home\">Malvales</a>.<br>\r\n<br>\r\nCabombales = <a href=\"../orders/nymphaealesweb.htm#Nymphaeales\"
+        target=\"home\">Nymphaeales</a>.<br></a>\r\nCactales = <a href=\"../orders/caryophyllalesweb.htm#Caryophyllales\"
+        target=\"home\">Caryophyllales</a>.<br>\r\nCaesalpiniales = <a href=\"../orders/fabalesweb.htm#Fabales\"
+        target=\"home\">Fabales</a>.<br>\r\nCalendulales = <a href=\"../orders/asteralesweb.htm#Asterales\"
+        target=\"home\">Asterales</a>.<br>\r\nCallitrichales = <a href=\"../orders/lamialesweb.htm#Lamiales\"
+        target=\"home\">Lamiales</a>.<br>\r\nCalycanthales = <a href=\"../orders/lauralesweb.htm#Laurales\"
+        target=\"home\">Laurales</a>.<br>\r\nCalycerales = <a href=\"../orders/asteralesweb.htm#Asterales\"
+        target=\"home\">Asterales</a>.<br>\r\nCamelliales = <a href=\"../orders/ericalesweb.htm#Ericales\"
+        target=\"home\">Ericales</a>.<br>\r\nCampanulales = <a href=\"../orders/asteralesweb.htm#Asterales\"
+        target=\"home\">Asterales</a>.<br>\r\nCampynematales = <a href=\"../orders/lilialesweb.htm#Liliales\"
+        target=\"home\">Liliales</a>.<br>\r\n<a href=\"../orders/canellalesweb.htm#Canellales\"
+        target=\"home\">Canellales</a> - Accepted.<br>\r\nCannabales = <a href=\"../orders/rosalesweb.htm#Rosales\"
         target=\"home\">Rosales</a>.<br>\r\nCannales = <a href=\"../orders/zingiberalesweb.htm#Zingiberales\"
         target=\"home\">Zingiberales</a>.<br>\r\nCapparales = <a href=\"../orders/brassicalesweb.htm#Brassicales\"
         target=\"home\">Brassicales</a>.<br>\r\nCaprifoliales = <a href=\"../orders/dipsacalesweb.htm#Dipsacales\"
-        target=\"home\">Dipsacales</a>.<br>\r\nCardiopteridales = <a href=\"../orders/aquifolialesweb2.htm#Aquifoliales\"
-        target=\"home\">Aquifoliales</a>.<br>\r\nCarduales = <a href=\"../orders/asteralesweb.htm#Asterales\"
+        target=\"home\">Dipsacales</a>.<br>\r\n<a href=\"../orders/cardiopteridalesweb.htm#Cardiopteridales\"
+        target=\"home\">Cardiopteridales</a> - Accepted.<br>\r\nCarduales = <a href=\"../orders/asteralesweb.htm#Asterales\"
         target=\"home\">Asterales</a>.<br>\r\nCaricales = <a href=\"../orders/brassicalesweb.htm#Brassicales\"
         target=\"home\">Brassicales</a>.<br>\r\nCarlemanniales = <a href=\"../orders/lamialesweb.htm#Lamiales\"
         target=\"home\">Lamiales</a>.<br>\r\n<a href=\"../orders/caryophyllalesweb.htm#Caryophyllales\"
@@ -193,8 +194,8 @@ http_interactions:
         target=\"home\">Sapindales</a>.<br>\r\nCneorales = <a href=\"../orders/sapindalesweb.htm#Sapindales\"
         target=\"home\">Sapindales</a>.<br>\r\nCocosales = <a href=\"../orders/arecalesweb.htm#Arecales\"
         target=\"home\">Arecales</a>.<br>\r\nColchicales = <a href=\"../orders/lilialesweb.htm#Liliales\"
-        target=\"home\">Liliales</a>.<br>\r\nColumelliales = <a href=\"../orders/brunialesweb.htm#Bruniales\"
-        target=\"home\">Bruniales</a>.<br>\r\nCombretales = <a href=\"../orders/myrtalesweb2.htm#Myrtales\"
+        target=\"home\">Liliales</a>.<br>\r\nColumelliales = <a href=\"../orders/desfontainialesweb.htm#Desfontainiales\"
+        target=\"home\">Desfontainiales</a>.<br>\r\nCombretales = <a href=\"../orders/myrtalesweb2.htm#Myrtales\"
         target=\"home\">Myrtales</a>.<br>\r\n<a href=\"../orders/commelinalesweb.htm#Commelinales\"
         target=\"home\">Commelinales</a> - Accepted.<br>\r\nConnarales = <a href=\"../orders/oxalidalesweb.htm#Oxalidales\"
         target=\"home\">Oxalidales</a>.<br>\r\nConvolvulales = <a href=\"../orders/solanalesweb.htm#Solanales\"
@@ -225,13 +226,13 @@ http_interactions:
         = <a href=\"../orders/arecalesweb.htm#Arecales\" target=\"home\">Arecales.</a><br>\r\nDatiscales
         = <a href=\"../orders/cucurbitalesweb.htm#Cucurbitales\" target=\"home\">Cucurbitales</a>.<br>\r\nDegeneriales
         = <a href=\"../orders/magnolialesweb.htm#Magnoliales\" target=\"home\">Magnoliales</a>.<br>\r\nDennstaedtiales
-        = <a href=\"../orders/Sporing.html#Polypodiales\" target=\"home\">Polypodiales.</a><br>\r\nDesfontainiales
-        = <a href=\"../orders/brunialesweb.htm#Bruniales\" target=\"home\">Bruniales</a>.<br>\r\nDiapensiales
-        = <a href=\"../orders/ericalesweb.htm#Ericales\" target=\"home\">Ericales</a>.<br>\r\nDicksoniales
-        = <a href=\"../orders/Sporing.html#Cyatheales\" target=\"home\">Cyatheales.</a><br>\r\nDidymelales
-        = <a href=\"../orders/buxalesweb.htm#Buxales\" target=\"home\">Buxales</a>.<br>\r\n<a
-        href=\"../orders/dillenialesweb.html#Dilleniales\" target=\"home\">Dilleniales</a>
-        - Accepted.<br>\r\nDioales = <a href=\"../orders/Cycadales.html#Cycadales\"
+        = <a href=\"../orders/Sporing.html#Polypodiales\" target=\"home\">Polypodiales.</a><br>\r\n<a
+        href=\"../orders/desfontainialesweb.htm#Desfontainiales\" target=\"home\">Desfontainiales</a>
+        - accepted.<br>\r\nDiapensiales = <a href=\"../orders/ericalesweb.htm#Ericales\"
+        target=\"home\">Ericales</a>.<br>\r\nDicksoniales = <a href=\"../orders/Sporing.html#Cyatheales\"
+        target=\"home\">Cyatheales.</a><br>\r\nDidymelales = <a href=\"../orders/buxalesweb.htm#Buxales\"
+        target=\"home\">Buxales</a>.<br>\r\n<a href=\"../orders/dillenialesweb.html#Dilleniales\"
+        target=\"home\">Dilleniales</a> - Accepted.<br>\r\nDioales = <a href=\"../orders/Cycadales.html#Cycadales\"
         target=\"home\">Cycadales</a>.<br>\r\nDioncophyllales = <a href=\"../orders/caryophyllalesweb.htm#Caryophyllales\"
         target=\"home\">Caryophyllales</a>.<br>\r\n<a href=\"../orders/dioscorealesweb.htm#Dioscoreales\"
         target=\"home\">Dioscoreales</a> - Accepted.<br>\r\nDiosmales = <a href=\"../orders/sapindalesweb.htm#Sapindales\"
@@ -321,8 +322,8 @@ http_interactions:
         = <a href=\"../orders/lamialesweb.htm#Lamiales\" target=\"home\">Lamiales</a>.<br>\r\nHomaliales
         = <a href=\"../orders/malpighialesweb.htm#Malpighiales\" target=\"home\">Malpighiales</a>.<br>\r\nHortensiales
         = <a href=\"../orders/cornalesweb.htm#Cornales\" target=\"home\">Cornales</a>.<br>\r\nHuales
-        = <a href=\"../orders/zygophyllalesweb.htm#Huaceae\" target=\"home\">Unplaced
-        eurosid I</a>.<br>\r\n<a href=\"../orders/huertealesweb.htm#Huerteales\" target=\"home\">Huerteales</a>
+        = <a href=\"../orders/oxalidalesweb.htm#Huaceae\" target=\"home\">?Oxalidales</a>.<br>\r\n<a
+        href=\"../orders/huertealesweb.htm#Huerteales\" target=\"home\">Huerteales</a>
         - Accepted.<br>\r\nHydatellales = <a href=\"../orders/nymphaealesweb.htm#Nymphaeales\"
         target=\"home\">Nymphaeales</a>.<br>\r\nHydnorales = <a href=\"../orders/piperalesweb2.htm#Piperales\"
         target=\"home\">Piperales</a>.<br>\r\nHydrangeales = <a href=\"../orders/cornalesweb.htm#Cornales\"
@@ -443,9 +444,9 @@ http_interactions:
         = <a href=\"../orders/myrtalesweb2.htm#Myrtales\" target=\"home\">Myrtales</a>.<br>\r\nOlacales
         = <a href=\"../orders/santalalesweb2.htm#Santalales\" target=\"home\">Santalales</a>.<br>
         \r\nOleales = <a href=\"../orders/lamialesweb.htm#Lamiales\" target=\"home\">Lamiales</a>.<br>\r\nOnagrales
-        = <a href=\"../orders/myrtalesweb2.htm#Myrtales\" target=\"home\">Myrtales</a>.<br>\r\nOncothecales
-        = <a href=\"../orders/icacinalesweb.html#Icacinales\" target=\"home\">Icacinales</a>.<br>\r\n<a
-        href=\"../orders/Sporing.html#Ophioglossales\" target=\"home\">Ophioglossales</a>
+        = <a href=\"../orders/myrtalesweb2.htm#Myrtales\" target=\"home\">Myrtales</a>.<br>\r\n<a
+        href=\"../orders/oncothecalesweb.html#Oncothecales\" target=\"home\">Oncothecales</a>
+        - Accepted.<br>\r\n<a href=\"../orders/Sporing.html#Ophioglossales\" target=\"home\">Ophioglossales</a>
         - Accepted.<br>\r\nOpuntiales = <a href=\"../orders/caryophyllalesweb.htm#Caryophyllales\"
         target=\"home\">Caryophyllales</a>.<br>\r\nOrchidales = <a href=\"../orders/asparagalesweb.htm#Asparagales\"
         target=\"home\">Asparagales</a>.<br>\r\nOrobanchiales = <a href=\"../orders/lamialesweb.htm#Lamiales\"
@@ -651,5 +652,5 @@ http_interactions:
         : \"http://www.\");\r\ndocument.write(unescape(\"%3Cscript src='\" + gaJsHost
         + \"google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E\"));\r\n</script>\r\n<script
         type=\"text/javascript\">\r\nvar pageTracker = _gat._getTracker(\"UA-3783322-4\");\r\npageTracker._trackPageview();\r\n</script>\r\n\r\n</body>\r\n</html>\r\n"
-  recorded_at: 2019-01-26 00:21:33 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2021-09-15 22:40:50 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0

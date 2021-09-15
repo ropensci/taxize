@@ -8,8 +8,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -17,16 +17,17 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Fri, 06 Mar 2020 18:05:27 GMT
+      date: Wed, 15 Sep 2021 22:45:15 GMT
       content-type: application/json; charset=utf-8
       content-length: '1909'
       connection: keep-alive
       x-frame-options: ALLOWALL
       x-robots-tag: noindex
-      etag: W/"4ce59a3d09b2818c6832eb6e849b24a5"
+      etag: W/"c4665ae7ac9f180101f721c3baee1e3c"
       cache-control: max-age=0, private, must-revalidate
-      x-request-id: 3a229275-2b92-4871-b23a-fc5c0bfa430f
-      x-runtime: '0.134728'
+      x-request-id: c15ccc1a-3032-4f19-b0f2-7f2846d3d50b
+      x-runtime: '0.363773'
+      vary: Origin
       age: '0'
       x-cache: MISS
       x-cache-hits: '0'
@@ -34,23 +35,23 @@ http_interactions:
     body:
       encoding: UTF-8
       file: no
-      string: '{"totalResults":18,"startIndex":1,"itemsPerPage":50,"results":[{"id":328582,"title":"Ursus
-        americanus","link":"https://eol.org/pages/328582","content":""},{"id":1268223,"title":"Ursus
+      string: '{"totalResults":18,"startIndex":1,"itemsPerPage":50,"results":[{"id":1268223,"title":"Ursus
         americanus kermodei","link":"https://eol.org/pages/1268223","content":""},{"id":1268225,"title":"Ursus
         americanus pugnax","link":"https://eol.org/pages/1268225","content":""},{"id":1265749,"title":"Ursus
-        americanus carlottae","link":"https://eol.org/pages/1265749","content":""},{"id":1265952,"title":"Ursus
-        americanus cinnamomum","link":"https://eol.org/pages/1265952","content":""},{"id":1285957,"title":"Ursus
-        americanus machetes","link":"https://eol.org/pages/1285957","content":""},{"id":1268003,"title":"Ursus
+        americanus carlottae","link":"https://eol.org/pages/1265749","content":""},{"id":1268003,"title":"Ursus
         americanus eremicus","link":"https://eol.org/pages/1268003","content":""},{"id":1267501,"title":"Ursus
-        americanus hamiltoni","link":"https://eol.org/pages/1267501","content":""},{"id":1265951,"title":"Ursus
-        americanus californiensis","link":"https://eol.org/pages/1265951","content":""},{"id":1267499,"title":"Ursus
-        americanus vancouveri","link":"https://eol.org/pages/1267499","content":""},{"id":1275985,"title":"Ursus
+        americanus hamiltoni","link":"https://eol.org/pages/1267501","content":""},{"id":1285957,"title":"Ursus
+        americanus machetes","link":"https://eol.org/pages/1285957","content":""},{"id":1275985,"title":"Ursus
         americanus amblyceps","link":"https://eol.org/pages/1275985","content":""},{"id":1273538,"title":"Ursus
-        americanus altifrontalis","link":"https://eol.org/pages/1273538","content":""},{"id":1265948,"title":"Ursus
-        americanus emmonsii","link":"https://eol.org/pages/1265948","content":""},{"id":1265750,"title":"Ursus
-        americanus floridanus","link":"https://eol.org/pages/1265750","content":""},{"id":1282475,"title":"Ursus
-        americanus perniger","link":"https://eol.org/pages/1282475","content":""},{"id":1273844,"title":"Ursus
+        americanus altifrontalis","link":"https://eol.org/pages/1273538","content":""},{"id":1265750,"title":"Ursus
+        americanus floridanus","link":"https://eol.org/pages/1265750","content":""},{"id":1265948,"title":"Ursus
+        americanus emmonsii","link":"https://eol.org/pages/1265948","content":""},{"id":1265952,"title":"Ursus
+        americanus cinnamomum","link":"https://eol.org/pages/1265952","content":""},{"id":1267499,"title":"Ursus
+        americanus vancouveri","link":"https://eol.org/pages/1267499","content":""},{"id":1265951,"title":"Ursus
+        americanus californiensis","link":"https://eol.org/pages/1265951","content":""},{"id":1282475,"title":"Ursus
+        americanus perniger","link":"https://eol.org/pages/1282475","content":""},{"id":328582,"title":"Ursus
+        americanus","link":"https://eol.org/pages/328582","content":""},{"id":1273844,"title":"Ursus
         americanus luteolus","link":"https://eol.org/pages/1273844","content":""},{"id":1241775,"title":"Ursus
         americanus americanus","link":"https://eol.org/pages/1241775","content":""},{"id":46559142,"title":"Ursus","link":"https://eol.org/pages/46559142","content":""}]}'
-  recorded_at: 2020-03-06 18:05:27 GMT
-  recorded_with: vcr/0.5.0, webmockr/0.6.0
+  recorded_at: 2021-09-15 22:45:15 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0

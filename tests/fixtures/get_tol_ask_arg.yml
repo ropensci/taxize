@@ -15,7 +15,7 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Wed, 16 Sep 2020 17:32:52 GMT
+      date: Wed, 15 Sep 2021 22:47:00 GMT
       server: waitress
       access-control-allow-credentials: 'true'
       access-control-allow-origin: '*'
@@ -23,7 +23,7 @@ http_interactions:
       cache-control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
       content-length: '2520'
       content-type: application/json;
-      expires: Wed, 16 Sep 2020 17:32:52 GMT
+      expires: Wed, 15 Sep 2021 22:47:00 GMT
       pragma: no-cache
       vary: Accept-Encoding
       x-powered-by: otc-tol-ws
@@ -57,7 +57,7 @@ http_interactions:
               "name": "Dugesia",
               "ott_id": 750182,
               "rank": "genus",
-              "source": "ott3.2draft9",
+              "source": "ott3.3draft1",
               "synonyms": [],
               "tax_sources": [
                "ncbi:121909",
@@ -81,11 +81,11 @@ http_interactions:
               "name": "Dugesia",
               "ott_id": 933125,
               "rank": "genus",
-              "source": "ott3.2draft9",
+              "source": "ott3.3draft1",
               "synonyms": [
-               "Geopaludicola",
+               "Dugesia aberana",
                "Euplanaria",
-               "Dugesia aberana"
+               "Geopaludicola"
               ],
               "tax_sources": [
                "ncbi:6160",
@@ -111,13 +111,13 @@ http_interactions:
               "name": "Smaris",
               "ott_id": 4681372,
               "rank": "genus",
-              "source": "ott3.2draft9",
+              "source": "ott3.3draft1",
               "synonyms": [
-               "Samaridia",
+               "Dugesia",
                "Leuchsia",
-               "Smaridia",
                "Phaenolophus",
-               "Dugesia"
+               "Samaridia",
+               "Smaridia"
               ],
               "tax_sources": [
                "ncbi:1635233",
@@ -135,12 +135,12 @@ http_interactions:
          "taxonomy": {
           "author": "open tree of life project",
           "name": "ott",
-          "source": "ott3.2draft9",
-          "version": "3.2",
-          "weburl": "https://tree.opentreeoflife.org/about/taxonomy-version/ott3.2"
+          "source": "ott3.3draft1",
+          "version": "3.3",
+          "weburl": "https://tree.opentreeoflife.org/about/taxonomy-version/ott3.3"
          },
          "unambiguous_names": [],
          "unmatched_names": []
         }
-  recorded_at: 2020-09-16 17:32:52 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:47:00 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0

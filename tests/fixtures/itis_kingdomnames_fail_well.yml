@@ -6,7 +6,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      User-Agent: libcurl/7.68.0 r-curl/4.3.2 crul/1.1.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -16,11 +16,18 @@ http_interactions:
       explanation: Bad request syntax or unsupported method
     headers:
       status: HTTP/1.1 400 Bad Request
-      date: Thu, 24 Jan 2019 17:22:21 GMT
-      content-type: text/html; charset=ISO-8859-1
+      date: Wed, 15 Sep 2021 22:48:00 GMT
+      strict-transport-security: max-age=63072000; includeSubDomains; preload
+      x-content-type-options: nosniff
+      x-frame-options: SAMEORIGIN
+      last-modified: Mon, 15 Mar 2021 20:53:51 GMT
+      etag: '"284-5bd997273cc16"'
+      accept-ranges: bytes
+      content-type: text/html
       transfer-encoding: chunked
     body:
       encoding: UTF-8
+      file: no
       string: |
         <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
         <html xmlns="http://www.w3.org/1999/xhtml">
@@ -39,5 +46,5 @@ http_interactions:
 
         </body>
         </html>
-  recorded_at: 2019-01-24 17:22:21 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2021-09-15 22:48:00 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0

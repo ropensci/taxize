@@ -8,27 +8,26 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 17:13:54 GMT
+      status: 'HTTP/2 200 '
+      date: Wed, 15 Sep 2021 22:46:31 GMT
       content-type: application/json
       access-control-allow-origin: '*'
       access-control-allow-methods: HEAD, GET, POST, DELETE, PUT, OPTIONS
       server: Jetty(9.3.z-SNAPSHOT)
       cache-control: public, max-age=3601
-      x-varnish: 953353263 955089633
-      age: '666'
-      via: 1.1 varnish (Varnish/5.2)
+      x-varnish: 910066588 896830395
+      age: '7'
+      via: 1.1 varnish (Varnish/6.0)
       accept-ranges: bytes
       content-length: '1136'
-      connection: keep-alive
     body:
       encoding: UTF-8
       file: no
@@ -39,8 +38,8 @@ http_interactions:
         name=5; authorship=0; classification=-2; rank=5; status=1","matchType":"FUZZY","kingdom":"Animalia","phylum":"Arthropoda","order":"Diptera","family":"Chironomidae","genus":"Chironomus","species":"Chironomus
         vicarius","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":811,"familyKey":3343,"genusKey":1448033,"speciesKey":1449850,"synonym":false,"class":"Insecta"}],"kingdom":"Animalia","phylum":"Arthropoda","order":"Diptera","family":"Chironomidae","genus":"Chironomus","species":"Chironomus
         riparius","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":811,"familyKey":3343,"genusKey":1448033,"speciesKey":1448237,"synonym":false,"class":"Insecta"}'
-  recorded_at: 2020-09-16 17:25:02 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:46:39 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://api.gbif.org/v1/species/match?name=Pinus%20contorta&strict=FALSE&verbose=TRUE&limit=500
@@ -50,39 +49,38 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 17:23:04 GMT
+      status: 'HTTP/2 200 '
+      date: Wed, 15 Sep 2021 22:46:39 GMT
       content-type: application/json
       access-control-allow-origin: '*'
       access-control-allow-methods: HEAD, GET, POST, DELETE, PUT, OPTIONS
       server: Jetty(9.3.z-SNAPSHOT)
       cache-control: public, max-age=3601
-      x-varnish: 950371271 936118485
-      age: '117'
-      via: 1.1 varnish (Varnish/5.2)
+      x-varnish: '910066589'
+      age: '0'
+      via: 1.1 varnish (Varnish/6.0)
       accept-ranges: bytes
-      content-length: '1636'
-      connection: keep-alive
+      content-length: '1667'
     body:
       encoding: UTF-8
       file: no
       string: '{"usageKey":5285750,"scientificName":"Pinus contorta Douglas ex Loudon","canonicalName":"Pinus
-        contorta","rank":"SPECIES","status":"ACCEPTED","confidence":98,"note":"Similarity:
-        name=110; authorship=0; classification=-2; rank=5; status=1; nextMatch=3","matchType":"EXACT","alternatives":[{"usageKey":8405446,"scientificName":"Pinus
-        contorta Bol.","canonicalName":"Pinus contorta","rank":"SPECIES","status":"DOUBTFUL","confidence":95,"note":"Similarity:
+        contorta","rank":"SPECIES","status":"ACCEPTED","confidence":97,"note":"Similarity:
+        name=110; authorship=0; classification=-2; rank=5; status=1; nextMatch=0","matchType":"EXACT","alternatives":[{"usageKey":7617264,"acceptedUsageKey":5285750,"scientificName":"Pinus
+        contorta Douglas","canonicalName":"Pinus contorta","rank":"SPECIES","status":"SYNONYM","confidence":97,"note":"Similarity:
+        name=110; authorship=0; classification=-2; rank=5; status=0","matchType":"EXACT","kingdom":"Plantae","phylum":"Tracheophyta","order":"Pinales","family":"Pinaceae","genus":"Pinus","species":"Pinus
+        contorta","kingdomKey":6,"phylumKey":7707728,"classKey":194,"orderKey":640,"familyKey":3925,"genusKey":2684241,"speciesKey":5285750,"synonym":true,"class":"Pinopsida"},{"usageKey":8405446,"scientificName":"Pinus
+        contorta Bol., 1866","canonicalName":"Pinus contorta","rank":"SPECIES","status":"DOUBTFUL","confidence":95,"note":"Similarity:
         name=110; authorship=0; classification=-2; rank=5; status=-5","matchType":"EXACT","kingdom":"Plantae","phylum":"Tracheophyta","order":"Pinales","family":"Pinaceae","genus":"Pinus","species":"Pinus
-        contorta","kingdomKey":6,"phylumKey":7707728,"classKey":194,"orderKey":640,"familyKey":3925,"genusKey":2684241,"speciesKey":8405446,"synonym":false,"class":"Pinopsida"},{"usageKey":7617264,"scientificName":"Pinus
-        contorta Dougl.","canonicalName":"Pinus contorta","rank":"SPECIES","status":"DOUBTFUL","confidence":95,"note":"Similarity:
-        name=110; authorship=0; classification=-2; rank=5; status=-5","matchType":"EXACT","kingdom":"Plantae","phylum":"Tracheophyta","order":"Pinales","family":"Pinaceae","genus":"Pinus","species":"Pinus
-        contorta","kingdomKey":6,"phylumKey":7707728,"classKey":194,"orderKey":640,"familyKey":3925,"genusKey":2684241,"speciesKey":7617264,"synonym":false,"class":"Pinopsida"}],"kingdom":"Plantae","phylum":"Tracheophyta","order":"Pinales","family":"Pinaceae","genus":"Pinus","species":"Pinus
+        contorta","kingdomKey":6,"phylumKey":7707728,"classKey":194,"orderKey":640,"familyKey":3925,"genusKey":2684241,"speciesKey":8405446,"synonym":false,"class":"Pinopsida"}],"kingdom":"Plantae","phylum":"Tracheophyta","order":"Pinales","family":"Pinaceae","genus":"Pinus","species":"Pinus
         contorta","kingdomKey":6,"phylumKey":7707728,"classKey":194,"orderKey":640,"familyKey":3925,"genusKey":2684241,"speciesKey":5285750,"synonym":false,"class":"Pinopsida"}'
-  recorded_at: 2020-09-16 17:25:02 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:46:39 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0

@@ -8,8 +8,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -17,20 +17,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 18:07:14 GMT
+      date: Wed, 15 Sep 2021 22:47:25 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '7'
-      ncbi-phid: D0BD6B87A4E45FE5000046D13D34B96F.1.1.m_1
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: 67CAF6A598ACD1B3_7408SID
+      ncbi-phid: 939B971E50EAD7850000304866C82E6B.1.1.m_1
+      x-ratelimit-remaining: '6'
+      ncbi-sid: 32F7FE6A9C9FD4AE_912DSID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=67CAF6A598ACD1B3_7408SID; domain=.nih.gov; path=/; expires=Thu,
-        16 Sep 2021 18:07:13 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=32F7FE6A9C9FD4AE_912DSID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:47:26 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -43,8 +45,8 @@ http_interactions:
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>12945</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Aratinga[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Aratinga[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2020-09-16 18:07:15 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:47:27 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&ID=12945&api_key=<<entrez_api_token>>
@@ -54,8 +56,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -63,20 +65,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 18:07:13 GMT
+      date: Wed, 15 Sep 2021 22:47:26 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '5'
-      ncbi-phid: D0BD6B87A4E45FE500002DD13D7A0E60.1.1.m_1
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: B6F9D0AC0A6A8540_273ESID
+      ncbi-phid: 939B971E50EAD78500005D48673B1DF2.1.1.m_1
+      x-ratelimit-remaining: '6'
+      ncbi-sid: 4DF28025F61E8F72_86B9SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=B6F9D0AC0A6A8540_273ESID; domain=.nih.gov; path=/; expires=Thu,
-        16 Sep 2021 18:07:13 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=4DF28025F61E8F72_86B9SID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:47:26 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -92,8 +96,8 @@ http_interactions:
         Name=\"Genus\" Type=\"String\"></Item>\n\t<Item Name=\"Species\" Type=\"String\"></Item>\n\t<Item
         Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
         Type=\"Date\">2002/05/08 00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
-  recorded_at: 2020-09-16 18:07:15 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:47:27 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Aratinga%5BOrganism%5D&api_key=<<entrez_api_token>>
@@ -103,8 +107,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -112,20 +116,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 18:07:13 GMT
+      date: Wed, 15 Sep 2021 22:47:26 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '4'
-      ncbi-phid: D0BD6B87A4E45FE5000049D13D8FDA3D.1.1.m_1
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: 018C84BEFCEDBCB6_0E92SID
+      ncbi-phid: 939B971E50EAD785000037486776F596.1.1.m_1
+      x-ratelimit-remaining: '6'
+      ncbi-sid: 1A0BFF4541B62D3B_A6CCSID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=018C84BEFCEDBCB6_0E92SID; domain=.nih.gov; path=/; expires=Thu,
-        16 Sep 2021 18:07:13 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=1A0BFF4541B62D3B_A6CCSID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:47:26 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -144,8 +150,8 @@ http_interactions:
         <Id>51908</Id>
         <Id>12945</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Aratinga[Organism]</Term>    <Field>Organism</Field>    <Count>7</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Aratinga[Organism]</QueryTranslation></eSearchResult>
-  recorded_at: 2020-09-16 18:07:15 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:47:27 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&ID=1230190%2C867384%2C231027%2C190661%2C176015%2C51908%2C12945&api_key=<<entrez_api_token>>
@@ -155,8 +161,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -164,20 +170,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 18:07:13 GMT
+      date: Wed, 15 Sep 2021 22:47:26 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '6'
-      ncbi-phid: D0BD6B87A4E45FE5000059D13E198ACC.1.1.m_1
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: 3D1C236271D5986A_23B3SID
+      ncbi-phid: 939B971E50EAD7850000514867D79964.1.1.m_1
+      x-ratelimit-remaining: '7'
+      ncbi-sid: 1C9802877F0B96FB_202ASID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=3D1C236271D5986A_23B3SID; domain=.nih.gov; path=/; expires=Thu,
-        16 Sep 2021 18:07:14 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=1C9802877F0B96FB_202ASID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:47:27 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -237,5 +245,5 @@ http_interactions:
         Name=\"Genus\" Type=\"String\"></Item>\n\t<Item Name=\"Species\" Type=\"String\"></Item>\n\t<Item
         Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
         Type=\"Date\">2002/05/08 00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
-  recorded_at: 2020-09-16 18:07:15 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:47:27 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0

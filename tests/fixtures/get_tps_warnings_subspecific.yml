@@ -8,8 +8,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -23,13 +23,13 @@ http_interactions:
       server: Microsoft-IIS/7.5
       x-aspnet-version: 4.0.30319
       x-powered-by: ASP.NET
-      date: Wed, 16 Sep 2020 18:02:10 GMT
+      date: Wed, 15 Sep 2021 22:47:06 GMT
     body:
       encoding: UTF-8
       file: no
       string: '[{"Error":"No names were found"}]'
-  recorded_at: 2020-09-16 18:02:15 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:47:14 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: http://services.tropicos.org/Name/Search?format=json&name=Poa%20annua%20var%252E%20annua&apikey=<<tropicos_api_token>>
@@ -39,8 +39,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -54,13 +54,13 @@ http_interactions:
       server: Microsoft-IIS/7.5
       x-aspnet-version: 4.0.30319
       x-powered-by: ASP.NET
-      date: Wed, 16 Sep 2020 18:02:11 GMT
+      date: Wed, 15 Sep 2021 22:47:08 GMT
     body:
       encoding: UTF-8
       file: no
       string: '[{"Error":"No names were found"}]'
-  recorded_at: 2020-09-16 18:02:15 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:47:14 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: http://services.tropicos.org/Name/Search?format=json&name=Poa%20annua%20sp%252E%20annua&apikey=<<tropicos_api_token>>
@@ -70,8 +70,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -85,13 +85,13 @@ http_interactions:
       server: Microsoft-IIS/7.5
       x-aspnet-version: 4.0.30319
       x-powered-by: ASP.NET
-      date: Wed, 16 Sep 2020 18:02:11 GMT
+      date: Wed, 15 Sep 2021 22:47:09 GMT
     body:
       encoding: UTF-8
       file: no
       string: '[{"Error":"No names were found"}]'
-  recorded_at: 2020-09-16 18:02:15 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:47:14 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: http://services.tropicos.org/Name/Search?format=json&name=Poa%20annua%20ssp%252E%20annua&apikey=<<tropicos_api_token>>
@@ -101,8 +101,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -116,13 +116,13 @@ http_interactions:
       server: Microsoft-IIS/7.5
       x-aspnet-version: 4.0.30319
       x-powered-by: ASP.NET
-      date: Wed, 16 Sep 2020 18:02:12 GMT
+      date: Wed, 15 Sep 2021 22:47:11 GMT
     body:
       encoding: UTF-8
       file: no
       string: '[{"Error":"No names were found"}]'
-  recorded_at: 2020-09-16 18:02:15 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:47:14 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: http://services.tropicos.org/Name/Search?format=json&name=Poa%20annua%20subspecies%20annua&apikey=<<tropicos_api_token>>
@@ -132,8 +132,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -147,13 +147,13 @@ http_interactions:
       server: Microsoft-IIS/7.5
       x-aspnet-version: 4.0.30319
       x-powered-by: ASP.NET
-      date: Wed, 16 Sep 2020 18:02:14 GMT
+      date: Wed, 15 Sep 2021 22:47:12 GMT
     body:
       encoding: UTF-8
       file: no
       string: '[{"Error":"No names were found"}]'
-  recorded_at: 2020-09-16 18:02:15 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:47:14 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: http://services.tropicos.org/Name/Search?format=json&name=Poa%20annua%20foo%20bar%20annua&apikey=<<tropicos_api_token>>
@@ -163,8 +163,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -178,10 +178,10 @@ http_interactions:
       server: Microsoft-IIS/7.5
       x-aspnet-version: 4.0.30319
       x-powered-by: ASP.NET
-      date: Wed, 16 Sep 2020 18:02:14 GMT
+      date: Wed, 15 Sep 2021 22:47:14 GMT
     body:
       encoding: UTF-8
       file: no
       string: '[{"Error":"No names were found"}]'
-  recorded_at: 2020-09-16 18:02:15 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:47:14 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0

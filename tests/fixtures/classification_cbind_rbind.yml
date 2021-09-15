@@ -8,8 +8,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -17,20 +17,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 01:00:25 GMT
+      date: Wed, 15 Sep 2021 22:44:23 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '9'
-      ncbi-phid: D0BD7762B13BBE450000544392DB2E35.1.1.m_1
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: B2C815E78C11F5BF_363CSID
+      ncbi-phid: 322C52E213039F4500004538090E6E43.1.1.m_1
+      x-ratelimit-remaining: '9'
+      ncbi-sid: 71B264FCF0336CEB_2E00SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=B2C815E78C11F5BF_363CSID; domain=.nih.gov; path=/; expires=Thu,
-        16 Sep 2021 01:00:25 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=71B264FCF0336CEB_2E00SID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:44:23 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -43,8 +45,8 @@ http_interactions:
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>9696</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Puma+concolor[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Puma+concolor[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2020-09-16 01:00:27 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:44:25 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&ID=9696&api_key=<<entrez_api_token>>
@@ -54,8 +56,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -63,20 +65,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 01:00:25 GMT
+      date: Wed, 15 Sep 2021 22:44:23 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '8'
-      ncbi-phid: D0BD7762B13BBE4500006143935A3CB4.1.1.m_1
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: 4E7A902B8561245A_76F8SID
+      ncbi-phid: 322C52E213039F45000026380950879E.1.1.m_1
+      x-ratelimit-remaining: '8'
+      ncbi-sid: 9AA59B4C4674299F_30ADSID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=4E7A902B8561245A_76F8SID; domain=.nih.gov; path=/; expires=Thu,
-        16 Sep 2021 01:00:25 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=9AA59B4C4674299F_30ADSID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:44:23 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -92,8 +96,8 @@ http_interactions:
         Name=\"Genus\" Type=\"String\">Puma</Item>\n\t<Item Name=\"Species\" Type=\"String\">concolor</Item>\n\t<Item
         Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
         Type=\"Date\">2018/10/29 00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
-  recorded_at: 2020-09-16 01:00:27 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:44:25 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Accipiter%2Bstriatus&api_key=<<entrez_api_token>>
@@ -103,8 +107,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -112,20 +116,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 01:00:25 GMT
+      date: Wed, 15 Sep 2021 22:44:23 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '7'
-      ncbi-phid: D0BD7762B13BBE450000454393BA9676.1.1.m_1
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: B8156D31065C3068_CC5ESID
+      ncbi-phid: 322C52E213039F450000193809770AC8.1.1.m_1
+      x-ratelimit-remaining: '7'
+      ncbi-sid: 48B5D60805974C71_97CFSID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=B8156D31065C3068_CC5ESID; domain=.nih.gov; path=/; expires=Thu,
-        16 Sep 2021 01:00:25 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=48B5D60805974C71_97CFSID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:44:24 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -138,8 +144,8 @@ http_interactions:
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>56330</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Accipiter+striatus[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Accipiter+striatus[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2020-09-16 01:00:27 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:44:25 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&ID=56330&api_key=<<entrez_api_token>>
@@ -149,8 +155,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -158,20 +164,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 01:00:25 GMT
+      date: Wed, 15 Sep 2021 22:44:23 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '6'
-      ncbi-phid: D0BD7762B13BBE4500002C439420D636.1.1.m_1
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: 3FA865A651427DD7_9290SID
+      ncbi-phid: 322C52E213039F450000543809C76948.1.1.m_1
+      x-ratelimit-remaining: '6'
+      ncbi-sid: 7BFC27E9934B7A0F_9D79SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=3FA865A651427DD7_9290SID; domain=.nih.gov; path=/; expires=Thu,
-        16 Sep 2021 01:00:26 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=7BFC27E9934B7A0F_9D79SID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:44:24 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -186,9 +194,9 @@ http_interactions:
         hawk</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">56330</Item>\n\t<Item
         Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Accipiter</Item>\n\t<Item
         Name=\"Species\" Type=\"String\">striatus</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
-        Name=\"ModificationDate\" Type=\"Date\">2017/06/14 00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
-  recorded_at: 2020-09-16 01:00:27 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+        Name=\"ModificationDate\" Type=\"Date\">2020/09/23 00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
+  recorded_at: 2021-09-15 22:44:25 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=9696%2C56330&api_key=<<entrez_api_token>>
@@ -196,7 +204,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.72.0 r-curl/4.3 crul/1.0.0
+      User-Agent: libcurl/7.68.0 r-curl/4.3.2 crul/1.1.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -206,20 +214,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 01:00:27 GMT
+      date: Wed, 15 Sep 2021 22:44:24 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '8'
-      ncbi-phid: D0BD7762B13BBE4500003C4394F2433B.1.1.m_3
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: 413CA016ECC883AA_5A53SID
+      ncbi-phid: 322C52E213039F4500004E3809F4AC37.1.1.m_3
+      x-ratelimit-remaining: '6'
+      ncbi-sid: 28E32D694B17F301_4422SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=413CA016ECC883AA_5A53SID; domain=.nih.gov; path=/; expires=Thu,
-        16 Sep 2021 01:00:26 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=28E32D694B17F301_4422SID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:44:24 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -397,6 +407,10 @@ http_interactions:
                 <GenbankCommonName>Sharp-shinned hawk</GenbankCommonName>
                 <Name>
                     <ClassCDE>authority</ClassCDE>
+                    <DispName>Accipiter striatus Vieillot, 1807</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>authority</ClassCDE>
                     <DispName>Accipiter striatus Vieillot, 1808</DispName>
                 </Name>
             </OtherNames>
@@ -570,10 +584,10 @@ http_interactions:
                 </Taxon>
             </LineageEx>
             <CreateDate>1997/01/23 17:31:00</CreateDate>
-            <UpdateDate>2017/06/14 10:56:24</UpdateDate>
+            <UpdateDate>2020/09/23 15:46:16</UpdateDate>
             <PubDate>1997/07/02 01:00:00</PubDate>
         </Taxon>
 
         </TaxaSet>
-  recorded_at: 2020-09-16 01:00:27 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:44:25 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0

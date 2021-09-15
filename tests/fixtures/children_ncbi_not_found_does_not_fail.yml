@@ -6,7 +6,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.73.0 r-curl/4.3 crul/1.0.0
+      User-Agent: libcurl/7.68.0 r-curl/4.3.2 crul/1.1.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -16,20 +16,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Fri, 20 Nov 2020 19:07:23 GMT
+      date: Wed, 15 Sep 2021 22:43:16 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '9'
-      ncbi-phid: D0BD28DF0040960500005FE5C2319DFC.1.1.m_3
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: E4B8CEDFE56C9C5C_9FEBSID
+      ncbi-phid: D0BD2729693488A500002845D44319FE.1.1.m_3
+      x-ratelimit-remaining: '9'
+      ncbi-sid: A953EE38674EF320_89E9SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=E4B8CEDFE56C9C5C_9FEBSID; domain=.nih.gov; path=/; expires=Sat,
-        20 Nov 2021 19:07:23 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=A953EE38674EF320_89E9SID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:43:17 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -41,5 +43,5 @@ http_interactions:
         <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
         <TaxaSet>
         </TaxaSet>
-  recorded_at: 2020-11-20 19:07:23 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.7.0
+  recorded_at: 2021-09-15 22:43:17 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0

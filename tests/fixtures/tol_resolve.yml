@@ -15,7 +15,7 @@ http_interactions:
       reason: OK
       message: 'Success: (200) OK'
     headers:
-      date: Fri, 17 Apr 2020 15:02:14 GMT
+      date: Wed, 15 Sep 2021 22:50:38 GMT
       server: waitress
       access-control-allow-credentials: 'true'
       access-control-allow-origin: '*'
@@ -23,7 +23,7 @@ http_interactions:
       cache-control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
       content-length: '3285'
       content-type: application/json;
-      expires: Fri, 17 Apr 2020 15:02:14 GMT
+      expires: Wed, 15 Sep 2021 22:50:38 GMT
       pragma: no-cache
       vary: Accept-Encoding
       x-powered-by: otc-tol-ws
@@ -60,7 +60,7 @@ http_interactions:
               "name": "Echinodermata",
               "ott_id": 451020,
               "rank": "phylum",
-              "source": "ott3.2draft9",
+              "source": "ott3.3draft1",
               "synonyms": [
                "Cornuta"
               ],
@@ -94,7 +94,7 @@ http_interactions:
               "name": "Xenacoelomorpha",
               "ott_id": 4146088,
               "rank": "phylum",
-              "source": "ott3.2draft9",
+              "source": "ott3.3draft1",
               "synonyms": [],
               "tax_sources": [
                "ncbi:1312402",
@@ -124,7 +124,7 @@ http_interactions:
               "name": "Chordata",
               "ott_id": 125642,
               "rank": "phylum",
-              "source": "ott3.2draft9",
+              "source": "ott3.3draft1",
               "synonyms": [
                "Acanthopis"
               ],
@@ -156,7 +156,7 @@ http_interactions:
               "name": "Hemichordata",
               "ott_id": 100746,
               "rank": "phylum",
-              "source": "ott3.2draft9",
+              "source": "ott3.3draft1",
               "synonyms": [],
               "tax_sources": [
                "ncbi:10219",
@@ -174,9 +174,9 @@ http_interactions:
          "taxonomy": {
           "author": "open tree of life project",
           "name": "ott",
-          "source": "ott3.2draft9",
-          "version": "3.2",
-          "weburl": "https://tree.opentreeoflife.org/about/taxonomy-version/ott3.2"
+          "source": "ott3.3draft1",
+          "version": "3.3",
+          "weburl": "https://tree.opentreeoflife.org/about/taxonomy-version/ott3.3"
          },
          "unambiguous_names": [
           "echinodermata",
@@ -186,5 +186,5 @@ http_interactions:
          ],
          "unmatched_names": []
         }
-  recorded_at: 2020-04-17 15:02:15 GMT
-  recorded_with: vcr/0.5.4.91, webmockr/0.6.2.92
+  recorded_at: 2021-09-15 22:50:38 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0

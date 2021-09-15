@@ -6,7 +6,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.68.0 r-curl/4.3.2 crul/1.1.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -15,15 +15,14 @@ http_interactions:
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: 'HTTP/2 200 '
-      server: nginx
-      date: Thu, 23 Apr 2020 22:35:50 GMT
       content-type: text/html; charset=utf-8
+      date: Wed, 15 Sep 2021 22:41:21 GMT
+      server: nginx
+      set-cookie:
+      - session=1kh372sgvg4mk1emrnh25ju8b4; path=/
+      - https=on;Path=/;Max-Age=3600;httponly;SameSite=Lax
+      status: 'HTTP/2 200 '
       x-powered-by: PHP/5.3.15
-      set-cookie: session=v6jmpdgkhe3qr0b8eto5cuuv71; path=/
-      x-frame-options: SAMEORIGIN
-      x-content-type-options: nosniff
-      x-xss-protection: 1; mode=block
     body:
       encoding: UTF-8
       file: no
@@ -212,6 +211,6 @@ http_interactions:
         class=\"col-sm-2\">\n\t\t\t\t\t\t<img class=\"img-responsive center-block\"
         src=\"/libhtml_v4/img/UoGuelph_image18-100x100.png\" />\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div
         class=\"row\">\n\t\t\t\t\t<div class=\"col-xs-12\"><br/><h5><small><strong>Copyright</strong>
-        BOLD &copy; 2014-2020</small></h5></div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</body>\r\n</html>"
-  recorded_at: 2020-04-23 22:35:50 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+        BOLD &copy; 2014-2021</small></h5></div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</body>\r\n</html>"
+  recorded_at: 2021-09-15 22:41:21 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0

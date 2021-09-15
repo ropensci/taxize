@@ -6,7 +6,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(rredlist/0.7.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -17,21 +17,34 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 28 Mar 2020 00:23:04 GMT
+      date: Wed, 15 Sep 2021 22:48:17 GMT
       content-type: application/json; charset=utf-8
       content-length: '762'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       etag: W/"2fa-Dasnns+azfAosdYyzVKMfQ"
       vary: Accept-Encoding
-      set-cookie: sails.sid=s%3APkoHTeGrN73KJn0P8-TJ4gGvKd9hulv4.ljThK0XwqpGxr3bA6wpbteL%2BNiNqFDRkqjOiM8j6t8c;
+      set-cookie: sails.sid=s%3AP0NeGjLt1OKXHUDiLuy3ap35xRYB_d73.TiXIdgUG4Lh1bM0eQw95FCiBUrYwQpSc5jSvzimU9Bs;
         Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
       file: no
-      string: eyJuYW1lIjoiQWJpZXMga29yZWFuYSIsInJlc3VsdCI6W3sidGF4b25pZCI6MzEyNDQsInNjaWVudGlmaWNfbmFtZSI6IkFiaWVzIGtvcmVhbmEiLCJraW5nZG9tIjoiUExBTlRBRSIsInBoeWx1bSI6IlRSQUNIRU9QSFlUQSIsImNsYXNzIjoiUElOT1BTSURBIiwib3JkZXIiOiJQSU5BTEVTIiwiZmFtaWx5IjoiUElOQUNFQUUiLCJnZW51cyI6IkFiaWVzIiwibWFpbl9jb21tb25fbmFtZSI6IktvcmVhbiBGaXIiLCJhdXRob3JpdHkiOiJFLkguV2lsc29uIiwicHVibGlzaGVkX3llYXIiOjIwMTEsImFzc2Vzc21lbnRfZGF0ZSI6IjIwMTAtMDktMDciLCJjYXRlZ29yeSI6IkVOIiwiY3JpdGVyaWEiOiJCMmFiKGlpLGlpaSx2KSIsInBvcHVsYXRpb25fdHJlbmQiOiJEZWNyZWFzaW5nIiwibWFyaW5lX3N5c3RlbSI6ZmFsc2UsImZyZXNod2F0ZXJfc3lzdGVtIjpmYWxzZSwidGVycmVzdHJpYWxfc3lzdGVtIjp0cnVlLCJhc3Nlc3NvciI6IktpbSwgWS4tUy4sIENoYW5nLCBDLi1TLiwgS2ltLCBDLi1TLiAmIEdhcmRuZXIsIE0uIiwicmV2aWV3ZXIiOiJUaG9tYXMsIFAuICYgRmFyam9uLCBBLiIsImFvb19rbTIiOiIxMiIsImVvb19rbTIiOm51bGwsImVsZXZhdGlvbl91cHBlciI6MTkwMCwiZWxldmF0aW9uX2xvd2VyIjoxMDAwLCJkZXB0aF91cHBlciI6bnVsbCwiZGVwdGhfbG93ZXIiOm51bGwsImVycmF0YV9mbGFnIjpudWxsLCJlcnJhdGFfcmVhc29uIjpudWxsLCJhbWVuZGVkX2ZsYWciOm51bGwsImFtZW5kZWRfcmVhc29uIjpudWxsfV19
-  recorded_at: 2020-03-28 00:23:16 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
+      string: |-
+        eyJuYW1lIjoiQWJpZXMga29yZWFuYSIsInJlc3VsdCI6W3sidGF4b25pZCI6MzEyNDQsInNjaWVudGlm
+        aWNfbmFtZSI6IkFiaWVzIGtvcmVhbmEiLCJraW5nZG9tIjoiUExBTlRBRSIsInBoeWx1bSI6IlRSQUNI
+        RU9QSFlUQSIsImNsYXNzIjoiUElOT1BTSURBIiwib3JkZXIiOiJQSU5BTEVTIiwiZmFtaWx5IjoiUElO
+        QUNFQUUiLCJnZW51cyI6IkFiaWVzIiwibWFpbl9jb21tb25fbmFtZSI6IktvcmVhbiBGaXIiLCJhdXRo
+        b3JpdHkiOiJFLkguV2lsc29uIiwicHVibGlzaGVkX3llYXIiOjIwMTEsImFzc2Vzc21lbnRfZGF0ZSI6
+        IjIwMTAtMDktMDciLCJjYXRlZ29yeSI6IkVOIiwiY3JpdGVyaWEiOiJCMmFiKGlpLGlpaSx2KSIsInBv
+        cHVsYXRpb25fdHJlbmQiOiJEZWNyZWFzaW5nIiwibWFyaW5lX3N5c3RlbSI6ZmFsc2UsImZyZXNod2F0
+        ZXJfc3lzdGVtIjpmYWxzZSwidGVycmVzdHJpYWxfc3lzdGVtIjp0cnVlLCJhc3Nlc3NvciI6IktpbSwg
+        WS4tUy4sIENoYW5nLCBDLi1TLiwgS2ltLCBDLi1TLiAmIEdhcmRuZXIsIE0uIiwicmV2aWV3ZXIiOiJU
+        aG9tYXMsIFAuICYgRmFyam9uLCBBLiIsImFvb19rbTIiOiIxMiIsImVvb19rbTIiOm51bGwsImVsZXZh
+        dGlvbl91cHBlciI6MTkwMCwiZWxldmF0aW9uX2xvd2VyIjoxMDAwLCJkZXB0aF91cHBlciI6bnVsbCwi
+        ZGVwdGhfbG93ZXIiOm51bGwsImVycmF0YV9mbGFnIjpudWxsLCJlcnJhdGFfcmVhc29uIjpudWxsLCJh
+        bWVuZGVkX2ZsYWciOm51bGwsImFtZW5kZWRfcmVhc29uIjpudWxsfV19
+  recorded_at: 2021-09-15 22:48:30 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://apiv3.iucnredlist.org/api/v3/species/id/31244?token=<<rredlist_api_token>>
@@ -39,7 +52,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(rredlist/0.7.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -50,21 +63,34 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 28 Mar 2020 00:23:05 GMT
+      date: Wed, 15 Sep 2021 22:48:18 GMT
       content-type: application/json; charset=utf-8
       content-length: '754'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       etag: W/"2f2-5Tode1cHmZO0nes/thKmow"
       vary: Accept-Encoding
-      set-cookie: sails.sid=s%3Azu2aQkhDpzMhuwG-6gdK0_A-4RicGgVB.%2B%2Fs1noNGQ9uex8Ywc20juuvF0VVZ1cXnC3FmwpjoDcQ;
+      set-cookie: sails.sid=s%3Ao8kOZKw6wLJZ2_8-r5jd8eEyiycJVKB3.EMQIbRJRcj6qNbasWlWYRKwWLkKcNz4Z4WfjOvKtyqQ;
         Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
       file: no
-      string: eyJuYW1lIjoiMzEyNDQiLCJyZXN1bHQiOlt7InRheG9uaWQiOjMxMjQ0LCJzY2llbnRpZmljX25hbWUiOiJBYmllcyBrb3JlYW5hIiwia2luZ2RvbSI6IlBMQU5UQUUiLCJwaHlsdW0iOiJUUkFDSEVPUEhZVEEiLCJjbGFzcyI6IlBJTk9QU0lEQSIsIm9yZGVyIjoiUElOQUxFUyIsImZhbWlseSI6IlBJTkFDRUFFIiwiZ2VudXMiOiJBYmllcyIsIm1haW5fY29tbW9uX25hbWUiOiJLb3JlYW4gRmlyIiwiYXV0aG9yaXR5IjoiRS5ILldpbHNvbiIsInB1Ymxpc2hlZF95ZWFyIjoyMDExLCJhc3Nlc3NtZW50X2RhdGUiOiIyMDEwLTA5LTA3IiwiY2F0ZWdvcnkiOiJFTiIsImNyaXRlcmlhIjoiQjJhYihpaSxpaWksdikiLCJwb3B1bGF0aW9uX3RyZW5kIjoiRGVjcmVhc2luZyIsIm1hcmluZV9zeXN0ZW0iOmZhbHNlLCJmcmVzaHdhdGVyX3N5c3RlbSI6ZmFsc2UsInRlcnJlc3RyaWFsX3N5c3RlbSI6dHJ1ZSwiYXNzZXNzb3IiOiJLaW0sIFkuLVMuLCBDaGFuZywgQy4tUy4sIEtpbSwgQy4tUy4gJiBHYXJkbmVyLCBNLiIsInJldmlld2VyIjoiVGhvbWFzLCBQLiAmIEZhcmpvbiwgQS4iLCJhb29fa20yIjoiMTIiLCJlb29fa20yIjpudWxsLCJlbGV2YXRpb25fdXBwZXIiOjE5MDAsImVsZXZhdGlvbl9sb3dlciI6MTAwMCwiZGVwdGhfdXBwZXIiOm51bGwsImRlcHRoX2xvd2VyIjpudWxsLCJlcnJhdGFfZmxhZyI6bnVsbCwiZXJyYXRhX3JlYXNvbiI6bnVsbCwiYW1lbmRlZF9mbGFnIjpudWxsLCJhbWVuZGVkX3JlYXNvbiI6bnVsbH1dfQ==
-  recorded_at: 2020-03-28 00:23:16 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
+      string: |-
+        eyJuYW1lIjoiMzEyNDQiLCJyZXN1bHQiOlt7InRheG9uaWQiOjMxMjQ0LCJzY2llbnRpZmljX25hbWUi
+        OiJBYmllcyBrb3JlYW5hIiwia2luZ2RvbSI6IlBMQU5UQUUiLCJwaHlsdW0iOiJUUkFDSEVPUEhZVEEi
+        LCJjbGFzcyI6IlBJTk9QU0lEQSIsIm9yZGVyIjoiUElOQUxFUyIsImZhbWlseSI6IlBJTkFDRUFFIiwi
+        Z2VudXMiOiJBYmllcyIsIm1haW5fY29tbW9uX25hbWUiOiJLb3JlYW4gRmlyIiwiYXV0aG9yaXR5Ijoi
+        RS5ILldpbHNvbiIsInB1Ymxpc2hlZF95ZWFyIjoyMDExLCJhc3Nlc3NtZW50X2RhdGUiOiIyMDEwLTA5
+        LTA3IiwiY2F0ZWdvcnkiOiJFTiIsImNyaXRlcmlhIjoiQjJhYihpaSxpaWksdikiLCJwb3B1bGF0aW9u
+        X3RyZW5kIjoiRGVjcmVhc2luZyIsIm1hcmluZV9zeXN0ZW0iOmZhbHNlLCJmcmVzaHdhdGVyX3N5c3Rl
+        bSI6ZmFsc2UsInRlcnJlc3RyaWFsX3N5c3RlbSI6dHJ1ZSwiYXNzZXNzb3IiOiJLaW0sIFkuLVMuLCBD
+        aGFuZywgQy4tUy4sIEtpbSwgQy4tUy4gJiBHYXJkbmVyLCBNLiIsInJldmlld2VyIjoiVGhvbWFzLCBQ
+        LiAmIEZhcmpvbiwgQS4iLCJhb29fa20yIjoiMTIiLCJlb29fa20yIjpudWxsLCJlbGV2YXRpb25fdXBw
+        ZXIiOjE5MDAsImVsZXZhdGlvbl9sb3dlciI6MTAwMCwiZGVwdGhfdXBwZXIiOm51bGwsImRlcHRoX2xv
+        d2VyIjpudWxsLCJlcnJhdGFfZmxhZyI6bnVsbCwiZXJyYXRhX3JlYXNvbiI6bnVsbCwiYW1lbmRlZF9m
+        bGFnIjpudWxsLCJhbWVuZGVkX3JlYXNvbiI6bnVsbH1dfQ==
+  recorded_at: 2021-09-15 22:48:30 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://apiv3.iucnredlist.org/api/v3/species/history/id/31244?token=<<rredlist_api_token>>
@@ -72,7 +98,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(rredlist/0.7.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -83,21 +109,25 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 28 Mar 2020 00:23:05 GMT
+      date: Wed, 15 Sep 2021 22:48:18 GMT
       content-type: application/json; charset=utf-8
       content-length: '195'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       etag: W/"c3-ZwjABrnrndFjN2UFTQAk4w"
       vary: Accept-Encoding
-      set-cookie: sails.sid=s%3AQDJrfsRuTX7zDd8y92rwuaALlAiWYByf.kKNlnLG1hBOTJJniiXYgX4LlAjIhEsFa8yXzhPBcabM;
+      set-cookie: sails.sid=s%3AdAsZ7ihfEDPagfd_6zoyopTcBNq1AZ-V.CPtPPiiZh1nIGCQq1xWQsMq%2BLzEgG9f9R5VtylfHVg8;
         Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
       file: no
-      string: eyJuYW1lIjoiMzEyNDQiLCJyZXN1bHQiOlt7InllYXIiOiIyMDExIiwiY29kZSI6IkVOIiwiY2F0ZWdvcnkiOiJFbmRhbmdlcmVkIn0seyJ5ZWFyIjoiMTk5OCIsImNvZGUiOiJMUi9udCIsImNhdGVnb3J5IjoiTG93ZXIgUmlzay9uZWFyIHRocmVhdGVuZWQifSx7InllYXIiOiIxOTk4IiwiY29kZSI6IlIiLCJjYXRlZ29yeSI6IlJhcmUifV19
-  recorded_at: 2020-03-28 00:23:16 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
+      string: |-
+        eyJuYW1lIjoiMzEyNDQiLCJyZXN1bHQiOlt7InllYXIiOiIyMDExIiwiY29kZSI6IkVOIiwiY2F0ZWdv
+        cnkiOiJFbmRhbmdlcmVkIn0seyJ5ZWFyIjoiMTk5OCIsImNvZGUiOiJMUi9udCIsImNhdGVnb3J5Ijoi
+        TG93ZXIgUmlzay9uZWFyIHRocmVhdGVuZWQifSx7InllYXIiOiIxOTk4IiwiY29kZSI6IlIiLCJjYXRl
+        Z29yeSI6IlJhcmUifV19
+  recorded_at: 2021-09-15 22:48:30 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://apiv3.iucnredlist.org/api/v3/species/countries/id/31244?token=<<rredlist_api_token>>
@@ -105,7 +135,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(rredlist/0.7.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -116,21 +146,24 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 28 Mar 2020 00:23:05 GMT
+      date: Wed, 15 Sep 2021 22:48:19 GMT
       content-type: application/json; charset=utf-8
       content-length: '149'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       etag: W/"95-+3ZBCOLM8vKOiPl/rVa/BQ"
       vary: Accept-Encoding
-      set-cookie: sails.sid=s%3AOdeMr0T8pXG5krqyQRICjpnpo_MZjDSK.YiiQBjE0vxb7nchS5hd62UcJj%2FTR2EtWNOTx3h0s0l4;
+      set-cookie: sails.sid=s%3ApMiYJSNHmv5vpO0vhPYObY_VB2t47Vs2.am%2BDtd0OT0dhalGcHUS8%2Fwpd2qy4n2GMIf8zuOxqldo;
         Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
       file: no
-      string: eyJuYW1lIjoiMzEyNDQiLCJjb3VudCI6MSwicmVzdWx0IjpbeyJjb2RlIjoiS1IiLCJjb3VudHJ5IjoiS29yZWEsIFJlcHVibGljIG9mIiwicHJlc2VuY2UiOiJFeHRhbnQiLCJvcmlnaW4iOiJOYXRpdmUiLCJkaXN0cmlidXRpb25fY29kZSI6Ik5hdGl2ZSJ9XX0=
-  recorded_at: 2020-03-28 00:23:16 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
+      string: |-
+        eyJuYW1lIjoiMzEyNDQiLCJjb3VudCI6MSwicmVzdWx0IjpbeyJjb2RlIjoiS1IiLCJjb3VudHJ5Ijoi
+        S29yZWEsIFJlcHVibGljIG9mIiwicHJlc2VuY2UiOiJFeHRhbnQiLCJvcmlnaW4iOiJOYXRpdmUiLCJk
+        aXN0cmlidXRpb25fY29kZSI6Ik5hdGl2ZSJ9XX0=
+  recorded_at: 2021-09-15 22:48:30 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://apiv3.iucnredlist.org/api/v3/species/Xylopia%20collina?token=<<rredlist_api_token>>
@@ -138,7 +171,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(rredlist/0.7.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -149,21 +182,34 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 28 Mar 2020 00:23:06 GMT
+      date: Wed, 15 Sep 2021 22:48:19 GMT
       content-type: application/json; charset=utf-8
       content-length: '737'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       etag: W/"2e1-YCh+R21HLMRlSzy26bbinw"
       vary: Accept-Encoding
-      set-cookie: sails.sid=s%3AhggosCcqrD8WEfIUl_SHYRIzD744gDV_.%2BKiDiWzFEhc7Bqx6H2UT4HuFFpYnBwd%2FnC6rfSjwiXs;
+      set-cookie: sails.sid=s%3AWAdpzORQKDToDzObuD24vgHcJHx-qLSW.oNkxU29h%2FtT%2FpFbkdcJMMrW3bn9MEUXfARViJVy9fVA;
         Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
       file: no
-      string: eyJuYW1lIjoiWHlsb3BpYSBjb2xsaW5hIiwicmVzdWx0IjpbeyJ0YXhvbmlkIjoxNTgzNTQsInNjaWVudGlmaWNfbmFtZSI6Ilh5bG9waWEgY29sbGluYSIsImtpbmdkb20iOiJQTEFOVEFFIiwicGh5bHVtIjoiVFJBQ0hFT1BIWVRBIiwiY2xhc3MiOiJNQUdOT0xJT1BTSURBIiwib3JkZXIiOiJNQUdOT0xJQUxFUyIsImZhbWlseSI6IkFOTk9OQUNFQUUiLCJnZW51cyI6Ilh5bG9waWEiLCJtYWluX2NvbW1vbl9uYW1lIjpudWxsLCJhdXRob3JpdHkiOiJEaWVscyIsInB1Ymxpc2hlZF95ZWFyIjoyMDE5LCJhc3Nlc3NtZW50X2RhdGUiOiIyMDE4LTExLTIxIiwiY2F0ZWdvcnkiOiJOVCIsImNyaXRlcmlhIjpudWxsLCJwb3B1bGF0aW9uX3RyZW5kIjoiVW5rbm93biIsIm1hcmluZV9zeXN0ZW0iOmZhbHNlLCJmcmVzaHdhdGVyX3N5c3RlbSI6ZmFsc2UsInRlcnJlc3RyaWFsX3N5c3RlbSI6dHJ1ZSwiYXNzZXNzb3IiOiJDb3NpYXV4LCBBLiwgQ291dnJldXIsIFQuTC5QLiAmIEVya2VucywgUi5ILkouIiwicmV2aWV3ZXIiOiJHZXJlYXUsIFIuRS4iLCJhb29fa20yIjoiODAiLCJlb29fa20yIjoiMTYwNzEiLCJlbGV2YXRpb25fdXBwZXIiOjkwMCwiZWxldmF0aW9uX2xvd2VyIjoyMDAsImRlcHRoX3VwcGVyIjpudWxsLCJkZXB0aF9sb3dlciI6bnVsbCwiZXJyYXRhX2ZsYWciOm51bGwsImVycmF0YV9yZWFzb24iOm51bGwsImFtZW5kZWRfZmxhZyI6bnVsbCwiYW1lbmRlZF9yZWFzb24iOm51bGx9XX0=
-  recorded_at: 2020-03-28 00:23:16 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
+      string: |-
+        eyJuYW1lIjoiWHlsb3BpYSBjb2xsaW5hIiwicmVzdWx0IjpbeyJ0YXhvbmlkIjoxNTgzNTQsInNjaWVu
+        dGlmaWNfbmFtZSI6Ilh5bG9waWEgY29sbGluYSIsImtpbmdkb20iOiJQTEFOVEFFIiwicGh5bHVtIjoi
+        VFJBQ0hFT1BIWVRBIiwiY2xhc3MiOiJNQUdOT0xJT1BTSURBIiwib3JkZXIiOiJNQUdOT0xJQUxFUyIs
+        ImZhbWlseSI6IkFOTk9OQUNFQUUiLCJnZW51cyI6Ilh5bG9waWEiLCJtYWluX2NvbW1vbl9uYW1lIjpu
+        dWxsLCJhdXRob3JpdHkiOiJEaWVscyIsInB1Ymxpc2hlZF95ZWFyIjoyMDE5LCJhc3Nlc3NtZW50X2Rh
+        dGUiOiIyMDE4LTExLTIxIiwiY2F0ZWdvcnkiOiJOVCIsImNyaXRlcmlhIjpudWxsLCJwb3B1bGF0aW9u
+        X3RyZW5kIjoiVW5rbm93biIsIm1hcmluZV9zeXN0ZW0iOmZhbHNlLCJmcmVzaHdhdGVyX3N5c3RlbSI6
+        ZmFsc2UsInRlcnJlc3RyaWFsX3N5c3RlbSI6dHJ1ZSwiYXNzZXNzb3IiOiJDb3NpYXV4LCBBLiwgQ291
+        dnJldXIsIFQuTC5QLiAmIEVya2VucywgUi5ILkouIiwicmV2aWV3ZXIiOiJHZXJlYXUsIFIuRS4iLCJh
+        b29fa20yIjoiODAiLCJlb29fa20yIjoiMTYwNzEiLCJlbGV2YXRpb25fdXBwZXIiOjkwMCwiZWxldmF0
+        aW9uX2xvd2VyIjoyMDAsImRlcHRoX3VwcGVyIjpudWxsLCJkZXB0aF9sb3dlciI6bnVsbCwiZXJyYXRh
+        X2ZsYWciOm51bGwsImVycmF0YV9yZWFzb24iOm51bGwsImFtZW5kZWRfZmxhZyI6bnVsbCwiYW1lbmRl
+        ZF9yZWFzb24iOm51bGx9XX0=
+  recorded_at: 2021-09-15 22:48:30 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://apiv3.iucnredlist.org/api/v3/species/id/158354?token=<<rredlist_api_token>>
@@ -171,7 +217,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(rredlist/0.7.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -182,21 +228,34 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 28 Mar 2020 00:23:06 GMT
+      date: Wed, 15 Sep 2021 22:48:19 GMT
       content-type: application/json; charset=utf-8
       content-length: '728'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       etag: W/"2d8-gja+3OgiCPRQ77oE98YCzg"
       vary: Accept-Encoding
-      set-cookie: sails.sid=s%3AO_-VNCTb_dzdohTi-CPjKkU7Neq1ruyB.ysnxxQIQYdRAQIXQBeFZbR7auLOXYgemmmznT%2FQVnr8;
+      set-cookie: sails.sid=s%3Ajw3eIYhaKXnoHsT3Hrus9F5in1vjOk30.j33kPYLO6Hn0zFjcLWZNGAgJjKc90AXBgzGRgtKSVsQ;
         Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
       file: no
-      string: eyJuYW1lIjoiMTU4MzU0IiwicmVzdWx0IjpbeyJ0YXhvbmlkIjoxNTgzNTQsInNjaWVudGlmaWNfbmFtZSI6Ilh5bG9waWEgY29sbGluYSIsImtpbmdkb20iOiJQTEFOVEFFIiwicGh5bHVtIjoiVFJBQ0hFT1BIWVRBIiwiY2xhc3MiOiJNQUdOT0xJT1BTSURBIiwib3JkZXIiOiJNQUdOT0xJQUxFUyIsImZhbWlseSI6IkFOTk9OQUNFQUUiLCJnZW51cyI6Ilh5bG9waWEiLCJtYWluX2NvbW1vbl9uYW1lIjpudWxsLCJhdXRob3JpdHkiOiJEaWVscyIsInB1Ymxpc2hlZF95ZWFyIjoyMDE5LCJhc3Nlc3NtZW50X2RhdGUiOiIyMDE4LTExLTIxIiwiY2F0ZWdvcnkiOiJOVCIsImNyaXRlcmlhIjpudWxsLCJwb3B1bGF0aW9uX3RyZW5kIjoiVW5rbm93biIsIm1hcmluZV9zeXN0ZW0iOmZhbHNlLCJmcmVzaHdhdGVyX3N5c3RlbSI6ZmFsc2UsInRlcnJlc3RyaWFsX3N5c3RlbSI6dHJ1ZSwiYXNzZXNzb3IiOiJDb3NpYXV4LCBBLiwgQ291dnJldXIsIFQuTC5QLiAmIEVya2VucywgUi5ILkouIiwicmV2aWV3ZXIiOiJHZXJlYXUsIFIuRS4iLCJhb29fa20yIjoiODAiLCJlb29fa20yIjoiMTYwNzEiLCJlbGV2YXRpb25fdXBwZXIiOjkwMCwiZWxldmF0aW9uX2xvd2VyIjoyMDAsImRlcHRoX3VwcGVyIjpudWxsLCJkZXB0aF9sb3dlciI6bnVsbCwiZXJyYXRhX2ZsYWciOm51bGwsImVycmF0YV9yZWFzb24iOm51bGwsImFtZW5kZWRfZmxhZyI6bnVsbCwiYW1lbmRlZF9yZWFzb24iOm51bGx9XX0=
-  recorded_at: 2020-03-28 00:23:16 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
+      string: |-
+        eyJuYW1lIjoiMTU4MzU0IiwicmVzdWx0IjpbeyJ0YXhvbmlkIjoxNTgzNTQsInNjaWVudGlmaWNfbmFt
+        ZSI6Ilh5bG9waWEgY29sbGluYSIsImtpbmdkb20iOiJQTEFOVEFFIiwicGh5bHVtIjoiVFJBQ0hFT1BI
+        WVRBIiwiY2xhc3MiOiJNQUdOT0xJT1BTSURBIiwib3JkZXIiOiJNQUdOT0xJQUxFUyIsImZhbWlseSI6
+        IkFOTk9OQUNFQUUiLCJnZW51cyI6Ilh5bG9waWEiLCJtYWluX2NvbW1vbl9uYW1lIjpudWxsLCJhdXRo
+        b3JpdHkiOiJEaWVscyIsInB1Ymxpc2hlZF95ZWFyIjoyMDE5LCJhc3Nlc3NtZW50X2RhdGUiOiIyMDE4
+        LTExLTIxIiwiY2F0ZWdvcnkiOiJOVCIsImNyaXRlcmlhIjpudWxsLCJwb3B1bGF0aW9uX3RyZW5kIjoi
+        VW5rbm93biIsIm1hcmluZV9zeXN0ZW0iOmZhbHNlLCJmcmVzaHdhdGVyX3N5c3RlbSI6ZmFsc2UsInRl
+        cnJlc3RyaWFsX3N5c3RlbSI6dHJ1ZSwiYXNzZXNzb3IiOiJDb3NpYXV4LCBBLiwgQ291dnJldXIsIFQu
+        TC5QLiAmIEVya2VucywgUi5ILkouIiwicmV2aWV3ZXIiOiJHZXJlYXUsIFIuRS4iLCJhb29fa20yIjoi
+        ODAiLCJlb29fa20yIjoiMTYwNzEiLCJlbGV2YXRpb25fdXBwZXIiOjkwMCwiZWxldmF0aW9uX2xvd2Vy
+        IjoyMDAsImRlcHRoX3VwcGVyIjpudWxsLCJkZXB0aF9sb3dlciI6bnVsbCwiZXJyYXRhX2ZsYWciOm51
+        bGwsImVycmF0YV9yZWFzb24iOm51bGwsImFtZW5kZWRfZmxhZyI6bnVsbCwiYW1lbmRlZF9yZWFzb24i
+        Om51bGx9XX0=
+  recorded_at: 2021-09-15 22:48:30 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://apiv3.iucnredlist.org/api/v3/species/history/id/158354?token=<<rredlist_api_token>>
@@ -204,7 +263,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(rredlist/0.7.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -215,21 +274,24 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 28 Mar 2020 00:23:07 GMT
+      date: Wed, 15 Sep 2021 22:48:20 GMT
       content-type: application/json; charset=utf-8
       content-length: '137'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       etag: W/"89-DMzRcmpk5lDKBRFXDmOA9Q"
       vary: Accept-Encoding
-      set-cookie: sails.sid=s%3AMidNiLR4GEHpOx7qJQW1IPE_SIEsVi9C.O%2FNsopQ9pqxXpFMX6fqVSxJx%2FNrRvnxkQ3YyxzhrG4A;
+      set-cookie: sails.sid=s%3A-_Y9sBYcFZzgpwWtjpzKAyrLrT7S813y.o2cpZf5GmXT%2FOwCKkDyxpvZ4Xt9cc%2FbDDjz%2BxEu9fW0;
         Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
       file: no
-      string: eyJuYW1lIjoiMTU4MzU0IiwicmVzdWx0IjpbeyJ5ZWFyIjoiMjAxOSIsImNvZGUiOiJOVCIsImNhdGVnb3J5IjoiTmVhciBUaHJlYXRlbmVkIn0seyJ5ZWFyIjoiMjAwOSIsImNvZGUiOiJFTiIsImNhdGVnb3J5IjoiRW5kYW5nZXJlZCJ9XX0=
-  recorded_at: 2020-03-28 00:23:16 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
+      string: |-
+        eyJuYW1lIjoiMTU4MzU0IiwicmVzdWx0IjpbeyJ5ZWFyIjoiMjAxOSIsImNvZGUiOiJOVCIsImNhdGVn
+        b3J5IjoiTmVhciBUaHJlYXRlbmVkIn0seyJ5ZWFyIjoiMjAwOSIsImNvZGUiOiJFTiIsImNhdGVnb3J5
+        IjoiRW5kYW5nZXJlZCJ9XX0=
+  recorded_at: 2021-09-15 22:48:30 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://apiv3.iucnredlist.org/api/v3/species/countries/id/158354?token=<<rredlist_api_token>>
@@ -237,7 +299,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(rredlist/0.7.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -248,21 +310,26 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 28 Mar 2020 00:23:07 GMT
+      date: Wed, 15 Sep 2021 22:48:20 GMT
       content-type: application/json; charset=utf-8
       content-length: '264'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       etag: W/"108-WVuKGNK5QfN+I0Pkrfv+Aw"
       vary: Accept-Encoding
-      set-cookie: sails.sid=s%3AD-PVPuOdiwOBojtaTgkxxapeznbE7UIM.vP1WfCxX6Sr7DVhL%2FqJT1zsks%2BOjrEEoC%2BUtlM8t4gQ;
+      set-cookie: sails.sid=s%3AHAdn5clNJJlAtq6qb86Z4thTu7e-3Q36.eaGlLpbibL81xCT3zcAJ7d%2B8yG6uTqQkFKOdV8kmTlo;
         Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
       file: no
-      string: eyJuYW1lIjoiMTU4MzU0IiwiY291bnQiOjIsInJlc3VsdCI6W3siY29kZSI6Ik1aIiwiY291bnRyeSI6Ik1vemFtYmlxdWUiLCJwcmVzZW5jZSI6IkV4dGFudCIsIm9yaWdpbiI6Ik5hdGl2ZSIsImRpc3RyaWJ1dGlvbl9jb2RlIjoiTmF0aXZlIn0seyJjb2RlIjoiVFoiLCJjb3VudHJ5IjoiVGFuemFuaWEsIFVuaXRlZCBSZXB1YmxpYyBvZiIsInByZXNlbmNlIjoiRXh0YW50Iiwib3JpZ2luIjoiTmF0aXZlIiwiZGlzdHJpYnV0aW9uX2NvZGUiOiJOYXRpdmUifV19
-  recorded_at: 2020-03-28 00:23:16 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
+      string: |-
+        eyJuYW1lIjoiMTU4MzU0IiwiY291bnQiOjIsInJlc3VsdCI6W3siY29kZSI6Ik1aIiwiY291bnRyeSI6
+        Ik1vemFtYmlxdWUiLCJwcmVzZW5jZSI6IkV4dGFudCIsIm9yaWdpbiI6Ik5hdGl2ZSIsImRpc3RyaWJ1
+        dGlvbl9jb2RlIjoiTmF0aXZlIn0seyJjb2RlIjoiVFoiLCJjb3VudHJ5IjoiVGFuemFuaWEsIFVuaXRl
+        ZCBSZXB1YmxpYyBvZiIsInByZXNlbmNlIjoiRXh0YW50Iiwib3JpZ2luIjoiTmF0aXZlIiwiZGlzdHJp
+        YnV0aW9uX2NvZGUiOiJOYXRpdmUifV19
+  recorded_at: 2021-09-15 22:48:30 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://apiv3.iucnredlist.org/api/v3/species/Brugmansia%20versicolor?token=<<rredlist_api_token>>
@@ -270,7 +337,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(rredlist/0.7.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -281,21 +348,33 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 28 Mar 2020 00:23:07 GMT
+      date: Wed, 15 Sep 2021 22:48:20 GMT
       content-type: application/json; charset=utf-8
       content-length: '703'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       etag: W/"2bf-bnZ3KVtnm/v1/x78ECi+qw"
       vary: Accept-Encoding
-      set-cookie: sails.sid=s%3ANxCNpYZC0F1QN45Rzd3MeE4dbTA4c5MC.Osn0jLKM4XSnWW07iXSiu69aVskgAv8NvcVSfzGW6Jw;
+      set-cookie: sails.sid=s%3AMRJHuUyp_Wvgx5JGenmSnXP7ZGymML-W.8o7cJsB8zHhW5vVrXt3c2p4Z75yrheIN%2BSlNxMagUrg;
         Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
       file: no
-      string: eyJuYW1lIjoiQnJ1Z21hbnNpYSB2ZXJzaWNvbG9yIiwicmVzdWx0IjpbeyJ0YXhvbmlkIjozODEyNSwic2NpZW50aWZpY19uYW1lIjoiQnJ1Z21hbnNpYSB2ZXJzaWNvbG9yIiwia2luZ2RvbSI6IlBMQU5UQUUiLCJwaHlsdW0iOiJUUkFDSEVPUEhZVEEiLCJjbGFzcyI6Ik1BR05PTElPUFNJREEiLCJvcmRlciI6IlNPTEFOQUxFUyIsImZhbWlseSI6IlNPTEFOQUNFQUUiLCJnZW51cyI6IkJydWdtYW5zaWEiLCJtYWluX2NvbW1vbl9uYW1lIjpudWxsLCJhdXRob3JpdHkiOiJMYWdlcmguIiwicHVibGlzaGVkX3llYXIiOjIwMTQsImFzc2Vzc21lbnRfZGF0ZSI6IjIwMTQtMDMtMjUiLCJjYXRlZ29yeSI6IkVXIiwiY3JpdGVyaWEiOm51bGwsInBvcHVsYXRpb25fdHJlbmQiOm51bGwsIm1hcmluZV9zeXN0ZW0iOmZhbHNlLCJmcmVzaHdhdGVyX3N5c3RlbSI6ZmFsc2UsInRlcnJlc3RyaWFsX3N5c3RlbSI6dHJ1ZSwiYXNzZXNzb3IiOiJIYXksIEEuIiwicmV2aWV3ZXIiOiJTY290dCwgSi5BLiIsImFvb19rbTIiOm51bGwsImVvb19rbTIiOm51bGwsImVsZXZhdGlvbl91cHBlciI6NzUwLCJlbGV2YXRpb25fbG93ZXIiOjEwMCwiZGVwdGhfdXBwZXIiOm51bGwsImRlcHRoX2xvd2VyIjpudWxsLCJlcnJhdGFfZmxhZyI6bnVsbCwiZXJyYXRhX3JlYXNvbiI6bnVsbCwiYW1lbmRlZF9mbGFnIjpudWxsLCJhbWVuZGVkX3JlYXNvbiI6bnVsbH1dfQ==
-  recorded_at: 2020-03-28 00:23:16 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
+      string: |-
+        eyJuYW1lIjoiQnJ1Z21hbnNpYSB2ZXJzaWNvbG9yIiwicmVzdWx0IjpbeyJ0YXhvbmlkIjozODEyNSwi
+        c2NpZW50aWZpY19uYW1lIjoiQnJ1Z21hbnNpYSB2ZXJzaWNvbG9yIiwia2luZ2RvbSI6IlBMQU5UQUUi
+        LCJwaHlsdW0iOiJUUkFDSEVPUEhZVEEiLCJjbGFzcyI6Ik1BR05PTElPUFNJREEiLCJvcmRlciI6IlNP
+        TEFOQUxFUyIsImZhbWlseSI6IlNPTEFOQUNFQUUiLCJnZW51cyI6IkJydWdtYW5zaWEiLCJtYWluX2Nv
+        bW1vbl9uYW1lIjpudWxsLCJhdXRob3JpdHkiOiJMYWdlcmguIiwicHVibGlzaGVkX3llYXIiOjIwMTQs
+        ImFzc2Vzc21lbnRfZGF0ZSI6IjIwMTQtMDMtMjUiLCJjYXRlZ29yeSI6IkVXIiwiY3JpdGVyaWEiOm51
+        bGwsInBvcHVsYXRpb25fdHJlbmQiOm51bGwsIm1hcmluZV9zeXN0ZW0iOmZhbHNlLCJmcmVzaHdhdGVy
+        X3N5c3RlbSI6ZmFsc2UsInRlcnJlc3RyaWFsX3N5c3RlbSI6dHJ1ZSwiYXNzZXNzb3IiOiJIYXksIEEu
+        IiwicmV2aWV3ZXIiOiJTY290dCwgSi5BLiIsImFvb19rbTIiOm51bGwsImVvb19rbTIiOm51bGwsImVs
+        ZXZhdGlvbl91cHBlciI6NzUwLCJlbGV2YXRpb25fbG93ZXIiOjEwMCwiZGVwdGhfdXBwZXIiOm51bGws
+        ImRlcHRoX2xvd2VyIjpudWxsLCJlcnJhdGFfZmxhZyI6bnVsbCwiZXJyYXRhX3JlYXNvbiI6bnVsbCwi
+        YW1lbmRlZF9mbGFnIjpudWxsLCJhbWVuZGVkX3JlYXNvbiI6bnVsbH1dfQ==
+  recorded_at: 2021-09-15 22:48:30 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://apiv3.iucnredlist.org/api/v3/species/id/38125?token=<<rredlist_api_token>>
@@ -303,7 +382,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(rredlist/0.7.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -314,21 +393,33 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 28 Mar 2020 00:23:08 GMT
+      date: Wed, 15 Sep 2021 22:48:21 GMT
       content-type: application/json; charset=utf-8
       content-length: '687'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       etag: W/"2af-ejVzYRdPjlgOjwEQuyrvGA"
       vary: Accept-Encoding
-      set-cookie: sails.sid=s%3A-OzOgvC8r2jLa4o20ogFu1CBBqOGPvK4.wMXLM3ccfHMRyK1bsUXi7%2BnnYeafNUVXIwqhX5qcfU4;
+      set-cookie: sails.sid=s%3AIAuu5m7Yie5wCD_CXMZcTNPAPj7JuW0w.MRUPM7r8pDrZX%2BC9SypqiNFYzkwJU1IYHLBBWYRbbNE;
         Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
       file: no
-      string: eyJuYW1lIjoiMzgxMjUiLCJyZXN1bHQiOlt7InRheG9uaWQiOjM4MTI1LCJzY2llbnRpZmljX25hbWUiOiJCcnVnbWFuc2lhIHZlcnNpY29sb3IiLCJraW5nZG9tIjoiUExBTlRBRSIsInBoeWx1bSI6IlRSQUNIRU9QSFlUQSIsImNsYXNzIjoiTUFHTk9MSU9QU0lEQSIsIm9yZGVyIjoiU09MQU5BTEVTIiwiZmFtaWx5IjoiU09MQU5BQ0VBRSIsImdlbnVzIjoiQnJ1Z21hbnNpYSIsIm1haW5fY29tbW9uX25hbWUiOm51bGwsImF1dGhvcml0eSI6IkxhZ2VyaC4iLCJwdWJsaXNoZWRfeWVhciI6MjAxNCwiYXNzZXNzbWVudF9kYXRlIjoiMjAxNC0wMy0yNSIsImNhdGVnb3J5IjoiRVciLCJjcml0ZXJpYSI6bnVsbCwicG9wdWxhdGlvbl90cmVuZCI6bnVsbCwibWFyaW5lX3N5c3RlbSI6ZmFsc2UsImZyZXNod2F0ZXJfc3lzdGVtIjpmYWxzZSwidGVycmVzdHJpYWxfc3lzdGVtIjp0cnVlLCJhc3Nlc3NvciI6IkhheSwgQS4iLCJyZXZpZXdlciI6IlNjb3R0LCBKLkEuIiwiYW9vX2ttMiI6bnVsbCwiZW9vX2ttMiI6bnVsbCwiZWxldmF0aW9uX3VwcGVyIjo3NTAsImVsZXZhdGlvbl9sb3dlciI6MTAwLCJkZXB0aF91cHBlciI6bnVsbCwiZGVwdGhfbG93ZXIiOm51bGwsImVycmF0YV9mbGFnIjpudWxsLCJlcnJhdGFfcmVhc29uIjpudWxsLCJhbWVuZGVkX2ZsYWciOm51bGwsImFtZW5kZWRfcmVhc29uIjpudWxsfV19
-  recorded_at: 2020-03-28 00:23:16 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
+      string: |-
+        eyJuYW1lIjoiMzgxMjUiLCJyZXN1bHQiOlt7InRheG9uaWQiOjM4MTI1LCJzY2llbnRpZmljX25hbWUi
+        OiJCcnVnbWFuc2lhIHZlcnNpY29sb3IiLCJraW5nZG9tIjoiUExBTlRBRSIsInBoeWx1bSI6IlRSQUNI
+        RU9QSFlUQSIsImNsYXNzIjoiTUFHTk9MSU9QU0lEQSIsIm9yZGVyIjoiU09MQU5BTEVTIiwiZmFtaWx5
+        IjoiU09MQU5BQ0VBRSIsImdlbnVzIjoiQnJ1Z21hbnNpYSIsIm1haW5fY29tbW9uX25hbWUiOm51bGws
+        ImF1dGhvcml0eSI6IkxhZ2VyaC4iLCJwdWJsaXNoZWRfeWVhciI6MjAxNCwiYXNzZXNzbWVudF9kYXRl
+        IjoiMjAxNC0wMy0yNSIsImNhdGVnb3J5IjoiRVciLCJjcml0ZXJpYSI6bnVsbCwicG9wdWxhdGlvbl90
+        cmVuZCI6bnVsbCwibWFyaW5lX3N5c3RlbSI6ZmFsc2UsImZyZXNod2F0ZXJfc3lzdGVtIjpmYWxzZSwi
+        dGVycmVzdHJpYWxfc3lzdGVtIjp0cnVlLCJhc3Nlc3NvciI6IkhheSwgQS4iLCJyZXZpZXdlciI6IlNj
+        b3R0LCBKLkEuIiwiYW9vX2ttMiI6bnVsbCwiZW9vX2ttMiI6bnVsbCwiZWxldmF0aW9uX3VwcGVyIjo3
+        NTAsImVsZXZhdGlvbl9sb3dlciI6MTAwLCJkZXB0aF91cHBlciI6bnVsbCwiZGVwdGhfbG93ZXIiOm51
+        bGwsImVycmF0YV9mbGFnIjpudWxsLCJlcnJhdGFfcmVhc29uIjpudWxsLCJhbWVuZGVkX2ZsYWciOm51
+        bGwsImFtZW5kZWRfcmVhc29uIjpudWxsfV19
+  recorded_at: 2021-09-15 22:48:30 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://apiv3.iucnredlist.org/api/v3/species/history/id/38125?token=<<rredlist_api_token>>
@@ -336,7 +427,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(rredlist/0.7.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -347,21 +438,25 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 28 Mar 2020 00:23:08 GMT
+      date: Wed, 15 Sep 2021 22:48:21 GMT
       content-type: application/json; charset=utf-8
       content-length: '197'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       etag: W/"c5-rfK1WkLDAm155L/zcBMJDQ"
       vary: Accept-Encoding
-      set-cookie: sails.sid=s%3A0PJpJpC3r-3TLT3uCLJK_f1u2RsN0t9M.HUjj9SbtFEun9rN3X1dJv2zPgU7HfHEW2psMhkEB2WM;
+      set-cookie: sails.sid=s%3AKcTyGU_EvIJvrHxVjeEOTL9_Twd7g4_k.RIg2h4Ksfs2F5rFVe9pkLB707H8Mm7UO9vzckhpXy4U;
         Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
       file: no
-      string: eyJuYW1lIjoiMzgxMjUiLCJyZXN1bHQiOlt7InllYXIiOiIyMDE0IiwiY29kZSI6IkVXIiwiY2F0ZWdvcnkiOiJFeHRpbmN0IGluIHRoZSBXaWxkIn0seyJ5ZWFyIjoiMjAwNCIsImNvZGUiOiJOVCIsImNhdGVnb3J5IjoiTmVhciBUaHJlYXRlbmVkIn0seyJ5ZWFyIjoiMTk5OCIsImNvZGUiOiJWVSIsImNhdGVnb3J5IjoiVnVsbmVyYWJsZSJ9XX0=
-  recorded_at: 2020-03-28 00:23:16 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
+      string: |-
+        eyJuYW1lIjoiMzgxMjUiLCJyZXN1bHQiOlt7InllYXIiOiIyMDE0IiwiY29kZSI6IkVXIiwiY2F0ZWdv
+        cnkiOiJFeHRpbmN0IGluIHRoZSBXaWxkIn0seyJ5ZWFyIjoiMjAwNCIsImNvZGUiOiJOVCIsImNhdGVn
+        b3J5IjoiTmVhciBUaHJlYXRlbmVkIn0seyJ5ZWFyIjoiMTk5OCIsImNvZGUiOiJWVSIsImNhdGVnb3J5
+        IjoiVnVsbmVyYWJsZSJ9XX0=
+  recorded_at: 2021-09-15 22:48:30 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://apiv3.iucnredlist.org/api/v3/species/countries/id/38125?token=<<rredlist_api_token>>
@@ -369,7 +464,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(rredlist/0.7.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -380,21 +475,24 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 28 Mar 2020 00:23:08 GMT
+      date: Wed, 15 Sep 2021 22:48:22 GMT
       content-type: application/json; charset=utf-8
       content-length: '161'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       etag: W/"a1-oKtZeptFZxSjDHMoECXQaQ"
       vary: Accept-Encoding
-      set-cookie: sails.sid=s%3Ae0MFekFQvIsGDul2B624nokY3ApQwJKp.n%2BqJvNpE78%2F3JAJ5j16aW9NP7RaoE1BtiMG4DLXvKCs;
+      set-cookie: sails.sid=s%3AvkqxqOhVrZIiufUWhXDcElJ8D5T4vwSt.65j0wfhTc16Gw5MWLvMCmSQ0DqD5oulnAP%2BcMc1%2Bd%2F4;
         Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
       file: no
-      string: eyJuYW1lIjoiMzgxMjUiLCJjb3VudCI6MSwicmVzdWx0IjpbeyJjb2RlIjoiRUMiLCJjb3VudHJ5IjoiRWN1YWRvciIsInByZXNlbmNlIjoiRXh0aW5jdCBQb3N0LTE1MDAiLCJvcmlnaW4iOiJOYXRpdmUiLCJkaXN0cmlidXRpb25fY29kZSI6IlJlZ2lvbmFsbHkgRXh0aW5jdCJ9XX0=
-  recorded_at: 2020-03-28 00:23:16 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
+      string: |-
+        eyJuYW1lIjoiMzgxMjUiLCJjb3VudCI6MSwicmVzdWx0IjpbeyJjb2RlIjoiRUMiLCJjb3VudHJ5Ijoi
+        RWN1YWRvciIsInByZXNlbmNlIjoiRXh0aW5jdCBQb3N0LTE1MDAiLCJvcmlnaW4iOiJOYXRpdmUiLCJk
+        aXN0cmlidXRpb25fY29kZSI6IlJlZ2lvbmFsbHkgRXh0aW5jdCJ9XX0=
+  recorded_at: 2021-09-15 22:48:30 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://apiv3.iucnredlist.org/api/v3/species/Achatinella%20buddii?token=<<rredlist_api_token>>
@@ -402,7 +500,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(rredlist/0.7.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -413,21 +511,33 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 28 Mar 2020 00:23:09 GMT
+      date: Wed, 15 Sep 2021 22:48:22 GMT
       content-type: application/json; charset=utf-8
       content-length: '714'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       etag: W/"2ca-A+dWGRWazZVhq4Mia4m/IQ"
       vary: Accept-Encoding
-      set-cookie: sails.sid=s%3ATOEgDAEFSZ4HD4rnm8j1in_Aa_m3TL9m.alXS%2BctmWdZGogtrOQe%2FGWJFFnZy4w7Aw9FUgRjDIqg;
+      set-cookie: sails.sid=s%3A44n_aHpdiBGf13urpBAVECAkZ_JFQDc3.g%2FDwIEgJW1sszJK6mPuTm2ub12IFebXq6ZXN2lcuOHg;
         Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
       file: no
-      string: eyJuYW1lIjoiQWNoYXRpbmVsbGEgYnVkZGlpIiwicmVzdWx0IjpbeyJ0YXhvbmlkIjoxNzAsInNjaWVudGlmaWNfbmFtZSI6IkFjaGF0aW5lbGxhIGJ1ZGRpaSIsImtpbmdkb20iOiJBTklNQUxJQSIsInBoeWx1bSI6Ik1PTExVU0NBIiwiY2xhc3MiOiJHQVNUUk9QT0RBIiwib3JkZXIiOiJTVFlMT01NQVRPUEhPUkEiLCJmYW1pbHkiOiJBQ0hBVElORUxMSURBRSIsImdlbnVzIjoiQWNoYXRpbmVsbGEiLCJtYWluX2NvbW1vbl9uYW1lIjpudWxsLCJhdXRob3JpdHkiOiJOZXdjb21iLCAxODUzIiwicHVibGlzaGVkX3llYXIiOjE5OTYsImFzc2Vzc21lbnRfZGF0ZSI6IjE5OTYtMDgtMDEiLCJjYXRlZ29yeSI6IkVYIiwiY3JpdGVyaWEiOm51bGwsInBvcHVsYXRpb25fdHJlbmQiOm51bGwsIm1hcmluZV9zeXN0ZW0iOmZhbHNlLCJmcmVzaHdhdGVyX3N5c3RlbSI6ZmFsc2UsInRlcnJlc3RyaWFsX3N5c3RlbSI6dHJ1ZSwiYXNzZXNzb3IiOiJNb2xsdXNjIFNwZWNpYWxpc3QgR3JvdXAiLCJyZXZpZXdlciI6IiIsImFvb19rbTIiOm51bGwsImVvb19rbTIiOm51bGwsImVsZXZhdGlvbl91cHBlciI6bnVsbCwiZWxldmF0aW9uX2xvd2VyIjpudWxsLCJkZXB0aF91cHBlciI6bnVsbCwiZGVwdGhfbG93ZXIiOm51bGwsImVycmF0YV9mbGFnIjpudWxsLCJlcnJhdGFfcmVhc29uIjpudWxsLCJhbWVuZGVkX2ZsYWciOm51bGwsImFtZW5kZWRfcmVhc29uIjpudWxsfV19
-  recorded_at: 2020-03-28 00:23:16 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
+      string: |-
+        eyJuYW1lIjoiQWNoYXRpbmVsbGEgYnVkZGlpIiwicmVzdWx0IjpbeyJ0YXhvbmlkIjoxNzAsInNjaWVu
+        dGlmaWNfbmFtZSI6IkFjaGF0aW5lbGxhIGJ1ZGRpaSIsImtpbmdkb20iOiJBTklNQUxJQSIsInBoeWx1
+        bSI6Ik1PTExVU0NBIiwiY2xhc3MiOiJHQVNUUk9QT0RBIiwib3JkZXIiOiJTVFlMT01NQVRPUEhPUkEi
+        LCJmYW1pbHkiOiJBQ0hBVElORUxMSURBRSIsImdlbnVzIjoiQWNoYXRpbmVsbGEiLCJtYWluX2NvbW1v
+        bl9uYW1lIjpudWxsLCJhdXRob3JpdHkiOiJOZXdjb21iLCAxODUzIiwicHVibGlzaGVkX3llYXIiOjE5
+        OTYsImFzc2Vzc21lbnRfZGF0ZSI6IjE5OTYtMDgtMDEiLCJjYXRlZ29yeSI6IkVYIiwiY3JpdGVyaWEi
+        Om51bGwsInBvcHVsYXRpb25fdHJlbmQiOm51bGwsIm1hcmluZV9zeXN0ZW0iOmZhbHNlLCJmcmVzaHdh
+        dGVyX3N5c3RlbSI6ZmFsc2UsInRlcnJlc3RyaWFsX3N5c3RlbSI6dHJ1ZSwiYXNzZXNzb3IiOiJNb2xs
+        dXNjIFNwZWNpYWxpc3QgR3JvdXAiLCJyZXZpZXdlciI6IiIsImFvb19rbTIiOm51bGwsImVvb19rbTIi
+        Om51bGwsImVsZXZhdGlvbl91cHBlciI6bnVsbCwiZWxldmF0aW9uX2xvd2VyIjpudWxsLCJkZXB0aF91
+        cHBlciI6bnVsbCwiZGVwdGhfbG93ZXIiOm51bGwsImVycmF0YV9mbGFnIjpudWxsLCJlcnJhdGFfcmVh
+        c29uIjpudWxsLCJhbWVuZGVkX2ZsYWciOm51bGwsImFtZW5kZWRfcmVhc29uIjpudWxsfV19
+  recorded_at: 2021-09-15 22:48:30 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://apiv3.iucnredlist.org/api/v3/species/id/170?token=<<rredlist_api_token>>
@@ -435,7 +545,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(rredlist/0.7.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -446,21 +556,33 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 28 Mar 2020 00:23:09 GMT
+      date: Wed, 15 Sep 2021 22:48:22 GMT
       content-type: application/json; charset=utf-8
       content-length: '699'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       etag: W/"2bb-dIA/Debx/OuTm3DufHgs2g"
       vary: Accept-Encoding
-      set-cookie: sails.sid=s%3Ajy7bnE1Mq3DXN77RBzyZIs23KP4CT6K5.GnlTL3nS4JgXOf2d%2F%2BVd%2BRIS5e%2BGbLXiXSxumXTi7WY;
+      set-cookie: sails.sid=s%3A136DHHoVInZ7PnpF-X4Kcc6poClvGaoc.1G%2BNqOJcwiSFgWykKxr3XB0WZwwian5KRIYqMucYwSs;
         Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
       file: no
-      string: eyJuYW1lIjoiMTcwIiwicmVzdWx0IjpbeyJ0YXhvbmlkIjoxNzAsInNjaWVudGlmaWNfbmFtZSI6IkFjaGF0aW5lbGxhIGJ1ZGRpaSIsImtpbmdkb20iOiJBTklNQUxJQSIsInBoeWx1bSI6Ik1PTExVU0NBIiwiY2xhc3MiOiJHQVNUUk9QT0RBIiwib3JkZXIiOiJTVFlMT01NQVRPUEhPUkEiLCJmYW1pbHkiOiJBQ0hBVElORUxMSURBRSIsImdlbnVzIjoiQWNoYXRpbmVsbGEiLCJtYWluX2NvbW1vbl9uYW1lIjpudWxsLCJhdXRob3JpdHkiOiJOZXdjb21iLCAxODUzIiwicHVibGlzaGVkX3llYXIiOjE5OTYsImFzc2Vzc21lbnRfZGF0ZSI6IjE5OTYtMDgtMDEiLCJjYXRlZ29yeSI6IkVYIiwiY3JpdGVyaWEiOm51bGwsInBvcHVsYXRpb25fdHJlbmQiOm51bGwsIm1hcmluZV9zeXN0ZW0iOmZhbHNlLCJmcmVzaHdhdGVyX3N5c3RlbSI6ZmFsc2UsInRlcnJlc3RyaWFsX3N5c3RlbSI6dHJ1ZSwiYXNzZXNzb3IiOiJNb2xsdXNjIFNwZWNpYWxpc3QgR3JvdXAiLCJyZXZpZXdlciI6IiIsImFvb19rbTIiOm51bGwsImVvb19rbTIiOm51bGwsImVsZXZhdGlvbl91cHBlciI6bnVsbCwiZWxldmF0aW9uX2xvd2VyIjpudWxsLCJkZXB0aF91cHBlciI6bnVsbCwiZGVwdGhfbG93ZXIiOm51bGwsImVycmF0YV9mbGFnIjpudWxsLCJlcnJhdGFfcmVhc29uIjpudWxsLCJhbWVuZGVkX2ZsYWciOm51bGwsImFtZW5kZWRfcmVhc29uIjpudWxsfV19
-  recorded_at: 2020-03-28 00:23:16 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
+      string: |-
+        eyJuYW1lIjoiMTcwIiwicmVzdWx0IjpbeyJ0YXhvbmlkIjoxNzAsInNjaWVudGlmaWNfbmFtZSI6IkFj
+        aGF0aW5lbGxhIGJ1ZGRpaSIsImtpbmdkb20iOiJBTklNQUxJQSIsInBoeWx1bSI6Ik1PTExVU0NBIiwi
+        Y2xhc3MiOiJHQVNUUk9QT0RBIiwib3JkZXIiOiJTVFlMT01NQVRPUEhPUkEiLCJmYW1pbHkiOiJBQ0hB
+        VElORUxMSURBRSIsImdlbnVzIjoiQWNoYXRpbmVsbGEiLCJtYWluX2NvbW1vbl9uYW1lIjpudWxsLCJh
+        dXRob3JpdHkiOiJOZXdjb21iLCAxODUzIiwicHVibGlzaGVkX3llYXIiOjE5OTYsImFzc2Vzc21lbnRf
+        ZGF0ZSI6IjE5OTYtMDgtMDEiLCJjYXRlZ29yeSI6IkVYIiwiY3JpdGVyaWEiOm51bGwsInBvcHVsYXRp
+        b25fdHJlbmQiOm51bGwsIm1hcmluZV9zeXN0ZW0iOmZhbHNlLCJmcmVzaHdhdGVyX3N5c3RlbSI6ZmFs
+        c2UsInRlcnJlc3RyaWFsX3N5c3RlbSI6dHJ1ZSwiYXNzZXNzb3IiOiJNb2xsdXNjIFNwZWNpYWxpc3Qg
+        R3JvdXAiLCJyZXZpZXdlciI6IiIsImFvb19rbTIiOm51bGwsImVvb19rbTIiOm51bGwsImVsZXZhdGlv
+        bl91cHBlciI6bnVsbCwiZWxldmF0aW9uX2xvd2VyIjpudWxsLCJkZXB0aF91cHBlciI6bnVsbCwiZGVw
+        dGhfbG93ZXIiOm51bGwsImVycmF0YV9mbGFnIjpudWxsLCJlcnJhdGFfcmVhc29uIjpudWxsLCJhbWVu
+        ZGVkX2ZsYWciOm51bGwsImFtZW5kZWRfcmVhc29uIjpudWxsfV19
+  recorded_at: 2021-09-15 22:48:30 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://apiv3.iucnredlist.org/api/v3/species/history/id/170?token=<<rredlist_api_token>>
@@ -468,7 +590,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(rredlist/0.7.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -479,21 +601,25 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 28 Mar 2020 00:23:09 GMT
+      date: Wed, 15 Sep 2021 22:48:23 GMT
       content-type: application/json; charset=utf-8
       content-length: '223'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       etag: W/"df-7ioNfdkDM4GgiT/07WQVhg"
       vary: Accept-Encoding
-      set-cookie: sails.sid=s%3AUMSHYUaCBy4ktZPCSiz408uriNNXPcxq.Sof7ZXFJ2%2BSjtRvaH43hihb2V%2Fp9bA92%2FL4SRmKtdc4;
+      set-cookie: sails.sid=s%3A2Zj3ra_WQdaFErx3zbdC7SDPnW9fyE0g.i27zRanWIWr7k9Wn6TLRpfWbibkFfMIoYvWTnKVh2DY;
         Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
       file: no
-      string: eyJuYW1lIjoiMTcwIiwicmVzdWx0IjpbeyJ5ZWFyIjoiMTk5NiIsImNvZGUiOiJFWCIsImNhdGVnb3J5IjoiRXh0aW5jdCJ9LHsieWVhciI6IjE5OTQiLCJjb2RlIjoiRXgiLCJjYXRlZ29yeSI6IkV4dGluY3QifSx7InllYXIiOiIxOTkwIiwiY29kZSI6IkV4IiwiY2F0ZWdvcnkiOiJFeHRpbmN0In0seyJ5ZWFyIjoiMTk4MyIsImNvZGUiOiJFIiwiY2F0ZWdvcnkiOiJFbmRhbmdlcmVkIn1dfQ==
-  recorded_at: 2020-03-28 00:23:16 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
+      string: |-
+        eyJuYW1lIjoiMTcwIiwicmVzdWx0IjpbeyJ5ZWFyIjoiMTk5NiIsImNvZGUiOiJFWCIsImNhdGVnb3J5
+        IjoiRXh0aW5jdCJ9LHsieWVhciI6IjE5OTQiLCJjb2RlIjoiRXgiLCJjYXRlZ29yeSI6IkV4dGluY3Qi
+        fSx7InllYXIiOiIxOTkwIiwiY29kZSI6IkV4IiwiY2F0ZWdvcnkiOiJFeHRpbmN0In0seyJ5ZWFyIjoi
+        MTk4MyIsImNvZGUiOiJFIiwiY2F0ZWdvcnkiOiJFbmRhbmdlcmVkIn1dfQ==
+  recorded_at: 2021-09-15 22:48:30 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://apiv3.iucnredlist.org/api/v3/species/countries/id/170?token=<<rredlist_api_token>>
@@ -501,7 +627,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(rredlist/0.7.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -512,21 +638,24 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 28 Mar 2020 00:23:10 GMT
+      date: Wed, 15 Sep 2021 22:48:23 GMT
       content-type: application/json; charset=utf-8
-      content-length: '165'
+      content-length: '176'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
-      etag: W/"a5-0pbtjUug6TIOWpq966Oj3Q"
+      etag: W/"b0-w+9sSThXDk+53ihlvbIzzw"
       vary: Accept-Encoding
-      set-cookie: sails.sid=s%3AAPkEA1cMDgOdMYn-gZns99h_baoBs11c.gd4q9ro2WPcjYPRg07F6Lk5X%2BfKov98F4Cjw02MnCUw;
+      set-cookie: sails.sid=s%3A5PXwj4RvL2pnl7_Sz9HbAd8IdKzum_Ox.ptCTnEIX6%2F7i4cif619aXtxerVW2lwlexk8mrmknAaY;
         Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
       file: no
-      string: eyJuYW1lIjoiMTcwIiwiY291bnQiOjEsInJlc3VsdCI6W3siY29kZSI6IlVTIiwiY291bnRyeSI6IlVuaXRlZCBTdGF0ZXMiLCJwcmVzZW5jZSI6IkV4dGluY3QgUG9zdC0xNTAwIiwib3JpZ2luIjoiTmF0aXZlIiwiZGlzdHJpYnV0aW9uX2NvZGUiOiJSZWdpb25hbGx5IEV4dGluY3QifV19
-  recorded_at: 2020-03-28 00:23:16 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
+      string: |-
+        eyJuYW1lIjoiMTcwIiwiY291bnQiOjEsInJlc3VsdCI6W3siY29kZSI6IlVTIiwiY291bnRyeSI6IlVu
+        aXRlZCBTdGF0ZXMgb2YgQW1lcmljYSIsInByZXNlbmNlIjoiRXh0aW5jdCBQb3N0LTE1MDAiLCJvcmln
+        aW4iOiJOYXRpdmUiLCJkaXN0cmlidXRpb25fY29kZSI6IlJlZ2lvbmFsbHkgRXh0aW5jdCJ9XX0=
+  recorded_at: 2021-09-15 22:48:30 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://apiv3.iucnredlist.org/api/v3/species/Annona%20hystricoides?token=<<rredlist_api_token>>
@@ -534,7 +663,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(rredlist/0.7.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -545,21 +674,35 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 28 Mar 2020 00:23:11 GMT
+      date: Wed, 15 Sep 2021 22:48:23 GMT
       content-type: application/json; charset=utf-8
       content-length: '816'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       etag: W/"330-q0kDjaohOruGH+I9V1axRg"
       vary: Accept-Encoding
-      set-cookie: sails.sid=s%3ApM4eQjULJUTC2VKtR9C-kkPS7yFQm5u0.ABcPgyAcM0kC13MgYJPQ3P0Pzn1LCq5PRib89zjRU3c;
+      set-cookie: sails.sid=s%3Al8zMuW5gN-RZYOQrC_LQiNVx64hYpG3t.6eV0prapmCGShSwvQY%2FTp5ZARBcGxnJ%2Bvmle3etzP%2Fg;
         Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
       file: no
-      string: eyJuYW1lIjoiQW5ub25hIGh5c3RyaWNvaWRlcyIsInJlc3VsdCI6W3sidGF4b25pZCI6NDI4MTgsInNjaWVudGlmaWNfbmFtZSI6IkFubm9uYSBoeXN0cmljb2lkZXMiLCJraW5nZG9tIjoiUExBTlRBRSIsInBoeWx1bSI6IlRSQUNIRU9QSFlUQSIsImNsYXNzIjoiTUFHTk9MSU9QU0lEQSIsIm9yZGVyIjoiTUFHTk9MSUFMRVMiLCJmYW1pbHkiOiJBTk5PTkFDRUFFIiwiZ2VudXMiOiJBbm5vbmEiLCJtYWluX2NvbW1vbl9uYW1lIjpudWxsLCJhdXRob3JpdHkiOiJBLkguR2VudHJ5IiwicHVibGlzaGVkX3llYXIiOjIwMDMsImFzc2Vzc21lbnRfZGF0ZSI6IjIwMDMtMDQtMzAiLCJjYXRlZ29yeSI6IkNSIiwiY3JpdGVyaWEiOiJBNGM7IEIxYWIoaWlpKSIsInBvcHVsYXRpb25fdHJlbmQiOm51bGwsIm1hcmluZV9zeXN0ZW0iOmZhbHNlLCJmcmVzaHdhdGVyX3N5c3RlbSI6ZmFsc2UsInRlcnJlc3RyaWFsX3N5c3RlbSI6dHJ1ZSwiYXNzZXNzb3IiOiJNdXJpZWwsIFAuICYgUGl0bWFuLCBOLiIsInJldmlld2VyIjoiVmFsZW5jaWEsIFIuLCBQaXRtYW4sIE4uLCBMw6lvbi1Zw6FuZXosIFMuICYgSsO4cmdlbnNlbiwgUC5NLiAoRWN1YWRvciBQbGFudHMgUmVkIExpc3QgQXV0aG9yaXR5KSIsImFvb19rbTIiOm51bGwsImVvb19rbTIiOm51bGwsImVsZXZhdGlvbl91cHBlciI6bnVsbCwiZWxldmF0aW9uX2xvd2VyIjpudWxsLCJkZXB0aF91cHBlciI6bnVsbCwiZGVwdGhfbG93ZXIiOm51bGwsImVycmF0YV9mbGFnIjpudWxsLCJlcnJhdGFfcmVhc29uIjpudWxsLCJhbWVuZGVkX2ZsYWciOm51bGwsImFtZW5kZWRfcmVhc29uIjpudWxsfV19
-  recorded_at: 2020-03-28 00:23:16 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
+      string: |-
+        eyJuYW1lIjoiQW5ub25hIGh5c3RyaWNvaWRlcyIsInJlc3VsdCI6W3sidGF4b25pZCI6NDI4MTgsInNj
+        aWVudGlmaWNfbmFtZSI6IkFubm9uYSBoeXN0cmljb2lkZXMiLCJraW5nZG9tIjoiUExBTlRBRSIsInBo
+        eWx1bSI6IlRSQUNIRU9QSFlUQSIsImNsYXNzIjoiTUFHTk9MSU9QU0lEQSIsIm9yZGVyIjoiTUFHTk9M
+        SUFMRVMiLCJmYW1pbHkiOiJBTk5PTkFDRUFFIiwiZ2VudXMiOiJBbm5vbmEiLCJtYWluX2NvbW1vbl9u
+        YW1lIjpudWxsLCJhdXRob3JpdHkiOiJBLkguR2VudHJ5IiwicHVibGlzaGVkX3llYXIiOjIwMDMsImFz
+        c2Vzc21lbnRfZGF0ZSI6IjIwMDMtMDQtMzAiLCJjYXRlZ29yeSI6IkNSIiwiY3JpdGVyaWEiOiJBNGM7
+        IEIxYWIoaWlpKSIsInBvcHVsYXRpb25fdHJlbmQiOm51bGwsIm1hcmluZV9zeXN0ZW0iOmZhbHNlLCJm
+        cmVzaHdhdGVyX3N5c3RlbSI6ZmFsc2UsInRlcnJlc3RyaWFsX3N5c3RlbSI6dHJ1ZSwiYXNzZXNzb3Ii
+        OiJNdXJpZWwsIFAuICYgUGl0bWFuLCBOLiIsInJldmlld2VyIjoiVmFsZW5jaWEsIFIuLCBQaXRtYW4s
+        IE4uLCBMw6lvbi1Zw6FuZXosIFMuICYgSsO4cmdlbnNlbiwgUC5NLiAoRWN1YWRvciBQbGFudHMgUmVk
+        IExpc3QgQXV0aG9yaXR5KSIsImFvb19rbTIiOm51bGwsImVvb19rbTIiOm51bGwsImVsZXZhdGlvbl91
+        cHBlciI6bnVsbCwiZWxldmF0aW9uX2xvd2VyIjpudWxsLCJkZXB0aF91cHBlciI6bnVsbCwiZGVwdGhf
+        bG93ZXIiOm51bGwsImVycmF0YV9mbGFnIjpudWxsLCJlcnJhdGFfcmVhc29uIjpudWxsLCJhbWVuZGVk
+        X2ZsYWciOm51bGwsImFtZW5kZWRfcmVhc29uIjpudWxsfV19
+  recorded_at: 2021-09-15 22:48:30 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://apiv3.iucnredlist.org/api/v3/species/id/42818?token=<<rredlist_api_token>>
@@ -567,7 +710,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(rredlist/0.7.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -578,21 +721,35 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 28 Mar 2020 00:23:11 GMT
+      date: Wed, 15 Sep 2021 22:48:24 GMT
       content-type: application/json; charset=utf-8
       content-length: '802'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       etag: W/"322-FCOYJzsmni2KIm2/RNuX7A"
       vary: Accept-Encoding
-      set-cookie: sails.sid=s%3Ar96GSwE2eod98D8tntoKapA0ZbwILKx-.n509LwN%2FVvnsNA44cYNE59QJrtDl4Jbeb%2FMHuB4lB94;
+      set-cookie: sails.sid=s%3AhoSlh47INbbYWY5vPMJe_0iwiE2YtV-B.UUZUQKtuKOxEjRyVL%2Fui3eia9ReJgP75Dupy6c%2FtItw;
         Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
       file: no
-      string: eyJuYW1lIjoiNDI4MTgiLCJyZXN1bHQiOlt7InRheG9uaWQiOjQyODE4LCJzY2llbnRpZmljX25hbWUiOiJBbm5vbmEgaHlzdHJpY29pZGVzIiwia2luZ2RvbSI6IlBMQU5UQUUiLCJwaHlsdW0iOiJUUkFDSEVPUEhZVEEiLCJjbGFzcyI6Ik1BR05PTElPUFNJREEiLCJvcmRlciI6Ik1BR05PTElBTEVTIiwiZmFtaWx5IjoiQU5OT05BQ0VBRSIsImdlbnVzIjoiQW5ub25hIiwibWFpbl9jb21tb25fbmFtZSI6bnVsbCwiYXV0aG9yaXR5IjoiQS5ILkdlbnRyeSIsInB1Ymxpc2hlZF95ZWFyIjoyMDAzLCJhc3Nlc3NtZW50X2RhdGUiOiIyMDAzLTA0LTMwIiwiY2F0ZWdvcnkiOiJDUiIsImNyaXRlcmlhIjoiQTRjOyBCMWFiKGlpaSkiLCJwb3B1bGF0aW9uX3RyZW5kIjpudWxsLCJtYXJpbmVfc3lzdGVtIjpmYWxzZSwiZnJlc2h3YXRlcl9zeXN0ZW0iOmZhbHNlLCJ0ZXJyZXN0cmlhbF9zeXN0ZW0iOnRydWUsImFzc2Vzc29yIjoiTXVyaWVsLCBQLiAmIFBpdG1hbiwgTi4iLCJyZXZpZXdlciI6IlZhbGVuY2lhLCBSLiwgUGl0bWFuLCBOLiwgTMOpb24tWcOhbmV6LCBTLiAmIErDuHJnZW5zZW4sIFAuTS4gKEVjdWFkb3IgUGxhbnRzIFJlZCBMaXN0IEF1dGhvcml0eSkiLCJhb29fa20yIjpudWxsLCJlb29fa20yIjpudWxsLCJlbGV2YXRpb25fdXBwZXIiOm51bGwsImVsZXZhdGlvbl9sb3dlciI6bnVsbCwiZGVwdGhfdXBwZXIiOm51bGwsImRlcHRoX2xvd2VyIjpudWxsLCJlcnJhdGFfZmxhZyI6bnVsbCwiZXJyYXRhX3JlYXNvbiI6bnVsbCwiYW1lbmRlZF9mbGFnIjpudWxsLCJhbWVuZGVkX3JlYXNvbiI6bnVsbH1dfQ==
-  recorded_at: 2020-03-28 00:23:16 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
+      string: |-
+        eyJuYW1lIjoiNDI4MTgiLCJyZXN1bHQiOlt7InRheG9uaWQiOjQyODE4LCJzY2llbnRpZmljX25hbWUi
+        OiJBbm5vbmEgaHlzdHJpY29pZGVzIiwia2luZ2RvbSI6IlBMQU5UQUUiLCJwaHlsdW0iOiJUUkFDSEVP
+        UEhZVEEiLCJjbGFzcyI6Ik1BR05PTElPUFNJREEiLCJvcmRlciI6Ik1BR05PTElBTEVTIiwiZmFtaWx5
+        IjoiQU5OT05BQ0VBRSIsImdlbnVzIjoiQW5ub25hIiwibWFpbl9jb21tb25fbmFtZSI6bnVsbCwiYXV0
+        aG9yaXR5IjoiQS5ILkdlbnRyeSIsInB1Ymxpc2hlZF95ZWFyIjoyMDAzLCJhc3Nlc3NtZW50X2RhdGUi
+        OiIyMDAzLTA0LTMwIiwiY2F0ZWdvcnkiOiJDUiIsImNyaXRlcmlhIjoiQTRjOyBCMWFiKGlpaSkiLCJw
+        b3B1bGF0aW9uX3RyZW5kIjpudWxsLCJtYXJpbmVfc3lzdGVtIjpmYWxzZSwiZnJlc2h3YXRlcl9zeXN0
+        ZW0iOmZhbHNlLCJ0ZXJyZXN0cmlhbF9zeXN0ZW0iOnRydWUsImFzc2Vzc29yIjoiTXVyaWVsLCBQLiAm
+        IFBpdG1hbiwgTi4iLCJyZXZpZXdlciI6IlZhbGVuY2lhLCBSLiwgUGl0bWFuLCBOLiwgTMOpb24tWcOh
+        bmV6LCBTLiAmIErDuHJnZW5zZW4sIFAuTS4gKEVjdWFkb3IgUGxhbnRzIFJlZCBMaXN0IEF1dGhvcml0
+        eSkiLCJhb29fa20yIjpudWxsLCJlb29fa20yIjpudWxsLCJlbGV2YXRpb25fdXBwZXIiOm51bGwsImVs
+        ZXZhdGlvbl9sb3dlciI6bnVsbCwiZGVwdGhfdXBwZXIiOm51bGwsImRlcHRoX2xvd2VyIjpudWxsLCJl
+        cnJhdGFfZmxhZyI6bnVsbCwiZXJyYXRhX3JlYXNvbiI6bnVsbCwiYW1lbmRlZF9mbGFnIjpudWxsLCJh
+        bWVuZGVkX3JlYXNvbiI6bnVsbH1dfQ==
+  recorded_at: 2021-09-15 22:48:30 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://apiv3.iucnredlist.org/api/v3/species/history/id/42818?token=<<rredlist_api_token>>
@@ -600,7 +757,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(rredlist/0.7.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -611,21 +768,23 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 28 Mar 2020 00:23:12 GMT
+      date: Wed, 15 Sep 2021 22:48:25 GMT
       content-type: application/json; charset=utf-8
       content-length: '90'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       etag: W/"5a-IWOCCBAkDYrvGd7FdeZy1g"
       vary: Accept-Encoding
-      set-cookie: sails.sid=s%3AqpbO9Zoh-ytzkCJggHVKmH0Q-O9gsqsz.q4YU9U6aUZqUT3mUsowcvzySibpgzhgR0M1hfoUYK8k;
+      set-cookie: sails.sid=s%3AoR1os1Nmh4s8Tlcty6Om5RpfZvXFXMUM.qeMcjPdDEDfw2ekHwpdo%2BXE09MYHTVcPf5DcIGnKOPQ;
         Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
       file: no
-      string: eyJuYW1lIjoiNDI4MTgiLCJyZXN1bHQiOlt7InllYXIiOiIyMDAzIiwiY29kZSI6IkNSIiwiY2F0ZWdvcnkiOiJDcml0aWNhbGx5IEVuZGFuZ2VyZWQifV19
-  recorded_at: 2020-03-28 00:23:16 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
+      string: |-
+        eyJuYW1lIjoiNDI4MTgiLCJyZXN1bHQiOlt7InllYXIiOiIyMDAzIiwiY29kZSI6IkNSIiwiY2F0ZWdv
+        cnkiOiJDcml0aWNhbGx5IEVuZGFuZ2VyZWQifV19
+  recorded_at: 2021-09-15 22:48:30 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://apiv3.iucnredlist.org/api/v3/species/countries/id/42818?token=<<rredlist_api_token>>
@@ -633,7 +792,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(rredlist/0.7.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -644,21 +803,24 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 28 Mar 2020 00:23:12 GMT
+      date: Wed, 15 Sep 2021 22:48:25 GMT
       content-type: application/json; charset=utf-8
       content-length: '138'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       etag: W/"8a-4Wr/DbHFq2CybkEEc0EC9A"
       vary: Accept-Encoding
-      set-cookie: sails.sid=s%3A3ByLvjLuB59bp_qbgYyDwKXLxoobYXwG.mQsAx50SwwE8o4Emnfh4crFYzeVhQVuH56%2FszOudk5c;
+      set-cookie: sails.sid=s%3ASV24bHb8yVRtungsgq3TWpyH7wd9SJ5A.z5nEWOXk7ZzvGNlKGeTdupEsBAj1sg5vOkaqQYzHDTo;
         Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
       file: no
-      string: eyJuYW1lIjoiNDI4MTgiLCJjb3VudCI6MSwicmVzdWx0IjpbeyJjb2RlIjoiRUMiLCJjb3VudHJ5IjoiRWN1YWRvciIsInByZXNlbmNlIjoiRXh0YW50Iiwib3JpZ2luIjoiTmF0aXZlIiwiZGlzdHJpYnV0aW9uX2NvZGUiOiJOYXRpdmUifV19
-  recorded_at: 2020-03-28 00:23:16 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
+      string: |-
+        eyJuYW1lIjoiNDI4MTgiLCJjb3VudCI6MSwicmVzdWx0IjpbeyJjb2RlIjoiRUMiLCJjb3VudHJ5Ijoi
+        RWN1YWRvciIsInByZXNlbmNlIjoiRXh0YW50Iiwib3JpZ2luIjoiTmF0aXZlIiwiZGlzdHJpYnV0aW9u
+        X2NvZGUiOiJOYXRpdmUifV19
+  recorded_at: 2021-09-15 22:48:30 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://apiv3.iucnredlist.org/api/v3/species/Chamaecrista%20onusta?token=<<rredlist_api_token>>
@@ -666,7 +828,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(rredlist/0.7.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -677,21 +839,34 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 28 Mar 2020 00:23:13 GMT
+      date: Wed, 15 Sep 2021 22:48:25 GMT
       content-type: application/json; charset=utf-8
-      content-length: '739'
+      content-length: '767'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
-      etag: W/"2e3-n+e5V5uFWNNhWyaCcK5zUg"
+      etag: W/"2ff-yCVB0/s9nTbFY95IXzWwXA"
       vary: Accept-Encoding
-      set-cookie: sails.sid=s%3A2_hBMcglV0banJaTFYS_eEaJLToIZQf3.t%2BuWzacn%2F5Sdd8B8kKEPsERoxvdwK4nMeNYpSgmk6CI;
+      set-cookie: sails.sid=s%3AGHN2F4HZrgqIrcigK0ugiWkj0qcqpj_a.H7392HVFaBQfqU5J5hm5I9%2F%2Bap3L5qzViN2dBmmux0U;
         Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
       file: no
-      string: eyJuYW1lIjoiQ2hhbWFlY3Jpc3RhIG9udXN0YSIsInJlc3VsdCI6W3sidGF4b25pZCI6MTk4OTE5NTIsInNjaWVudGlmaWNfbmFtZSI6IkNoYW1hZWNyaXN0YSBvbnVzdGEiLCJraW5nZG9tIjoiUExBTlRBRSIsInBoeWx1bSI6IlRSQUNIRU9QSFlUQSIsImNsYXNzIjoiTUFHTk9MSU9QU0lEQSIsIm9yZGVyIjoiRkFCQUxFUyIsImZhbWlseSI6IkZBQkFDRUFFIiwiZ2VudXMiOiJDaGFtYWVjcmlzdGEiLCJtYWluX2NvbW1vbl9uYW1lIjpudWxsLCJhdXRob3JpdHkiOiJILlMuSXJ3aW4gJiBCYXJuZWJ5IiwicHVibGlzaGVkX3llYXIiOjIwMTIsImFzc2Vzc21lbnRfZGF0ZSI6IjIwMTAtMDQtMTQiLCJjYXRlZ29yeSI6IlZVIiwiY3JpdGVyaWEiOiJCMWFiKGksaWksaWlpKSIsInBvcHVsYXRpb25fdHJlbmQiOiJEZWNyZWFzaW5nIiwibWFyaW5lX3N5c3RlbSI6ZmFsc2UsImZyZXNod2F0ZXJfc3lzdGVtIjpmYWxzZSwidGVycmVzdHJpYWxfc3lzdGVtIjp0cnVlLCJhc3Nlc3NvciI6Ikdyb29tLCBBLiIsInJldmlld2VyIjoiSGlsdG9uLVRheWxvciwgQy4iLCJhb29fa20yIjpudWxsLCJlb29fa20yIjoiNzM4MCIsImVsZXZhdGlvbl91cHBlciI6NDAsImVsZXZhdGlvbl9sb3dlciI6MSwiZGVwdGhfdXBwZXIiOm51bGwsImRlcHRoX2xvd2VyIjpudWxsLCJlcnJhdGFfZmxhZyI6bnVsbCwiZXJyYXRhX3JlYXNvbiI6bnVsbCwiYW1lbmRlZF9mbGFnIjpudWxsLCJhbWVuZGVkX3JlYXNvbiI6bnVsbH1dfQ==
-  recorded_at: 2020-03-28 00:23:16 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
+      string: |-
+        eyJuYW1lIjoiQ2hhbWFlY3Jpc3RhIG9udXN0YSIsInJlc3VsdCI6W3sidGF4b25pZCI6MTk4OTE5NTIs
+        InNjaWVudGlmaWNfbmFtZSI6IkNoYW1hZWNyaXN0YSBvbnVzdGEiLCJraW5nZG9tIjoiUExBTlRBRSIs
+        InBoeWx1bSI6IlRSQUNIRU9QSFlUQSIsImNsYXNzIjoiTUFHTk9MSU9QU0lEQSIsIm9yZGVyIjoiRkFC
+        QUxFUyIsImZhbWlseSI6IkZBQkFDRUFFIiwiZ2VudXMiOiJDaGFtYWVjcmlzdGEiLCJtYWluX2NvbW1v
+        bl9uYW1lIjpudWxsLCJhdXRob3JpdHkiOiJILlMuSXJ3aW4gJiBCYXJuZWJ5IiwicHVibGlzaGVkX3ll
+        YXIiOjIwMjAsImFzc2Vzc21lbnRfZGF0ZSI6IjIwMTAtMDQtMTQiLCJjYXRlZ29yeSI6IlZVIiwiY3Jp
+        dGVyaWEiOiJCMWFiKGksaWksaWlpKSIsInBvcHVsYXRpb25fdHJlbmQiOiJEZWNyZWFzaW5nIiwibWFy
+        aW5lX3N5c3RlbSI6ZmFsc2UsImZyZXNod2F0ZXJfc3lzdGVtIjpmYWxzZSwidGVycmVzdHJpYWxfc3lz
+        dGVtIjp0cnVlLCJhc3Nlc3NvciI6Ikdyb29tLCBBLiIsInJldmlld2VyIjoiSGlsdG9uLVRheWxvciwg
+        Qy4iLCJhb29fa20yIjpudWxsLCJlb29fa20yIjoiNzM4MCIsImVsZXZhdGlvbl91cHBlciI6NDAsImVs
+        ZXZhdGlvbl9sb3dlciI6MSwiZGVwdGhfdXBwZXIiOm51bGwsImRlcHRoX2xvd2VyIjpudWxsLCJlcnJh
+        dGFfZmxhZyI6bnVsbCwiZXJyYXRhX3JlYXNvbiI6bnVsbCwiYW1lbmRlZF9mbGFnIjp0cnVlLCJhbWVu
+        ZGVkX3JlYXNvbiI6IlRyZWUgd2FzIGFkZGVkIHRvIGdyb3d0aCBmb3JtLiJ9XX0=
+  recorded_at: 2021-09-15 22:48:30 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://apiv3.iucnredlist.org/api/v3/species/id/19891952?token=<<rredlist_api_token>>
@@ -699,7 +874,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(rredlist/0.7.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -710,21 +885,34 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 28 Mar 2020 00:23:13 GMT
+      date: Wed, 15 Sep 2021 22:48:26 GMT
       content-type: application/json; charset=utf-8
-      content-length: '728'
+      content-length: '756'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
-      etag: W/"2d8-E0nKuSTZnti064u420gfQg"
+      etag: W/"2f4-+w5FtdmlMf9EujS8GdomZQ"
       vary: Accept-Encoding
-      set-cookie: sails.sid=s%3AmCrbm-uI4nKGVhlMYdaa09kFhHlEDWcW.slIWR4KOdhI3c6Ppihm5rIAJqLbGSuvDojfasnjNwj4;
+      set-cookie: sails.sid=s%3A69QdUSJJwxwBBkZuU1Y5Jp6lotewRvhd.fzppBpK3ykGJ5grnG7f9nCZ3NEzI279J%2B6qbPVdKt6I;
         Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
       file: no
-      string: eyJuYW1lIjoiMTk4OTE5NTIiLCJyZXN1bHQiOlt7InRheG9uaWQiOjE5ODkxOTUyLCJzY2llbnRpZmljX25hbWUiOiJDaGFtYWVjcmlzdGEgb251c3RhIiwia2luZ2RvbSI6IlBMQU5UQUUiLCJwaHlsdW0iOiJUUkFDSEVPUEhZVEEiLCJjbGFzcyI6Ik1BR05PTElPUFNJREEiLCJvcmRlciI6IkZBQkFMRVMiLCJmYW1pbHkiOiJGQUJBQ0VBRSIsImdlbnVzIjoiQ2hhbWFlY3Jpc3RhIiwibWFpbl9jb21tb25fbmFtZSI6bnVsbCwiYXV0aG9yaXR5IjoiSC5TLklyd2luICYgQmFybmVieSIsInB1Ymxpc2hlZF95ZWFyIjoyMDEyLCJhc3Nlc3NtZW50X2RhdGUiOiIyMDEwLTA0LTE0IiwiY2F0ZWdvcnkiOiJWVSIsImNyaXRlcmlhIjoiQjFhYihpLGlpLGlpaSkiLCJwb3B1bGF0aW9uX3RyZW5kIjoiRGVjcmVhc2luZyIsIm1hcmluZV9zeXN0ZW0iOmZhbHNlLCJmcmVzaHdhdGVyX3N5c3RlbSI6ZmFsc2UsInRlcnJlc3RyaWFsX3N5c3RlbSI6dHJ1ZSwiYXNzZXNzb3IiOiJHcm9vbSwgQS4iLCJyZXZpZXdlciI6IkhpbHRvbi1UYXlsb3IsIEMuIiwiYW9vX2ttMiI6bnVsbCwiZW9vX2ttMiI6IjczODAiLCJlbGV2YXRpb25fdXBwZXIiOjQwLCJlbGV2YXRpb25fbG93ZXIiOjEsImRlcHRoX3VwcGVyIjpudWxsLCJkZXB0aF9sb3dlciI6bnVsbCwiZXJyYXRhX2ZsYWciOm51bGwsImVycmF0YV9yZWFzb24iOm51bGwsImFtZW5kZWRfZmxhZyI6bnVsbCwiYW1lbmRlZF9yZWFzb24iOm51bGx9XX0=
-  recorded_at: 2020-03-28 00:23:16 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
+      string: |-
+        eyJuYW1lIjoiMTk4OTE5NTIiLCJyZXN1bHQiOlt7InRheG9uaWQiOjE5ODkxOTUyLCJzY2llbnRpZmlj
+        X25hbWUiOiJDaGFtYWVjcmlzdGEgb251c3RhIiwia2luZ2RvbSI6IlBMQU5UQUUiLCJwaHlsdW0iOiJU
+        UkFDSEVPUEhZVEEiLCJjbGFzcyI6Ik1BR05PTElPUFNJREEiLCJvcmRlciI6IkZBQkFMRVMiLCJmYW1p
+        bHkiOiJGQUJBQ0VBRSIsImdlbnVzIjoiQ2hhbWFlY3Jpc3RhIiwibWFpbl9jb21tb25fbmFtZSI6bnVs
+        bCwiYXV0aG9yaXR5IjoiSC5TLklyd2luICYgQmFybmVieSIsInB1Ymxpc2hlZF95ZWFyIjoyMDIwLCJh
+        c3Nlc3NtZW50X2RhdGUiOiIyMDEwLTA0LTE0IiwiY2F0ZWdvcnkiOiJWVSIsImNyaXRlcmlhIjoiQjFh
+        YihpLGlpLGlpaSkiLCJwb3B1bGF0aW9uX3RyZW5kIjoiRGVjcmVhc2luZyIsIm1hcmluZV9zeXN0ZW0i
+        OmZhbHNlLCJmcmVzaHdhdGVyX3N5c3RlbSI6ZmFsc2UsInRlcnJlc3RyaWFsX3N5c3RlbSI6dHJ1ZSwi
+        YXNzZXNzb3IiOiJHcm9vbSwgQS4iLCJyZXZpZXdlciI6IkhpbHRvbi1UYXlsb3IsIEMuIiwiYW9vX2tt
+        MiI6bnVsbCwiZW9vX2ttMiI6IjczODAiLCJlbGV2YXRpb25fdXBwZXIiOjQwLCJlbGV2YXRpb25fbG93
+        ZXIiOjEsImRlcHRoX3VwcGVyIjpudWxsLCJkZXB0aF9sb3dlciI6bnVsbCwiZXJyYXRhX2ZsYWciOm51
+        bGwsImVycmF0YV9yZWFzb24iOm51bGwsImFtZW5kZWRfZmxhZyI6dHJ1ZSwiYW1lbmRlZF9yZWFzb24i
+        OiJUcmVlIHdhcyBhZGRlZCB0byBncm93dGggZm9ybS4ifV19
+  recorded_at: 2021-09-15 22:48:30 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://apiv3.iucnredlist.org/api/v3/species/history/id/19891952?token=<<rredlist_api_token>>
@@ -732,7 +920,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(rredlist/0.7.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -743,21 +931,23 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 28 Mar 2020 00:23:13 GMT
+      date: Wed, 15 Sep 2021 22:48:26 GMT
       content-type: application/json; charset=utf-8
       content-length: '82'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       etag: W/"52-VL7IxZebVvVxt2fUj+nzxw"
       vary: Accept-Encoding
-      set-cookie: sails.sid=s%3AOoSqzPYx_IUQI7vYHoezGUs-VFu6XXEH.fe62LmyEzr6EAkGGjDoI3oUk4fj68OacTaZEQL2JbCk;
+      set-cookie: sails.sid=s%3AfJlCN-uXuVHTOEIMANxi5awi9d4T47YG.%2Bf0EL%2F4QlecCRLcKo6VIQsxSk1BB62JN%2FAqNxQ1kWsU;
         Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
       file: no
-      string: eyJuYW1lIjoiMTk4OTE5NTIiLCJyZXN1bHQiOlt7InllYXIiOiIyMDEyIiwiY29kZSI6IlZVIiwiY2F0ZWdvcnkiOiJWdWxuZXJhYmxlIn1dfQ==
-  recorded_at: 2020-03-28 00:23:16 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
+      string: |-
+        eyJuYW1lIjoiMTk4OTE5NTIiLCJyZXN1bHQiOlt7InllYXIiOiIyMDEyIiwiY29kZSI6IlZVIiwiY2F0
+        ZWdvcnkiOiJWdWxuZXJhYmxlIn1dfQ==
+  recorded_at: 2021-09-15 22:48:30 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://apiv3.iucnredlist.org/api/v3/species/countries/id/19891952?token=<<rredlist_api_token>>
@@ -765,7 +955,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(rredlist/0.7.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -776,21 +966,24 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 28 Mar 2020 00:23:13 GMT
+      date: Wed, 15 Sep 2021 22:48:27 GMT
       content-type: application/json; charset=utf-8
       content-length: '140'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       etag: W/"8c-c5NY0Wi4ZfGx77UER0e02A"
       vary: Accept-Encoding
-      set-cookie: sails.sid=s%3AVT1RIC25HkHoq_FybeNO022Adx5ShyXu.sMY0L9NChz7kMm2PWmaoCs5xnsOcsfL1lbh89xOjnvg;
+      set-cookie: sails.sid=s%3ANB3TLFky3WmUaFdmTRu-u_oSHvwPEtvZ.b1h4O6SIiF1yo5RpmKzl4mHIacc49aFavbuiIaGzt5w;
         Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
       file: no
-      string: eyJuYW1lIjoiMTk4OTE5NTIiLCJjb3VudCI6MSwicmVzdWx0IjpbeyJjb2RlIjoiQlIiLCJjb3VudHJ5IjoiQnJhemlsIiwicHJlc2VuY2UiOiJFeHRhbnQiLCJvcmlnaW4iOiJOYXRpdmUiLCJkaXN0cmlidXRpb25fY29kZSI6Ik5hdGl2ZSJ9XX0=
-  recorded_at: 2020-03-28 00:23:16 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
+      string: |-
+        eyJuYW1lIjoiMTk4OTE5NTIiLCJjb3VudCI6MSwicmVzdWx0IjpbeyJjb2RlIjoiQlIiLCJjb3VudHJ5
+        IjoiQnJhemlsIiwicHJlc2VuY2UiOiJFeHRhbnQiLCJvcmlnaW4iOiJOYXRpdmUiLCJkaXN0cmlidXRp
+        b25fY29kZSI6Ik5hdGl2ZSJ9XX0=
+  recorded_at: 2021-09-15 22:48:30 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://apiv3.iucnredlist.org/api/v3/species/Cyornis%20lemprieri?token=<<rredlist_api_token>>
@@ -798,7 +991,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(rredlist/0.7.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -809,21 +1002,34 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 28 Mar 2020 00:23:14 GMT
+      date: Wed, 15 Sep 2021 22:48:27 GMT
       content-type: application/json; charset=utf-8
       content-length: '762'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       etag: W/"2fa-sQ9omAfQfQ6V/kGOGAgz1g"
       vary: Accept-Encoding
-      set-cookie: sails.sid=s%3A-JCIMBHyUw2lxkIk0vSYwzK3cVJhYF6W.rfA4Wdatq3FCVgTPQo8H5b8fzmF0n9HL9pf0Oo1ItKA;
+      set-cookie: sails.sid=s%3AptF_FMeb665yegOyoEuPb2G4PZmWKoOU.qBV7rT63iZgh79USzZSdsNSPx%2BF%2F4eqSggJQOE4tZHc;
         Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
       file: no
-      string: eyJuYW1lIjoiQ3lvcm5pcyBsZW1wcmllcmkiLCJyZXN1bHQiOlt7InRheG9uaWQiOjIyNzA5NTQ4LCJzY2llbnRpZmljX25hbWUiOiJDeW9ybmlzIGxlbXByaWVyaSIsImtpbmdkb20iOiJBTklNQUxJQSIsInBoeWx1bSI6IkNIT1JEQVRBIiwiY2xhc3MiOiJBVkVTIiwib3JkZXIiOiJQQVNTRVJJRk9STUVTIiwiZmFtaWx5IjoiTVVTQ0lDQVBJREFFIiwiZ2VudXMiOiJDeW9ybmlzIiwibWFpbl9jb21tb25fbmFtZSI6IlBhbGF3YW4gQmx1ZS1mbHljYXRjaGVyIiwiYXV0aG9yaXR5IjoiKFNoYXJwZSwgMTg4NCkiLCJwdWJsaXNoZWRfeWVhciI6MjAxNiwiYXNzZXNzbWVudF9kYXRlIjoiMjAxNi0xMC0wMSIsImNhdGVnb3J5IjoiTlQiLCJjcml0ZXJpYSI6bnVsbCwicG9wdWxhdGlvbl90cmVuZCI6IkRlY3JlYXNpbmciLCJtYXJpbmVfc3lzdGVtIjpmYWxzZSwiZnJlc2h3YXRlcl9zeXN0ZW0iOmZhbHNlLCJ0ZXJyZXN0cmlhbF9zeXN0ZW0iOnRydWUsImFzc2Vzc29yIjoiQmlyZExpZmUgSW50ZXJuYXRpb25hbCIsInJldmlld2VyIjoiQnV0Y2hhcnQsIFMuSC5NLiAmIFN5bWVzLCBBLiIsImFvb19rbTIiOm51bGwsImVvb19rbTIiOiI1MDkwMCIsImVsZXZhdGlvbl91cHBlciI6bnVsbCwiZWxldmF0aW9uX2xvd2VyIjpudWxsLCJkZXB0aF91cHBlciI6bnVsbCwiZGVwdGhfbG93ZXIiOm51bGwsImVycmF0YV9mbGFnIjpudWxsLCJlcnJhdGFfcmVhc29uIjpudWxsLCJhbWVuZGVkX2ZsYWciOm51bGwsImFtZW5kZWRfcmVhc29uIjpudWxsfV19
-  recorded_at: 2020-03-28 00:23:16 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
+      string: |-
+        eyJuYW1lIjoiQ3lvcm5pcyBsZW1wcmllcmkiLCJyZXN1bHQiOlt7InRheG9uaWQiOjIyNzA5NTQ4LCJz
+        Y2llbnRpZmljX25hbWUiOiJDeW9ybmlzIGxlbXByaWVyaSIsImtpbmdkb20iOiJBTklNQUxJQSIsInBo
+        eWx1bSI6IkNIT1JEQVRBIiwiY2xhc3MiOiJBVkVTIiwib3JkZXIiOiJQQVNTRVJJRk9STUVTIiwiZmFt
+        aWx5IjoiTVVTQ0lDQVBJREFFIiwiZ2VudXMiOiJDeW9ybmlzIiwibWFpbl9jb21tb25fbmFtZSI6IlBh
+        bGF3YW4gQmx1ZS1mbHljYXRjaGVyIiwiYXV0aG9yaXR5IjoiKFNoYXJwZSwgMTg4NCkiLCJwdWJsaXNo
+        ZWRfeWVhciI6MjAxNiwiYXNzZXNzbWVudF9kYXRlIjoiMjAxNi0xMC0wMSIsImNhdGVnb3J5IjoiTlQi
+        LCJjcml0ZXJpYSI6bnVsbCwicG9wdWxhdGlvbl90cmVuZCI6IkRlY3JlYXNpbmciLCJtYXJpbmVfc3lz
+        dGVtIjpmYWxzZSwiZnJlc2h3YXRlcl9zeXN0ZW0iOmZhbHNlLCJ0ZXJyZXN0cmlhbF9zeXN0ZW0iOnRy
+        dWUsImFzc2Vzc29yIjoiQmlyZExpZmUgSW50ZXJuYXRpb25hbCIsInJldmlld2VyIjoiQnV0Y2hhcnQs
+        IFMuSC5NLiAmIFN5bWVzLCBBLiIsImFvb19rbTIiOm51bGwsImVvb19rbTIiOiI1MDkwMCIsImVsZXZh
+        dGlvbl91cHBlciI6bnVsbCwiZWxldmF0aW9uX2xvd2VyIjpudWxsLCJkZXB0aF91cHBlciI6bnVsbCwi
+        ZGVwdGhfbG93ZXIiOm51bGwsImVycmF0YV9mbGFnIjpudWxsLCJlcnJhdGFfcmVhc29uIjpudWxsLCJh
+        bWVuZGVkX2ZsYWciOm51bGwsImFtZW5kZWRfcmVhc29uIjpudWxsfV19
+  recorded_at: 2021-09-15 22:48:30 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://apiv3.iucnredlist.org/api/v3/species/id/22709548?token=<<rredlist_api_token>>
@@ -831,7 +1037,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(rredlist/0.7.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -842,21 +1048,34 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 28 Mar 2020 00:23:14 GMT
+      date: Wed, 15 Sep 2021 22:48:28 GMT
       content-type: application/json; charset=utf-8
       content-length: '753'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       etag: W/"2f1-P4b2tXhtVLdvCUwf1MTmJg"
       vary: Accept-Encoding
-      set-cookie: sails.sid=s%3AaCOjyJnTiOu_SAW1VT7V0TzJrDsI5T_C.okEHLsY6T3bwiiRpUBQ8Vy0f3hH5M0pYOj6%2B%2FOkJLmU;
+      set-cookie: sails.sid=s%3AvpXUQi63RbvB1FzDRSSA15e05qqNmorc.jA04DfrUzcls0SJHuWdie0YUcdaMbDLQ5jp0PS9zZo0;
         Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
       file: no
-      string: eyJuYW1lIjoiMjI3MDk1NDgiLCJyZXN1bHQiOlt7InRheG9uaWQiOjIyNzA5NTQ4LCJzY2llbnRpZmljX25hbWUiOiJDeW9ybmlzIGxlbXByaWVyaSIsImtpbmdkb20iOiJBTklNQUxJQSIsInBoeWx1bSI6IkNIT1JEQVRBIiwiY2xhc3MiOiJBVkVTIiwib3JkZXIiOiJQQVNTRVJJRk9STUVTIiwiZmFtaWx5IjoiTVVTQ0lDQVBJREFFIiwiZ2VudXMiOiJDeW9ybmlzIiwibWFpbl9jb21tb25fbmFtZSI6IlBhbGF3YW4gQmx1ZS1mbHljYXRjaGVyIiwiYXV0aG9yaXR5IjoiKFNoYXJwZSwgMTg4NCkiLCJwdWJsaXNoZWRfeWVhciI6MjAxNiwiYXNzZXNzbWVudF9kYXRlIjoiMjAxNi0xMC0wMSIsImNhdGVnb3J5IjoiTlQiLCJjcml0ZXJpYSI6bnVsbCwicG9wdWxhdGlvbl90cmVuZCI6IkRlY3JlYXNpbmciLCJtYXJpbmVfc3lzdGVtIjpmYWxzZSwiZnJlc2h3YXRlcl9zeXN0ZW0iOmZhbHNlLCJ0ZXJyZXN0cmlhbF9zeXN0ZW0iOnRydWUsImFzc2Vzc29yIjoiQmlyZExpZmUgSW50ZXJuYXRpb25hbCIsInJldmlld2VyIjoiQnV0Y2hhcnQsIFMuSC5NLiAmIFN5bWVzLCBBLiIsImFvb19rbTIiOm51bGwsImVvb19rbTIiOiI1MDkwMCIsImVsZXZhdGlvbl91cHBlciI6bnVsbCwiZWxldmF0aW9uX2xvd2VyIjpudWxsLCJkZXB0aF91cHBlciI6bnVsbCwiZGVwdGhfbG93ZXIiOm51bGwsImVycmF0YV9mbGFnIjpudWxsLCJlcnJhdGFfcmVhc29uIjpudWxsLCJhbWVuZGVkX2ZsYWciOm51bGwsImFtZW5kZWRfcmVhc29uIjpudWxsfV19
-  recorded_at: 2020-03-28 00:23:16 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
+      string: |-
+        eyJuYW1lIjoiMjI3MDk1NDgiLCJyZXN1bHQiOlt7InRheG9uaWQiOjIyNzA5NTQ4LCJzY2llbnRpZmlj
+        X25hbWUiOiJDeW9ybmlzIGxlbXByaWVyaSIsImtpbmdkb20iOiJBTklNQUxJQSIsInBoeWx1bSI6IkNI
+        T1JEQVRBIiwiY2xhc3MiOiJBVkVTIiwib3JkZXIiOiJQQVNTRVJJRk9STUVTIiwiZmFtaWx5IjoiTVVT
+        Q0lDQVBJREFFIiwiZ2VudXMiOiJDeW9ybmlzIiwibWFpbl9jb21tb25fbmFtZSI6IlBhbGF3YW4gQmx1
+        ZS1mbHljYXRjaGVyIiwiYXV0aG9yaXR5IjoiKFNoYXJwZSwgMTg4NCkiLCJwdWJsaXNoZWRfeWVhciI6
+        MjAxNiwiYXNzZXNzbWVudF9kYXRlIjoiMjAxNi0xMC0wMSIsImNhdGVnb3J5IjoiTlQiLCJjcml0ZXJp
+        YSI6bnVsbCwicG9wdWxhdGlvbl90cmVuZCI6IkRlY3JlYXNpbmciLCJtYXJpbmVfc3lzdGVtIjpmYWxz
+        ZSwiZnJlc2h3YXRlcl9zeXN0ZW0iOmZhbHNlLCJ0ZXJyZXN0cmlhbF9zeXN0ZW0iOnRydWUsImFzc2Vz
+        c29yIjoiQmlyZExpZmUgSW50ZXJuYXRpb25hbCIsInJldmlld2VyIjoiQnV0Y2hhcnQsIFMuSC5NLiAm
+        IFN5bWVzLCBBLiIsImFvb19rbTIiOm51bGwsImVvb19rbTIiOiI1MDkwMCIsImVsZXZhdGlvbl91cHBl
+        ciI6bnVsbCwiZWxldmF0aW9uX2xvd2VyIjpudWxsLCJkZXB0aF91cHBlciI6bnVsbCwiZGVwdGhfbG93
+        ZXIiOm51bGwsImVycmF0YV9mbGFnIjpudWxsLCJlcnJhdGFfcmVhc29uIjpudWxsLCJhbWVuZGVkX2Zs
+        YWciOm51bGwsImFtZW5kZWRfcmVhc29uIjpudWxsfV19
+  recorded_at: 2021-09-15 22:48:30 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://apiv3.iucnredlist.org/api/v3/species/history/id/22709548?token=<<rredlist_api_token>>
@@ -864,7 +1083,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(rredlist/0.7.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -875,21 +1094,30 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 28 Mar 2020 00:23:15 GMT
+      date: Wed, 15 Sep 2021 22:48:28 GMT
       content-type: application/json; charset=utf-8
       content-length: '524'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       etag: W/"20c-fMu2yZbOem1A8JrQePAaQw"
       vary: Accept-Encoding
-      set-cookie: sails.sid=s%3AS6x9TQcxbjX5K7uy3P_5UXNg441uXvlr.7D%2BCm7YumRWHUbcfbyf%2FuNh6J3l25ihu%2FFefH5AjBi8;
+      set-cookie: sails.sid=s%3AJc3Vi7I9sGG49ojpLol6cetGGbCDKf9p.ZPq9mQXuA3Sv%2FecGVdAJ4UfQ6ddlpfX511YhilmfMuY;
         Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
       file: no
-      string: eyJuYW1lIjoiMjI3MDk1NDgiLCJyZXN1bHQiOlt7InllYXIiOiIyMDE2IiwiY29kZSI6Ik5UIiwiY2F0ZWdvcnkiOiJOZWFyIFRocmVhdGVuZWQifSx7InllYXIiOiIyMDEzIiwiY29kZSI6Ik5UIiwiY2F0ZWdvcnkiOiJOZWFyIFRocmVhdGVuZWQifSx7InllYXIiOiIyMDEyIiwiY29kZSI6Ik5UIiwiY2F0ZWdvcnkiOiJOZWFyIFRocmVhdGVuZWQifSx7InllYXIiOiIyMDA4IiwiY29kZSI6Ik5UIiwiY2F0ZWdvcnkiOiJOZWFyIFRocmVhdGVuZWQifSx7InllYXIiOiIyMDA0IiwiY29kZSI6Ik5UIiwiY2F0ZWdvcnkiOiJOZWFyIFRocmVhdGVuZWQifSx7InllYXIiOiIyMDAwIiwiY29kZSI6IkxSL250IiwiY2F0ZWdvcnkiOiJMb3dlciBSaXNrL25lYXIgdGhyZWF0ZW5lZCJ9LHsieWVhciI6IjE5OTQiLCJjb2RlIjoiTFIvbGMiLCJjYXRlZ29yeSI6Ikxvd2VyIFJpc2svbGVhc3QgY29uY2VybiJ9LHsieWVhciI6IjE5ODgiLCJjb2RlIjoiTFIvbGMiLCJjYXRlZ29yeSI6Ikxvd2VyIFJpc2svbGVhc3QgY29uY2VybiJ9XX0=
-  recorded_at: 2020-03-28 00:23:16 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
+      string: |-
+        eyJuYW1lIjoiMjI3MDk1NDgiLCJyZXN1bHQiOlt7InllYXIiOiIyMDE2IiwiY29kZSI6Ik5UIiwiY2F0
+        ZWdvcnkiOiJOZWFyIFRocmVhdGVuZWQifSx7InllYXIiOiIyMDEzIiwiY29kZSI6Ik5UIiwiY2F0ZWdv
+        cnkiOiJOZWFyIFRocmVhdGVuZWQifSx7InllYXIiOiIyMDEyIiwiY29kZSI6Ik5UIiwiY2F0ZWdvcnki
+        OiJOZWFyIFRocmVhdGVuZWQifSx7InllYXIiOiIyMDA4IiwiY29kZSI6Ik5UIiwiY2F0ZWdvcnkiOiJO
+        ZWFyIFRocmVhdGVuZWQifSx7InllYXIiOiIyMDA0IiwiY29kZSI6Ik5UIiwiY2F0ZWdvcnkiOiJOZWFy
+        IFRocmVhdGVuZWQifSx7InllYXIiOiIyMDAwIiwiY29kZSI6IkxSL250IiwiY2F0ZWdvcnkiOiJMb3dl
+        ciBSaXNrL25lYXIgdGhyZWF0ZW5lZCJ9LHsieWVhciI6IjE5OTQiLCJjb2RlIjoiTFIvbGMiLCJjYXRl
+        Z29yeSI6Ikxvd2VyIFJpc2svbGVhc3QgY29uY2VybiJ9LHsieWVhciI6IjE5ODgiLCJjb2RlIjoiTFIv
+        bGMiLCJjYXRlZ29yeSI6Ikxvd2VyIFJpc2svbGVhc3QgY29uY2VybiJ9XX0=
+  recorded_at: 2021-09-15 22:48:30 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://apiv3.iucnredlist.org/api/v3/species/countries/id/22709548?token=<<rredlist_api_token>>
@@ -897,7 +1125,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(rredlist/0.7.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -908,21 +1136,24 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 28 Mar 2020 00:23:15 GMT
+      date: Wed, 15 Sep 2021 22:48:28 GMT
       content-type: application/json; charset=utf-8
       content-length: '145'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       etag: W/"91-DeiqXw6iuI08mD65WSerrw"
       vary: Accept-Encoding
-      set-cookie: sails.sid=s%3AGhA-fxMbxWPMWB82PthqG0ywNU2ZrN4k.t%2BvZvQWIGYar%2BNfclXJo62pQULB8xqY8DFOkTCC1bxU;
+      set-cookie: sails.sid=s%3ApgOx-DEDhga63jpOrXDiw45mdTCnIFlK.MGnqOskFI8Rz2r%2BD6gQ3iLjhtoPuDAT3YOmyoo0NBbc;
         Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
       file: no
-      string: eyJuYW1lIjoiMjI3MDk1NDgiLCJjb3VudCI6MSwicmVzdWx0IjpbeyJjb2RlIjoiUEgiLCJjb3VudHJ5IjoiUGhpbGlwcGluZXMiLCJwcmVzZW5jZSI6IkV4dGFudCIsIm9yaWdpbiI6Ik5hdGl2ZSIsImRpc3RyaWJ1dGlvbl9jb2RlIjoiTmF0aXZlIn1dfQ==
-  recorded_at: 2020-03-28 00:23:16 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
+      string: |-
+        eyJuYW1lIjoiMjI3MDk1NDgiLCJjb3VudCI6MSwicmVzdWx0IjpbeyJjb2RlIjoiUEgiLCJjb3VudHJ5
+        IjoiUGhpbGlwcGluZXMiLCJwcmVzZW5jZSI6IkV4dGFudCIsIm9yaWdpbiI6Ik5hdGl2ZSIsImRpc3Ry
+        aWJ1dGlvbl9jb2RlIjoiTmF0aXZlIn1dfQ==
+  recorded_at: 2021-09-15 22:48:30 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://apiv3.iucnredlist.org/api/v3/species/Frailea%20pumila?token=<<rredlist_api_token>>
@@ -930,7 +1161,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(rredlist/0.7.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -941,21 +1172,35 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 28 Mar 2020 00:23:15 GMT
+      date: Wed, 15 Sep 2021 22:48:29 GMT
       content-type: application/json; charset=utf-8
       content-length: '803'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       etag: W/"323-4Tg5zxb/JOc9fs6EeMPt5Q"
       vary: Accept-Encoding
-      set-cookie: sails.sid=s%3ADOZnJbiHaA-5XNdP2hrSYlnCdYo7VdI5.vOherZSjNPRshehPOkbONbFSoJ7Bc8%2BfvAymxJBhDqs;
+      set-cookie: sails.sid=s%3Aunt0RxNi9wbAfSsAPZc2k6knteMMRkxO.iI2Fb7992izjNpe9Vra8N8KQ8wa3WrIDqMUSkpW9pQU;
         Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
       file: no
-      string: eyJuYW1lIjoiRnJhaWxlYSBwdW1pbGEiLCJyZXN1bHQiOlt7InRheG9uaWQiOjE1MjE5NSwic2NpZW50aWZpY19uYW1lIjoiRnJhaWxlYSBwdW1pbGEiLCJraW5nZG9tIjoiUExBTlRBRSIsInBoeWx1bSI6IlRSQUNIRU9QSFlUQSIsImNsYXNzIjoiTUFHTk9MSU9QU0lEQSIsIm9yZGVyIjoiQ0FSWU9QSFlMTEFMRVMiLCJmYW1pbHkiOiJDQUNUQUNFQUUiLCJnZW51cyI6IkZyYWlsZWEiLCJtYWluX2NvbW1vbl9uYW1lIjpudWxsLCJhdXRob3JpdHkiOiIoTGVtLikgQnJpdHRvbiAmYW1wOyBSb3NlIiwicHVibGlzaGVkX3llYXIiOjIwMTcsImFzc2Vzc21lbnRfZGF0ZSI6IjIwMTAtMDYtMDQiLCJjYXRlZ29yeSI6IkxDIiwiY3JpdGVyaWEiOm51bGwsInBvcHVsYXRpb25fdHJlbmQiOiJTdGFibGUiLCJtYXJpbmVfc3lzdGVtIjpmYWxzZSwiZnJlc2h3YXRlcl9zeXN0ZW0iOmZhbHNlLCJ0ZXJyZXN0cmlhbF9zeXN0ZW0iOnRydWUsImFzc2Vzc29yIjoiTGFyb2NjYSwgSi4sIE1hY2hhZG8sIE0uICYgRHVhcnRlLCBXLiIsInJldmlld2VyIjoiR29ldHRzY2gsIEIuSy4gJiBTdXBlcmluYSwgTS4iLCJhb29fa20yIjpudWxsLCJlb29fa20yIjpudWxsLCJlbGV2YXRpb25fdXBwZXIiOjMwMCwiZWxldmF0aW9uX2xvd2VyIjoxMDAsImRlcHRoX3VwcGVyIjpudWxsLCJkZXB0aF9sb3dlciI6bnVsbCwiZXJyYXRhX2ZsYWciOm51bGwsImVycmF0YV9yZWFzb24iOm51bGwsImFtZW5kZWRfZmxhZyI6dHJ1ZSwiYW1lbmRlZF9yZWFzb24iOiJUaGUgc3BlY2llcyBkaXN0cmlidXRpb24gbWFwIGhhcyBiZWVuIGFkZGVkLiJ9XX0=
-  recorded_at: 2020-03-28 00:23:16 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
+      string: |-
+        eyJuYW1lIjoiRnJhaWxlYSBwdW1pbGEiLCJyZXN1bHQiOlt7InRheG9uaWQiOjE1MjE5NSwic2NpZW50
+        aWZpY19uYW1lIjoiRnJhaWxlYSBwdW1pbGEiLCJraW5nZG9tIjoiUExBTlRBRSIsInBoeWx1bSI6IlRS
+        QUNIRU9QSFlUQSIsImNsYXNzIjoiTUFHTk9MSU9QU0lEQSIsIm9yZGVyIjoiQ0FSWU9QSFlMTEFMRVMi
+        LCJmYW1pbHkiOiJDQUNUQUNFQUUiLCJnZW51cyI6IkZyYWlsZWEiLCJtYWluX2NvbW1vbl9uYW1lIjpu
+        dWxsLCJhdXRob3JpdHkiOiIoTGVtLikgQnJpdHRvbiAmYW1wOyBSb3NlIiwicHVibGlzaGVkX3llYXIi
+        OjIwMTcsImFzc2Vzc21lbnRfZGF0ZSI6IjIwMTAtMDYtMDQiLCJjYXRlZ29yeSI6IkxDIiwiY3JpdGVy
+        aWEiOm51bGwsInBvcHVsYXRpb25fdHJlbmQiOiJTdGFibGUiLCJtYXJpbmVfc3lzdGVtIjpmYWxzZSwi
+        ZnJlc2h3YXRlcl9zeXN0ZW0iOmZhbHNlLCJ0ZXJyZXN0cmlhbF9zeXN0ZW0iOnRydWUsImFzc2Vzc29y
+        IjoiTGFyb2NjYSwgSi4sIE1hY2hhZG8sIE0uICYgRHVhcnRlLCBXLiIsInJldmlld2VyIjoiR29ldHRz
+        Y2gsIEIuSy4gJiBTdXBlcmluYSwgTS4iLCJhb29fa20yIjpudWxsLCJlb29fa20yIjpudWxsLCJlbGV2
+        YXRpb25fdXBwZXIiOjMwMCwiZWxldmF0aW9uX2xvd2VyIjoxMDAsImRlcHRoX3VwcGVyIjpudWxsLCJk
+        ZXB0aF9sb3dlciI6bnVsbCwiZXJyYXRhX2ZsYWciOm51bGwsImVycmF0YV9yZWFzb24iOm51bGwsImFt
+        ZW5kZWRfZmxhZyI6dHJ1ZSwiYW1lbmRlZF9yZWFzb24iOiJUaGUgc3BlY2llcyBkaXN0cmlidXRpb24g
+        bWFwIGhhcyBiZWVuIGFkZGVkLiJ9XX0=
+  recorded_at: 2021-09-15 22:48:30 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://apiv3.iucnredlist.org/api/v3/species/id/152195?token=<<rredlist_api_token>>
@@ -963,7 +1208,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(rredlist/0.7.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -974,21 +1219,35 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 28 Mar 2020 00:23:16 GMT
+      date: Wed, 15 Sep 2021 22:48:29 GMT
       content-type: application/json; charset=utf-8
       content-length: '795'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       etag: W/"31b-uITq0PmzvAB1Iqjv3S9ZFg"
       vary: Accept-Encoding
-      set-cookie: sails.sid=s%3Axs-Y1tvakGizdgyv4ap8TLljycXq2i3C.ak89u3%2Bu9UDZzYo45QZvhXdVgfof7I29OXwgfAjZw%2Fk;
+      set-cookie: sails.sid=s%3AxJTkoAj3GYeXtm2iN4jXw6XIW_SFMMXi.hd1S5HT6reEPMJ3qZB4wKVQ575MOb9t3QoyaQgGnHbw;
         Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
       file: no
-      string: eyJuYW1lIjoiMTUyMTk1IiwicmVzdWx0IjpbeyJ0YXhvbmlkIjoxNTIxOTUsInNjaWVudGlmaWNfbmFtZSI6IkZyYWlsZWEgcHVtaWxhIiwia2luZ2RvbSI6IlBMQU5UQUUiLCJwaHlsdW0iOiJUUkFDSEVPUEhZVEEiLCJjbGFzcyI6Ik1BR05PTElPUFNJREEiLCJvcmRlciI6IkNBUllPUEhZTExBTEVTIiwiZmFtaWx5IjoiQ0FDVEFDRUFFIiwiZ2VudXMiOiJGcmFpbGVhIiwibWFpbl9jb21tb25fbmFtZSI6bnVsbCwiYXV0aG9yaXR5IjoiKExlbS4pIEJyaXR0b24gJmFtcDsgUm9zZSIsInB1Ymxpc2hlZF95ZWFyIjoyMDE3LCJhc3Nlc3NtZW50X2RhdGUiOiIyMDEwLTA2LTA0IiwiY2F0ZWdvcnkiOiJMQyIsImNyaXRlcmlhIjpudWxsLCJwb3B1bGF0aW9uX3RyZW5kIjoiU3RhYmxlIiwibWFyaW5lX3N5c3RlbSI6ZmFsc2UsImZyZXNod2F0ZXJfc3lzdGVtIjpmYWxzZSwidGVycmVzdHJpYWxfc3lzdGVtIjp0cnVlLCJhc3Nlc3NvciI6Ikxhcm9jY2EsIEouLCBNYWNoYWRvLCBNLiAmIER1YXJ0ZSwgVy4iLCJyZXZpZXdlciI6IkdvZXR0c2NoLCBCLksuICYgU3VwZXJpbmEsIE0uIiwiYW9vX2ttMiI6bnVsbCwiZW9vX2ttMiI6bnVsbCwiZWxldmF0aW9uX3VwcGVyIjozMDAsImVsZXZhdGlvbl9sb3dlciI6MTAwLCJkZXB0aF91cHBlciI6bnVsbCwiZGVwdGhfbG93ZXIiOm51bGwsImVycmF0YV9mbGFnIjpudWxsLCJlcnJhdGFfcmVhc29uIjpudWxsLCJhbWVuZGVkX2ZsYWciOnRydWUsImFtZW5kZWRfcmVhc29uIjoiVGhlIHNwZWNpZXMgZGlzdHJpYnV0aW9uIG1hcCBoYXMgYmVlbiBhZGRlZC4ifV19
-  recorded_at: 2020-03-28 00:23:16 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
+      string: |-
+        eyJuYW1lIjoiMTUyMTk1IiwicmVzdWx0IjpbeyJ0YXhvbmlkIjoxNTIxOTUsInNjaWVudGlmaWNfbmFt
+        ZSI6IkZyYWlsZWEgcHVtaWxhIiwia2luZ2RvbSI6IlBMQU5UQUUiLCJwaHlsdW0iOiJUUkFDSEVPUEhZ
+        VEEiLCJjbGFzcyI6Ik1BR05PTElPUFNJREEiLCJvcmRlciI6IkNBUllPUEhZTExBTEVTIiwiZmFtaWx5
+        IjoiQ0FDVEFDRUFFIiwiZ2VudXMiOiJGcmFpbGVhIiwibWFpbl9jb21tb25fbmFtZSI6bnVsbCwiYXV0
+        aG9yaXR5IjoiKExlbS4pIEJyaXR0b24gJmFtcDsgUm9zZSIsInB1Ymxpc2hlZF95ZWFyIjoyMDE3LCJh
+        c3Nlc3NtZW50X2RhdGUiOiIyMDEwLTA2LTA0IiwiY2F0ZWdvcnkiOiJMQyIsImNyaXRlcmlhIjpudWxs
+        LCJwb3B1bGF0aW9uX3RyZW5kIjoiU3RhYmxlIiwibWFyaW5lX3N5c3RlbSI6ZmFsc2UsImZyZXNod2F0
+        ZXJfc3lzdGVtIjpmYWxzZSwidGVycmVzdHJpYWxfc3lzdGVtIjp0cnVlLCJhc3Nlc3NvciI6Ikxhcm9j
+        Y2EsIEouLCBNYWNoYWRvLCBNLiAmIER1YXJ0ZSwgVy4iLCJyZXZpZXdlciI6IkdvZXR0c2NoLCBCLksu
+        ICYgU3VwZXJpbmEsIE0uIiwiYW9vX2ttMiI6bnVsbCwiZW9vX2ttMiI6bnVsbCwiZWxldmF0aW9uX3Vw
+        cGVyIjozMDAsImVsZXZhdGlvbl9sb3dlciI6MTAwLCJkZXB0aF91cHBlciI6bnVsbCwiZGVwdGhfbG93
+        ZXIiOm51bGwsImVycmF0YV9mbGFnIjpudWxsLCJlcnJhdGFfcmVhc29uIjpudWxsLCJhbWVuZGVkX2Zs
+        YWciOnRydWUsImFtZW5kZWRfcmVhc29uIjoiVGhlIHNwZWNpZXMgZGlzdHJpYnV0aW9uIG1hcCBoYXMg
+        YmVlbiBhZGRlZC4ifV19
+  recorded_at: 2021-09-15 22:48:30 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://apiv3.iucnredlist.org/api/v3/species/history/id/152195?token=<<rredlist_api_token>>
@@ -996,7 +1255,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(rredlist/0.7.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -1007,21 +1266,24 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 28 Mar 2020 00:23:16 GMT
+      date: Wed, 15 Sep 2021 22:48:29 GMT
       content-type: application/json; charset=utf-8
-      content-length: '83'
+      content-length: '138'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
-      etag: W/"53-wWFqrKcDvXBVBiAhvZsPyw"
+      etag: W/"8a-vKYOoqsOIcyrHBjd1rGI7g"
       vary: Accept-Encoding
-      set-cookie: sails.sid=s%3AsuiLhzeY-919F3NSSFm2tCFL-OamBPAF.8SwTtDmIeCYQAYRuC4OFH0CKivLUUcic32z1kS%2F0g0A;
+      set-cookie: sails.sid=s%3AzRbS4kGuzAPiNZT3IVVvJQcZU7BXKReg.WiTJSEqKf7Q26yDCEUZiF%2Bd3uS5KZlopDyrk7k%2F7Mts;
         Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
       file: no
-      string: eyJuYW1lIjoiMTUyMTk1IiwicmVzdWx0IjpbeyJ5ZWFyIjoiMjAxMyIsImNvZGUiOiJMQyIsImNhdGVnb3J5IjoiTGVhc3QgQ29uY2VybiJ9XX0=
-  recorded_at: 2020-03-28 00:23:16 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
+      string: |-
+        eyJuYW1lIjoiMTUyMTk1IiwicmVzdWx0IjpbeyJ5ZWFyIjoiMjAxNyIsImNvZGUiOiJMQyIsImNhdGVn
+        b3J5IjoiTGVhc3QgQ29uY2VybiJ9LHsieWVhciI6IjIwMTMiLCJjb2RlIjoiTEMiLCJjYXRlZ29yeSI6
+        IkxlYXN0IENvbmNlcm4ifV19
+  recorded_at: 2021-09-15 22:48:30 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://apiv3.iucnredlist.org/api/v3/species/countries/id/152195?token=<<rredlist_api_token>>
@@ -1029,7 +1291,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/4.3 crul/0.9.2.91 rOpenSci(rredlist/0.6.0.91)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(rredlist/0.7.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -1040,18 +1302,26 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Sat, 28 Mar 2020 00:23:16 GMT
+      date: Wed, 15 Sep 2021 22:48:30 GMT
       content-type: application/json; charset=utf-8
       content-length: '444'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       etag: W/"1bc-lDDcW7QEXw8d3gdzlA8PXw"
       vary: Accept-Encoding
-      set-cookie: sails.sid=s%3AhyaTa-8j0eDRxPze0s9-qmlyImblK1tE.d2FBREPSZQ2jy2CgoSMKehWYyZFZT2OTZP53ckVKtwk;
+      set-cookie: sails.sid=s%3Axnrh2bKDo7MLPszgSiGARNGp1W9GV6e0.727X8DADWt48UzSxuFnmu1%2FP5AL9JrYqtCXx5GRNnY4;
         Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
       file: no
-      string: eyJuYW1lIjoiMTUyMTk1IiwiY291bnQiOjQsInJlc3VsdCI6W3siY29kZSI6IkFSIiwiY291bnRyeSI6IkFyZ2VudGluYSIsInByZXNlbmNlIjoiRXh0YW50Iiwib3JpZ2luIjoiTmF0aXZlIiwiZGlzdHJpYnV0aW9uX2NvZGUiOiJOYXRpdmUifSx7ImNvZGUiOiJCUiIsImNvdW50cnkiOiJCcmF6aWwiLCJwcmVzZW5jZSI6IkV4dGFudCIsIm9yaWdpbiI6Ik5hdGl2ZSIsImRpc3RyaWJ1dGlvbl9jb2RlIjoiTmF0aXZlIn0seyJjb2RlIjoiUFkiLCJjb3VudHJ5IjoiUGFyYWd1YXkiLCJwcmVzZW5jZSI6IkV4dGFudCIsIm9yaWdpbiI6Ik5hdGl2ZSIsImRpc3RyaWJ1dGlvbl9jb2RlIjoiTmF0aXZlIn0seyJjb2RlIjoiVVkiLCJjb3VudHJ5IjoiVXJ1Z3VheSIsInByZXNlbmNlIjoiRXh0YW50Iiwib3JpZ2luIjoiTmF0aXZlIiwiZGlzdHJpYnV0aW9uX2NvZGUiOiJOYXRpdmUifV19
-  recorded_at: 2020-03-28 00:23:16 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2.91
+      string: |-
+        eyJuYW1lIjoiMTUyMTk1IiwiY291bnQiOjQsInJlc3VsdCI6W3siY29kZSI6IkFSIiwiY291bnRyeSI6
+        IkFyZ2VudGluYSIsInByZXNlbmNlIjoiRXh0YW50Iiwib3JpZ2luIjoiTmF0aXZlIiwiZGlzdHJpYnV0
+        aW9uX2NvZGUiOiJOYXRpdmUifSx7ImNvZGUiOiJCUiIsImNvdW50cnkiOiJCcmF6aWwiLCJwcmVzZW5j
+        ZSI6IkV4dGFudCIsIm9yaWdpbiI6Ik5hdGl2ZSIsImRpc3RyaWJ1dGlvbl9jb2RlIjoiTmF0aXZlIn0s
+        eyJjb2RlIjoiUFkiLCJjb3VudHJ5IjoiUGFyYWd1YXkiLCJwcmVzZW5jZSI6IkV4dGFudCIsIm9yaWdp
+        biI6Ik5hdGl2ZSIsImRpc3RyaWJ1dGlvbl9jb2RlIjoiTmF0aXZlIn0seyJjb2RlIjoiVVkiLCJjb3Vu
+        dHJ5IjoiVXJ1Z3VheSIsInByZXNlbmNlIjoiRXh0YW50Iiwib3JpZ2luIjoiTmF0aXZlIiwiZGlzdHJp
+        YnV0aW9uX2NvZGUiOiJOYXRpdmUifV19
+  recorded_at: 2021-09-15 22:48:30 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0

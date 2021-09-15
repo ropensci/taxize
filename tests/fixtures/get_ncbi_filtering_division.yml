@@ -8,8 +8,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -17,20 +17,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 18:07:16 GMT
+      date: Wed, 15 Sep 2021 22:47:29 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '7'
-      ncbi-phid: 939B5FAD2C30BAE500004CD9CD4E2CA6.1.1.m_1
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: 5A8AD7345FC51ADA_5D9CSID
+      ncbi-phid: 939B971E50EAD785000045486A52566B.1.1.m_1
+      x-ratelimit-remaining: '8'
+      ncbi-sid: AB5DBF0850302526_1FFFSID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=5A8AD7345FC51ADA_5D9CSID; domain=.nih.gov; path=/; expires=Thu,
-        16 Sep 2021 18:07:16 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=AB5DBF0850302526_1FFFSID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:47:29 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -44,8 +46,8 @@ http_interactions:
         <Id>53747</Id>
         <Id>7674</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Echinacea[All Names]</Term>    <Field>All Names</Field>    <Count>2</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Echinacea[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2020-09-16 18:07:17 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:47:31 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&ID=53747%2C7674&api_key=<<entrez_api_token>>
@@ -55,8 +57,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -64,20 +66,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 18:07:17 GMT
+      date: Wed, 15 Sep 2021 22:47:29 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '8'
-      ncbi-phid: 939B5FAD2C30BAE500005AD9CDD48E85.1.1.m_1
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: 4CD20225EF25DC27_825ASID
+      ncbi-phid: 939B971E50EAD785000060486A921997.1.1.m_1
+      x-ratelimit-remaining: '7'
+      ncbi-sid: 20819F238AEC9C80_6EE4SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=4CD20225EF25DC27_825ASID; domain=.nih.gov; path=/; expires=Thu,
-        16 Sep 2021 18:07:17 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=20819F238AEC9C80_6EE4SID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:47:30 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -100,8 +104,8 @@ http_interactions:
         Name=\"Genus\" Type=\"String\"></Item>\n\t<Item Name=\"Species\" Type=\"String\"></Item>\n\t<Item
         Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
         Type=\"Date\">2015/09/16 00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
-  recorded_at: 2020-09-16 18:07:17 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:47:31 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Echinacea&api_key=<<entrez_api_token>>
@@ -111,8 +115,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -120,20 +124,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 18:07:16 GMT
+      date: Wed, 15 Sep 2021 22:47:30 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '6'
-      ncbi-phid: 939B5FAD2C30BAE500002AD9CE2FB2F0.1.1.m_1
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: 4C1EC072B2B9207B_F92DSID
+      ncbi-phid: 939B971E50EAD785000041486AFC3447.1.1.m_1
+      x-ratelimit-remaining: '6'
+      ncbi-sid: 15966CD8A67C9811_B0DFSID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=4C1EC072B2B9207B_F92DSID; domain=.nih.gov; path=/; expires=Thu,
-        16 Sep 2021 18:07:17 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=15966CD8A67C9811_B0DFSID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:47:30 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -147,8 +153,8 @@ http_interactions:
         <Id>53747</Id>
         <Id>7674</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Echinacea[All Names]</Term>    <Field>All Names</Field>    <Count>2</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Echinacea[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2020-09-16 18:07:17 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:47:31 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&ID=53747%2C7674&api_key=<<entrez_api_token>>
@@ -158,8 +164,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -167,20 +173,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 18:07:17 GMT
+      date: Wed, 15 Sep 2021 22:47:30 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '5'
-      ncbi-phid: 939B5FAD2C30BAE5000025D9CEA4D58E.1.1.m_1
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: A0775AB808BBEE18_334FSID
+      ncbi-phid: 939B971E50EAD78500004B486B842B08.1.1.m_1
+      x-ratelimit-remaining: '7'
+      ncbi-sid: 7CB1B101BA928B10_6750SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=A0775AB808BBEE18_334FSID; domain=.nih.gov; path=/; expires=Thu,
-        16 Sep 2021 18:07:17 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=7CB1B101BA928B10_6750SID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:47:30 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -203,5 +211,5 @@ http_interactions:
         Name=\"Genus\" Type=\"String\"></Item>\n\t<Item Name=\"Species\" Type=\"String\"></Item>\n\t<Item
         Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
         Type=\"Date\">2015/09/16 00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
-  recorded_at: 2020-09-16 18:07:17 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:47:31 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0

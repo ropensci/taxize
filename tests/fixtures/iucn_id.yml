@@ -6,7 +6,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(rredlist/0.6.0.91)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(rredlist/0.7.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -17,21 +17,34 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Tue, 20 Oct 2020 20:24:04 GMT
+      date: Wed, 15 Sep 2021 22:48:12 GMT
       content-type: application/json; charset=utf-8
       content-length: '733'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       etag: W/"2dd-IVCMHH5zHtkv58ZeQF7lqA"
       vary: Accept-Encoding
-      set-cookie: sails.sid=s%3ATLc0sjo1w39d0UTGBXTfXaH6HB7I4Xn7.0rh5gx7h7ruKMo2xA9U2QjKs%2FhbmwD3Zr61JTtE9LCk;
+      set-cookie: sails.sid=s%3AyxBZTa9hnvclERYttx8PsOoVwMr-SIYF.R%2BZxuJN%2B%2FMegTR%2FUzmbGsXxA3KTIAZE8wHC%2BO5lFgW0;
         Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
       file: no
-      string: eyJuYW1lIjoiQnJhbnRhIGNhbmFkZW5zaXMiLCJyZXN1bHQiOlt7InRheG9uaWQiOjIyNjc5OTM1LCJzY2llbnRpZmljX25hbWUiOiJCcmFudGEgY2FuYWRlbnNpcyIsImtpbmdkb20iOiJBTklNQUxJQSIsInBoeWx1bSI6IkNIT1JEQVRBIiwiY2xhc3MiOiJBVkVTIiwib3JkZXIiOiJBTlNFUklGT1JNRVMiLCJmYW1pbHkiOiJBTkFUSURBRSIsImdlbnVzIjoiQnJhbnRhIiwibWFpbl9jb21tb25fbmFtZSI6IkNhbmFkYSBHb29zZSIsImF1dGhvcml0eSI6IihMaW5uYWV1cywgMTc1OCkiLCJwdWJsaXNoZWRfeWVhciI6MjAxOCwiYXNzZXNzbWVudF9kYXRlIjoiMjAxOC0wOC0wOSIsImNhdGVnb3J5IjoiTEMiLCJjcml0ZXJpYSI6bnVsbCwicG9wdWxhdGlvbl90cmVuZCI6IkluY3JlYXNpbmciLCJtYXJpbmVfc3lzdGVtIjpmYWxzZSwiZnJlc2h3YXRlcl9zeXN0ZW0iOnRydWUsInRlcnJlc3RyaWFsX3N5c3RlbSI6dHJ1ZSwiYXNzZXNzb3IiOiJCaXJkTGlmZSBJbnRlcm5hdGlvbmFsIiwicmV2aWV3ZXIiOiJXaGVhdGxleSwgSC4iLCJhb29fa20yIjpudWxsLCJlb29fa20yIjoiMTI4MDAwMDAiLCJlbGV2YXRpb25fdXBwZXIiOjIwMDAsImVsZXZhdGlvbl9sb3dlciI6bnVsbCwiZGVwdGhfdXBwZXIiOm51bGwsImRlcHRoX2xvd2VyIjpudWxsLCJlcnJhdGFfZmxhZyI6bnVsbCwiZXJyYXRhX3JlYXNvbiI6bnVsbCwiYW1lbmRlZF9mbGFnIjpudWxsLCJhbWVuZGVkX3JlYXNvbiI6bnVsbH1dfQ==
-  recorded_at: 2020-10-20 20:24:22 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.7.0
+      string: |-
+        eyJuYW1lIjoiQnJhbnRhIGNhbmFkZW5zaXMiLCJyZXN1bHQiOlt7InRheG9uaWQiOjIyNjc5OTM1LCJz
+        Y2llbnRpZmljX25hbWUiOiJCcmFudGEgY2FuYWRlbnNpcyIsImtpbmdkb20iOiJBTklNQUxJQSIsInBo
+        eWx1bSI6IkNIT1JEQVRBIiwiY2xhc3MiOiJBVkVTIiwib3JkZXIiOiJBTlNFUklGT1JNRVMiLCJmYW1p
+        bHkiOiJBTkFUSURBRSIsImdlbnVzIjoiQnJhbnRhIiwibWFpbl9jb21tb25fbmFtZSI6IkNhbmFkYSBH
+        b29zZSIsImF1dGhvcml0eSI6IihMaW5uYWV1cywgMTc1OCkiLCJwdWJsaXNoZWRfeWVhciI6MjAxOCwi
+        YXNzZXNzbWVudF9kYXRlIjoiMjAxOC0wOC0wOSIsImNhdGVnb3J5IjoiTEMiLCJjcml0ZXJpYSI6bnVs
+        bCwicG9wdWxhdGlvbl90cmVuZCI6IkluY3JlYXNpbmciLCJtYXJpbmVfc3lzdGVtIjpmYWxzZSwiZnJl
+        c2h3YXRlcl9zeXN0ZW0iOnRydWUsInRlcnJlc3RyaWFsX3N5c3RlbSI6dHJ1ZSwiYXNzZXNzb3IiOiJC
+        aXJkTGlmZSBJbnRlcm5hdGlvbmFsIiwicmV2aWV3ZXIiOiJXaGVhdGxleSwgSC4iLCJhb29fa20yIjpu
+        dWxsLCJlb29fa20yIjoiMTI4MDAwMDAiLCJlbGV2YXRpb25fdXBwZXIiOjIwMDAsImVsZXZhdGlvbl9s
+        b3dlciI6bnVsbCwiZGVwdGhfdXBwZXIiOm51bGwsImRlcHRoX2xvd2VyIjpudWxsLCJlcnJhdGFfZmxh
+        ZyI6bnVsbCwiZXJyYXRhX3JlYXNvbiI6bnVsbCwiYW1lbmRlZF9mbGFnIjpudWxsLCJhbWVuZGVkX3Jl
+        YXNvbiI6bnVsbH1dfQ==
+  recorded_at: 2021-09-15 22:48:13 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://apiv3.iucnredlist.org/api/v3/species/Panthera%20uncia?token=<<rredlist_api_token>>
@@ -39,7 +52,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(rredlist/0.6.0.91)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(rredlist/0.7.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -50,21 +63,36 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Tue, 20 Oct 2020 20:24:14 GMT
+      date: Wed, 15 Sep 2021 22:48:12 GMT
       content-type: application/json; charset=utf-8
       content-length: '867'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       etag: W/"363-Sus2DNfNfU4lLJ/tOTWRnA"
       vary: Accept-Encoding
-      set-cookie: sails.sid=s%3A0u69rSj815vOmf5P2sTQPZADQ5yRU05H.%2BWTkvyQyzV%2BwCL6Sc9Nkd2mzD6wqHlcPdheBzHOkRhA;
+      set-cookie: sails.sid=s%3A78l-UcVPVE804fx-2CHRzvJmp7KUlLIQ.K4RNLut0csAak%2FoKhMn0h9FPpiyDvQLRdyvWNmw8DNc;
         Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
       file: no
-      string: eyJuYW1lIjoiUGFudGhlcmEgdW5jaWEiLCJyZXN1bHQiOlt7InRheG9uaWQiOjIyNzMyLCJzY2llbnRpZmljX25hbWUiOiJQYW50aGVyYSB1bmNpYSIsImtpbmdkb20iOiJBTklNQUxJQSIsInBoeWx1bSI6IkNIT1JEQVRBIiwiY2xhc3MiOiJNQU1NQUxJQSIsIm9yZGVyIjoiQ0FSTklWT1JBIiwiZmFtaWx5IjoiRkVMSURBRSIsImdlbnVzIjoiUGFudGhlcmEiLCJtYWluX2NvbW1vbl9uYW1lIjoiU25vdyBMZW9wYXJkIiwiYXV0aG9yaXR5IjoiKFNjaHJlYmVyLCAxNzc1KSIsInB1Ymxpc2hlZF95ZWFyIjoyMDE3LCJhc3Nlc3NtZW50X2RhdGUiOiIyMDE2LTExLTA4IiwiY2F0ZWdvcnkiOiJWVSIsImNyaXRlcmlhIjoiQzEiLCJwb3B1bGF0aW9uX3RyZW5kIjoiRGVjcmVhc2luZyIsIm1hcmluZV9zeXN0ZW0iOmZhbHNlLCJmcmVzaHdhdGVyX3N5c3RlbSI6ZmFsc2UsInRlcnJlc3RyaWFsX3N5c3RlbSI6dHJ1ZSwiYXNzZXNzb3IiOiJNY0NhcnRoeSwgVC4sIE1hbGxvbiwgRC4sIEphY2tzb24sIFIuLCBaYWhsZXIsIFAuICYgTWNDYXJ0aHksIEsuIiwicmV2aWV3ZXIiOiJCw7ZobSwgTS4sIEJyZWl0ZW5tb3NlciwgVS4sIEJyZWl0ZW5tb3Nlci1Xw7xyc3RlbiwgQy4sIEhhcnJpcywgUi4sIEh1bnRlciwgTC4sIExhbnosIFQuLCBOb3dlbGwsIEsuICYgUm9zZW4sIFQuIiwiYW9vX2ttMiI6bnVsbCwiZW9vX2ttMiI6IjY3ODYyNzIiLCJlbGV2YXRpb25fdXBwZXIiOjU4MDAsImVsZXZhdGlvbl9sb3dlciI6NTAwLCJkZXB0aF91cHBlciI6bnVsbCwiZGVwdGhfbG93ZXIiOm51bGwsImVycmF0YV9mbGFnIjpudWxsLCJlcnJhdGFfcmVhc29uIjpudWxsLCJhbWVuZGVkX2ZsYWciOm51bGwsImFtZW5kZWRfcmVhc29uIjpudWxsfV19
-  recorded_at: 2020-10-20 20:24:22 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.7.0
+      string: |-
+        eyJuYW1lIjoiUGFudGhlcmEgdW5jaWEiLCJyZXN1bHQiOlt7InRheG9uaWQiOjIyNzMyLCJzY2llbnRp
+        ZmljX25hbWUiOiJQYW50aGVyYSB1bmNpYSIsImtpbmdkb20iOiJBTklNQUxJQSIsInBoeWx1bSI6IkNI
+        T1JEQVRBIiwiY2xhc3MiOiJNQU1NQUxJQSIsIm9yZGVyIjoiQ0FSTklWT1JBIiwiZmFtaWx5IjoiRkVM
+        SURBRSIsImdlbnVzIjoiUGFudGhlcmEiLCJtYWluX2NvbW1vbl9uYW1lIjoiU25vdyBMZW9wYXJkIiwi
+        YXV0aG9yaXR5IjoiKFNjaHJlYmVyLCAxNzc1KSIsInB1Ymxpc2hlZF95ZWFyIjoyMDE3LCJhc3Nlc3Nt
+        ZW50X2RhdGUiOiIyMDE2LTExLTA4IiwiY2F0ZWdvcnkiOiJWVSIsImNyaXRlcmlhIjoiQzEiLCJwb3B1
+        bGF0aW9uX3RyZW5kIjoiRGVjcmVhc2luZyIsIm1hcmluZV9zeXN0ZW0iOmZhbHNlLCJmcmVzaHdhdGVy
+        X3N5c3RlbSI6ZmFsc2UsInRlcnJlc3RyaWFsX3N5c3RlbSI6dHJ1ZSwiYXNzZXNzb3IiOiJNY0NhcnRo
+        eSwgVC4sIE1hbGxvbiwgRC4sIEphY2tzb24sIFIuLCBaYWhsZXIsIFAuICYgTWNDYXJ0aHksIEsuIiwi
+        cmV2aWV3ZXIiOiJCw7ZobSwgTS4sIEJyZWl0ZW5tb3NlciwgVS4sIEJyZWl0ZW5tb3Nlci1Xw7xyc3Rl
+        biwgQy4sIEhhcnJpcywgUi4sIEh1bnRlciwgTC4sIExhbnosIFQuLCBOb3dlbGwsIEsuICYgUm9zZW4s
+        IFQuIiwiYW9vX2ttMiI6bnVsbCwiZW9vX2ttMiI6IjY3ODYyNzIiLCJlbGV2YXRpb25fdXBwZXIiOjU4
+        MDAsImVsZXZhdGlvbl9sb3dlciI6NTAwLCJkZXB0aF91cHBlciI6bnVsbCwiZGVwdGhfbG93ZXIiOm51
+        bGwsImVycmF0YV9mbGFnIjpudWxsLCJlcnJhdGFfcmVhc29uIjpudWxsLCJhbWVuZGVkX2ZsYWciOm51
+        bGwsImFtZW5kZWRfcmVhc29uIjpudWxsfV19
+  recorded_at: 2021-09-15 22:48:13 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://apiv3.iucnredlist.org/api/v3/species/Lynx%20lynx?token=<<rredlist_api_token>>
@@ -72,7 +100,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(rredlist/0.6.0.91)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(rredlist/0.7.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -83,18 +111,34 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Tue, 20 Oct 2020 20:24:21 GMT
+      date: Wed, 15 Sep 2021 22:48:12 GMT
       content-type: application/json; charset=utf-8
       content-length: '950'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       etag: W/"3b6-GXADds5A3nPXAs2MUevKHA"
       vary: Accept-Encoding
-      set-cookie: sails.sid=s%3A_YZWQEQ2bQBC3-fd4y3X5bySBW9iPvpI.3EXTogqHGzECAXciXtDLgrIkhIURwB7T%2BbCW0pOl9r4;
+      set-cookie: sails.sid=s%3AaYcpgFIY0nAKOtWoWBrFaa6_gVbCjPdU.tRzqb0s3X2LvKRiIGcHvMhTuJgVBdcu25SNGXDBT%2B00;
         Path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
       file: no
-      string: eyJuYW1lIjoiTHlueCBseW54IiwicmVzdWx0IjpbeyJ0YXhvbmlkIjoxMjUxOSwic2NpZW50aWZpY19uYW1lIjoiTHlueCBseW54Iiwia2luZ2RvbSI6IkFOSU1BTElBIiwicGh5bHVtIjoiQ0hPUkRBVEEiLCJjbGFzcyI6Ik1BTU1BTElBIiwib3JkZXIiOiJDQVJOSVZPUkEiLCJmYW1pbHkiOiJGRUxJREFFIiwiZ2VudXMiOiJMeW54IiwibWFpbl9jb21tb25fbmFtZSI6IkV1cmFzaWFuIEx5bngiLCJhdXRob3JpdHkiOiIoTGlubmFldXMsIDE3NTgpIiwicHVibGlzaGVkX3llYXIiOjIwMTUsImFzc2Vzc21lbnRfZGF0ZSI6IjIwMTQtMDQtMjAiLCJjYXRlZ29yeSI6IkxDIiwiY3JpdGVyaWEiOm51bGwsInBvcHVsYXRpb25fdHJlbmQiOiJTdGFibGUiLCJtYXJpbmVfc3lzdGVtIjpmYWxzZSwiZnJlc2h3YXRlcl9zeXN0ZW0iOmZhbHNlLCJ0ZXJyZXN0cmlhbF9zeXN0ZW0iOnRydWUsImFzc2Vzc29yIjoiQnJlaXRlbm1vc2VyLCBVLiwgQnJlaXRlbm1vc2VyLVfDvHJzdGVuLCBDLiwgTGFueiwgVC4sIHZvbiBBcngsIE0uLCBBbnRvbmV2aWNoLCBBLiwgQmFvLCBXLiAmIEF2Z2FuLCBCLiIsInJldmlld2VyIjoiTm93ZWxsLCBLLiwgSHVudGVyLCBMLiAmIE1hbGxvbiwgRC4iLCJhb29fa20yIjpudWxsLCJlb29fa20yIjoiNDI3NjUyOTgiLCJlbGV2YXRpb25fdXBwZXIiOjU1MDAsImVsZXZhdGlvbl9sb3dlciI6MCwiZGVwdGhfdXBwZXIiOm51bGwsImRlcHRoX2xvd2VyIjpudWxsLCJlcnJhdGFfZmxhZyI6dHJ1ZSwiZXJyYXRhX3JlYXNvbiI6IkFuIGVycmF0YSB2ZXJzaW9uIG9mIHRoZSBvcmlnaW5hbCBhc3Nlc3NtZW50IGhhcyBiZWVuIHB1Ymxpc2hlZCB0byBjb3JyZWN0IHRoZSB0eXBvIFwiTW1vdW50YWluIEhhcmVzXCIgd2hpY2ggc2hvdWxkIHJlYWQgXCJNb3VudGFpbiBIYXJlc1wiLiIsImFtZW5kZWRfZmxhZyI6bnVsbCwiYW1lbmRlZF9yZWFzb24iOm51bGx9XX0=
-  recorded_at: 2020-10-20 20:24:22 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.7.0
+      string: |-
+        eyJuYW1lIjoiTHlueCBseW54IiwicmVzdWx0IjpbeyJ0YXhvbmlkIjoxMjUxOSwic2NpZW50aWZpY19u
+        YW1lIjoiTHlueCBseW54Iiwia2luZ2RvbSI6IkFOSU1BTElBIiwicGh5bHVtIjoiQ0hPUkRBVEEiLCJj
+        bGFzcyI6Ik1BTU1BTElBIiwib3JkZXIiOiJDQVJOSVZPUkEiLCJmYW1pbHkiOiJGRUxJREFFIiwiZ2Vu
+        dXMiOiJMeW54IiwibWFpbl9jb21tb25fbmFtZSI6IkV1cmFzaWFuIEx5bngiLCJhdXRob3JpdHkiOiIo
+        TGlubmFldXMsIDE3NTgpIiwicHVibGlzaGVkX3llYXIiOjIwMTUsImFzc2Vzc21lbnRfZGF0ZSI6IjIw
+        MTQtMDQtMjAiLCJjYXRlZ29yeSI6IkxDIiwiY3JpdGVyaWEiOm51bGwsInBvcHVsYXRpb25fdHJlbmQi
+        OiJTdGFibGUiLCJtYXJpbmVfc3lzdGVtIjpmYWxzZSwiZnJlc2h3YXRlcl9zeXN0ZW0iOmZhbHNlLCJ0
+        ZXJyZXN0cmlhbF9zeXN0ZW0iOnRydWUsImFzc2Vzc29yIjoiQnJlaXRlbm1vc2VyLCBVLiwgQnJlaXRl
+        bm1vc2VyLVfDvHJzdGVuLCBDLiwgTGFueiwgVC4sIHZvbiBBcngsIE0uLCBBbnRvbmV2aWNoLCBBLiwg
+        QmFvLCBXLiAmIEF2Z2FuLCBCLiIsInJldmlld2VyIjoiTm93ZWxsLCBLLiwgSHVudGVyLCBMLiAmIE1h
+        bGxvbiwgRC4iLCJhb29fa20yIjpudWxsLCJlb29fa20yIjoiNDI3NjUyOTgiLCJlbGV2YXRpb25fdXBw
+        ZXIiOjU1MDAsImVsZXZhdGlvbl9sb3dlciI6MCwiZGVwdGhfdXBwZXIiOm51bGwsImRlcHRoX2xvd2Vy
+        IjpudWxsLCJlcnJhdGFfZmxhZyI6dHJ1ZSwiZXJyYXRhX3JlYXNvbiI6IkFuIGVycmF0YSB2ZXJzaW9u
+        IG9mIHRoZSBvcmlnaW5hbCBhc3Nlc3NtZW50IGhhcyBiZWVuIHB1Ymxpc2hlZCB0byBjb3JyZWN0IHRo
+        ZSB0eXBvIFwiTW1vdW50YWluIEhhcmVzXCIgd2hpY2ggc2hvdWxkIHJlYWQgXCJNb3VudGFpbiBIYXJl
+        c1wiLiIsImFtZW5kZWRfZmxhZyI6bnVsbCwiYW1lbmRlZF9yZWFzb24iOm51bGx9XX0=
+  recorded_at: 2021-09-15 22:48:13 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0

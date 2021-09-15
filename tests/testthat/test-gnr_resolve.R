@@ -22,7 +22,7 @@ test_that("best_match_only works correctly", {
   expect_is(b, "data.frame")
   expect_equal(NROW(a), 0)
   expect_equal(attributes(a)$not_known, x)
-  expect_named(attributes(a), c("names", "row.names", "class", "not_known"))
+  expect_named(attributes(a), c("class", "row.names", "names", "not_known"))
   expect_is(b$data_source_title, "character")
 
   ## same order as user supplied

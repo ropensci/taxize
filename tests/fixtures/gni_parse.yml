@@ -6,9 +6,10 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -21,7 +22,7 @@ http_interactions:
       connection: keep-alive
       content-length: '322'
       content-type: application/json; charset=utf-8
-      date: Sat, 26 Jan 2019 06:44:01 GMT
+      date: Wed, 15 Sep 2021 22:47:40 GMT
       etag: '"7f5a346a633add12dd95333822bd77c8"'
       server: nginx/1.8.1
       set-cookie: ''
@@ -29,12 +30,13 @@ http_interactions:
       - HTTP/1.1 200 OK
       - 200 OK
       via: 1.1 varnish
-      x-runtime: '2'
-      x-varnish: '398792946'
+      x-runtime: '3'
+      x-varnish: '210781774'
     body:
       encoding: UTF-8
+      file: no
       string: |-
         [{"scientificName":{"parsed":true,"parser_version":"3.1.4","verbatim":"Cyanistes caeruleus","normalized":"Cyanistes caeruleus","canonical":"Cyanistes caeruleus","hybrid":false,"details":[{"genus":{"string":"Cyanistes"},"species":{"string":"caeruleus"}}],"parser_run":1,"positions":{"0":["genus",9],"10":["species",19]}}}
         ]
-  recorded_at: 2019-01-26 06:44:01 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2021-09-15 22:47:40 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0

@@ -6,7 +6,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      User-Agent: libcurl/7.68.0 r-curl/4.3.2 crul/1.1.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -15,20 +15,21 @@ http_interactions:
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      connection: keep-alive
       content-length: '102'
       content-type: text/json;charset=ISO-8859-1
-      date: Thu, 24 Jan 2019 17:14:52 GMT
+      date: Wed, 15 Sep 2021 22:47:55 GMT
       status: 'HTTP/1.1 200 '
       strict-transport-security:
-      - max-age=63072000; includeSubdomains; preload
-      - max-age=63072000; includeSubdomains; preload
-      x-application: itis_webservices
-      x-node-name: not shown
-      x-upstream-member: not shown
+      - max-age=63072000; includeSubDomains; preload
+      - max-age=63072000; includeSubDomains; preload
+      x-content-type-options:
+      - nosniff
+      - nosniff
+      x-frame-options: SAMEORIGIN
     body:
       encoding: UTF-8
+      file: no
       string: |
         {"acceptedNames":[null],"class":"gov.usgs.itis.itis_service.data.SvcAcceptedNameList","tsn":"208527"}
-  recorded_at: 2019-01-24 17:14:52 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2021-09-15 22:47:55 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0

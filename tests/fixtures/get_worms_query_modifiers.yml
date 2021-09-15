@@ -6,7 +6,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.72.0 r-curl/4.3 crul/1.0.0
+      User-Agent: libcurl/7.68.0 r-curl/4.3.2 crul/1.1.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -16,7 +16,7 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 18:11:13 GMT
+      date: Wed, 15 Sep 2021 22:47:35 GMT
       server: Apache/2.4.39 (Win64)
       access-control-allow-origin: '*'
       access-control-allow-headers: X-Requested-With, Content-Type, Accept, Origin,
@@ -24,15 +24,15 @@ http_interactions:
       access-control-allow-methods: GET, POST, OPTIONS
       content-length: '921'
       content-type: application/json
-      set-cookie: vliz_webc=vliz_webc1; path=/
+      set-cookie: vliz_webc=vliz_webc2; path=/
     body:
       encoding: UTF-8
       file: no
       string: '[{"AphiaID":181580,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=181580","scientificname":"Corbicula
         fluminea","authority":"(O. F. M\u00fcller, 1774)","status":"accepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":181580,"valid_name":"Corbicula
         fluminea","valid_authority":"(O. F. M\u00fcller, 1774)","parentNameUsageID":238371,"kingdom":"Animalia","phylum":"Mollusca","class":"Bivalvia","order":"Venerida","family":"Cyrenidae","genus":"Corbicula","citation":"MolluscaBase
-        eds. (2020). MolluscaBase. Corbicula fluminea (O. F. M\u00fcller, 1774). Accessed
+        eds. (2021). MolluscaBase. Corbicula fluminea (O. F. M\u00fcller, 1774). Accessed
         through: World Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=181580
-        on 2020-09-16","lsid":"urn:lsid:marinespecies.org:taxname:181580","isMarine":0,"isBrackish":null,"isFreshwater":1,"isTerrestrial":0,"isExtinct":0,"match_type":"exact","modified":"2015-11-28T00:49:17.317Z"}]'
-  recorded_at: 2020-09-16 18:11:13 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+        on 2021-09-16","lsid":"urn:lsid:marinespecies.org:taxname:181580","isMarine":0,"isBrackish":null,"isFreshwater":1,"isTerrestrial":0,"isExtinct":0,"match_type":"exact","modified":"2015-11-28T00:49:17.317Z"}]'
+  recorded_at: 2021-09-15 22:47:35 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0

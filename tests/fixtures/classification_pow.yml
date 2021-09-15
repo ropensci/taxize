@@ -8,31 +8,34 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/3.3 crul/0.7.0 taxize/0.9.5.9310
-      X-User-Agent: r-curl/3.3 crul/0.7.0 taxize/0.9.5.9310
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: HTTP/1.1 200 OK
-      date: Thu, 21 Feb 2019 01:30:15 GMT
-      server: Apache/2.4.38 (Unix)
-      etag: '"0ddac04e2b091b066ed661e3141568392-gzip"'
+      status: 'HTTP/1.1 200 '
+      server: nginx/1.15.12
+      date: Wed, 15 Sep 2021 22:44:05 GMT
       content-type: application/json;charset=UTF-8
-      vary: Accept-Encoding
-      content-encoding: gzip
-      cache-control: max-age=0, must-revalidate, proxy-revalidate
       transfer-encoding: chunked
+      connection: keep-alive
+      etag: W/"0734327c5a49e258aeaa580d7b7f4ee84"
+      content-encoding: gzip
     body:
       encoding: UTF-8
-      string: '{"totalResults":1,"page":0,"totalPages":1,"perPage":100,"cursor":"AoMIQVhEhTs2MDBGYWdhY2VhZVF1ZXJjdXNkb3VnbGFzaWksVGF4b25fMTU5NDUw","results":[{"accepted":true,"author":"Hook.
-        & Arn.","kingdom":"Plantae","family":"Fagaceae","name":"Quercus douglasii","rank":"Species","url":"/taxon/urn:lsid:ipni.org:names:296074-1","fqId":"urn:lsid:ipni.org:names:296074-1","images":[{"thumbnail":"http://d2seqvvyy3b8p2.cloudfront.net/fe4669c30e8b782c0d337267b401635b.jpg","fullsize":"http://d2seqvvyy3b8p2.cloudfront.net/f9f081d294d20153f4aad15916759a4f.jpg","caption":"A
-        specimen from Kew''s Herbarium"},{"thumbnail":"http://d2seqvvyy3b8p2.cloudfront.net/1d3d5ec04b4d72a0901b83a6c59e52c3.jpg","fullsize":"http://d2seqvvyy3b8p2.cloudfront.net/36ae36c5cbe55c18384ce554453fbc6b.jpg","caption":"A
+      file: no
+      string: '{"totalResults":1,"page":1,"totalPages":1,"perPage":100,"cursor":"AoMIQVmRvjs2MDBGYWdhY2VhZVF1ZXJjdXNkb3VnbGFzaWksVGF4b25fMTU4NzE0","message":"If
+        you would like to download and use the POWO data in a conciencious way, please
+        use our official library pykew [https://github.com/RBGKew/pykew].","results":[{"accepted":true,"author":"Hook.
+        & Arn.","kingdom":"Plantae","family":"Fagaceae","name":"Quercus douglasii","rank":"Species","url":"/taxon/urn:lsid:ipni.org:names:296074-1","fqId":"urn:lsid:ipni.org:names:296074-1","images":[{"thumbnail":"//d2seqvvyy3b8p2.cloudfront.net/97ca1d465cef5c3dcf1355adea1bea83.jpg","fullsize":"//d2seqvvyy3b8p2.cloudfront.net/7b40fd07136cc54d8241dd4f7183381c.jpg","caption":"Quercus
+        douglasii"},{"thumbnail":"//d2seqvvyy3b8p2.cloudfront.net/fe4669c30e8b782c0d337267b401635b.jpg","fullsize":"//d2seqvvyy3b8p2.cloudfront.net/f9f081d294d20153f4aad15916759a4f.jpg","caption":"A
+        specimen from Kew''s Herbarium"},{"thumbnail":"//d2seqvvyy3b8p2.cloudfront.net/1d3d5ec04b4d72a0901b83a6c59e52c3.jpg","fullsize":"//d2seqvvyy3b8p2.cloudfront.net/36ae36c5cbe55c18384ce554453fbc6b.jpg","caption":"A
         specimen from Kew''s Herbarium"}]}]}'
-  recorded_at: 2019-02-21 01:30:16 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4
+  recorded_at: 2021-09-15 22:44:06 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: http://www.plantsoftheworldonline.org/api/2/search?q=aaa%20vva&perPage=100&cursor=%2A
@@ -42,28 +45,30 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/3.3 crul/0.7.0 taxize/0.9.5.9310
-      X-User-Agent: r-curl/3.3 crul/0.7.0 taxize/0.9.5.9310
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: HTTP/1.1 200 OK
-      date: Thu, 21 Feb 2019 01:30:16 GMT
-      server: Apache/2.4.38 (Unix)
-      etag: '"087a75e35cca4694f5c2a4abfb14b9d9f-gzip"'
+      status: 'HTTP/1.1 200 '
+      server: nginx/1.15.12
+      date: Wed, 15 Sep 2021 22:44:06 GMT
       content-type: application/json;charset=UTF-8
-      vary: Accept-Encoding
-      content-encoding: gzip
-      cache-control: max-age=0, must-revalidate, proxy-revalidate
       transfer-encoding: chunked
+      connection: keep-alive
+      etag: W/"079f43b03e319832200d33519d1aafd9b"
+      content-encoding: gzip
     body:
       encoding: UTF-8
-      string: '{"totalResults":0,"page":0,"totalPages":0,"perPage":100,"cursor":"*"}'
-  recorded_at: 2019-02-21 01:30:16 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4
+      file: no
+      string: '{"totalResults":0,"page":1,"totalPages":0,"perPage":100,"cursor":"*","message":"If
+        you would like to download and use the POWO data in a conciencious way, please
+        use our official library pykew [https://github.com/RBGKew/pykew]."}'
+  recorded_at: 2021-09-15 22:44:06 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: http://www.plantsoftheworldonline.org/api/2/taxon/urn:lsid:ipni.org:names:296074-1
@@ -73,28 +78,28 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/3.3 crul/0.7.0 taxize/0.9.5.9310
-      X-User-Agent: r-curl/3.3 crul/0.7.0 taxize/0.9.5.9310
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: HTTP/1.1 200 OK
-      date: Thu, 21 Feb 2019 01:30:16 GMT
-      server: Apache/2.4.38 (Unix)
-      content-disposition: inline;filename=f.txt
-      etag: '"0631d596e5d094599ea70caefbdcb65d4-gzip"'
+      status: 'HTTP/1.1 200 '
+      server: nginx/1.15.12
+      date: Wed, 15 Sep 2021 22:44:06 GMT
       content-type: application/json;charset=UTF-8
-      vary: Accept-Encoding
-      content-encoding: gzip
-      cache-control: max-age=0, must-revalidate, proxy-revalidate
       transfer-encoding: chunked
+      connection: keep-alive
+      content-disposition: inline;filename=f.txt
+      etag: W/"0a70b2528d99ef8b3cb8e3e8800345b6f"
+      content-encoding: gzip
     body:
       encoding: UTF-8
-      string: '{"modified":"2016-07-29T13:41:38.000Z","bibliographicCitation":"IPNI
-        2019. Published on the Internet http://www.ipni.org; WCSP 2019. WCSP. Facilitated
+      file: no
+      string: '{"modified":"2019-06-13T16:42:18.000Z","bibliographicCitation":"IPNI
+        2021. Published on the Internet http://www.ipni.org; WCSP 2021. WCSP. Facilitated
         by the Royal Botanic Gardens, Kew. Published on the Internet; http://apps.kew.org/wcsp/
         Retrieved 2011 onwards","genus":"Quercus","taxonomicStatus":"Accepted","kingdom":"Plantae","phylum":"Magnoliophyta","family":"Fagaceae","nomenclaturalCode":"Botanical","source":"http://apps.kew.org/wcsp/namedetail.do?name_id=172538","namePublishedInYear":1840,"taxonRemarks":"California","nomenclaturalStatus":"Available","synonym":false,"plantae":true,"fungi":false,"fqId":"urn:lsid:ipni.org:names:296074-1","name":"Quercus
         douglasii","authors":"Hook. & Arn.","species":"douglasii","rank":"SPECIES","reference":"Bot.
@@ -103,5 +108,5 @@ http_interactions:
         oblongifolia var. brevilobata","author":"Torr.","rank":"VARIETY","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:216297-2","name":"Quercus
         ransomii","author":"Kellogg","rank":"SPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:296174-1","name":"Quercus
         gambelii","author":"Liebm.","rank":"SPECIES","taxonomicStatus":"Synonym"}]}'
-  recorded_at: 2019-02-21 01:30:16 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4
+  recorded_at: 2021-09-15 22:44:06 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0

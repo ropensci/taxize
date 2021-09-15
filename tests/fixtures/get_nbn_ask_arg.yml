@@ -8,8 +8,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.99.92)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.99.92)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -17,7 +17,7 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Fri, 20 Nov 2020 00:30:29 GMT
+      date: Wed, 15 Sep 2021 22:46:57 GMT
       server: Apache/2.4.7 (Ubuntu)
       x-application-context: application:production
       content-type: application/json;charset=UTF-8
@@ -26,5 +26,5 @@ http_interactions:
       encoding: UTF-8
       file: no
       string: '{"searchResults":{"totalRecords":0,"facetResults":[],"results":[],"queryTitle":"howdy"}}'
-  recorded_at: 2020-11-20 00:28:54 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.7.0
+  recorded_at: 2021-09-15 22:46:57 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0

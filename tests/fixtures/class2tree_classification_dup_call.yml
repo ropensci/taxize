@@ -8,8 +8,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -17,20 +17,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 00:58:10 GMT
+      date: Wed, 15 Sep 2021 22:43:51 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '9'
-      ncbi-phid: D0BD7762B13BBE45000034432C15C238.1.1.m_1
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: A15859068F355352_F8A4SID
+      ncbi-phid: D0BD2729693488A500001A460931E291.1.1.m_1
+      x-ratelimit-remaining: '9'
+      ncbi-sid: F941CD6F653BA68A_58F2SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=A15859068F355352_F8A4SID; domain=.nih.gov; path=/; expires=Thu,
-        16 Sep 2021 00:58:10 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=F941CD6F653BA68A_58F2SID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:43:51 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -43,8 +45,8 @@ http_interactions:
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>10090</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Mus+musculus[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Mus+musculus[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2020-09-16 00:58:13 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:43:56 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&ID=10090&api_key=<<entrez_api_token>>
@@ -54,8 +56,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -63,20 +65,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 00:58:10 GMT
+      date: Wed, 15 Sep 2021 22:43:51 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '8'
-      ncbi-phid: D0BD7762B13BBE4500005C432C2C168E.1.1.m_1
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: E167D5A5F77D4D8D_9D20SID
+      ncbi-phid: D0BD2729693488A50000594609B15FE7.1.1.m_1
+      x-ratelimit-remaining: '8'
+      ncbi-sid: 12640175E9EE9AB8_148ASID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=E167D5A5F77D4D8D_9D20SID; domain=.nih.gov; path=/; expires=Thu,
-        16 Sep 2021 00:58:10 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=12640175E9EE9AB8_148ASID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:43:52 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -92,8 +96,8 @@ http_interactions:
         Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Mus</Item>\n\t<Item
         Name=\"Species\" Type=\"String\">musculus</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
         Name=\"ModificationDate\" Type=\"Date\">2018/11/23 00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
-  recorded_at: 2020-09-16 00:58:13 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:43:56 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Escherichia%2Bcoli&api_key=<<entrez_api_token>>
@@ -103,8 +107,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -112,20 +116,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 00:58:11 GMT
+      date: Wed, 15 Sep 2021 22:43:52 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '8'
-      ncbi-phid: D0BD7762B13BBE45000049432C495313.1.1.m_1
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: BA6E7A35722C0F1F_5C19SID
+      ncbi-phid: D0BD2729693488A500005A460A0EEC43.1.1.m_1
+      x-ratelimit-remaining: '7'
+      ncbi-sid: 532F89B9E9F0B0E5_73F9SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=BA6E7A35722C0F1F_5C19SID; domain=.nih.gov; path=/; expires=Thu,
-        16 Sep 2021 00:58:11 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=532F89B9E9F0B0E5_73F9SID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:43:52 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -138,8 +144,8 @@ http_interactions:
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>562</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Escherichia+coli[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Escherichia+coli[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2020-09-16 00:58:13 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:43:56 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&ID=562&api_key=<<entrez_api_token>>
@@ -149,8 +155,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -158,22 +164,25 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 00:58:10 GMT
+      date: Wed, 15 Sep 2021 22:43:52 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '6'
-      ncbi-phid: D0BD7762B13BBE4500003D432C687AE4.1.1.m_1
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: E3813392EA1FF38F_6BB3SID
+      ncbi-phid: D0BD2729693488A500005A460A991C8E.1.1.m_1
+      x-ratelimit-remaining: '6'
+      ncbi-sid: 7780DD3DA9CD858B_E69CSID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=E3813392EA1FF38F_6BB3SID; domain=.nih.gov; path=/; expires=Thu,
-        16 Sep 2021 00:58:11 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=7780DD3DA9CD858B_E69CSID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:43:52 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
+      connection: close
       transfer-encoding: chunked
     body:
       encoding: UTF-8
@@ -187,8 +196,8 @@ http_interactions:
         Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Escherichia</Item>\n\t<Item
         Name=\"Species\" Type=\"String\">coli</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
         Name=\"ModificationDate\" Type=\"Date\">2018/11/23 00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
-  recorded_at: 2020-09-16 00:58:13 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:43:56 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Haloferax%2Bdenitrificans&api_key=<<entrez_api_token>>
@@ -198,8 +207,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -207,20 +216,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 00:58:11 GMT
+      date: Wed, 15 Sep 2021 22:43:53 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '5'
-      ncbi-phid: D0BD7762B13BBE45000056432C786B71.1.1.m_1
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: 681E590A33778DBF_DC16SID
+      ncbi-phid: D0BD2729693488A500002C460C4DD8AC.1.1.m_1
+      x-ratelimit-remaining: '8'
+      ncbi-sid: 0E15033497AE2632_32F5SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=681E590A33778DBF_DC16SID; domain=.nih.gov; path=/; expires=Thu,
-        16 Sep 2021 00:58:11 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=0E15033497AE2632_32F5SID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:43:53 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -233,8 +244,8 @@ http_interactions:
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>35745</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Haloferax+denitrificans[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Haloferax+denitrificans[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2020-09-16 00:58:13 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:43:56 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&ID=35745&api_key=<<entrez_api_token>>
@@ -244,8 +255,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -253,20 +264,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 00:58:11 GMT
+      date: Wed, 15 Sep 2021 22:43:54 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '6'
-      ncbi-phid: D0BD7762B13BBE4500004E432CC7C840.1.1.m_1
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: D89D87DEE8A8EF5A_E569SID
+      ncbi-phid: D0BD2729693488A5000050460CEE7C9E.1.1.m_1
+      x-ratelimit-remaining: '8'
+      ncbi-sid: A13F91328335C63E_016ESID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=D89D87DEE8A8EF5A_E569SID; domain=.nih.gov; path=/; expires=Thu,
-        16 Sep 2021 00:58:12 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=A13F91328335C63E_016ESID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:43:54 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -283,8 +296,8 @@ http_interactions:
         Name=\"Species\" Type=\"String\">denitrificans</Item>\n\t<Item Name=\"Subsp\"
         Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2018/10/29
         00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
-  recorded_at: 2020-09-16 00:58:13 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:43:56 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Mus%2Bmusculus&api_key=<<entrez_api_token>>
@@ -294,8 +307,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -303,20 +316,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 00:58:11 GMT
+      date: Wed, 15 Sep 2021 22:43:54 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '5'
-      ncbi-phid: D0BD7762B13BBE45000027432CDA12F6.1.1.m_1
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: 07C096355B2C7B48_E32DSID
+      ncbi-phid: D0BD2729693488A500002F460D96AD4A.1.1.m_1
+      x-ratelimit-remaining: '7'
+      ncbi-sid: 06D6E0E5C2ECD574_389ASID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=07C096355B2C7B48_E32DSID; domain=.nih.gov; path=/; expires=Thu,
-        16 Sep 2021 00:58:12 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=06D6E0E5C2ECD574_389ASID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:43:54 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -329,8 +344,8 @@ http_interactions:
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>10090</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Mus+musculus[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Mus+musculus[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2020-09-16 00:58:13 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:43:56 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&ID=10090&api_key=<<entrez_api_token>>
@@ -340,8 +355,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.97.95)
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -349,20 +364,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 00:58:12 GMT
+      date: Wed, 15 Sep 2021 22:43:55 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '7'
-      ncbi-phid: D0BD7762B13BBE4500003C432D136818.1.1.m_1
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: A7AC37C6D55E6AFE_4901SID
+      ncbi-phid: D0BD2729693488A5000033460F0B1229.1.1.m_1
+      x-ratelimit-remaining: '8'
+      ncbi-sid: 0AA6B08B877F94FB_4DC7SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=A7AC37C6D55E6AFE_4901SID; domain=.nih.gov; path=/; expires=Thu,
-        16 Sep 2021 00:58:12 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=0AA6B08B877F94FB_4DC7SID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:43:55 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -378,8 +395,8 @@ http_interactions:
         Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Mus</Item>\n\t<Item
         Name=\"Species\" Type=\"String\">musculus</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
         Name=\"ModificationDate\" Type=\"Date\">2018/11/23 00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
-  recorded_at: 2020-09-16 00:58:13 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:43:56 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=10090%2C562%2C35745%2C10090&api_key=<<entrez_api_token>>
@@ -387,7 +404,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.72.0 r-curl/4.3 crul/1.0.0
+      User-Agent: libcurl/7.68.0 r-curl/4.3.2 crul/1.1.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -397,20 +414,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Wed, 16 Sep 2020 00:58:12 GMT
+      date: Wed, 15 Sep 2021 22:43:55 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '6'
-      ncbi-phid: D0BD7762B13BBE45000058432D25531C.1.1.m_3
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: 7296E14B3C3EB3BE_1BF7SID
+      ncbi-phid: D0BD2729693488A500004B460F49419B.1.1.m_3
+      x-ratelimit-remaining: '7'
+      ncbi-sid: 966932812D9A9C43_5123SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=7296E14B3C3EB3BE_1BF7SID; domain=.nih.gov; path=/; expires=Thu,
-        16 Sep 2021 00:58:12 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=966932812D9A9C43_5123SID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:43:55 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -1104,5 +1123,5 @@ http_interactions:
         </Taxon>
 
         </TaxaSet>
-  recorded_at: 2020-09-16 00:58:13 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:43:56 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0

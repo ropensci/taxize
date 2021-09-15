@@ -1,6 +1,9 @@
 test_that("get_iucn", {
   skip_on_cran()
-
+  if (Sys.getenv('IUCN_REDLIST_KEY') == "") {
+    skip("No IUCN api key so test not run.")
+  }
+  
   vcr::use_cassette("get_iucn", {
     x <- get_iucn(sci='Poa annua', messages=FALSE)
   })
@@ -13,6 +16,9 @@ test_that("get_iucn", {
 
 test_that("get_iucn accepts ask-argument", {
   skip_on_cran()
+  if (Sys.getenv('IUCN_REDLIST_KEY') == "") {
+    skip("No IUCN api key so test not run.")
+  }
   
   vcr::use_cassette("get_iucn_not_found", {
     x <- get_iucn('howdy', messages=FALSE)
@@ -23,6 +29,9 @@ test_that("get_iucn accepts ask-argument", {
 
 test_that("get_iucn fails well", {
   skip_on_cran()
-
+  if (Sys.getenv('IUCN_REDLIST_KEY') == "") {
+    skip("No IUCN api key so test not run.")
+  }
+  
   expect_error(get_iucn(), "argument \"sci\" is missing")
 })

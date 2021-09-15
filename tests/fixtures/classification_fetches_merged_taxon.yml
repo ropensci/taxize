@@ -6,7 +6,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.70.0 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.68.0 r-curl/4.3.2 crul/1.1.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -16,20 +16,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Tue, 09 Jun 2020 00:06:38 GMT
+      date: Wed, 15 Sep 2021 22:44:39 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '9'
-      ncbi-phid: D0BD06731A00A61500004716154FC7CD.1.1.m_5
+      x-test-test: test42
       cache-control: private
-      ncbi-sid: 7462A9406F67D850_141FSID
+      ncbi-phid: D0BD2729693488A500002246438DD7F7.1.1.m_3
+      x-ratelimit-remaining: '6'
+      ncbi-sid: 3478CC1F8E333105_F39FSID
       content-encoding: gzip
       x-ratelimit-limit: '10'
       access-control-allow-origin: '*'
       content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=7462A9406F67D850_141FSID; domain=.nih.gov; path=/; expires=Wed,
-        09 Jun 2021 00:06:38 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=3478CC1F8E333105_F39FSID; domain=.nih.gov; path=/; expires=Thu,
+        15 Sep 2022 22:44:39 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -89,7 +91,7 @@ http_interactions:
                 <Taxon>
                     <TaxId>33154</TaxId>
                     <ScientificName>Opisthokonta</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>33208</TaxId>
@@ -99,7 +101,7 @@ http_interactions:
                 <Taxon>
                     <TaxId>6072</TaxId>
                     <ScientificName>Eumetazoa</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>6073</TaxId>
@@ -124,7 +126,7 @@ http_interactions:
                 <Taxon>
                     <TaxId>723662</TaxId>
                     <ScientificName>Alcyoniina</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>40678</TaxId>
@@ -138,7 +140,7 @@ http_interactions:
                 </Taxon>
             </LineageEx>
             <CreateDate>2009/08/21 17:25:27</CreateDate>
-            <UpdateDate>2020/06/02 19:06:50</UpdateDate>
+            <UpdateDate>2020/06/02 19:06:48</UpdateDate>
             <PubDate>2010/01/31 18:00:31</PubDate>
             <AkaTaxIds>
                 <TaxId>668400</TaxId>
@@ -146,5 +148,5 @@ http_interactions:
         </Taxon>
 
         </TaxaSet>
-  recorded_at: 2020-06-09 00:06:38 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2021-09-15 22:44:40 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0

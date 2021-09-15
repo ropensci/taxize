@@ -6,9 +6,10 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
+      X-USER-AGENT: r-curl/4.3.2 crul/1.1.0 rOpenSci(taxize/1.0)
   response:
     status:
       status_code: '200'
@@ -21,19 +22,20 @@ http_interactions:
       connection: keep-alive
       content-length: '316'
       content-type: application/json; charset=utf-8
-      date: Thu, 24 Jan 2019 19:00:00 GMT
-      etag: '"20d31a3d67d21535e87052fe3b2c45cf"'
+      date: Wed, 15 Sep 2021 22:47:42 GMT
+      etag: '"869e56134157c8e8ca83a2ddbe17e6e6"'
       server: nginx/1.8.1
       set-cookie: ''
       status:
       - HTTP/1.1 200 OK
       - 200 OK
       via: 1.1 varnish
-      x-runtime: '1715'
-      x-varnish: '398668234'
+      x-runtime: '1804'
+      x-varnish: '210781776'
     body:
       encoding: UTF-8
+      file: no
       string: '{"name_strings":[{"uuid_hex":"4176e232-9271-5103-ae17-019b866a9e91","name":"*litsea
-        amara Blume","id":22693003,"lsid":"urn:lsid:globalnames.org:index:4176e232-9271-5103-ae17-019b866a9e91","resource_uri":"http://gni.globalnames.org/name_strings/22693003.xml"}],"name_strings_total":57492,"page_number":1,"per_page":1}'
-  recorded_at: 2019-01-24 19:00:00 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+        amara Blume","lsid":"urn:lsid:globalnames.org:index:4176e232-9271-5103-ae17-019b866a9e91","resource_uri":"http://gni.globalnames.org/name_strings/22693003.xml","id":22693003}],"name_strings_total":57492,"page_number":1,"per_page":1}'
+  recorded_at: 2021-09-15 22:47:42 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
