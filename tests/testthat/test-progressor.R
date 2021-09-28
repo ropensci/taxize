@@ -6,7 +6,7 @@ test_that("progressor works", {
   skip_on_cran()
 
   nms <- c("Quercus", "Sasdsfasdf")
-  aa <- progressor$new(items = nms)
+  aa <- taxize:::progressor$new(items = nms)
 
   expect_is(aa, "progressor")
   expect_is(aa$d, "integer")
@@ -34,10 +34,11 @@ test_that("progressor works", {
   expect_output(aa$prog_not_found(), "Sasdsfasdf")
   
   # expect_output(aa$prog_summary(), "══")
-  expect_output(aa$prog_summary(), "Results")
-  expect_output(aa$prog_summary(), "Total: \033[32m2", fixed=TRUE)
-  expect_output(aa$prog_summary(), "Found: \033[32m1", fixed=TRUE)
-  expect_output(aa$prog_summary(), "Not Found: \033[32m1", fixed=TRUE)
+  sum_output <- crayon::strip_style(capture.output(aa$prog_summary()))
+  expect_match(sum_output[1], "Results")
+  expect_match(sum_output[3], "Total: 2", fixed=TRUE)
+  expect_match(sum_output[4], "Found: 1", fixed=TRUE)
+  expect_match(sum_output[5], "Not Found: 1", fixed=TRUE)
 })
 
 test_that("progressor fails well", {
