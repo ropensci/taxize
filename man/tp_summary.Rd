@@ -15,7 +15,7 @@ for help on authentication}
 \item{...}{Curl options passed on to \link[crul:verb-GET]{crul::verb-GET}}
 }
 \value{
-A data.frame.
+A \link[tibble:tibble]{tibble::tibble}.
 }
 \description{
 Return summary data a taxon name with a given id.

@@ -35,7 +35,7 @@
 #' [gbif_downstream()], [ncbi_downstream()],
 #' [worms_downstream()], or [bold_downstream()]
 #'
-#' @return A named list of data.frames with the downstream names of every
+#' @return A named list of [tibble::tibble]s with the downstream names of every
 #' supplied taxa. You get an NA if there was no match in the database.
 #'
 #' @section Authentication:
@@ -161,8 +161,8 @@ process_stream_ids <- function(input, db, fxn, ...){
     is.character(input) &&
     all(grepl("[[:digit:]]", input))
   ) {
-    as_fxn <- switch(db, itis = as.itis, gbif = as.gbif,
-      ncbi = as.ncbi, worms = as.worms, bold = as.bold)
+    as_fxn <- switch(db, itis = as_itis, gbif = as_gbif,
+      ncbi = as_ncbi, worms = as_worms, bold = as_bold)
     as_fxn(input, check = FALSE)
   } else {
     eval(fxn)(input, ...)

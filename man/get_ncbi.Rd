@@ -3,12 +3,12 @@
 \name{get_ncbi}
 \alias{get_ncbi}
 \alias{get_uid}
-\alias{as.ncbi}
-\alias{as.ncbi.ncbi}
-\alias{as.ncbi.character}
-\alias{as.ncbi.list}
-\alias{as.ncbi.numeric}
-\alias{as.ncbi.data.frame}
+\alias{as_ncbi}
+\alias{as_ncbi.ncbi}
+\alias{as_ncbi.character}
+\alias{as_ncbi.list}
+\alias{as_ncbi.numeric}
+\alias{as_ncbi.data.frame}
 \alias{get_ncbi_}
 \alias{get_uid_}
 \title{Get the UID codes from NCBI for taxonomic names.}
@@ -29,17 +29,17 @@ get_ncbi(
 
 get_uid(...)
 
-as.ncbi(x, check = TRUE)
+as_ncbi(x, check = TRUE)
 
-\method{as.ncbi}{ncbi}(x, check = TRUE)
+\method{as_ncbi}{ncbi}(x, check = TRUE)
 
-\method{as.ncbi}{character}(x, check = TRUE)
+\method{as_ncbi}{character}(x, check = TRUE)
 
-\method{as.ncbi}{list}(x, check = TRUE)
+\method{as_ncbi}{list}(x, check = TRUE)
 
-\method{as.ncbi}{numeric}(x, check = TRUE)
+\method{as_ncbi}{numeric}(x, check = TRUE)
 
-\method{as.ncbi}{data.frame}(x, check = TRUE)
+\method{as_ncbi}{data.frame}(x, check = TRUE)
 
 get_ncbi_(sci_com, messages = TRUE, rows = NA, key = NULL, sciname = NULL, ...)
 
@@ -87,10 +87,10 @@ itself for options. Optional. See \code{Filtering} below.}
 
 \item{...}{Ignored}
 
-\item{x}{Input to \code{\link[=as.ncbi]{as.ncbi()}}}
+\item{x}{Input to \code{\link[=as_ncbi]{as_ncbi()}}}
 
 \item{check}{logical; Check if ID matches any existing on the DB, only used
-in \code{\link[=as.ncbi]{as.ncbi()}}}
+in \code{\link[=as_ncbi]{as_ncbi()}}}
 }
 \value{
 A vector of taxonomic identifiers as an S3 class.
@@ -143,7 +143,7 @@ about fuzzy matching.
 
 See \link{taxize-authentication} for help on authentication
 
-Note that even though you can't pass in your key to \code{as.ncbi} functions,
+Note that even though you can't pass in your key to \code{as_ncbi} functions,
 we still use your Entrez API key if you have it saved as an R option
 or environment variable.
 }
@@ -204,22 +204,22 @@ res <- get_ncbi("Chironomus riparius")
 as.data.frame(res)$uri
 
 # Convert a uid without class information to a ncbi class
-as.ncbi(get_ncbi("Chironomus riparius")) # already ncbi class, returns same
-as.ncbi(get_ncbi(c("Chironomus riparius","Pinus contorta"))) # same
-as.ncbi(315567) # numeric
-as.ncbi(c(315567,3339,9696)) # numeric vector, length > 1
-as.ncbi("315567") # character
-as.ncbi(c("315567","3339","9696")) # character vector, length > 1
-as.ncbi(list("315567","3339","9696")) # list, either numeric or character
+as_ncbi(get_ncbi("Chironomus riparius")) # already ncbi class, returns same
+as_ncbi(get_ncbi(c("Chironomus riparius","Pinus contorta"))) # same
+as_ncbi(315567) # numeric
+as_ncbi(c(315567,3339,9696)) # numeric vector, length > 1
+as_ncbi("315567") # character
+as_ncbi(c("315567","3339","9696")) # character vector, length > 1
+as_ncbi(list("315567","3339","9696")) # list, either numeric or character
 ## dont check, much faster
-as.ncbi("315567", check=FALSE)
-as.ncbi(315567, check=FALSE)
-as.ncbi(c("315567","3339","9696"), check=FALSE)
-as.ncbi(list("315567","3339","9696"), check=FALSE)
+as_ncbi("315567", check=FALSE)
+as_ncbi(315567, check=FALSE)
+as_ncbi(c("315567","3339","9696"), check=FALSE)
+as_ncbi(list("315567","3339","9696"), check=FALSE)
 
-(out <- as.ncbi(c(315567,3339,9696)))
+(out <- as_ncbi(c(315567,3339,9696)))
 data.frame(out)
-as.ncbi( data.frame(out) )
+as_ncbi( data.frame(out) )
 
 # Get all data back
 get_ncbi_("Puma concolor")

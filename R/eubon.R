@@ -46,6 +46,7 @@
 #' search modes are expected to return only one record per check list
 #' @param ... Curl options passed on to [crul::verb-GET]
 #' @references https://cybertaxonomy.eu/eu-bon/utis/1.3/doc.html
+#' @return a [tibble::tibble] 
 #' @family eubon-methods
 #' @examples \dontrun{
 #' eubon_search("Prionus")
@@ -80,7 +81,7 @@ eubon_search <- function(query, providers = "pesi",
   res <- cli$get(query = args)
   eubon_error(res)
   tmp <- jsonlite::fromJSON(res$parse("UTF-8"), TRUE, flatten = TRUE)
-  tmp$query$response[[1]]
+  tibble::as_tibble(tmp$query$response[[1]])
 }
 
 #' DEFUNCT

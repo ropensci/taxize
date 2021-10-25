@@ -9,7 +9,7 @@
 #' is the same as APG has, or NA if no match found
 #' @details Internally in this function, we use the datasets [apg_families]
 #' and [apg_orders] - see their descriptions for the data in them.
-#' The functions [apgOrders()] [apgFamilies()] are for scraping
+#' The functions [get_apg_orders()] [get_apg_families()] are for scraping
 #' current content from the http://www.mobot.org/MOBOT/research/APweb/
 #' website
 #'

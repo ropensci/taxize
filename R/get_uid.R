@@ -31,11 +31,11 @@
 #' Though note that some data sources use atypical ranks, so inspect the data
 #' itself for options. Optional. See `Filtering` below.
 #' @param key (character) NCBI Entrez API key. optional. See Details.
-#' @param x Input to [as.ncbi()]
+#' @param x Input to [as_ncbi()]
 #' @param sciname Deprecated, see `sci_com`
 #' @param ... Ignored
 #' @param check logical; Check if ID matches any existing on the DB, only used
-#'   in [as.ncbi()]
+#'   in [as_ncbi()]
 #' @template getreturn
 #' 
 #' @section Rate limits:
@@ -66,7 +66,7 @@
 #' @section Authentication:
 #' See [taxize-authentication] for help on authentication
 #'
-#' Note that even though you can't pass in your key to `as.ncbi` functions,
+#' Note that even though you can't pass in your key to `as_ncbi` functions,
 #' we still use your Entrez API key if you have it saved as an R option
 #' or environment variable.
 #' 
@@ -128,22 +128,22 @@
 #' as.data.frame(res)$uri
 #'
 #' # Convert a uid without class information to a ncbi class
-#' as.ncbi(get_ncbi("Chironomus riparius")) # already ncbi class, returns same
-#' as.ncbi(get_ncbi(c("Chironomus riparius","Pinus contorta"))) # same
-#' as.ncbi(315567) # numeric
-#' as.ncbi(c(315567,3339,9696)) # numeric vector, length > 1
-#' as.ncbi("315567") # character
-#' as.ncbi(c("315567","3339","9696")) # character vector, length > 1
-#' as.ncbi(list("315567","3339","9696")) # list, either numeric or character
+#' as_ncbi(get_ncbi("Chironomus riparius")) # already ncbi class, returns same
+#' as_ncbi(get_ncbi(c("Chironomus riparius","Pinus contorta"))) # same
+#' as_ncbi(315567) # numeric
+#' as_ncbi(c(315567,3339,9696)) # numeric vector, length > 1
+#' as_ncbi("315567") # character
+#' as_ncbi(c("315567","3339","9696")) # character vector, length > 1
+#' as_ncbi(list("315567","3339","9696")) # list, either numeric or character
 #' ## dont check, much faster
-#' as.ncbi("315567", check=FALSE)
-#' as.ncbi(315567, check=FALSE)
-#' as.ncbi(c("315567","3339","9696"), check=FALSE)
-#' as.ncbi(list("315567","3339","9696"), check=FALSE)
+#' as_ncbi("315567", check=FALSE)
+#' as_ncbi(315567, check=FALSE)
+#' as_ncbi(c("315567","3339","9696"), check=FALSE)
+#' as_ncbi(list("315567","3339","9696"), check=FALSE)
 #'
-#' (out <- as.ncbi(c(315567,3339,9696)))
+#' (out <- as_ncbi(c(315567,3339,9696)))
 #' data.frame(out)
-#' as.ncbi( data.frame(out) )
+#' as_ncbi( data.frame(out) )
 #'
 #' # Get all data back
 #' get_ncbi_("Puma concolor")
@@ -362,27 +362,27 @@ repeat_until_it_works <- function(catch, path, query, max_tries = 3,
 
 #' @export
 #' @rdname get_ncbi
-as.ncbi <- function(x, check=TRUE) UseMethod("as.ncbi")
+as_ncbi <- function(x, check=TRUE) UseMethod("as_ncbi")
 
 #' @export
 #' @rdname get_ncbi
-as.ncbi.ncbi <- function(x, check=TRUE) x
+as_ncbi.ncbi <- function(x, check=TRUE) x
 
 #' @export
 #' @rdname get_ncbi
-as.ncbi.character <- function(x, check=TRUE) if(length(x) == 1) make_ncbi(x, check) else collapse(x, make_ncbi, "ncbi", check=check)
+as_ncbi.character <- function(x, check=TRUE) if(length(x) == 1) make_ncbi(x, check) else collapse(x, make_ncbi, "ncbi", check=check)
 
 #' @export
 #' @rdname get_ncbi
-as.ncbi.list <- function(x, check=TRUE) if(length(x) == 1) make_ncbi(x, check) else collapse(x, make_ncbi, "ncbi", check=check)
+as_ncbi.list <- function(x, check=TRUE) if(length(x) == 1) make_ncbi(x, check) else collapse(x, make_ncbi, "ncbi", check=check)
 
 #' @export
 #' @rdname get_ncbi
-as.ncbi.numeric <- function(x, check=TRUE) as.ncbi(as.character(x), check)
+as_ncbi.numeric <- function(x, check=TRUE) as_ncbi(as.character(x), check)
 
 #' @export
 #' @rdname get_ncbi
-as.ncbi.data.frame <- function(x, check=TRUE) as_txid_df(x, check)
+as_ncbi.data.frame <- function(x, check=TRUE) as_txid_df(x, check)
 
 make_ncbi <- function(x, check=TRUE) {
   make_generic(x, 'https://www.ncbi.nlm.nih.gov/taxonomy/%s',

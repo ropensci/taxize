@@ -20,9 +20,9 @@
 #' data that you are presented during the ask process.
 #' @param name Deprecated, see `sci_com`
 #' @param ... Further args passed on to `nbn_search`
-#' @param x Input to [as.nbn()]
+#' @param x Input to [as_nbn()]
 #' @param check logical; Check if ID matches any existing on the DB, only
-#' used in [as.nbn()]
+#' used in [as_nbn()]
 #' @template getreturn
 #' @references https://api.nbnatlas.org/
 #' @return an object of class nbnid, a light wrapper around a character
@@ -56,22 +56,22 @@
 #' get_nbn(c("Zootoca vivipara","Chironomus riparius", "uaudnadndj"))
 #'
 #' # Convert an nbn without class information to a nbn class
-#' as.nbn(get_nbn("Zootoca vivipara")) # already a nbn, returns the same
-#' as.nbn(get_nbn(c("Zootoca vivipara","Pinus contorta"))) # same
-#' as.nbn('NHMSYS0001706186') # character
+#' as_nbn(get_nbn("Zootoca vivipara")) # already a nbn, returns the same
+#' as_nbn(get_nbn(c("Zootoca vivipara","Pinus contorta"))) # same
+#' as_nbn('NHMSYS0001706186') # character
 #' # character vector, length > 1
-#' as.nbn(c("NHMSYS0001706186","NHMSYS0000494848","NBNSYS0000010867"))
+#' as_nbn(c("NHMSYS0001706186","NHMSYS0000494848","NBNSYS0000010867"))
 #' # list
-#' as.nbn(list("NHMSYS0001706186","NHMSYS0000494848","NBNSYS0000010867"))
+#' as_nbn(list("NHMSYS0001706186","NHMSYS0000494848","NBNSYS0000010867"))
 #' ## dont check, much faster
-#' as.nbn('NHMSYS0001706186', check=FALSE)
-#' as.nbn(list("NHMSYS0001706186","NHMSYS0000494848","NBNSYS0000010867"),
+#' as_nbn('NHMSYS0001706186', check=FALSE)
+#' as_nbn(list("NHMSYS0001706186","NHMSYS0000494848","NBNSYS0000010867"),
 #'   check=FALSE)
 #'
-#' (out <- as.nbn(c("NHMSYS0001706186","NHMSYS0000494848",
+#' (out <- as_nbn(c("NHMSYS0001706186","NHMSYS0000494848",
 #'   "NBNSYS0000010867")))
 #' data.frame(out)
-#' as.nbn( data.frame(out) )
+#' as_nbn( data.frame(out) )
 #'
 #' # Get all data back
 #' get_nbn_("Zootoca vivipara")
@@ -210,15 +210,15 @@ get_nbnid <- function(...) {
 
 #' @export
 #' @rdname get_nbn
-as.nbn <- function(x, check=TRUE) UseMethod("as.nbn")
+as_nbn <- function(x, check=TRUE) UseMethod("as_nbn")
 
 #' @export
 #' @rdname get_nbn
-as.nbn.nbn <- function(x, check=TRUE) x
+as_nbn.nbn <- function(x, check=TRUE) x
 
 #' @export
 #' @rdname get_nbn
-as.nbn.character <- function(x, check=TRUE) {
+as_nbn.character <- function(x, check=TRUE) {
   if (length(x) == 1) {
     make_nbn(x, check)
   } else {
@@ -228,7 +228,7 @@ as.nbn.character <- function(x, check=TRUE) {
 
 #' @export
 #' @rdname get_nbn
-as.nbn.list <- function(x, check=TRUE) {
+as_nbn.list <- function(x, check=TRUE) {
   if (length(x) == 1) {
     make_nbn(x, check)
   } else {
@@ -238,7 +238,7 @@ as.nbn.list <- function(x, check=TRUE) {
 
 #' @export
 #' @rdname get_nbn
-as.nbn.data.frame <- function(x, check=TRUE) as_txid_df(x, check)
+as_nbn.data.frame <- function(x, check=TRUE) as_txid_df(x, check)
 
 make_nbn <- function(x, check=TRUE) {
   make_generic(x, 'https://species-ws.nbnatlas.org/species/%s', "nbn", check)

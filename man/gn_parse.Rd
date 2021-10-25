@@ -12,7 +12,7 @@ gn_parse(names, ...)
 \item{...}{Curl options passed on to \link[crul:verb-GET]{crul::verb-GET}}
 }
 \value{
-A data.frame with results, the submitted names, and the
+A \link[tibble:tibble]{tibble::tibble} with results, the submitted names, and the
 parsed names with additional information.
 }
 \description{

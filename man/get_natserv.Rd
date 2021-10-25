@@ -3,12 +3,12 @@
 \name{get_natserv}
 \alias{get_natserv}
 \alias{get_natservid}
-\alias{as.natserv}
-\alias{as.natserv.natserv}
-\alias{as.natserv.character}
-\alias{as.natserv.list}
-\alias{as.natserv.numeric}
-\alias{as.natserv.data.frame}
+\alias{as_natserv}
+\alias{as_natserv.natserv}
+\alias{as_natserv.character}
+\alias{as_natserv.list}
+\alias{as_natserv.numeric}
+\alias{as_natserv.data.frame}
 \alias{get_natserv_}
 \alias{get_natservid_}
 \title{Get NatureServe taxonomic ID for a taxon name}
@@ -25,17 +25,17 @@ get_natserv(
 
 get_natservid(...)
 
-as.natserv(x, check = TRUE)
+as_natserv(x, check = TRUE)
 
-\method{as.natserv}{natserv}(x, check = TRUE)
+\method{as_natserv}{natserv}(x, check = TRUE)
 
-\method{as.natserv}{character}(x, check = TRUE)
+\method{as_natserv}{character}(x, check = TRUE)
 
-\method{as.natserv}{list}(x, check = TRUE)
+\method{as_natserv}{list}(x, check = TRUE)
 
-\method{as.natserv}{numeric}(x, check = TRUE)
+\method{as_natserv}{numeric}(x, check = TRUE)
 
-\method{as.natserv}{data.frame}(x, check = TRUE)
+\method{as_natserv}{data.frame}(x, check = TRUE)
 
 get_natserv_(
   sci_com,
@@ -73,10 +73,10 @@ data that you are presented during the ask process.}
 
 \item{...}{curl options passed on to \link[crul:verb-POST]{crul::verb-POST}}
 
-\item{x}{Input to \code{as.natserv}}
+\item{x}{Input to \code{as_natserv}}
 
 \item{check}{logical; Check if ID matches any existing on the DB, only
-used in \code{\link[=as.natserv]{as.natserv()}}}
+used in \code{\link[=as_natserv]{as_natserv()}}}
 }
 \value{
 A vector of taxonomic identifiers as an S3 class.
@@ -116,23 +116,23 @@ get_natserv(c('Gadus morhua', "howdy"))
 
 # Convert a natserv without class information to a natserv class
 # already a natserv, returns the same
-as.natserv(get_natserv('Pomatomus saltatrix'))
+as_natserv(get_natserv('Pomatomus saltatrix'))
 # same
-as.natserv(get_natserv(c('Gadus morhua', 'Pomatomus saltatrix')))
+as_natserv(get_natserv(c('Gadus morhua', 'Pomatomus saltatrix')))
 # character
-as.natserv(101905)
+as_natserv(101905)
 # character vector, length > 1
-as.natserv(c(101905, 101998))
+as_natserv(c(101905, 101998))
 # list, either numeric or character
-as.natserv(list(101905, 101998))
+as_natserv(list(101905, 101998))
 ## dont check, much faster
-as.natserv(101905, check = FALSE)
-as.natserv(c(101905, 101998), check = FALSE)
-as.natserv(list(101905, 101998), check = FALSE)
+as_natserv(101905, check = FALSE)
+as_natserv(c(101905, 101998), check = FALSE)
+as_natserv(list(101905, 101998), check = FALSE)
 
-(out <- as.natserv(c(101905, 101998), check = FALSE))
+(out <- as_natserv(c(101905, 101998), check = FALSE))
 data.frame(out)
-as.natserv( data.frame(out) )
+as_natserv( data.frame(out) )
 
 # Get all data back
 get_natserv_("Helianthus")

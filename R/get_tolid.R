@@ -15,11 +15,11 @@
 #' class object with one to many identifiers. See [get_tol_()]
 #' to get back all, or a subset, of the raw data that you are presented during
 #' the ask process.
-#' @param x Input to `as.tol`
+#' @param x Input to `as_tol`
 #' @param sciname Deprecated, see `sci`
 #' @param ... Ignored
 #' @param check logical; Check if ID matches any existing on the DB, only
-#' used in [as.tol()]
+#' used in [as_tol()]
 #' @template getreturn
 #'
 #' @family taxonomic-ids
@@ -43,22 +43,22 @@
 #' get_tol(c("Chironomus riparius", "howdy"))
 #'
 #' # Convert a tol without class information to a tol class
-#' as.tol(get_tol("Quercus douglasii")) # already a tol, returns the same
-#' as.tol(get_tol(c("Chironomus riparius","Pinus contorta"))) # same
-#' as.tol(5907893) # numeric
-#' as.tol(c(3930798,515712,872577)) # numeric vector, length > 1
-#' as.tol("3930798") # character
-#' as.tol(c("3930798","515712","872577")) # character vector, length > 1
-#' as.tol(list("3930798","515712","872577")) # list, either numeric or character
+#' as_tol(get_tol("Quercus douglasii")) # already a tol, returns the same
+#' as_tol(get_tol(c("Chironomus riparius","Pinus contorta"))) # same
+#' as_tol(5907893) # numeric
+#' as_tol(c(3930798,515712,872577)) # numeric vector, length > 1
+#' as_tol("3930798") # character
+#' as_tol(c("3930798","515712","872577")) # character vector, length > 1
+#' as_tol(list("3930798","515712","872577")) # list, either numeric or character
 #' ## dont check, much faster
-#' as.tol("3930798", check=FALSE)
-#' as.tol(3930798, check=FALSE)
-#' as.tol(c("3930798","515712","872577"), check=FALSE)
-#' as.tol(list("3930798","515712","872577"), check=FALSE)
+#' as_tol("3930798", check=FALSE)
+#' as_tol(3930798, check=FALSE)
+#' as_tol(c("3930798","515712","872577"), check=FALSE)
+#' as_tol(list("3930798","515712","872577"), check=FALSE)
 #'
-#' (out <- as.tol(c(3930798,515712,872577)))
+#' (out <- as_tol(c(3930798,515712,872577)))
 #' data.frame(out)
-#' as.tol( data.frame(out) )
+#' as_tol( data.frame(out) )
 #'
 #' # Get all data back
 #' get_tol_("Arni")
@@ -212,31 +212,31 @@ get_tolid <- function(...) {
 
 #' @export
 #' @rdname get_tol
-as.tol <- function(x, check=TRUE) UseMethod("as.tol")
+as_tol <- function(x, check=TRUE) UseMethod("as_tol")
 
 #' @export
 #' @rdname get_tol
-as.tol.tol <- function(x, check=TRUE) x
+as_tol.tol <- function(x, check=TRUE) x
 
 #' @export
 #' @rdname get_tol
-as.tol.character <- function(x, check=TRUE) {
+as_tol.character <- function(x, check=TRUE) {
   if (length(x) == 1) make_tol(x, check) else collapse(x, make_tol, "tol", check = check)
 }
 
 #' @export
 #' @rdname get_tol
-as.tol.list <- function(x, check=TRUE) {
+as_tol.list <- function(x, check=TRUE) {
   if (length(x) == 1) make_tol(x, check) else collapse(x, make_tol, "tol", check = check)
 }
 
 #' @export
 #' @rdname get_tol
-as.tol.numeric <- function(x, check=TRUE) as.tol(as.character(x), check)
+as_tol.numeric <- function(x, check=TRUE) as_tol(as.character(x), check)
 
 #' @export
 #' @rdname get_tol
-as.tol.data.frame <- function(x, check=TRUE) as_txid_df(x, check)
+as_tol.data.frame <- function(x, check=TRUE) as_txid_df(x, check)
 
 make_tol <- function(x, check=TRUE) {
   make_generic(x, 'https://tree.opentreeoflife.org/opentree/argus/ottol@%s', "tol", check)

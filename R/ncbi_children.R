@@ -167,6 +167,7 @@ ncbi_children <- function(name = NULL, id = NULL, start = 0, max_return = 1000,
       if (out_type == "summary") {
         output <- ncbi_get_taxon_summary(children_uid, key = key, ...)
         names(output) <- c("childtaxa_id", "childtaxa_name", "childtaxa_rank")
+        output <- tibble::as_tibble(output)
         # Remove ambiguous results  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
         if (!ambiguous) {
           output <- output[!grepl(ambiguous_regex, output$childtaxa_name, 

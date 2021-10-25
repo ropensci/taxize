@@ -24,7 +24,7 @@ parameters \code{marine_only} and \code{offset}, see \code{?worrms::wm_children}
 details}
 }
 \value{
-data.frame of taxonomic information downstream to family from e.g.,
+\link[tibble:tibble]{tibble::tibble} of taxonomic information downstream to family from e.g.,
 Order, Class, etc., or if \code{intermediated=TRUE}, list of length two,
 with target taxon rank names, and intermediate names.
 }

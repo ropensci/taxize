@@ -16,7 +16,7 @@
 #' @param ... Further args passed on to [crul::HttpClient].
 #' @family nbn
 #' @return a list with slots for metadata (`meta`) with list of response
-#' attributes, and data (`data`) with a data.frame of results
+#' attributes, and data (`data`) with a [tibble::tibble] of results
 #' @author Scott Chamberlain, 
 #' @references https://api.nbnatlas.org/
 #'
@@ -41,7 +41,7 @@ nbn_search <- function(sci_com, fq = NULL, order = NULL, sort = NULL,
     q = sci_com, fq = fq, pageSize = rows, startIndex = start, sort = sort,
     dir = order, facets = facets
   ))
-  nbn_GET(file.path(nbn_base(), "search"), args, ...)
+  nested_list_df_to_tibbles(nbn_GET(file.path(nbn_base(), "search"), args, ...))
 }
 
 nbn_GET <- function(url, args, ...){

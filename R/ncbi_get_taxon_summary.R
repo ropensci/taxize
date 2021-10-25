@@ -8,7 +8,7 @@
 #' See Details.
 #' @param key (character) NCBI Entrez API key. optional. See Details.
 #' @param ... Curl options passed on to [crul::verb-GET]
-#' @return A `data.frame` with the following columns:
+#' @return A [tibble::tibble] with the following columns:
 #' * `uid` The uid queried for
 #' * `name` The name of the taxon; a binomial name if the taxon is of rank species
 #' * `rank` The taxonomic rank (e.g. 'Genus')
@@ -69,6 +69,7 @@ chunks for multiple HTTP requests"))
 
   df <- dt2df(out)
   df$.id <- NULL
+  df <- tibble::as_tibble(df)
   return(df)
 }
 

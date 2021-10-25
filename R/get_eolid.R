@@ -25,9 +25,9 @@
 #' @param data_source (character) A data source inside of EOL. These are
 #' longish names like e.g., "Barcode of Life Data Systems" or
 #' "USDA PLANTS images". Optional. See `Filtering` below.
-#' @param x Input to [as.eol()]
+#' @param x Input to [as_eol()]
 #' @param check logical; Check if ID matches any existing on the DB, only
-#' used in [as.eol()]
+#' used in [as_eol()]
 #' @param sciname Deprecated, see `sci_com`
 #' @template getreturn
 #'
@@ -44,7 +44,7 @@
 #' tree. However, humans want the page id, not the taxon id. So, the
 #' id returned from this function is the taxon id, not the page id. You can
 #' get the page id for a taxon by using [eol_search()] and
-#' `[eol_pages()], and the URI returned in the attributes for a
+#' [eol_pages()], and the URI returned in the attributes for a
 #' taxon will lead you to the taxon page, and the ID in the URL is the
 #' page id.
 #'
@@ -81,28 +81,28 @@
 #'
 #' # Convert a eol without class information to a eol class
 #' # already a eol, returns the same
-#' as.eol(get_eol("Chironomus riparius"))
+#' as_eol(get_eol("Chironomus riparius"))
 #' # same
-#' as.eol(get_eol(c("Chironomus riparius","Pinus contorta")))
+#' as_eol(get_eol(c("Chironomus riparius","Pinus contorta")))
 #' # numeric
-#' as.eol(10247706)
+#' as_eol(10247706)
 #' # numeric vector, length > 1
-#' as.eol(c(6985636,12188704,10247706))
+#' as_eol(c(6985636,12188704,10247706))
 #' # character
-#' as.eol("6985636")
+#' as_eol("6985636")
 #' # character vector, length > 1
-#' as.eol(c("6985636","12188704","10247706"))
+#' as_eol(c("6985636","12188704","10247706"))
 #' # list, either numeric or character
-#' as.eol(list("6985636","12188704","10247706"))
+#' as_eol(list("6985636","12188704","10247706"))
 #' ## dont check, much faster
-#' as.eol("6985636", check=FALSE)
-#' as.eol(6985636, check=FALSE)
-#' as.eol(c("6985636","12188704","10247706"), check=FALSE)
-#' as.eol(list("6985636","12188704","10247706"), check=FALSE)
+#' as_eol("6985636", check=FALSE)
+#' as_eol(6985636, check=FALSE)
+#' as_eol(c("6985636","12188704","10247706"), check=FALSE)
+#' as_eol(list("6985636","12188704","10247706"), check=FALSE)
 #'
-#' (out <- as.eol(c(6985636,12188704,10247706)))
+#' (out <- as_eol(c(6985636,12188704,10247706)))
 #' data.frame(out)
-#' as.eol( data.frame(out) )
+#' as_eol( data.frame(out) )
 #'
 #' # Get all data back
 #' get_eol_("Poa annua")
@@ -311,17 +311,17 @@ taxize_sort_df <- function(data, vars = names(data)) {
 
 #' @export
 #' @rdname get_eol
-as.eol <- function(x, check=TRUE) {
-  UseMethod("as.eol")
+as_eol <- function(x, check=TRUE) {
+  UseMethod("as_eol")
 }
 
 #' @export
 #' @rdname get_eol
-as.eol.txid <- function(x, check=TRUE) x
+as_eol.txid <- function(x, check=TRUE) x
 
 #' @export
 #' @rdname get_eol
-as.eol.character <- function(x, check=TRUE) {
+as_eol.character <- function(x, check=TRUE) {
   if (length(x) == 1) {
     make_eol(x, check)
   } else {
@@ -331,7 +331,7 @@ as.eol.character <- function(x, check=TRUE) {
 
 #' @export
 #' @rdname get_eol
-as.eol.list <- function(x, check=TRUE) {
+as_eol.list <- function(x, check=TRUE) {
   if (length(x) == 1) {
     make_eol(x, check)
   } else {
@@ -341,13 +341,13 @@ as.eol.list <- function(x, check=TRUE) {
 
 #' @export
 #' @rdname get_eol
-as.eol.numeric <- function(x, check=TRUE) {
-  as.eol(as.character(x), check)
+as_eol.numeric <- function(x, check=TRUE) {
+  as_eol(as.character(x), check)
 }
 
 #' @export
 #' @rdname get_eol
-as.eol.data.frame <- function(x, check=TRUE) as_txid_df(x, check)
+as_eol.data.frame <- function(x, check=TRUE) as_txid_df(x, check)
 
 make_eol <- function(x, check=TRUE) {
   tmp <- make_generic(x, 'https://eol.org/pages/%s/overview', "eol", check)

@@ -68,7 +68,9 @@ bold_downstream <- function(id, downto, intermediate = FALSE, ...) {
   } # end while loop
 
   tmp <- dt2df(out, idcol = FALSE)
+  tmp <- tibble::as_tibble(tmp)
   if (intermediate) {
+    intermed <- lapply(intermed, tibble::as_tibble)
     list(target = tmp, intermediate = intermed)
   } else {
     tmp

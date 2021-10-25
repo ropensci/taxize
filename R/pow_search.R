@@ -9,7 +9,7 @@
 #' @param q Deprecated, see `sci_com`
 #' @param ... Further args passed on to [crul::HttpClient].
 #' @return a list with slots for metadata (`meta`) with list of response
-#' attributes, and data (`data`) with a data.frame of results
+#' attributes, and data (`data`) with a [tibble::tibble] of results
 #' @author Scott Chamberlain, 
 #' @references http://powo.science.kew.org/
 #' @family pow
@@ -44,7 +44,7 @@ pow_search <- function(sci_com, limit = 100, cursor = "*", sort = NULL,
   assert(sort, "character")
   pchk(q, "sci_com")
   args <- tc(list(q = sci_com, perPage = limit, cursor = cursor, sort = sort))
-  pow_GET(file.path(pow_base(), "api/2", "search"), args, ...)
+  nested_list_df_to_tibbles(pow_GET(file.path(pow_base(), "api/2", "search"), args, ...))
 }
 
 #' Lookup taxa in Kew's Plants of the World
@@ -71,7 +71,7 @@ pow_lookup <- function(id, include = NULL, ...) {
   }
   if (!is.null(include)) include <- paste0(include, collapse = ",")
   args <- tc(list(fields = include))
-  pow_GET(file.path(pow_base(), "api/2/taxon", id), args, ...)
+  nested_list_df_to_tibbles(pow_GET(file.path(pow_base(), "api/2/taxon", id), args, ...))
 }
 
 #' Lookup synonyms in Kew's Plants of the World

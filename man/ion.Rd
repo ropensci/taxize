@@ -12,7 +12,7 @@ ion(x, ...)
 \item{...}{Curl options passed on to \link[crul:verb-GET]{crul::verb-GET}}
 }
 \value{
-A data.frame
+A \link[tibble:tibble]{tibble::tibble}
 }
 \description{
 ION - Index to Organism Names

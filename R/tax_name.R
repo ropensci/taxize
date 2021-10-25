@@ -16,7 +16,7 @@
 #' @param ... Other arguments passed to [get_itis()] or
 #' [get_ncbi()].
 #'
-#' @return A data.frame with one column for every queried rank, in addition to
+#' @return A [tibble::tibble] with one column for every queried rank, in addition to
 #' a column for db and queried term.
 #'
 #' @note While [tax_rank()] returns the actual rank of a
@@ -76,7 +76,7 @@ tax_name <- function(sci, get, db = "itis", pref = 'ncbi', messages = TRUE,
     }
   }
   tmp = lapply(sci, fun, get = get, db = db, messages = messages, ...)
-  dt2df(tmp, idcol = FALSE)
+  tibble::as_tibble(dt2df(tmp, idcol = FALSE))
 }
 
 do_ncbi <- function(query, get, messages, both=FALSE, rows = NA, ...) {

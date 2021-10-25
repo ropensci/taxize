@@ -2,13 +2,13 @@
 % Please edit documentation in R/apg.R
 \name{apg}
 \alias{apg}
-\alias{apgOrders}
-\alias{apgFamilies}
+\alias{get_apg_orders}
+\alias{get_apg_families}
 \title{Get APG names}
 \usage{
-apgOrders(...)
+get_apg_orders(...)
 
-apgFamilies(...)
+get_apg_families(...)
 }
 \arguments{
 \item{...}{Curl args passed on to \link[crul:verb-GET]{crul::verb-GET}}
@@ -19,8 +19,8 @@ Group III system of flowering plant classification.
 }
 \examples{
 \dontrun{
-head(apgOrders())
-head(apgFamilies())
+get_apg_orders()
+get_apg_families()
 }
 }
 \references{

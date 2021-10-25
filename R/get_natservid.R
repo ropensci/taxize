@@ -16,11 +16,11 @@
 #' natserv class object with one to many identifiers. See
 #' `get_natserv_()` to get back all, or a subset, of the raw
 #' data that you are presented during the ask process.
-#' @param x Input to `as.natserv`
+#' @param x Input to `as_natserv`
 #' @param query Deprecated, see `sci_com`
 #' @param ... curl options passed on to [crul::verb-POST]
 #' @param check logical; Check if ID matches any existing on the DB, only
-#' used in [as.natserv()]
+#' used in [as_natserv()]
 #' @template getreturn
 #' @family taxonomic-ids
 #' @seealso [classification()]
@@ -45,23 +45,23 @@
 #'
 #' # Convert a natserv without class information to a natserv class
 #' # already a natserv, returns the same
-#' as.natserv(get_natserv('Pomatomus saltatrix'))
+#' as_natserv(get_natserv('Pomatomus saltatrix'))
 #' # same
-#' as.natserv(get_natserv(c('Gadus morhua', 'Pomatomus saltatrix')))
+#' as_natserv(get_natserv(c('Gadus morhua', 'Pomatomus saltatrix')))
 #' # character
-#' as.natserv(101905)
+#' as_natserv(101905)
 #' # character vector, length > 1
-#' as.natserv(c(101905, 101998))
+#' as_natserv(c(101905, 101998))
 #' # list, either numeric or character
-#' as.natserv(list(101905, 101998))
+#' as_natserv(list(101905, 101998))
 #' ## dont check, much faster
-#' as.natserv(101905, check = FALSE)
-#' as.natserv(c(101905, 101998), check = FALSE)
-#' as.natserv(list(101905, 101998), check = FALSE)
+#' as_natserv(101905, check = FALSE)
+#' as_natserv(c(101905, 101998), check = FALSE)
+#' as_natserv(list(101905, 101998), check = FALSE)
 #'
-#' (out <- as.natserv(c(101905, 101998), check = FALSE))
+#' (out <- as_natserv(c(101905, 101998), check = FALSE))
 #' data.frame(out)
-#' as.natserv( data.frame(out) )
+#' as_natserv( data.frame(out) )
 #'
 #' # Get all data back
 #' get_natserv_("Helianthus")
@@ -213,27 +213,27 @@ get_natservid <- function(...) {
 
 #' @export
 #' @rdname get_natserv
-as.natserv <- function(x, check=TRUE) UseMethod("as.natserv")
+as_natserv <- function(x, check=TRUE) UseMethod("as_natserv")
 
 #' @export
 #' @rdname get_natserv
-as.natserv.natserv <- function(x, check=TRUE) x
+as_natserv.natserv <- function(x, check=TRUE) x
 
 #' @export
 #' @rdname get_natserv
-as.natserv.character <- function(x, check=TRUE) if (length(x) == 1) make_natserv(x, check) else collapse(x, make_natserv, "natserv", check = check)
+as_natserv.character <- function(x, check=TRUE) if (length(x) == 1) make_natserv(x, check) else collapse(x, make_natserv, "natserv", check = check)
 
 #' @export
 #' @rdname get_natserv
-as.natserv.list <- function(x, check=TRUE) if (length(x) == 1) make_natserv(x, check) else collapse(x, make_natserv, "natserv", check = check)
+as_natserv.list <- function(x, check=TRUE) if (length(x) == 1) make_natserv(x, check) else collapse(x, make_natserv, "natserv", check = check)
 
 #' @export
 #' @rdname get_natserv
-as.natserv.numeric <- function(x, check=TRUE) as.natserv(as.character(x), check)
+as_natserv.numeric <- function(x, check=TRUE) as_natserv(as.character(x), check)
 
 #' @export
 #' @rdname get_natserv
-as.natserv.data.frame <- function(x, check=TRUE) as_txid_df(x, check)
+as_natserv.data.frame <- function(x, check=TRUE) as_txid_df(x, check)
 
 make_natserv <- function(x, check=TRUE) {
   make_generic(as.character(x), ns_base_uri(), "natserv", check)

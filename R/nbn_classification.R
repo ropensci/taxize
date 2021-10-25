@@ -4,7 +4,7 @@
 #' @export
 #' @param id (character) An NBN identifier.
 #' @param ... Further args passed on to [crul::verb-GET]
-#' @return A data.frame
+#' @return A [tibble::tibble]
 #' @family nbn
 #' @author Scott Chamberlain, 
 #' @references https://api.nbnatlas.org/
@@ -21,7 +21,7 @@ nbn_classification <- function(id, ...) {
   assert(id, c("character", "txid"))
   if (inherits(id, "txid")) id <- txidac(id)
   url <- file.path(nbn_base(), "classification", id)
-  nbn_GET_2(url, ...)
+  tibble::as_tibble(nbn_GET_2(url, ...))
 }
 
 nbn_GET_2 <- function(url, ...) {

@@ -5,7 +5,7 @@
 #' @param key Your Tropicos API key; See [taxize-authentication] 
 #' for help on authentication
 #' @param ... Curl options passed on to [crul::HttpClient]
-#' @return List or dataframe.
+#' @return List or [tibble::tibble].
 #' @examples \dontrun{
 #' tp_synonyms(id = 25509881)
 #' }
@@ -29,6 +29,6 @@ tp_synonyms <- function(id, key = NULL, ...) {
     synonyms <- df[!duplicated.data.frame(df), ]
     names(accepted) <- tolower(names(accepted))
     names(synonyms) <- tolower(names(synonyms))
-    list(accepted = accepted, synonyms = synonyms)
+    nested_list_df_to_tibbles(list(accepted = accepted, synonyms = synonyms))
   }
 }

@@ -92,7 +92,7 @@
 #' classification(c(2704179, 6162875, 8286319, 2441175, 731), db = 'gbif')
 #' classification(25509881, db = 'tps')
 #' classification("NBNSYS0000004786", db = 'nbn')
-#' classification(as.nbn("NBNSYS0000004786"), db = 'nbn')
+#' classification(as_nbn("NBNSYS0000004786"), db = 'nbn')
 #' classification(3930798, db = 'tol')
 #'
 #' ## works the same if IDs are in class character
@@ -233,7 +233,7 @@ classification.default <- function(sci_id, db = NULL, callopts = list(),
                                    return_id = TRUE, rows = NA, x = NULL, ...) {
   nstop(db)
   pchk(x, "sci_id")
-  switch(
+  output <- switch(
     db,
     itis = {
       id <- process_ids(sci_id, db, get_itis, rows = rows, ...)
@@ -296,6 +296,7 @@ classification.default <- function(sci_id, db = NULL, callopts = list(),
     },
     stop("the provided db value was not recognised", call. = FALSE)
   )
+  lapply(output, tibble::as_tibble)
 }
 
 process_ids <- function(input, db, fxn, ...){
@@ -306,18 +307,18 @@ process_ids <- function(input, db, fxn, ...){
     is.character(input) && all(grepl("urn:lsid", input)) # POW
   ) {
     as_fxn <- switch(db,
-           itis = as.itis,
-           ncbi = as.ncbi,
-           eol = as.eol,
-           tps = as.tps,
-           gbif = as.gbif,
-           nbn = as.nbn,
-           tol = as.tol,
-           worms = as.worms,
-           natserv = as.natserv,
-           bold = as.bold,
-           wiki = as.wiki,
-           pow = as.pow)
+           itis = as_itis,
+           ncbi = as_ncbi,
+           eol = as_eol,
+           tps = as_tps,
+           gbif = as_gbif,
+           nbn = as_nbn,
+           tol = as_tol,
+           worms = as_worms,
+           natserv = as_natserv,
+           bold = as_bold,
+           wiki = as_wiki,
+           pow = as_pow)
     as_fxn(input, check = FALSE)
   } else {
     eval(fxn)(input, ...)
@@ -795,7 +796,7 @@ cbind.classification <- function(...) {
   tmp <- dt2df(lapply(input, gethiernames), idcol = FALSE)
   tmp$query <- names(x)
   tmp$db <- attr(x, "db")
-  tmp
+  tibble::as_tibble(tmp)
 }
 
 #' @export
@@ -809,7 +810,7 @@ rbind.classification <- function(...) {
   }
   df <- dt2df(x, idcol = FALSE)
   df$db <- db
-  return( df )
+  return(tibble::as_tibble(df))
 }
 
 #' @export
@@ -842,7 +843,7 @@ cbind.classification_ids <- function(...) {
     tmp$db <- attr(h, "db")
     tmp
   }), idcol = FALSE)
-  move_col(tt = dat, y = c('query','db'))
+  tibble::as_tibble(move_col(tt = dat, y = c('query','db')))
 }
 
 #' @export
@@ -873,5 +874,5 @@ rbind.classification_ids <- function(...) {
   }
 
   tt <- if (length(get) == 1) get[[1]] else dt2df(get, idcol = FALSE)
-  move_col(tt, c('query', 'db'))
+  tibble::as_tibble(move_col(tt, c('query', 'db')))
 }

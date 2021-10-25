@@ -34,7 +34,7 @@ eol_dataobjects <- function(id, taxonomy = TRUE, language = NULL, ...) {
     tmp$taxonconcepts <- nmslwr(tmp$taxonconcepts)
     tmp$taxonconcepts$taxonrank <- tolower(tmp$taxonconcepts$taxonrank)
   }
-  return(tmp)
+  return(nested_list_df_to_tibbles(tmp))
 }
 
 nmslwr <- function(x) {

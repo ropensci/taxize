@@ -73,7 +73,7 @@ back just four fields, whereas all gives all fields back.}
 \item{...}{Curl options passed on to \link[crul:HttpClient]{crul::HttpClient}}
 }
 \value{
-A data.frame with one attribute \code{not_known}: a character
+A \link[tibble:tibble]{tibble::tibble} with one attribute \code{not_known}: a character
 vector of taxa unknown to the Global Names Index. Access like
 \code{attr(output, "not_known")}, or \code{attributes(output)$not_known}.
 

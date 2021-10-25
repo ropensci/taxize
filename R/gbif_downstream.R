@@ -14,7 +14,7 @@
 #' with the `limit` parameter
 #' @param key Deprecated, see `id`
 #' @param ... Further args passed on to [gbif_name_usage()]
-#' @return data.frame of taxonomic information downstream to family from e.g.,
+#' @return [tibble::tibble] of taxonomic information downstream to family from e.g.,
 #' 		Order, Class, etc., or if `intermediated=TRUE`, list of length two,
 #'   	with target taxon rank names, and intermediate names.
 #' @author Scott Chamberlain
@@ -112,10 +112,10 @@ gbif_downstream <- function(id, downto, intermediate = FALSE, limit = 100,
         stop_ <- "not"
       }
     }
-    if (intermediate) intermed[[iter]] <- intermed[[iter]]
+    if (intermediate) intermed[[iter]] <- tibble::as_tibble(intermed[[iter]])
   } # end while loop
 
-  tmp <- dt2df(out, idcol = FALSE)
+  tmp <- tibble::as_tibble(dt2df(out, idcol = FALSE))
   if (intermediate) {
     list(target = tmp, intermediate = intermed)
   } else {

@@ -13,7 +13,7 @@
 #' If TRUE and more than one TSN is found for teh species, the user is asked for
 #' input. If FALSE NA is returned for multiple matches.
 #' @param messages logical; should progress be printed?
-#' @param x Input to [`as.bold()`]
+#' @param x Input to [`as_bold()`]
 #' @param ... Curl options passed on to [`crul::verb-GET`]
 #' @param rows numeric; Any number from 1 to infinity. If the default NA, all rows are
 #' considered. Note that this function still only gives back a bold class object with one
@@ -27,7 +27,7 @@
 #' options. Though note that some data sources use atypical ranks, so inspect the
 #' data itself for options. Optional. See `Filtering` below.
 #' @param check logical; Check if ID matches any existing on the DB, only used in
-#' [as.bold()]
+#' [as_bold()]
 #' @param searchterm Deprecated, see `sci`
 #' @template getreturn
 #'
@@ -85,22 +85,22 @@
 #' get_bold("Aga", fuzzy = TRUE, parent = "*idae")
 #'
 #' # Convert a bold without class information to a bold class
-#' as.bold(get_bold("Agapostemon")) # already a bold, returns the same
-#' as.bold(get_bold(c("Agapostemon","Quercus douglasii"))) # same
-#' as.bold(1973) # numeric
-#' as.bold(c(1973,101009,98597)) # numeric vector, length > 1
-#' as.bold("1973") # character
-#' as.bold(c("1973","101009","98597")) # character vector, length > 1
-#' as.bold(list("1973","101009","98597")) # list, either numeric or character
+#' as_bold(get_bold("Agapostemon")) # already a bold, returns the same
+#' as_bold(get_bold(c("Agapostemon","Quercus douglasii"))) # same
+#' as_bold(1973) # numeric
+#' as_bold(c(1973,101009,98597)) # numeric vector, length > 1
+#' as_bold("1973") # character
+#' as_bold(c("1973","101009","98597")) # character vector, length > 1
+#' as_bold(list("1973","101009","98597")) # list, either numeric or character
 #' ## dont check, much faster
-#' as.bold("1973", check=FALSE)
-#' as.bold(1973, check=FALSE)
-#' as.bold(c("1973","101009","98597"), check=FALSE)
-#' as.bold(list("1973","101009","98597"), check=FALSE)
+#' as_bold("1973", check=FALSE)
+#' as_bold(1973, check=FALSE)
+#' as_bold(c("1973","101009","98597"), check=FALSE)
+#' as_bold(list("1973","101009","98597"), check=FALSE)
 #'
-#' (out <- as.bold(c(1973,101009,98597)))
+#' (out <- as_bold(c(1973,101009,98597)))
 #' data.frame(out)
-#' as.bold( data.frame(out) )
+#' as_bold( data.frame(out) )
 #'
 #' # Get all data back
 #' get_bold_("Osmia", fuzzy=TRUE, rows=1:5)
@@ -301,15 +301,15 @@ get_boldid <- function(...) {
 
 #' @export
 #' @rdname get_bold
-as.bold <- function(x, check=TRUE) UseMethod("as.bold")
+as_bold <- function(x, check=TRUE) UseMethod("as_bold")
 
 #' @export
 #' @rdname get_bold
-as.bold.bold <- function(x, check=TRUE) x
+as_bold.bold <- function(x, check=TRUE) x
 
 #' @export
 #' @rdname get_bold
-as.bold.character <- function(x, check=TRUE) {
+as_bold.character <- function(x, check=TRUE) {
   if (length(x) == 1) 
     make_bold(x, check) 
   else 
@@ -318,7 +318,7 @@ as.bold.character <- function(x, check=TRUE) {
 
 #' @export
 #' @rdname get_bold
-as.bold.list <- function(x, check=TRUE) {
+as_bold.list <- function(x, check=TRUE) {
   if (length(x) == 1) 
     make_bold(x, check) 
   else 
@@ -327,11 +327,11 @@ as.bold.list <- function(x, check=TRUE) {
 
 #' @export
 #' @rdname get_bold
-as.bold.numeric <- function(x, check=TRUE) as.bold(as.character(x), check)
+as_bold.numeric <- function(x, check=TRUE) as_bold(as.character(x), check)
 
 #' @export
 #' @rdname get_bold
-as.bold.data.frame <- function(x, check=TRUE) as_txid_df(x, check)
+as_bold.data.frame <- function(x, check=TRUE) as_txid_df(x, check)
 
 make_bold <- function(x, check=TRUE) {
   make_generic(x,

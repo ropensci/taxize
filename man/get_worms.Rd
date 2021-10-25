@@ -3,12 +3,12 @@
 \name{get_worms}
 \alias{get_worms}
 \alias{get_wormsid}
-\alias{as.worms}
-\alias{as.worms.worms}
-\alias{as.worms.character}
-\alias{as.worms.list}
-\alias{as.worms.numeric}
-\alias{as.worms.data.frame}
+\alias{as_worms}
+\alias{as_worms.worms}
+\alias{as_worms.character}
+\alias{as_worms.list}
+\alias{as_worms.numeric}
+\alias{as_worms.data.frame}
 \alias{get_worms_}
 \alias{get_wormsid_}
 \title{Get Worms ID for a taxon name}
@@ -28,17 +28,17 @@ get_worms(
 
 get_wormsid(...)
 
-as.worms(x, check = TRUE)
+as_worms(x, check = TRUE)
 
-\method{as.worms}{worms}(x, check = TRUE)
+\method{as_worms}{worms}(x, check = TRUE)
 
-\method{as.worms}{character}(x, check = TRUE)
+\method{as_worms}{character}(x, check = TRUE)
 
-\method{as.worms}{list}(x, check = TRUE)
+\method{as_worms}{list}(x, check = TRUE)
 
-\method{as.worms}{numeric}(x, check = TRUE)
+\method{as_worms}{numeric}(x, check = TRUE)
 
-\method{as.worms}{data.frame}(x, check = TRUE)
+\method{as_worms}{data.frame}(x, check = TRUE)
 
 get_worms_(
   sci_com,
@@ -90,10 +90,10 @@ process.}
 
 \item{...}{Ignored}
 
-\item{x}{Input to \code{as.worms}}
+\item{x}{Input to \code{as_worms}}
 
 \item{check}{logical; Check if ID matches any existing on the DB, only
-used in \code{\link[=as.worms]{as.worms()}}}
+used in \code{\link[=as_worms]{as_worms()}}}
 }
 \value{
 A vector of taxonomic identifiers as an S3 class.
@@ -145,28 +145,28 @@ get_worms(c('Gadus morhua', "howdy"))
 
 # Convert a worms without class information to a worms class
 # already a worms, returns the same
-as.worms(get_worms('Gadus morhua'))
+as_worms(get_worms('Gadus morhua'))
 # same
-as.worms(get_worms(c('Gadus morhua', 'Pomatomus saltatrix')))
+as_worms(get_worms(c('Gadus morhua', 'Pomatomus saltatrix')))
 # numeric
-as.worms(126436)
+as_worms(126436)
 # numeric vector, length > 1
-as.worms(c(126436,151482))
+as_worms(c(126436,151482))
 # character
-as.worms("126436")
+as_worms("126436")
 # character vector, length > 1
-as.worms(c("126436","151482"))
+as_worms(c("126436","151482"))
 # list, either numeric or character
-as.worms(list("126436","151482"))
+as_worms(list("126436","151482"))
 ## dont check, much faster
-as.worms("126436", check=FALSE)
-as.worms(126436, check=FALSE)
-as.worms(c("126436","151482"), check=FALSE)
-as.worms(list("126436","151482"), check=FALSE)
+as_worms("126436", check=FALSE)
+as_worms(126436, check=FALSE)
+as_worms(c("126436","151482"), check=FALSE)
+as_worms(list("126436","151482"), check=FALSE)
 
-(out <- as.worms(c(126436,151482)))
+(out <- as_worms(c(126436,151482)))
 data.frame(out)
-as.worms( data.frame(out) )
+as_worms( data.frame(out) )
 
 # Get all data back
 get_worms_("Plat")

@@ -37,7 +37,7 @@ on the console.}
 \code{\link[=get_ncbi]{get_ncbi()}}.}
 }
 \value{
-A data.frame with one column for every queried rank, in addition to
+A \link[tibble:tibble]{tibble::tibble} with one column for every queried rank, in addition to
 a column for db and queried term.
 }
 \description{

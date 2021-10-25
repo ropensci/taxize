@@ -3,7 +3,7 @@
 #' @export
 #' @param scientificname (character) scientific names
 #' @param ... Further args passed on to [crul::verb-POST]
-#' @return A `data.frame` containing fields extracted from parsed
+#' @return A [tibble::tibble] containing fields extracted from parsed
 #' taxon names. Fields returned are the union of fields extracted from
 #' all species names in `scientificname`.
 #' @author John Baumgartner \email{johnbb@@student.unimelb.edu.au}
@@ -26,5 +26,6 @@ gbif_parse <- function(scientificname, ...) {
   res <- lapply(res, function(x) Map(function(z) if (is.null(z)) NA else z, x))
   (tmp <- data.table::setDF(
     data.table::rbindlist(res, fill = TRUE, use.names = TRUE)))
+  tmp <- tibble::as_tibble(tmp)
   setNames(tmp, tolower(names(tmp)))
 }

@@ -19,11 +19,11 @@
 #' class object with one to many identifiers. See
 #' [get_itis_()] to get back all, or a subset, of the raw
 #' data that you are presented during the ask process.
-#' @param x Input to as.itis
+#' @param x Input to as_itis
 #' @param searchterm Deprecated, see `sci_com`
 #' @param ... Ignored
 #' @param check logical; Check if ID matches any existing on the DB, only
-#' used in [as.itis()]
+#' used in [as_itis()]
 #' @template getreturn
 #'
 #' @family taxonomic-ids
@@ -50,22 +50,22 @@
 #' get_itis("black bear", searchtype="common")
 #'
 #' # Convert a tsn without class information to a itis class
-#' as.itis(get_itis("Quercus douglasii")) # already a itis, returns the same
-#' as.itis(get_itis(c("Chironomus riparius","Pinus contorta"))) # same
-#' as.itis(19322) # numeric
-#' as.itis(c(19322,129313,506198)) # numeric vector, length > 1
-#' as.itis("19322") # character
-#' as.itis(c("19322","129313","506198")) # character vector, length > 1
-#' as.itis(list("19322","129313","506198")) # list, either numeric or character
+#' as_itis(get_itis("Quercus douglasii")) # already a itis, returns the same
+#' as_itis(get_itis(c("Chironomus riparius","Pinus contorta"))) # same
+#' as_itis(19322) # numeric
+#' as_itis(c(19322,129313,506198)) # numeric vector, length > 1
+#' as_itis("19322") # character
+#' as_itis(c("19322","129313","506198")) # character vector, length > 1
+#' as_itis(list("19322","129313","506198")) # list, either numeric or character
 #' ## dont check, much faster
-#' as.itis("19322", check=FALSE)
-#' as.itis(19322, check=FALSE)
-#' as.itis(c("19322","129313","506198"), check=FALSE)
-#' as.itis(list("19322","129313","506198"), check=FALSE)
+#' as_itis("19322", check=FALSE)
+#' as_itis(19322, check=FALSE)
+#' as_itis(c("19322","129313","506198"), check=FALSE)
+#' as_itis(list("19322","129313","506198"), check=FALSE)
 #'
-#' (out <- as.itis(c(19322,129313,506198)))
+#' (out <- as_itis(c(19322,129313,506198)))
 #' data.frame(out)
-#' as.itis( data.frame(out) )
+#' as_itis( data.frame(out) )
 #'
 #' # Get all data back
 #' get_itis_("Arni")
@@ -237,27 +237,27 @@ get_tsn <- function(...) {
 
 #' @export
 #' @rdname get_itis
-as.itis <- function(x, check=TRUE) UseMethod("as.itis")
+as_itis <- function(x, check=TRUE) UseMethod("as_itis")
 
 #' @export
 #' @rdname get_itis
-as.itis.itis <- function(x, check=TRUE) x
+as_itis.itis <- function(x, check=TRUE) x
 
 #' @export
 #' @rdname get_itis
-as.itis.character <- function(x, check=TRUE) if (length(x) == 1) make_itis(x, check) else collapse(x, make_itis, "itis", check = check)
+as_itis.character <- function(x, check=TRUE) if (length(x) == 1) make_itis(x, check) else collapse(x, make_itis, "itis", check = check)
 
 #' @export
 #' @rdname get_itis
-as.itis.list <- function(x, check=TRUE) if (length(x) == 1) make_itis(x, check) else collapse(x, make_itis, "itis", check = check)
+as_itis.list <- function(x, check=TRUE) if (length(x) == 1) make_itis(x, check) else collapse(x, make_itis, "itis", check = check)
 
 #' @export
 #' @rdname get_itis
-as.itis.numeric <- function(x, check=TRUE) as.itis(as.character(x), check)
+as_itis.numeric <- function(x, check=TRUE) as_itis(as.character(x), check)
 
 #' @export
 #' @rdname get_itis
-as.itis.data.frame <- function(x, check=TRUE) as_txid_df(x, check)
+as_itis.data.frame <- function(x, check=TRUE) as_txid_df(x, check)
 
 make_itis <- function(x, check=TRUE) {
   make_generic(x, get_url_templates$itis, "itis", check)

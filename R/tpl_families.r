@@ -4,7 +4,7 @@
 #' @param ... (list) Curl options passed on to [crul::verb-GET]
 #' @details Requires an internet connection in order to connect to 
 #' <www.theplantlist.org>.
-#' @return Returns a `data.frame` including the names of all families
+#' @return Returns a [tibble::tibble] including the names of all families
 #' indexed by The Plant List, and the major groups into which they fall 
 #' (i.e. Angiosperms, Gymnosperms, Bryophytes and Pteridophytes).
 #' @author John Baumgartner (johnbb@@student.unimelb.edu.au)
@@ -12,7 +12,7 @@
 #' @examples \dontrun{
 #' # Get a data.frame of plant families, with the group name 
 #' # (Angiosperms, etc.)
-#' head(tpl_families())
+#' tpl_families()
 #' }
 tpl_families <- function(...) {
   cli <- crul::HttpClient$new('http://www.theplantlist.org/1.1/browse/-/',
@@ -28,6 +28,5 @@ tpl_families <- function(...) {
         levels = c('A', 'B', 'G', 'P'),
         labels = c('Angiosperms', 'Bryophytes',
           'Gymnosperms', 'Pteridophytes')))
-  data.frame(group = groups, family = families, 
-    stringsAsFactors = FALSE)
+  tibble::tibble(group = groups, family = families)
 }

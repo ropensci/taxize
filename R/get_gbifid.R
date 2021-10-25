@@ -20,9 +20,9 @@
 #' options. Though note that some data sources use atypical ranks, so inspect the
 #' data itself for options. Optional. See `Filtering` below.
 #' @param method (character) one of "backbone" or "lookup". See Details.
-#' @param x Input to [as.gbif()]
+#' @param x Input to [as_gbif()]
 #' @param check logical; Check if ID matches any existing on the DB, only used in
-#' [as.gbif()]
+#' [as_gbif()]
 #' @param ... Ignored
 #' @param sciname Deprecated, see `sci`
 #' @template getreturn
@@ -125,23 +125,23 @@
 #' get_gbif("A*", method = "lookup", order = "*ales")
 #'
 #' # Convert a gbifid without class information to a gbifid class
-#' as.gbif(get_gbif("Poa annua")) # already a gbifid, returns the same
-#' as.gbif(get_gbif(c("Poa annua","Puma concolor"))) # same
-#' as.gbif(2704179) # numeric
-#' as.gbif(c(2704179,2435099,3171445)) # numeric vector, length > 1
-#' as.gbif("2704179") # character
-#' as.gbif(c("2704179","2435099","3171445")) # character vector, length > 1
-#' as.gbif(list("2704179","2435099","3171445")) # list, either numeric or character
+#' as_gbif(get_gbif("Poa annua")) # already a gbifid, returns the same
+#' as_gbif(get_gbif(c("Poa annua","Puma concolor"))) # same
+#' as_gbif(2704179) # numeric
+#' as_gbif(c(2704179,2435099,3171445)) # numeric vector, length > 1
+#' as_gbif("2704179") # character
+#' as_gbif(c("2704179","2435099","3171445")) # character vector, length > 1
+#' as_gbif(list("2704179","2435099","3171445")) # list, either numeric or character
 #' ## dont check, much faster
-#' as.gbif("2704179", check=FALSE)
-#' as.gbif(2704179, check=FALSE)
-#' as.gbif(2704179, check=FALSE)
-#' as.gbif(c("2704179","2435099","3171445"), check=FALSE)
-#' as.gbif(list("2704179","2435099","3171445"), check=FALSE)
+#' as_gbif("2704179", check=FALSE)
+#' as_gbif(2704179, check=FALSE)
+#' as_gbif(2704179, check=FALSE)
+#' as_gbif(c("2704179","2435099","3171445"), check=FALSE)
+#' as_gbif(list("2704179","2435099","3171445"), check=FALSE)
 #'
-#' (out <- as.gbif(c(2704179,2435099,3171445)))
+#' (out <- as_gbif(c(2704179,2435099,3171445)))
 #' data.frame(out)
-#' as.gbif( data.frame(out) )
+#' as_gbif( data.frame(out) )
 #'
 #' # Get all data back
 #' get_gbif_("Puma concolor")
@@ -323,27 +323,27 @@ get_gbifid <- function(...) {
 
 #' @export
 #' @rdname get_gbif
-as.gbif <- function(x, check=FALSE) UseMethod("as.gbif")
+as_gbif <- function(x, check=FALSE) UseMethod("as_gbif")
 
 #' @export
 #' @rdname get_gbif
-as.gbif.txid <- function(x, check=FALSE) x
+as_gbif.txid <- function(x, check=FALSE) x
 
 #' @export
 #' @rdname get_gbif
-as.gbif.character <- function(x, check=TRUE) if(length(x) == 1) make_gbif(x, check) else collapse(x, make_gbif, "gbif", check=check)
+as_gbif.character <- function(x, check=TRUE) if(length(x) == 1) make_gbif(x, check) else collapse(x, make_gbif, "gbif", check=check)
 
 #' @export
 #' @rdname get_gbif
-as.gbif.list <- function(x, check=TRUE) if(length(x) == 1) make_gbif(x, check) else collapse(x, make_gbif, "gbif", check=check)
+as_gbif.list <- function(x, check=TRUE) if(length(x) == 1) make_gbif(x, check) else collapse(x, make_gbif, "gbif", check=check)
 
 #' @export
 #' @rdname get_gbif
-as.gbif.numeric <- function(x, check=TRUE) as.gbif(as.character(x), check)
+as_gbif.numeric <- function(x, check=TRUE) as_gbif(as.character(x), check)
 
 #' @export
 #' @rdname get_gbif
-as.gbif.data.frame <- function(x, check = TRUE) as_txid_df(x, check)
+as_gbif.data.frame <- function(x, check = TRUE) as_txid_df(x, check)
 
 make_gbif <- function(x, check=TRUE) make_generic(x, 'https://www.gbif.org/species/%s', "gbif", check)
 

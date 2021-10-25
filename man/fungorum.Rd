@@ -42,7 +42,7 @@ value appears to be 6000, not positive about that though}
 \item{date}{(character) Date, of the form YYYMMDD}
 }
 \value{
-A \code{data.frame}, or \code{NULL} if no results
+A \link[tibble:tibble]{tibble::tibble}, or \code{NULL} if no results
 }
 \description{
 Search for taxonomic names in Index Fungorum

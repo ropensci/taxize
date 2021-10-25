@@ -103,7 +103,7 @@ Suggests:
     phangorn,
     ape,
     zoo
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
 Roxygen: list(markdown = TRUE)
 X-schema.org-applicationCategory: Taxonomy
 X-schema.org-keywords: taxonomy, biology, nomenclature, JSON, API, web, api-client, identifiers, species, names

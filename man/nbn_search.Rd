@@ -41,7 +41,7 @@ on e.g. facets=basis_of_record.}
 }
 \value{
 a list with slots for metadata (\code{meta}) with list of response
-attributes, and data (\code{data}) with a data.frame of results
+attributes, and data (\code{data}) with a \link[tibble:tibble]{tibble::tibble} of results
 }
 \description{
 Search UK National Biodiversity Network

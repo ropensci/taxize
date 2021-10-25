@@ -26,7 +26,7 @@
 #' @param x Deprecated, see `sci_id`
 #' @param ... Further args passed on to [itis_downstream()]
 #'
-#' @return A named list of data.frames with the upstream names of every
+#' @return A named list of [tibble::tibble]s with the upstream names of every
 #' supplied taxa. You get an NA if there was no match in the database.
 #'
 #' @examples \dontrun{
@@ -68,7 +68,7 @@ upstream.itis <- function(sci_id, db = NULL, upto = NULL, ...) {
     } else {
       class <- classification(y, ...)
       toget <- class[[1]][ grep(upto, class[[1]]$rank) - 1, c("name", "id") ]
-      setNames(downstream(as.itis(toget$id), downto = upto, ...), toget$name)
+      setNames(downstream(as_itis(toget$id), downto = upto, ...), toget$name)
     }
   }
   out <- if (length(sci_id) > 1) lapply(sci_id, fun, ...) else fun(sci_id, ...)

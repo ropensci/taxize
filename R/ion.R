@@ -4,7 +4,7 @@
 #' @param x An LSID number. Required.
 #' @param ... Curl options passed on to [crul::verb-GET]
 #' @references http://www.organismnames.com
-#' @return A data.frame
+#' @return A [tibble::tibble]
 #' @examples \dontrun{
 #' ion(155166)
 #' ion(298678)
@@ -25,7 +25,7 @@ ion <- function(x, ...) {
       "nameComplete")
   )
   df <- data.frame(c(dc, tdwg), stringsAsFactors = FALSE)
-  stats::setNames(df, tolower(names(df)))
+  tibble::as_tibble(stats::setNames(df, tolower(names(df))))
 }
 
 ion_base <- function() 'http://www.organismnames.com/lsidmetadata.htm'

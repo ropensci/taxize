@@ -26,6 +26,9 @@ return the responses that have been received so far. The default timeout is
 
 \item{...}{Curl options passed on to \link[crul:verb-GET]{crul::verb-GET}}
 }
+\value{
+a \link[tibble:tibble]{tibble::tibble}
+}
 \description{
 EUBON hierarchy
 }

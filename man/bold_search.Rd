@@ -39,7 +39,7 @@ curl call, useful for debugging, and getting detailed info on the API call.}
 \item{...}{named curl options passed on to \link[crul:verb-GET]{crul::verb-GET}}
 }
 \value{
-A list of data.frame's.
+A \link[tibble:tibble]{tibble::tibble}.
 }
 \description{
 Search Barcode of Life for taxonomic IDs

@@ -7,13 +7,13 @@
 #' @references http://www.mobot.org/MOBOT/research/APweb/
 #' @name apg
 #' @examples \dontrun{
-#' head(apgOrders())
-#' head(apgFamilies())
+#' get_apg_orders()
+#' get_apg_families()
 #' }
 
 #' @export
 #' @rdname apg
-apgOrders <- function(...) {
+get_apg_orders <- function(...) {
   tt <- apg_GET("orders", ...)
   tmp <- strsplit(tt, "<font")[[1]]
   tmp2 <- strsplit(tmp[length(tmp)], "<br>")[[1]]
@@ -45,12 +45,12 @@ apgOrders <- function(...) {
   syndf$accepted <- FALSE
   syndf$original <- synorig
 
-  rbind(accdf, syndf)
+  tibble::as_tibble(rbind(accdf, syndf))
 }
 
 #' @export
 #' @rdname apg
-apgFamilies <- function(...) {
+get_apg_families <- function(...) {
   tt <- apg_GET("families", ...)
   tmp <- strsplit(tt, "<font")[[1]]
   tmp2 <- strsplit(tmp[length(tmp)], "<br>|<br")[[1]]
@@ -86,7 +86,7 @@ apgFamilies <- function(...) {
   syndf$accepted[ syndf$accepted != TRUE ] <- FALSE
   syndf$accepted <- as.logical(syndf$accepted)
   syndf$original <- synorig
-  syndf
+  tibble::as_tibble(syndf)
 }
 
 apg_GET <- function(x, ...) {

@@ -3,7 +3,7 @@
 #' @export
 #' @param names A vector of length 1 or more of taxonomic names
 #' @param ... Curl options passed on to [crul::verb-GET]
-#' @return A data.frame with results, the submitted names, and the
+#' @return A [tibble::tibble] with results, the submitted names, and the
 #' parsed names with additional information.
 #' @seealso [gbif_parse()], [gn_parse()]
 #' @references http://gni.globalnames.org/
@@ -23,7 +23,7 @@ gni_parse <- function(names, ...) {
   tt <- cli$get(query = list(names = names))
   tt$raise_for_status()
   out <- jsonlite::fromJSON(tt$parse("UTF-8"), FALSE)
-  dt2df(lapply(out, gni_parser), idcol = FALSE)
+  tibble::as_tibble(dt2df(lapply(out, gni_parser), idcol = FALSE))
 }
 
 gni_parser <- function(x) {

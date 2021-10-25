@@ -41,7 +41,7 @@
 #' back just four fields, whereas all gives all fields back.
 #'
 #' @author Scott Chamberlain 
-#' @return A data.frame with one attribute `not_known`: a character
+#' @return A [tibble::tibble] with one attribute `not_known`: a character
 #' vector of taxa unknown to the Global Names Index. Access like
 #' `attr(output, "not_known")`, or `attributes(output)$not_known`.
 #'

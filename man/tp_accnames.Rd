@@ -15,7 +15,7 @@ for help on authentication}
 \item{...}{Curl options passed on to \link[crul:verb-GET]{crul::verb-GET}}
 }
 \value{
-List or dataframe.
+List or \link[tibble:tibble]{tibble::tibble}.
 }
 \description{
 Return all accepted names for a taxon name with a given id.

@@ -11,7 +11,7 @@
 #' @param tsns Deprecated, see `id`
 #' @param ... Further args passed on to [ritis::rank_name()] and
 #' [ritis::hierarchy_down()]
-#' @return Data.frame of taxonomic information downstream to family from e.g.,
+#' @return A [tibble::tibble] of taxonomic information downstream to family from e.g.,
 #' Order, Class, etc., or if `intermediated=TRUE`, list of length two,
 #' with target taxon rank names, and intermediate names.
 #' @examples \dontrun{
@@ -93,12 +93,12 @@ itis_downstream <- function(id, downto, intermediate = FALSE, tsns = NULL,
 		  }
 		}
 		if (intermediate) {
-		  intermed[[iter]] <- stats::setNames(intermed[[iter]],
-		  	tolower(names(intermed[[iter]])))
+		  intermed[[iter]] <- tibble::as_tibble(stats::setNames(intermed[[iter]],
+		                                                        tolower(names(intermed[[iter]]))))
 		  intermed[[iter]]$rankname <- tolower(intermed[[iter]]$rankname)
 		}
 	}
-  tmp <- dt2df(out, idcol = FALSE)
+  tmp <- tibble::as_tibble(dt2df(out, idcol = FALSE))
   tmp$rankname <- tolower(tmp$rankname)
 	if (intermediate) {
 	  list(target = stats::setNames(tmp, tolower(names(tmp))),

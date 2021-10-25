@@ -15,7 +15,7 @@ repositories for the name string (takes 0, or 1 [default]).}
 \item{...}{Curl options passed on to \link[crul:verb-GET]{crul::verb-GET}}
 }
 \value{
-Data.frame of results.
+A \link[tibble:tibble]{tibble::tibble} of results.
 }
 \description{
 Uses the Global Names Index, see http://gni.globalnames.org/

@@ -57,7 +57,7 @@ vascan_search <- function(q, format='json', raw=FALSE, ...) {
   } else {
     tmp <- jsonlite::fromJSON(out, FALSE)
     res <- tmp$results[[1]]
-    lapply(tmp$results, vascan_parse)
+    nested_list_df_to_tibbles(lapply(tmp$results, vascan_parse))
   }
 }
 

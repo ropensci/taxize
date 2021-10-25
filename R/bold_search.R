@@ -39,7 +39,7 @@
 #' summary, wikipedia URL, GBIF map.
 #'
 #' @references http://www.boldsystems.org/index.php/resources/api
-#' @return A list of data.frame's.
+#' @return A [tibble::tibble].
 #' @examples \dontrun{
 #' # A basic example
 #' bold_search(sci="Apis")
@@ -74,7 +74,7 @@ bold_search <- function(sci = NULL, id = NULL, fuzzy = FALSE,
          id = bold_tax_id(id = id, dataTypes = dataTypes, includeTree = includeTree,
                           response = response, ...)
   )
-  return(tmp)
+  return(tibble::as_tibble(tmp))
 }
 
 #' Barcode of Life taxonomic children

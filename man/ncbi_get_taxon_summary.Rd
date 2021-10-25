@@ -15,7 +15,7 @@ See Details.}
 \item{...}{Curl options passed on to \link[crul:verb-GET]{crul::verb-GET}}
 }
 \value{
-A \code{data.frame} with the following columns:
+A \link[tibble:tibble]{tibble::tibble} with the following columns:
 \itemize{
 \item \code{uid} The uid queried for
 \item \code{name} The name of the taxon; a binomial name if the taxon is of rank species

@@ -50,7 +50,7 @@ names. Default: \code{FALSE}}
 \item{...}{Curl options passed on to \link[crul:verb-GET]{crul::verb-GET}}
 }
 \value{
-data.frame of results.
+A \link[tibble:tibble]{tibble::tibble} of results.
 }
 \description{
 Uses the Global Names Index, see http://gni.globalnames.org

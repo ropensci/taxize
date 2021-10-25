@@ -2,12 +2,12 @@
 % Please edit documentation in R/get_wiki.R
 \name{get_wiki}
 \alias{get_wiki}
-\alias{as.wiki}
-\alias{as.wiki.wiki}
-\alias{as.wiki.character}
-\alias{as.wiki.list}
-\alias{as.wiki.numeric}
-\alias{as.wiki.data.frame}
+\alias{as_wiki}
+\alias{as_wiki.wiki}
+\alias{as_wiki.character}
+\alias{as_wiki.list}
+\alias{as_wiki.numeric}
+\alias{as_wiki.data.frame}
 \alias{get_wiki_}
 \title{Get the page name for a Wiki taxon}
 \usage{
@@ -23,17 +23,17 @@ get_wiki(
   ...
 )
 
-as.wiki(x, check = TRUE, wiki_site = "species", wiki = "en")
+as_wiki(x, check = TRUE, wiki_site = "species", wiki = "en")
 
-\method{as.wiki}{wiki}(x, check = TRUE, wiki_site = "species", wiki = "en")
+\method{as_wiki}{wiki}(x, check = TRUE, wiki_site = "species", wiki = "en")
 
-\method{as.wiki}{character}(x, check = TRUE, wiki_site = "species", wiki = "en")
+\method{as_wiki}{character}(x, check = TRUE, wiki_site = "species", wiki = "en")
 
-\method{as.wiki}{list}(x, check = TRUE, wiki_site = "species", wiki = "en")
+\method{as_wiki}{list}(x, check = TRUE, wiki_site = "species", wiki = "en")
 
-\method{as.wiki}{numeric}(x, check = TRUE, wiki_site = "species", wiki = "en")
+\method{as_wiki}{numeric}(x, check = TRUE, wiki_site = "species", wiki = "en")
 
-\method{as.wiki}{data.frame}(x, check = TRUE, wiki_site = "species", wiki = "en")
+\method{as_wiki}{data.frame}(x, check = TRUE, wiki_site = "species", wiki = "en")
 
 get_wiki_(
   x,
@@ -68,13 +68,13 @@ class object with one to many identifiers. See \code{\link[=get_wiki_]{get_wiki_
 all, or a subset, of the raw data that you are presented during the ask
 process.}
 
-\item{x}{For \code{get_wiki()}: deprecated, see \code{sci_com}. For \code{as.wiki}, various,
+\item{x}{For \code{get_wiki()}: deprecated, see \code{sci_com}. For \code{as_wiki}, various,
 see examples}
 
 \item{...}{Ignored}
 
 \item{check}{logical; Check if ID matches any existing on the DB, only
-used in \code{\link[=as.wiki]{as.wiki()}}}
+used in \code{\link[=as_wiki]{as_wiki()}}}
 }
 \value{
 A vector of taxonomic identifiers as an S3 class.
@@ -106,11 +106,11 @@ get_wiki("Malus domestica", "pedia")
 get_wiki("Malus domestica", "pedia", "fr")
 
 # as coercion
-as.wiki("Malus_domestica")
-as.wiki("Malus_domestica", wiki_site = "commons")
-as.wiki("Malus_domestica", wiki_site = "pedia")
-as.wiki("Malus_domestica", wiki_site = "pedia", wiki = "fr")
-as.wiki("Malus_domestica", wiki_site = "pedia", wiki = "da")
+as_wiki("Malus_domestica")
+as_wiki("Malus_domestica", wiki_site = "commons")
+as_wiki("Malus_domestica", wiki_site = "pedia")
+as_wiki("Malus_domestica", wiki_site = "pedia", wiki = "fr")
+as_wiki("Malus_domestica", wiki_site = "pedia", wiki = "da")
 }
 }
 \seealso{

@@ -9,7 +9,7 @@
 #' with target taxon rank names, with additional list of data.frame's of
 #' intermediate taxonomic groups. Default: `FALSE`
 #' @param ... Further args passed on to [ncbi_children()]
-#' @return Data.frame of taxonomic information downstream to family from e.g.,
+#' @return A [tibble::tibble] of taxonomic information downstream to family from e.g.,
 #' 		Order, Class, etc., or if `intermediate=TRUE`, list of length two,
 #'   	with target taxon rank names, and intermediate names.
 #' @author Scott Chamberlain
@@ -57,11 +57,12 @@ ncbi_downstream <- function(id, downto, intermediate = FALSE, ...) {
   iter <- 0
   while (stop_ == "not") {
     iter <- iter + 1
-    tt <- dt2df(lapply(as.ncbi(id, check=FALSE), function(x) ncbi_children(id = x, ...)[[1]]))
+    tt <- dt2df(lapply(as_ncbi(id, check=FALSE), function(x) ncbi_children(id = x, ...)[[1]]))
     tt$.id <- NULL
-    tt <- remove_self_ids(tt, as.ncbi(id, check=FALSE))
+    tt <- remove_self_ids(tt, as_ncbi(id, check=FALSE))
     tt <- rename(tt, c('childtaxa_rank' = 'rank'))
     tt <- prune_too_low(tt, downto, ignore_no_rank = TRUE)
+    tt <- tibble::as_tibble(tt)
 
     if (NROW(tt) == 0) {
       out[[iter]] <- data.frame(stringsAsFactors = FALSE)
@@ -87,6 +88,7 @@ ncbi_downstream <- function(id, downto, intermediate = FALSE, ...) {
   } # end while loop
 
   tmp <- unique(dt2df(out, idcol = FALSE))
+  tmp <- tibble::as_tibble(tmp)
   if (intermediate) {
     list(target = tmp, intermediate = intermed)
   } else {

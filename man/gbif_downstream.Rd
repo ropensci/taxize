@@ -36,7 +36,7 @@ with the \code{limit} parameter}
 \item{...}{Further args passed on to \code{\link[=gbif_name_usage]{gbif_name_usage()}}}
 }
 \value{
-data.frame of taxonomic information downstream to family from e.g.,
+\link[tibble:tibble]{tibble::tibble} of taxonomic information downstream to family from e.g.,
 Order, Class, etc., or if \code{intermediated=TRUE}, list of length two,
 with target taxon rank names, and intermediate names.
 }

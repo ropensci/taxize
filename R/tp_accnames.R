@@ -5,7 +5,7 @@
 #' @param key Your Tropicos API key; See [taxize-authentication] 
 #' for help on authentication
 #' @param ... Curl options passed on to [crul::verb-GET]
-#' @return List or dataframe.
+#' @return List or [tibble::tibble].
 #' @examples \dontrun{
 #' tp_accnames(id = 25503923)
 #' tp_accnames(id = 25538750)
@@ -28,7 +28,7 @@ tp_accnames <- function(id, key = NULL, ...) {
     syns <- dt2df(lapply(vvv, "[[", "syn"), idcol = FALSE)
     accs <- dt2df(lapply(vvv, "[[", "acc"), idcol = FALSE)
     refs <- dt2df(lapply(vvv, "[[", "ref"), idcol = FALSE)
-    list(synonyms = syns, acceptednames = accs, reference = refs)
+    nested_list_df_to_tibbles(list(synonyms = syns, acceptednames = accs, reference = refs))
   }
 }
 

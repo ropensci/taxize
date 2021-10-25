@@ -37,7 +37,7 @@ possible TNRS results. Default: \code{FALSE}}
 \code{\link[rotl:tnrs_match_names]{rotl::tnrs_match_names()}}}
 }
 \value{
-A data frame summarizing the results of the query. The
+A \link[tibble:tibble]{tibble::tibble} summarizing the results of the query. The
 original query output is appended as an attribute to the
 returned object (and can be obtained using
 \code{attr(object, "original_response")}).

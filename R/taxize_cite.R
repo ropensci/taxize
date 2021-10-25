@@ -11,9 +11,9 @@
 #' taxize_cite(fxn='gbif_ping')
 #' taxize_cite(fxn='plantminer')
 #' taxize_cite(fxn='get_natserv_')
-#' taxize_cite(fxn='as.natserv')
+#' taxize_cite(fxn='as_natserv')
 #' taxize_cite(fxn='get_worms')
-#' taxize_cite(fxn='as.worms')
+#' taxize_cite(fxn='as_worms')
 #'
 #' # Functions that use many data sources
 #' taxize_cite(fxn='synonyms')
@@ -76,15 +76,15 @@ data_citations <- function(x){
     itis_taxrank = list(itis = c_itis),
     itis_terms = list(itis = c_itis),
     apg_lookup = list(apg = c_apg),
-    as.bold = list(bold = c_bold),
-    as.eol = list(eol = c_eol),
-    as.gbif = list(gbif = c_gbif),
-    as.natserv = list(natserv = c_natureserve),
-    as.nbn = list(nbn = c_nbn),
-    as.tps = list(tropicos = c_tropicos),
-    as.itis = list(itis = c_itis),
-    as.ncbi = list(ncbi = c_ncbi),
-    as.worms = list(worms = c_worms),
+    as_bold = list(bold = c_bold),
+    as_eol = list(eol = c_eol),
+    as_gbif = list(gbif = c_gbif),
+    as_natserv = list(natserv = c_natureserve),
+    as_nbn = list(nbn = c_nbn),
+    as_tps = list(tropicos = c_tropicos),
+    as_itis = list(itis = c_itis),
+    as_ncbi = list(ncbi = c_ncbi),
+    as_worms = list(worms = c_worms),
     bold_ping = list(bold = c_bold),
     bold_search = list(bold = c_bold),
     cbind.classification = list(none = c_none),

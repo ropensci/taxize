@@ -153,7 +153,7 @@ classification("134717", db = 'natserv')
 classification(c(2704179, 6162875, 8286319, 2441175, 731), db = 'gbif')
 classification(25509881, db = 'tps')
 classification("NBNSYS0000004786", db = 'nbn')
-classification(as.nbn("NBNSYS0000004786"), db = 'nbn')
+classification(as_nbn("NBNSYS0000004786"), db = 'nbn')
 classification(3930798, db = 'tol')
 
 ## works the same if IDs are in class character

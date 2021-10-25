@@ -3,12 +3,12 @@
 \name{get_tps}
 \alias{get_tps}
 \alias{get_tpsid}
-\alias{as.tps}
-\alias{as.tps.tps}
-\alias{as.tps.character}
-\alias{as.tps.list}
-\alias{as.tps.numeric}
-\alias{as.tps.data.frame}
+\alias{as_tps}
+\alias{as_tps.tps}
+\alias{as_tps.character}
+\alias{as_tps.list}
+\alias{as_tps.numeric}
+\alias{as_tps.data.frame}
 \alias{get_tps_}
 \alias{get_tpsid_}
 \title{Get the NameID codes from Tropicos for taxonomic names.}
@@ -27,17 +27,17 @@ get_tps(
 
 get_tpsid(...)
 
-as.tps(x, check = TRUE)
+as_tps(x, check = TRUE)
 
-\method{as.tps}{tps}(x, check = TRUE)
+\method{as_tps}{tps}(x, check = TRUE)
 
-\method{as.tps}{character}(x, check = TRUE)
+\method{as_tps}{character}(x, check = TRUE)
 
-\method{as.tps}{list}(x, check = TRUE)
+\method{as_tps}{list}(x, check = TRUE)
 
-\method{as.tps}{numeric}(x, check = TRUE)
+\method{as_tps}{numeric}(x, check = TRUE)
 
-\method{as.tps}{data.frame}(x, check = TRUE)
+\method{as_tps}{data.frame}(x, check = TRUE)
 
 get_tps_(sci, messages = TRUE, key = NULL, rows = NA, sciname = NULL, ...)
 
@@ -70,10 +70,10 @@ data itself for options. Optional. See \code{Filtering} below.}
 
 \item{...}{Other arguments passed to \code{\link[=tp_search]{tp_search()}}.}
 
-\item{x}{Input to \code{\link[=as.tps]{as.tps()}}}
+\item{x}{Input to \code{\link[=as_tps]{as_tps()}}}
 
 \item{check}{logical; Check if ID matches any existing on the DB, only used in
-\code{\link[=as.tps]{as.tps()}}}
+\code{\link[=as_tps]{as_tps()}}}
 }
 \value{
 A vector of taxonomic identifiers as an S3 class.
@@ -138,22 +138,22 @@ get_tps("Aga", fuzzy = TRUE, parent = "*idae")
 classification(get_tps(sci='Poa annua'))
 
 # Convert a tps without class information to a tps class
-as.tps(get_tps("Pinus contorta")) # already a tps, returns the same
-as.tps(get_tps(c("Chironomus riparius","Pinus contorta"))) # same
-as.tps(24900183) # numeric
-as.tps(c(24900183,50150089,50079838)) # numeric vector, length > 1
-as.tps("24900183") # character
-as.tps(c("24900183","50150089","50079838")) # character vector, length > 1
-as.tps(list("24900183","50150089","50079838")) # list, either numeric or character
+as_tps(get_tps("Pinus contorta")) # already a tps, returns the same
+as_tps(get_tps(c("Chironomus riparius","Pinus contorta"))) # same
+as_tps(24900183) # numeric
+as_tps(c(24900183,50150089,50079838)) # numeric vector, length > 1
+as_tps("24900183") # character
+as_tps(c("24900183","50150089","50079838")) # character vector, length > 1
+as_tps(list("24900183","50150089","50079838")) # list, either numeric or character
 ## dont check, much faster
-as.tps("24900183", check=FALSE)
-as.tps(24900183, check=FALSE)
-as.tps(c("24900183","50150089","50079838"), check=FALSE)
-as.tps(list("24900183","50150089","50079838"), check=FALSE)
+as_tps("24900183", check=FALSE)
+as_tps(24900183, check=FALSE)
+as_tps(c("24900183","50150089","50079838"), check=FALSE)
+as_tps(list("24900183","50150089","50079838"), check=FALSE)
 
-(out <- as.tps(c(24900183,50150089,50079838)))
+(out <- as_tps(c(24900183,50150089,50079838)))
 data.frame(out)
-as.tps( data.frame(out) )
+as_tps( data.frame(out) )
 
 # Get all data back
 get_tps_("Poa annua")

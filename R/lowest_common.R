@@ -17,7 +17,7 @@
 #' @param ... Other arguments passed to [get_itis()], [get_ncbi()],
 #' [get_gbif()], [get_tol()]
 #'
-#' @return NA when no match, or a data.frame with columns
+#' @return NA when no match, or a [tibble::tibble] with columns
 #' * name
 #' * rank
 #' * id
@@ -176,7 +176,7 @@ lc_helper <- function(x, class_list, low_rank = NULL, ...) {
     if (x[1, "rank"] == "no rank") {
       x[1, "rank"] <- next_best_taxon(idc[[1]][1:x_row, ])
     }
-    return(x)
+    return(tibble::as_tibble(x))
   } else {
     valid_ranks <- tolower(ritis::rank_names()$rankname)
     if (!(low_rank %in% valid_ranks)) {
@@ -185,7 +185,7 @@ lc_helper <- function(x, class_list, low_rank = NULL, ...) {
     low_rank_names <- unique(setDF(rbindlist(lapply(idc, function(x)
       x[which(x$rank == low_rank),]))))
     if (NROW(low_rank_names) == 1) {
-      return(low_rank_names)
+      return(tibble::as_tibble(low_rank_names))
     } else {
       return(NA)
     }
@@ -224,8 +224,8 @@ process_lowest_ids <- function(input, db, fxn, ...) {
   g <- tryCatch(as.numeric(as.character(input)), warning = function(e) e)
   if (inherits(g, "condition")) eval(fxn)(input, ...)
   if (is.numeric(g) || is.character(input) && all(grepl("[[:digit:]]", input))) {
-    as_fxn <- switch(db, itis = as.itis, gbif = as.gbif,
-      ncbi = as.ncbi, tol = as.tol)
+    as_fxn <- switch(db, itis = as_itis, gbif = as_gbif,
+      ncbi = as_ncbi, tol = as_tol)
     as_fxn(input, check = FALSE)
   } else {
     eval(fxn)(input, ...)

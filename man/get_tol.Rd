@@ -3,12 +3,12 @@
 \name{get_tol}
 \alias{get_tol}
 \alias{get_tolid}
-\alias{as.tol}
-\alias{as.tol.tol}
-\alias{as.tol.character}
-\alias{as.tol.list}
-\alias{as.tol.numeric}
-\alias{as.tol.data.frame}
+\alias{as_tol}
+\alias{as_tol.tol}
+\alias{as_tol.character}
+\alias{as_tol.list}
+\alias{as_tol.numeric}
+\alias{as_tol.data.frame}
 \alias{get_tol_}
 \alias{get_tolid_}
 \title{Get the OTT id for a search term}
@@ -17,17 +17,17 @@ get_tol(sci, ask = TRUE, messages = TRUE, rows = NA, sciname = NULL, ...)
 
 get_tolid(...)
 
-as.tol(x, check = TRUE)
+as_tol(x, check = TRUE)
 
-\method{as.tol}{tol}(x, check = TRUE)
+\method{as_tol}{tol}(x, check = TRUE)
 
-\method{as.tol}{character}(x, check = TRUE)
+\method{as_tol}{character}(x, check = TRUE)
 
-\method{as.tol}{list}(x, check = TRUE)
+\method{as_tol}{list}(x, check = TRUE)
 
-\method{as.tol}{numeric}(x, check = TRUE)
+\method{as_tol}{numeric}(x, check = TRUE)
 
-\method{as.tol}{data.frame}(x, check = TRUE)
+\method{as_tol}{data.frame}(x, check = TRUE)
 
 get_tol_(sci, messages = TRUE, rows = NA, sciname = NULL)
 
@@ -53,10 +53,10 @@ the ask process.}
 
 \item{...}{Ignored}
 
-\item{x}{Input to \code{as.tol}}
+\item{x}{Input to \code{as_tol}}
 
 \item{check}{logical; Check if ID matches any existing on the DB, only
-used in \code{\link[=as.tol]{as.tol()}}}
+used in \code{\link[=as_tol]{as_tol()}}}
 }
 \value{
 A vector of taxonomic identifiers as an S3 class.
@@ -92,22 +92,22 @@ get_tol("howdy")
 get_tol(c("Chironomus riparius", "howdy"))
 
 # Convert a tol without class information to a tol class
-as.tol(get_tol("Quercus douglasii")) # already a tol, returns the same
-as.tol(get_tol(c("Chironomus riparius","Pinus contorta"))) # same
-as.tol(5907893) # numeric
-as.tol(c(3930798,515712,872577)) # numeric vector, length > 1
-as.tol("3930798") # character
-as.tol(c("3930798","515712","872577")) # character vector, length > 1
-as.tol(list("3930798","515712","872577")) # list, either numeric or character
+as_tol(get_tol("Quercus douglasii")) # already a tol, returns the same
+as_tol(get_tol(c("Chironomus riparius","Pinus contorta"))) # same
+as_tol(5907893) # numeric
+as_tol(c(3930798,515712,872577)) # numeric vector, length > 1
+as_tol("3930798") # character
+as_tol(c("3930798","515712","872577")) # character vector, length > 1
+as_tol(list("3930798","515712","872577")) # list, either numeric or character
 ## dont check, much faster
-as.tol("3930798", check=FALSE)
-as.tol(3930798, check=FALSE)
-as.tol(c("3930798","515712","872577"), check=FALSE)
-as.tol(list("3930798","515712","872577"), check=FALSE)
+as_tol("3930798", check=FALSE)
+as_tol(3930798, check=FALSE)
+as_tol(c("3930798","515712","872577"), check=FALSE)
+as_tol(list("3930798","515712","872577"), check=FALSE)
 
-(out <- as.tol(c(3930798,515712,872577)))
+(out <- as_tol(c(3930798,515712,872577)))
 data.frame(out)
-as.tol( data.frame(out) )
+as_tol( data.frame(out) )
 
 # Get all data back
 get_tol_("Arni")

@@ -10,7 +10,7 @@
 #' If TRUE and more than one pow is found for teh species, the user is 
 #' asked for input. If FALSE NA is returned for multiple matches.
 #' @param messages logical; should progress be printed?
-#' @param x For `get_pow()`: deprecated, see `sci_com`. For `as.pow`, various,
+#' @param x For `get_pow()`: deprecated, see `sci_com`. For `as_pow`, various,
 #' see examples
 #' @param ... Curl options passed on to [crul::HttpClient]
 #' @param rows numeric; Any number from 1 to infinity. If the default NA, 
@@ -25,7 +25,7 @@
 #' Though note that some data sources use atypical ranks, so inspect the data
 #' itself for options. Optional. See `Filtering` below.
 #' @param check logical; Check if ID matches any existing on the DB, only 
-#' used in [as.pow()]
+#' used in [as_pow()]
 #' @template getreturn
 #' 
 #' @family pow
@@ -72,21 +72,21 @@
 #' # Convert a pow without class information to a pow class
 #' z <- get_pow("Helianthus annuus", accepted = TRUE, rank_filter = "species")
 #' # already a pow, returns the same
-#' as.pow(z)
-#' as.pow("urn:lsid:ipni.org:names:119003-2")
+#' as_pow(z)
+#' as_pow("urn:lsid:ipni.org:names:119003-2")
 #' # character vector, length > 1
 #' ids <- c("urn:lsid:ipni.org:names:119003-2","urn:lsid:ipni.org:names:328247-2")
-#' as.pow(ids)
+#' as_pow(ids)
 #' # list, with character strings
-#' as.pow(as.list(ids)) 
+#' as_pow(as.list(ids)) 
 #' ## dont check, much faster
-#' as.pow("urn:lsid:ipni.org:names:119003-2", check=FALSE)
-#' as.pow(ids, check=FALSE)
-#' as.pow(as.list(ids), check=FALSE)
+#' as_pow("urn:lsid:ipni.org:names:119003-2", check=FALSE)
+#' as_pow(ids, check=FALSE)
+#' as_pow(as.list(ids), check=FALSE)
 #'
-#' (out <- as.pow(ids))
+#' (out <- as_pow(ids))
 #' data.frame(out)
-#' as.pow( data.frame(out) )
+#' as_pow( data.frame(out) )
 #'
 #' # Get all data back
 #' get_pow_("Quercus", rows=1:5)
@@ -242,23 +242,23 @@ get_pow <- function(sci_com, accepted = FALSE, ask = TRUE, messages = TRUE,
 
 #' @export
 #' @rdname get_pow
-as.pow <- function(x, check=TRUE) UseMethod("as.pow")
+as_pow <- function(x, check=TRUE) UseMethod("as_pow")
 
 #' @export
 #' @rdname get_pow
-as.pow.pow <- function(x, check=TRUE) x
+as_pow.pow <- function(x, check=TRUE) x
 
 #' @export
 #' @rdname get_pow
-as.pow.character <- function(x, check=TRUE) if(length(x) == 1) make_pow(x, check) else collapse(x, make_pow, "pow", check=check)
+as_pow.character <- function(x, check=TRUE) if(length(x) == 1) make_pow(x, check) else collapse(x, make_pow, "pow", check=check)
 
 #' @export
 #' @rdname get_pow
-as.pow.list <- function(x, check=TRUE) if(length(x) == 1) make_pow(x, check) else collapse(x, make_pow, "pow", check=check)
+as_pow.list <- function(x, check=TRUE) if(length(x) == 1) make_pow(x, check) else collapse(x, make_pow, "pow", check=check)
 
 #' @export
 #' @rdname get_pow
-as.pow.data.frame <- function(x, check=TRUE) as_txid_df(x, check)
+as_pow.data.frame <- function(x, check=TRUE) as_txid_df(x, check)
 
 make_pow <- function(x, check=TRUE) {
   make_generic(x, 'http://powo.science.kew.org/taxon/%s', "pow", check)

@@ -8,7 +8,7 @@
 #' 		repositories for the name string (takes 0, or 1 \[default\]).
 #' @param ... Curl options passed on to [crul::verb-GET]
 #' @author Scott Chamberlain
-#' @return Data.frame of results.
+#' @return A [tibble::tibble] of results.
 #' @seealso [gnr_datasources()], [gni_search()].
 #' @keywords globalnamesindex names taxonomy
 #' @examples \dontrun{
@@ -42,9 +42,9 @@ gni_details <- function(id, all_records = 1, ...) {
 				checknull(x$records[[1]]$record_hash),
 				checknull(x$records[[1]]$local_id),
 				checknull(x$records[[1]]$nomenclatural_code_id) )))), idcol = FALSE)
-	stats::setNames(outdf, c(
+	tibble::as_tibble(stats::setNames(outdf, c(
 	  "created_at","updated_at","global_id","url","kingdom_id",
 	  "original_name_string","id","name_rank_id","name_index_id","record_hash",
 	  "local_id","nomenclatural_code_id"
-	))
+	)))
 }

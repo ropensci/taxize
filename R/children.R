@@ -43,7 +43,7 @@
 #' ## works with numeric if as character as well
 #' children(161994, db = "itis")
 #' children(88899, db = "bold")
-#' children(as.bold(88899))
+#' children(as_bold(88899))
 #'
 #' # Plug in taxon names
 #' children("Salmo", db = 'itis')
@@ -97,7 +97,7 @@ children.default <- function(sci_id, db = NULL, rows = NA, x = NULL, ...) {
     ncbi = {
       if (all(grepl("^[[:digit:]]*$", sci_id))) {
         id <- sci_id
-        id <- as.ncbi(id, FALSE)
+        id <- as_ncbi(id, FALSE)
         stats::setNames(children(id, ...), txidac(as.character(sci_id)))
       } else {
         out <- ncbi_children(name = sci_id, ...)
@@ -158,7 +158,7 @@ process_children_ids <- function(input, db, fxn, ...){
   g <- tryCatch(as.numeric(as.character(input)), warning = function(e) e)
   if (inherits(g, "condition")) return(eval(fxn)(input, ...))
   if (is.numeric(g) || is.character(input) && all(grepl("[[:digit:]]", input))) {
-    as_fxn <- switch(db, itis = as.itis, worms = as.worms, bold = as.bold)
+    as_fxn <- switch(db, itis = as_itis, worms = as_worms, bold = as_bold)
     as_fxn(input, check = FALSE)
   } else {
     eval(fxn)(input, ...)

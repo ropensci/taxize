@@ -27,7 +27,7 @@ Website system of flowering plant classification.
 }
 \details{
 This dataset is from Version 14, incorporated on 2020-06-03,
-generated using \code{\link[=apgOrders]{apgOrders()}}
+generated using \code{\link[=get_apg_orders]{get_apg_orders()}}
 
 (update script in inst/ignore/apg_script.R)
 }

@@ -392,3 +392,22 @@ checkpkg <- function(x) {
     invisible(TRUE)
   }
 }
+
+# Adapted from https://www.py4u.net/discuss/867198
+recurse <- function (nested_list, func) {
+  if (class(nested_list) == "data.frame" || ! is.list(nested_list)) {
+    return(func(nested_list))
+  } else {
+    return(lapply(nested_list, recurse, func))
+  }
+}
+
+nested_list_df_to_tibbles <- function(nested_list) {
+  recurse(nested_list, function(element) {
+    if (is.data.frame(element)) {
+      return(tibble::as_tibble(element))
+    } else {
+      return(element)
+    }
+  })
+}

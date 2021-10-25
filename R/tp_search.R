@@ -15,7 +15,7 @@
 #' @param name Deprecated, see `sci`
 #' @param commonname Deprecated, see `com`
 #' @param ... Further args passed on to [crul::HttpClient]
-#' @return List or dataframe.
+#' @return List or [tibble::tibble].
 #' @references http://services.tropicos.org/help?method=SearchNameXml
 #' @details More details on the `name` parameter: Tropicos will fail
 #' if you include a period (`.`) in your name string, e.g., `var.`,
@@ -57,6 +57,7 @@ tp_search <- function(sci=NULL, com=NULL, nameid=NULL, orderby=NULL,
   out <- jsonlite::fromJSON(tt, FALSE)
   tmp <- dt2df(lapply(out, data.frame, stringsAsFactors = FALSE), idcol = FALSE)
   stats::setNames(tmp, tolower(names(tmp)))
+  tibble::as_tibble(tmp)
 }
 
 subsp_ranks <- c('sp', 'ssp', 'subsp', 'subspecies', 'var', 'varietas', 'fo', 'f', 'forma')

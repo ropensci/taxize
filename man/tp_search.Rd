@@ -47,7 +47,7 @@ for help on authentication}
 \item{...}{Further args passed on to \link[crul:HttpClient]{crul::HttpClient}}
 }
 \value{
-List or dataframe.
+List or \link[tibble:tibble]{tibble::tibble}.
 }
 \description{
 Search Tropicos by scientific name, common name, or Tropicos ID.

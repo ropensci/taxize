@@ -22,9 +22,9 @@ taxize_cite(fxn='tp_classification')
 taxize_cite(fxn='gbif_ping')
 taxize_cite(fxn='plantminer')
 taxize_cite(fxn='get_natserv_')
-taxize_cite(fxn='as.natserv')
+taxize_cite(fxn='as_natserv')
 taxize_cite(fxn='get_worms')
-taxize_cite(fxn='as.worms')
+taxize_cite(fxn='as_worms')
 
 # Functions that use many data sources
 taxize_cite(fxn='synonyms')

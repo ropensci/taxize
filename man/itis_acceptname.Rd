@@ -12,7 +12,7 @@ itis_acceptname(searchtsn, ...)
 \item{...}{Curl options passed on to\link[crul:verb-GET]{crul::verb-GET}}
 }
 \value{
-data.frame with with row number equal to input vector length, and
+A \link[tibble:tibble]{tibble::tibble} with with row number equal to input vector length, and
 with three columns:
 \itemize{
 \item submittedtsn (numeric) - The submitted TSN

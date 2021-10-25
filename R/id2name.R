@@ -13,7 +13,7 @@
 #' [itis_getrecord], or other internal functions.
 #' See those functions for what parameters can be passed on.
 #'
-#' @return A named list of data.frames, named by the input taxonomic ids
+#' @return A named list of [tibble::tibble]s, named by the input taxonomic ids
 #' 
 #' @section HTTP version for NCBI requests:
 #' We hard code `http_version = 2L` to use HTTP/1.1 in HTTP requests to
@@ -27,7 +27,7 @@
 #' id2name(515698, db = "tol")
 #' # get NCBI ID and pass to classification()
 #' x <- id2name(515698, db = "tol")
-#' classification(as.ncbi(x[[1]]$tax_sources_ncbi))
+#' classification(as_ncbi(x[[1]]$tax_sources_ncbi))
 #'
 #' # NCBI
 #' id2name(315567, db = "ncbi")
@@ -62,9 +62,9 @@ id2name.default <- function(id, db = NULL, x = NULL, ...) {
 id2name_sources <- c('tol', 'itis', 'ncbi', 'worms', 'gbif', 'bold')
 
 process_idn_ids <- function(input, db) {
-  as_fxn <- switch(db, tol = as.tol, itis = as.itis, ncbi = as.ncbi,
-    worms = as.worms, gbif = as.gbif,
-    bold = as.bold)
+  as_fxn <- switch(db, tol = as_tol, itis = as_itis, ncbi = as_ncbi,
+    worms = as_worms, gbif = as_gbif,
+    bold = as_bold)
   as_fxn(input, check = FALSE)
 }
 
@@ -84,6 +84,7 @@ id2name_factory <- function(db) {
       if (is.na(y)) NA_character_ else eval(fxn)(y)
     }
     out <- lapply(id, fun)
+    out <- lapply(out, tibble::as_tibble)
     names(out) <- id
     class(out) <- 'id2name'
     attr(out, 'db') <- db
@@ -103,6 +104,7 @@ id2name_tol <- function(id, ...) {
     if (is.na(y)) NA_character_ else tol_id2name(as.numeric(y))
   }
   out <- lapply(id, fun, ...)
+  out <- lapply(out, tibble::as_tibble)
   names(out) <- id
   class(out) <- 'id2name'
   attr(out, 'db') <- 'tol'

@@ -41,7 +41,7 @@ taxonomic id of any of the acceptable classes: tsn.}
 \item{x}{Deprecated, see \code{sci_id}}
 }
 \value{
-A named list of data.frames with the upstream names of every
+A named list of \link[tibble:tibble]{tibble::tibble}s with the upstream names of every
 supplied taxa. You get an NA if there was no match in the database.
 }
 \description{

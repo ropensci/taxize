@@ -8,8 +8,8 @@
 #' [rredlist::rredlist-package] for help on authenticating with
 #' IUCN Redlist
 #' @param check (logical) Check if ID matches any existing on the DB, only
-#' used in [as.iucn()]
-#' @param x For `get_iucn()`: Deprecated, see `sci`. For `as.iucn()`, various,
+#' used in [as_iucn()]
+#' @param x For `get_iucn()`: Deprecated, see `sci`. For `as_iucn()`, various,
 #' see examples
 #' @param ... Ignored
 #'
@@ -49,11 +49,11 @@
 #' get_iucn(c("Panthera uncia", "Branta bernicla"))
 #'
 #' # as coercion
-#' as.iucn(22732)
-#' as.iucn("22732")
-#' (res <- as.iucn(c(22679946, 22732, 22679935)))
+#' as_iucn(22732)
+#' as_iucn("22732")
+#' (res <- as_iucn(c(22679946, 22732, 22679935)))
 #' data.frame(res)
-#' as.iucn(data.frame(res))
+#' as_iucn(data.frame(res))
 #' }
 get_iucn <- function(sci, messages = TRUE, key = NULL, x = NULL, ...) {
 
@@ -126,17 +126,17 @@ get_iucn <- function(sci, messages = TRUE, key = NULL, x = NULL, ...) {
 
 #' @export
 #' @rdname get_iucn
-as.iucn <- function(x, check = TRUE, key = NULL) {
-  UseMethod("as.iucn")
+as_iucn <- function(x, check = TRUE, key = NULL) {
+  UseMethod("as_iucn")
 }
 
 #' @export
 #' @rdname get_iucn
-as.iucn.iucn <- function(x, check = TRUE, key = NULL) x
+as_iucn.iucn <- function(x, check = TRUE, key = NULL) x
 
 #' @export
 #' @rdname get_iucn
-as.iucn.character <- function(x, check = TRUE, key = NULL) {
+as_iucn.character <- function(x, check = TRUE, key = NULL) {
   if (length(x) == 1) {
     make_iucn(x, check, key = key)
   } else {
@@ -146,7 +146,7 @@ as.iucn.character <- function(x, check = TRUE, key = NULL) {
 
 #' @export
 #' @rdname get_iucn
-as.iucn.list <- function(x, check = TRUE, key = NULL) {
+as_iucn.list <- function(x, check = TRUE, key = NULL) {
   if (length(x) == 1) {
     make_iucn(x, check)
   } else {
@@ -156,13 +156,13 @@ as.iucn.list <- function(x, check = TRUE, key = NULL) {
 
 #' @export
 #' @rdname get_iucn
-as.iucn.numeric <- function(x, check=TRUE, key = NULL) {
-  as.iucn(as.character(x), check, key = key)
+as_iucn.numeric <- function(x, check=TRUE, key = NULL) {
+  as_iucn(as.character(x), check, key = key)
 }
 
 #' @export
 #' @rdname get_iucn
-as.iucn.data.frame <- function(x, check=TRUE, key = NULL) as_txid_df(x, check)
+as_iucn.data.frame <- function(x, check=TRUE, key = NULL) as_txid_df(x, check)
 
 make_iucn <- function(x, check = TRUE, key = NULL) {
   make_iucn_generic(x, uu = iucn_base_url, clz = "iucn", check, key)

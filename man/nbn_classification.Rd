@@ -13,7 +13,7 @@ nbn_classification(id, ...)
 \item{...}{Further args passed on to \link[crul:verb-GET]{crul::verb-GET}}
 }
 \value{
-A data.frame
+A \link[tibble:tibble]{tibble::tibble}
 }
 \description{
 Search UK National Biodiversity Network database for

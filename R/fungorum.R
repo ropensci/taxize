@@ -13,7 +13,7 @@
 #' @param ... Curl options passed on to [crul::verb-GET]
 #' @references http://www.indexfungorum.org/, API docs:
 #' http://www.indexfungorum.org/ixfwebservice/fungus.asmx
-#' @return A `data.frame`, or `NULL` if no results
+#' @return A [tibble::tibble], or `NULL` if no results
 #' @examples \dontrun{
 #' # NameSearch
 #' fg_name_search(q = "Gymnopus", limit = 2, verbose = TRUE)
@@ -75,9 +75,11 @@ fg_name_full_by_lsid <- function(lsid, ...) {
 fg_all_updated_names <- function(date, ...) {
   tmp <- fung_GET("AllUpdatedNames", list(startDate = date), ...)
   xml <- fung_parse(tmp)
-  (x <- setDF(rbindlist(lapply(xml, function(z) {
-    vapply(xml_children(z), function(w) as.list(xml_text(w)), list(1))
-  }))))
+  tibble::tibble(
+    FungusNameLSID = unlist(lapply(xml, function(z) {
+      vapply(xml_children(z), function(w) as.list(xml_text(w)), list(1))
+    }))
+  )
 }
 
 #' @export
@@ -90,7 +92,10 @@ fg_deprecated_names <- function(date, ...) {
       vapply(xml_children(z), function(w) as.list(xml_text(w)), list(1))
     })
   ))
-  if (NROW(df) > 0) setNames(df, c('fungusnameoldlsid', 'fungusnamenewlsid')) else df
+  if (NROW(df) > 0) {
+    df <- setNames(df, c('fungusnameoldlsid', 'fungusnamenewlsid'))
+  }
+  tibble::as_tibble(df)
 }
 
 
@@ -112,14 +117,14 @@ fung_parse <- function(x) {
 }
 
 fg_df <- function(x) {
-  (x <- setDF(rbindlist(
+  (x <- tibble::as_tibble(setDF(rbindlist(
     lapply(x, function(z) {
       data.frame(
         lapply(xml_children(z), function(w) as.list(setNames(xml_text(w), gsub("x0020_", "", tolower(xml_name(w)))))),
         stringsAsFactors = FALSE
       )
     }), use.names = TRUE, fill = TRUE
-  )))
+  ))))
 }
 
 by_name_search <- function(path, q, anywhere, limit, ...) {

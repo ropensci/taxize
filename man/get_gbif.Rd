@@ -3,12 +3,12 @@
 \name{get_gbif}
 \alias{get_gbif}
 \alias{get_gbifid}
-\alias{as.gbif}
-\alias{as.gbif.txid}
-\alias{as.gbif.character}
-\alias{as.gbif.list}
-\alias{as.gbif.numeric}
-\alias{as.gbif.data.frame}
+\alias{as_gbif}
+\alias{as_gbif.txid}
+\alias{as_gbif.character}
+\alias{as_gbif.list}
+\alias{as_gbif.numeric}
+\alias{as_gbif.data.frame}
 \alias{get_gbif_}
 \alias{get_gbifid_}
 \title{Get the GBIF backbone taxon ID from taxonomic names.}
@@ -30,17 +30,17 @@ get_gbif(
 
 get_gbifid(...)
 
-as.gbif(x, check = FALSE)
+as_gbif(x, check = FALSE)
 
-\method{as.gbif}{txid}(x, check = FALSE)
+\method{as_gbif}{txid}(x, check = FALSE)
 
-\method{as.gbif}{character}(x, check = TRUE)
+\method{as_gbif}{character}(x, check = TRUE)
 
-\method{as.gbif}{list}(x, check = TRUE)
+\method{as_gbif}{list}(x, check = TRUE)
 
-\method{as.gbif}{numeric}(x, check = TRUE)
+\method{as_gbif}{numeric}(x, check = TRUE)
 
-\method{as.gbif}{data.frame}(x, check = TRUE)
+\method{as_gbif}{data.frame}(x, check = TRUE)
 
 get_gbif_(sci, messages = TRUE, rows = NA, method = "backbone", sciname = NULL)
 
@@ -80,10 +80,10 @@ data itself for options. Optional. See \code{Filtering} below.}
 
 \item{...}{Ignored}
 
-\item{x}{Input to \code{\link[=as.gbif]{as.gbif()}}}
+\item{x}{Input to \code{\link[=as_gbif]{as_gbif()}}}
 
 \item{check}{logical; Check if ID matches any existing on the DB, only used in
-\code{\link[=as.gbif]{as.gbif()}}}
+\code{\link[=as_gbif]{as_gbif()}}}
 }
 \value{
 A vector of taxonomic identifiers as an S3 class.
@@ -198,23 +198,23 @@ get_gbif("A*", method = "lookup", order = "*tera")
 get_gbif("A*", method = "lookup", order = "*ales")
 
 # Convert a gbifid without class information to a gbifid class
-as.gbif(get_gbif("Poa annua")) # already a gbifid, returns the same
-as.gbif(get_gbif(c("Poa annua","Puma concolor"))) # same
-as.gbif(2704179) # numeric
-as.gbif(c(2704179,2435099,3171445)) # numeric vector, length > 1
-as.gbif("2704179") # character
-as.gbif(c("2704179","2435099","3171445")) # character vector, length > 1
-as.gbif(list("2704179","2435099","3171445")) # list, either numeric or character
+as_gbif(get_gbif("Poa annua")) # already a gbifid, returns the same
+as_gbif(get_gbif(c("Poa annua","Puma concolor"))) # same
+as_gbif(2704179) # numeric
+as_gbif(c(2704179,2435099,3171445)) # numeric vector, length > 1
+as_gbif("2704179") # character
+as_gbif(c("2704179","2435099","3171445")) # character vector, length > 1
+as_gbif(list("2704179","2435099","3171445")) # list, either numeric or character
 ## dont check, much faster
-as.gbif("2704179", check=FALSE)
-as.gbif(2704179, check=FALSE)
-as.gbif(2704179, check=FALSE)
-as.gbif(c("2704179","2435099","3171445"), check=FALSE)
-as.gbif(list("2704179","2435099","3171445"), check=FALSE)
+as_gbif("2704179", check=FALSE)
+as_gbif(2704179, check=FALSE)
+as_gbif(2704179, check=FALSE)
+as_gbif(c("2704179","2435099","3171445"), check=FALSE)
+as_gbif(list("2704179","2435099","3171445"), check=FALSE)
 
-(out <- as.gbif(c(2704179,2435099,3171445)))
+(out <- as_gbif(c(2704179,2435099,3171445)))
 data.frame(out)
-as.gbif( data.frame(out) )
+as_gbif( data.frame(out) )
 
 # Get all data back
 get_gbif_("Puma concolor")

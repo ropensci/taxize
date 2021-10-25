@@ -15,7 +15,7 @@ for help on authentication}
 \item{...}{Curl options passed on to \link[crul:HttpClient]{crul::HttpClient}}
 }
 \value{
-List or dataframe.
+List or \link[tibble:tibble]{tibble::tibble}.
 }
 \description{
 Return all reference records for for a taxon name with a given id.

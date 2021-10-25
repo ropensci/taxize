@@ -31,7 +31,7 @@
 #' @param search_term Deprecated, see `sci`
 #' @param ... Curl options passed on to [crul::verb-GET]
 #' @author Scott Chamberlain
-#' @return data.frame of results.
+#' @return A [tibble::tibble] of results.
 #' @seealso [gnr_datasources()], [gni_search()]
 #' @keywords globalnamesindex names taxonomy
 #' @references http://gni.globalnames.org/
@@ -74,10 +74,9 @@ gni_search <- function(sci, per_page = NULL, page = NULL,
 	  }
 
     if (parse_names) {
-      data.frame(df, gni_parse(as.character(df$name)),
+      df <- data.frame(df, gni_parse(as.character(df$name)),
         stringsAsFactors = FALSE)
-    } else {
-      df
     }
+	  return(tibble::as_tibble(df))
 	}
 }

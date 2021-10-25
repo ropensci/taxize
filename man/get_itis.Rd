@@ -3,12 +3,12 @@
 \name{get_itis}
 \alias{get_itis}
 \alias{get_tsn}
-\alias{as.itis}
-\alias{as.itis.itis}
-\alias{as.itis.character}
-\alias{as.itis.list}
-\alias{as.itis.numeric}
-\alias{as.itis.data.frame}
+\alias{as_itis}
+\alias{as_itis.itis}
+\alias{as_itis.character}
+\alias{as_itis.list}
+\alias{as_itis.numeric}
+\alias{as_itis.data.frame}
 \alias{get_itis_}
 \alias{get_tsn_}
 \title{Get the TSN code for a search term.}
@@ -26,17 +26,17 @@ get_itis(
 
 get_tsn(...)
 
-as.itis(x, check = TRUE)
+as_itis(x, check = TRUE)
 
-\method{as.itis}{itis}(x, check = TRUE)
+\method{as_itis}{itis}(x, check = TRUE)
 
-\method{as.itis}{character}(x, check = TRUE)
+\method{as_itis}{character}(x, check = TRUE)
 
-\method{as.itis}{list}(x, check = TRUE)
+\method{as_itis}{list}(x, check = TRUE)
 
-\method{as.itis}{numeric}(x, check = TRUE)
+\method{as_itis}{numeric}(x, check = TRUE)
 
-\method{as.itis}{data.frame}(x, check = TRUE)
+\method{as_itis}{data.frame}(x, check = TRUE)
 
 get_itis_(
   sci_com,
@@ -77,10 +77,10 @@ data that you are presented during the ask process.}
 
 \item{...}{Ignored}
 
-\item{x}{Input to as.itis}
+\item{x}{Input to as_itis}
 
 \item{check}{logical; Check if ID matches any existing on the DB, only
-used in \code{\link[=as.itis]{as.itis()}}}
+used in \code{\link[=as_itis]{as_itis()}}}
 }
 \value{
 A vector of taxonomic identifiers as an S3 class.
@@ -118,22 +118,22 @@ get_itis(c("Chironomus riparius", "howdy"))
 get_itis("black bear", searchtype="common")
 
 # Convert a tsn without class information to a itis class
-as.itis(get_itis("Quercus douglasii")) # already a itis, returns the same
-as.itis(get_itis(c("Chironomus riparius","Pinus contorta"))) # same
-as.itis(19322) # numeric
-as.itis(c(19322,129313,506198)) # numeric vector, length > 1
-as.itis("19322") # character
-as.itis(c("19322","129313","506198")) # character vector, length > 1
-as.itis(list("19322","129313","506198")) # list, either numeric or character
+as_itis(get_itis("Quercus douglasii")) # already a itis, returns the same
+as_itis(get_itis(c("Chironomus riparius","Pinus contorta"))) # same
+as_itis(19322) # numeric
+as_itis(c(19322,129313,506198)) # numeric vector, length > 1
+as_itis("19322") # character
+as_itis(c("19322","129313","506198")) # character vector, length > 1
+as_itis(list("19322","129313","506198")) # list, either numeric or character
 ## dont check, much faster
-as.itis("19322", check=FALSE)
-as.itis(19322, check=FALSE)
-as.itis(c("19322","129313","506198"), check=FALSE)
-as.itis(list("19322","129313","506198"), check=FALSE)
+as_itis("19322", check=FALSE)
+as_itis(19322, check=FALSE)
+as_itis(c("19322","129313","506198"), check=FALSE)
+as_itis(list("19322","129313","506198"), check=FALSE)
 
-(out <- as.itis(c(19322,129313,506198)))
+(out <- as_itis(c(19322,129313,506198)))
 data.frame(out)
-as.itis( data.frame(out) )
+as_itis( data.frame(out) )
 
 # Get all data back
 get_itis_("Arni")

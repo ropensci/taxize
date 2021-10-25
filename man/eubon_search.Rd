@@ -73,6 +73,9 @@ search modes are expected to return only one record per check list}
 
 \item{...}{Curl options passed on to \link[crul:verb-GET]{crul::verb-GET}}
 }
+\value{
+a \link[tibble:tibble]{tibble::tibble}
+}
 \description{
 EUBON taxonomy search
 }

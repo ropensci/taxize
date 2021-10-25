@@ -16,7 +16,7 @@
 #' results. If this parameter is true, these quasi-taxa are allowed as
 #' possible TNRS results. Default: `FALSE`
 #'
-#' @return A data frame summarizing the results of the query. The
+#' @return A [tibble::tibble] summarizing the results of the query. The
 #' original query output is appended as an attribute to the
 #' returned object (and can be obtained using
 #' `attr(object, "original_response")`).
@@ -43,9 +43,9 @@
 tol_resolve <- function(names = NULL, context_name = NULL,
   do_approximate_matching = TRUE, ids = NULL, include_suppressed = FALSE, ...) {
 
-  rotl::tnrs_match_names(names = names, context_name = context_name,
+  tibble::as_tibble(rotl::tnrs_match_names(names = names, context_name = context_name,
     do_approximate_matching = do_approximate_matching, ids = ids, 
-    include_suppressed = include_suppressed, ...)
+    include_suppressed = include_suppressed, ...))
 }
 
 tol_tx_resolve <- function(x, ...) {

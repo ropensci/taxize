@@ -10,7 +10,7 @@ tpl_families(...)
 \item{...}{(list) Curl options passed on to \link[crul:verb-GET]{crul::verb-GET}}
 }
 \value{
-Returns a \code{data.frame} including the names of all families
+Returns a \link[tibble:tibble]{tibble::tibble} including the names of all families
 indexed by The Plant List, and the major groups into which they fall
 (i.e. Angiosperms, Gymnosperms, Bryophytes and Pteridophytes).
 }
@@ -25,7 +25,7 @@ Requires an internet connection in order to connect to
 \dontrun{
 # Get a data.frame of plant families, with the group name 
 # (Angiosperms, etc.)
-head(tpl_families())
+tpl_families()
 }
 }
 \seealso{

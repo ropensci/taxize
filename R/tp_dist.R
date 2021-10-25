@@ -5,7 +5,7 @@
 #' @param key Your Tropicos API key; See [taxize-authentication] 
 #' for help on authentication
 #' @param ... Curl options passed on to [crul::HttpClient]
-#' @return List of two data.frame's, one named "location", and one "reference".
+#' @return List of two [tibble::tibble]s, one named "location", and one "reference".
 #' @references http://services.tropicos.org/help?method=GetNameDistributionsXml
 #'
 #' @examples \dontrun{
@@ -34,7 +34,7 @@ tp_dist <- function(id, key=NULL, ...) {
   refs <- dt2df(lapply(out, getdata, which = "Reference"), idcol = FALSE)
   names(refs) <- tolower(names(refs))
 
-  list(location = locs, reference = refs)
+  nested_list_df_to_tibbles(list(location = locs, reference = refs))
 }
 
 #' Return all distribution records for for a taxon name with a given id.

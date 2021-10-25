@@ -3,12 +3,12 @@
 \name{get_bold}
 \alias{get_bold}
 \alias{get_boldid}
-\alias{as.bold}
-\alias{as.bold.bold}
-\alias{as.bold.character}
-\alias{as.bold.list}
-\alias{as.bold.numeric}
-\alias{as.bold.data.frame}
+\alias{as_bold}
+\alias{as_bold.bold}
+\alias{as_bold.character}
+\alias{as_bold.list}
+\alias{as_bold.numeric}
+\alias{as_bold.data.frame}
 \alias{get_bold_}
 \alias{get_boldid_}
 \title{Get the BOLD (Barcode of Life) code for a search term.}
@@ -30,17 +30,17 @@ get_bold(
 
 get_boldid(...)
 
-as.bold(x, check = TRUE)
+as_bold(x, check = TRUE)
 
-\method{as.bold}{bold}(x, check = TRUE)
+\method{as_bold}{bold}(x, check = TRUE)
 
-\method{as.bold}{character}(x, check = TRUE)
+\method{as_bold}{character}(x, check = TRUE)
 
-\method{as.bold}{list}(x, check = TRUE)
+\method{as_bold}{list}(x, check = TRUE)
 
-\method{as.bold}{numeric}(x, check = TRUE)
+\method{as_bold}{numeric}(x, check = TRUE)
 
-\method{as.bold}{data.frame}(x, check = TRUE)
+\method{as_bold}{data.frame}(x, check = TRUE)
 
 get_bold_(
   sci,
@@ -92,10 +92,10 @@ taxon). Optional. See \code{Filtering} below.}
 
 \item{...}{Curl options passed on to \code{\link[crul:verb-GET]{crul::verb-GET}}}
 
-\item{x}{Input to \code{\link[=as.bold]{as.bold()}}}
+\item{x}{Input to \code{\link[=as_bold]{as_bold()}}}
 
 \item{check}{logical; Check if ID matches any existing on the DB, only used in
-\code{\link[=as.bold]{as.bold()}}}
+\code{\link[=as_bold]{as_bold()}}}
 }
 \value{
 A vector of taxonomic identifiers as an S3 class.
@@ -165,22 +165,22 @@ get_bold("Satyrium", division = "anim")
 get_bold("Aga", fuzzy = TRUE, parent = "*idae")
 
 # Convert a bold without class information to a bold class
-as.bold(get_bold("Agapostemon")) # already a bold, returns the same
-as.bold(get_bold(c("Agapostemon","Quercus douglasii"))) # same
-as.bold(1973) # numeric
-as.bold(c(1973,101009,98597)) # numeric vector, length > 1
-as.bold("1973") # character
-as.bold(c("1973","101009","98597")) # character vector, length > 1
-as.bold(list("1973","101009","98597")) # list, either numeric or character
+as_bold(get_bold("Agapostemon")) # already a bold, returns the same
+as_bold(get_bold(c("Agapostemon","Quercus douglasii"))) # same
+as_bold(1973) # numeric
+as_bold(c(1973,101009,98597)) # numeric vector, length > 1
+as_bold("1973") # character
+as_bold(c("1973","101009","98597")) # character vector, length > 1
+as_bold(list("1973","101009","98597")) # list, either numeric or character
 ## dont check, much faster
-as.bold("1973", check=FALSE)
-as.bold(1973, check=FALSE)
-as.bold(c("1973","101009","98597"), check=FALSE)
-as.bold(list("1973","101009","98597"), check=FALSE)
+as_bold("1973", check=FALSE)
+as_bold(1973, check=FALSE)
+as_bold(c("1973","101009","98597"), check=FALSE)
+as_bold(list("1973","101009","98597"), check=FALSE)
 
-(out <- as.bold(c(1973,101009,98597)))
+(out <- as_bold(c(1973,101009,98597)))
 data.frame(out)
-as.bold( data.frame(out) )
+as_bold( data.frame(out) )
 
 # Get all data back
 get_bold_("Osmia", fuzzy=TRUE, rows=1:5)

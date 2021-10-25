@@ -12,7 +12,7 @@ gbif_parse(scientificname, ...)
 \item{...}{Further args passed on to \link[crul:verb-POST]{crul::verb-POST}}
 }
 \value{
-A \code{data.frame} containing fields extracted from parsed
+A \link[tibble:tibble]{tibble::tibble} containing fields extracted from parsed
 taxon names. Fields returned are the union of fields extracted from
 all species names in \code{scientificname}.
 }

@@ -17,7 +17,7 @@
 #' 0 ms (wait for ever)
 #' @param ... Curl options passed on to [crul::verb-GET]
 #' @references https://cybertaxonomy.eu/eu-bon/utis/1.3/doc.html
-#' @return a data.frame or an empty list if no results found
+#' @return a [tibble::tibble] or an empty list if no results found
 #' @note There is no pagination in this method, so you may or may not be
 #' getting all the results for a search. Sorry, out of our control
 #' @family eubon-methods
@@ -34,5 +34,5 @@ eubon_children <- function(id, providers = NULL, timeout = 0, ...) {
   res <- cli$get(query = args)
   eubon_error(res)
   tmp <- jsonlite::fromJSON(res$parse("UTF-8"), TRUE, flatten = TRUE)
-  tmp$query$response[[1]]
+  tibble::as_tibble(tmp$query$response[[1]])
 }

@@ -18,9 +18,9 @@
 #' data itself for options. Optional. See `Filtering` below.
 #' @param sciname Deprecated, see `sci`
 #' @param ... Other arguments passed to [tp_search()].
-#' @param x Input to [as.tps()]
+#' @param x Input to [as_tps()]
 #' @param check logical; Check if ID matches any existing on the DB, only used in
-#' [as.tps()]
+#' [as_tps()]
 #' @template getreturn
 #'
 #' @section Filtering:
@@ -72,22 +72,22 @@
 #' classification(get_tps(sci='Poa annua'))
 #'
 #' # Convert a tps without class information to a tps class
-#' as.tps(get_tps("Pinus contorta")) # already a tps, returns the same
-#' as.tps(get_tps(c("Chironomus riparius","Pinus contorta"))) # same
-#' as.tps(24900183) # numeric
-#' as.tps(c(24900183,50150089,50079838)) # numeric vector, length > 1
-#' as.tps("24900183") # character
-#' as.tps(c("24900183","50150089","50079838")) # character vector, length > 1
-#' as.tps(list("24900183","50150089","50079838")) # list, either numeric or character
+#' as_tps(get_tps("Pinus contorta")) # already a tps, returns the same
+#' as_tps(get_tps(c("Chironomus riparius","Pinus contorta"))) # same
+#' as_tps(24900183) # numeric
+#' as_tps(c(24900183,50150089,50079838)) # numeric vector, length > 1
+#' as_tps("24900183") # character
+#' as_tps(c("24900183","50150089","50079838")) # character vector, length > 1
+#' as_tps(list("24900183","50150089","50079838")) # list, either numeric or character
 #' ## dont check, much faster
-#' as.tps("24900183", check=FALSE)
-#' as.tps(24900183, check=FALSE)
-#' as.tps(c("24900183","50150089","50079838"), check=FALSE)
-#' as.tps(list("24900183","50150089","50079838"), check=FALSE)
+#' as_tps("24900183", check=FALSE)
+#' as_tps(24900183, check=FALSE)
+#' as_tps(c("24900183","50150089","50079838"), check=FALSE)
+#' as_tps(list("24900183","50150089","50079838"), check=FALSE)
 #'
-#' (out <- as.tps(c(24900183,50150089,50079838)))
+#' (out <- as_tps(c(24900183,50150089,50079838)))
 #' data.frame(out)
-#' as.tps( data.frame(out) )
+#' as_tps( data.frame(out) )
 #'
 #' # Get all data back
 #' get_tps_("Poa annua")
@@ -248,27 +248,27 @@ get_tpsid <- function(...) {
 
 #' @export
 #' @rdname get_tps
-as.tps <- function(x, check=TRUE) UseMethod("as.tps")
+as_tps <- function(x, check=TRUE) UseMethod("as_tps")
 
 #' @export
 #' @rdname get_tps
-as.tps.tps <- function(x, check=TRUE) x
+as_tps.tps <- function(x, check=TRUE) x
 
 #' @export
 #' @rdname get_tps
-as.tps.character <- function(x, check=TRUE) if(length(x) == 1) make_tps(x, check) else collapse(x, make_tps, "tps", check=check)
+as_tps.character <- function(x, check=TRUE) if(length(x) == 1) make_tps(x, check) else collapse(x, make_tps, "tps", check=check)
 
 #' @export
 #' @rdname get_tps
-as.tps.list <- function(x, check=TRUE) if(length(x) == 1) make_tps(x, check) else collapse(x, make_tps, "tps", check=check)
+as_tps.list <- function(x, check=TRUE) if(length(x) == 1) make_tps(x, check) else collapse(x, make_tps, "tps", check=check)
 
 #' @export
 #' @rdname get_tps
-as.tps.numeric <- function(x, check=TRUE) as.tps(as.character(x), check)
+as_tps.numeric <- function(x, check=TRUE) as_tps(as.character(x), check)
 
 #' @export
 #' @rdname get_tps
-as.tps.data.frame <- function(x, check=TRUE) as_txid_df(x, check)
+as_tps.data.frame <- function(x, check=TRUE) as_txid_df(x, check)
 
 make_tps <- function(x, check=TRUE) make_generic(x, 'http://tropicos.org/Name/%s', "tps", check)
 

@@ -4,7 +4,7 @@
 #' @param searchtsn One or more TSN for a taxon (numeric/integer)
 #' @param ... Curl options passed on to[crul::verb-GET]
 #'
-#' @return data.frame with with row number equal to input vector length, and
+#' @return A [tibble::tibble] with with row number equal to input vector length, and
 #' with three columns:
 #'
 #' * submittedtsn (numeric) - The submitted TSN
@@ -39,7 +39,7 @@
 #' itis_acceptname(searchtsn = ids)
 #' }
 itis_acceptname <- function(searchtsn, ...) {
-  dt2df(lapply(searchtsn, function(z) {
+  tibble::as_tibble(dt2df(lapply(searchtsn, function(z) {
     tmp <- ritis::accepted_names(z)
     if (NROW(tmp) == 0) {
       data.frame(submittedtsn = z, acceptedname = NA, acceptedtsn = z,
@@ -51,5 +51,5 @@ itis_acceptname <- function(searchtsn, ...) {
         stringsAsFactors = FALSE
       )
     }
-  }), idcol = FALSE)
+  }), idcol = FALSE))
 }

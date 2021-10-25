@@ -15,7 +15,7 @@ for help on authentication}
 \item{...}{Curl options passed on to \link[crul:HttpClient]{crul::HttpClient}}
 }
 \value{
-List of two data.frame's, one named "location", and one "reference".
+List of two \link[tibble:tibble]{tibble::tibble}s, one named "location", and one "reference".
 }
 \description{
 Return all distribution records for for a taxon name with a given id.

@@ -3,11 +3,11 @@
 \name{get_nbn}
 \alias{get_nbn}
 \alias{get_nbnid}
-\alias{as.nbn}
-\alias{as.nbn.nbn}
-\alias{as.nbn.character}
-\alias{as.nbn.list}
-\alias{as.nbn.data.frame}
+\alias{as_nbn}
+\alias{as_nbn.nbn}
+\alias{as_nbn.character}
+\alias{as_nbn.list}
+\alias{as_nbn.data.frame}
 \alias{get_nbn_}
 \alias{get_nbnid_}
 \title{Get the UK National Biodiversity Network ID from taxonomic names.}
@@ -25,15 +25,15 @@ get_nbn(
 
 get_nbnid(...)
 
-as.nbn(x, check = TRUE)
+as_nbn(x, check = TRUE)
 
-\method{as.nbn}{nbn}(x, check = TRUE)
+\method{as_nbn}{nbn}(x, check = TRUE)
 
-\method{as.nbn}{character}(x, check = TRUE)
+\method{as_nbn}{character}(x, check = TRUE)
 
-\method{as.nbn}{list}(x, check = TRUE)
+\method{as_nbn}{list}(x, check = TRUE)
 
-\method{as.nbn}{data.frame}(x, check = TRUE)
+\method{as_nbn}{data.frame}(x, check = TRUE)
 
 get_nbn_(
   sci_com,
@@ -75,10 +75,10 @@ data that you are presented during the ask process.}
 
 \item{...}{Further args passed on to \code{nbn_search}}
 
-\item{x}{Input to \code{\link[=as.nbn]{as.nbn()}}}
+\item{x}{Input to \code{\link[=as_nbn]{as_nbn()}}}
 
 \item{check}{logical; Check if ID matches any existing on the DB, only
-used in \code{\link[=as.nbn]{as.nbn()}}}
+used in \code{\link[=as_nbn]{as_nbn()}}}
 }
 \value{
 A vector of taxonomic identifiers as an S3 class.
@@ -121,22 +121,22 @@ get_nbn(c("Zootoca vivipara", "uaudnadndj"))
 get_nbn(c("Zootoca vivipara","Chironomus riparius", "uaudnadndj"))
 
 # Convert an nbn without class information to a nbn class
-as.nbn(get_nbn("Zootoca vivipara")) # already a nbn, returns the same
-as.nbn(get_nbn(c("Zootoca vivipara","Pinus contorta"))) # same
-as.nbn('NHMSYS0001706186') # character
+as_nbn(get_nbn("Zootoca vivipara")) # already a nbn, returns the same
+as_nbn(get_nbn(c("Zootoca vivipara","Pinus contorta"))) # same
+as_nbn('NHMSYS0001706186') # character
 # character vector, length > 1
-as.nbn(c("NHMSYS0001706186","NHMSYS0000494848","NBNSYS0000010867"))
+as_nbn(c("NHMSYS0001706186","NHMSYS0000494848","NBNSYS0000010867"))
 # list
-as.nbn(list("NHMSYS0001706186","NHMSYS0000494848","NBNSYS0000010867"))
+as_nbn(list("NHMSYS0001706186","NHMSYS0000494848","NBNSYS0000010867"))
 ## dont check, much faster
-as.nbn('NHMSYS0001706186', check=FALSE)
-as.nbn(list("NHMSYS0001706186","NHMSYS0000494848","NBNSYS0000010867"),
+as_nbn('NHMSYS0001706186', check=FALSE)
+as_nbn(list("NHMSYS0001706186","NHMSYS0000494848","NBNSYS0000010867"),
   check=FALSE)
 
-(out <- as.nbn(c("NHMSYS0001706186","NHMSYS0000494848",
+(out <- as_nbn(c("NHMSYS0001706186","NHMSYS0000494848",
   "NBNSYS0000010867")))
 data.frame(out)
-as.nbn( data.frame(out) )
+as_nbn( data.frame(out) )
 
 # Get all data back
 get_nbn_("Zootoca vivipara")

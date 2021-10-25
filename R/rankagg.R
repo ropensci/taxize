@@ -26,5 +26,6 @@ rankagg <- function(data=NULL, datacol=NULL, rank=NULL, fxn="sum") {
   fn <- match.fun(fxn)
   out <- aggregate(data[ , datacol], list(data[ , rank]), fxn)
   names(out) = c(rank, fxn)
+  out <- tibble::as_tibble(out)
   return(out)
 }

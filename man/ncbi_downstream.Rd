@@ -20,7 +20,7 @@ intermediate taxonomic groups. Default: \code{FALSE}}
 \item{...}{Further args passed on to \code{\link[=ncbi_children]{ncbi_children()}}}
 }
 \value{
-Data.frame of taxonomic information downstream to family from e.g.,
+A \link[tibble:tibble]{tibble::tibble} of taxonomic information downstream to family from e.g.,
 Order, Class, etc., or if \code{intermediate=TRUE}, list of length two,
 with target taxon rank names, and intermediate names.
 }

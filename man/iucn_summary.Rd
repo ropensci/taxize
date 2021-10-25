@@ -45,9 +45,9 @@ the data you get back is correct.
 passed in that's not \code{character} or \code{iucn} class - a
 \code{iucn_summary.character} method for when you pass in taxon names -
 and a \code{iucn_summary.iucn} method so you can pass in iucn class objects
-as output from \code{\link[=get_iucn]{get_iucn()}} or \code{\link[=as.iucn]{as.iucn()}}. If you
+as output from \code{\link[=get_iucn]{get_iucn()}} or \code{\link[=as_iucn]{as_iucn()}}. If you
 already have IUCN IDs, coerce them to \code{iucn} class via
-\code{as.iucn(..., check = FALSE)}
+\code{as_iucn(..., check = FALSE)}
 }
 \note{
 Not all entries (history, distr, trend) are available for every species

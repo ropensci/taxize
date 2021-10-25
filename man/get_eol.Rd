@@ -3,12 +3,12 @@
 \name{get_eol}
 \alias{get_eol}
 \alias{get_eolid}
-\alias{as.eol}
-\alias{as.eol.txid}
-\alias{as.eol.character}
-\alias{as.eol.list}
-\alias{as.eol.numeric}
-\alias{as.eol.data.frame}
+\alias{as_eol}
+\alias{as_eol.txid}
+\alias{as_eol.character}
+\alias{as_eol.list}
+\alias{as_eol.numeric}
+\alias{as_eol.data.frame}
 \alias{get_eol_}
 \alias{get_eolid_}
 \title{Get the EOL ID from Encyclopedia of Life from taxonomic names.}
@@ -26,17 +26,17 @@ get_eol(
 
 get_eolid(...)
 
-as.eol(x, check = TRUE)
+as_eol(x, check = TRUE)
 
-\method{as.eol}{txid}(x, check = TRUE)
+\method{as_eol}{txid}(x, check = TRUE)
 
-\method{as.eol}{character}(x, check = TRUE)
+\method{as_eol}{character}(x, check = TRUE)
 
-\method{as.eol}{list}(x, check = TRUE)
+\method{as_eol}{list}(x, check = TRUE)
 
-\method{as.eol}{numeric}(x, check = TRUE)
+\method{as_eol}{numeric}(x, check = TRUE)
 
-\method{as.eol}{data.frame}(x, check = TRUE)
+\method{as_eol}{data.frame}(x, check = TRUE)
 
 get_eol_(sci_com, messages = TRUE, rows = NA, sciname = NULL, ...)
 
@@ -71,10 +71,10 @@ longish names like e.g., "Barcode of Life Data Systems" or
 
 \item{...}{Further args passed on to \code{\link[=eol_search]{eol_search()}}}
 
-\item{x}{Input to \code{\link[=as.eol]{as.eol()}}}
+\item{x}{Input to \code{\link[=as_eol]{as_eol()}}}
 
 \item{check}{logical; Check if ID matches any existing on the DB, only
-used in \code{\link[=as.eol]{as.eol()}}}
+used in \code{\link[=as_eol]{as_eol()}}}
 }
 \value{
 A vector of taxonomic identifiers as an S3 class.
@@ -102,7 +102,7 @@ provider (e.g, NCBI) to do other things, like get a higher classification
 tree. However, humans want the page id, not the taxon id. So, the
 id returned from this function is the taxon id, not the page id. You can
 get the page id for a taxon by using \code{\link[=eol_search]{eol_search()}} and
-`\code{\link[=eol_pages]{eol_pages()}}, and the URI returned in the attributes for a
+\code{\link[=eol_pages]{eol_pages()}}, and the URI returned in the attributes for a
 taxon will lead you to the taxon page, and the ID in the URL is the
 page id.
 }
@@ -142,28 +142,28 @@ get_eol("Satyrium", rank = "genus",
 
 # Convert a eol without class information to a eol class
 # already a eol, returns the same
-as.eol(get_eol("Chironomus riparius"))
+as_eol(get_eol("Chironomus riparius"))
 # same
-as.eol(get_eol(c("Chironomus riparius","Pinus contorta")))
+as_eol(get_eol(c("Chironomus riparius","Pinus contorta")))
 # numeric
-as.eol(10247706)
+as_eol(10247706)
 # numeric vector, length > 1
-as.eol(c(6985636,12188704,10247706))
+as_eol(c(6985636,12188704,10247706))
 # character
-as.eol("6985636")
+as_eol("6985636")
 # character vector, length > 1
-as.eol(c("6985636","12188704","10247706"))
+as_eol(c("6985636","12188704","10247706"))
 # list, either numeric or character
-as.eol(list("6985636","12188704","10247706"))
+as_eol(list("6985636","12188704","10247706"))
 ## dont check, much faster
-as.eol("6985636", check=FALSE)
-as.eol(6985636, check=FALSE)
-as.eol(c("6985636","12188704","10247706"), check=FALSE)
-as.eol(list("6985636","12188704","10247706"), check=FALSE)
+as_eol("6985636", check=FALSE)
+as_eol(6985636, check=FALSE)
+as_eol(c("6985636","12188704","10247706"), check=FALSE)
+as_eol(list("6985636","12188704","10247706"), check=FALSE)
 
-(out <- as.eol(c(6985636,12188704,10247706)))
+(out <- as_eol(c(6985636,12188704,10247706)))
 data.frame(out)
-as.eol( data.frame(out) )
+as_eol( data.frame(out) )
 
 # Get all data back
 get_eol_("Poa annua")

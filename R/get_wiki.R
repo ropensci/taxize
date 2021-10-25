@@ -16,11 +16,11 @@
 #' all, or a subset, of the raw data that you are presented during the ask
 #' process.
 #' @param limit (integer) number of records to return
-#' @param x For `get_wiki()`: deprecated, see `sci_com`. For `as.wiki`, various,
+#' @param x For `get_wiki()`: deprecated, see `sci_com`. For `as_wiki`, various,
 #' see examples
 #' @param ... Ignored
 #' @param check logical; Check if ID matches any existing on the DB, only
-#' used in [as.wiki()]
+#' used in [as_wiki()]
 #' @template getreturn
 #'
 #' @details For `wiki_site = "pedia" `, we use the english language site by
@@ -40,11 +40,11 @@
 #' get_wiki("Malus domestica", "pedia", "fr")
 #'
 #' # as coercion
-#' as.wiki("Malus_domestica")
-#' as.wiki("Malus_domestica", wiki_site = "commons")
-#' as.wiki("Malus_domestica", wiki_site = "pedia")
-#' as.wiki("Malus_domestica", wiki_site = "pedia", wiki = "fr")
-#' as.wiki("Malus_domestica", wiki_site = "pedia", wiki = "da")
+#' as_wiki("Malus_domestica")
+#' as_wiki("Malus_domestica", wiki_site = "commons")
+#' as_wiki("Malus_domestica", wiki_site = "pedia")
+#' as_wiki("Malus_domestica", wiki_site = "pedia", wiki = "fr")
+#' as_wiki("Malus_domestica", wiki_site = "pedia", wiki = "da")
 #' }
 
 get_wiki <- function(sci_com, wiki_site = "species", wiki = "en", ask = TRUE,
@@ -199,18 +199,18 @@ get_wiki <- function(sci_com, wiki_site = "species", wiki = "en", ask = TRUE,
 
 #' @export
 #' @rdname get_wiki
-as.wiki <- function(x, check=TRUE, wiki_site = "species", wiki = "en") {
-  UseMethod("as.wiki")
+as_wiki <- function(x, check=TRUE, wiki_site = "species", wiki = "en") {
+  UseMethod("as_wiki")
 }
 
 #' @export
 #' @rdname get_wiki
-as.wiki.wiki <- function(x, check=TRUE, wiki_site = "species",
+as_wiki.wiki <- function(x, check=TRUE, wiki_site = "species",
                          wiki = "en") x
 
 #' @export
 #' @rdname get_wiki
-as.wiki.character <- function(x, check=TRUE, wiki_site = "species",
+as_wiki.character <- function(x, check=TRUE, wiki_site = "species",
                               wiki = "en") {
   if (length(x) == 1) {
     make_wiki(x, check, wiki_site, wiki)
@@ -221,7 +221,7 @@ as.wiki.character <- function(x, check=TRUE, wiki_site = "species",
 
 #' @export
 #' @rdname get_wiki
-as.wiki.list <- function(x, check=TRUE, wiki_site = "species",
+as_wiki.list <- function(x, check=TRUE, wiki_site = "species",
                          wiki = "en") {
   if (length(x) == 1) {
     make_wiki(x, check)
@@ -232,14 +232,14 @@ as.wiki.list <- function(x, check=TRUE, wiki_site = "species",
 
 #' @export
 #' @rdname get_wiki
-as.wiki.numeric <- function(x, check=TRUE, wiki_site = "species",
+as_wiki.numeric <- function(x, check=TRUE, wiki_site = "species",
                             wiki = "en") {
-  as.wiki(as.character(x), check)
+  as_wiki(as.character(x), check)
 }
 
 #' @export
 #' @rdname get_wiki
-as.wiki.data.frame <- function(x, check = TRUE,
+as_wiki.data.frame <- function(x, check = TRUE,
   wiki_site = "species", wiki = "en") as_txid_df(x, check)
 
 make_wiki <- function(x, check = TRUE, wiki_site, wiki) {

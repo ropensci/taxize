@@ -44,7 +44,7 @@ NCBI has a method for this function but rows doesn't work.}
 \item{x}{Deprecated, see \code{sci_id}}
 }
 \value{
-NA when no match, or a data.frame with columns
+NA when no match, or a \link[tibble:tibble]{tibble::tibble} with columns
 \itemize{
 \item name
 \item rank

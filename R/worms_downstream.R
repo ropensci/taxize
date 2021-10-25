@@ -12,7 +12,7 @@
 #' @param ... crul options passed on to [worrms::wm_children()], including the
 #' parameters `marine_only` and `offset`, see `?worrms::wm_children` for 
 #' details
-#' @return data.frame of taxonomic information downstream to family from e.g.,
+#' @return [tibble::tibble] of taxonomic information downstream to family from e.g.,
 #' Order, Class, etc., or if `intermediated=TRUE`, list of length two,
 #' with target taxon rank names, and intermediate names.
 #' @examples \dontrun{
@@ -76,9 +76,9 @@ worms_downstream <- function(id, downto, intermediate = FALSE, start = 1,
     }
   } # end while loop
 
-  tmp <- dt2df(out, idcol = FALSE)
+  tmp <- tibble::as_tibble(dt2df(out, idcol = FALSE))
   if (intermediate) {
-    list(target = tmp, intermediate = intermed)
+    nested_list_df_to_tibbles(list(target = tmp, intermediate = intermed))
   } else {
     tmp
   }

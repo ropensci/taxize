@@ -38,9 +38,9 @@
 #' passed in that's not `character` or `iucn` class - a
 #' `iucn_summary.character` method for when you pass in taxon names -
 #' and a `iucn_summary.iucn` method so you can pass in iucn class objects
-#' as output from [get_iucn()] or [as.iucn()]. If you
+#' as output from [get_iucn()] or [as_iucn()]. If you
 #' already have IUCN IDs, coerce them to `iucn` class via
-#' `as.iucn(..., check = FALSE)`
+#' `as_iucn(..., check = FALSE)`
 #'
 #' @author Eduard Szoecs, \email{eduardszoecs@@gmail.com}
 #' @author Philippe Marchand, \email{marchand.philippe@@gmail.com}
@@ -165,7 +165,7 @@ get_iucn_summary2 <- function(query, distr_detail, key = NULL, ...) {
     }
     return(out)
   }
-  lapply(query, fun, ...)
+  nested_list_df_to_tibbles(lapply(query, fun, ...))
 }
 
 #' Extractor functions for `iucn`-class.

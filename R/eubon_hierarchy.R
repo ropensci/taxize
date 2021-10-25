@@ -19,6 +19,7 @@
 #' @references https://cybertaxonomy.eu/eu-bon/utis/1.3/doc.html
 #' @note There is no pagination in this method, so you may or may not be
 #' getting all the results for a search. Sorry, out of our control
+#' @return a [tibble::tibble] 
 #' @family eubon-methods
 #' @examples \dontrun{
 #' eubon_hierarchy(id = "urn:lsid:marinespecies.org:taxname:126141", 'worms')
@@ -32,5 +33,5 @@ eubon_hierarchy <- function(id, providers = 'pesi', timeout = 0, ...) {
   res <- cli$get(query = args)
   eubon_error(res)
   tmp <- jsonlite::fromJSON(res$parse("UTF-8"), TRUE, flatten = TRUE)
-  tmp$query$response[[1]]
+  tibble::as_tibble(tmp$query$response[[1]])
 }

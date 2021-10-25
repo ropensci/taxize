@@ -27,7 +27,7 @@ return the responses that have been received so far. The default timeout is
 \item{...}{Curl options passed on to \link[crul:verb-GET]{crul::verb-GET}}
 }
 \value{
-a data.frame or an empty list if no results found
+a \link[tibble:tibble]{tibble::tibble} or an empty list if no results found
 }
 \description{
 EUBON children

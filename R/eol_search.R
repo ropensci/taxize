@@ -58,13 +58,13 @@ eol_search <- function(sci, page=1, exact=NULL, filter_tid=NULL,
   stopifnot(res$response_headers$`content-type`[1] == 'application/json; charset=utf-8')
   out <- jsonlite::fromJSON(tt, FALSE, encoding = "utf-8")
   if (out$totalResults == 0 | length(out$results) == 0) {
-    data.frame(pageid = NA, name = NA, stringsAsFactors = FALSE)
+    tibble::tibble(pageid = NA, name = NA)
   } else {
     tmp <- dt2df(
       lapply(out$results, function(z) {
         z$content <- unique(unlist(z$content))
         data.frame(z, stringsAsFactors = FALSE)
       }), idcol = FALSE)
-    stats::setNames(tmp, c("pageid", "name", "link", "content"))
+    tibble::as_tibble(stats::setNames(tmp, c("pageid", "name", "link", "content")))
   }
 }

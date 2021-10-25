@@ -2,27 +2,27 @@
 % Please edit documentation in R/get_iucn.R
 \name{get_iucn}
 \alias{get_iucn}
-\alias{as.iucn}
-\alias{as.iucn.iucn}
-\alias{as.iucn.character}
-\alias{as.iucn.list}
-\alias{as.iucn.numeric}
-\alias{as.iucn.data.frame}
+\alias{as_iucn}
+\alias{as_iucn.iucn}
+\alias{as_iucn.character}
+\alias{as_iucn.list}
+\alias{as_iucn.numeric}
+\alias{as_iucn.data.frame}
 \title{Get a IUCN Redlist taxon}
 \usage{
 get_iucn(sci, messages = TRUE, key = NULL, x = NULL, ...)
 
-as.iucn(x, check = TRUE, key = NULL)
+as_iucn(x, check = TRUE, key = NULL)
 
-\method{as.iucn}{iucn}(x, check = TRUE, key = NULL)
+\method{as_iucn}{iucn}(x, check = TRUE, key = NULL)
 
-\method{as.iucn}{character}(x, check = TRUE, key = NULL)
+\method{as_iucn}{character}(x, check = TRUE, key = NULL)
 
-\method{as.iucn}{list}(x, check = TRUE, key = NULL)
+\method{as_iucn}{list}(x, check = TRUE, key = NULL)
 
-\method{as.iucn}{numeric}(x, check = TRUE, key = NULL)
+\method{as_iucn}{numeric}(x, check = TRUE, key = NULL)
 
-\method{as.iucn}{data.frame}(x, check = TRUE, key = NULL)
+\method{as_iucn}{data.frame}(x, check = TRUE, key = NULL)
 }
 \arguments{
 \item{sci}{(character) A vector of scientific names. Or, a
@@ -34,13 +34,13 @@ as.iucn(x, check = TRUE, key = NULL)
 \link[rredlist:rredlist-package]{rredlist::rredlist-package} for help on authenticating with
 IUCN Redlist}
 
-\item{x}{For \code{get_iucn()}: Deprecated, see \code{sci}. For \code{as.iucn()}, various,
+\item{x}{For \code{get_iucn()}: Deprecated, see \code{sci}. For \code{as_iucn()}, various,
 see examples}
 
 \item{...}{Ignored}
 
 \item{check}{(logical) Check if ID matches any existing on the DB, only
-used in \code{\link[=as.iucn]{as.iucn()}}}
+used in \code{\link[=as_iucn]{as_iucn()}}}
 }
 \value{
 A vector of taxonomic identifiers as an S3 class.
@@ -83,11 +83,11 @@ get_iucn("Panthera uncia")
 get_iucn(c("Panthera uncia", "Branta bernicla"))
 
 # as coercion
-as.iucn(22732)
-as.iucn("22732")
-(res <- as.iucn(c(22679946, 22732, 22679935)))
+as_iucn(22732)
+as_iucn("22732")
+(res <- as_iucn(c(22679946, 22732, 22679935)))
 data.frame(res)
-as.iucn(data.frame(res))
+as_iucn(data.frame(res))
 }
 }
 \seealso{

@@ -22,7 +22,7 @@
 #'
 #' - if the name was not found: `NA_character_`
 #' - if the name was found but no synonyms found, an empty data.frame (0 rows)
-#' - if the name was found, and synonyms found, a data.frames with the
+#' - if the name was found, and synonyms found, a [tibble::tibble] with the
 #' synonyms - the column names vary by data source
 #'
 #' @details If IDs are supplied directly (not from the `get_*()` functions)
@@ -164,12 +164,12 @@ process_syn_ids <- function(input, db, fxn, ...){
     is.character(input) && all(grepl("[[:digit:]]", input))
   ) {
     as_fxn <- switch(db,
-      itis = as.itis,
-      tps = as.tps,
-      nbn = as.nbn,
-      worms = as.worms,
-      iucn = as.iucn,
-      pow = as.pow)
+      itis = as_itis,
+      tps = as_tps,
+      nbn = as_nbn,
+      worms = as_worms,
+      iucn = as_iucn,
+      pow = as_pow)
     if (db == "iucn") return(as_fxn(input, check = TRUE))
     return(as_fxn(input, check = FALSE))
   } else {
@@ -236,7 +236,7 @@ synonyms_tps <- function(id, ...) {
       NA_character_
     } else {
       res <- tp_synonyms(x, ...)$synonyms
-      if (grepl("no syns found", res[1,1])) tibble::tibble() else res
+      if (grepl("no syns found", res[1,1])) tibble::tibble() else tibble::as_tibble(res)
     }
   }
   stats::setNames(lapply(txidac(id), fun), names_or_ids(id))

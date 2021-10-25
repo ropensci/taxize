@@ -5,7 +5,7 @@
 #' @param key Your Tropicos API key; See [taxize-authentication]
 #' for help on authentication
 #' @param ... Curl options passed on to [crul::verb-GET]
-#' @return A data.frame.
+#' @return A [tibble::tibble].
 #' @examples \dontrun{
 #' tp_summary(id = 25509881)
 #' tp_summary(id = 2700851)
@@ -22,7 +22,7 @@ tp_summary <- function(id, key = NULL, ...) {
   typespec <- data.frame(res$TypeSpecimens, stringsAsFactors = FALSE)
   df <- data.frame(res[!names(res) %in% "TypeSpecimens"], stringsAsFactors = FALSE)
   if (NROW(typespec) > 0) df <- cbind(df, typespec)
-  stats::setNames(df, tolower(names(df)))
+  tibble::as_tibble(stats::setNames(df, tolower(names(df))))
 }
 
 tp_GET <- function(url, query, ...) {

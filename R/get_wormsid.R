@@ -28,10 +28,10 @@
 #' all, or a subset, of the raw data that you are presented during the ask
 #' process.
 #' @param query Deprecated, see `sci_com`
-#' @param x Input to `as.worms`
+#' @param x Input to `as_worms`
 #' @param ... Ignored
 #' @param check logical; Check if ID matches any existing on the DB, only
-#' used in [as.worms()]
+#' used in [as_worms()]
 #' @template getreturn
 #'
 #' @family taxonomic-ids
@@ -71,28 +71,28 @@
 #'
 #' # Convert a worms without class information to a worms class
 #' # already a worms, returns the same
-#' as.worms(get_worms('Gadus morhua'))
+#' as_worms(get_worms('Gadus morhua'))
 #' # same
-#' as.worms(get_worms(c('Gadus morhua', 'Pomatomus saltatrix')))
+#' as_worms(get_worms(c('Gadus morhua', 'Pomatomus saltatrix')))
 #' # numeric
-#' as.worms(126436)
+#' as_worms(126436)
 #' # numeric vector, length > 1
-#' as.worms(c(126436,151482))
+#' as_worms(c(126436,151482))
 #' # character
-#' as.worms("126436")
+#' as_worms("126436")
 #' # character vector, length > 1
-#' as.worms(c("126436","151482"))
+#' as_worms(c("126436","151482"))
 #' # list, either numeric or character
-#' as.worms(list("126436","151482"))
+#' as_worms(list("126436","151482"))
 #' ## dont check, much faster
-#' as.worms("126436", check=FALSE)
-#' as.worms(126436, check=FALSE)
-#' as.worms(c("126436","151482"), check=FALSE)
-#' as.worms(list("126436","151482"), check=FALSE)
+#' as_worms("126436", check=FALSE)
+#' as_worms(126436, check=FALSE)
+#' as_worms(c("126436","151482"), check=FALSE)
+#' as_worms(list("126436","151482"), check=FALSE)
 #'
-#' (out <- as.worms(c(126436,151482)))
+#' (out <- as_worms(c(126436,151482)))
 #' data.frame(out)
-#' as.worms( data.frame(out) )
+#' as_worms( data.frame(out) )
 #'
 #' # Get all data back
 #' get_worms_("Plat")
@@ -269,27 +269,27 @@ try_df <- function(expr) {
 
 #' @export
 #' @rdname get_worms
-as.worms <- function(x, check=TRUE) UseMethod("as.worms")
+as_worms <- function(x, check=TRUE) UseMethod("as_worms")
 
 #' @export
 #' @rdname get_worms
-as.worms.worms <- function(x, check=TRUE) x
+as_worms.worms <- function(x, check=TRUE) x
 
 #' @export
 #' @rdname get_worms
-as.worms.character <- function(x, check=TRUE) if (length(x) == 1) make_worms(x, check) else collapse(x, make_worms, "worms", check = check)
+as_worms.character <- function(x, check=TRUE) if (length(x) == 1) make_worms(x, check) else collapse(x, make_worms, "worms", check = check)
 
 #' @export
 #' @rdname get_worms
-as.worms.list <- function(x, check=TRUE) if (length(x) == 1) make_worms(x, check) else collapse(x, make_worms, "worms", check = check)
+as_worms.list <- function(x, check=TRUE) if (length(x) == 1) make_worms(x, check) else collapse(x, make_worms, "worms", check = check)
 
 #' @export
 #' @rdname get_worms
-as.worms.numeric <- function(x, check=TRUE) as.worms(as.character(x), check)
+as_worms.numeric <- function(x, check=TRUE) as_worms(as.character(x), check)
 
 #' @export
 #' @rdname get_worms
-as.worms.data.frame <- function(x, check=TRUE) as_txid_df(x, check)
+as_worms.data.frame <- function(x, check=TRUE) as_txid_df(x, check)
 
 make_worms <- function(x, check=TRUE) {
   make_generic(x, 'https://www.marinespecies.org/aphia.php?p=taxdetails&id=%s',

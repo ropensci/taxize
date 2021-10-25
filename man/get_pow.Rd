@@ -2,11 +2,11 @@
 % Please edit documentation in R/get_pow.R
 \name{get_pow}
 \alias{get_pow}
-\alias{as.pow}
-\alias{as.pow.pow}
-\alias{as.pow.character}
-\alias{as.pow.list}
-\alias{as.pow.data.frame}
+\alias{as_pow}
+\alias{as_pow.pow}
+\alias{as_pow.character}
+\alias{as_pow.list}
+\alias{as_pow.data.frame}
 \alias{get_pow_}
 \title{Get Kew's Plants of the World code for a taxon}
 \usage{
@@ -22,15 +22,15 @@ get_pow(
   ...
 )
 
-as.pow(x, check = TRUE)
+as_pow(x, check = TRUE)
 
-\method{as.pow}{pow}(x, check = TRUE)
+\method{as_pow}{pow}(x, check = TRUE)
 
-\method{as.pow}{character}(x, check = TRUE)
+\method{as_pow}{character}(x, check = TRUE)
 
-\method{as.pow}{list}(x, check = TRUE)
+\method{as_pow}{list}(x, check = TRUE)
 
-\method{as.pow}{data.frame}(x, check = TRUE)
+\method{as_pow}{data.frame}(x, check = TRUE)
 
 get_pow_(sci_com, messages = TRUE, rows = NA, x = NULL, ...)
 }
@@ -62,13 +62,13 @@ retrieved from NCBI. See \link{rank_ref} for possible options.
 Though note that some data sources use atypical ranks, so inspect the data
 itself for options. Optional. See \code{Filtering} below.}
 
-\item{x}{For \code{get_pow()}: deprecated, see \code{sci_com}. For \code{as.pow}, various,
+\item{x}{For \code{get_pow()}: deprecated, see \code{sci_com}. For \code{as_pow}, various,
 see examples}
 
 \item{...}{Curl options passed on to \link[crul:HttpClient]{crul::HttpClient}}
 
 \item{check}{logical; Check if ID matches any existing on the DB, only
-used in \code{\link[=as.pow]{as.pow()}}}
+used in \code{\link[=as_pow]{as_pow()}}}
 }
 \value{
 A vector of taxonomic identifiers as an S3 class.
@@ -128,21 +128,21 @@ get_pow("flower", family_filter = "Acanthaceae")
 # Convert a pow without class information to a pow class
 z <- get_pow("Helianthus annuus", accepted = TRUE, rank_filter = "species")
 # already a pow, returns the same
-as.pow(z)
-as.pow("urn:lsid:ipni.org:names:119003-2")
+as_pow(z)
+as_pow("urn:lsid:ipni.org:names:119003-2")
 # character vector, length > 1
 ids <- c("urn:lsid:ipni.org:names:119003-2","urn:lsid:ipni.org:names:328247-2")
-as.pow(ids)
+as_pow(ids)
 # list, with character strings
-as.pow(as.list(ids)) 
+as_pow(as.list(ids)) 
 ## dont check, much faster
-as.pow("urn:lsid:ipni.org:names:119003-2", check=FALSE)
-as.pow(ids, check=FALSE)
-as.pow(as.list(ids), check=FALSE)
+as_pow("urn:lsid:ipni.org:names:119003-2", check=FALSE)
+as_pow(ids, check=FALSE)
+as_pow(as.list(ids), check=FALSE)
 
-(out <- as.pow(ids))
+(out <- as_pow(ids))
 data.frame(out)
-as.pow( data.frame(out) )
+as_pow( data.frame(out) )
 
 # Get all data back
 get_pow_("Quercus", rows=1:5)

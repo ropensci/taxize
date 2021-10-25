@@ -149,7 +149,7 @@ NULL
 #' Website system of flowering plant classification.
 #'
 #' This dataset is from Version 14, incorporated on 2020-06-03, 
-#' generated using [apgFamilies()]
+#' generated using [get_apg_families()]
 #' 
 #' (update script in inst/ignore/apg_script.R)
 #'
@@ -178,7 +178,7 @@ NULL
 #' Website system of flowering plant classification.
 #'
 #' This dataset is from Version 14, incorporated on 2020-06-03, 
-#' generated using [apgOrders()]
+#' generated using [get_apg_orders()]
 #' 
 #' (update script in inst/ignore/apg_script.R)
 #'
