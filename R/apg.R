@@ -10,7 +10,6 @@
 #' get_apg_orders()
 #' get_apg_families()
 #' }
-
 #' @export
 #' @rdname apg
 get_apg_orders <- function(...) {

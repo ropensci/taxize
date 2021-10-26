@@ -321,7 +321,8 @@ process_ids <- function(input, db, fxn, ...){
            pow = as_pow)
     as_fxn(input, check = FALSE)
   } else {
-    eval(fxn)(input, ...)
+    out <- rep(taxa::taxon(NA), length(input))
+    out[!is.na(input)] <- eval(fxn)(input[!is.na(input)], ...)
   }
 }
 

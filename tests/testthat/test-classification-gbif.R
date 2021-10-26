@@ -8,7 +8,7 @@ test_that("classification works for GBIF data", {
     names(clas_gbif) <- NULL
   })
 
-  expect_that(clas_gbif[[2]], equals(NA))
+  expect_null(clas_gbif[[2]])
   expect_is(clas_gbif, "classification")
   expect_is(clas_gbif[[1]], "data.frame")
   expect_equal(length(clas_gbif), 2)

@@ -231,10 +231,10 @@ mainTaxonomyRank <- function() {
 #' @noRd
 #' @author Vinh Tran {tran@bio.uni-frankfurt.de}
 get_rank <- function (x) {
-  rank_df <- x[, 'rank']
-  names(rank_df) <- x[, 'rank']
+  rank_df <- x$rank
+  names(rank_df) <- x$rank
 
-  id_df <- x[, 'id']
+  id_df <- x$id
   joined_df <- cbind(
     data.frame(rank_df, stringsAsFactors = FALSE),
     data.frame(id_df, stringsAsFactors = FALSE)
@@ -247,7 +247,7 @@ get_rank <- function (x) {
   df <- data.frame(
     t(data.frame(rev(joined_df$rank_df))), stringsAsFactors = FALSE
   )
-  outDf <- data.frame(tip = x[nrow(x), "name"], df, stringsAsFactors = FALSE)
+  outDf <- data.frame(tip = x$name[nrow(x)], df, stringsAsFactors = FALSE)
   return(outDf)
 }
 
@@ -255,11 +255,11 @@ get_rank <- function (x) {
 #' @noRd
 #' @author Vinh Tran {tran@bio.uni-frankfurt.de}
 get_name <- function (x) {
-  rank_df <- x[, 'rank']
-  names(rank_df) <- x[, 'rank']
+  rank_df <- x$rank
+  names(rank_df) <- x$rank
 
-  nameDf <- x[, 'name']
-  id_df <- x[, 'id']
+  nameDf <- x$name
+  id_df <- x$id
 
   joined_df <- cbind(
     data.frame(rank_df,stringsAsFactors=FALSE),
@@ -273,7 +273,7 @@ get_name <- function (x) {
   joined_df$name <- paste0(joined_df$nameDf, "##", joined_df$rank_df)
 
   df <- data.frame(t(data.frame(rev(joined_df$name))), stringsAsFactors = FALSE)
-  outDf <- data.frame(tip = x[nrow(x), "name"], df, stringsAsFactors = FALSE)
+  outDf <- data.frame(tip = x$name[nrow(x)], df, stringsAsFactors = FALSE)
   return(outDf)
 }
 
