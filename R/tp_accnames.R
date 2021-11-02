@@ -13,7 +13,6 @@
 #' # No accepted names found
 #' tp_accnames(id = 25509881)
 #' }
-
 tp_accnames <- function(id, key = NULL, ...) {
   url = sprintf('http://services.tropicos.org/Name/%s/AcceptedNames', id)
 	key <- getkey(key, "TROPICOS_KEY")
