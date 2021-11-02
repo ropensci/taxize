@@ -43,8 +43,8 @@ save(rank_ref, file = "data/rank_ref.RData", version = 2)
 ids_zoo <- c(
   '01', # domain
   '05','10','20','25', # kingdom
-  '30','40','45', # phylum/division
-  '47', '50','60','70','80','81','82', # class
+  '30','40','45','46', # phylum/division
+  '47','48','50','60','70','80','81','82', # class
   '83','84','85','86','87', # cohort
   '90','100','110','120','125', # order
   '126','127', # section/subsection
@@ -59,8 +59,8 @@ ids_zoo <- c(
 ranks_zoo <- c(
   'domain', # domain
   'superkingdom','kingdom','subkingdom','infrakingdom,superphylum', # kingdom
-  'phylum,division','subphylum,subdivision','infraphylum,infradivision', # phylum/division
-  'gigaclass', 'superclass','class','subclass','infraclass','subterclass','parvclass', # class
+  'phylum,division','subphylum,subdivision','infraphylum,infradivision', 'parvphylum', # phylum/division
+  'gigaclass','megaclass','superclass','class','subclass','infraclass','subterclass','parvclass', # class
   'megacohort','supercohort','cohort','subcohort','infracohort', # cohort
   'superorder','order','suborder','infraorder','parvorder', # order
   'section','subsection', # section/subsection
