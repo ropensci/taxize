@@ -102,6 +102,16 @@ get_itis <- function(sci_com, searchtype = "scientific", accepted = FALSE,
   prog$prog_start()
 
   for (i in seq_along(sci_com)) {
+    
+    if (is.na(sci_com[i])) {
+      res <- list(id = NA_character_, name = sci_com[i], rank = NA_character_,
+                  att = "not found", multiple = NA, direct = NA)
+      prog$completed(sci_com[i], att)
+      prog$prog(att)
+      tstate$add(sci_com[i], res)
+      next
+    }
+    
     direct <- FALSE
     rank_taken <- NA_character_
     name <- NA_character_

@@ -241,7 +241,7 @@ make_taxa_taxon <- function(x, class, rank = NULL, ...) {
   res <- taxa_taxon(
     name = unlist(pluck(x, "name")) %||% NA_character_,
     id = taxa::taxon_id(ids, db = class),
-    rank = if (!is.null(rank)) rank else unlist(pluck(x, "rank")),
+    rank = if (!is.null(rank)) rank else unname(unlist(pluck(x, "rank"))),
     uri = sprintf(get_url_templates[[class]], ids),
     match = unname(unlist(pluck(x, "att"))),
     multiple_matches = unname(unlist(pluck(x, "multiple"))) %||% NA,

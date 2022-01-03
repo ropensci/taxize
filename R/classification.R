@@ -321,8 +321,7 @@ process_ids <- function(input, db, fxn, ...){
            pow = as_pow)
     as_fxn(input, check = FALSE)
   } else {
-    out <- rep(taxa::taxon(NA), length(input))
-    out[!is.na(input)] <- eval(fxn)(input[!is.na(input)], ...)
+    eval(fxn)(input, ...)
   }
 }
 
@@ -337,9 +336,9 @@ classification.txid <- function(id, return_id = TRUE, ...) {
 classification_itis <- function(id, return_id = TRUE, ...) {
   warn_db(list(...), "itis")
   fun <- function(x) {
-    # return NA if NA is supplied
+    # return NULL if NA is supplied
     if (is.na(x)) {
-      out <- NA
+      out <- NULL
     } else {
       out <- ritis::hierarchy_full(as.character(x), wt = "json", raw = FALSE)
       if (NROW(out) < 1) return(NA)
@@ -417,8 +416,8 @@ classification_ncbi <- function(id, callopts = list(), return_id = TRUE,
       }
       return(out)
     }
-    # return NA if NA is supplied
-    out <- rep(list(NA), length(x))
+    # return NULL if NA is supplied
+    out <- rep(list(NULL), length(x))
     query_res <- query_ncbi(x[! is.na(x)])
     if (length(query_res) > 0) {
       out[!is.na(x)] <- query_res
@@ -449,7 +448,7 @@ classification_eol <- function(id, callopts = list(), return_id = TRUE, ...) {
   common_names = synonyms = NULL
   fun <- function(x){
     if (is.na(x)) {
-      out <- NA
+      out <- NULL
     } else {
       args <- tc(list(common_names = common_names, synonyms = synonyms))
       cli <- crul::HttpClient$new(url = 'https://eol.org', opts = callopts)
@@ -487,7 +486,7 @@ classification_tps <- function(id, callopts = list(), return_id = TRUE, ...) {
   warn_db(list(...), "tps")
   fun <- function(x, callopts){
     if (is.na(x)) {
-      out <- NA
+      out <- NULL
     } else {
       url <- sprintf('http://services.tropicos.org/Name/%s/HigherTaxa', x)
       key <- getkey(NULL, "TROPICOS_KEY")
@@ -516,7 +515,7 @@ classification_gbif <- function(id, callopts = list(),
   warn_db(list(...), "gbif")
   fun <- function(x, callopts){
     if (is.na(x)) {
-      out <- NA
+      out <- NULL
     } else {
       out <- suppressWarnings(tryCatch(
         gbif_name_usage(key = x, callopts = callopts),
@@ -561,7 +560,7 @@ classification_nbn <- function(id, callopts = list(),
   warn_db(list(...), "nbn")
   fun <- function(x, callopts){
     if (is.na(x)) {
-      out <- NA
+      out <- NULL
     } else {
       out <- suppressWarnings(tryCatch(nbn_classification(id = x, callopts),
                                        error = function(e) e))
@@ -588,7 +587,7 @@ classification_tol <- function(id, callopts = list(),
   warn_db(list(...), "tol")
   fun <- function(x, callopts) {
     if (is.na(x)) {
-      out <- NA
+      out <- NULL
     } else {
       x <- as.numeric(x)
       out <- tryCatch(rotl::taxonomy_taxon_info(x,
@@ -622,7 +621,7 @@ classification_worms <- function(id, callopts = list(),
   warn_db(list(...), "worms")
   fun <- function(x, ...){
     if (is.na(x)) {
-      out <- NA
+      out <- NULL
     } else {
       out <- tryCatch(worrms::wm_classification(as.numeric(x), ...),
         error = function(e) e)
@@ -648,7 +647,7 @@ classification_natserv <- function(id, callopts = list(),
   warn_db(list(...), "natserv")
   fun <- function(x, callopts) {
     if (is.na(x)) {
-      out <- NA
+      out <- NULL
     } else {
       out <- tryCatch(natserv::ns_id(paste0("ELEMENT_GLOBAL.2.", x)), error = function(e) e)
       # out <- tryCatch(natserv::ns_data(x), error = function(e) e)
@@ -677,7 +676,7 @@ classification_bold <- function(id, callopts = list(),
   warn_db(list(...), "bold")
   fun <- function(x, callopts) {
     if (is.na(x)) {
-      out <- NA
+      out <- NULL
     } else {
       out <- tryCatch(bold_search(id = x, includeTree = TRUE),
         error = function(e) e)
@@ -703,7 +702,7 @@ classification.wiki <- function(id, callopts = list(), return_id = TRUE, ...) {
   warn_db(list(...), "wiki")
   fun <- function(x, wiki_site = "species", wiki = "en", callopts) {
     if (is.na(x)) {
-      out <- NA
+      out <- NULL
     } else {
       fxn <- switch(
         wiki_site,
@@ -739,7 +738,7 @@ classification_pow <- function(id, callopts = list(), return_id = TRUE, ...) {
   warn_db(list(...), "pow")
   fun <- function(x, callopts) {
     if (is.na(x)) {
-      out <- NA
+      out <- NULL
     } else {
       out <- tryCatch(pow_lookup(x), error = function(e) e)
       if (inherits(out, "error")) {
