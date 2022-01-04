@@ -137,7 +137,8 @@ get_tps <- function(sci, ask = TRUE, messages = TRUE, key = NULL,
     if (
       all(names(tmp)[[1]] == "error") ||
       all(is.na(tmp)) ||
-      inherits(tmp, "character")
+      inherits(tmp, "character") ||
+      as.character(tmp) == "No names were found"
     ) {
       mssg(messages, m_not_found_sp_altclass)
       att <- "not found"

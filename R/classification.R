@@ -296,7 +296,13 @@ classification.default <- function(sci_id, db = NULL, callopts = list(),
     },
     stop("the provided db value was not recognised", call. = FALSE)
   )
-  lapply(output, tibble::as_tibble)
+  return(output)
+}
+
+format_class_result <- function(output, db, ...) {
+  is_df <- vapply(output, is.data.frame, logical(1))
+  output[is_df] <- lapply(output[is_df], tibble::as_tibble)
+  structure(output, class = 'classification', db = db, ...)
 }
 
 process_ids <- function(input, db, fxn, ...){
@@ -355,7 +361,7 @@ classification_itis <- function(id, return_id = TRUE, ...) {
   }
   out <- lapply(txidac(id), fun)
   names(out) <- names_or_ids(id)
-  structure(out, class = 'classification', db = 'itis')
+  format_class_result(out, db = 'itis')
 }
 
 classification_ncbi <- function(id, callopts = list(), return_id = TRUE,
@@ -427,7 +433,8 @@ classification_ncbi <- function(id, callopts = list(), return_id = TRUE,
           function(o) o[, c('name', 'rank')])
       }
       # Return ranks in all lower case
-      out[! is.na(out)] <- lapply(out[! is.na(out)], function(o) {
+      is_null_res <- vapply(out, is.null, logical(1))
+      out[! is_null_res] <- lapply(out[! is_null_res], function(o) {
         o$rank <- tolower(o$rank)
         return(o)
       })
@@ -440,7 +447,7 @@ classification_ncbi <- function(id, callopts = list(), return_id = TRUE,
   out <- lapply(id_chunks, fun, callopts = callopts)
   out <- unlist(out, recursive = FALSE)
   names(out) <- nmz
-  structure(out, class = 'classification', db = 'ncbi')
+  format_class_result(out, db = 'ncbi')
 }
 
 classification_eol <- function(id, callopts = list(), return_id = TRUE, ...) {
@@ -479,7 +486,7 @@ classification_eol <- function(id, callopts = list(), return_id = TRUE, ...) {
   }
   out <- lapply(txidac(id), fun)
   names(out) <- names_or_ids(id)
-  structure(out, class = 'classification', db = 'eol')
+  format_class_result(out, db = 'eol')
 }
 
 classification_tps <- function(id, callopts = list(), return_id = TRUE, ...) {
@@ -506,7 +513,7 @@ classification_tps <- function(id, callopts = list(), return_id = TRUE, ...) {
   }
   out <- lapply(txidac(id), fun, callopts = callopts)
   names(out) <- names_or_ids(id)
-  structure(out, class = 'classification', db = 'tps')
+  format_class_result(out, db = 'tps')
 }
 
 classification_gbif <- function(id, callopts = list(),
@@ -551,7 +558,7 @@ classification_gbif <- function(id, callopts = list(),
   }
   out <- lapply(txidac(id), fun, callopts = callopts)
   names(out) <- names_or_ids(id)
-  structure(out, class = 'classification', db = 'gbif')
+  format_class_result(out, db = 'gbif')
 }
 
 classification_nbn <- function(id, callopts = list(),
@@ -578,7 +585,7 @@ classification_nbn <- function(id, callopts = list(),
   }
   out <- lapply(txidac(id), fun, callopts = callopts)
   names(out) <- names_or_ids(id)
-  structure(out, class = 'classification', db = 'nbn')
+  format_class_result(out, db = 'nbn')
 }
 
 classification_tol <- function(id, callopts = list(),
@@ -612,7 +619,7 @@ classification_tol <- function(id, callopts = list(),
   }
   out <- lapply(txidac(id), fun, callopts = callopts)
   names(out) <- names_or_ids(id)
-  structure(out, class = 'classification', db = 'tol')
+  format_class_result(out, db = 'tol')
 }
 
 classification_worms <- function(id, callopts = list(),
@@ -638,7 +645,7 @@ classification_worms <- function(id, callopts = list(),
   }
   out <- lapply(txidac(id), fun, ...)
   names(out) <- names_or_ids(id)
-  structure(out, class = 'classification', db = 'worms')
+  format_class_result(out, db = 'worms')
 }
 
 classification_natserv <- function(id, callopts = list(),
@@ -667,7 +674,7 @@ classification_natserv <- function(id, callopts = list(),
   }
   out <- lapply(txidac(id), fun, callopts = callopts)
   names(out) <- names_or_ids(id)
-  structure(out, class = 'classification', db = 'natserv')
+  format_class_result(out, db = 'natserv')
 }
 
 classification_bold <- function(id, callopts = list(),
@@ -693,7 +700,7 @@ classification_bold <- function(id, callopts = list(),
   }
   out <- lapply(txidac(id), fun, callopts = callopts)
   names(out) <- names_or_ids(id)
-  structure(out, class = 'classification', db = 'bold')
+  format_class_result(out, db = 'bold')
 }
 
 #' @export
@@ -728,9 +735,9 @@ classification.wiki <- function(id, callopts = list(), return_id = TRUE, ...) {
         wiki_misc(id, "wiki_lang")[i])
   }
   names(out) <- txidac(id)
-  structure(out, class = 'classification', db = 'wiki',
-            wiki_site = wiki_misc(id, "wiki_site")[1],
-            wiki = wiki_misc(id, "wiki_lang")[1])
+  format_class_result(out, db = 'wiki',
+                      wiki_site = wiki_misc(id, "wiki_site")[1],
+                      wiki = wiki_misc(id, "wiki_lang")[1])
 }
 classification_wiki <- classification.wiki
 
@@ -754,7 +761,7 @@ classification_pow <- function(id, callopts = list(), return_id = TRUE, ...) {
   }
   out <- lapply(txidac(id), fun, callopts = callopts)
   names(out) <- names_or_ids(id)
-  structure(out, class = 'classification', db = 'pow')
+  format_class_result(out, db = 'pow')
 }
 
 # ---------

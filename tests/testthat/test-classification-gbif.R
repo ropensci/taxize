@@ -38,7 +38,7 @@ test_that("ranks are in the correct order", {
   # species rank is expected value
   df <- fromid_gbif[[1]]
   expect_equal(
-    df[df$name == "Poa annua", "id"],
+    df[df$name == "Poa annua", "id", drop = T],
     2704179
   )
 })
@@ -56,7 +56,7 @@ test_that("searches for ranks below species work", {
   # subspecies rank is expected value
   df <- subsp[[1]]
   expect_equal(
-    df[df$name == "Boa constrictor nebulosa", "id"],
+    df[df$name == "Boa constrictor nebulosa", "id", drop = T],
     6162875
   )
 
@@ -70,7 +70,7 @@ test_that("searches for ranks below species work", {
   # variety rank is expected value
   df <- var[[1]]
   expect_equal(
-    df[df$name == "Poa annua annua", "id"],
+    df[df$name == "Poa annua annua", "id", drop = T],
     8286319
   )
 })

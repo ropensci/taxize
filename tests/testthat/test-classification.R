@@ -35,8 +35,8 @@ test_that("classification returns the correct values and classes", {
     names(clas_itis) <- NULL
   })
 
-	expect_that(clas_ncbi[[2]], equals(NA))
-	expect_that(clas_itis[[2]], equals(NA))
+	expect_null(clas_ncbi[[2]])
+	expect_null(clas_itis[[2]])
 # 	expect_that(clas_tp[[2]], equals(NA))
 
 	expect_is(clas_ncbi, "classification")
@@ -131,7 +131,7 @@ test_that("queries with no results fail well", {
     bb <- classification(get_itis("foobar", messages = FALSE), messages = FALSE)
   })
 
-  expect_true(is.na(unclass(aa)[[1]]))
+  expect_null(aa[[1]])
   expect_identical(unname(aa), unname(bb))
 })
 
@@ -199,5 +199,5 @@ test_that("with ncbi, doesn't fail with not found taxon", {
   })
 
   expect_is(a, "classification")
-  expect_true(is.na(a[[1]]))
+  expect_null(a[[1]])
 })

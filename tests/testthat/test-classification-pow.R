@@ -7,7 +7,7 @@ test_that("classification works for POW data", {
     names(clas_pow) <- NULL
   })
 
-  expect_that(clas_pow[[2]], equals(NA))
+  expect_null(clas_pow[[2]])
   expect_is(clas_pow, "classification")
   expect_is(clas_pow[[1]], "data.frame")
   expect_equal(length(clas_pow), 2)
@@ -72,6 +72,6 @@ test_that("queries with no results fail well", {
     bb <- classification(get_pow("foobar", messages = FALSE), messages = FALSE)
   })
 
-  expect_true(is.na(unclass(aa)[[1]]))
+  expect_null(aa[[1]])
   expect_identical(unname(aa), unname(bb))
 })
