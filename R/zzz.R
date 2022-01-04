@@ -395,7 +395,7 @@ checkpkg <- function(x) {
 
 # Adapted from https://www.py4u.net/discuss/867198
 recurse <- function (nested_list, func) {
-  if (class(nested_list) == "data.frame" || ! is.list(nested_list)) {
+  if ("data.frame" %in% class(nested_list) || ! is.list(nested_list)) {
     return(func(nested_list))
   } else {
     return(lapply(nested_list, recurse, func))

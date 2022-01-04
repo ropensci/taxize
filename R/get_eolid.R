@@ -152,7 +152,7 @@ get_eol <- function(sci_com, ask = TRUE, messages = TRUE,
       att <- "not found"
       mm <- FALSE
     } else {
-      pageids <- tmp[grep(tolower(sci_com[i]), tolower(tmp$name)), "pageid"]
+      pageids <- tmp$pageid[grep(tolower(sci_com[i]), tolower(tmp$name))]
 
       if (length(pageids) == 0) {
         if (nrow(tmp) > 0)

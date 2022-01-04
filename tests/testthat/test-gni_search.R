@@ -7,5 +7,5 @@ test_that("gni_search returns the correct value", {
   })
 
 	expect_is(x, "data.frame")
-  expect_equal(x[,2], "22693003")
+  expect_equal(x[,2, drop = TRUE], "22693003")
 })

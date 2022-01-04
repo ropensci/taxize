@@ -10,7 +10,7 @@ test_that("ncbi_get_taxon_summary returns correct class and result", {
 
   expect_is(tt, "data.frame")
   expect_equal(ncol(tt), 3)
-  expect_equal(tt[1, 3], 'kingdom')
+  expect_equal(tt[1, 3, drop = TRUE], 'kingdom')
   expect_equal(tt2, NA)
   expect_equal(tt3, NULL)
 })

@@ -12,7 +12,7 @@ test_that("tp_search returns the correct class", {
 	expect_that(ttt, is_a("data.frame"))
 
   expect_that(uuu, is_a("data.frame"))
-  expect_that(names(uuu), equals("error"))
+  expect_that(names(uuu), equals("Error"))
   expect_that(as.character(uuu[1,1]), equals("No names were found"))
 })
 

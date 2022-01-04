@@ -143,8 +143,8 @@ get_tps <- function(sci, ask = TRUE, messages = TRUE, key = NULL,
       mssg(messages, m_not_found_sp_altclass)
       att <- "not found"
     } else {
-      df <- tmp[, c('nameid','scientificname','family','rankabbreviation',
-                   'nomenclaturestatusname','author','displaydate')]
+      df <- tmp[, c('NameId','ScientificName','Family','RankAbbreviation',
+                   'NomenclatureStatusName','Author','DisplayDate')]
       names(df) <- c('tpsid','name','family','rank','status','author','date')
       id <- df$tpsid
       att <- "found"

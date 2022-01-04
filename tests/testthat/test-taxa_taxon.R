@@ -101,7 +101,7 @@ test_that("taxa_taxon - we can combine get_ and as. outputs", {
   expect_length(de, 2)
 
   # a "get_" output and an "as." output
-  f <- as.gbif(2436436)
+  f <- as_gbif(2436436)
   expect_is(f, c("txid", "gbif"))
   df <- c(d, f)
   expect_is(df, c("txid", "gbif"))

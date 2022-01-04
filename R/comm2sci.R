@@ -179,7 +179,7 @@ c2s_eol <- function(simplify, ...){
 c2s_tp <- function(simplify, ...){
   tmp <- tp_search(...)
   if (simplify) {
-    as.character(tmp$scientificname)
+    as.character(tmp$ScientificName)
   } else{
     tmp
   }

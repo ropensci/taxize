@@ -78,7 +78,7 @@ tax_agg <- function(x, rank, db = 'ncbi', messages=FALSE, ...)
   # aggregate to family level (by querying NCBI for taxonomic classification)
   uniq_tax <- as.character(unique(df_m$variable))
   agg <- tax_name(uniq_tax, get = rank, db = db, messages = messages, ...)
-  lookup <- data.frame(variable = uniq_tax, agg = agg[ , 3], stringsAsFactors = FALSE)
+  lookup <- data.frame(variable = uniq_tax, agg = agg[ , 3, drop = TRUE], stringsAsFactors = FALSE)
 
   # merge lookup with orig.
   df_merged <- merge(lookup, df_m, by = 'variable')
