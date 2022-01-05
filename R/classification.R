@@ -401,9 +401,20 @@ classification_ncbi <- function(id, callopts = list(), return_id = TRUE,
         # Is not directly below root and no lineage info
         parent_id <- xml_text_all(ttp, "//TaxaSet/Taxon/ParentTaxId") %||% ""
         out[vapply(out, NROW, numeric(1)) == 0 & parent_id != "1"] <- NA
-        # Add NA where the taxon ID was not found
-        names(out) <- xml_text(xml2::xml_find_all(ttp,
-          '//TaxaSet/Taxon/TaxId'))
+        # Check if an alternate taxon ID was used as the query
+        aka_id <- vapply(xml2::xml_find_all(ttp, '/TaxaSet/Taxon'), 
+                         FUN.VALUE = character(1),
+                         function(y) {
+                           out <- xml_text(xml2::xml_find_all(y, './AkaTaxIds'))
+                           if (length(out) == 0) {
+                             return(NA_character_)
+                           } else {
+                             return(out)
+                           }
+                         })
+        # Name output by taxon ID, using query if there are aka IDs
+        tip_taxon_ids <- xml_text(xml2::xml_find_all(ttp, '//TaxaSet/Taxon/TaxId'))
+        names(out) <- ifelse(aka_id %in% ids, aka_id, tip_taxon_ids)
         success <- ! grepl(tt, pattern = 'error', ignore.case = TRUE)
         tries <- tries + 1
         # NCBI limits requests to three per second without key or 10 per
@@ -424,16 +435,17 @@ classification_ncbi <- function(id, callopts = list(), return_id = TRUE,
     }
     # return NULL if NA is supplied
     out <- rep(list(NULL), length(x))
+    names(out) <- x
     query_res <- query_ncbi(x[! is.na(x)])
     if (length(query_res) > 0) {
-      out[!is.na(x)] <- query_res
+      out[names(query_res)] <- query_res
+      is_null_res <- vapply(out, is.null, logical(1))
       # Optionally return taxon id of lineage taxa
       if (!return_id) {
-        out[! is.na(out)] <- lapply(out[! is.na(out)],
+        out[! is_null_res] <- lapply(out[! is_null_res],
           function(o) o[, c('name', 'rank')])
       }
       # Return ranks in all lower case
-      is_null_res <- vapply(out, is.null, logical(1))
       out[! is_null_res] <- lapply(out[! is_null_res], function(o) {
         o$rank <- tolower(o$rank)
         return(o)
