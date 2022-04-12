@@ -139,11 +139,13 @@ get_worms <- function(sci_com, searchtype = "scientific", marine_only = TRUE,
     if (!searchtype %in% c("scientific", "common")) {
       stop("'searchtype' must be one of 'scientific' or 'common'", call. = FALSE)
     }
+    # NOTE: space replacement needed for curl problem (issue #888)
+    query <- gsub(sci_com[i], pattern = ' ', replacement = '+', fixed = TRUE)
     wmdf <- switch(
       searchtype,
-      scientific = worms_worker(sci_com[i], worrms::wm_records_name, rows,
+      scientific = worms_worker(query, worrms::wm_records_name, rows,
         marine_only, fuzzy %||% TRUE, ...),
-      common = worms_worker(sci_com[i], worrms::wm_records_common, rows,
+      common = worms_worker(query, worrms::wm_records_common, rows,
         marine_only, fuzzy %||% FALSE, ...)
     )
     mm <- NROW(wmdf) > 1
