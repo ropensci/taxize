@@ -1,12 +1,12 @@
 http_interactions:
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/Ursus%20americanus?token=<<rredlist_api_token>>
+    uri: https://apiv3.iucnredlist.org/api/v3/species/Ursus%20americanus?token=<<rredlist_api_token>>
     body:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(rredlist/0.6.0)
+      User-Agent: r-curl/4.3.2 crul/1.2.0 rOpenSci(rredlist/0.7.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -17,14 +17,14 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Wed, 28 Oct 2020 23:40:12 GMT
+      date: Tue, 19 Apr 2022 05:53:36 GMT
       content-type: application/json; charset=utf-8
       content-length: '955'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       etag: W/"3bb-rI+kBM1qcrtMfXsXoG/2Gg"
       vary: Accept-Encoding
-      set-cookie: sails.sid=s%3A7cgZLVxUQMC4FzQ11yP5DvWgNeqwRoc2.KB1kM%2Bam1rwXMKlWQPsjjJbqimiMeVshiOM6cjWV4B0;
+      set-cookie: sails.sid=s%3AXUsKZSiENTOmFi5HCHnybIeZCCwsF7Vy.P15cP658LRMdDgBt2YwwUELXEJDIw93L%2Fy4FdwokV9k;
         Path=/; HttpOnly
     body:
       encoding: UTF-8
@@ -37,16 +37,16 @@ http_interactions:
         previous version of this assessment accidentally used the estimated total
         number of American Black Bears as the number of mature individuals. That error
         is corrected here.","amended_flag":null,"amended_reason":null}]}'
-  recorded_at: 2020-10-28 23:40:16 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.7.0
+  recorded_at: 2022-04-19 05:53:40 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0
 - request:
     method: get
-    uri: http://apiv3.iucnredlist.org/api/v3/species/synonym/Ursus%20americanus?token=<<rredlist_api_token>>
+    uri: https://apiv3.iucnredlist.org/api/v3/species/synonym/Ursus%20americanus?token=<<rredlist_api_token>>
     body:
       encoding: ''
       string: ''
     headers:
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(rredlist/0.6.0)
+      User-Agent: r-curl/4.3.2 crul/1.2.0 rOpenSci(rredlist/0.7.0)
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -57,18 +57,18 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       server: nginx/1.14.0 (Ubuntu)
-      date: Wed, 28 Oct 2020 23:40:16 GMT
+      date: Tue, 19 Apr 2022 05:53:40 GMT
       content-type: application/json; charset=utf-8
       content-length: '49'
       connection: keep-alive
       x-powered-by: Sails <sailsjs.org>
       etag: W/"31-4bcud6dAQo26/rDFhOJJjA"
       vary: Accept-Encoding
-      set-cookie: sails.sid=s%3AQRJdt63qq4g29Ah--z05-y-C2gtKUH1d.dFt7BcXQ8Dho5TCRCc%2F%2Bm0zi9AEq%2BNiUwLpUn3NQCXc;
+      set-cookie: sails.sid=s%3AWbzILEQ1qESrcIs3w-FCt_PNC1mw7Hym.77MbILboHEmELIsAELRsBWm94rRhJKmcKUIC44Eww8Y;
         Path=/; HttpOnly
     body:
       encoding: UTF-8
       file: no
       string: '{"name":"Ursus americanus","count":0,"result":[]}'
-  recorded_at: 2020-10-28 23:40:16 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.7.0
+  recorded_at: 2022-04-19 05:53:40 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0

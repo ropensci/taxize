@@ -5,7 +5,7 @@ Description: Interacts with a suite of web 'APIs' for taxonomic tasks,
     species names, getting taxonomic hierarchies, fetching downstream and
     upstream taxonomic names, getting taxonomic synonyms, converting
     scientific to common names and vice versa, and more.
-Version: 0.9.99.947
+Version: 0.9.100
 License: MIT + file LICENSE
 URL: https://docs.ropensci.org/taxize/ (website),
     https://github.com/ropensci/taxize (devel),
@@ -14,7 +14,7 @@ BugReports: https://github.com/ropensci/taxize/issues
 Authors@R:
     c(person(given = "Scott",
              family = "Chamberlain",
-             role = c("aut", "cre"),
+             role = c("aut"),
              email = "myrmecocystus@gmail.com",
              comment = c(ORCID = "0000-0003-1444-9135")),
       person(given = "Eduard",
@@ -22,7 +22,8 @@ Authors@R:
              role = "aut"),
       person(given = "Zachary",
              family = "Foster",
-             role = "aut"),
+             role = c("aut", "cre"),
+             email = "zacharyfoster1989@gmail.com"),
       person(given = "Zebulun",
              family = "Arendsee",
              role = "aut"),

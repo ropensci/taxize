@@ -1,12 +1,12 @@
 http_interactions:
 - request:
     method: get
-    uri: http://www.marinespecies.org/rest/AphiaRecordsByVernacular/asiatic%20clam?like=false&offset=1
+    uri: https://www.marinespecies.org/rest/AphiaRecordsByVernacular/asiatic+clam?like=false&offset=1
     body:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      User-Agent: libcurl/7.68.0 r-curl/4.3.2 crul/1.2.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -15,23 +15,26 @@ http_interactions:
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 17:23:49 GMT
-      server: Apache/2.4.25 (Win32) PHP/5.6.29
-      x-powered-by: PHP/5.6.29
+      status: 'HTTP/2 200 '
+      date: Tue, 19 Apr 2022 09:06:11 GMT
+      server: Apache/2.4.53 (Win64)
+      content-security-policy: upgrade-insecure-requests; frame-ancestors 'self' www.vliz.be
+        vliz.be www.lifewatch.be lifewatch.be; script-src * 'unsafe-inline' 'unsafe-eval'
+        blob:; object-src *;
       access-control-allow-origin: '*'
       access-control-allow-headers: X-Requested-With, Content-Type, Accept, Origin,
         Authorization
       access-control-allow-methods: GET, POST, OPTIONS
-      content-length: '857'
-      content-type: application/json;charset=utf-8
+      content-length: '923'
+      content-type: application/json
     body:
       encoding: UTF-8
-      string: '[{"AphiaID":181580,"url":"http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=181580","scientificname":"Corbicula
-        fluminea","authority":"(O. F. M\u00fcller, 1774)","status":"accepted","unacceptreason":null,"rank":"Species","valid_AphiaID":181580,"valid_name":"Corbicula
-        fluminea","valid_authority":"(O. F. M\u00fcller, 1774)","kingdom":"Animalia","phylum":"Mollusca","class":"Bivalvia","order":"Venerida","family":"Cyrenidae","genus":"Corbicula","citation":"MolluscaBase
-        (2018). Corbicula fluminea (O. F. M\u00fcller, 1774). Accessed through: World
-        Register of Marine Species at: http:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=181580
-        on 2019-01-26","lsid":"urn:lsid:marinespecies.org:taxname:181580","isMarine":0,"isBrackish":null,"isFreshwater":1,"isTerrestrial":0,"isExtinct":0,"match_type":"exact","modified":"2015-11-28T00:49:17.317Z"}]'
-  recorded_at: 2019-01-26 17:23:51 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+      file: no
+      string: '[{"AphiaID":181580,"url":"https:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=181580","scientificname":"Corbicula
+        fluminea","authority":"(O. F. M\u00fcller, 1774)","status":"accepted","unacceptreason":null,"taxonRankID":220,"rank":"Species","valid_AphiaID":181580,"valid_name":"Corbicula
+        fluminea","valid_authority":"(O. F. M\u00fcller, 1774)","parentNameUsageID":238371,"kingdom":"Animalia","phylum":"Mollusca","class":"Bivalvia","order":"Venerida","family":"Cyrenidae","genus":"Corbicula","citation":"MolluscaBase
+        eds. (2022). MolluscaBase. Corbicula fluminea (O. F. M\u00fcller, 1774). Accessed
+        through: World Register of Marine Species at: https:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=181580
+        on 2022-04-19","lsid":"urn:lsid:marinespecies.org:taxname:181580","isMarine":0,"isBrackish":null,"isFreshwater":1,"isTerrestrial":0,"isExtinct":0,"match_type":"exact","modified":"2015-11-28T00:49:17.317Z"}]'
+  recorded_at: 2022-04-19 09:06:12 GMT
+  recorded_with: vcr/1.0.2, webmockr/0.8.0

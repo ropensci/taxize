@@ -3,7 +3,7 @@ context("tol_resolve")
 test_that("tol_resolve basic usage works", {
   skip_on_cran()
   
-  vcr::use_cassette("tol_resolve", {v
+  vcr::use_cassette("tol_resolve", {
     xx <- c("echinodermata", "xenacoelomorpha", "chordata", "hemichordata")
     tmp <- tol_resolve(names = xx)
   })

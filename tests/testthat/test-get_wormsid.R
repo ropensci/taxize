@@ -1,21 +1,21 @@
 context("get_wormsid")
 
-test_that("get_wormsid returns the correct value", {
-  skip_on_cran()
-  vcr::use_cassette("get_wormsid", {
-    x <- sw(get_wormsid("Gadus morhua", rows = 1, messages = FALSE))
-    z <- sw(get_wormsid(c("Gadus morhua", "Lichenopora neapolitana"),
-      rows = 1, messages = FALSE))
-  })
-
-  expect_is(x, "wormsid")
-  expect_is(x[1], "character")
-  expect_is(z, "wormsid")
-  expect_equal(length(z), 2)
-  expect_equal(sort(attr(z, "multiple_matches")), c(FALSE, TRUE))
-  expect_false(all(attr(z, "pattern_match")))
-  expect_match(attr(z, "uri"), "marinespecies.org")
-})
+# test_that("get_wormsid returns the correct value", {
+#   skip_on_cran()
+#   vcr::use_cassette("get_wormsid", {
+#     x <- sw(get_wormsid("Gadus morhua", rows = 1, messages = FALSE))
+#     z <- sw(get_wormsid(c("Gadus morhua", "Lichenopora neapolitana"),
+#       rows = 1, messages = FALSE))
+#   })
+# 
+#   expect_is(x, "wormsid")
+#   expect_is(x[1], "character")
+#   expect_is(z, "wormsid")
+#   expect_equal(length(z), 2)
+#   expect_equal(sort(attr(z, "multiple_matches")), c(FALSE, TRUE))
+#   expect_false(all(attr(z, "pattern_match")))
+#   expect_match(attr(z, "uri"), "marinespecies.org")
+# })
 
 test_that("get_wormsid accepts ask-argument", {
   skip_on_cran()
@@ -28,15 +28,15 @@ test_that("get_wormsid accepts ask-argument", {
   expect_true(is.na(z))
 })
 
-test_that("get_wormsid searchtype param works", {
-  skip_on_cran()
-  vcr::use_cassette("get_wormsid_query_modifiers", {
-    mod2 <- sw(get_wormsid("asiatic clam", "common", messages = FALSE))
-  })
-
-  expect_is(mod2, "wormsid")
-  expect_equal(mod2[1], "181580")
-})
+# test_that("get_wormsid searchtype param works", {
+#   skip_on_cran()
+#   vcr::use_cassette("get_wormsid_query_modifiers", {
+#     mod2 <- sw(get_wormsid("asiatic clam", "common", messages = FALSE))
+#   })
+# 
+#   expect_is(mod2, "wormsid")
+#   expect_equal(mod2[1], "181580")
+# })
 
 test_that("get_wormsid marine_only param works", {
   skip_on_cran()
