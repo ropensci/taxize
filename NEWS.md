@@ -1,3 +1,11 @@
+taxize 0.9.100
+=============
+
+Minor release to fix failing tests on CRAN.
+
+Zachary Foster is now the maintainer of `taxize`.
+
+
 taxize 0.9.99
 =============
 
