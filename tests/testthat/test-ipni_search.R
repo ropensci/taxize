@@ -39,9 +39,10 @@ test_that("ipni_search works with different output formats", {
 })
 
 test_that("ipni_search fails correctly", {
+  skip_on_cran()
+  
   expect_error(ipni_search(output = "foobar"), "'arg' should be one of")
 
-  skip_on_cran()
   vcr::use_cassette("ipni_search_no_results", {
     expect_warning(ipni_search(family = 5), "No data")
     expect_warning(ipni_search(genus = "adfasdfasffd"), "No data found")

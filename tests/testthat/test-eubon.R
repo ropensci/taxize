@@ -26,6 +26,8 @@ test_that("eubon_search works", {
 })
 
 test_that("eubon_search fails well", {
+  skip_on_cran()
+  
   expect_error(eubon_search("Prionus", limit = "asdf"), 
     "limit must be of class numeric, integer", class = "error")
   expect_error(eubon_search("Prionus", page = "asdf"), 

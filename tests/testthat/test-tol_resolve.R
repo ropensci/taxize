@@ -1,7 +1,9 @@
 context("tol_resolve")
 
 test_that("tol_resolve basic usage works", {
-  vcr::use_cassette("tol_resolve", {
+  skip_on_cran()
+  
+  vcr::use_cassette("tol_resolve", {v
     xx <- c("echinodermata", "xenacoelomorpha", "chordata", "hemichordata")
     tmp <- tol_resolve(names = xx)
   })
@@ -58,6 +60,8 @@ test_that("do_approximate_matching works correctly", {
 })
 
 test_that("fails well", {
+  skip_on_cran()
+  
   expect_error(tol_resolve(), "You must supply")
   expect_error(tol_resolve(ids = 5), "You must supply a")
   expect_error(tol_resolve(context_name = "stuff"), "is not valid")

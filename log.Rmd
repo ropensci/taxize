@@ -1,0 +1,98 @@
+---
+title: "Untitled"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+# Date: 
+clipr::write_clip(paste0('## ', format(Sys.time(), "%F (%A %B %e)\n\n")))
+# Date and time:
+clipr::write_clip(paste0('## ', format(Sys.time(), "%F %X %Z (%A %B %e)\n\n")))
+```
+
+## 2021-10-13 (Wednesday October 13)
+
+### Proposed changes: 
+
+* replace data.frames with tibbles for `apgFamilies`, `apgOrders`, `bold_search`, `get_*_`
+* Allow `apg_lookup` to have multiple inputs/outputs
+* Convert camelcase to snake case for `apgFamilies`, `apgOrders` (will conflict with corresponding functions), `as.*` functions, arguments of `get_bold`
+* does `dataTypes`, `includeTree` do anything for `get_bold`?
+* should `as.*` return a `taxon_id` rather than `taxon`?
+* Put `get_*id` docs in its own help pages and mark as depreciated in docs
+* Add `as.bold.taxon_id`
+
+## 2021-10-18 (Monday October 18)
+
+### Possible changes: 
+
+* All of the `get_*` and `get_*_` functions could be converted into one `get_taxa` and `get_taxa_`/`get_taxa_data` with a `db` argument. This would allow querying multiple databases at once.
+* The `get_nbn` `rec_only` examples seem to return the same info. What is supposed to happen?
+* When you dont choose when prompted for `get_nbn('Poa ann')`, you get odd output
+* Some of the `get_ncbi` examples dont work
+* `get_ncbi` "not found" counter not working
+* Some of the `get_pow` examples dont seem to do what they are intended to
+* Check `get_tps` examples
+* `get_wiki` seems to be putting the taxon name in the ID slot for the `taxon` object, might be intended since name and ID are the same?
+* Check `get_worms` examples
+* Make the `get_*_` functions return concatenated data frames?
+* What is difference between `get_*_` functions and `*_search` functions?
+* `classification` conflicts with `taxa::classification`
+* `children` and `downstream` could potentially be the same function with a `depth` arugument?
+* should `comm2sci` return a `taxon` object?
+* `depreciated` needs to be updated I think
+
+
+## 2021-10-19 (Tuesday October 19)
+
+* tibble in output of `eol_dataobjects`?
+
+
+
+## 2021-10-20 (Wednesday October 20)
+
+* tibble output for `eol_search`, `eubon_search`, `fg_name_search`, `fg_epithet_search`, `fg_name_by_key`, `fg_author_search`, `fg_deprecated_names`, `gbif_downstream`, `gbif_parse`, `gni_details`, `gni_parse`, `gni_search`, `itis_acceptname`, `itis_downstream`, `nbn_search`, `nbn_synonyms`, `pow_search`, `pow_lookup`, `rankagg`, `sci2comm`, `synonyms_df`, `tol_resolve`, `tpl_families`, `worms_downstream`, `vascan_search`?
+* `eol_search`: says "A maximum of 30 results", but 50 returned
+* `eubon_children`, `eubon_search`, and `eubon_hierarchy` need a better description and perhaps more examples
+* The format of `fg_all_updated_names` is a one column table. Should it be a vector?
+* Is the `fungorum` man page link needed? Other providers do not have a similar one
+* Could the result of the `intermediate` augment of the `downstream` functions be combined into a single table? I am not sure I really understand the output.
+* automate queries greater then 1000 for `gbif_downstream`, `gni_search`?
+* no examples for `gbif_name_usage`
+* Can `genbank2uid` be abstracted for other databases where there are IDed entries associated with a taxon (GBIF maybe)?
+* More documentation on `gni_details` would be nice. `all_records` should take `TRUE`/`FALSE`?
+* Not all functions have the author field. Should that be added?
+* `id-accessors` has no examples
+* `id2name`, `ion`  could return `taxon` objects, like the `get_*` functions. `ion` could also be integrated into `id2name`
+* what do the `*_hierarchy` functions do that the `downstream` and `classificaitons` functions dont do? are they needed?
+* `itis_lsid` could use some more documentation
+* type of output is a tibble for single inputs but a list of tibbles for multiple inputs for `itis_native`. Probably should be the same for both to help with parsing.
+* `itis_taxrank` return `taxon_rank` object?
+* `iucn_getname` seems to do a lot of duplicate searches.
+* `iucn_id` does pretty much the same as `get_iucn`. Is `iucn_id` needed?
+* Are both `ncbi_downstream` and `ncbi_children` 
+* `ncbi_get_taxon_summary` could be renamed and could return `taxon`
+* the `get_*` functions could also take taxon IDs as well as names since they return taxon objects.
+* Not all functions have a output format in the man pages
+* `scrapenames` examples not working. 404 error
+* Save data sets as tibbles: `species_plantarum_binomials`, `theplantlist`
+* Should `status_codes`, `taxize_capwords` be internal?
+* Some `synonyms`, `synonyms_df` examples not working
+* `taxize_cite` bibtex output would be a nice addition
+* `tax_name` and `tax_rank` conflict with `taxa` package. Sam functionality with `classification` and `get_*`.
+* seems like `resolve` would be a good generic function but it is defunct
+* the `tp_*` functions were not working when I tested
+
+
+## 2021-10-20 (Monday October 20)
+
+Working on making tibble outputs. Stopped after `lowest_common`
+
+
+## 2021-10-26 (Tuesday October 26)
+
+Done with tibble conversion. Working on Fixing tests
+
+Found error with taxa running `classification(c('Asteraceae', NA), db = 'itis')`
+

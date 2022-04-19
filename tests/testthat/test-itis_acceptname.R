@@ -25,5 +25,7 @@ test_that("itis_acceptname works with non-accepted tsn", {
 })
 
 test_that("itis_acceptname fails as expected", {
+  skip_on_cran()
+  
   expect_error(itis_acceptname(), "\"searchtsn\" is missing")
 })

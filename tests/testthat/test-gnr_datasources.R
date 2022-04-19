@@ -1,4 +1,5 @@
 context("gnr_datasources")
+
 test_that("gnr_datasources returns the correct class", {
   skip_on_cran()
   vcr::use_cassette("gnr_datasources", {
@@ -12,6 +13,8 @@ test_that("gnr_datasources returns the correct class", {
 })
 
 test_that("gnr_datasources fails well", {
+  skip_on_cran()
+  
   expect_error(gnr_datasources(todf = 5),
     "todf is defunct")
 })

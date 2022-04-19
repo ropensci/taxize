@@ -1,4 +1,5 @@
 context("pow_search")
+
 test_that("pow_search returns the correct class", {
   skip_on_cran()
   vcr::use_cassette("pow_search", {
@@ -24,6 +25,7 @@ test_that("pow_search fails well", {
 
 
 context("pow_lookup")
+
 test_that("pow_lookup works", {
   skip_on_cran()
   vcr::use_cassette("pow_lookup", {

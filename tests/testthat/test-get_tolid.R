@@ -1,6 +1,8 @@
 context("get_tolid")
 
 test_that("get_tolid returns the correct value", {
+  skip_on_cran()
+  
   vcr::use_cassette("get_tolid", {
     x <- get_tolid("Quercus douglasii", messages = FALSE)
     z <- get_tolid(c("Chironomus", "Chaetopteryx"),
@@ -19,6 +21,8 @@ test_that("get_tolid returns the correct value", {
 })
 
 test_that("get_tolid accepts ask-argument", {
+  skip_on_cran()
+  
   vcr::use_cassette("get_tolid_ask_arg", {
     x <- sw(get_tolid("Dugesia", ask = FALSE, messages = FALSE))
   })

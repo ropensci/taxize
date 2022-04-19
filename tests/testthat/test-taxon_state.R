@@ -3,7 +3,10 @@ context("taxon_state/taxon_last/taxon_clear")
 taxon_state_env$last <- NULL
 
 test_that("taxon_last", {
-  # before anything happens, it's NULL
+  skip_on_cran()
+  skip_if_net_down()
+
+    # before anything happens, it's NULL
   expect_null(taxon_last())
 
   # something happens
@@ -11,9 +14,6 @@ test_that("taxon_last", {
 
   # now it's not NULL
   expect_is(taxon_last(), "taxon_state")
-
-  skip_on_cran()
-  skip_if_net_down()
 
   # in more real context: get_gbifid call
   spp <- c("Spruceanthus marianus", "Bomarea costaricensis",
@@ -39,6 +39,8 @@ test_that("taxon_last", {
 })
 
 test_that("taxon_state works", {
+  skip_on_cran()
+  
   ts <- taxon_state$new()
 
   expect_is(ts$add, "function")

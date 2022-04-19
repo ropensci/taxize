@@ -15,9 +15,10 @@ test_that("plantminer returns the correct value", {
 })
 
 test_that("plantminer fails well", {
+  skip_on_cran()
+
   expect_error(plantminer(), "argument \"plants\" is missing")
   
-  skip_on_cran()
   vcr::use_cassette("plantminer_not_found", {
     expect_equal(plantminer("foo bar", messages=FALSE)$note, "not found")
   })

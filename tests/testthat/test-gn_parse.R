@@ -13,6 +13,8 @@ test_that("gn_parse", {
 })
 
 test_that("gn_parse fails well", {
+  skip_on_cran()
+  
   expect_error(gn_parse())
   expect_error(gn_parse(5))
 })

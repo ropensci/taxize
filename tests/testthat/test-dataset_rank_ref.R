@@ -1,4 +1,6 @@
 test_that("rank_ref", {
+  skip_on_cran()
+  
   data(rank_ref, package = "taxize")
 
   expect_is(rank_ref, "data.frame")

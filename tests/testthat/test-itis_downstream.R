@@ -1,9 +1,10 @@
 context("itis_downstream")
 
 test_that("itis_downstream returns the correct value", {
+  skip_on_cran()
+  
   data(rank_ref, package = "taxize")
     
-  skip_on_cran()     
   vcr::use_cassette("itis_downstream", {
     dat_ <- itis_downstream(183264, "Species", verbose=FALSE)
   })
