@@ -3,6 +3,22 @@ Scott told me that there was an error on a CRAN check due to a down internet ser
 The error no longer appears at https://cran.r-project.org/web/checks/check_results_taxize.html so I do not know what the problem was exactly.
 However, I have checked all of the test code to make sure that tests requiring internet services will not be run on CRAN, so the problem is probably solved.
 
+Update after first submission:
+
+I have checked for invalid URLs using `urlchecker::url_check` and fixed all except for:
+
+```
+x Error: inst/CITATION:8:22 403: Forbidden
+   url            = "https://f1000research.com/articles/2-191/v2",
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+x Error: inst/CITATION:13:37 403: Forbidden
+        "F1000Research, 2:191. URL: https://f1000research.com/articles/2-191/v2")
+                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+```
+
+I am not sure what the problem is here.
+The link works fine in a browser and does not redirect to another URL.
+
 
 ## Test environments and check results
 
