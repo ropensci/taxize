@@ -26,3 +26,4 @@ readme_contributors.txt
 colp_search.R
 notes-email-question.R
 log.Rmd
+^CRAN-SUBMISSION$
