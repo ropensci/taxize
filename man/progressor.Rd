@@ -56,21 +56,21 @@ methods for preparing/printing info for prompts for \verb{get_*} functions
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{progressor$new()}}
-\item \href{#method-completed}{\code{progressor$completed()}}
-\item \href{#method-completed_found}{\code{progressor$completed_found()}}
-\item \href{#method-completed_not_found}{\code{progressor$completed_not_found()}}
-\item \href{#method-prog_start}{\code{progressor$prog_start()}}
-\item \href{#method-prog}{\code{progressor$prog()}}
-\item \href{#method-prog_found}{\code{progressor$prog_found()}}
-\item \href{#method-prog_not_found}{\code{progressor$prog_not_found()}}
-\item \href{#method-prog_summary}{\code{progressor$prog_summary()}}
-\item \href{#method-clone}{\code{progressor$clone()}}
+\item \href{#method-progressor-new}{\code{progressor$new()}}
+\item \href{#method-progressor-completed}{\code{progressor$completed()}}
+\item \href{#method-progressor-completed_found}{\code{progressor$completed_found()}}
+\item \href{#method-progressor-completed_not_found}{\code{progressor$completed_not_found()}}
+\item \href{#method-progressor-prog_start}{\code{progressor$prog_start()}}
+\item \href{#method-progressor-prog}{\code{progressor$prog()}}
+\item \href{#method-progressor-prog_found}{\code{progressor$prog_found()}}
+\item \href{#method-progressor-prog_not_found}{\code{progressor$prog_not_found()}}
+\item \href{#method-progressor-prog_summary}{\code{progressor$prog_summary()}}
+\item \href{#method-progressor-clone}{\code{progressor$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-progressor-new"></a>}}
+\if{latex}{\out{\hypertarget{method-progressor-new}{}}}
 \subsection{Method \code{new()}}{
 Create a new \code{progressor} object
 \subsection{Usage}{
@@ -91,8 +91,8 @@ A new \code{progressor} object
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-completed"></a>}}
-\if{latex}{\out{\hypertarget{method-completed}{}}}
+\if{html}{\out{<a id="method-progressor-completed"></a>}}
+\if{latex}{\out{\hypertarget{method-progressor-completed}{}}}
 \subsection{Method \code{completed()}}{
 add results to found or not found
 \subsection{Usage}{
@@ -113,8 +113,8 @@ nothing returned; adds to \verb{$found} or \verb{$not_found}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-completed_found"></a>}}
-\if{latex}{\out{\hypertarget{method-completed_found}{}}}
+\if{html}{\out{<a id="method-progressor-completed_found"></a>}}
+\if{latex}{\out{\hypertarget{method-progressor-completed_found}{}}}
 \subsection{Method \code{completed_found()}}{
 add to found results
 \subsection{Usage}{
@@ -133,8 +133,8 @@ nothing returned; adds to \verb{$found}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-completed_not_found"></a>}}
-\if{latex}{\out{\hypertarget{method-completed_not_found}{}}}
+\if{html}{\out{<a id="method-progressor-completed_not_found"></a>}}
+\if{latex}{\out{\hypertarget{method-progressor-completed_not_found}{}}}
 \subsection{Method \code{completed_not_found()}}{
 add to not found results
 \subsection{Usage}{
@@ -153,8 +153,8 @@ nothing returned; adds to \verb{$not_found}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-prog_start"></a>}}
-\if{latex}{\out{\hypertarget{method-prog_start}{}}}
+\if{html}{\out{<a id="method-progressor-prog_start"></a>}}
+\if{latex}{\out{\hypertarget{method-progressor-prog_start}{}}}
 \subsection{Method \code{prog_start()}}{
 print messages of total queries to do, and
 percent completed
@@ -164,8 +164,8 @@ percent completed
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-prog"></a>}}
-\if{latex}{\out{\hypertarget{method-prog}{}}}
+\if{html}{\out{<a id="method-progressor-prog"></a>}}
+\if{latex}{\out{\hypertarget{method-progressor-prog}{}}}
 \subsection{Method \code{prog()}}{
 prints message of found or not found using packages
 cli and crayon
@@ -185,8 +185,8 @@ messages
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-prog_found"></a>}}
-\if{latex}{\out{\hypertarget{method-prog_found}{}}}
+\if{html}{\out{<a id="method-progressor-prog_found"></a>}}
+\if{latex}{\out{\hypertarget{method-progressor-prog_found}{}}}
 \subsection{Method \code{prog_found()}}{
 prints found message using packages cli and crayon
 \subsection{Usage}{
@@ -198,8 +198,8 @@ messages
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-prog_not_found"></a>}}
-\if{latex}{\out{\hypertarget{method-prog_not_found}{}}}
+\if{html}{\out{<a id="method-progressor-prog_not_found"></a>}}
+\if{latex}{\out{\hypertarget{method-progressor-prog_not_found}{}}}
 \subsection{Method \code{prog_not_found()}}{
 prints not found message using packages cli and crayon
 \subsection{Usage}{
@@ -211,8 +211,8 @@ messages
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-prog_summary"></a>}}
-\if{latex}{\out{\hypertarget{method-prog_summary}{}}}
+\if{html}{\out{<a id="method-progressor-prog_summary"></a>}}
+\if{latex}{\out{\hypertarget{method-progressor-prog_summary}{}}}
 \subsection{Method \code{prog_summary()}}{
 prints summary at end of result with total found and
 not found
@@ -225,8 +225,8 @@ messages
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-progressor-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-progressor-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

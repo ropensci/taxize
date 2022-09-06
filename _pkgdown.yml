@@ -5,6 +5,7 @@ reference:
       - taxize-defunct
       - taxize_cite
       - taxize-params
+      - taxize_options
   - title: "Authentication"
     contents:
       - taxize-authentication
