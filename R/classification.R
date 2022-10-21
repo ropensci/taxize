@@ -365,31 +365,33 @@ classification.uid <- function(id, callopts = list(), return_id = TRUE,
       tries <- 1
       while (success == FALSE && tries <= max_tries) {
         res <- cli$get("entrez/eutils/efetch.fcgi", query = query)
-        res$raise_for_status()
-        tt <- res$parse("UTF-8")
-        ttp <- xml2::read_xml(tt)
-        out <- lapply(xml2::xml_find_all(ttp, '//TaxaSet/Taxon'),
-          function(tax_node) {
-          lin <- data.frame(
-            name = xml_text_all(tax_node,
-              ".//LineageEx/Taxon/ScientificName"),
-            rank = xml_text_all(tax_node, ".//LineageEx/Taxon/Rank"),
-            id = xml_text_all(tax_node, ".//LineageEx/Taxon/TaxId"),
-            stringsAsFactors = FALSE)
-          targ_tax <- data.frame(
-            name = xml_text_all(tax_node, "./ScientificName"),
-            rank = xml_text_all(tax_node, "./Rank"),
-            id = xml_text_all(tax_node, "./TaxId"),
-            stringsAsFactors = FALSE)
-          rbind(lin, targ_tax)
-        })
-        # Is not directly below root and no lineage info
-        parent_id <- xml_text_all(ttp, "//TaxaSet/Taxon/ParentTaxId") %||% ""
-        out[vapply(out, NROW, numeric(1)) == 0 & parent_id != "1"] <- NA
-        # Add NA where the taxon ID was not found
-        names(out) <- xml_text(xml2::xml_find_all(ttp,
-          '//TaxaSet/Taxon/TaxId'))
-        success <- ! grepl(tt, pattern = 'error', ignore.case = TRUE)
+		try({
+			res$raise_for_status()
+			tt <- res$parse("UTF-8")
+			ttp <- xml2::read_xml(tt)
+			out <- lapply(xml2::xml_find_all(ttp, '//TaxaSet/Taxon'),
+			function(tax_node) {
+			lin <- data.frame(
+				name = xml_text_all(tax_node,
+				".//LineageEx/Taxon/ScientificName"),
+				rank = xml_text_all(tax_node, ".//LineageEx/Taxon/Rank"),
+				id = xml_text_all(tax_node, ".//LineageEx/Taxon/TaxId"),
+				stringsAsFactors = FALSE)
+			targ_tax <- data.frame(
+				name = xml_text_all(tax_node, "./ScientificName"),
+				rank = xml_text_all(tax_node, "./Rank"),
+				id = xml_text_all(tax_node, "./TaxId"),
+				stringsAsFactors = FALSE)
+			rbind(lin, targ_tax)
+			})
+			# Is not directly below root and no lineage info
+			parent_id <- xml_text_all(ttp, "//TaxaSet/Taxon/ParentTaxId") %||% ""
+			out[vapply(out, NROW, numeric(1)) == 0 & parent_id != "1"] <- NA
+			# Add NA where the taxon ID was not found
+			names(out) <- xml_text(xml2::xml_find_all(ttp,
+			'//TaxaSet/Taxon/TaxId'))
+			success <- ! grepl(tt, pattern = 'error', ignore.case = TRUE)
+		}, silent=FALSE)
         tries <- tries + 1
         # NCBI limits requests to three per second without key or 10 per
         # second with key
