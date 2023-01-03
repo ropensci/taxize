@@ -5,7 +5,7 @@
 state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![cran
-checks](https://cranchecks.info/badges/worst/taxize)](https://cranchecks.info/pkgs/taxize)
+checks](https://badges.cranchecks.info/worst/taxize.svg)](https://cran.r-project.org/web/checks/check_results_taxize.html)
 [![R-CMD-check](https://github.com/ropensci/taxize/workflows/R-CMD-check/badge.svg)](https://github.com/ropensci/taxize/actions/)
 [![codecov](https://codecov.io/gh/ropensci/taxize/branch/master/graph/badge.svg)](https://app.codecov.io/gh/ropensci/taxize)
 [![rstudio mirror
@@ -195,13 +195,13 @@ we plan to get done for each version.
 
 ## Meta
 
--   Please [report any issues or
-    bugs](https://github.com/ropensci/taxize/issues).
--   License: MIT
--   Get citation information for `taxize` in R doing
-    `citation(package = 'taxize')`
--   Please note that this package is released with a [Contributor Code
-    of Conduct](https://ropensci.org/code-of-conduct/). By contributing
-    to this project, you agree to abide by its terms.
+- Please [report any issues or
+  bugs](https://github.com/ropensci/taxize/issues).
+- License: MIT
+- Get citation information for `taxize` in R doing
+  `citation(package = 'taxize')`
+- Please note that this package is released with a [Contributor Code of
+  Conduct](https://ropensci.org/code-of-conduct/). By contributing to
+  this project, you agree to abide by its terms.
 
 [![rofooter](https://ropensci.org/public_images/github_footer.png)](https://ropensci.org)
