@@ -80,7 +80,11 @@ get_natservid <- function(sci_com, searchtype = "scientific", ask = TRUE,
   assert(ask, "logical")
   assert(messages, "logical")
   assert_rows(rows)
-  pchk(query, "sci_com")
+  if (!is.null(commnames)) {
+    lifecycle::deprecate_warn(when = "v0.9.97", what = "get_natservid(query)", with = "get_natservid(sci_com)")
+    sci_com <- query
+  }
+  
 
   if (inherits(sci_com, "character")) {
     tstate <- taxon_state$new(class = "natservid", names = sci_com)
@@ -266,7 +270,10 @@ check_natservid <- function(x){
 get_natservid_ <- function(sci_com, searchtype = "scientific", messages = TRUE,
   rows = NA, query = NULL, ...) {
 
-  pchk(query, "sci_com")
+  if (!is.null(query)) {
+    lifecycle::deprecate_warn(when = "v0.9.97", what = "get_natservid_(query)", with = "get_natservid_(sci_com)")
+    sci_com <- query
+  }
   stats::setNames(
     lapply(sci_com, get_natservid_help, searchtype = searchtype,
       messages = messages, rows = rows, ...),

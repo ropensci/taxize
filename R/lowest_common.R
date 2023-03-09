@@ -110,7 +110,11 @@ lowest_common.default <- function(sci_id, db = NULL, rows = NA, class_list = NUL
                                   low_rank = NULL, x = NULL, ...) {
   if (is.null(db)) if (!is.null(class_list)) db <- attr(class_list, "db")
   nstop(db)
-  pchk(x, "sci_id")
+  if (!is.null(x)) {
+    lifecycle::deprecate_warn(when = "v0.9.97", what = "lowest_common(x)", with = "lowest_common(sci_id)")
+    sci_id <- x
+  }
+  
   if (!is.null(x)) sci_id <- x
   switch(
     db,

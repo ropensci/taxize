@@ -104,8 +104,11 @@ get_pow <- function(sci_com, accepted = FALSE, ask = TRUE, messages = TRUE,
   assert(family_filter, "character")
   assert(rank_filter, "character")
   assert_rows(rows)
-  pchk(x, "sci_com")
-
+  if (!is.null(x)) {
+    lifecycle::deprecate_warn(when = "v0.9.97", what = "get_pow(x)", with = "get_pow(sci_com)")
+    sci_com <- x
+  }
+  
   if (inherits(sci_com, "character")) {
     tstate <- taxon_state$new(class = "pow", names = sci_com)
     items <- sci_com
@@ -286,7 +289,11 @@ check_pow <- function(x){
 #' @export
 #' @rdname get_pow
 get_pow_ <- function(sci_com, messages = TRUE, rows = NA, x = NULL, ...) {
-  pchk(x, "sci_com")
+  if (!is.null(x)) {
+    lifecycle::deprecate_warn(when = "v0.9.97", what = "get_pow_(x)", with = "get_pow_(sci_com)")
+    sci_com <- x
+  }
+  
   stats::setNames(lapply(sci_com, get_pow_help, messages = messages,
     rows = rows, ...), sci_com)
 }

@@ -36,7 +36,11 @@
 nbn_search <- function(sci_com, fq = NULL, order = NULL, sort = NULL,
   start = 0, rows = 25, facets = NULL, q = NULL, ...) {
 
-  pchk(q, "sci_com")
+  if (!is.null(q)) {
+    lifecycle::deprecate_warn(when = "v0.9.97", what = "nbn_search(q)", with = "nbn_search(sci_com)")
+    sci_com <- q
+  }
+  
   args <- tc(list(
     q = sci_com, fq = fq, pageSize = rows, startIndex = start, sort = sort,
     dir = order, facets = facets

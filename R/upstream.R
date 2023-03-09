@@ -43,8 +43,11 @@ upstream.default <- function(sci_id, db = NULL, upto = NULL, rows = NA,
 
   nstop(upto, "upto")
   nstop(db)
-  pchk(x, "sci_id")
-  if (!is.null(x)) sci_id <- x
+  if (!is.null(x)) {
+    lifecycle::deprecate_warn(when = "v0.9.97", what = "upstream(x)", with = "upstream(sci_id)")
+    sci_id <- x
+  }
+  
   switch(
     db,
     itis = {

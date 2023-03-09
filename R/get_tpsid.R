@@ -106,11 +106,14 @@ get_tpsid <- function(sci, ask = TRUE, messages = TRUE, key = NULL,
 
   assert(sci, c("character", "taxon_state"))
   assert(ask, "logical")
-  assert(messages, "logical")
   assert(family, "character")
   assert(rank, "character")
   assert_rows(rows)
-  pchk(sciname, "sci")
+  if (!is.null(sciname)) {
+    lifecycle::deprecate_warn(when = "v0.9.97", what = "get_tpsid(sciname)", with = "get_tpsid(sci)")
+    sci <- sciname
+  }
+  
 
   if (inherits(sci, "character")) {
     tstate <- taxon_state$new(class = "tpsid", names = sci)
@@ -283,7 +286,10 @@ check_tpsid <- function(x){
 get_tpsid_ <- function(sci, messages = TRUE, key = NULL, rows = NA,
   sciname = NULL, ...) {
 
-  pchk(sciname, "sci")
+  if (!is.null(sciname)) {
+    lifecycle::deprecate_warn(when = "v0.9.97", what = "get_tpsid_(sciname)", with = "get_tpsid_(sci)")
+    sci <- sciname
+  }
   stats::setNames(lapply(sci, get_tpsid_help, messages = messages, key=key,
     rows = rows, ...), sci)
 }

@@ -40,7 +40,11 @@
 eol_search <- function(sci, page=1, exact=NULL, filter_tid=NULL,
   filter_heid=NULL, filter_by_string=NULL, cache_ttl=NULL, terms = NULL, ...) {
 
-  pchk(terms, "sci")
+  if (!is.null(terms)) {
+    lifecycle::deprecate_warn(when = "v0.9.97", what = "eol_search(terms)", with = "eol_search(sci)")
+    sci = terms
+  }
+  
 	query <- gsub("\\s", "+", sci)
   args <- tc(list(q = query, page = page, exact = exact,
                   filter_by_taxon_concept_id = filter_tid,

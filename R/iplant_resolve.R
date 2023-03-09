@@ -15,8 +15,11 @@
 #' iplant_resolve("Helianthusss", verbose = TRUE)
 #' }
 iplant_resolve <- function(sci, retrieve='all', query = NULL, ...) {
-  pchk(query, "sci")
-  if (!is.null(query)) sci <- query
+  if (!is.null(query)) {
+    lifecycle::deprecate_warn(when = "v0.9.97", what = "iplant_resolve(query)", with = "iplant_resolve(sci)")
+    sci <- query
+  }
+  
   url <- "http://tnrs.iplantc.org/tnrsm-svc/matchNames"
   sci <- paste(sci, collapse = ",")
   args <- tc(list(names = sci, retrieve = retrieve))

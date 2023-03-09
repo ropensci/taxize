@@ -53,8 +53,11 @@
 tax_name <- function(sci, get, db = "itis", pref = 'ncbi', messages = TRUE,
                      query = NULL, ...) {
 
-  pchk(query, "sci")
-  if (!is.null(query)) sci <- query
+  if (!is.null(query)) {
+    lifecycle::deprecate_warn(when = "v0.9.97", what = "tax_name(query)", with = "tax_name(sci)")
+    sci <- query
+  }
+  
   if (missing(get)) stop("you must supply a 'get' value", call. = FALSE)
   db <- match.arg(db, c('itis', 'ncbi', 'both'))
   if (db == 'both' && !pref %in% c('ncbi', 'itis')) {

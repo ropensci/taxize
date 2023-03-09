@@ -123,7 +123,11 @@ get_boldid <- function(sci, fuzzy = FALSE, dataTypes = 'basic',
   assert(division, "character")
   assert(parent, "character")
   assert_rows(rows)
-  pchk(searchterm, "sci")
+  if (!is.null(searchterm)) {
+    lifecycle::deprecate_warn(when = "v0.9.97", what = "get_boldid(searchterm)", with = "get_boldid(sci)")
+    sci <- searchterm
+  }
+  
 
   if (inherits(sci, "character")) {
     tstate <- taxon_state$new(class = "boldid", names = sci)
@@ -352,7 +356,10 @@ check_boldid <- function(x){
 get_boldid_ <- function(sci, messages = TRUE, fuzzy = FALSE,
   dataTypes='basic', includeTree=FALSE, rows = NA, searchterm = NULL, ...) {
 
-  pchk(searchterm, "sci")
+  if (!is.null(searchterm)) {
+    lifecycle::deprecate_warn(when = "v0.9.97", what = "get_boldid_(searchterm)", with = "get_boldid_(sci)")
+    sci <- searchterm
+  }
   stats::setNames(lapply(sci, get_boldid_help, messages = messages,
     fuzzy = fuzzy, dataTypes=dataTypes, includeTree=includeTree,
     rows = rows, ...), sci)

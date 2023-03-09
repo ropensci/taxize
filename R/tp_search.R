@@ -33,10 +33,16 @@ tp_search <- function(sci=NULL, com=NULL, nameid=NULL, orderby=NULL,
   sortorder=NULL, pagesize=NULL, startrow=NULL, type=NULL, key=NULL, name=NULL,
   commonname=NULL, ...) {
 
-  pchk(name, "sci")
-  pchk(commonname, "com")
-  if (!is.null(name)) sci <- name
-  if (!is.null(commonname)) com <- commonname
+  if (!is.null(name)) {
+    lifecycle::deprecate_warn(when = "v0.9.97", what = "tp_search(name)", with = "tp_search(sci)")
+    sci <- name
+  }
+  if (!is.null(commonname)) {
+    lifecycle::deprecate_warn(when = "v0.9.97", what = "tp_search(commonname)", with = "tp_search(com)")
+    com <- commonname
+  }
+  
+  
   url = 'http://services.tropicos.org/Name/Search'
   key <- getkey(key, "TROPICOS_KEY")
   if (!is.null(sci)) {

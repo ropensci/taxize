@@ -8,8 +8,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.97)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.97)
+      User-Agent: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
+      X-USER-AGENT: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
   response:
     status:
       status_code: '200'
@@ -17,25 +17,27 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Tue, 09 Jun 2020 01:45:41 GMT
+      date: Thu, 09 Mar 2023 21:24:37 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '9'
-      ncbi-phid: 939B5C81F6EEE0D500005A30917E6D2A.1.1.m_1
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: EB03103224018CF5_CA8DSID
+      ncbi-phid: 322C2D2E52F04595000056D50D170834.1.1.m_1
+      content-type: text/xml; charset=UTF-8
       cache-control: private
-      ncbi-sid: 2B821E0BEBE4AC06_C1F7SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '8'
       access-control-allow-origin: '*'
-      content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=2B821E0BEBE4AC06_C1F7SID; domain=.nih.gov; path=/; expires=Wed,
-        09 Jun 2021 01:45:41 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=EB03103224018CF5_CA8DSID; domain=.nih.gov; path=/; expires=Sat,
+        09 Mar 2024 21:24:37 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
     body:
-      encoding: UTF-8
+      encoding: ''
       file: no
       string: |
         <?xml version="1.0" encoding="UTF-8" ?>
@@ -43,8 +45,8 @@ http_interactions:
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>992823</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Regmatodon+orthostegius[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Regmatodon+orthostegius[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2020-06-09 01:45:43 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2023-03-09 21:24:41 GMT
+  recorded_with: vcr/1.2.0, webmockr/0.8.2
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=992823&api_key=<<entrez_api_token>>
@@ -52,7 +54,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.70.0 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.81.0 r-curl/4.3.3 crul/1.3
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -62,25 +64,27 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Tue, 09 Jun 2020 01:45:41 GMT
+      date: Thu, 09 Mar 2023 21:24:37 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '8'
-      ncbi-phid: 939B5C81F6EEE0D50000253091B072F8.1.1.m_3
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: 8DFD1A1E79ECAC31_2877SID
+      ncbi-phid: 322C2D2E52F04595000030D50FBA3C1C.1.1.m_5
+      content-type: text/xml; charset=UTF-8
       cache-control: private
-      ncbi-sid: 55BEDAE65289073B_98FBSID
       content-encoding: gzip
       x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '8'
       access-control-allow-origin: '*'
-      content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=55BEDAE65289073B_98FBSID; domain=.nih.gov; path=/; expires=Wed,
-        09 Jun 2021 01:45:42 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=8DFD1A1E79ECAC31_2877SID; domain=.nih.gov; path=/; expires=Sat,
+        09 Mar 2024 21:24:38 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
     body:
-      encoding: UTF-8
+      encoding: ''
       file: no
       string: |-
         <?xml version="1.0" ?>
@@ -91,7 +95,7 @@ http_interactions:
             <OtherNames>
                 <Name>
                     <ClassCDE>authority</ClassCDE>
-                    <DispName>Regmatodon orthostegius Mont.</DispName>
+                    <DispName>Regmatodon orthostegius Mont., 1842</DispName>
                 </Name>
             </OtherNames>
             <ParentTaxId>324116</ParentTaxId>
@@ -135,17 +139,17 @@ http_interactions:
                 <Taxon>
                     <TaxId>3193</TaxId>
                     <ScientificName>Embryophyta</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>3208</TaxId>
                     <ScientificName>Bryophyta</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>404260</TaxId>
                     <ScientificName>Bryophytina</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>3214</TaxId>
@@ -190,8 +194,8 @@ http_interactions:
         </Taxon>
 
         </TaxaSet>
-  recorded_at: 2020-06-09 01:45:43 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2023-03-09 21:24:41 GMT
+  recorded_with: vcr/1.2.0, webmockr/0.8.2
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Fagraea%2Bfragrans&api_key=<<entrez_api_token>>
@@ -201,8 +205,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.97)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.97)
+      User-Agent: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
+      X-USER-AGENT: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
   response:
     status:
       status_code: '200'
@@ -210,25 +214,27 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Tue, 09 Jun 2020 01:45:42 GMT
+      date: Thu, 09 Mar 2023 21:24:39 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '7'
-      ncbi-phid: 939B5C81F6EEE0D500003E309221D2C3.1.1.m_1
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: 322A4DBD61E5FCFA_F174SID
+      ncbi-phid: 322C2D2E52F04595000059D5140BF856.1.1.m_1
+      content-type: text/xml; charset=UTF-8
       cache-control: private
-      ncbi-sid: 9B801FC7AB799015_1E45SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '8'
       access-control-allow-origin: '*'
-      content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=9B801FC7AB799015_1E45SID; domain=.nih.gov; path=/; expires=Wed,
-        09 Jun 2021 01:45:42 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=322A4DBD61E5FCFA_F174SID; domain=.nih.gov; path=/; expires=Sat,
+        09 Mar 2024 21:24:39 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
     body:
-      encoding: UTF-8
+      encoding: ''
       file: no
       string: |
         <?xml version="1.0" encoding="UTF-8" ?>
@@ -236,8 +242,8 @@ http_interactions:
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>84942</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Fagraea+fragrans[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Fagraea+fragrans[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2020-06-09 01:45:43 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2023-03-09 21:24:41 GMT
+  recorded_with: vcr/1.2.0, webmockr/0.8.2
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=84942&api_key=<<entrez_api_token>>
@@ -245,7 +251,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.70.0 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.81.0 r-curl/4.3.3 crul/1.3
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -255,39 +261,46 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Tue, 09 Jun 2020 01:45:42 GMT
+      date: Thu, 09 Mar 2023 21:24:40 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '6'
-      ncbi-phid: 939B5C81F6EEE0D500001430926495FF.1.1.m_3
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: 0F92931871DD9CAA_EE12SID
+      ncbi-phid: 322C2D2E52F04595000029D516D09095.1.1.m_3
+      content-type: text/xml; charset=UTF-8
       cache-control: private
-      ncbi-sid: ABEC4FDA1944FCF5_FF19SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '8'
       access-control-allow-origin: '*'
-      content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=ABEC4FDA1944FCF5_FF19SID; domain=.nih.gov; path=/; expires=Wed,
-        09 Jun 2021 01:45:42 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=0F92931871DD9CAA_EE12SID; domain=.nih.gov; path=/; expires=Sat,
+        09 Mar 2024 21:24:40 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
     body:
-      encoding: UTF-8
+      encoding: ''
       file: no
       string: |-
         <?xml version="1.0" ?>
         <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
         <TaxaSet><Taxon>
             <TaxId>84942</TaxId>
-            <ScientificName>Fagraea fragrans</ScientificName>
+            <ScientificName>Cyrtophyllum fragrans</ScientificName>
             <OtherNames>
+                <Synonym>Fagraea fragrans</Synonym>
                 <Name>
                     <ClassCDE>authority</ClassCDE>
-                    <DispName>Fagraea fragrans Roxb.</DispName>
+                    <DispName>Cyrtophyllum fragrans (Roxb.) DC., 1845</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>authority</ClassCDE>
+                    <DispName>Fagraea fragrans Roxb., 1824</DispName>
                 </Name>
             </OtherNames>
-            <ParentTaxId>26476</ParentTaxId>
+            <ParentTaxId>2546024</ParentTaxId>
             <Rank>species</Rank>
             <Division>Plants and Fungi</Division>
             <GeneticCode>
@@ -298,7 +311,7 @@ http_interactions:
                 <MGCId>1</MGCId>
                 <MGCName>Standard</MGCName>
             </MitoGeneticCode>
-            <Lineage>cellular organisms; Eukaryota; Viridiplantae; Streptophyta; Streptophytina; Embryophyta; Tracheophyta; Euphyllophyta; Spermatophyta; Magnoliopsida; Mesangiospermae; eudicotyledons; Gunneridae; Pentapetalae; asterids; lamiids; Gentianales; Gentianaceae; Potalieae; Potaliinae; Fagraea</Lineage>
+            <Lineage>cellular organisms; Eukaryota; Viridiplantae; Streptophyta; Streptophytina; Embryophyta; Tracheophyta; Euphyllophyta; Spermatophyta; Magnoliopsida; Mesangiospermae; eudicotyledons; Gunneridae; Pentapetalae; asterids; lamiids; Gentianales; Gentianaceae; Potalieae; Potaliinae; Cyrtophyllum</Lineage>
             <LineageEx>
                 <Taxon>
                     <TaxId>131567</TaxId>
@@ -328,22 +341,22 @@ http_interactions:
                 <Taxon>
                     <TaxId>3193</TaxId>
                     <ScientificName>Embryophyta</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>58023</TaxId>
                     <ScientificName>Tracheophyta</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>78536</TaxId>
                     <ScientificName>Euphyllophyta</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>58024</TaxId>
                     <ScientificName>Spermatophyta</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>3398</TaxId>
@@ -353,32 +366,32 @@ http_interactions:
                 <Taxon>
                     <TaxId>1437183</TaxId>
                     <ScientificName>Mesangiospermae</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>71240</TaxId>
                     <ScientificName>eudicotyledons</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>91827</TaxId>
                     <ScientificName>Gunneridae</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>1437201</TaxId>
                     <ScientificName>Pentapetalae</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>71274</TaxId>
                     <ScientificName>asterids</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>91888</TaxId>
                     <ScientificName>lamiids</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>4055</TaxId>
@@ -401,8 +414,8 @@ http_interactions:
                     <Rank>subtribe</Rank>
                 </Taxon>
                 <Taxon>
-                    <TaxId>26476</TaxId>
-                    <ScientificName>Fagraea</ScientificName>
+                    <TaxId>2546024</TaxId>
+                    <ScientificName>Cyrtophyllum</ScientificName>
                     <Rank>genus</Rank>
                 </Taxon>
             </LineageEx>
@@ -413,10 +426,10 @@ http_interactions:
                 </Property>
             </Properties>
             <CreateDate>1998/11/19 17:47:00</CreateDate>
-            <UpdateDate>2005/01/19 15:15:00</UpdateDate>
+            <UpdateDate>2021/10/12 17:40:04</UpdateDate>
             <PubDate>1999/01/01 00:00:00</PubDate>
         </Taxon>
 
         </TaxaSet>
-  recorded_at: 2020-06-09 01:45:43 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2023-03-09 21:24:41 GMT
+  recorded_with: vcr/1.2.0, webmockr/0.8.2

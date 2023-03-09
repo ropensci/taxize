@@ -140,8 +140,11 @@ get_gbifid <- function(sci, ask = TRUE, messages = TRUE, rows = NA,
   assert(rank, "character")
   assert(method, "character")
   assert_rows(rows)
-  pchk(sciname, "sci")
-
+  if (!is.null(sciname)) {
+    lifecycle::deprecate_warn(when = "v0.9.97", what = "get_gbifid(sciname)", with = "get_gbifid(sci)")
+    sci <- sciname
+  }
+  
   if (inherits(sci, "character")) {
     tstate <- taxon_state$new(class = "gbifid", names = sci)
     items <- sci
@@ -323,7 +326,10 @@ check_gbifid <- function(x){
 get_gbifid_ <- function(sci, messages = TRUE, rows = NA, method = "backbone",
   sciname = NULL) {
 
-  pchk(sciname, "sci")
+  if (!is.null(sciname)) {
+    lifecycle::deprecate_warn(when = "v0.9.97", what = "get_gbifid_(sciname)", with = "get_gbifid_(sci)")
+    sci <- sciname
+  }
   stats::setNames(lapply(sci, get_gbifd_help, messages = messages,
     rows = rows, method = method), sci)
 }

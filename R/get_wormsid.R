@@ -115,9 +115,12 @@ get_wormsid <- function(sci_com, searchtype = "scientific", marine_only = TRUE,
   assert(fuzzy, "logical")
   assert(accepted, "logical")
   assert(ask, "logical")
-  assert(messages, "logical")
   assert_rows(rows)
-  pchk(query, "sci_com")
+  if (!is.null(query)) {
+    lifecycle::deprecate_warn(when = "v0.9.97", what = "get_wormsid(query)", with = "get_wormsid(sci_com)")
+    sci_com <- query
+  }
+  
 
   if (inherits(sci_com, "character")) {
     tstate <- taxon_state$new(class = "wormsid", names = sci_com)
@@ -318,7 +321,10 @@ get_wormsid_ <- function(sci_com, messages = TRUE, searchtype = "scientific",
   marine_only = TRUE, fuzzy = NULL, accepted = TRUE, rows = NA, query = NULL,
   ...) {
 
-  pchk(query, "sci_com")
+  if (!is.null(query)) {
+    lifecycle::deprecate_warn(when = "v0.9.97", what = "get_wormsid_(query)", with = "get_wormsid_(sci_com)")
+    sci_com <- query
+  }
   stats::setNames(
     lapply(sci_com, get_wormsid_help, messages = messages,
            searchtype = searchtype, marine_only = marine_only, fuzzy = fuzzy,

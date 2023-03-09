@@ -96,7 +96,7 @@ Imports:
     crayon,
     cli,
     phangorn,
-    conditionz
+    lifecycle
 Suggests:
     testthat,
     vegan,

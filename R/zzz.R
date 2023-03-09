@@ -286,24 +286,3 @@ ncbi_rate_limit_pause <- function(key) {
   }
 }
 
-# foo <- function(x) {
-#   deparse(substitute(x))
-# }
-# bar <- function(z) {
-#   foo(z)
-# }
-# bar(z = "adf")
-taxize_ck <- conditionz::ConditionKeeper$new(times = 1, condition = "warning")
-pchk <- function(from, to, pkg_version = "v0.9.97") {
-  assert(deparse(substitute(from)), "character")
-  assert(to, "character")
-  assert(pkg_version, "character")
-  # & will be removed in a future version
-  param_mssg <- "`%s` param is deprecated as of taxize %s, use `%s` instead."
-  parms_help <- "\nSee `?taxize-params` for more information."
-  once_per <- "\nThis warning will be thrown once per R session."
-  mssg <- c(sprintf(param_mssg, deparse(substitute(from)), pkg_version, to),
-    parms_help, once_per)
-  if (!is.null(from))
-    taxize_ck$handle_conditions(warning(mssg))
-}

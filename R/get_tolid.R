@@ -73,7 +73,11 @@ get_tolid <- function(sci, ask = TRUE, messages = TRUE, rows = NA,
   assert(sci, c("character", "taxon_state"))
   assert(ask, "logical")
   assert(messages, "logical")
-  pchk(sciname, "sci")
+  if (!is.null(sciname)) {
+    lifecycle::deprecate_warn(when = "v0.9.97", what = "get_tolid(sciname)", with = "get_tolid(sci)")
+    sci <- sciname
+  }
+  
   if (!all(is.na(rows))) {
     assert(rows, c("numeric", "integer"))
     stopifnot(rows > 0)
@@ -254,7 +258,10 @@ check_tolid <- function(x){
 #' @export
 #' @rdname get_tolid
 get_tolid_ <- function(sci, messages = TRUE, rows = NA, sciname = NULL) {
-  pchk(sciname, "sci")
+  if (!is.null(sciname)) {
+    lifecycle::deprecate_warn(when = "v0.9.97", what = "get_tolid_(sciname)", with = "get_tolid_(sci)")
+    sci <- sciname
+  }
   stats::setNames(
     lapply(sci, get_tolid_help, messages = messages, rows = rows),
     sci

@@ -56,7 +56,11 @@ get_iucn <- function(sci, messages = TRUE, key = NULL, x = NULL, ...) {
 
   assert(sci, c("character", "taxon_state"))
   assert(messages, "logical")
-  pchk(x, "sci")
+  if (!is.null(x)) {
+    lifecycle::deprecate_warn(when = "v0.9.97", what = "get_iucn(x)", with = "get_iucn(sci)")
+    sci <- x
+  }
+  
 
   if (inherits(sci, "character")) {
     tstate <- taxon_state$new(class = "iucn", names = sci)

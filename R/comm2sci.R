@@ -63,8 +63,11 @@ comm2sci <- function(...) {
 #' @rdname comm2sci
 comm2sci.default <- function(com, db='ncbi', itisby='search',
                              simplify=TRUE, commnames = NULL, ...) {
-  pchk(commnames, "com")
-  if (!is.null(commnames)) com <- commnames
+  if (!is.null(commnames)) {
+    lifecycle::deprecate_warn(when = "v0.9.97", what = "comm2sci(commnames)", with = "comm2sci(com)")
+    com <- commnames
+  }
+  
   assert(com, "character")
   assert(simplify, "logical")
   temp <- lapply(com, sci_from_comm, db = db, simplify = simplify,

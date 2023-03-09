@@ -64,8 +64,11 @@ sci2comm <- function(...){
 sci2comm.default <- function(sci, db='ncbi', simplify=TRUE,
   scinames = NULL, ...) {
 
-  pchk(scinames, "sci")
-  if (!is.null(scinames)) sci <- scinames 
+  if (!is.null(scinames)) {
+    lifecycle::deprecate_warn(when = "v0.9.97", what = "sci2comm(scinames)", with = "sci2comm(sci)")
+    sci <- scinames
+  }
+  
   temp <- lapply(sci, getsci, db = db, simplify = simplify, ...)
   stats::setNames(temp, sci)
 }

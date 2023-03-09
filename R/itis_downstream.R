@@ -39,7 +39,11 @@
 itis_downstream <- function(id, downto, intermediate = FALSE, tsns = NULL,
 	...) {
 
-	pchk(tsns, "id")
+  if (!is.null(tsns)) {
+    lifecycle::deprecate_warn(when = "v0.9.97", what = "itis_downstream(tsns)", with = "itis_downstream(id)")
+    id <- tsns
+  }
+  
   if (!is.null(tsns)) id <- tsns
   downto <- tolower(downto)
   downto2 <- taxize_ds$rank_ref[which_rank(downto), "rankid"]

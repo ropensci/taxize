@@ -65,8 +65,11 @@
 bold_search <- function(sci = NULL, id = NULL, fuzzy = FALSE,
   dataTypes = 'basic', includeTree=FALSE, response=FALSE, name = NULL, ...) {
 
-  pchk(name, "sci")
-  if (!is.null(name)) sci <- name
+  if (!is.null(name)) {
+    lifecycle::deprecate_warn(when = "v0.9.97", what = "bold_search(name)", with = "bold_search(sci)")
+    sci <- name
+  }
+  
   stopifnot(!is.null(sci) | !is.null(id))
   type <- if (is.null(sci)) "id" else "sci"
   tmp <- switch(type,

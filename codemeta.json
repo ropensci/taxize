@@ -14,7 +14,7 @@
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.1.2 (2021-11-01)",
+  "runtimePlatform": "R version 4.2.2 Patched (2022-11-10 r83330)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -426,22 +426,22 @@
     },
     "25": {
       "@type": "SoftwareApplication",
-      "identifier": "conditionz",
-      "name": "conditionz",
+      "identifier": "lifecycle",
+      "name": "lifecycle",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
         "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
       },
-      "sameAs": "https://CRAN.R-project.org/package=conditionz"
+      "sameAs": "https://CRAN.R-project.org/package=lifecycle"
     },
     "SystemRequirements": null
   },
   "applicationCategory": "Taxonomy",
   "isPartOf": "https://ropensci.org",
   "keywords": ["taxonomy", "biology", "nomenclature", "JSON", "API", "web", "api-client", "identifiers", "species", "names", "data", "api", "biodiversity", "rstats", "darwincore", "taxize", "api-wrapper", "r", "r-package"],
-  "fileSize": "11363.214KB",
+  "fileSize": "11368.156KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",
@@ -559,6 +559,6 @@
   ],
   "releaseNotes": "https://github.com/ropensci/taxize/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/taxize/blob/master/README.md",
-  "contIntegration": ["https://github.com/ropensci/taxize/actions/", "https://codecov.io/gh/ropensci/taxize"],
+  "contIntegration": ["https://github.com/ropensci/taxize/actions/", "https://app.codecov.io/gh/ropensci/taxize"],
   "developmentStatus": "https://www.repostatus.org/#active"
 }

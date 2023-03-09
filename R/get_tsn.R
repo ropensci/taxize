@@ -83,7 +83,11 @@ get_tsn <- function(sci_com, searchtype = "scientific", accepted = FALSE,
   assert(searchtype, "character")
   assert(accepted, "logical")
   assert_rows(rows)
-  pchk(searchterm, "sci_com")
+  if (!is.null(searchterm)) {
+    lifecycle::deprecate_warn(when = "v0.9.97", what = "get_tsn(searchterm)", with = "get_tsn(sci_com)")
+    sci_com <- searchterm
+  }
+  
 
   if (inherits(sci_com, "character")) {
     tstate <- taxon_state$new(class = "tsn", names = sci_com)
@@ -269,7 +273,11 @@ check_tsn <- function(x){
 #' @rdname get_tsn
 get_tsn_ <- function(sci_com, messages = TRUE, searchtype = "scientific",
                      accepted = TRUE, rows = NA, searchterm = NULL, ...) {
-  pchk(searchterm, "sci_com")
+  if (!is.null(searchterm)) {
+    lifecycle::deprecate_warn(when = "v0.9.97", what = "get_tsn_(searchterm)", with = "get_tsn_(sci_com)")
+    sci_com <- searchterm
+  }
+  
   stats::setNames(
     lapply(sci_com, get_tsn_help, messages = messages,
            searchtype = searchtype, accepted = accepted, rows = rows, ...),

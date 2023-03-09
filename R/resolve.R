@@ -36,7 +36,11 @@
 #' resolve(sci="Qercuss", db = "iplant", verbose = TRUE)
 #' }
 resolve <- function(sci, db = 'gnr', query = NULL, ...) {
-  pchk(query, "sci")
+  if (!is.null(query)) {
+    lifecycle::deprecate_warn(when = "v0.9.97", what = "resolve(query)", with = "resolve(sci)")
+    sci <- query
+  }
+  
   if (!is.null(query)) sci <- query
   db <- match.arg(db, choices = c('iplant', 'gnr'), 
     several.ok = TRUE)

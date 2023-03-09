@@ -6,9 +6,10 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
+      X-USER-AGENT: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
   response:
     status:
       status_code: '200'
@@ -16,29 +17,31 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Tue, 29 Jan 2019 19:50:48 GMT
+      date: Thu, 09 Mar 2023 21:23:42 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '8'
-      ncbi-phid: 939B131039D6F975000026C382A243BD.1.1.m_1
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: 099C7BF95B0D3C90_3E50SID
+      ncbi-phid: 322C2D2E52F0459500002DD44E4F57A0.1.1.m_1
+      content-type: text/xml; charset=UTF-8
       cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: 7770C5D297EE2A63_A310SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '9'
       access-control-allow-origin: '*'
-      content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=7770C5D297EE2A63_A310SID; domain=.nih.gov; path=/; expires=Wed,
-        29 Jan 2020 19:50:49 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=099C7BF95B0D3C90_3E50SID; domain=.nih.gov; path=/; expires=Sat,
+        09 Mar 2024 21:23:43 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
     body:
-      encoding: UTF-8
+      encoding: ''
+      file: no
       string: |
         <?xml version="1.0" encoding="UTF-8" ?>
         <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
         <eSearchResult><Count>0</Count><RetMax>0</RetMax><RetStart>0</RetStart><IdList/><TranslationSet/><QueryTranslation>(23424234234[All Names])</QueryTranslation><ErrorList><PhraseNotFound>23424234234</PhraseNotFound></ErrorList><WarningList><OutputMessage>No items found.</OutputMessage></WarningList></eSearchResult>
-  recorded_at: 2019-01-29 19:50:47 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2023-03-09 21:23:43 GMT
+  recorded_with: vcr/1.2.0, webmockr/0.8.2

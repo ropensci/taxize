@@ -42,7 +42,11 @@ pow_search <- function(sci_com, limit = 100, cursor = "*", sort = NULL,
   assert(limit, c("integer", "numeric"))
   assert(cursor, "character")
   assert(sort, "character")
-  pchk(q, "sci_com")
+  if (!is.null(q)) {
+    lifecycle::deprecate_warn(when = "v0.9.97", what = "pow_search(q)", with = "pow_search(sci_com)")
+    sci_com <- q
+  }
+  
   args <- tc(list(q = sci_com, perPage = limit, cursor = cursor, sort = sort))
   pow_GET(file.path(pow_base(), "api/2", "search"), args, ...)
 }

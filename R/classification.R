@@ -228,7 +228,11 @@ classification <- function(...){
 classification.default <- function(sci_id, db = NULL, callopts = list(),
                                    return_id = TRUE, rows = NA, x = NULL, ...) {
   nstop(db)
-  pchk(x, "sci_id")
+  if (!is.null(x)) {
+    lifecycle::deprecate_warn(when = "v0.9.97", what = "classification(x)", with = "classification(sci_id)")
+    sci_id <- x
+  }
+  
   switch(
     db,
     itis = {

@@ -81,8 +81,11 @@ children <- function(...){
 #' @rdname children
 children.default <- function(sci_id, db = NULL, rows = NA, x = NULL, ...) {
   nstop(db)
-  pchk(x, "sci_id")
-  if (!is.null(x)) sci_id <- x
+  if (!is.null(x)) {
+    lifecycle::deprecate_warn(when = "v0.9.97", what = "children(x)", with = "children(sci_id)")
+    sci_id <- x
+  }
+  
   results <- switch(
     db,
     itis = {

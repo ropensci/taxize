@@ -52,7 +52,11 @@
 gni_search <- function(sci, per_page = NULL, page = NULL,
   justtotal = FALSE, parse_names = FALSE, search_term = NULL, ...) {
 
-  pchk(search_term, "sci")
+  if (!is.null(search_term)) {
+    lifecycle::deprecate_warn(when = "v0.9.97", what = "gni_search(search_term)", with = "gni_search(sci)")
+    sci <- search_term
+  }
+  
 	query <- tc(list(search_term = sci, per_page = per_page,
         page = page))
   cli <- crul::HttpClient$new(paste0(gni_base(), "name_strings.json"),

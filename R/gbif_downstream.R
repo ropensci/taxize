@@ -66,9 +66,11 @@
 gbif_downstream <- function(id, downto, intermediate = FALSE, limit = 100,
   start = NULL, key = NULL, ...) {
 
-  pchk(key, "id")
-  if (!is.null(key)) id <- key
-
+  if (!is.null(key)) {
+    lifecycle::deprecate_warn(when = "v0.9.97", what = "gbif_downstream(key)", with = "gbif_downstream(id)")
+    id <- key
+  }
+  
   should_be('intermediate', intermediate, 'logical')
 
   downto <- tolower(downto)

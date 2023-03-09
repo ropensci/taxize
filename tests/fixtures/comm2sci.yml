@@ -8,8 +8,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.97)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.97)
+      User-Agent: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
+      X-USER-AGENT: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
   response:
     status:
       status_code: '200'
@@ -17,29 +17,40 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Tue, 09 Jun 2020 01:42:40 GMT
+      date: Thu, 09 Mar 2023 21:24:43 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '9'
-      ncbi-phid: 322C4109F0E1CE950000552585A1FD1F.1.1.m_1
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: 7511E427228B7251_FDFBSID
+      ncbi-phid: 322C2D2E52F04595000048D5291783FB.1.1.m_1
+      content-type: text/xml; charset=UTF-8
       cache-control: private
-      ncbi-sid: 5D270936A2F6418C_4717SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '9'
       access-control-allow-origin: '*'
-      content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=5D270936A2F6418C_4717SID; domain=.nih.gov; path=/; expires=Wed,
-        09 Jun 2021 01:42:41 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=7511E427228B7251_FDFBSID; domain=.nih.gov; path=/; expires=Sat,
+        09 Mar 2024 21:24:44 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
     body:
-      encoding: ASCII-8BIT
+      encoding: ''
       file: no
-      string: PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiID8+CjwhRE9DVFlQRSBlU2VhcmNoUmVzdWx0IFBVQkxJQyAiLS8vTkxNLy9EVEQgZXNlYXJjaCAyMDA2MDYyOC8vRU4iICJodHRwczovL2V1dGlscy5uY2JpLm5sbS5uaWguZ292L2V1dGlscy9kdGQvMjAwNjA2MjgvZXNlYXJjaC5kdGQiPgo8ZVNlYXJjaFJlc3VsdD48Q291bnQ+MTwvQ291bnQ+PFJldE1heD4xPC9SZXRNYXg+PFJldFN0YXJ0PjA8L1JldFN0YXJ0PjxJZExpc3Q+CjxJZD45NjQzPC9JZD4KPC9JZExpc3Q+PFRyYW5zbGF0aW9uU2V0Lz48VHJhbnNsYXRpb25TdGFjaz4gICA8VGVybVNldD4gICAgPFRlcm0+YW1lcmljYW4rYmxhY2srYmVhcltDb21tb24gTmFtZV08L1Rlcm0+ICAgIDxGaWVsZD5Db21tb24gTmFtZTwvRmllbGQ+ICAgIDxDb3VudD4xPC9Db3VudD4gICAgPEV4cGxvZGU+TjwvRXhwbG9kZT4gICA8L1Rlcm1TZXQ+ICAgPE9QPkdST1VQPC9PUD4gIDwvVHJhbnNsYXRpb25TdGFjaz48UXVlcnlUcmFuc2xhdGlvbj5hbWVyaWNhbitibGFjaytiZWFyW0NvbW1vbiBOYW1lXTwvUXVlcnlUcmFuc2xhdGlvbj48L2VTZWFyY2hSZXN1bHQ+Cg==
-  recorded_at: 2020-06-09 01:42:43 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+      base64_string: PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiID8+CjwhRE9DVFlQRSBlU2VhcmNoUmVz
+        dWx0IFBVQkxJQyAiLS8vTkxNLy9EVEQgZXNlYXJjaCAyMDA2MDYyOC8vRU4iICJodHRwczovL2V1dGls
+        cy5uY2JpLm5sbS5uaWguZ292L2V1dGlscy9kdGQvMjAwNjA2MjgvZXNlYXJjaC5kdGQiPgo8ZVNlYXJj
+        aFJlc3VsdD48Q291bnQ+MTwvQ291bnQ+PFJldE1heD4xPC9SZXRNYXg+PFJldFN0YXJ0PjA8L1JldFN0
+        YXJ0PjxJZExpc3Q+CjxJZD45NjQzPC9JZD4KPC9JZExpc3Q+PFRyYW5zbGF0aW9uU2V0Lz48VHJhbnNs
+        YXRpb25TdGFjaz4gICA8VGVybVNldD4gICAgPFRlcm0+YW1lcmljYW4rYmxhY2srYmVhcltDb21tb24g
+        TmFtZV08L1Rlcm0+ICAgIDxGaWVsZD5Db21tb24gTmFtZTwvRmllbGQ+ICAgIDxDb3VudD4xPC9Db3Vu
+        dD4gICAgPEV4cGxvZGU+TjwvRXhwbG9kZT4gICA8L1Rlcm1TZXQ+ICAgPE9QPkdST1VQPC9PUD4gIDwv
+        VHJhbnNsYXRpb25TdGFjaz48UXVlcnlUcmFuc2xhdGlvbj5hbWVyaWNhbitibGFjaytiZWFyW0NvbW1v
+        biBOYW1lXTwvUXVlcnlUcmFuc2xhdGlvbj48L2VTZWFyY2hSZXN1bHQ+Cg==
+  recorded_at: 2023-03-09 21:24:48 GMT
+  recorded_with: vcr/1.2.0, webmockr/0.8.2
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=9643&api_key=<<entrez_api_token>>
@@ -49,8 +60,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.97)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.97)
+      User-Agent: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
+      X-USER-AGENT: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
   response:
     status:
       status_code: '200'
@@ -58,29 +69,120 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Tue, 09 Jun 2020 01:42:41 GMT
+      date: Thu, 09 Mar 2023 21:24:44 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '8'
-      ncbi-phid: 322C4109F0E1CE950000362586158972.1.1.m_5
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: 4F16DA2E86F73A0C_7341SID
+      ncbi-phid: 322C2D2E52F0459500003ED52BE38AE4.1.1.m_3
+      content-type: text/xml; charset=UTF-8
       cache-control: private
-      ncbi-sid: 4F2191C5343D7499_27B2SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '8'
       access-control-allow-origin: '*'
-      content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=4F2191C5343D7499_27B2SID; domain=.nih.gov; path=/; expires=Wed,
-        09 Jun 2021 01:42:41 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=4F16DA2E86F73A0C_7341SID; domain=.nih.gov; path=/; expires=Sat,
+        09 Mar 2024 21:24:44 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
     body:
-      encoding: ASCII-8BIT
+      encoding: ''
       file: no
-      string: PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8IURPQ1RZUEUgVGF4YVNldCBQVUJMSUMgIi0vL05MTS8vRFREIFRheG9uLCAxNHRoIEphbnVhcnkgMjAwMi8vRU4iICJodHRwczovL3d3dy5uY2JpLm5sbS5uaWguZ292L2VudHJlei9xdWVyeS9EVEQvdGF4b24uZHRkIj4KPFRheGFTZXQ+PFRheG9uPgogICAgPFRheElkPjk2NDM8L1RheElkPgogICAgPFNjaWVudGlmaWNOYW1lPlVyc3VzIGFtZXJpY2FudXM8L1NjaWVudGlmaWNOYW1lPgogICAgPE90aGVyTmFtZXM+CiAgICAgICAgPEdlbmJhbmtDb21tb25OYW1lPkFtZXJpY2FuIGJsYWNrIGJlYXI8L0dlbmJhbmtDb21tb25OYW1lPgogICAgICAgIDxTeW5vbnltPkV1YXJjdG9zIGFtZXJpY2FudXM8L1N5bm9ueW0+CiAgICAgICAgPE5hbWU+CiAgICAgICAgICAgIDxDbGFzc0NERT5hdXRob3JpdHk8L0NsYXNzQ0RFPgogICAgICAgICAgICA8RGlzcE5hbWU+VXJzdXMgYW1lcmljYW51cyBQYWxsYXMsIDE3ODA8L0Rpc3BOYW1lPgogICAgICAgIDwvTmFtZT4KICAgIDwvT3RoZXJOYW1lcz4KICAgIDxQYXJlbnRUYXhJZD45NjM5PC9QYXJlbnRUYXhJZD4KICAgIDxSYW5rPnNwZWNpZXM8L1Jhbms+CiAgICA8RGl2aXNpb24+TWFtbWFsczwvRGl2aXNpb24+CiAgICA8R2VuZXRpY0NvZGU+CiAgICAgICAgPEdDSWQ+MTwvR0NJZD4KICAgICAgICA8R0NOYW1lPlN0YW5kYXJkPC9HQ05hbWU+CiAgICA8L0dlbmV0aWNDb2RlPgogICAgPE1pdG9HZW5ldGljQ29kZT4KICAgICAgICA8TUdDSWQ+MjwvTUdDSWQ+CiAgICAgICAgPE1HQ05hbWU+VmVydGVicmF0ZSBNaXRvY2hvbmRyaWFsPC9NR0NOYW1lPgogICAgPC9NaXRvR2VuZXRpY0NvZGU+CiAgICA8TGluZWFnZT5jZWxsdWxhciBvcmdhbmlzbXM7IEV1a2FyeW90YTsgT3Bpc3Rob2tvbnRhOyBNZXRhem9hOyBFdW1ldGF6b2E7IEJpbGF0ZXJpYTsgRGV1dGVyb3N0b21pYTsgQ2hvcmRhdGE7IENyYW5pYXRhOyBWZXJ0ZWJyYXRhOyBHbmF0aG9zdG9tYXRhOyBUZWxlb3N0b21pOyBFdXRlbGVvc3RvbWk7IFNhcmNvcHRlcnlnaWk7IERpcG5vdGV0cmFwb2RvbW9ycGhhOyBUZXRyYXBvZGE7IEFtbmlvdGE7IE1hbW1hbGlhOyBUaGVyaWE7IEV1dGhlcmlhOyBCb3Jlb2V1dGhlcmlhOyBMYXVyYXNpYXRoZXJpYTsgQ2Fybml2b3JhOyBDYW5pZm9ybWlhOyBVcnNpZGFlOyBVcnN1czwvTGluZWFnZT4KICAgIDxMaW5lYWdlRXg+CiAgICAgICAgPFRheG9uPgogICAgICAgICAgICA8VGF4SWQ+MTMxNTY3PC9UYXhJZD4KICAgICAgICAgICAgPFNjaWVudGlmaWNOYW1lPmNlbGx1bGFyIG9yZ2FuaXNtczwvU2NpZW50aWZpY05hbWU+CiAgICAgICAgICAgIDxSYW5rPm5vIHJhbms8L1Jhbms+CiAgICAgICAgPC9UYXhvbj4KICAgICAgICA8VGF4b24+CiAgICAgICAgICAgIDxUYXhJZD4yNzU5PC9UYXhJZD4KICAgICAgICAgICAgPFNjaWVudGlmaWNOYW1lPkV1a2FyeW90YTwvU2NpZW50aWZpY05hbWU+CiAgICAgICAgICAgIDxSYW5rPnN1cGVya2luZ2RvbTwvUmFuaz4KICAgICAgICA8L1RheG9uPgogICAgICAgIDxUYXhvbj4KICAgICAgICAgICAgPFRheElkPjMzMTU0PC9UYXhJZD4KICAgICAgICAgICAgPFNjaWVudGlmaWNOYW1lPk9waXN0aG9rb250YTwvU2NpZW50aWZpY05hbWU+CiAgICAgICAgICAgIDxSYW5rPm5vIHJhbms8L1Jhbms+CiAgICAgICAgPC9UYXhvbj4KICAgICAgICA8VGF4b24+CiAgICAgICAgICAgIDxUYXhJZD4zMzIwODwvVGF4SWQ+CiAgICAgICAgICAgIDxTY2llbnRpZmljTmFtZT5NZXRhem9hPC9TY2llbnRpZmljTmFtZT4KICAgICAgICAgICAgPFJhbms+a2luZ2RvbTwvUmFuaz4KICAgICAgICA8L1RheG9uPgogICAgICAgIDxUYXhvbj4KICAgICAgICAgICAgPFRheElkPjYwNzI8L1RheElkPgogICAgICAgICAgICA8U2NpZW50aWZpY05hbWU+RXVtZXRhem9hPC9TY2llbnRpZmljTmFtZT4KICAgICAgICAgICAgPFJhbms+bm8gcmFuazwvUmFuaz4KICAgICAgICA8L1RheG9uPgogICAgICAgIDxUYXhvbj4KICAgICAgICAgICAgPFRheElkPjMzMjEzPC9UYXhJZD4KICAgICAgICAgICAgPFNjaWVudGlmaWNOYW1lPkJpbGF0ZXJpYTwvU2NpZW50aWZpY05hbWU+CiAgICAgICAgICAgIDxSYW5rPm5vIHJhbms8L1Jhbms+CiAgICAgICAgPC9UYXhvbj4KICAgICAgICA8VGF4b24+CiAgICAgICAgICAgIDxUYXhJZD4zMzUxMTwvVGF4SWQ+CiAgICAgICAgICAgIDxTY2llbnRpZmljTmFtZT5EZXV0ZXJvc3RvbWlhPC9TY2llbnRpZmljTmFtZT4KICAgICAgICAgICAgPFJhbms+bm8gcmFuazwvUmFuaz4KICAgICAgICA8L1RheG9uPgogICAgICAgIDxUYXhvbj4KICAgICAgICAgICAgPFRheElkPjc3MTE8L1RheElkPgogICAgICAgICAgICA8U2NpZW50aWZpY05hbWU+Q2hvcmRhdGE8L1NjaWVudGlmaWNOYW1lPgogICAgICAgICAgICA8UmFuaz5waHlsdW08L1Jhbms+CiAgICAgICAgPC9UYXhvbj4KICAgICAgICA8VGF4b24+CiAgICAgICAgICAgIDxUYXhJZD44OTU5MzwvVGF4SWQ+CiAgICAgICAgICAgIDxTY2llbnRpZmljTmFtZT5DcmFuaWF0YTwvU2NpZW50aWZpY05hbWU+CiAgICAgICAgICAgIDxSYW5rPnN1YnBoeWx1bTwvUmFuaz4KICAgICAgICA8L1RheG9uPgogICAgICAgIDxUYXhvbj4KICAgICAgICAgICAgPFRheElkPjc3NDI8L1RheElkPgogICAgICAgICAgICA8U2NpZW50aWZpY05hbWU+VmVydGVicmF0YTwvU2NpZW50aWZpY05hbWU+CiAgICAgICAgICAgIDxSYW5rPm5vIHJhbms8L1Jhbms+CiAgICAgICAgPC9UYXhvbj4KICAgICAgICA8VGF4b24+CiAgICAgICAgICAgIDxUYXhJZD43Nzc2PC9UYXhJZD4KICAgICAgICAgICAgPFNjaWVudGlmaWNOYW1lPkduYXRob3N0b21hdGE8L1NjaWVudGlmaWNOYW1lPgogICAgICAgICAgICA8UmFuaz5ubyByYW5rPC9SYW5rPgogICAgICAgIDwvVGF4b24+CiAgICAgICAgPFRheG9uPgogICAgICAgICAgICA8VGF4SWQ+MTE3NTcwPC9UYXhJZD4KICAgICAgICAgICAgPFNjaWVudGlmaWNOYW1lPlRlbGVvc3RvbWk8L1NjaWVudGlmaWNOYW1lPgogICAgICAgICAgICA8UmFuaz5ubyByYW5rPC9SYW5rPgogICAgICAgIDwvVGF4b24+CiAgICAgICAgPFRheG9uPgogICAgICAgICAgICA8VGF4SWQ+MTE3NTcxPC9UYXhJZD4KICAgICAgICAgICAgPFNjaWVudGlmaWNOYW1lPkV1dGVsZW9zdG9taTwvU2NpZW50aWZpY05hbWU+CiAgICAgICAgICAgIDxSYW5rPm5vIHJhbms8L1Jhbms+CiAgICAgICAgPC9UYXhvbj4KICAgICAgICA8VGF4b24+CiAgICAgICAgICAgIDxUYXhJZD44Mjg3PC9UYXhJZD4KICAgICAgICAgICAgPFNjaWVudGlmaWNOYW1lPlNhcmNvcHRlcnlnaWk8L1NjaWVudGlmaWNOYW1lPgogICAgICAgICAgICA8UmFuaz5zdXBlcmNsYXNzPC9SYW5rPgogICAgICAgIDwvVGF4b24+CiAgICAgICAgPFRheG9uPgogICAgICAgICAgICA8VGF4SWQ+MTMzODM2OTwvVGF4SWQ+CiAgICAgICAgICAgIDxTY2llbnRpZmljTmFtZT5EaXBub3RldHJhcG9kb21vcnBoYTwvU2NpZW50aWZpY05hbWU+CiAgICAgICAgICAgIDxSYW5rPm5vIHJhbms8L1Jhbms+CiAgICAgICAgPC9UYXhvbj4KICAgICAgICA8VGF4b24+CiAgICAgICAgICAgIDxUYXhJZD4zMjUyMzwvVGF4SWQ+CiAgICAgICAgICAgIDxTY2llbnRpZmljTmFtZT5UZXRyYXBvZGE8L1NjaWVudGlmaWNOYW1lPgogICAgICAgICAgICA8UmFuaz5ubyByYW5rPC9SYW5rPgogICAgICAgIDwvVGF4b24+CiAgICAgICAgPFRheG9uPgogICAgICAgICAgICA8VGF4SWQ+MzI1MjQ8L1RheElkPgogICAgICAgICAgICA8U2NpZW50aWZpY05hbWU+QW1uaW90YTwvU2NpZW50aWZpY05hbWU+CiAgICAgICAgICAgIDxSYW5rPm5vIHJhbms8L1Jhbms+CiAgICAgICAgPC9UYXhvbj4KICAgICAgICA8VGF4b24+CiAgICAgICAgICAgIDxUYXhJZD40MDY3NDwvVGF4SWQ+CiAgICAgICAgICAgIDxTY2llbnRpZmljTmFtZT5NYW1tYWxpYTwvU2NpZW50aWZpY05hbWU+CiAgICAgICAgICAgIDxSYW5rPmNsYXNzPC9SYW5rPgogICAgICAgIDwvVGF4b24+CiAgICAgICAgPFRheG9uPgogICAgICAgICAgICA8VGF4SWQ+MzI1MjU8L1RheElkPgogICAgICAgICAgICA8U2NpZW50aWZpY05hbWU+VGhlcmlhPC9TY2llbnRpZmljTmFtZT4KICAgICAgICAgICAgPFJhbms+bm8gcmFuazwvUmFuaz4KICAgICAgICA8L1RheG9uPgogICAgICAgIDxUYXhvbj4KICAgICAgICAgICAgPFRheElkPjkzNDc8L1RheElkPgogICAgICAgICAgICA8U2NpZW50aWZpY05hbWU+RXV0aGVyaWE8L1NjaWVudGlmaWNOYW1lPgogICAgICAgICAgICA8UmFuaz5ubyByYW5rPC9SYW5rPgogICAgICAgIDwvVGF4b24+CiAgICAgICAgPFRheG9uPgogICAgICAgICAgICA8VGF4SWQ+MTQzNzAxMDwvVGF4SWQ+CiAgICAgICAgICAgIDxTY2llbnRpZmljTmFtZT5Cb3Jlb2V1dGhlcmlhPC9TY2llbnRpZmljTmFtZT4KICAgICAgICAgICAgPFJhbms+bm8gcmFuazwvUmFuaz4KICAgICAgICA8L1RheG9uPgogICAgICAgIDxUYXhvbj4KICAgICAgICAgICAgPFRheElkPjMxNDE0NTwvVGF4SWQ+CiAgICAgICAgICAgIDxTY2llbnRpZmljTmFtZT5MYXVyYXNpYXRoZXJpYTwvU2NpZW50aWZpY05hbWU+CiAgICAgICAgICAgIDxSYW5rPnN1cGVyb3JkZXI8L1Jhbms+CiAgICAgICAgPC9UYXhvbj4KICAgICAgICA8VGF4b24+CiAgICAgICAgICAgIDxUYXhJZD4zMzU1NDwvVGF4SWQ+CiAgICAgICAgICAgIDxTY2llbnRpZmljTmFtZT5DYXJuaXZvcmE8L1NjaWVudGlmaWNOYW1lPgogICAgICAgICAgICA8UmFuaz5vcmRlcjwvUmFuaz4KICAgICAgICA8L1RheG9uPgogICAgICAgIDxUYXhvbj4KICAgICAgICAgICAgPFRheElkPjM3OTU4NDwvVGF4SWQ+CiAgICAgICAgICAgIDxTY2llbnRpZmljTmFtZT5DYW5pZm9ybWlhPC9TY2llbnRpZmljTmFtZT4KICAgICAgICAgICAgPFJhbms+c3Vib3JkZXI8L1Jhbms+CiAgICAgICAgPC9UYXhvbj4KICAgICAgICA8VGF4b24+CiAgICAgICAgICAgIDxUYXhJZD45NjMyPC9UYXhJZD4KICAgICAgICAgICAgPFNjaWVudGlmaWNOYW1lPlVyc2lkYWU8L1NjaWVudGlmaWNOYW1lPgogICAgICAgICAgICA8UmFuaz5mYW1pbHk8L1Jhbms+CiAgICAgICAgPC9UYXhvbj4KICAgICAgICA8VGF4b24+CiAgICAgICAgICAgIDxUYXhJZD45NjM5PC9UYXhJZD4KICAgICAgICAgICAgPFNjaWVudGlmaWNOYW1lPlVyc3VzPC9TY2llbnRpZmljTmFtZT4KICAgICAgICAgICAgPFJhbms+Z2VudXM8L1Jhbms+CiAgICAgICAgPC9UYXhvbj4KICAgIDwvTGluZWFnZUV4PgogICAgPENyZWF0ZURhdGU+MTk5NS8wMi8yNyAwOToyNDowMDwvQ3JlYXRlRGF0ZT4KICAgIDxVcGRhdGVEYXRlPjIwMjAvMDQvMjggMjI6MzA6MDY8L1VwZGF0ZURhdGU+CiAgICA8UHViRGF0ZT4xOTkzLzExLzE5IDAwOjAwOjAwPC9QdWJEYXRlPgo8L1RheG9uPgoKPC9UYXhhU2V0Pg==
-  recorded_at: 2020-06-09 01:42:43 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+      base64_string: PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8IURPQ1RZUEUgVGF4YVNldCBQVUJMSUMgIi0vL05MTS8vRFRE
+        IFRheG9uLCAxNHRoIEphbnVhcnkgMjAwMi8vRU4iICJodHRwczovL3d3dy5uY2JpLm5sbS5uaWguZ292
+        L2VudHJlei9xdWVyeS9EVEQvdGF4b24uZHRkIj4KPFRheGFTZXQ+PFRheG9uPgogICAgPFRheElkPjk2
+        NDM8L1RheElkPgogICAgPFNjaWVudGlmaWNOYW1lPlVyc3VzIGFtZXJpY2FudXM8L1NjaWVudGlmaWNO
+        YW1lPgogICAgPE90aGVyTmFtZXM+CiAgICAgICAgPEdlbmJhbmtDb21tb25OYW1lPkFtZXJpY2FuIGJs
+        YWNrIGJlYXI8L0dlbmJhbmtDb21tb25OYW1lPgogICAgICAgIDxTeW5vbnltPkV1YXJjdG9zIGFtZXJp
+        Y2FudXM8L1N5bm9ueW0+CiAgICAgICAgPE5hbWU+CiAgICAgICAgICAgIDxDbGFzc0NERT5hdXRob3Jp
+        dHk8L0NsYXNzQ0RFPgogICAgICAgICAgICA8RGlzcE5hbWU+VXJzdXMgYW1lcmljYW51cyBQYWxsYXMs
+        IDE3ODA8L0Rpc3BOYW1lPgogICAgICAgIDwvTmFtZT4KICAgIDwvT3RoZXJOYW1lcz4KICAgIDxQYXJl
+        bnRUYXhJZD45NjM5PC9QYXJlbnRUYXhJZD4KICAgIDxSYW5rPnNwZWNpZXM8L1Jhbms+CiAgICA8RGl2
+        aXNpb24+TWFtbWFsczwvRGl2aXNpb24+CiAgICA8R2VuZXRpY0NvZGU+CiAgICAgICAgPEdDSWQ+MTwv
+        R0NJZD4KICAgICAgICA8R0NOYW1lPlN0YW5kYXJkPC9HQ05hbWU+CiAgICA8L0dlbmV0aWNDb2RlPgog
+        ICAgPE1pdG9HZW5ldGljQ29kZT4KICAgICAgICA8TUdDSWQ+MjwvTUdDSWQ+CiAgICAgICAgPE1HQ05h
+        bWU+VmVydGVicmF0ZSBNaXRvY2hvbmRyaWFsPC9NR0NOYW1lPgogICAgPC9NaXRvR2VuZXRpY0NvZGU+
+        CiAgICA8TGluZWFnZT5jZWxsdWxhciBvcmdhbmlzbXM7IEV1a2FyeW90YTsgT3Bpc3Rob2tvbnRhOyBN
+        ZXRhem9hOyBFdW1ldGF6b2E7IEJpbGF0ZXJpYTsgRGV1dGVyb3N0b21pYTsgQ2hvcmRhdGE7IENyYW5p
+        YXRhOyBWZXJ0ZWJyYXRhOyBHbmF0aG9zdG9tYXRhOyBUZWxlb3N0b21pOyBFdXRlbGVvc3RvbWk7IFNh
+        cmNvcHRlcnlnaWk7IERpcG5vdGV0cmFwb2RvbW9ycGhhOyBUZXRyYXBvZGE7IEFtbmlvdGE7IE1hbW1h
+        bGlhOyBUaGVyaWE7IEV1dGhlcmlhOyBCb3Jlb2V1dGhlcmlhOyBMYXVyYXNpYXRoZXJpYTsgQ2Fybml2
+        b3JhOyBDYW5pZm9ybWlhOyBVcnNpZGFlOyBVcnN1czwvTGluZWFnZT4KICAgIDxMaW5lYWdlRXg+CiAg
+        ICAgICAgPFRheG9uPgogICAgICAgICAgICA8VGF4SWQ+MTMxNTY3PC9UYXhJZD4KICAgICAgICAgICAg
+        PFNjaWVudGlmaWNOYW1lPmNlbGx1bGFyIG9yZ2FuaXNtczwvU2NpZW50aWZpY05hbWU+CiAgICAgICAg
+        ICAgIDxSYW5rPm5vIHJhbms8L1Jhbms+CiAgICAgICAgPC9UYXhvbj4KICAgICAgICA8VGF4b24+CiAg
+        ICAgICAgICAgIDxUYXhJZD4yNzU5PC9UYXhJZD4KICAgICAgICAgICAgPFNjaWVudGlmaWNOYW1lPkV1
+        a2FyeW90YTwvU2NpZW50aWZpY05hbWU+CiAgICAgICAgICAgIDxSYW5rPnN1cGVya2luZ2RvbTwvUmFu
+        az4KICAgICAgICA8L1RheG9uPgogICAgICAgIDxUYXhvbj4KICAgICAgICAgICAgPFRheElkPjMzMTU0
+        PC9UYXhJZD4KICAgICAgICAgICAgPFNjaWVudGlmaWNOYW1lPk9waXN0aG9rb250YTwvU2NpZW50aWZp
+        Y05hbWU+CiAgICAgICAgICAgIDxSYW5rPmNsYWRlPC9SYW5rPgogICAgICAgIDwvVGF4b24+CiAgICAg
+        ICAgPFRheG9uPgogICAgICAgICAgICA8VGF4SWQ+MzMyMDg8L1RheElkPgogICAgICAgICAgICA8U2Np
+        ZW50aWZpY05hbWU+TWV0YXpvYTwvU2NpZW50aWZpY05hbWU+CiAgICAgICAgICAgIDxSYW5rPmtpbmdk
+        b208L1Jhbms+CiAgICAgICAgPC9UYXhvbj4KICAgICAgICA8VGF4b24+CiAgICAgICAgICAgIDxUYXhJ
+        ZD42MDcyPC9UYXhJZD4KICAgICAgICAgICAgPFNjaWVudGlmaWNOYW1lPkV1bWV0YXpvYTwvU2NpZW50
+        aWZpY05hbWU+CiAgICAgICAgICAgIDxSYW5rPmNsYWRlPC9SYW5rPgogICAgICAgIDwvVGF4b24+CiAg
+        ICAgICAgPFRheG9uPgogICAgICAgICAgICA8VGF4SWQ+MzMyMTM8L1RheElkPgogICAgICAgICAgICA8
+        U2NpZW50aWZpY05hbWU+QmlsYXRlcmlhPC9TY2llbnRpZmljTmFtZT4KICAgICAgICAgICAgPFJhbms+
+        Y2xhZGU8L1Jhbms+CiAgICAgICAgPC9UYXhvbj4KICAgICAgICA8VGF4b24+CiAgICAgICAgICAgIDxU
+        YXhJZD4zMzUxMTwvVGF4SWQ+CiAgICAgICAgICAgIDxTY2llbnRpZmljTmFtZT5EZXV0ZXJvc3RvbWlh
+        PC9TY2llbnRpZmljTmFtZT4KICAgICAgICAgICAgPFJhbms+Y2xhZGU8L1Jhbms+CiAgICAgICAgPC9U
+        YXhvbj4KICAgICAgICA8VGF4b24+CiAgICAgICAgICAgIDxUYXhJZD43NzExPC9UYXhJZD4KICAgICAg
+        ICAgICAgPFNjaWVudGlmaWNOYW1lPkNob3JkYXRhPC9TY2llbnRpZmljTmFtZT4KICAgICAgICAgICAg
+        PFJhbms+cGh5bHVtPC9SYW5rPgogICAgICAgIDwvVGF4b24+CiAgICAgICAgPFRheG9uPgogICAgICAg
+        ICAgICA8VGF4SWQ+ODk1OTM8L1RheElkPgogICAgICAgICAgICA8U2NpZW50aWZpY05hbWU+Q3Jhbmlh
+        dGE8L1NjaWVudGlmaWNOYW1lPgogICAgICAgICAgICA8UmFuaz5zdWJwaHlsdW08L1Jhbms+CiAgICAg
+        ICAgPC9UYXhvbj4KICAgICAgICA8VGF4b24+CiAgICAgICAgICAgIDxUYXhJZD43NzQyPC9UYXhJZD4K
+        ICAgICAgICAgICAgPFNjaWVudGlmaWNOYW1lPlZlcnRlYnJhdGE8L1NjaWVudGlmaWNOYW1lPgogICAg
+        ICAgICAgICA8UmFuaz5jbGFkZTwvUmFuaz4KICAgICAgICA8L1RheG9uPgogICAgICAgIDxUYXhvbj4K
+        ICAgICAgICAgICAgPFRheElkPjc3NzY8L1RheElkPgogICAgICAgICAgICA8U2NpZW50aWZpY05hbWU+
+        R25hdGhvc3RvbWF0YTwvU2NpZW50aWZpY05hbWU+CiAgICAgICAgICAgIDxSYW5rPmNsYWRlPC9SYW5r
+        PgogICAgICAgIDwvVGF4b24+CiAgICAgICAgPFRheG9uPgogICAgICAgICAgICA8VGF4SWQ+MTE3NTcw
+        PC9UYXhJZD4KICAgICAgICAgICAgPFNjaWVudGlmaWNOYW1lPlRlbGVvc3RvbWk8L1NjaWVudGlmaWNO
+        YW1lPgogICAgICAgICAgICA8UmFuaz5jbGFkZTwvUmFuaz4KICAgICAgICA8L1RheG9uPgogICAgICAg
+        IDxUYXhvbj4KICAgICAgICAgICAgPFRheElkPjExNzU3MTwvVGF4SWQ+CiAgICAgICAgICAgIDxTY2ll
+        bnRpZmljTmFtZT5FdXRlbGVvc3RvbWk8L1NjaWVudGlmaWNOYW1lPgogICAgICAgICAgICA8UmFuaz5j
+        bGFkZTwvUmFuaz4KICAgICAgICA8L1RheG9uPgogICAgICAgIDxUYXhvbj4KICAgICAgICAgICAgPFRh
+        eElkPjgyODc8L1RheElkPgogICAgICAgICAgICA8U2NpZW50aWZpY05hbWU+U2FyY29wdGVyeWdpaTwv
+        U2NpZW50aWZpY05hbWU+CiAgICAgICAgICAgIDxSYW5rPnN1cGVyY2xhc3M8L1Jhbms+CiAgICAgICAg
+        PC9UYXhvbj4KICAgICAgICA8VGF4b24+CiAgICAgICAgICAgIDxUYXhJZD4xMzM4MzY5PC9UYXhJZD4K
+        ICAgICAgICAgICAgPFNjaWVudGlmaWNOYW1lPkRpcG5vdGV0cmFwb2RvbW9ycGhhPC9TY2llbnRpZmlj
+        TmFtZT4KICAgICAgICAgICAgPFJhbms+Y2xhZGU8L1Jhbms+CiAgICAgICAgPC9UYXhvbj4KICAgICAg
+        ICA8VGF4b24+CiAgICAgICAgICAgIDxUYXhJZD4zMjUyMzwvVGF4SWQ+CiAgICAgICAgICAgIDxTY2ll
+        bnRpZmljTmFtZT5UZXRyYXBvZGE8L1NjaWVudGlmaWNOYW1lPgogICAgICAgICAgICA8UmFuaz5jbGFk
+        ZTwvUmFuaz4KICAgICAgICA8L1RheG9uPgogICAgICAgIDxUYXhvbj4KICAgICAgICAgICAgPFRheElk
+        PjMyNTI0PC9UYXhJZD4KICAgICAgICAgICAgPFNjaWVudGlmaWNOYW1lPkFtbmlvdGE8L1NjaWVudGlm
+        aWNOYW1lPgogICAgICAgICAgICA8UmFuaz5jbGFkZTwvUmFuaz4KICAgICAgICA8L1RheG9uPgogICAg
+        ICAgIDxUYXhvbj4KICAgICAgICAgICAgPFRheElkPjQwNjc0PC9UYXhJZD4KICAgICAgICAgICAgPFNj
+        aWVudGlmaWNOYW1lPk1hbW1hbGlhPC9TY2llbnRpZmljTmFtZT4KICAgICAgICAgICAgPFJhbms+Y2xh
+        c3M8L1Jhbms+CiAgICAgICAgPC9UYXhvbj4KICAgICAgICA8VGF4b24+CiAgICAgICAgICAgIDxUYXhJ
+        ZD4zMjUyNTwvVGF4SWQ+CiAgICAgICAgICAgIDxTY2llbnRpZmljTmFtZT5UaGVyaWE8L1NjaWVudGlm
+        aWNOYW1lPgogICAgICAgICAgICA8UmFuaz5jbGFkZTwvUmFuaz4KICAgICAgICA8L1RheG9uPgogICAg
+        ICAgIDxUYXhvbj4KICAgICAgICAgICAgPFRheElkPjkzNDc8L1RheElkPgogICAgICAgICAgICA8U2Np
+        ZW50aWZpY05hbWU+RXV0aGVyaWE8L1NjaWVudGlmaWNOYW1lPgogICAgICAgICAgICA8UmFuaz5jbGFk
+        ZTwvUmFuaz4KICAgICAgICA8L1RheG9uPgogICAgICAgIDxUYXhvbj4KICAgICAgICAgICAgPFRheElk
+        PjE0MzcwMTA8L1RheElkPgogICAgICAgICAgICA8U2NpZW50aWZpY05hbWU+Qm9yZW9ldXRoZXJpYTwv
+        U2NpZW50aWZpY05hbWU+CiAgICAgICAgICAgIDxSYW5rPmNsYWRlPC9SYW5rPgogICAgICAgIDwvVGF4
+        b24+CiAgICAgICAgPFRheG9uPgogICAgICAgICAgICA8VGF4SWQ+MzE0MTQ1PC9UYXhJZD4KICAgICAg
+        ICAgICAgPFNjaWVudGlmaWNOYW1lPkxhdXJhc2lhdGhlcmlhPC9TY2llbnRpZmljTmFtZT4KICAgICAg
+        ICAgICAgPFJhbms+c3VwZXJvcmRlcjwvUmFuaz4KICAgICAgICA8L1RheG9uPgogICAgICAgIDxUYXhv
+        bj4KICAgICAgICAgICAgPFRheElkPjMzNTU0PC9UYXhJZD4KICAgICAgICAgICAgPFNjaWVudGlmaWNO
+        YW1lPkNhcm5pdm9yYTwvU2NpZW50aWZpY05hbWU+CiAgICAgICAgICAgIDxSYW5rPm9yZGVyPC9SYW5r
+        PgogICAgICAgIDwvVGF4b24+CiAgICAgICAgPFRheG9uPgogICAgICAgICAgICA8VGF4SWQ+Mzc5NTg0
+        PC9UYXhJZD4KICAgICAgICAgICAgPFNjaWVudGlmaWNOYW1lPkNhbmlmb3JtaWE8L1NjaWVudGlmaWNO
+        YW1lPgogICAgICAgICAgICA8UmFuaz5zdWJvcmRlcjwvUmFuaz4KICAgICAgICA8L1RheG9uPgogICAg
+        ICAgIDxUYXhvbj4KICAgICAgICAgICAgPFRheElkPjk2MzI8L1RheElkPgogICAgICAgICAgICA8U2Np
+        ZW50aWZpY05hbWU+VXJzaWRhZTwvU2NpZW50aWZpY05hbWU+CiAgICAgICAgICAgIDxSYW5rPmZhbWls
+        eTwvUmFuaz4KICAgICAgICA8L1RheG9uPgogICAgICAgIDxUYXhvbj4KICAgICAgICAgICAgPFRheElk
+        Pjk2Mzk8L1RheElkPgogICAgICAgICAgICA8U2NpZW50aWZpY05hbWU+VXJzdXM8L1NjaWVudGlmaWNO
+        YW1lPgogICAgICAgICAgICA8UmFuaz5nZW51czwvUmFuaz4KICAgICAgICA8L1RheG9uPgogICAgPC9M
+        aW5lYWdlRXg+CiAgICA8Q3JlYXRlRGF0ZT4xOTk1LzAyLzI3IDA5OjI0OjAwPC9DcmVhdGVEYXRlPgog
+        ICAgPFVwZGF0ZURhdGU+MjAyMC8wNC8yOCAyMjozMDowNjwvVXBkYXRlRGF0ZT4KICAgIDxQdWJEYXRl
+        PjE5OTMvMTEvMTkgMDA6MDA6MDA8L1B1YkRhdGU+CjwvVGF4b24+Cgo8L1RheGFTZXQ+
+  recorded_at: 2023-03-09 21:24:48 GMT
+  recorded_with: vcr/1.2.0, webmockr/0.8.2
 - request:
     method: get
     uri: http://services.tropicos.org/Name/Search?format=json&commonname=annual%20blue%20grass&apikey=<<tropicos_api_token>>
@@ -90,8 +192,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.97)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.97)
+      User-Agent: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
+      X-USER-AGENT: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
   response:
     status:
       status_code: '200'
@@ -100,18 +202,22 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       cache-control: private
-      content-length: '297'
       content-type: application/json; charset=utf-8
-      server: Microsoft-IIS/7.5
+      server: Microsoft-IIS/10.0
       x-aspnet-version: 4.0.30319
       x-powered-by: ASP.NET
-      date: Tue, 09 Jun 2020 01:42:41 GMT
+      date: Thu, 09 Mar 2023 21:24:47 GMT
+      content-length: '297'
     body:
-      encoding: ASCII-8BIT
+      encoding: ''
       file: no
-      string: W3siTmFtZUlkIjoyNTUwOTg4MSwiU2NpZW50aWZpY05hbWUiOiJQb2EgYW5udWEiLCJTY2llbnRpZmljTmFtZVdpdGhBdXRob3JzIjoiUG9hIGFubnVhIEwuIiwiRmFtaWx5IjoiUG9hY2VhZSIsIlJhbmtBYmJyZXZpYXRpb24iOiJzcC4iLCJOb21lbmNsYXR1cmVTdGF0dXNJRCI6MSwiTm9tZW5jbGF0dXJlU3RhdHVzTmFtZSI6IkxlZ2l0aW1hdGUiLCJTeW1ib2wiOiIhIiwiQXV0aG9yIjoiTC4iLCJEaXNwbGF5UmVmZXJlbmNlIjoiU3AuIFBsLiAxOiA2OCIsIkRpc3BsYXlEYXRlIjoiMTc1MyIsIlRvdGFsUm93cyI6MX1d
-  recorded_at: 2020-06-09 01:42:43 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+      base64_string: W3siTmFtZUlkIjoyNTUwOTg4MSwiU2NpZW50aWZpY05hbWUiOiJQb2EgYW5udWEiLCJTY2llbnRpZmlj
+        TmFtZVdpdGhBdXRob3JzIjoiUG9hIGFubnVhIEwuIiwiRmFtaWx5IjoiUG9hY2VhZSIsIlJhbmtBYmJy
+        ZXZpYXRpb24iOiJzcC4iLCJOb21lbmNsYXR1cmVTdGF0dXNJRCI6MSwiTm9tZW5jbGF0dXJlU3RhdHVz
+        TmFtZSI6IkxlZ2l0aW1hdGUiLCJTeW1ib2wiOiIhIiwiQXV0aG9yIjoiTC4iLCJEaXNwbGF5UmVmZXJl
+        bmNlIjoiU3AuIFBsLiAxOiA2OCIsIkRpc3BsYXlEYXRlIjoiMTc1MyIsIlRvdGFsUm93cyI6MX1d
+  recorded_at: 2023-03-09 21:24:48 GMT
+  recorded_with: vcr/1.2.0, webmockr/0.8.2
 - request:
     method: get
     uri: http://services.tropicos.org/Name/Search?format=json&commonname=black%20bear&apikey=<<tropicos_api_token>>
@@ -121,8 +227,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.97)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.97)
+      User-Agent: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
+      X-USER-AGENT: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
   response:
     status:
       status_code: '200'
@@ -131,99 +237,20 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       cache-control: private
-      content-length: '320'
       content-type: application/json; charset=utf-8
-      server: Microsoft-IIS/7.5
+      server: Microsoft-IIS/10.0
       x-aspnet-version: 4.0.30319
       x-powered-by: ASP.NET
-      date: Tue, 09 Jun 2020 01:42:41 GMT
-    body:
-      encoding: ASCII-8BIT
-      file: no
-      string: W3siTmFtZUlkIjoxMjMwMjQ0NiwiU2NpZW50aWZpY05hbWUiOiJBcmN0b3N0YXBoeWxvcyBhbHBpbmEiLCJTY2llbnRpZmljTmFtZVdpdGhBdXRob3JzIjoiQXJjdG9zdGFwaHlsb3MgYWxwaW5hIChMLikgU3ByZW5nLiIsIkZhbWlseSI6IkVyaWNhY2VhZSIsIlJhbmtBYmJyZXZpYXRpb24iOiJzcC4iLCJOb21lbmNsYXR1cmVTdGF0dXNOYW1lIjoiTm8gb3BpbmlvbiIsIkF1dGhvciI6IihMLikgU3ByZW5nLiIsIkRpc3BsYXlSZWZlcmVuY2UiOiJTeXN0LiBWZWcuIFtTcHJlbmdlbF0gMjogMjg3IiwiRGlzcGxheURhdGUiOiIxODI1IiwiVG90YWxSb3dzIjoxfV0=
-  recorded_at: 2020-06-09 01:42:43 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
-- request:
-    method: get
-    uri: https://eol.org/api/search/1.0.json?q=black%2Bbear&page=1
+      date: Thu, 09 Mar 2023 21:24:47 GMT
+      content-length: '320'
     body:
       encoding: ''
-      string: ''
-    headers:
-      Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.97)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.97)
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      status: HTTP/1.1 200 OK
-      date: Tue, 09 Jun 2020 01:42:42 GMT
-      content-type: application/json; charset=utf-8
-      content-length: '871'
-      connection: keep-alive
-      x-frame-options: ALLOWALL
-      x-robots-tag: noindex
-      etag: W/"24ef7e358fe86bc477c7a814cbf65e12"
-      cache-control: max-age=0, private, must-revalidate
-      x-request-id: 965315e3-8a23-405d-8c2e-c21ca79b2687
-      x-runtime: '0.089491'
-      access-control-allow-origin: '*'
-      access-control-allow-methods: GET, POST, OPTIONS
-      access-control-allow-headers: DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range
-      access-control-expose-headers: Content-Length,Content-Range
-      age: '0'
-      x-cache: MISS
-      x-cache-hits: '0'
-      accept-ranges: bytes
-    body:
-      encoding: ASCII-8BIT
       file: no
-      string: eyJ0b3RhbFJlc3VsdHMiOjgsInN0YXJ0SW5kZXgiOjEsIml0ZW1zUGVyUGFnZSI6NTAsInJlc3VsdHMiOlt7ImlkIjoxMjczODQ0LCJ0aXRsZSI6IlVyc3VzIGFtZXJpY2FudXMgbHV0ZW9sdXMiLCJsaW5rIjoiaHR0cHM6Ly9lb2wub3JnL3BhZ2VzLzEyNzM4NDQiLCJjb250ZW50IjoiIn0seyJpZCI6MTI2NTc1MCwidGl0bGUiOiJVcnN1cyBhbWVyaWNhbnVzIGZsb3JpZGFudXMiLCJsaW5rIjoiaHR0cHM6Ly9lb2wub3JnL3BhZ2VzLzEyNjU3NTAiLCJjb250ZW50IjoiIn0seyJpZCI6MTI2ODAwMywidGl0bGUiOiJVcnN1cyBhbWVyaWNhbnVzIGVyZW1pY3VzIiwibGluayI6Imh0dHBzOi8vZW9sLm9yZy9wYWdlcy8xMjY4MDAzIiwiY29udGVudCI6IiJ9LHsiaWQiOjEyNDE3NzUsInRpdGxlIjoiVXJzdXMgYW1lcmljYW51cyBhbWVyaWNhbnVzIiwibGluayI6Imh0dHBzOi8vZW9sLm9yZy9wYWdlcy8xMjQxNzc1IiwiY29udGVudCI6IiJ9LHsiaWQiOjEyNjU5NDgsInRpdGxlIjoiVXJzdXMgYW1lcmljYW51cyBlbW1vbnNpaSIsImxpbmsiOiJodHRwczovL2VvbC5vcmcvcGFnZXMvMTI2NTk0OCIsImNvbnRlbnQiOiIifSx7ImlkIjozMjgwNjksInRpdGxlIjoiVXJzdXMgdGhpYmV0YW51cyIsImxpbmsiOiJodHRwczovL2VvbC5vcmcvcGFnZXMvMzI4MDY5IiwiY29udGVudCI6IiJ9LHsiaWQiOjMyODU4MiwidGl0bGUiOiJVcnN1cyBhbWVyaWNhbnVzIiwibGluayI6Imh0dHBzOi8vZW9sLm9yZy9wYWdlcy8zMjg1ODIiLCJjb250ZW50IjoiIn0seyJpZCI6MTI0MTY3NCwidGl0bGUiOiJVcnN1cyB0aGliZXRhbnVzIGZvcm1vc2FudXMiLCJsaW5rIjoiaHR0cHM6Ly9lb2wub3JnL3BhZ2VzLzEyNDE2NzQiLCJjb250ZW50IjoiIn1dfQ==
-  recorded_at: 2020-06-09 01:42:43 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
-- request:
-    method: get
-    uri: https://eol.org/api/search/1.0.json?q=roe%2Bdeer&page=1
-    body:
-      encoding: ''
-      string: ''
-    headers:
-      Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.97)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.97)
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      status: HTTP/1.1 200 OK
-      date: Tue, 09 Jun 2020 01:42:43 GMT
-      content-type: application/json; charset=utf-8
-      content-length: '483'
-      connection: keep-alive
-      x-frame-options: ALLOWALL
-      x-robots-tag: noindex
-      etag: W/"bba140ef578e4ec60dedd9b4aa746f73"
-      cache-control: max-age=0, private, must-revalidate
-      x-request-id: 51f76fac-5e99-48be-8c42-1521cb6d3cd5
-      x-runtime: '0.073592'
-      access-control-allow-origin: '*'
-      access-control-allow-methods: GET, POST, OPTIONS
-      access-control-allow-headers: DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range
-      access-control-expose-headers: Content-Length,Content-Range
-      age: '0'
-      x-cache: MISS
-      x-cache-hits: '0'
-      accept-ranges: bytes
-    body:
-      encoding: ASCII-8BIT
-      file: no
-      string: eyJ0b3RhbFJlc3VsdHMiOjQsInN0YXJ0SW5kZXgiOjEsIml0ZW1zUGVyUGFnZSI6NTAsInJlc3VsdHMiOlt7ImlkIjozMDg0NzksInRpdGxlIjoiQ2FwcmVvbHVzIGNhcHJlb2x1cyIsImxpbmsiOiJodHRwczovL2VvbC5vcmcvcGFnZXMvMzA4NDc5IiwiY29udGVudCI6IiJ9LHsiaWQiOjEyOTU3MywidGl0bGUiOiJDYXByZW9sdXMgcHlnYXJndXMiLCJsaW5rIjoiaHR0cHM6Ly9lb2wub3JnL3BhZ2VzLzEyOTU3MyIsImNvbnRlbnQiOiIifSx7ImlkIjoxNTYxMCwidGl0bGUiOiJDYXByZW9sdXMiLCJsaW5rIjoiaHR0cHM6Ly9lb2wub3JnL3BhZ2VzLzE1NjEwIiwiY29udGVudCI6IiJ9LHsiaWQiOjUxOTUyNjIzLCJ0aXRsZSI6IkNhcHJlb2x1cyBjYXByZW9sdXMgcGFwaWxsb21hdmlydXMgMSIsImxpbmsiOiJodHRwczovL2VvbC5vcmcvcGFnZXMvNTE5NTI2MjMiLCJjb250ZW50IjoiV2VzdGVybiByb2VkZWVyIHBhcGlsbG9tYXZpcnVzIDEifV19
-  recorded_at: 2020-06-09 01:42:43 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+      base64_string: W3siTmFtZUlkIjoxMjMwMjQ0NiwiU2NpZW50aWZpY05hbWUiOiJBcmN0b3N0YXBoeWxvcyBhbHBpbmEi
+        LCJTY2llbnRpZmljTmFtZVdpdGhBdXRob3JzIjoiQXJjdG9zdGFwaHlsb3MgYWxwaW5hIChMLikgU3By
+        ZW5nLiIsIkZhbWlseSI6IkVyaWNhY2VhZSIsIlJhbmtBYmJyZXZpYXRpb24iOiJzcC4iLCJOb21lbmNs
+        YXR1cmVTdGF0dXNOYW1lIjoiTm8gb3BpbmlvbiIsIkF1dGhvciI6IihMLikgU3ByZW5nLiIsIkRpc3Bs
+        YXlSZWZlcmVuY2UiOiJTeXN0LiBWZWcuIFtTcHJlbmdlbF0gMjogMjg3IiwiRGlzcGxheURhdGUiOiIx
+        ODI1IiwiVG90YWxSb3dzIjoxfV0=
+  recorded_at: 2023-03-09 21:24:48 GMT
+  recorded_with: vcr/1.2.0, webmockr/0.8.2

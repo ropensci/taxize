@@ -131,7 +131,11 @@ gnr_resolve <- function(sci, data_source_ids = NULL, resolve_once = FALSE,
   with_canonical_ranks = FALSE, http = "get", cap_first = TRUE,
   fields = "minimal", names = NULL, ...) {
 
-  pchk(names, "sci")
+  if (!is.null(names)) {
+    lifecycle::deprecate_warn(when = "v0.9.97", what = "gnr_resolve(names)", with = "gnr_resolve(sci)")
+    sci <- names
+  }
+  
   if (!is.null(names)) sci <- names
   fields <- match.arg(fields, c("minimal", "all"))
   http <- match.arg(http, c("get", "post"))

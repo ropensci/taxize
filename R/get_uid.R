@@ -174,7 +174,11 @@ get_uid <- function(sci_com, ask = TRUE, messages = TRUE, rows = NA,
   assert(rank_filter, "character")
   assert_rows(rows)
   key <- getkey(key, service = "entrez")
-  pchk(sciname, "sci_com")
+  if (!is.null(sciname)) {
+    lifecycle::deprecate_warn(when = "v0.9.97", what = "get_uid(sciname)", with = "get_uid(sci_com)")
+    sci_com <- sciname
+  }
+  
 
   if (inherits(sci_com, "character")) {
     tstate <- taxon_state$new(class = "uid", names = sci_com)
@@ -406,7 +410,11 @@ get_uid_ <- function(sci_com, messages = TRUE, rows = NA, key = NULL,
   sciname = NULL, ...) {
   
   key <- getkey(key, "ENTREZ_KEY")
-  pchk(sciname, "sci_com")
+  if (!is.null(sciname)) {
+    lifecycle::deprecate_warn(when = "v0.9.97", what = "get_uid_(sciname)", with = "get_uid_(sci_com)")
+    sci_com <- sciname
+  }
+  
   stats::setNames(lapply(sci_com, get_uid_help, messages = messages,
     rows = rows, key = key, ...), sci_com)
 }

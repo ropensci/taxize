@@ -56,7 +56,11 @@ get_wiki <- function(sci_com, wiki_site = "species", wiki = "en", ask = TRUE,
   assert(wiki, "character")
   assert(messages, "logical")
   assert_rows(rows)
-  pchk(x, "sci_com")
+  if (!is.null(x)) {
+    lifecycle::deprecate_warn(when = "v0.9.97", what = "get_wiki(x)", with = "get_wiki(sci_com)")
+    sci_com <- x
+  }
+  
 
   if (inherits(sci_com, "character")) {
     tstate <- taxon_state$new(class = "wiki", names = sci_com)

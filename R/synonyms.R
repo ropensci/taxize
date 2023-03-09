@@ -114,7 +114,10 @@ synonyms <- function(...) {
 #' @rdname synonyms
 synonyms.default <- function(sci_id, db = NULL, rows = NA, x = NULL, ...) {
   nstop(db)
-  pchk(x, "sci")
+  if (!is.null(x)) {
+    lifecycle::deprecate_warn(when = "v0.9.97", what = "synonyms(x)", with = "synonyms(sci_id)")
+    sci_id <- x
+  }
   if (!is.null(x)) sci_id <- x
   switch(
     db,
