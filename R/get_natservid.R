@@ -80,7 +80,7 @@ get_natservid <- function(sci_com, searchtype = "scientific", ask = TRUE,
   assert(ask, "logical")
   assert(messages, "logical")
   assert_rows(rows)
-  if (!is.null(commnames)) {
+  if (!is.null(query)) {
     lifecycle::deprecate_warn(when = "v0.9.97", what = "get_natservid(query)", with = "get_natservid(sci_com)")
     sci_com <- query
   }

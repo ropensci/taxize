@@ -240,9 +240,9 @@ classification.default <- function(sci_id, db = NULL, callopts = list(),
       stats::setNames(classification(id, return_id = return_id, ...), sci_id)
     },
     ncbi = {
-      id <- process_ids(sci_id, db, get_uid, rows = rows)
+      id <- process_ids(sci_id, db, get_uid, rows = rows, ...)
       stats::setNames(classification(id, callopts = callopts,
-        return_id = return_id), sci_id)
+        return_id = return_id, ...), sci_id)
     },
     eol = {
       id <- process_ids(sci_id, db, get_eolid, rows = rows, ...)

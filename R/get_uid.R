@@ -411,7 +411,7 @@ get_uid_ <- function(sci_com, messages = TRUE, rows = NA, key = NULL,
   
   key <- getkey(key, "ENTREZ_KEY")
   if (!is.null(sciname)) {
-    lifecycle::deprecate_warn(when = "v0.9.97", what = "get_uid_(sciname)", with = "get_uid_(sci_com)")
+  lifecycle::deprecate_warn(when = "v0.9.97", what = "get_uid_(sciname)", with = "get_uid_(sci_com)")
     sci_com <- sciname
   }
   
