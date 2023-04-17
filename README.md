@@ -17,8 +17,6 @@ version](https://www.r-pkg.org/badges/version/taxize)](https://cran.r-project.or
 species names (scientific and common) and download up and downstream
 taxonomic hierarchical information - among other things.
 
-The taxize book: <https://taxize.dev>
-
 Package documentation: <https://docs.ropensci.org/taxize/>
 
 ## Installation
@@ -195,13 +193,13 @@ we plan to get done for each version.
 
 ## Meta
 
-- Please [report any issues or
-  bugs](https://github.com/ropensci/taxize/issues).
-- License: MIT
-- Get citation information for `taxize` in R doing
-  `citation(package = 'taxize')`
-- Please note that this package is released with a [Contributor Code of
-  Conduct](https://ropensci.org/code-of-conduct/). By contributing to
-  this project, you agree to abide by its terms.
+-   Please [report any issues or
+    bugs](https://github.com/ropensci/taxize/issues).
+-   License: MIT
+-   Get citation information for `taxize` in R doing
+    `citation(package = 'taxize')`
+-   Please note that this package is released with a [Contributor Code
+    of Conduct](https://ropensci.org/code-of-conduct/). By contributing
+    to this project, you agree to abide by its terms.
 
 [![rofooter](https://ropensci.org/public_images/github_footer.png)](https://ropensci.org)
