@@ -11,18 +11,18 @@
 #' taxize_capwords(c("using AIC for model selection"), strict=TRUE)
 
 taxize_capwords <- function(s, strict = FALSE, onlyfirst = FALSE) {
-  cap <- function(s) {
-    paste(toupper(substring(s,1,1)), {
-      s <- substring(s,2); if (strict) tolower(s) else s
-    }, sep = "", collapse = " " )
-  }
-
-  if (!onlyfirst) {
-    sapply(strsplit(s, split = " "), cap, USE.NAMES = !is.null(names(s)))
+  if (onlyfirst) {
+    if (strict) {
+      gsub("^(.)(.*)$", "\\U\\1\\L\\2", s, perl = TRUE)
+    } else {
+      gsub("^(.)", "\\U\\1", s, perl = TRUE)
+    }
   } else {
-    sapply(s, function(x)
-      paste(toupper(substring(x,1,1)),
-            tolower(substring(x,2)),
-            sep = "", collapse = " "), USE.NAMES = FALSE)
+    if (strict) {
+      gsub("(?<=^| )(.)(.*)(?=$| )", "\\U\\1\\L\\2", s, perl = TRUE)
+    } else {
+      gsub("(?<=^| )(.)", "\\U\\1", s, perl = TRUE)
+    }
+
   }
 }
