@@ -362,7 +362,7 @@ worms_worker <- function(x, expr, rows, marine_only, fuzzy, ...) {
     class(rows) %in% c('numeric', 'integer') &&
     rows[length(rows)] <= 50
   ) {
-    expr(x, marine_only = marine_only, fuzzy = fuzzy, ...)
+    try_df(expr(x, marine_only = marine_only, fuzzy = fuzzy, ...))
   } else if (
     all(!is.na(rows)) &&
     class(rows) %in% c('numeric', 'integer') &&
