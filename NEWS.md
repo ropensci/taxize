@@ -1,3 +1,9 @@
+taxize 0.9.101
+
+Add `rworkflows`.
+Update *.Rbuildignore* for `rworkflows`.
+
+=============
 taxize 0.9.100
 =============
 
