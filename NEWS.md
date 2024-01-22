@@ -1,7 +1,10 @@
 taxize 0.9.101
 
-Add `rworkflows`.
-Update *.Rbuildignore* for `rworkflows`.
+* Add `rworkflows`.
+  - Update *.Rbuildignore* for `rworkflows`.
+  - Remove old workflow: *R-CMD-check.yaml*
+  - Bump `taxize` version.
+  - Add `rworkflows` status badge to *README*.
 
 =============
 taxize 0.9.100
