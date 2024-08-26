@@ -11,7 +11,8 @@ spnames <- c("Klattia flava", "Trollius sibiricus", "Arachis paraguariensis",
 dupnames <- c("Mus musculus", "Escherichia coli",
               "Haloferax denitrificans", "Mus musculus")
 
-
+duptaxa <- c("Haliotis", "Haliotis cracherodii", "Haliotis rufescens", 
+             "Megabalanus californicus")
 
 test_that("internal functions of class2tree", {
   skip_on_cran() # uses secrets
@@ -76,11 +77,20 @@ test_that("class2tree returns the correct value and class", {
     anyDuplicated(gsub("\\.\\d+$", "", names(tr$classification))), 0)
 })
 
-test_that("class2tree will abort when input contains duplicate taxa", {
+test_that("class2tree will abort when input contains duplicated taxa", {
   skip_on_cran() # uses secrets
   vcr::use_cassette("class2tree_classification_dup_call", {
     out <- classification(dupnames, db = "ncbi", messages = FALSE)
   })
   expect_error(class2tree(out),
     "Input list of classifications contains duplicates")
+})
+
+test_that("class2tree detects duplicated taxa in higher levels", {
+    skip_on_cran() # uses secrets
+    vcr::use_cassette("class2tree_classification_dup_high_level", {
+        out <- classification(duptaxa, db = "ncbi", messages = FALSE)
+    })
+    tree <- class2tree(out)
+    expect_true(nrow(tree$classification) < length(duptaxa))
 })
