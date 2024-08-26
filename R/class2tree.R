@@ -414,9 +414,9 @@ taxonomy_table_creator <- function (nameList, rankList) {
   )
   if (length(unlist(duplicatedTaxa)) > 0) {
       msg <- paste("WARNING:", length(unlist(duplicatedTaxa)))
-      msg <- "duplicated taxa have been ignored!"
+      msg <- paste(msg, "duplicated taxa have been ignored!")
       if (length(unlist(duplicatedTaxa)) == 1)
-          msg <- "duplicated taxon has been ignored!"
+          msg <- paste(msg, "duplicated taxon has been ignored!")
       if (length(unlist(duplicatedTaxa)) < 5) {
           msg <- paste(msg, "Including: ")
           msg <- c(msg, paste(unlist(duplicatedTaxa), collapse = "; "))
