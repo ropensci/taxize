@@ -69,6 +69,16 @@ when it's stable. See https://github.com/ropensci/colpluz for the
 R implementation for CoL+
 }
 
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://docs.ropensci.org/taxize/ (website)}
+  \item \url{https://github.com/ropensci/taxize (devel)}
+  \item \url{https://taxize.dev (user manual)}
+  \item Report bugs at \url{https://github.com/ropensci/taxize/issues}
+}
+
+}
 \author{
 Scott Chamberlain
 

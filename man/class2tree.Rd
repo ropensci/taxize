@@ -6,7 +6,7 @@
 \alias{print.classtree}
 \title{Convert a list of classifications to a tree.}
 \usage{
-class2tree(input, varstep = TRUE, check = TRUE, ...)
+class2tree(input, varstep = TRUE, check = TRUE, remove_shared = FALSE, ...)
 
 \method{plot}{classtree}(x, ...)
 
@@ -24,6 +24,10 @@ all rows or constant for all rows and regard each row as a different basal
 taxon (species). If FALSE all levels are retained and basal taxa (species)
 also must be coded as variables (columns). You will get a warning if
 species are not coded, but you can ignore this if that was your intention.}
+
+\item{remove_shared}{If \code{TRUE}, remove any taxa that are coarser ranks
+present in other taxa, such as both a genus and a species in that genus in
+the same tree.}
 
 \item{...}{Further arguments passed on to hclust.}
 

@@ -15,6 +15,9 @@
 #' taxon (species). If FALSE all levels are retained and basal taxa (species)
 #' also must be coded as variables (columns). You will get a warning if
 #' species are not coded, but you can ignore this if that was your intention.
+#' @param remove_shared If `TRUE`, remove any taxa that are coarser ranks
+#'   present in other taxa, such as both a genus and a species in that genus in
+#'   the same tree.
 #' @param ... Further arguments passed on to hclust.
 #' @param x Input object to print or plot - output from class2tree function.
 #' @return An object of class "classtree" with slots:
@@ -62,8 +65,7 @@
 #' plot(tr)
 #' }
 #' 
-
-class2tree <- function(input, varstep = TRUE, check = TRUE, ...) {
+class2tree <- function(input, varstep = TRUE, check = TRUE, remove_shared = FALSE, ...) {
   if (any(is.na(input))) {
     message('Removed species without classification')
     input <- input[!is.na(input)]
@@ -87,7 +89,7 @@ class2tree <- function(input, varstep = TRUE, check = TRUE, ...) {
 
   # Create taxonomy matrix
   message('Align taxonomy hierarchies...')
-  df <- taxonomy_table_creator(nameList, rankList)
+  df <- taxonomy_table_creator(nameList, rankList, remove_shared = remove_shared)
 
   if (!inherits(df, "data.frame")) {
     stop("no taxon ranks in common - try different inputs")
@@ -391,41 +393,46 @@ rank_indexing <- function (rankList) {
 #' @noRd
 #' @param nameList a dataframe whose each row is a rank+ID list of a taxon
 #' @param rankList a dataframe whose each row is a rank list of a taxon
+#' @param remove_shared If `TRUE`, remove any taxa that are coarser ranks
+#'   present in other taxa, such as both a genus and a species in that genus in
+#'   the same tree.
 #' @return An aligned taxonomy dataframe which contains all the available
-#' taxonomy ranks from the id list and rank list
+#'   taxonomy ranks from the id list and rank list
 #' @author Vinh Tran {tran@bio.uni-frankfurt.de}
-taxonomy_table_creator <- function (nameList, rankList) {
+taxonomy_table_creator <- function (nameList, rankList, remove_shared = FALSE) {
   colnames(nameList)[1] <- "tip"
   # remove duplicated taxa (e.g. taxa with higher levels, that already belong 
   # to the taxonomy string of other taxa)
-  duplicatedTaxa <- lapply(
+  if (remove_shared) {
+    duplicatedTaxa <- lapply(
       nameList$X1,
       function (x) {
-          matchs <-data.frame(which(nameList[,-1] == x, arr.ind=TRUE))
-          checkHigherRank <- lapply(
-              matchs$row,
-              function(y) {
-                  if (nameList[y,]$X1 != x) return(1)
-              }
-          )
-          if (length(unlist(checkHigherRank)) > 0) 
-              return(strsplit(x, "#", fixed = TRUE)[[1]][1])
+        matchs <-data.frame(which(nameList[,-1] == x, arr.ind=TRUE))
+        checkHigherRank <- lapply(
+          matchs$row,
+          function(y) {
+            if (nameList[y,]$X1 != x) return(1)
+          }
+        )
+        if (length(unlist(checkHigherRank)) > 0) 
+          return(strsplit(x, "#", fixed = TRUE)[[1]][1])
       }
-  )
-  if (length(unlist(duplicatedTaxa)) > 0) {
+    )
+    if (length(unlist(duplicatedTaxa)) > 0) {
       msg <- paste("WARNING:", length(unlist(duplicatedTaxa)))
       if (length(unlist(duplicatedTaxa)) == 1)
-          msg <- paste(msg, "duplicated taxon has been ignored!")
+        msg <- paste(msg, "duplicated taxon has been ignored!")
       else
-          msg <- paste(msg, "duplicated taxa have been ignored!")
+        msg <- paste(msg, "duplicated taxa have been ignored!")
       if (length(unlist(duplicatedTaxa)) < 5) {
-          msg <- paste(msg, "Including: ")
-          msg <- c(msg, paste(unlist(duplicatedTaxa), collapse = "; "))
+        msg <- paste(msg, "Including: ")
+        msg <- c(msg, paste(unlist(duplicatedTaxa), collapse = "; "))
       }   
       message(msg)
+    }
+    nameList <- nameList[!(nameList$tip %in% unlist(duplicatedTaxa)),]
+    rankList <- rankList[!(rankList$tip %in% unlist(duplicatedTaxa)),]
   }
-  nameList <- nameList[!(nameList$tip %in% unlist(duplicatedTaxa)),]
-  rankList <- rankList[!(rankList$tip %in% unlist(duplicatedTaxa)),]
   # get indexed rank list
   index2RankDf <- rank_indexing(rankList)
   # get ordered rank list
