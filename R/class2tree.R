@@ -396,6 +396,36 @@ rank_indexing <- function (rankList) {
 #' @author Vinh Tran {tran@bio.uni-frankfurt.de}
 taxonomy_table_creator <- function (nameList, rankList) {
   colnames(nameList)[1] <- "tip"
+  # remove duplicated taxa (e.g. taxa with higher levels, that already belong 
+  # to the taxonomy string of other taxa)
+  duplicatedTaxa <- lapply(
+      nameList$X1,
+      function (x) {
+          matchs <-data.frame(which(nameList[,-1] == x, arr.ind=TRUE))
+          checkHigherRank <- lapply(
+              matchs$row,
+              function(y) {
+                  if (nameList[y,]$X1 != x) return(1)
+              }
+          )
+          if (length(unlist(checkHigherRank)) > 0) 
+              return(strsplit(x, "#", fixed = TRUE)[[1]][1])
+      }
+  )
+  if (length(unlist(duplicatedTaxa)) > 0) {
+      msg <- paste("WARNING:", length(unlist(duplicatedTaxa)))
+      if (length(unlist(duplicatedTaxa)) == 1)
+          msg <- paste(msg, "duplicated taxon has been ignored!")
+      else
+          msg <- paste(msg, "duplicated taxa have been ignored!")
+      if (length(unlist(duplicatedTaxa)) < 5) {
+          msg <- paste(msg, "Including: ")
+          msg <- c(msg, paste(unlist(duplicatedTaxa), collapse = "; "))
+      }   
+      message(msg)
+  }
+  nameList <- nameList[!(nameList$tip %in% unlist(duplicatedTaxa)),]
+  rankList <- rankList[!(rankList$tip %in% unlist(duplicatedTaxa)),]
   # get indexed rank list
   index2RankDf <- rank_indexing(rankList)
   # get ordered rank list
