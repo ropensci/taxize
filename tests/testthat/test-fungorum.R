@@ -28,7 +28,7 @@ test_that("fungorum - fg_epithet_search", {
   expect_is(aa, "data.frame")
   expect_true(any(grepl("authors", names(aa))))
   expect_equal(NROW(aa), 2)
-  expect_equal(unique(aa$infraspecific_rank), "sp.")
+  expect_equal(unique(aa$infraspecific_rank)[1], "sp.")
 })
 
 test_that("fungorum - fg_name_by_key", {

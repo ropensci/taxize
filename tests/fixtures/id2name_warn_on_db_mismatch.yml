@@ -8,41 +8,45 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.2.9000 crul/0.9.0 rOpenSci(taxize/0.9.9.9110)
-      X-USER-AGENT: r-curl/4.2.9000 crul/0.9.0 rOpenSci(taxize/0.9.9.9110)
+      User-Agent: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: 'HTTP/2 200 '
-      date: Sun, 10 Nov 2019 02:23:59 GMT
+      status: HTTP/1.1 200 OK
+      date: Thu, 26 Sep 2024 22:30:54 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '8'
-      ncbi-phid: 322C1490D3723475000048F5455814A9.1.1.m_1
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: 0FC2E2DA9A8CA52D_4B74SID
+      ncbi-phid: 939BD9A705D1779500005CBDD2F17A11.1.1.m_1
+      content-type: text/xml; charset=UTF-8
       cache-control: private
-      ncbi-sid: BF7D14908FA18693_61A1SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '9'
       access-control-allow-origin: '*'
-      content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=BF7D14908FA18693_61A1SID; domain=.nih.gov; path=/; expires=Tue,
-        10 Nov 2020 02:24:00 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=0FC2E2DA9A8CA52D_4B74SID; domain=.nih.gov; path=/; expires=Fri,
+        26 Sep 2025 22:30:54 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
     body:
-      encoding: UTF-8
+      encoding: ''
+      file: no
       string: |
         <?xml version="1.0" encoding="UTF-8" ?>
         <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>7459</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Apis[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Apis[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2019-11-10 02:24:00 GMT
-  recorded_with: vcr/0.3.0, webmockr/0.4.0
+  recorded_at: 2024-09-26 22:30:55 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&id=7459&api_key=<<entrez_api_token>>
@@ -52,33 +56,37 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.2.9000 crul/0.9.0 rOpenSci(taxize/0.9.9.9110)
-      X-USER-AGENT: r-curl/4.2.9000 crul/0.9.0 rOpenSci(taxize/0.9.9.9110)
+      User-Agent: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: 'HTTP/2 200 '
-      date: Sun, 10 Nov 2019 02:24:00 GMT
+      status: HTTP/1.1 200 OK
+      date: Thu, 26 Sep 2024 22:30:54 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '6'
-      ncbi-phid: 322C1490D3723475000030F5465AE535.1.1.m_1
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: 912309970E4FA3FE_6D3CSID
+      ncbi-phid: 939BD9A705D17795000039BDD421E28A.1.1.m_1
+      content-type: text/xml; charset=UTF-8
       cache-control: private
-      ncbi-sid: DABF83840F56D548_41D7SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '8'
       access-control-allow-origin: '*'
-      content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=DABF83840F56D548_41D7SID; domain=.nih.gov; path=/; expires=Tue,
-        10 Nov 2020 02:24:01 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=912309970E4FA3FE_6D3CSID; domain=.nih.gov; path=/; expires=Fri,
+        26 Sep 2025 22:30:55 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
     body:
-      encoding: UTF-8
+      encoding: ''
+      file: no
       string: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!DOCTYPE eSummaryResult
         PUBLIC \"-//NLM//DTD esummary v1 20041029//EN\" \"https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20041029/esummary-v1.dtd\">\n<eSummaryResult>\n<DocSum>\n\t<Id>7459</Id>\n\t<Item
         Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">genus</Item>\n\t<Item
@@ -88,5 +96,5 @@ http_interactions:
         Name=\"Genus\" Type=\"String\"></Item>\n\t<Item Name=\"Species\" Type=\"String\"></Item>\n\t<Item
         Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
         Type=\"Date\">2002/05/08 00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
-  recorded_at: 2019-11-10 02:24:00 GMT
-  recorded_with: vcr/0.3.0, webmockr/0.4.0
+  recorded_at: 2024-09-26 22:30:55 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0

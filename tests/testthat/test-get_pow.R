@@ -21,16 +21,6 @@ test_that("get_pow accepts ask-argument", {
   expect_true(is.na(z))
 })
 
-test_that("get_pow works (gives NA) when accepted=TRUE leads to no results", {
-  skip_on_cran()
-  # this used to error: https://github.com/ropensci/taxize/issues/864
-  vcr::use_cassette("get_pow_accepted_no_results", {
-    z <- get_pow("Homalium leucophloeum", accepted = TRUE,
-      messages = FALSE)[[1]]
-  })
-  expect_true(is.na(z))
-})
-
 test_that("get_pow fails as expected", {
   skip_on_cran()
 

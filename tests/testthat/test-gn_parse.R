@@ -7,9 +7,7 @@ test_that("gn_parse", {
   expect_is(tt, "data.frame")
   expect_is(tt, "tbl")
   expect_is(tt$normalized, "character")
-  expect_is(tt$canonicalName, "data.frame")
-  expect_is(tt$details, "list")
-  expect_is(tt$positions, "list")
+  expect_is(tt$canonical_stemmed, "character")
 })
 
 test_that("gn_parse fails well", {

@@ -8,8 +8,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
-      X-USER-AGENT: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
+      User-Agent: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
@@ -17,22 +17,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Thu, 09 Mar 2023 21:24:43 GMT
+      date: Thu, 05 Sep 2024 16:40:20 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
       referrer-policy: origin-when-cross-origin
-      ncbi-sid: 7511E427228B7251_FDFBSID
-      ncbi-phid: 322C2D2E52F04595000048D5291783FB.1.1.m_1
+      ncbi-sid: 93CF4F0D402C06FB_3701SID
+      ncbi-phid: D0BD9D8EE5AB4CE5000046AF8DF78413.1.1.m_1
       content-type: text/xml; charset=UTF-8
       cache-control: private
       content-encoding: gzip
       x-ratelimit-limit: '10'
-      x-ratelimit-remaining: '9'
+      x-ratelimit-remaining: '6'
       access-control-allow-origin: '*'
       access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
-      set-cookie: ncbi_sid=7511E427228B7251_FDFBSID; domain=.nih.gov; path=/; expires=Sat,
-        09 Mar 2024 21:24:44 GMT
+      set-cookie: ncbi_sid=93CF4F0D402C06FB_3701SID; domain=.nih.gov; path=/; expires=Fri,
+        05 Sep 2025 16:40:20 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -49,8 +49,8 @@ http_interactions:
         dD4gICAgPEV4cGxvZGU+TjwvRXhwbG9kZT4gICA8L1Rlcm1TZXQ+ICAgPE9QPkdST1VQPC9PUD4gIDwv
         VHJhbnNsYXRpb25TdGFjaz48UXVlcnlUcmFuc2xhdGlvbj5hbWVyaWNhbitibGFjaytiZWFyW0NvbW1v
         biBOYW1lXTwvUXVlcnlUcmFuc2xhdGlvbj48L2VTZWFyY2hSZXN1bHQ+Cg==
-  recorded_at: 2023-03-09 21:24:48 GMT
-  recorded_with: vcr/1.2.0, webmockr/0.8.2
+  recorded_at: 2024-09-05 16:40:22 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=9643&api_key=<<entrez_api_token>>
@@ -60,8 +60,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
-      X-USER-AGENT: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
+      User-Agent: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
@@ -69,22 +69,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Thu, 09 Mar 2023 21:24:44 GMT
+      date: Thu, 05 Sep 2024 16:40:20 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
       referrer-policy: origin-when-cross-origin
-      ncbi-sid: 4F16DA2E86F73A0C_7341SID
-      ncbi-phid: 322C2D2E52F0459500003ED52BE38AE4.1.1.m_3
+      ncbi-sid: 9988142738B76972_E1AFSID
+      ncbi-phid: D0BD9D8EE5AB4CE5000030AF8F2630F3.1.1.m_3
       content-type: text/xml; charset=UTF-8
       cache-control: private
       content-encoding: gzip
       x-ratelimit-limit: '10'
-      x-ratelimit-remaining: '8'
+      x-ratelimit-remaining: '7'
       access-control-allow-origin: '*'
       access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
-      set-cookie: ncbi_sid=4F16DA2E86F73A0C_7341SID; domain=.nih.gov; path=/; expires=Sat,
-        09 Mar 2024 21:24:44 GMT
+      set-cookie: ncbi_sid=9988142738B76972_E1AFSID; domain=.nih.gov; path=/; expires=Fri,
+        05 Sep 2025 16:40:21 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -181,19 +181,19 @@ http_interactions:
         aW5lYWdlRXg+CiAgICA8Q3JlYXRlRGF0ZT4xOTk1LzAyLzI3IDA5OjI0OjAwPC9DcmVhdGVEYXRlPgog
         ICAgPFVwZGF0ZURhdGU+MjAyMC8wNC8yOCAyMjozMDowNjwvVXBkYXRlRGF0ZT4KICAgIDxQdWJEYXRl
         PjE5OTMvMTEvMTkgMDA6MDA6MDA8L1B1YkRhdGU+CjwvVGF4b24+Cgo8L1RheGFTZXQ+
-  recorded_at: 2023-03-09 21:24:48 GMT
-  recorded_with: vcr/1.2.0, webmockr/0.8.2
+  recorded_at: 2024-09-05 16:40:22 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
-    uri: http://services.tropicos.org/Name/Search?format=json&commonname=annual%20blue%20grass&apikey=<<tropicos_api_token>>
+    uri: http://services.tropicos.org/Name/Search?format=json&commonname=annual%20blue%20grass&apikey=00ca3d6a-cbcc-4924-b882-c26b16d54446
     body:
       encoding: ''
       string: ''
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
-      X-USER-AGENT: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
+      User-Agent: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
@@ -206,7 +206,7 @@ http_interactions:
       server: Microsoft-IIS/10.0
       x-aspnet-version: 4.0.30319
       x-powered-by: ASP.NET
-      date: Thu, 09 Mar 2023 21:24:47 GMT
+      date: Thu, 05 Sep 2024 16:40:17 GMT
       content-length: '297'
     body:
       encoding: ''
@@ -216,19 +216,19 @@ http_interactions:
         ZXZpYXRpb24iOiJzcC4iLCJOb21lbmNsYXR1cmVTdGF0dXNJRCI6MSwiTm9tZW5jbGF0dXJlU3RhdHVz
         TmFtZSI6IkxlZ2l0aW1hdGUiLCJTeW1ib2wiOiIhIiwiQXV0aG9yIjoiTC4iLCJEaXNwbGF5UmVmZXJl
         bmNlIjoiU3AuIFBsLiAxOiA2OCIsIkRpc3BsYXlEYXRlIjoiMTc1MyIsIlRvdGFsUm93cyI6MX1d
-  recorded_at: 2023-03-09 21:24:48 GMT
-  recorded_with: vcr/1.2.0, webmockr/0.8.2
+  recorded_at: 2024-09-05 16:40:22 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
-    uri: http://services.tropicos.org/Name/Search?format=json&commonname=black%20bear&apikey=<<tropicos_api_token>>
+    uri: http://services.tropicos.org/Name/Search?format=json&commonname=black%20bear&apikey=00ca3d6a-cbcc-4924-b882-c26b16d54446
     body:
       encoding: ''
       string: ''
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
-      X-USER-AGENT: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
+      User-Agent: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
@@ -241,7 +241,7 @@ http_interactions:
       server: Microsoft-IIS/10.0
       x-aspnet-version: 4.0.30319
       x-powered-by: ASP.NET
-      date: Thu, 09 Mar 2023 21:24:47 GMT
+      date: Thu, 05 Sep 2024 16:40:17 GMT
       content-length: '320'
     body:
       encoding: ''
@@ -252,5 +252,5 @@ http_interactions:
         YXR1cmVTdGF0dXNOYW1lIjoiTm8gb3BpbmlvbiIsIkF1dGhvciI6IihMLikgU3ByZW5nLiIsIkRpc3Bs
         YXlSZWZlcmVuY2UiOiJTeXN0LiBWZWcuIFtTcHJlbmdlbF0gMjogMjg3IiwiRGlzcGxheURhdGUiOiIx
         ODI1IiwiVG90YWxSb3dzIjoxfV0=
-  recorded_at: 2023-03-09 21:24:48 GMT
-  recorded_with: vcr/1.2.0, webmockr/0.8.2
+  recorded_at: 2024-09-05 16:40:22 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0

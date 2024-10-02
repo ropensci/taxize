@@ -6,7 +6,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.81.0 r-curl/5.2.2 crul/1.5.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -15,17 +15,16 @@ http_interactions:
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: 'HTTP/2 200 '
-      server: nginx
-      date: Thu, 23 Apr 2020 22:35:43 GMT
       content-type: text/html; charset=utf-8
+      date: Wed, 04 Sep 2024 23:39:06 GMT
+      server: nginx
+      set-cookie:
+      - session=56mbo59c9ihekn8pctc64t4404; path=/
+      - https=on;Path=/;Max-Age=3600;httponly;SameSite=Lax
+      status: 'HTTP/2 200 '
       x-powered-by: PHP/5.3.15
-      set-cookie: session=vh95ps3e78e7u82rj56th181r1; path=/
-      x-frame-options: SAMEORIGIN
-      x-content-type-options: nosniff
-      x-xss-protection: 1; mode=block
     body:
-      encoding: UTF-8
+      encoding: ''
       file: no
       string: "<!DOCTYPE HTML>\n<html>\n<head>\n\t<meta charset=\"utf-8\" />\n<meta
         http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\">\n\n<title>Momotus
@@ -138,7 +137,7 @@ http_interactions:
         &.ui-state-active &.ui-state-focus{\n\t\t\t\tcolor: #ffffff;\n\t\t\t\ttext-decoration:
         none;\n\t\t\t\tbackground-color: #0088cc !important;\n\t\t\t\tborder-radius:
         0px;\n\t\t\t\t-webkit-border-radius: 0px;\n\t\t\t\t-moz-border-radius: 0px;\n\t\t\t\tbackground-image:
-        none;\n\t\t\t}\n\t\t}\n\t}\n\t.ui-helper-hidden-accessible{\n\t\tdisplay:none;\n\t}\n</style>\t<link
+        none;\n\t\t\t}\n\t\t}\n\t}\n\t.ui-helper-hidden-accessible{\n\t\tdisplay:none;\n\t}\n</style>\n\t<link
         rel=\"stylesheet\" type=\"text/css\" href=\"/libhtml/highslide/highslide.css\"
         />\n\t<script type=\"text/javascript\" src=\"/libhtml/highslide/highslide-full.js\"></script>\n\t<!--
         ChartJS-->\n\t<script src=\"/libhtml_v4/js/plugins/chartjs/Chart.js\"></script>\n\t<script
@@ -152,7 +151,7 @@ http_interactions:
         '<div class=\"closebutton\" onclick=\"return hs.close(this)\" title=\"Close\"></div>',\n\t\t\t\t\tposition:
         'top right',\n\t\t\t\t\tuseOnHtml: true,\n\t\t\t\t\tfade: 2 // fading the
         semi-transparent overlay looks bad in IE\n\t\t\t});\n\n</script>\n\t<script
-        language=\"javascript\">\n\t\t\tvar allCountriesData = {\"Brazil\":4,\"Colombia\":2,\"Mexico\":2,\"Panama\":10,\"Guatemala\":1,\"Peru\":17,\"Bolivia\":6,\"Ecuador\":2};\n\n\t\t\t$(document).ready(function()
+        language=\"javascript\">\n\t\t\tvar allCountriesData = {\"Panama\":10,\"Peru\":19,\"Ecuador\":2,\"Bolivia\":6,\"Guatemala\":1,\"Mexico\":2,\"Brazil\":4,\"Colombia\":6};\n\n\t\t\t$(document).ready(function()
         {\n\t\t\t\t//Taxonomy Search event handler\n\t\t\t\t$('button[name=\"searchTax\"]').click(function
         () {\n\t\t\t\t\twindow.location = \"/index.php/Taxbrowser_Taxonpage?taxon=\"+
         $('input[name=\"taxon\"]').val();\n\t\t\t\t});\n\t\t\t\t//Species Summary
@@ -244,7 +243,7 @@ http_interactions:
         ;loop through the colour\n\t\t\t\t\t\t\tchartColourIndex = 0;\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t\tvar
         ctx = document.getElementById(\"chart\"+suffix).getContext(\"2d\");\n\t\t\t\t\tvar
         tgChart = new Chart(ctx).Doughnut(chartData, doughnutOptions);\n\t\t\t\t\t$(\"#legend\"+suffix).html(tgChart.generateLegend());\n\t\t\t\t});\n\t\t\t}\n\n\t\t\t$(document).ready(function()
-        {\n\t\t\t\t\t\t\t\tbuildChart('/index.php/TaxBrowser_Charts_institutionsrcdata','Depositry');\n\t\t\t\t\t\t\t\t\t\t\t\tbuildChart('/index.php/TaxBrowser_Charts_institutionsrcdata/sequencinglabs','Sequence');\n\t\t\t\t\t\t\t});\n\t</script>\n\n\t<style
+        {\n\t\t\t\t\t\t\t\tbuildChart('/index.php/TaxBrowser_Charts_institutionsrcdata','Depository');\n\t\t\t\t\t\t\t\t\t\t\t\tbuildChart('/index.php/TaxBrowser_Charts_institutionsrcdata/sequencinglabs','Sequence');\n\t\t\t\t\t\t\t});\n\t</script>\n\n\t<style
         type=\"text/css\">\n\n\t\t.highslide-heading {\n\t\t\tcolor:#dedede;\n\t\t}\n\t\t.highslide-caption{\n\t\t\tfont-size:10pt
         !important;\n\t\t}\n\t\t.imagegallery_preview {\n\t\t\tbackground-color: #FFFFFF;\n\t\t\tmargin:
         8px;\n\t\t\tborder: 1px solid #111111;\n\t\t\tpadding: 0px;\n\t\t\twidth:400px;\n\t\t\ttext-align:
@@ -312,19 +311,19 @@ http_interactions:
         col-md-6\">\n\t\t\t<div class=\"ibox\">\n\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t<h2>Statistics</h2>\n\t\t\t\t</div>\n\t\t\t\t<div
         class=\"ibox-content\">\n\t\t\t\t<div class=\"ibox float-e-margins\">\n\t\t\t\t\t<table
         class=\"table table-striped noborder\">\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td
-        width=\"41%\">Specimen Records:</td>\n\t\t\t\t\t\t\t<td width=\"17%\">82</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Specimens
-        with Sequences:</td>\n\t\t\t\t\t\t\t<td>65</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Specimens
-        with Barcodes:</td>\n\t\t\t\t\t\t\t<td><specimendataforlivestats/>59<specimendataforlivestats/></td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Species:</td>\n\t\t\t\t\t\t\t<td>3</td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Species
+        width=\"41%\">Specimen Records:</td>\n\t\t\t\t\t\t\t<td width=\"17%\">89</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Specimens
+        with Sequences:</td>\n\t\t\t\t\t\t\t<td>72</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Specimens
+        with Barcodes:</td>\n\t\t\t\t\t\t\t<td><specimendataforlivestats/>66<specimendataforlivestats/></td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Species:</td>\n\t\t\t\t\t\t\t<td>3</td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Species
         With Barcodes:</td>\n\t\t\t\t\t\t\t<td>3</td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td
-        width=\"60%\">Public Records:</td>\n\t\t\t\t\t\t\t<td width=\"40%\">39</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Public
-        Species:</td>\n\t\t\t\t\t\t\t<td>2</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Public
-        BINs:</td>\n\t\t\t\t\t\t\t<td>8</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td><button
+        width=\"60%\">Public Records:</td>\n\t\t\t\t\t\t\t<td width=\"40%\">56</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Public
+        Species:</td>\n\t\t\t\t\t\t\t<td>3</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Public
+        BINs:</td>\n\t\t\t\t\t\t\t<td>10</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td><button
         class=\"btn btn-sm btn-info\" name=\"speciesSummaryOpen\"> Species List  </button></td>\n\t\t\t\t\t\t\t<td><button
         class=\"btn btn-sm btn-info\" name=\"accessPublishedData\">Public Data</button></td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</table>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t\t</div>\n\n\n\t\t<div
         class=\"col-lg-4 col-md-6\">\n\t\t\t<div class=\"ibox\">\n\t\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t\t<h2>Specimen
         Depositories</h2>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ibox-content\">\n\t\t\t\t\t<div
-        class=\"ibox float-e-margins\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div id=\"divDepositry\"><canvas
-        id=\"chartDepositry\"></canvas></div>\n\t\t\t\t\t\t<div id=\"legendDepositry\"
+        class=\"ibox float-e-margins\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div id=\"divDepository\"><canvas
+        id=\"chartDepository\"></canvas></div>\n\t\t\t\t\t\t<div id=\"legendDepository\"
         class=\"legendFont\"></div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div id=\"institutionsList2\"></div>\n\t\t\t\t\t\t\t<script
         language=\"javascript\">\n\t\t\t\t\t\t\tvar institutionsReduced=true;\n\t\t\t\t\t\t\tfunction
         institutionsExpandReduce() {\n\t\t\t\t\t\t\t\tif (institutionsReduced==true)
@@ -341,7 +340,9 @@ http_interactions:
         class=\"highslide\" onclick=\"return hs.expand(this,{width:maxColWidth,height:maxColHeight})\"
         href=\"/index.php/TaxBrowser_Maps_CollectionSites?taxid=88899\" ><img border=\"0\"
         width=\"100%\" src=\"/index.php/TaxBrowser_Maps_CollectionSites?taxid=88899\"></img></a>\n\t\t\t\t\t\t\t\t</br>\n\t\t\t\t\t\t\t\t<img
-        src=\"/libhtml/icons/mapScale_BOLD.png\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t</div>
+        src=\"/libhtml/icons/mapScale_BOLD.png\">\n\t\t\t\t\t\t\t\t<a href=\"/index.php/TaxBrowser_Maps_CollectionSites?taxid=88899\"
+        target=\"_blank\" style=\"margin-top:1px !important\" class=\"btn btn-xs btn-info
+        pull-right\" download=\"taxonmap.png\">Download map <i class=\"fa fa-cloud-download\"></i></a>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t</div>
         <!-- END OF FIFTH ROW -->\n\n\t<div class=\"row\">\n\t\t<div class=\"col-lg-12\">\n\t\t\t<div
         class=\"ibox\">\n\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t<h2>Countries</h2>\n\t\t\t\t\t<span>Collected
         from <strong>8</strong> countries. </span> <a class=\"link\" onClick = \"populateAllCountries();\">
@@ -352,9 +353,9 @@ http_interactions:
         class=\"ibox-content\">\n\t\t\t\t\t<!-- Left Menu START-->\n\t\t\t\t\t<div
         class=\"ibox float-e-margins\">\n\n\t\t\t\t\t\t\t<lh>Species (3) </lh><ol><li><a
         href=\"/index.php/Taxbrowser_Taxonpage?taxid=115130\">Momotus aequatorialis
-        [5]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=106839\">Momotus
+        [7]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=106839\">Momotus
         mexicanus [24]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=88900\">Momotus
-        momota [53]</a></li></ol>\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t</div>\n\t\t
+        momota [58]</a></li></ol>\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t</div>\n\t\t
         <!-- Left Menu END -->\n\t\t<div class=\"col-md-6\">\n\t\t\t\t\t\t\t\t<div
         class=\"ibox float-e-margins\">\n\t\t\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t\t\t<h2>Imagery</h2>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div
         class=\"ibox-content\">\n\t\t\t\t\t\t<i> Images representing subtaxa of Momotus</i>
@@ -399,7 +400,8 @@ http_interactions:
         class=\"list-unstyled\">\n\t\t\t\t\t\t  <!--<li><a href=\"/index.php/resources/handbook?chapter=1_gettingstarted.html\">Documentation</a></li>-->\n\t\t\t\t\t\t
         \ <li><a href=\"/libhtml/docs/bold.pdf\">Citing BOLD</a></li>\n\t\t\t\t\t\t
         \ <li><a href=\"/index.php/NewsFeed\">News and Events</a></li>\n\t\t\t\t\t\t
-        \ <li><a href=\"/index.php/datarelease\">Data Releases</a></li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div
+        \ <li hidden><a href=\"/index.php/datarelease\">Data Releases</a></li>\n\t\t\t\t\t\t
+        \ <li><a href=\"/index.php/datapackages\">Data Packages</a></li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div
         class=\"col-sm-3\">\n\t\t\t\t\t\t<h3 class=\"mg-md\">Organization</h3>\n\t\t\t\t\t\t<ul
         class=\"list-unstyled\">\n\t\t\t\t\t\t  <li><a href=\"/index.php/Resources/whatIsBOLD\">About
         Us</a></li>\n\t\t\t\t\t\t  <li><a href=\"/index.php/Resources/ContactUs\">Contact
@@ -424,9 +426,9 @@ http_interactions:
         class=\"col-sm-2\">\n\t\t\t\t\t\t<img class=\"img-responsive center-block\"
         src=\"/libhtml_v4/img/UoGuelph_image18-100x100.png\" />\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div
         class=\"row\">\n\t\t\t\t\t<div class=\"col-xs-12\"><br/><h5><small><strong>Copyright</strong>
-        BOLD &copy; 2014-2020</small></h5></div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t</body>\n</html>\n"
-  recorded_at: 2020-04-23 22:35:50 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+        BOLD &copy; 2014-2024</small></h5></div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t</body>\n</html>\n"
+  recorded_at: 2024-09-04 23:39:18 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
     uri: https://v4.boldsystems.org/index.php/Taxbrowser_Taxonpage?taxid=115130
@@ -434,7 +436,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.81.0 r-curl/5.2.2 crul/1.5.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -443,17 +445,16 @@ http_interactions:
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: 'HTTP/2 200 '
-      server: nginx
-      date: Thu, 23 Apr 2020 22:35:46 GMT
       content-type: text/html; charset=utf-8
+      date: Wed, 04 Sep 2024 23:39:12 GMT
+      server: nginx
+      set-cookie:
+      - session=a469niv6epgrrtmgof8jm2jj50; path=/
+      - https=on;Path=/;Max-Age=3600;httponly;SameSite=Lax
+      status: 'HTTP/2 200 '
       x-powered-by: PHP/5.3.15
-      set-cookie: session=o5jk9qqgcqjc3nraj32e6cj4b5; path=/
-      x-frame-options: SAMEORIGIN
-      x-content-type-options: nosniff
-      x-xss-protection: 1; mode=block
     body:
-      encoding: UTF-8
+      encoding: ''
       file: no
       string: "<!DOCTYPE HTML>\n<html>\n<head>\n\t<meta charset=\"utf-8\" />\n<meta
         http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\">\n\n<title>Momotus
@@ -566,7 +567,7 @@ http_interactions:
         &.ui-state-active &.ui-state-focus{\n\t\t\t\tcolor: #ffffff;\n\t\t\t\ttext-decoration:
         none;\n\t\t\t\tbackground-color: #0088cc !important;\n\t\t\t\tborder-radius:
         0px;\n\t\t\t\t-webkit-border-radius: 0px;\n\t\t\t\t-moz-border-radius: 0px;\n\t\t\t\tbackground-image:
-        none;\n\t\t\t}\n\t\t}\n\t}\n\t.ui-helper-hidden-accessible{\n\t\tdisplay:none;\n\t}\n</style>\t<link
+        none;\n\t\t\t}\n\t\t}\n\t}\n\t.ui-helper-hidden-accessible{\n\t\tdisplay:none;\n\t}\n</style>\n\t<link
         rel=\"stylesheet\" type=\"text/css\" href=\"/libhtml/highslide/highslide.css\"
         />\n\t<script type=\"text/javascript\" src=\"/libhtml/highslide/highslide-full.js\"></script>\n\t<!--
         ChartJS-->\n\t<script src=\"/libhtml_v4/js/plugins/chartjs/Chart.js\"></script>\n\t<script
@@ -580,7 +581,7 @@ http_interactions:
         '<div class=\"closebutton\" onclick=\"return hs.close(this)\" title=\"Close\"></div>',\n\t\t\t\t\tposition:
         'top right',\n\t\t\t\t\tuseOnHtml: true,\n\t\t\t\t\tfade: 2 // fading the
         semi-transparent overlay looks bad in IE\n\t\t\t});\n\n</script>\n\t<script
-        language=\"javascript\">\n\t\t\tvar allCountriesData = {\"Peru\":5};\n\n\t\t\t$(document).ready(function()
+        language=\"javascript\">\n\t\t\tvar allCountriesData = {\"Colombia\":1,\"Peru\":5};\n\n\t\t\t$(document).ready(function()
         {\n\t\t\t\t//Taxonomy Search event handler\n\t\t\t\t$('button[name=\"searchTax\"]').click(function
         () {\n\t\t\t\t\twindow.location = \"/index.php/Taxbrowser_Taxonpage?taxon=\"+
         $('input[name=\"taxon\"]').val();\n\t\t\t\t});\n\t\t\t\t//Species Summary
@@ -675,7 +676,7 @@ http_interactions:
         ;loop through the colour\n\t\t\t\t\t\t\tchartColourIndex = 0;\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t\tvar
         ctx = document.getElementById(\"chart\"+suffix).getContext(\"2d\");\n\t\t\t\t\tvar
         tgChart = new Chart(ctx).Doughnut(chartData, doughnutOptions);\n\t\t\t\t\t$(\"#legend\"+suffix).html(tgChart.generateLegend());\n\t\t\t\t});\n\t\t\t}\n\n\t\t\t$(document).ready(function()
-        {\n\t\t\t\t\t\t\t\tbuildChart('/index.php/TaxBrowser_Charts_institutionsrcdata','Depositry');\n\t\t\t\t\t\t\t\t\t\t\t\tbuildChart('/index.php/TaxBrowser_Charts_institutionsrcdata/sequencinglabs','Sequence');\n\t\t\t\t\t\t\t});\n\t</script>\n\n\t<style
+        {\n\t\t\t\t\t\t\t\tbuildChart('/index.php/TaxBrowser_Charts_institutionsrcdata','Depository');\n\t\t\t\t\t\t\t\t\t\t\t\tbuildChart('/index.php/TaxBrowser_Charts_institutionsrcdata/sequencinglabs','Sequence');\n\t\t\t\t\t\t\t});\n\t</script>\n\n\t<style
         type=\"text/css\">\n\n\t\t.highslide-heading {\n\t\t\tcolor:#dedede;\n\t\t}\n\t\t.highslide-caption{\n\t\t\tfont-size:10pt
         !important;\n\t\t}\n\t\t.imagegallery_preview {\n\t\t\tbackground-color: #FFFFFF;\n\t\t\tmargin:
         8px;\n\t\t\tborder: 1px solid #111111;\n\t\t\tpadding: 0px;\n\t\t\twidth:400px;\n\t\t\ttext-align:
@@ -744,20 +745,20 @@ http_interactions:
         col-md-6\">\n\t\t\t<div class=\"ibox\">\n\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t<h2>Statistics</h2>\n\t\t\t\t</div>\n\t\t\t\t<div
         class=\"ibox-content\">\n\t\t\t\t<div class=\"ibox float-e-margins\">\n\t\t\t\t\t<table
         class=\"table table-striped noborder\">\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td
-        width=\"41%\">Specimen Records:</td>\n\t\t\t\t\t\t\t<td width=\"17%\">5</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Specimens
-        with Sequences:</td>\n\t\t\t\t\t\t\t<td>4</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Specimens
-        with Barcodes:</td>\n\t\t\t\t\t\t\t<td><specimendataforlivestats/>1<specimendataforlivestats/></td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Subspecies:</td>\n\t\t\t\t\t\t\t<td>0</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Subspecies
+        width=\"41%\">Specimen Records:</td>\n\t\t\t\t\t\t\t<td width=\"17%\">7</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Specimens
+        with Sequences:</td>\n\t\t\t\t\t\t\t<td>6</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Specimens
+        with Barcodes:</td>\n\t\t\t\t\t\t\t<td><specimendataforlivestats/>3<specimendataforlivestats/></td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Subspecies:</td>\n\t\t\t\t\t\t\t<td>0</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Subspecies
         with Barcodes:</td>\n\t\t\t\t\t\t\t<td>0</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td
-        width=\"60%\">Public Records:</td>\n\t\t\t\t\t\t\t<td width=\"40%\">0</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Public
+        width=\"60%\">Public Records:</td>\n\t\t\t\t\t\t\t<td width=\"40%\">3</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Public
         Subspecies:</td>\n\t\t\t\t\t\t\t<td>0</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Public
-        BINs:</td>\n\t\t\t\t\t\t\t<td>0</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td><button
+        BINs:</td>\n\t\t\t\t\t\t\t<td>1</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td><button
         class=\"btn btn-sm btn-info\" name=\"speciesSummaryOpen\"> Subspecies List
         </button></td>\n\t\t\t\t\t\t\t<td><button class=\"btn btn-sm btn-info\" name=\"accessPublishedData\">Public
         Data</button></td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</table>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t\t</div>\n\n\n\t\t<div
         class=\"col-lg-4 col-md-6\">\n\t\t\t<div class=\"ibox\">\n\t\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t\t<h2>Specimen
         Depositories</h2>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ibox-content\">\n\t\t\t\t\t<div
-        class=\"ibox float-e-margins\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div id=\"divDepositry\"><canvas
-        id=\"chartDepositry\"></canvas></div>\n\t\t\t\t\t\t<div id=\"legendDepositry\"
+        class=\"ibox float-e-margins\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div id=\"divDepository\"><canvas
+        id=\"chartDepository\"></canvas></div>\n\t\t\t\t\t\t<div id=\"legendDepository\"
         class=\"legendFont\"></div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div id=\"institutionsList2\"></div>\n\t\t\t\t\t\t\t<script
         language=\"javascript\">\n\t\t\t\t\t\t\tvar institutionsReduced=true;\n\t\t\t\t\t\t\tfunction
         institutionsExpandReduce() {\n\t\t\t\t\t\t\t\tif (institutionsReduced==true)
@@ -774,10 +775,12 @@ http_interactions:
         class=\"highslide\" onclick=\"return hs.expand(this,{width:maxColWidth,height:maxColHeight})\"
         href=\"/index.php/TaxBrowser_Maps_CollectionSites?taxid=115130\" ><img border=\"0\"
         width=\"100%\" src=\"/index.php/TaxBrowser_Maps_CollectionSites?taxid=115130\"></img></a>\n\t\t\t\t\t\t\t\t</br>\n\t\t\t\t\t\t\t\t<img
-        src=\"/libhtml/icons/mapScale_BOLD.png\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t</div>
+        src=\"/libhtml/icons/mapScale_BOLD.png\">\n\t\t\t\t\t\t\t\t<a href=\"/index.php/TaxBrowser_Maps_CollectionSites?taxid=115130\"
+        target=\"_blank\" style=\"margin-top:1px !important\" class=\"btn btn-xs btn-info
+        pull-right\" download=\"taxonmap.png\">Download map <i class=\"fa fa-cloud-download\"></i></a>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t</div>
         <!-- END OF FIFTH ROW -->\n\n\t<div class=\"row\">\n\t\t<div class=\"col-lg-12\">\n\t\t\t<div
         class=\"ibox\">\n\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t<h2>Countries</h2>\n\t\t\t\t\t<span>Collected
-        from <strong>1</strong> countries. </span> <a class=\"link\" onClick = \"populateAllCountries();\">
+        from <strong>2</strong> countries. </span> <a class=\"link\" onClick = \"populateAllCountries();\">
         Show all countries</a>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t<div
         class =\"row\" id =\"countries-summary\">\n\n\t</div><!--END OF ROW-->\n\n\n\t<div
         class =\"row\">\n\t\t <!-- Left Menu END -->\n\t\t<div class=\"col-md-12\">\n\t\t\t\t\t\t\t\t<div
@@ -819,7 +822,8 @@ http_interactions:
         class=\"list-unstyled\">\n\t\t\t\t\t\t  <!--<li><a href=\"/index.php/resources/handbook?chapter=1_gettingstarted.html\">Documentation</a></li>-->\n\t\t\t\t\t\t
         \ <li><a href=\"/libhtml/docs/bold.pdf\">Citing BOLD</a></li>\n\t\t\t\t\t\t
         \ <li><a href=\"/index.php/NewsFeed\">News and Events</a></li>\n\t\t\t\t\t\t
-        \ <li><a href=\"/index.php/datarelease\">Data Releases</a></li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div
+        \ <li hidden><a href=\"/index.php/datarelease\">Data Releases</a></li>\n\t\t\t\t\t\t
+        \ <li><a href=\"/index.php/datapackages\">Data Packages</a></li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div
         class=\"col-sm-3\">\n\t\t\t\t\t\t<h3 class=\"mg-md\">Organization</h3>\n\t\t\t\t\t\t<ul
         class=\"list-unstyled\">\n\t\t\t\t\t\t  <li><a href=\"/index.php/Resources/whatIsBOLD\">About
         Us</a></li>\n\t\t\t\t\t\t  <li><a href=\"/index.php/Resources/ContactUs\">Contact
@@ -844,9 +848,9 @@ http_interactions:
         class=\"col-sm-2\">\n\t\t\t\t\t\t<img class=\"img-responsive center-block\"
         src=\"/libhtml_v4/img/UoGuelph_image18-100x100.png\" />\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div
         class=\"row\">\n\t\t\t\t\t<div class=\"col-xs-12\"><br/><h5><small><strong>Copyright</strong>
-        BOLD &copy; 2014-2020</small></h5></div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t</body>\n</html>\n"
-  recorded_at: 2020-04-23 22:35:50 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+        BOLD &copy; 2014-2024</small></h5></div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t</body>\n</html>\n"
+  recorded_at: 2024-09-04 23:39:18 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
     uri: https://v4.boldsystems.org/index.php/Taxbrowser_Taxonpage?taxid=4962
@@ -854,7 +858,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.81.0 r-curl/5.2.2 crul/1.5.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -863,17 +867,16 @@ http_interactions:
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: 'HTTP/2 200 '
-      server: nginx
-      date: Thu, 23 Apr 2020 22:35:49 GMT
       content-type: text/html; charset=utf-8
+      date: Wed, 04 Sep 2024 23:39:18 GMT
+      server: nginx
+      set-cookie:
+      - session=gufo7cml3j8ectdc3quh1jbjr1; path=/
+      - https=on;Path=/;Max-Age=3600;httponly;SameSite=Lax
+      status: 'HTTP/2 200 '
       x-powered-by: PHP/5.3.15
-      set-cookie: session=jmkbtvskdvgthq1t4fs2jjt2t1; path=/
-      x-frame-options: SAMEORIGIN
-      x-content-type-options: nosniff
-      x-xss-protection: 1; mode=block
     body:
-      encoding: UTF-8
+      encoding: ''
       file: no
       string: "<!DOCTYPE HTML>\n<html>\n<head>\n\t<meta charset=\"utf-8\" />\n<meta
         http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\">\n\n<title>Megachilinae
@@ -986,7 +989,7 @@ http_interactions:
         &.ui-state-active &.ui-state-focus{\n\t\t\t\tcolor: #ffffff;\n\t\t\t\ttext-decoration:
         none;\n\t\t\t\tbackground-color: #0088cc !important;\n\t\t\t\tborder-radius:
         0px;\n\t\t\t\t-webkit-border-radius: 0px;\n\t\t\t\t-moz-border-radius: 0px;\n\t\t\t\tbackground-image:
-        none;\n\t\t\t}\n\t\t}\n\t}\n\t.ui-helper-hidden-accessible{\n\t\tdisplay:none;\n\t}\n</style>\t<link
+        none;\n\t\t\t}\n\t\t}\n\t}\n\t.ui-helper-hidden-accessible{\n\t\tdisplay:none;\n\t}\n</style>\n\t<link
         rel=\"stylesheet\" type=\"text/css\" href=\"/libhtml/highslide/highslide.css\"
         />\n\t<script type=\"text/javascript\" src=\"/libhtml/highslide/highslide-full.js\"></script>\n\t<!--
         ChartJS-->\n\t<script src=\"/libhtml_v4/js/plugins/chartjs/Chart.js\"></script>\n\t<script
@@ -1000,19 +1003,18 @@ http_interactions:
         '<div class=\"closebutton\" onclick=\"return hs.close(this)\" title=\"Close\"></div>',\n\t\t\t\t\tposition:
         'top right',\n\t\t\t\t\tuseOnHtml: true,\n\t\t\t\t\tfade: 2 // fading the
         semi-transparent overlay looks bad in IE\n\t\t\t});\n\n</script>\n\t<script
-        language=\"javascript\">\n\t\t\tvar allCountriesData = {\"Turkey\":29,\"Canada\":2875,\"Italy\":180,\"Bangladesh\":8,\"India\":14,\"Panama\":7,\"Costa
-        Rica\":29,\"France\":138,\"Bahamas\":4,\"Ethiopia\":11,\"Saint Vincent and
-        the Grenadines\":7,\"Peru\":16,\"Vanuatu\":124,\"United Arab Emirates\":13,\"Argentina\":203,\"Bolivia\":7,\"Norway\":141,\"Cote
-        d'Ivoire\":7,\"Ecuador\":2,\"Czech Republic\":1,\"Ghana\":25,\"Israel\":25,\"Australia\":749,\"Iran\":26,\"Cuba\":8,\"Venezuela\":11,\"Japan\":44,\"Republic
-        of the Congo\":8,\"Guatemala\":5,\"Germany\":813,\"Chile\":161,\"China\":22,\"Kazakhstan\":1,\"Taiwan\":3,\"Spain\":25,\"Nigeria\":1,\"Kyrgyzstan\":31,\"Netherlands\":111,\"Oman\":1,\"Indonesia\":2,\"Saudi
-        Arabia\":2,\"Cyprus\":19,\"United States\":2055,\"Morocco\":3,\"Sweden\":3,\"Vietnam\":42,\"French
-        Guiana\":1,\"Thailand\":171,\"Switzerland\":8,\"New Zealand\":2,\"Russia\":45,\"Brazil\":6,\"Bulgaria\":24,\"Pakistan\":80,\"Angola\":7,\"Myanmar\":1,\"Portugal\":6,\"Mexico\":267,\"Egypt\":15,\"Fiji\":14,\"South
-        Africa\":544,\"Lebanon\":4,\"United Kingdom\":31,\"Malaysia\":86,\"Austria\":148,\"Mozambique\":2,\"Colombia\":10,\"Greece\":21,\"Paraguay\":18,\"Kenya\":206,\"South
-        Korea\":11,\"Tajikistan\":5};\n\n\t\t\t$(document).ready(function() {\n\t\t\t\t//Taxonomy
-        Search event handler\n\t\t\t\t$('button[name=\"searchTax\"]').click(function
-        () {\n\t\t\t\t\twindow.location = \"/index.php/Taxbrowser_Taxonpage?taxon=\"+
-        $('input[name=\"taxon\"]').val();\n\t\t\t\t});\n\t\t\t\t//Species Summary
-        event handler\n\t\t\t\t$('button[name=\"speciesSummaryOpen\"]').on(\"click\",function
+        language=\"javascript\">\n\t\t\tvar allCountriesData = {\"South Africa\":576,\"Kenya\":213,\"Tanzania\":44,\"Morocco\":37,\"Kyrgyzstan\":31,\"Israel\":28,\"Azerbaijan\":34,\"France\":674,\"Lebanon\":73,\"Greece\":44,\"Turkey\":106,\"Italy\":361,\"Germany\":958,\"Spain\":277,\"Austria\":216,\"Portugal\":91,\"Algeria\":14,\"Pakistan\":166,\"Chile\":163,\"Canada\":3562,\"Iran\":62,\"Thailand\":192,\"Vietnam\":43,\"Cote
+        d'Ivoire\":7,\"Japan\":44,\"Taiwan\":3,\"Mexico\":320,\"Czech Republic\":1,\"Republic
+        of the Congo\":8,\"Norway\":146,\"United Kingdom\":54,\"Bulgaria\":24,\"Ghana\":25,\"Oman\":23,\"United
+        Arab Emirates\":13,\"United States\":5077,\"Costa Rica\":121,\"Peru\":53,\"Argentina\":210,\"Bolivia\":8,\"Paraguay\":18,\"Trinidad
+        and Tobago\":8,\"Colombia\":29,\"Venezuela\":11,\"Guatemala\":5,\"Russia\":113,\"Netherlands\":111,\"Croatia\":1,\"New
+        Zealand\":2,\"Switzerland\":19,\"Egypt\":28,\"Ethiopia\":13,\"Ecuador\":10,\"Cyprus\":23,\"Namibia\":41,\"Angola\":5,\"Australia\":878,\"Malaysia\":103,\"Panama\":8,\"Uzbekistan\":5,\"Bangladesh\":15,\"Nigeria\":1,\"Fiji\":14,\"Mozambique\":2,\"China\":37,\"Sweden\":6,\"Tajikistan\":5,\"India\":27,\"South
+        Korea\":11,\"Slovakia\":2,\"Romania\":1,\"Cuba\":26,\"Puerto Rico\":7,\"Georgia\":1,\"Vanuatu\":124,\"Guadeloupe\":4,\"Philippines\":1,\"Myanmar\":1,\"Brazil\":7,\"Indonesia\":2,\"Saint
+        Vincent and the Grenadines\":7,\"Saudi Arabia\":2,\"United States Virgin Islands\":1,\"Kazakhstan\":1,\"Bahamas\":4,\"Bhutan\":2,\"French
+        Guiana\":1};\n\n\t\t\t$(document).ready(function() {\n\t\t\t\t//Taxonomy Search
+        event handler\n\t\t\t\t$('button[name=\"searchTax\"]').click(function () {\n\t\t\t\t\twindow.location
+        = \"/index.php/Taxbrowser_Taxonpage?taxon=\"+ $('input[name=\"taxon\"]').val();\n\t\t\t\t});\n\t\t\t\t//Species
+        Summary event handler\n\t\t\t\t$('button[name=\"speciesSummaryOpen\"]').on(\"click\",function
         () {\n\t\t\t\t\topenSpeciesSummary();\n\t\t\t\t});\n\t\t\t\t//Access Published
         & Released Data event handler\n\t\t\t\t$('button[name=\"accessPublishedData\"]').on(\"click\",function
         () {\n\t\t\t\t\twindow.location = \"/index.php/Public_SearchTerms?query=Megachilinae[tax]\";\n\t\t\t\t});\n\n\t\t\t\t$('a.popup-medium').click(function
@@ -1100,7 +1102,7 @@ http_interactions:
         ;loop through the colour\n\t\t\t\t\t\t\tchartColourIndex = 0;\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t\tvar
         ctx = document.getElementById(\"chart\"+suffix).getContext(\"2d\");\n\t\t\t\t\tvar
         tgChart = new Chart(ctx).Doughnut(chartData, doughnutOptions);\n\t\t\t\t\t$(\"#legend\"+suffix).html(tgChart.generateLegend());\n\t\t\t\t});\n\t\t\t}\n\n\t\t\t$(document).ready(function()
-        {\n\t\t\t\t\t\t\t\tbuildChart('/index.php/TaxBrowser_Charts_institutionsrcdata','Depositry');\n\t\t\t\t\t\t\t\t\t\t\t\tbuildChart('/index.php/TaxBrowser_Charts_institutionsrcdata/sequencinglabs','Sequence');\n\t\t\t\t\t\t\t});\n\t</script>\n\n\t<style
+        {\n\t\t\t\t\t\t\t\tbuildChart('/index.php/TaxBrowser_Charts_institutionsrcdata','Depository');\n\t\t\t\t\t\t\t\t\t\t\t\tbuildChart('/index.php/TaxBrowser_Charts_institutionsrcdata/sequencinglabs','Sequence');\n\t\t\t\t\t\t\t});\n\t</script>\n\n\t<style
         type=\"text/css\">\n\n\t\t.highslide-heading {\n\t\t\tcolor:#dedede;\n\t\t}\n\t\t.highslide-caption{\n\t\t\tfont-size:10pt
         !important;\n\t\t}\n\t\t.imagegallery_preview {\n\t\t\tbackground-color: #FFFFFF;\n\t\t\tmargin:
         8px;\n\t\t\tborder: 1px solid #111111;\n\t\t\tpadding: 0px;\n\t\t\twidth:400px;\n\t\t\ttext-align:
@@ -1152,11 +1154,11 @@ http_interactions:
         \ border=\"0\" title=\"sample id:BIOUG01202-H10\"></div>\n\t\t\t\t\t\t\t<div
         class=\"col-xs-12 text-right\" style=\"margin-top:0px;margin-bottom:0px;\">\t\t\t\t\t\t\t\t<div
         class=\"row\">\n\t\t\t\t\t\t\t\t\t<div class=\"col-xs-8 text-left\" style=\"margin-top:0px;margin-bottom:0px;\"><i
-        class=\"fa fa-creative-commons\" aria-hidden=\"true\"></i> CC BY-NC-SA\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<i
+        class=\"fa fa-creative-commons\" aria-hidden=\"true\"></i> CC BY\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<i
         class=\"fa fa-user\" aria-hidden=\"true\"></i> CBG Photography Group\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<i
         class=\"fa fa-calendar-o\" aria-hidden=\"true\"></i> 2011\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div
         class=\"col-xs-4 text-right\" style=\"margin-top:0px;margin-bottom:0px;\">\n\t\t\t\t\t\t\t\t\t\t\tImage
-        of  <a class=\"link\" href=\"/index.php/TaxBrowser_Taxonpage?taxid=58221\">Anthidium</a>
+        of  <a class=\"link\" href=\"/index.php/TaxBrowser_Taxonpage?taxid=753396\">Anthidiini</a>
         \t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div><!--
         END OF ROW -->\n\t\t\t\t\t\t\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div
         class=\"col-lg-6 col-md-6\">\n\t\t\t<div class=\"ibox\">\n\t\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t\t<h2>Taxon
@@ -1168,19 +1170,19 @@ http_interactions:
         col-md-6\">\n\t\t\t<div class=\"ibox\">\n\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t<h2>Statistics</h2>\n\t\t\t\t</div>\n\t\t\t\t<div
         class=\"ibox-content\">\n\t\t\t\t<div class=\"ibox float-e-margins\">\n\t\t\t\t\t<table
         class=\"table table-striped noborder\">\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td
-        width=\"41%\">Specimen Records:</td>\n\t\t\t\t\t\t\t<td width=\"17%\">13,060</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Specimens
-        with Sequences:</td>\n\t\t\t\t\t\t\t<td>11,492</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Specimens
-        with Barcodes:</td>\n\t\t\t\t\t\t\t<td><specimendataforlivestats/>10,326<specimendataforlivestats/></td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Species:</td>\n\t\t\t\t\t\t\t<td>1,956</td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Species
-        With Barcodes:</td>\n\t\t\t\t\t\t\t<td>1,564</td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td
-        width=\"60%\">Public Records:</td>\n\t\t\t\t\t\t\t<td width=\"40%\">5,325</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Public
-        Species:</td>\n\t\t\t\t\t\t\t<td>858</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Public
-        BINs:</td>\n\t\t\t\t\t\t\t<td>746</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td><button
+        width=\"41%\">Specimen Records:</td>\n\t\t\t\t\t\t\t<td width=\"17%\">21,217</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Specimens
+        with Sequences:</td>\n\t\t\t\t\t\t\t<td>17,760</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Specimens
+        with Barcodes:</td>\n\t\t\t\t\t\t\t<td><specimendataforlivestats/>16,044<specimendataforlivestats/></td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Species:</td>\n\t\t\t\t\t\t\t<td>2,318</td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Species
+        With Barcodes:</td>\n\t\t\t\t\t\t\t<td>1,863</td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td
+        width=\"60%\">Public Records:</td>\n\t\t\t\t\t\t\t<td width=\"40%\">15,419</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Public
+        Species:</td>\n\t\t\t\t\t\t\t<td>1,831</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Public
+        BINs:</td>\n\t\t\t\t\t\t\t<td>1,651</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td><button
         class=\"btn btn-sm btn-info\" name=\"speciesSummaryOpen\"> Species List  </button></td>\n\t\t\t\t\t\t\t<td><button
         class=\"btn btn-sm btn-info\" name=\"accessPublishedData\">Public Data</button></td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</table>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t\t</div>\n\n\n\t\t<div
         class=\"col-lg-4 col-md-6\">\n\t\t\t<div class=\"ibox\">\n\t\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t\t<h2>Specimen
         Depositories</h2>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ibox-content\">\n\t\t\t\t\t<div
-        class=\"ibox float-e-margins\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div id=\"divDepositry\"><canvas
-        id=\"chartDepositry\"></canvas></div>\n\t\t\t\t\t\t<div id=\"legendDepositry\"
+        class=\"ibox float-e-margins\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div id=\"divDepository\"><canvas
+        id=\"chartDepository\"></canvas></div>\n\t\t\t\t\t\t<div id=\"legendDepository\"
         class=\"legendFont\"></div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div id=\"institutionsList2\"></div>\n\t\t\t\t\t\t\t<script
         language=\"javascript\">\n\t\t\t\t\t\t\tvar institutionsReduced=true;\n\t\t\t\t\t\t\tfunction
         institutionsExpandReduce() {\n\t\t\t\t\t\t\t\tif (institutionsReduced==true)
@@ -1197,80 +1199,62 @@ http_interactions:
         class=\"highslide\" onclick=\"return hs.expand(this,{width:maxColWidth,height:maxColHeight})\"
         href=\"/index.php/TaxBrowser_Maps_CollectionSites?taxid=4962\" ><img border=\"0\"
         width=\"100%\" src=\"/index.php/TaxBrowser_Maps_CollectionSites?taxid=4962\"></img></a>\n\t\t\t\t\t\t\t\t</br>\n\t\t\t\t\t\t\t\t<img
-        src=\"/libhtml/icons/mapScale_BOLD.png\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t</div>
+        src=\"/libhtml/icons/mapScale_BOLD.png\">\n\t\t\t\t\t\t\t\t<a href=\"/index.php/TaxBrowser_Maps_CollectionSites?taxid=4962\"
+        target=\"_blank\" style=\"margin-top:1px !important\" class=\"btn btn-xs btn-info
+        pull-right\" download=\"taxonmap.png\">Download map <i class=\"fa fa-cloud-download\"></i></a>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t</div>
         <!-- END OF FIFTH ROW -->\n\n\t<div class=\"row\">\n\t\t<div class=\"col-lg-12\">\n\t\t\t<div
         class=\"ibox\">\n\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t<h2>Countries</h2>\n\t\t\t\t\t<span>Collected
-        from <strong>72</strong> countries. </span> <a class=\"link\" onClick = \"populateAllCountries();\">
+        from <strong>87</strong> countries. </span> <a class=\"link\" onClick = \"populateAllCountries();\">
         Show all countries</a>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t<div
         class =\"row\" id =\"countries-summary\">\n\n\t</div><!--END OF ROW-->\n\n\n\t<div
         class =\"row\">\n\t\t\t\t<div class=\"col-md-6\">\n\t\t\t<div class=\"ibox\">\n\t\t\t\t\t<div
         class=\"ibox-title\">\n\t\t\t\t\t\t<h2>Sub-Taxa</h2>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div
         class=\"ibox-content\">\n\t\t\t\t\t<!-- Left Menu START-->\n\t\t\t\t\t<div
-        class=\"ibox float-e-margins\">\n\n\t\t\t\t\t\t\t<lh>Tribes (3) </lh><ol><li><a
-        href=\"/index.php/Taxbrowser_Taxonpage?taxid=753396\">Anthidiini [38]</a></li><li><a
-        href=\"/index.php/Taxbrowser_Taxonpage?taxid=762731\">Megachilini [4975]</a></li><li><a
-        href=\"/index.php/Taxbrowser_Taxonpage?taxid=753397\">Osmiini [899]</a></li></ol><lh>Genera
-        (60) </lh><br/><ol><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=159808\">Afranthidium
-        [68]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=313608\">Afroheriades
+        class=\"ibox float-e-margins\">\n\n\t\t\t\t\t\t\t<lh>Tribes (4) </lh><ol><li><a
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=753396\">Anthidiini [3219]</a></li><li><a
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=988586\">Dioxyini [109]</a></li><li><a
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=762731\">Megachilini [8265]</a></li><li><a
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=753397\">Osmiini [7785]</a></li></ol><lh>Genera
+        (39) </lh><br/><ol><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=159808\">Afranthidium
+        [128]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=313608\">Afroheriades
         [7]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=285910\">Afrostelis
         [2]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=488454\">Aglaoapis
-        [2]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=58228\">Anthidiellum
-        [100]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=156022\">Anthidiine
-        [1]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=58221\">Anthidium
-        [577]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=156059\">Anthodioctes
-        [12]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=7592\">Ashmeadiella
-        [225]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=731643\">Ashmeadiellia
-        [1]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=313601\">Aspidosmia
-        [12]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=96572\">Atoposmia
-        [38]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=688853\">Austrostelis
-        [1]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=686051\">Aztecanthidium
-        [1]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=696074\">Bathanthidium
-        [2]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=509038\">Branthidium
+        [8]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=696276\">Allodioxys
+        [3]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=156022\">Anthidiine
+        [3]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=313601\">Aspidosmia
+        [12]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=688853\">Austrostelis
+        [2]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=696074\">Bathanthidium
+        [6]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=509038\">Branthidium
         [1]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=450557\">Callomegachile
-        [2]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=84734\">Chelostoma
-        [291]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=202617\">Chrisanthidium
-        [1]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=4964\">Coelioxys
-        [1095]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=7591\">Dianthidium
-        [105]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=99255\">Dioxys
-        [55]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=696294\">Ensliniana
-        [2]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=264921\">Eoanthidium
-        [50]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=162809\">Epanthidium
-        [36]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=202625\">Euaspis
-        [20]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=855892\">Gronoceras
+        [3]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=202617\">Chrisanthidium
+        [1]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=696294\">Ensliniana
+        [4]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=264921\">Eoanthidium
+        [68]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=202625\">Euaspis
+        [23]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=855892\">Gronoceras
         [2]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=460169\">Haetosmia
-        [10]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=4948\">Heriades
-        [412]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=855897\">Heriadopsis
+        [14]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=855897\">Heriadopsis
         [1]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=200481\">Hofferia
-        [2]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=214093\">Hoplosmia
-        [44]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=686081\">Hoplostelis
-        [6]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=314159\">Hypanthidioides
-        [18]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=162762\">Hypanthidium
-        [24]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=316489\">Larocanthidium
+        [5]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=112378\">Hoplitus
+        [1]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=214093\">Hoplosmia
+        [64]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=316489\">Larocanthidium
         [4]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=183234\">Mecanthidium
         [1]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=300279\">Metadioxys
         [1]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=91145\">Notanthidium
-        [35]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=202651\">Noteriades
+        [37]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=202651\">Noteriades
         [9]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=200483\">Ochreriades
-        [4]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=4940\">Osmia
-        [3007]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=313612\">Othinosmia
+        [4]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=313612\">Othinosmia
         [90]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=285909\">Pachyanthidium
-        [28]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=594969\">Paradioxys
-        [1]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=112437\">Paranthidium
-        [13]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=313617\">Plesianthidium
+        [44]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=594969\">Paradioxys
+        [5]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=313617\">Plesianthidium
         [64]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=696304\">Prodioxys
-        [1]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=96610\">Protosmia
-        [10]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=261656\">Pseudoanthidium
-        [81]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=316470\">Pseudoheriades
-        [27]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=7593\">Radoszkowskiana
+        [1]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=316470\">Pseudoheriades
+        [32]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=7593\">Radoszkowskiana
         [1]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=313858\">Rhodanthidium
-        [36]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=316487\">Saranthidium
+        [207]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=316487\">Saranthidium
         [1]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=286859\">Serapista
-        [7]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=4952\">Stelis
-        [396]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=189977\">Stenoheriades
-        [8]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=7594\">Trachusa
-        [54]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=286863\">Wainia
-        [14]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=414410\">Xeroheriades
-        [2]</a></li></ol>\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t</div>\n\t\t
+        [7]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=189977\">Stenoheriades
+        [16]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=286863\">Wainia
+        [14]</a></li></ol>\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t</div>\n\t\t
         <!-- Left Menu END -->\n\t\t<div class=\"col-md-6\">\n\t\t\t\t\t\t\t\t<div
         class=\"ibox float-e-margins\">\n\t\t\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t\t\t<h2>Imagery</h2>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div
         class=\"ibox-content\">\n\t\t\t\t\t\t<i> Images representing subtaxa of Megachilinae</i>
@@ -1311,59 +1295,30 @@ http_interactions:
         auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
         href=\"/index.php/Taxbrowser_Taxonpage?taxid=488454\">Aglaoapis</a></div></div><div
         class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
-        height:334} )\" href=\"//v4.boldsystems.org/pics/BOFWM/00601-F06%2B1262793222.jpg\"><img
-        title=\" (Anthidiellum - CCDB-00601 F06)  CC BY-NC-SA (2010) Packer Collection
-        at York University <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\"
-        alt=\" (Anthidiellum - CCDB-00601 F06)  @14 [ ] CC BY-NC-SA (2010) Packer
-        Collection at York University York University\"  src=\"//v4.boldsystems.org/pics/_w300/BOFWM/00601-F06%2B1262793222.jpg\"width=\"200\"
+        height:376} )\" href=\"//v4.boldsystems.org/pics/WPATW/TJW_0945%2B1654717550.JPG\"><img
+        title=\" (Allodioxys - TJW_945)  Unspecified (default): All Rights Reserved
+        (2022)  \" alt=\" (Allodioxys - TJW_945)  @11 [ ] Unspecified (default): All
+        Rights Reserved (2022) Unspecified Thomas Wood\"  src=\"//v4.boldsystems.org/pics/_w300/WPATW/TJW_0945%2B1654717550.JPG\"width=\"200\"
         class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
         auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
-        href=\"/index.php/Taxbrowser_Taxonpage?taxid=58228\">Anthidiellum</a></div></div><div
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=696276\">Allodioxys</a></div></div><div
         class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
         height:750} )\" href=\"//v4.boldsystems.org/pics/BOWGF/H09%2B1557418122.jpg\"><img
-        title=\" (Anthidiine - CCDB-33206 H09)  CreativeCommons - Attribution by Laurence
-        Packer (2018) Laurence Packer <br/><img src='/libhtml/icons/creativecommons/by_80x15.png'/>\"
-        alt=\" (Anthidiine - CCDB-33206 H09)  @11 [ ] CreativeCommons - Attribution
-        by Laurence Packer (2018) Laurence Packer York University\"  src=\"//v4.boldsystems.org/pics/_w300/BOWGF/H09%2B1557418122.jpg\"width=\"200\"
+        title=\" (Anthidiine - CCDB-33206 H09)  CC BY (2018) Laurence Packer <br/><img
+        src='/libhtml/icons/creativecommons/by_80x15.png'/>\" alt=\" (Anthidiine -
+        CCDB-33206 H09)  @11 [ ] CC BY (2018) Laurence Packer York University\"  src=\"//v4.boldsystems.org/pics/_w300/BOWGF/H09%2B1557418122.jpg\"width=\"200\"
         class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
         auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
         href=\"/index.php/Taxbrowser_Taxonpage?taxid=156022\">Anthidiine</a></div></div></div><div
         class=\"row\"><div class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return
-        hs.expand(this,{width:500, height:373} )\" href=\"//v4.boldsystems.org/pics/BWONE/06713G05-OMN%2B1450313880.jpg\"><img
-        title=\" (Anthidiini - 06713G05-OMN)  CC BY-NC-SA (2015) CBG Photography Group
-        <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\" alt=\"
-        (Anthidiini - 06713G05-OMN)  @15 [ ] CC BY-NC-SA (2015) CBG Photography Group
-        Centre for Biodiversity Genomics\"  src=\"//v4.boldsystems.org/pics/_w300/BWONE/06713G05-OMN%2B1450313880.jpg\"width=\"200\"
+        hs.expand(this,{width:500, height:378} )\" href=\"//v4.boldsystems.org/pics/PBCAG/bioug01202-h10%2B1318965694.JPG\"><img
+        title=\" (Anthidiini - BIOUG01202-H10)  CC BY (2011) CBG Photography Group
+        <br/><img src='/libhtml/icons/creativecommons/by_80x15.png'/>\" alt=\" (Anthidiini
+        - BIOUG01202-H10)  @17 [ ] CC BY (2011) CBG Photography Group Centre for Biodiversity
+        Genomics\"  src=\"//v4.boldsystems.org/pics/_w300/PBCAG/bioug01202-h10%2B1318965694.JPG\"width=\"200\"
         class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
         auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
         href=\"/index.php/Taxbrowser_Taxonpage?taxid=753396\">Anthidiini</a></div></div><div
-        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
-        height:378} )\" href=\"//v4.boldsystems.org/pics/PBCAG/bioug01202-h10%2B1318965694.JPG\"><img
-        title=\" (Anthidium - BIOUG01202-H10)  CC BY-NC-SA (2011) CBG Photography
-        Group <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\"
-        alt=\" (Anthidium - BIOUG01202-H10)  @17 [ ] CC BY-NC-SA (2011) CBG Photography
-        Group Centre for Biodiversity Genomics\"  src=\"//v4.boldsystems.org/pics/_w300/PBCAG/bioug01202-h10%2B1318965694.JPG\"width=\"200\"
-        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
-        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
-        href=\"/index.php/Taxbrowser_Taxonpage?taxid=58221\">Anthidium</a></div></div><div
-        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
-        height:367} )\" href=\"//v4.boldsystems.org/pics/ASBEE/B1407-1408-A09%2B1248125566.jpg\"><img
-        title=\" (Anthodioctes - 1408-09)  CC BY-NC-SA (2010) Packer Collection at
-        York University <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\"
-        alt=\" (Anthodioctes - 1408-09)  @15 [ ] CC BY-NC-SA (2010) Packer Collection
-        at York University York University\"  src=\"//v4.boldsystems.org/pics/_w300/ASBEE/B1407-1408-A09%2B1248125566.jpg\"width=\"200\"
-        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
-        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
-        href=\"/index.php/Taxbrowser_Taxonpage?taxid=156059\">Anthodioctes</a></div></div><div
-        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
-        height:365} )\" href=\"//v4.boldsystems.org/pics/WASPS/CCDB-25169_E10%2B1531313850.jpg\"><img
-        title=\" (Ashmeadiella - CCDB-25169 E10)  Unspecified (default): All Rights
-        Reserved (2018) Cory S. Sheffield \" alt=\" (Ashmeadiella - CCDB-25169 E10)
-        \ @15 [ ] Unspecified (default): All Rights Reserved (2018) Cory S. Sheffield
-        Royal Saskatchewan Museum\"  src=\"//v4.boldsystems.org/pics/_w300/WASPS/CCDB-25169_E10%2B1531313850.jpg\"width=\"200\"
-        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
-        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
-        href=\"/index.php/Taxbrowser_Taxonpage?taxid=7592\">Ashmeadiella</a></div></div><div
         class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
         height:551} )\" href=\"//v4.boldsystems.org/pics/BEZAF/CCDB-15279_F06%2B1321043136.jpg\"><img
         title=\" (Aspidosmia - CCDB-15279 F06)  CC BY-NC-SA (2011) Packer Collection
@@ -1374,37 +1329,20 @@ http_interactions:
         auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
         href=\"/index.php/Taxbrowser_Taxonpage?taxid=313601\">Aspidosmia</a></div></div><div
         class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
-        height:376} )\" href=\"//v4.boldsystems.org/pics/SDBEE/DSC05840%2B1331139626.JPG\"><img
-        title=\" (Atoposmia - KJH.3250)  Unspecified (default): All Rights Reserved
-        \  \" alt=\" (Atoposmia - KJH.3250)  @14 [ ] Unspecified (default): All Rights
-        Reserved  Unspecified Unspecified\"  src=\"//v4.boldsystems.org/pics/_w300/SDBEE/DSC05840%2B1331139626.JPG\"width=\"200\"
-        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
-        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
-        href=\"/index.php/Taxbrowser_Taxonpage?taxid=96572\">Atoposmia</a></div></div></div><div
-        class=\"row\"><div class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return
-        hs.expand(this,{width:500, height:750} )\" href=\"//v4.boldsystems.org/pics/BOWGF/A12%2B1557418078.jpg\"><img
-        title=\" (Austrostelis - CCDB-33206 A12)  CreativeCommons - Attribution by
-        Laurence Packer (2018) Laurence Packer <br/><img src='/libhtml/icons/creativecommons/by_80x15.png'/>\"
-        alt=\" (Austrostelis - CCDB-33206 A12)  @11 [ ] CreativeCommons - Attribution
-        by Laurence Packer (2018) Laurence Packer York University\"  src=\"//v4.boldsystems.org/pics/_w300/BOWGF/A12%2B1557418078.jpg\"width=\"200\"
+        height:750} )\" href=\"//v4.boldsystems.org/pics/BOWGF/A12%2B1557418078.jpg\"><img
+        title=\" (Austrostelis - CCDB-33206 A12)  CC BY (2018) Laurence Packer <br/><img
+        src='/libhtml/icons/creativecommons/by_80x15.png'/>\" alt=\" (Austrostelis
+        - CCDB-33206 A12)  @11 [ ] CC BY (2018) Laurence Packer York University\"
+        \ src=\"//v4.boldsystems.org/pics/_w300/BOWGF/A12%2B1557418078.jpg\"width=\"200\"
         class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
         auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
         href=\"/index.php/Taxbrowser_Taxonpage?taxid=688853\">Austrostelis</a></div></div><div
         class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
-        height:376} )\" href=\"//v4.boldsystems.org/pics/SICOB/CCDB-32132-H06%2B1542814130.jpg\"><img
-        title=\" (Aztecanthidium - CCDB-32132-H06)  CC BY-NC-SA (2018) CBG Photography
-        Group <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\"
-        alt=\" (Aztecanthidium - CCDB-32132-H06)  @11 [ ] CC BY-NC-SA (2018) CBG Photography
-        Group Centre for Biodiversity Genomics\"  src=\"//v4.boldsystems.org/pics/_w300/SICOB/CCDB-32132-H06%2B1542814130.jpg\"width=\"200\"
-        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
-        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
-        href=\"/index.php/Taxbrowser_Taxonpage?taxid=686051\">Aztecanthidium</a></div></div><div
-        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
-        height:750} )\" href=\"//v4.boldsystems.org/pics/BOWGF/B05%2B1557418080.jpg\"><img
-        title=\" (Bathanthidium - CCDB-33206 B05)  CreativeCommons - Attribution by
-        Laurence Packer (2018) Laurence Packer <br/><img src='/libhtml/icons/creativecommons/by_80x15.png'/>\"
-        alt=\" (Bathanthidium - CCDB-33206 B05)  @11 [ ] CreativeCommons - Attribution
-        by Laurence Packer (2018) Laurence Packer York University\"  src=\"//v4.boldsystems.org/pics/_w300/BOWGF/B05%2B1557418080.jpg\"width=\"200\"
+        height:750} )\" href=\"//v4.boldsystems.org/pics/BOWGF/A11%2B1557418078.jpg\"><img
+        title=\" (Bathanthidium - CCDB-33206 A11)  CC BY (2018) Laurence Packer <br/><img
+        src='/libhtml/icons/creativecommons/by_80x15.png'/>\" alt=\" (Bathanthidium
+        - CCDB-33206 A11)  @11 [ ] CC BY (2018) Laurence Packer York University\"
+        \ src=\"//v4.boldsystems.org/pics/_w300/BOWGF/A11%2B1557418078.jpg\"width=\"200\"
         class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
         auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
         href=\"/index.php/Taxbrowser_Taxonpage?taxid=696074\">Bathanthidium</a></div></div><div
@@ -1425,49 +1363,22 @@ http_interactions:
         Collection York University York University\"  src=\"//v4.boldsystems.org/pics/_w300/BOFWI/CCDB_15262_E04%2B1324063644.jpg\"width=\"200\"
         class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
         auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
-        href=\"/index.php/Taxbrowser_Taxonpage?taxid=450557\">Callomegachile</a></div></div><div
-        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
-        height:303} )\" href=\"//v4.boldsystems.org/pics/ACUFI/FACU-000136%2B1353530796.JPG\"><img
-        title=\" (Chelostoma - FACU-000136)  CC BY-NC (2012) Marko Mutanen <br/><img
-        src='/libhtml/icons/creativecommons/by-nc_80x15.png'/>\" alt=\" (Chelostoma
-        - FACU-000136)  @15 [ ] CC BY-NC (2012) Marko Mutanen University of Oulu\"
-        \ src=\"//v4.boldsystems.org/pics/_w300/ACUFI/FACU-000136%2B1353530796.JPG\"width=\"200\"
-        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
-        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
-        href=\"/index.php/Taxbrowser_Taxonpage?taxid=84734\">Chelostoma</a></div></div></div><div
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=450557\">Callomegachile</a></div></div></div><div
         class=\"row\"><div class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return
-        hs.expand(this,{width:500, height:334} )\" href=\"//v4.boldsystems.org/pics/BBHYL/IMG_6638%2B1294869798.jpg\"><img
-        title=\" (Coelioxys - 10BBCHY-3358)  Unspecified (default): All Rights Reserved
-        (2011) CBG Photography Group \" alt=\" (Coelioxys - 10BBCHY-3358)  @16 [ ]
-        Unspecified (default): All Rights Reserved (2011) CBG Photography Group Centre
-        for Biodiversity Genomics\"  src=\"//v4.boldsystems.org/pics/_w300/BBHYL/IMG_6638%2B1294869798.jpg\"width=\"200\"
-        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
-        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
-        href=\"/index.php/Taxbrowser_Taxonpage?taxid=4964\">Coelioxys</a></div></div><div
-        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
-        height:407} )\" href=\"//v4.boldsystems.org/pics/WASPS/CCDB-25140_B09%2B1486072332.jpg\"><img
-        title=\" (Dianthidium - CCDB-25140 B09)  Unspecified (default): All Rights
-        Reserved (2017) Cory Sheffield \" alt=\" (Dianthidium - CCDB-25140 B09)  @15
-        [ ] Unspecified (default): All Rights Reserved (2017) Cory Sheffield Royal
-        Saskatchewan Museum\"  src=\"//v4.boldsystems.org/pics/_w300/WASPS/CCDB-25140_B09%2B1486072332.jpg\"width=\"200\"
-        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
-        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
-        href=\"/index.php/Taxbrowser_Taxonpage?taxid=7591\">Dianthidium</a></div></div><div
-        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
-        height:379} )\" href=\"//v4.boldsystems.org/pics/ABEE/NHMW-HYM0000261_Os%2B1500053512.jpg\"><img
-        title=\" (Dioxys - NHMW-HYM 261)  CreativeCommons \x96 Attribution Non-Commercial
+        hs.expand(this,{width:500, height:379} )\" href=\"//v4.boldsystems.org/pics/ABEE/NHMW-HYM0000261_Os%2B1500053512.jpg\"><img
+        title=\" (Dioxyini - NHMW-HYM 261)  CreativeCommons \x96 Attribution Non-Commercial
         (by-nc) (2017)  <br/><img src='/libhtml/icons/creativecommons/by-nc_80x15.png'/>\"
-        alt=\" (Dioxys - NHMW-HYM 261)  @14 [ ] CreativeCommons \x96 Attribution Non-Commercial
-        (by-nc) (2017) Unspecified Natural History Museum Vienna\"  src=\"//v4.boldsystems.org/pics/_w300/ABEE/NHMW-HYM0000261_Os%2B1500053512.jpg\"width=\"200\"
+        alt=\" (Dioxyini - NHMW-HYM 261)  @14 [ ] CreativeCommons \x96 Attribution
+        Non-Commercial (by-nc) (2017) Unspecified Natural History Museum Vienna\"
+        \ src=\"//v4.boldsystems.org/pics/_w300/ABEE/NHMW-HYM0000261_Os%2B1500053512.jpg\"width=\"200\"
         class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
         auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
-        href=\"/index.php/Taxbrowser_Taxonpage?taxid=99255\">Dioxys</a></div></div><div
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=988586\">Dioxyini</a></div></div><div
         class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
         height:750} )\" href=\"//v4.boldsystems.org/pics/BOWGF/E07%2B1557418094.jpg\"><img
-        title=\" (Ensliniana - CCDB-33206 E07)  CreativeCommons - Attribution by Laurence
-        Packer (2018) Laurence Packer <br/><img src='/libhtml/icons/creativecommons/by_80x15.png'/>\"
-        alt=\" (Ensliniana - CCDB-33206 E07)  @11 [ ] CreativeCommons - Attribution
-        by Laurence Packer (2018) Laurence Packer York University\"  src=\"//v4.boldsystems.org/pics/_w300/BOWGF/E07%2B1557418094.jpg\"width=\"200\"
+        title=\" (Ensliniana - CCDB-33206 E07)  CC BY (2018) Laurence Packer <br/><img
+        src='/libhtml/icons/creativecommons/by_80x15.png'/>\" alt=\" (Ensliniana -
+        CCDB-33206 E07)  @11 [ ] CC BY (2018) Laurence Packer York University\"  src=\"//v4.boldsystems.org/pics/_w300/BOWGF/E07%2B1557418094.jpg\"width=\"200\"
         class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
         auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
         href=\"/index.php/Taxbrowser_Taxonpage?taxid=696294\">Ensliniana</a></div></div><div
@@ -1481,16 +1392,7 @@ http_interactions:
         auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
         href=\"/index.php/Taxbrowser_Taxonpage?taxid=264921\">Eoanthidium</a></div></div><div
         class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
-        height:374} )\" href=\"//v4.boldsystems.org/pics/BWONE/06713H02-ARG%2B1450313880.jpg\"><img
-        title=\" (Epanthidium - 06713H02-ARG)  CC BY-NC-SA (2015) CBG Photography
-        Group <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\"
-        alt=\" (Epanthidium - 06713H02-ARG)  @15 [ ] CC BY-NC-SA (2015) CBG Photography
-        Group Centre for Biodiversity Genomics\"  src=\"//v4.boldsystems.org/pics/_w300/BWONE/06713H02-ARG%2B1450313880.jpg\"width=\"200\"
-        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
-        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
-        href=\"/index.php/Taxbrowser_Taxonpage?taxid=162809\">Epanthidium</a></div></div></div><div
-        class=\"row\"><div class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return
-        hs.expand(this,{width:500, height:437} )\" href=\"//v4.boldsystems.org/pics/BOWGH/CCDB-15253_A08%2B1331073500.jpg\"><img
+        height:437} )\" href=\"//v4.boldsystems.org/pics/BOWGH/CCDB-15253_A08%2B1331073500.jpg\"><img
         title=\" (Euaspis - CCDB-15253 A08)  CC BY-NC-SA (2012) Packer Collection
         York University <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\"
         alt=\" (Euaspis - CCDB-15253 A08)  @14 [ ] CC BY-NC-SA (2012) Packer Collection
@@ -1499,65 +1401,39 @@ http_interactions:
         auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
         href=\"/index.php/Taxbrowser_Taxonpage?taxid=202625\">Euaspis</a></div></div><div
         class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
-        height:750} )\" href=\"//v4.boldsystems.org/pics/BOWGH/CCDB-14515_A12%2B1323371374.jpg\"><img
-        title=\" (Haetosmia - CCDB-14515-A12)  CC BY-NC-SA (2012) Packer Collection
-        York University <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\"
-        alt=\" (Haetosmia - CCDB-14515-A12)  @13 [ ] CC BY-NC-SA (2012) Packer Collection
-        York University York University\"  src=\"//v4.boldsystems.org/pics/_w300/BOWGH/CCDB-14515_A12%2B1323371374.jpg\"width=\"200\"
+        height:373} )\" href=\"//v4.boldsystems.org/pics/SICOB/CCDB-32134-A10%2B1542302160.jpg\"><img
+        title=\" (Haetosmia - CCDB-32134-A10)  CC BY (2018) Smithsonian Institution
+        <br/><img src='/libhtml/icons/creativecommons/by_80x15.png'/>\" alt=\" (Haetosmia
+        - CCDB-32134-A10)  @14 [ ] CC BY (2018) Smithsonian Institution Smithsonian
+        Institution\"  src=\"//v4.boldsystems.org/pics/_w300/SICOB/CCDB-32134-A10%2B1542302160.jpg\"width=\"200\"
         class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
         auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
         href=\"/index.php/Taxbrowser_Taxonpage?taxid=460169\">Haetosmia</a></div></div><div
         class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
-        height:376} )\" href=\"//v4.boldsystems.org/pics/BEEAF/06747C08-ZAF%2B1452179250.jpg\"><img
-        title=\" (Heriades - 06747C08-ZAF)  CC BY-NC-SA (2016) CBG Photography Group
-        <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\" alt=\"
-        (Heriades - 06747C08-ZAF)  @15 [ ] CC BY-NC-SA (2016) CBG Photography Group
-        Centre for Biodiversity Genomics\"  src=\"//v4.boldsystems.org/pics/_w300/BEEAF/06747C08-ZAF%2B1452179250.jpg\"width=\"200\"
+        height:0} )\" href=\"//v4.boldsystems.org/pics/BGENL/RMNH.INS.1660456_dors%2B1723213528.jpg\"><img
+        title=\" (Hofferia - RMNH.INS.1660456)  Unspecified (default): All Rights
+        Reserved (2024)  \" alt=\" (Hofferia - RMNH.INS.1660456)  @11 [ ] Unspecified
+        (default): All Rights Reserved (2024) Unspecified Naturalis Biodiversity Centre\"
+        \ src=\"//v4.boldsystems.org/pics/_w300/BGENL/RMNH.INS.1660456_dors%2B1723213528.jpg\"width=\"200\"
         class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
         auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
-        href=\"/index.php/Taxbrowser_Taxonpage?taxid=4948\">Heriades</a></div></div><div
-        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
-        height:376} )\" href=\"//v4.boldsystems.org/pics/FBAPI/BC_ZSM_HYM_09805%2B1338571452.jpg\"><img
-        title=\" (Hoplosmia - BC ZSM HYM 09805)  CC BY-NC-SA (2010) Stefan Schmidt
-        <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\" alt=\"
-        (Hoplosmia - BC ZSM HYM 09805)  @15 [ ] CC BY-NC-SA (2010) Stefan Schmidt
-        SNSB, Zoologische Staatssammlung Muenchen\"  src=\"//v4.boldsystems.org/pics/_w300/FBAPI/BC_ZSM_HYM_09805%2B1338571452.jpg\"width=\"200\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=200481\">Hofferia</a></div></div></div><div
+        class=\"row\"><div class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return
+        hs.expand(this,{width:500, height:383} )\" href=\"//v4.boldsystems.org/pics/ABEE/NHMW-HYM0000018_Os%2B1500053660.jpg\"><img
+        title=\" (Hoplosmia - NHMW-HYM 18)  CreativeCommons \x96 Attribution Non-Commercial
+        (by-nc) (2017)  <br/><img src='/libhtml/icons/creativecommons/by-nc_80x15.png'/>\"
+        alt=\" (Hoplosmia - NHMW-HYM 18)  @15 [ ] CreativeCommons \x96 Attribution
+        Non-Commercial (by-nc) (2017) Unspecified Natural History Museum Vienna\"
+        \ src=\"//v4.boldsystems.org/pics/_w300/ABEE/NHMW-HYM0000018_Os%2B1500053660.jpg\"width=\"200\"
         class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
         auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
         href=\"/index.php/Taxbrowser_Taxonpage?taxid=214093\">Hoplosmia</a></div></div><div
         class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
-        height:376} )\" href=\"//v4.boldsystems.org/pics/BOTWC/G12%2B1547150434.jpg\"><img
-        title=\" (Hoplostelis - CCDB-30387 G12)  CC BY (2018) Laurence Packer <br/><img
-        src='/libhtml/icons/creativecommons/by_80x15.png'/>\" alt=\" (Hoplostelis
-        - CCDB-30387 G12)  @11 [ ] CC BY (2018) Laurence Packer York University\"
-        \ src=\"//v4.boldsystems.org/pics/_w300/BOTWC/G12%2B1547150434.jpg\"width=\"200\"
-        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
-        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
-        href=\"/index.php/Taxbrowser_Taxonpage?taxid=686081\">Hoplostelis</a></div></div><div
-        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
-        height:335} )\" href=\"//v4.boldsystems.org/pics/BOFTW/06708H08-BRA%2B1452608558.JPG\"><img
-        title=\" (Hypanthidioides - 06708H08-BRA)  CC BY-NC-SA (2016) CBG Photography
-        Group <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\"
-        alt=\" (Hypanthidioides - 06708H08-BRA)  @14 [ ] CC BY-NC-SA (2016) CBG Photography
-        Group Centre for Biodiversity Genomics\"  src=\"//v4.boldsystems.org/pics/_w300/BOFTW/06708H08-BRA%2B1452608558.JPG\"width=\"200\"
-        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
-        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
-        href=\"/index.php/Taxbrowser_Taxonpage?taxid=314159\">Hypanthidioides</a></div></div></div><div
-        class=\"row\"><div class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return
-        hs.expand(this,{width:500, height:373} )\" href=\"//v4.boldsystems.org/pics/BWONE/06713H10-PRY%2B1450313880.jpg\"><img
-        title=\" (Hypanthidium - 06713H10-PRY)  CC BY-NC-SA (2015) CBG Photography
-        Group <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\"
-        alt=\" (Hypanthidium - 06713H10-PRY)  @15 [ ] CC BY-NC-SA (2015) CBG Photography
-        Group Centre for Biodiversity Genomics\"  src=\"//v4.boldsystems.org/pics/_w300/BWONE/06713H10-PRY%2B1450313880.jpg\"width=\"200\"
-        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
-        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
-        href=\"/index.php/Taxbrowser_Taxonpage?taxid=162762\">Hypanthidium</a></div></div><div
-        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
-        height:373} )\" href=\"//v4.boldsystems.org/pics/BWTWO/06717C08-YT%2B1450406760.jpg\"><img
-        title=\" (Megachilini - 06717C08-YT)  CC BY-NC-SA (2015) CBG Photography Group
-        <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\" alt=\"
-        (Megachilini - 06717C08-YT)  @16 [ ] CC BY-NC-SA (2015) CBG Photography Group
-        Centre for Biodiversity Genomics\"  src=\"//v4.boldsystems.org/pics/_w300/BWTWO/06717C08-YT%2B1450406760.jpg\"width=\"200\"
+        height:334} )\" href=\"//v4.boldsystems.org/pics/BBHYL/IMG_6638%2B1294869798.jpg\"><img
+        title=\" (Megachilini - 10BBCHY-3358)  CC BY (2011) CBG Photography Group
+        <br/><img src='/libhtml/icons/creativecommons/by_80x15.png'/>\" alt=\" (Megachilini
+        - 10BBCHY-3358)  @16 [ ] CC BY (2011) CBG Photography Group Centre for Biodiversity
+        Genomics\"  src=\"//v4.boldsystems.org/pics/_w300/BBHYL/IMG_6638%2B1294869798.jpg\"width=\"200\"
         class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
         auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
         href=\"/index.php/Taxbrowser_Taxonpage?taxid=762731\">Megachilini</a></div></div><div
@@ -1581,36 +1457,27 @@ http_interactions:
         href=\"/index.php/Taxbrowser_Taxonpage?taxid=202651\">Noteriades</a></div></div><div
         class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
         height:377} )\" href=\"//v4.boldsystems.org/pics/BOFMD/CCDB-09855_A12%2B1451967780.jpg\"><img
-        title=\" (Ochreriades - CCDB-09855 A12)  CC BY-NC-SA (2016) CBG Photography
-        Group <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\"
-        alt=\" (Ochreriades - CCDB-09855 A12)  @14 [ ] CC BY-NC-SA (2016) CBG Photography
-        Group Centre for Biodiversity Genomics\"  src=\"//v4.boldsystems.org/pics/_w300/BOFMD/CCDB-09855_A12%2B1451967780.jpg\"width=\"200\"
+        title=\" (Ochreriades - CCDB-09855 A12)  CC BY (2016) CBG Photography Group
+        <br/><img src='/libhtml/icons/creativecommons/by_80x15.png'/>\" alt=\" (Ochreriades
+        - CCDB-09855 A12)  @14 [ ] CC BY (2016) CBG Photography Group Centre for Biodiversity
+        Genomics\"  src=\"//v4.boldsystems.org/pics/_w300/BOFMD/CCDB-09855_A12%2B1451967780.jpg\"width=\"200\"
         class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
         auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
         href=\"/index.php/Taxbrowser_Taxonpage?taxid=200483\">Ochreriades</a></div></div><div
         class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
         height:337} )\" href=\"//v4.boldsystems.org/pics/BUSA/IMG_3061.jpg\"><img
-        title=\" (Osmia - 18414)  CC BY-NC-SA (2010) Cory S. Sheffield <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\"
-        alt=\" (Osmia - 18414)  @16 [ ] CC BY-NC-SA (2010) Cory S. Sheffield York
-        University\"  src=\"//v4.boldsystems.org/pics/_w300/BUSA/IMG_3061.jpg\"width=\"200\"
+        title=\" (Osmiini - 18414)  CC BY-NC-SA (2010) Cory S. Sheffield <br/><img
+        src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\" alt=\" (Osmiini
+        - 18414)  @16 [ ] CC BY-NC-SA (2010) Cory S. Sheffield York University\"  src=\"//v4.boldsystems.org/pics/_w300/BUSA/IMG_3061.jpg\"width=\"200\"
         class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
         auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
-        href=\"/index.php/Taxbrowser_Taxonpage?taxid=4940\">Osmia</a></div></div></div><div
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=753397\">Osmiini</a></div></div></div><div
         class=\"row\"><div class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return
-        hs.expand(this,{width:500, height:411} )\" href=\"//v4.boldsystems.org/pics/WASPS/CCDB-25139_F01%2B1496176544.jpg\"><img
-        title=\" (Osmiini - CCDB-25139 F01)  Unspecified (default): All Rights Reserved
-        (2017) Cory Sheffield \" alt=\" (Osmiini - CCDB-25139 F01)  @15 [ ] Unspecified
-        (default): All Rights Reserved (2017) Cory Sheffield Royal Saskatchewan Museum\"
-        \ src=\"//v4.boldsystems.org/pics/_w300/WASPS/CCDB-25139_F01%2B1496176544.jpg\"width=\"200\"
-        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
-        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
-        href=\"/index.php/Taxbrowser_Taxonpage?taxid=753397\">Osmiini</a></div></div><div
-        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
-        height:770} )\" href=\"//v4.boldsystems.org/pics/BEZAF/CCDB-15279_D04%2B1321042684.jpg\"><img
-        title=\" (Othinosmia - CCDB-15279 D04)  CC BY-NC-SA (2011) Packer Collection
+        hs.expand(this,{width:500, height:790} )\" href=\"//v4.boldsystems.org/pics/BEZAF/CCDB-15279_D05%2B1321042690.jpg\"><img
+        title=\" (Othinosmia - CCDB-15279 D05)  CC BY-NC-SA (2011) Packer Collection
         York University <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\"
-        alt=\" (Othinosmia - CCDB-15279 D04)  @13 [ ] CC BY-NC-SA (2011) Packer Collection
-        York University York University\"  src=\"//v4.boldsystems.org/pics/_w300/BEZAF/CCDB-15279_D04%2B1321042684.jpg\"width=\"200\"
+        alt=\" (Othinosmia - CCDB-15279 D05)  @13 [ ] CC BY-NC-SA (2011) Packer Collection
+        York University York University\"  src=\"//v4.boldsystems.org/pics/_w300/BEZAF/CCDB-15279_D05%2B1321042690.jpg\"width=\"200\"
         class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
         auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
         href=\"/index.php/Taxbrowser_Taxonpage?taxid=313612\">Othinosmia</a></div></div><div
@@ -1624,23 +1491,13 @@ http_interactions:
         auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
         href=\"/index.php/Taxbrowser_Taxonpage?taxid=285909\">Pachyanthidium</a></div></div><div
         class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
-        height:334} )\" href=\"//v4.boldsystems.org/pics/BOWGF/CCDB-06382_G03%2B1392746616.jpg\"><img
-        title=\" (Paradioxys - CCDB-06382 G03)  Unspecified (default): All Rights
-        Reserved (2014) Packer Collection York University \" alt=\" (Paradioxys -
-        CCDB-06382 G03)  @11 [ ] Unspecified (default): All Rights Reserved (2014)
-        Packer Collection York University York University\"  src=\"//v4.boldsystems.org/pics/_w300/BOWGF/CCDB-06382_G03%2B1392746616.jpg\"width=\"200\"
+        height:376} )\" href=\"//v4.boldsystems.org/pics/WPATW/TJW_1519%2B1451624400.JPG\"><img
+        title=\" (Paradioxys - TJW_1519)  Unspecified (default): All Rights Reserved
+        (2023)  \" alt=\" (Paradioxys - TJW_1519)  @11 [ ] Unspecified (default):
+        All Rights Reserved (2023) Unspecified Thomas Wood\"  src=\"//v4.boldsystems.org/pics/_w300/WPATW/TJW_1519%2B1451624400.JPG\"width=\"200\"
         class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
         auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
         href=\"/index.php/Taxbrowser_Taxonpage?taxid=594969\">Paradioxys</a></div></div><div
-        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
-        height:334} )\" href=\"//v4.boldsystems.org/pics/BOFWM/00601-F10%2B1262793210.jpg\"><img
-        title=\" (Paranthidium - CCDB-00601 F10)  CC BY-NC-SA (2010) Packer Collection
-        at York University <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\"
-        alt=\" (Paranthidium - CCDB-00601 F10)  @14 [ ] CC BY-NC-SA (2010) Packer
-        Collection at York University York University\"  src=\"//v4.boldsystems.org/pics/_w300/BOFWM/00601-F10%2B1262793210.jpg\"width=\"200\"
-        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
-        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
-        href=\"/index.php/Taxbrowser_Taxonpage?taxid=112437\">Paranthidium</a></div></div><div
         class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
         height:622} )\" href=\"//v4.boldsystems.org/pics/BEZAF/CCDB-15281_E07%2B1320264432.jpg\"><img
         title=\" (Plesianthidium - CCDB-15281 E07)  CC BY-NC-SA (2011) Packer Collection
@@ -1649,33 +1506,15 @@ http_interactions:
         Collection York University York University\"  src=\"//v4.boldsystems.org/pics/_w300/BEZAF/CCDB-15281_E07%2B1320264432.jpg\"width=\"200\"
         class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
         auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
-        href=\"/index.php/Taxbrowser_Taxonpage?taxid=313617\">Plesianthidium</a></div></div></div><div
-        class=\"row\"><div class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return
-        hs.expand(this,{width:500, height:750} )\" href=\"//v4.boldsystems.org/pics/BOWGF/F01%2B1557418096.jpg\"><img
-        title=\" (Prodioxys - CCDB-33206 F01)  CreativeCommons - Attribution by Laurence
-        Packer (2018) Laurence Packer <br/><img src='/libhtml/icons/creativecommons/by_80x15.png'/>\"
-        alt=\" (Prodioxys - CCDB-33206 F01)  @11 [ ] CreativeCommons - Attribution
-        by Laurence Packer (2018) Laurence Packer York University\"  src=\"//v4.boldsystems.org/pics/_w300/BOWGF/F01%2B1557418096.jpg\"width=\"200\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=313617\">Plesianthidium</a></div></div><div
+        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
+        height:750} )\" href=\"//v4.boldsystems.org/pics/BOWGF/F01%2B1557418096.jpg\"><img
+        title=\" (Prodioxys - CCDB-33206 F01)  CC BY (2018) Laurence Packer <br/><img
+        src='/libhtml/icons/creativecommons/by_80x15.png'/>\" alt=\" (Prodioxys -
+        CCDB-33206 F01)  @11 [ ] CC BY (2018) Laurence Packer York University\"  src=\"//v4.boldsystems.org/pics/_w300/BOWGF/F01%2B1557418096.jpg\"width=\"200\"
         class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
         auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
         href=\"/index.php/Taxbrowser_Taxonpage?taxid=696304\">Prodioxys</a></div></div><div
-        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
-        height:376} )\" href=\"//v4.boldsystems.org/pics/SDBEE/DSC05883%2B1331141278.JPG\"><img
-        title=\" (Protosmia - JA.149)  Unspecified (default): All Rights Reserved
-        \  \" alt=\" (Protosmia - JA.149)  @14 [ ] Unspecified (default): All Rights
-        Reserved  Unspecified Unspecified\"  src=\"//v4.boldsystems.org/pics/_w300/SDBEE/DSC05883%2B1331141278.JPG\"width=\"200\"
-        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
-        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
-        href=\"/index.php/Taxbrowser_Taxonpage?taxid=96610\">Protosmia</a></div></div><div
-        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
-        height:379} )\" href=\"//v4.boldsystems.org/pics/ABEE/NHMW-HYM0000541_Os%2B1500053548.jpg\"><img
-        title=\" (Pseudoanthidium - NHMW-HYM 541)  Unspecified (default): All Rights
-        Reserved (2017)  \" alt=\" (Pseudoanthidium - NHMW-HYM 541)  @15 [ ] Unspecified
-        (default): All Rights Reserved (2017) Unspecified Natural History Museum Vienna\"
-        \ src=\"//v4.boldsystems.org/pics/_w300/ABEE/NHMW-HYM0000541_Os%2B1500053548.jpg\"width=\"200\"
-        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
-        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
-        href=\"/index.php/Taxbrowser_Taxonpage?taxid=261656\">Pseudoanthidium</a></div></div><div
         class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
         height:882} )\" href=\"//v4.boldsystems.org/pics/BEZAF/CCDB-15278_A11%2B1321044082.jpg\"><img
         title=\" (Pseudoheriades - CCDB-15278 A11)  CC BY-NC-SA (2011) Packer Collection
@@ -1684,52 +1523,33 @@ http_interactions:
         Collection York University York University\"  src=\"//v4.boldsystems.org/pics/_w300/BEZAF/CCDB-15278_A11%2B1321044082.jpg\"width=\"200\"
         class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
         auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
-        href=\"/index.php/Taxbrowser_Taxonpage?taxid=316470\">Pseudoheriades</a></div></div><div
-        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
-        height:384} )\" href=\"//v4.boldsystems.org/pics/BOFMD/CCDB-09855_G09%2B1452045780.jpg\"><img
-        title=\" (Rhodanthidium - CCDB-09855 G09)  CC BY-NC-SA (2016) CBG Photography
-        Group <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\"
-        alt=\" (Rhodanthidium - CCDB-09855 G09)  @15 [ ] CC BY-NC-SA (2016) CBG Photography
-        Group Centre for Biodiversity Genomics\"  src=\"//v4.boldsystems.org/pics/_w300/BOFMD/CCDB-09855_G09%2B1452045780.jpg\"width=\"200\"
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=316470\">Pseudoheriades</a></div></div></div><div
+        class=\"row\"><div class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return
+        hs.expand(this,{width:500, height:384} )\" href=\"//v4.boldsystems.org/pics/BOFMD/CCDB-09855_G09%2B1452045780.jpg\"><img
+        title=\" (Rhodanthidium - CCDB-09855 G09)  CC BY (2016) CBG Photography Group
+        <br/><img src='/libhtml/icons/creativecommons/by_80x15.png'/>\" alt=\" (Rhodanthidium
+        - CCDB-09855 G09)  @15 [ ] CC BY (2016) CBG Photography Group Centre for Biodiversity
+        Genomics\"  src=\"//v4.boldsystems.org/pics/_w300/BOFMD/CCDB-09855_G09%2B1452045780.jpg\"width=\"200\"
         class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
         auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
         href=\"/index.php/Taxbrowser_Taxonpage?taxid=313858\">Rhodanthidium</a></div></div><div
         class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
-        height:334} )\" href=\"//v4.boldsystems.org/pics/BOWGF/A04%2B1557418074.jpg\"><img
-        title=\" (Serapista - CCDB-33206 A04)  CreativeCommons - Attribution by Laurence
-        Packer (2018) Laurence Packer <br/><img src='/libhtml/icons/creativecommons/by_80x15.png'/>\"
-        alt=\" (Serapista - CCDB-33206 A04)  @11 [ ] CreativeCommons - Attribution
-        by Laurence Packer (2018) Laurence Packer York University\"  src=\"//v4.boldsystems.org/pics/_w300/BOWGF/A04%2B1557418074.jpg\"width=\"200\"
+        height:373} )\" href=\"//v4.boldsystems.org/pics/KBGPE/HYMA_18394%2B1538466604.jpg\"><img
+        title=\" (Serapista - KBGPE103)  CC BY-NC-SA (2018)  <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\"
+        alt=\" (Serapista - KBGPE103)  @13 [ ] CC BY-NC-SA (2018) Unspecified Agriculatural
+        Research Council\"  src=\"//v4.boldsystems.org/pics/_w300/KBGPE/HYMA_18394%2B1538466604.jpg\"width=\"200\"
         class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
         auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
-        href=\"/index.php/Taxbrowser_Taxonpage?taxid=286859\">Serapista</a></div></div></div><div
-        class=\"row\"><div class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return
-        hs.expand(this,{width:500, height:334} )\" href=\"//v4.boldsystems.org/pics/NOAPI/AST_1005%2B1395858388.jpg\"><img
-        title=\" (Stelis - NOAPI269)  CC BY-NC-SA (2014) Arnstein Staverlokk <br/><img
-        src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\" alt=\" (Stelis
-        - NOAPI269)  @15 [ ] CC BY-NC-SA (2014) Arnstein Staverlokk Norwegian Institute
-        of Nature Research\"  src=\"//v4.boldsystems.org/pics/_w300/NOAPI/AST_1005%2B1395858388.jpg\"width=\"200\"
-        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
-        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
-        href=\"/index.php/Taxbrowser_Taxonpage?taxid=4952\">Stelis</a></div></div><div
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=286859\">Serapista</a></div></div><div
         class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
         height:374} )\" href=\"//v4.boldsystems.org/pics/BOFTW/06730H01-ISR%2B1450327560.jpg\"><img
-        title=\" (Stenoheriades - 06730H01-ISR)  CC BY-NC-SA (2015) CBG Photography
-        Group <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\"
-        alt=\" (Stenoheriades - 06730H01-ISR)  @14 [ ] CC BY-NC-SA (2015) CBG Photography
-        Group Centre for Biodiversity Genomics\"  src=\"//v4.boldsystems.org/pics/_w300/BOFTW/06730H01-ISR%2B1450327560.jpg\"width=\"200\"
+        title=\" (Stenoheriades - 06730H01-ISR)  CC BY (2015) CBG Photography Group
+        <br/><img src='/libhtml/icons/creativecommons/by_80x15.png'/>\" alt=\" (Stenoheriades
+        - 06730H01-ISR)  @14 [ ] CC BY (2015) CBG Photography Group Centre for Biodiversity
+        Genomics\"  src=\"//v4.boldsystems.org/pics/_w300/BOFTW/06730H01-ISR%2B1450327560.jpg\"width=\"200\"
         class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
         auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
         href=\"/index.php/Taxbrowser_Taxonpage?taxid=189977\">Stenoheriades</a></div></div><div
-        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
-        height:750} )\" href=\"//v4.boldsystems.org/pics/BOWGH/CCDB-14514_E01%2B1323367226.jpg\"><img
-        title=\" (Trachusa - CCDB-14514-E01)  CC BY-NC-SA (2012) Packer Collection
-        York University <br/><img src='/libhtml/icons/creativecommons/by-nc-sa_80x15.png'/>\"
-        alt=\" (Trachusa - CCDB-14514-E01)  @15 [ ] CC BY-NC-SA (2012) Packer Collection
-        York University York University\"  src=\"//v4.boldsystems.org/pics/_w300/BOWGH/CCDB-14514_E01%2B1323367226.jpg\"width=\"200\"
-        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
-        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
-        href=\"/index.php/Taxbrowser_Taxonpage?taxid=7594\">Trachusa</a></div></div><div
         class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
         height:763} )\" href=\"//v4.boldsystems.org/pics/BEEAF/CCDB-15282_B11%2B1319819104.jpg\"><img
         title=\" (Wainia - CCDB-15282 B11)  CC BY-NC-SA (2011) Packer Collection York
@@ -1738,15 +1558,7 @@ http_interactions:
         York University York University\"  src=\"//v4.boldsystems.org/pics/_w300/BEEAF/CCDB-15282_B11%2B1319819104.jpg\"width=\"200\"
         class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
         auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
-        href=\"/index.php/Taxbrowser_Taxonpage?taxid=286863\">Wainia</a></div></div><div
-        class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return hs.expand(this,{width:500,
-        height:851} )\" href=\"//v4.boldsystems.org/pics/BEECF/CCDB-12076_G05%2B1321628696.jpg\"><img
-        title=\" (Xeroheriades - CCDB-12076 G05)  Unspecified (default): All Rights
-        Reserved (2011)  \" alt=\" (Xeroheriades - CCDB-12076 G05)  @11 [ ] Unspecified
-        (default): All Rights Reserved (2011) Unspecified York University\"  src=\"//v4.boldsystems.org/pics/_w300/BEECF/CCDB-12076_G05%2B1321628696.jpg\"width=\"200\"
-        class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
-        auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
-        href=\"/index.php/Taxbrowser_Taxonpage?taxid=414410\">Xeroheriades</a></div></div></div></div>\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t</div>
+        href=\"/index.php/Taxbrowser_Taxonpage?taxid=286863\">Wainia</a></div></div></div></div>\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t</div>
         <!-- END OF FOURTH ROW -->\n\n\t<!-- MODAL DIALOG FOR COUNTRIES -->\n\t<div
         id=\"alldatadialog\" class=\"modal fade\" role=\"dialog\" data-keyboard=\"false\"
         data-backdrop=\"static\">\n\t\t<div class=\"modal-dialog\" >\n\t\t\t<div class=\"modal-content\">\n\t\t\t\t<div
@@ -1770,7 +1582,8 @@ http_interactions:
         class=\"list-unstyled\">\n\t\t\t\t\t\t  <!--<li><a href=\"/index.php/resources/handbook?chapter=1_gettingstarted.html\">Documentation</a></li>-->\n\t\t\t\t\t\t
         \ <li><a href=\"/libhtml/docs/bold.pdf\">Citing BOLD</a></li>\n\t\t\t\t\t\t
         \ <li><a href=\"/index.php/NewsFeed\">News and Events</a></li>\n\t\t\t\t\t\t
-        \ <li><a href=\"/index.php/datarelease\">Data Releases</a></li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div
+        \ <li hidden><a href=\"/index.php/datarelease\">Data Releases</a></li>\n\t\t\t\t\t\t
+        \ <li><a href=\"/index.php/datapackages\">Data Packages</a></li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div
         class=\"col-sm-3\">\n\t\t\t\t\t\t<h3 class=\"mg-md\">Organization</h3>\n\t\t\t\t\t\t<ul
         class=\"list-unstyled\">\n\t\t\t\t\t\t  <li><a href=\"/index.php/Resources/whatIsBOLD\">About
         Us</a></li>\n\t\t\t\t\t\t  <li><a href=\"/index.php/Resources/ContactUs\">Contact
@@ -1795,6 +1608,6 @@ http_interactions:
         class=\"col-sm-2\">\n\t\t\t\t\t\t<img class=\"img-responsive center-block\"
         src=\"/libhtml_v4/img/UoGuelph_image18-100x100.png\" />\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div
         class=\"row\">\n\t\t\t\t\t<div class=\"col-xs-12\"><br/><h5><small><strong>Copyright</strong>
-        BOLD &copy; 2014-2020</small></h5></div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t</body>\n</html>\n"
-  recorded_at: 2020-04-23 22:35:50 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+        BOLD &copy; 2014-2024</small></h5></div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t</body>\n</html>\n"
+  recorded_at: 2024-09-04 23:39:18 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0

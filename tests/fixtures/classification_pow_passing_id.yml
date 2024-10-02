@@ -1,90 +1,100 @@
 http_interactions:
 - request:
     method: get
-    uri: http://www.plantsoftheworldonline.org/api/2/taxon/urn:lsid:ipni.org:names:119003-2
+    uri: https://powo.science.kew.org/api/2/taxon/urn:lsid:ipni.org:names:119003-2
     body:
       encoding: ''
       string: ''
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/3.3 crul/0.7.0 taxize/0.9.5.9310
-      X-User-Agent: r-curl/3.3 crul/0.7.0 taxize/0.9.5.9310
+      User-Agent: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: HTTP/1.1 200 OK
-      date: Thu, 21 Feb 2019 01:30:18 GMT
-      server: Apache/2.4.38 (Unix)
-      content-disposition: inline;filename=f.txt
-      etag: '"0f0afd2f6d8e7f2d61cfdecae8d88f916-gzip"'
+      status: 'HTTP/1.1 200 '
+      date: Thu, 05 Sep 2024 22:24:09 GMT
+      server: nginx/1.15.12
       content-type: application/json;charset=UTF-8
-      vary: Accept-Encoding
-      content-encoding: gzip
-      cache-control: max-age=0, must-revalidate, proxy-revalidate
-      transfer-encoding: chunked
+      content-length: '15200'
+      access-control-allow-origin: '*'
+      access-control-allow-methods: GET, OPTIONS, HEAD
+      content-disposition: inline;filename=f.txt
+      etag: '"098233a05a6bc1ad6901bafff64230eab"'
+      x-frame-options: SAMEORIGIN
+      x-content-type-options: nosniff
+      x-xss-protection: 1; mode=block
+      strict-transport-security: max-age=0
     body:
-      encoding: UTF-8
-      string: '{"modified":"2019-02-12T00:00:00.000Z","bibliographicCitation":"IPNI
-        2019. Published on the Internet http://www.ipni.org; WCSP 2019. WCSP. Facilitated
-        by the Royal Botanic Gardens, Kew. Published on the Internet; http://apps.kew.org/wcsp/
-        Retrieved 2011 onwards","genus":"Helianthus","taxonomicStatus":"Accepted","kingdom":"Plantae","phylum":"Magnoliophyta","family":"Asteraceae","nomenclaturalCode":"Botanical","source":"kew.org:az:reference:910966","namePublishedInYear":1753,"taxonRemarks":"SW.
-        U.S.A. to Mexico","nomenclaturalStatus":"Available","synonym":false,"plantae":true,"fungi":false,"fqId":"urn:lsid:ipni.org:names:119003-2","name":"Helianthus
+      encoding: ''
+      file: no
+      string: '{"modified":"2022-07-11T23:00:00.000Z","bibliographicCitation":"IPNI
+        2024. Published on the Internet http://www.ipni.org; WCVP 2024. WCVP. Facilitated
+        by the Royal Botanic Gardens, Kew. Published on the Internet; https://powo.science.kew.org/
+        Retrieved 2011 onwards","genus":"Helianthus","taxonomicStatus":"Accepted","kingdom":"Plantae","phylum":"Streptophyta","clazz":"Equisetopsida","subclass":"Magnoliidae","order":"Asterales","family":"Asteraceae","nomenclaturalCode":"Botanical","source":"wcvp:2910966","namePublishedInYear":1753,"taxonRemarks":"SW.
+        U.S.A. to Mexico","nomenclaturalStatus":"Available","lifeform":"annual","climate":"temperate","hybrid":false,"paftolId":"18561","locations":["CHS_HE","NCA","ALT","CHH_OO","SAS_OO","AMU","AGE_ER","CHS_HN","YUG_MA","URU","POR","MXS_MI","THA","CHS_KI","JAP_HK","NWM_OO","MIDDLE_EUROPE","ITA","AMU_OO","WIS_OO","NDA_OO","KAM_OO","ASS_MI","MACARONESIA","BRC","IND_KE","CLN","NSW_NS","TAS","SPA_SP","WESTERN_ASIA","NTA","CHS_GX","IRE_IR","POR_OO","MXC","CLC","CPP_WC","IOW_OO","AFRICA","AGS_RN","CLC_SA","TCS_NK","LOU_OO","MIC_OO","WSB","YUG_SL","BOT","MXT_QR","AUSTRALIA","ITA_IT","NSC_OO","YUG","ONT_OO","MXT_CI","EHM_SI","PAL_JO","TVL_NP","AGW_SL","AGS","CHC_SC","NFL","NCS_KR","YUG_CR","RHO_OO","CHC_CQ","WAU","KOR_NK","WVA_OO","NWY_OO","PER_OO","SIC_SI","IND","PAR_OO","CLC_MA","WDC_OO","WDC","FLA_OO","WESTERN_SOUTH_AMERICA","IND_WB","NCS_IN","FIN_OO","SOUTH_CENTRAL_USA","THA_OO","TUN","TEX","YAK","MXE_NL","BLT","NZN_OO","KGZ_OO","NAT","MXC_MO","MXE_QU","IND_KL","CLC_VA","PEN","TEN","CHM_JL","ALT_OO","PRM_OO","CLS_MG","TVL_MP","YUG_SE","SCA","CHS_GD","NCS_KB","MXE_SL","NOR","CHN_GS","MSI_OO","IRK","ASS","MSO","IND_YA","CHM","CHT","PER","SWZ","ARK","BUL","OHI","AGS_TF","CLM","NEV_OO","CHC","NEB_OO","COR","ARK_OO","QLD_QU","MXN_SI","PAK_OO","BAN_OO","NORTH_CENTRAL_USA","NCS_CH","CARIBBEAN","ORE","NBR_OO","IND_UP","ASIA_TROPICAL","ABT","GRC","WYO_OO","CHS_HK","TCS","AGE_CO","MXC_DF","NCS_ST","JAP_HN","RUN_OO","NWJ_OO","SOUTHWESTERN_EUROPE","VIC_OO","AUT","NWJ","AUT_LI","GUA_OO","PEI_OO","MNT","TVL","GRC_OO","KTY_OO","TZK","GRB","ITA_VC","NORTHERN_EUROPE","SIC_MA","ALB","DOM","IOW","INDO_CHINA","UKR_MO","OFS","WHM","CLS","CTA","NCS","KOR_SK","SPA_GI","MXT_YU","EHM_AP","IND_TN","ASS_ME","AGE_BA","MAS_OO","MXT","CHN_SA","IRE","BLT_ES","TCS_AD","GER","MXS_NA","AGW","TKM","BLZ_OO","HAI_HA","SAR_OO","AGW_ME","NWT","NORTHWESTERN_USA","CAL","AGW_SE","SOA_OO","IND_DM","KHA_OO","BOT_OO","SPA_AN","OKL","CLC_OH","AGW_TU","HON_OO","DEN_OO","BUL_OO","IND_OR","CHS_JS","CHI_NM","AGE_CN","CHC_YN","SCA_OO","BLR","AGE_SF","CLC_LA","SDA_OO","CHQ_OO","WVA","BGM","NEP","FRA_CI","TZK_OO","EHM","OKL_OO","AZO_OO","CHI_NX","FLA","IDA","IND_CT","AGS_NE","UKR_UK","LES","MOR_MO","QLD","BLZ","ABT_OO","ORE_OO","SDA","TEN_OO","AGW_LR","RUS","NSC","URU_OO","MXE_CU","CHX","ILL_OO","MAN","ASS_AS","CNY_OO","PAL","JAP_SH","PAR","CHN_HB","CPP_NC","YAK_OO","IND_JK","TVL_GA","ROM","AZO","PAK","GRB_OO","TUE_OO","RHO","KAN","SOUTHERN_AMERICA","CPP_EC","MXE","IND_AP","DEN","KTY","MXS","LBY","PAL_IS","MXN","TVA_OO","CHS_MP","MAG","EASTERN_CANADA","SAS","NSW","ELS_OO","MXC_TL","MRY","FRA_MO","BRY_OO","HON","CLC_CO","MXC_PU","CNT","ILL","KAM","CHS_MA","DEL_OO","AGE_LP","RUE","QUE_OO","MAS","NZS","UTA","ALA_OO","KGZ","BOL_OO","CHQ","AGE_MI","CENTRAL_AMERICA","YUG_KO","INI","CHT_OO","AUT_AU","BGM_BE","NEW_ZEALAND","IND_MP","TCS_AR","RUC_OO","IRE_NI","IND_RA","LBY_OO","NZN","CHN","VRG_OO","MSO_OO","BRC_OO","SPA","CLN_AT","CHINA","SAK_OO","ASS_NA","MXG_VC","IND_KT","MOR","SAR","SAK","MAI_OO","CTA_OO","SOA","AGW_SJ","ROM_OO","MXE_AG","SIBERIA","NET_OO","GER_OO","ALA","CLS_AI","MXE_ZA","SWE","CHM_HJ","PEI","COL_OO","NAM","NCS_DA","WHM_JK","BLT_KA","EHM_DJ","CHN_SX","IND_GU","NCS_KC","HAI","CHS_AH","KAZ_OO","TUR","WESTERN_CANADA","MXE_GU","SWE_OO","AGE_CH","FIN","IND_DI","TUE","MXS_JA","MAG_OO","NCS_SO","SWI","UZB","IND_CH","HUN","COL","NWY","CAUCASUS","AGS_SC","CLM_OO","TCS_GR","MXC_ME","BLR_OO","UZB_OO","ASS_MA","NEB","AUSTRALASIA","RUN","DEL","RUE_OO","GUA","ITA_SM","BAN","MIN_OO","IRK_OO","EUROPE","ALB_OO","YUG_MN","YUG_BH","SOUTHEASTERN_USA","IND_DE","CHS_JX","NDA","COR_OO","CHS","FRA_FR","SOUTHWESTERN_USA","FRA","LES_OO","ONT","MXN_SO","HUN_OO","NEV","TCS_AZ","INI_OO","MXG","AGW_SA","IND_PO","CPV_OO","NORTHEASTERN_USA","SOUTHERN_AFRICA","CHX_OO","BLT_LI","MNT_OO","CHI","MOR_SP","WSB_OO","EASTERN_ASIA","WAU_AC","OHI_OO","IND_HA","KAZ","TVL_NW","KRA","ARI_OO","IND_MR","MIDDLE_ASIA","IND_BI","BGM_LU","CNY","MEXICO","CHS_ZJ","MXE_CO","TVA","MXS_GR","WAU_WA","PEN_OO","CHH","MXS_OA","CHN_TJ","MIN","MXT_TB","MXN_BC","SWI_OO","NCA_OO","QUE","QLD_CS","VER_OO","VIC","CNT_OO","AGE","MRY_OO","NAT_OO","LOU","OFS_OO","WYO","NUN_OO","CPV","NUN","AGS_CB","SIC","TUR_OO","ASIA_TEMPERATE","DOM_OO","WIS","TAS_OO","BLT_LA","CLN_TA","NWM","NSW_CT","SOUTHERN_SOUTH_AMERICA","MSI","KHA","BOL","MIC","COS","IDA_OO","PRM","WAS","CHC_HU","JAP","UKR","ARI","CLS_LL","SOUTHEASTERN_EUROPE","CHC_GZ","POL","NEP_OO","AGW_JU","EASTERN_EUROPE","JAP_KY","MXN_BS","SWZ_OO","CHS_SH","ELS","BRY","SUBARCTIC_AMERICA","ASK_OO","NZS_OO","CPP","NWH","CLC_BI","VRG","UTA_OO","RUSSIAN_FAR_EAST","GEO_OO","NFL_NE","TCS_AB","MXE_DU","MXE_HI","TKM_OO","CHS_FJ","POL_OO","MXE_TA","IND_PU","WHM_UT","NBR","AGW_CA","CHN_SD","VER","ASK","NWH_OO","WAS_OO","NET","KAN_OO","MAN_OO","NORTHERN_AFRICA","CHM_LN","KOR","MAI","IND_DD","IND_GO","ASS_TR","COS_OO","AGE_FO","NWT_OO","EHM_BH","CAL_OO","GEO","NFL_SP","NORTHERN_AMERICA","RUC","KRA_OO","CLN_AN","MXT_CA","TEX_OO","AGE_DF","NOR_OO","CHN_BJ","HAI_NI","TCS_NA","NAM_OO","TUN_OO","IND_MH","WHM_HP","NTA_OO","INDIAN_SUBCONTINENT","MXS_CL","RUS_OO"],"plantae":true,"fungi":false,"synonym":false,"fqId":"urn:lsid:ipni.org:names:119003-2","name":"Helianthus
         annuus","authors":"L.","species":"annuus","rank":"SPECIES","reference":"Sp.
-        Pl. 2: 904 (1753)","classification":[{"fqId":"urn:lsid:ipni.org:names:319342-2","name":"Asteraceae","author":"Bercht.
+        Pl.: 904 (1753)","classification":[{"fqId":"urn:lsid:ipni.org:names:319342-2","name":"Asteraceae","author":"Bercht.
         & J.Presl","rank":"FAMILY","taxonomicStatus":"Accepted"},{"fqId":"urn:lsid:ipni.org:names:30000729-2","name":"Helianthus","author":"L.","rank":"GENUS","taxonomicStatus":"Accepted"},{"fqId":"urn:lsid:ipni.org:names:119003-2","name":"Helianthus
         annuus","author":"L.","rank":"SPECIES","taxonomicStatus":"Accepted"}],"basionymOf":[{"fqId":"urn:lsid:ipni.org:names:212222-1","name":"Helianthus
-        platycephalus","author":"Cass.","rank":"SPECIES","taxonomicStatus":"Synonym"}],"synonyms":[{"fqId":"urn:lsid:ipni.org:names:119009-2","name":"Helianthus
-        annuus var. coronatus","author":"Cockerell","rank":"VARIETY","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:212108-1","name":"Helianthus
-        grandiflorus","author":"Wender. ex Steud.","rank":"SPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:119007-2","name":"Helianthus
-        annuus var. chrysanthemoides","author":"Cockerell","rank":"VARIETY","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:119029-2","name":"Helianthus
-        annuus var. pumilus","author":"DC.","rank":"VARIETY","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:119008-2","name":"Helianthus
-        annuus var. convolutus","author":"Cockerell","rank":"VARIETY","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:119004-2","name":"Helianthus
-        annuus var. apicalis","author":"Cockerell","rank":"VARIETY","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:315754-2","name":"Helianthus
-        indicus","author":"L.","rank":"SPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:119028-2","name":"Helianthus
-        annuus var. primulinus","author":"Cockerell","rank":"VARIETY","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:119006-2","name":"Helianthus
-        annuus var. basalis","author":"Cockerell","rank":"VARIETY","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:119025-2","name":"Helianthus
-        annuus var. pallescens","author":"Cockerell","rank":"VARIETY","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:119048-2","name":"Helianthus
-        aridus","author":"Rydb.","rank":"SPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:119026-2","name":"Helianthus
-        annuus var. passiflora","author":"Cockerell","rank":"VARIETY","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:119023-2","name":"Helianthus
-        annuus var. niger","author":"Cockerell","rank":"VARIETY","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:119021-2","name":"Helianthus
-        annuus var. lenticularis","author":"(Douglas ex Lindl.) Steyerm.","rank":"VARIETY","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:119022-2","name":"Helianthus
-        annuus var. macrocarpus","author":"(DC.) Cockerell","rank":"VARIETY","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:119234-2","name":"Helianthus
-        pumilus","author":"Pers.","rank":"SPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:119031-2","name":"Helianthus
-        annuus var. revolutus","author":"Cockerell","rank":"VARIETY","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:119030-2","name":"Helianthus
-        annuus var. reversus","author":"Cockerell","rank":"VARIETY","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:212222-1","name":"Helianthus
-        platycephalus","author":"Cass.","rank":"SPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:212207-1","name":"Helianthus
-        ovatus","author":"Lehm.","rank":"SPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:119147-2","name":"Helianthus
-        jaegeri","author":"Heiser","rank":"SPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:212156-1","name":"Helianthus
-        lindheimerianus","author":"Scheele","rank":"SPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:119018-2","name":"Helianthus
-        annuus lenticularis","author":"(Douglas ex Lindl.) Cockerell","rank":"SPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:119019-2","name":"Helianthus
-        annuus f. lenticularis","author":"(Douglas ex Lindl.) B.Boivin","rank":"Form","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:119016-2","name":"Helianthus
-        annuus subsp. jaegeri","author":"(Heiser) Heiser","rank":"SUBSPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:119039-2","name":"Helianthus
-        annuus var. trizonatus","author":"Cockerell","rank":"VARIETY","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:119017-2","name":"Helianthus
-        annuus var. latibasis","author":"Cockerell","rank":"VARIETY","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:119038-2","name":"Helianthus
-        annuus var. tortuosus","author":"Cockerell","rank":"VARIETY","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:212152-1","name":"Helianthus
-        lenticularis","author":"Douglas ex Lindl.","rank":"SPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:119037-2","name":"Helianthus
-        annuus var. texanus","author":"(Heiser) Shinners","rank":"VARIETY","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:119014-2","name":"Helianthus
-        annuus var. flavobasis","author":"Cockerell","rank":"VARIETY","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:119036-2","name":"Helianthus
-        annuus subsp. texanus","author":"Heiser","rank":"SUBSPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:119015-2","name":"Helianthus
-        annuus var. indicus","author":"(L.) DC.","rank":"VARIETY","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:119012-2","name":"Helianthus
-        annuus var. dilutus","author":"Cockerell","rank":"VARIETY","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:119035-2","name":"Helianthus
-        annuus f. silvester","author":"Thell.","rank":"Form","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:119013-2","name":"Helianthus
-        annuus f. fallax","author":"B.Boivin","rank":"Form","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:119034-2","name":"Helianthus
-        annuus var. semivinosus","author":"Cockerell","rank":"VARIETY","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:119033-2","name":"Helianthus
-        annuus var. selene","author":"Cockerell","rank":"VARIETY","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:119032-2","name":"Helianthus
-        annuus var. ruberrimus","author":"Cockerell","rank":"VARIETY","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:119020-2","name":"Helianthus
-        annuus subsp. lenticularis","author":"(Douglas ex Lindl.) Cockerell","rank":"SUBSPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:119041-2","name":"Helianthus
-        annuus var. vinosus","author":"Cockerell","rank":"VARIETY","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:119040-2","name":"Helianthus
-        annuus var. vinosissimus","author":"Cockerell","rank":"VARIETY","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:329237-2","name":"Helianthus
-        macrocarpus","author":"DC.","rank":"SPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:212217-1","name":"Helianthus
-        petiolaris","author":"DC.","rank":"SPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:77181303-1","name":"Helianthus
-        ultiflorus","author":"L.","rank":"SPECIES","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:295069-2","name":"Helianthus
-        annuus var. aridus","author":"Cockerell","rank":"VARIETY","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:297667-2","name":"Helianthus
-        annuus mut. inornatus","author":"Cockerell","rank":"InfraspecificName","taxonomicStatus":"Synonym"},{"fqId":"urn:lsid:ipni.org:names:212081-1","name":"Helianthus
-        erythrocarpus","author":"Bartl.","rank":"SPECIES","taxonomicStatus":"Synonym"}]}'
-  recorded_at: 2019-02-21 01:30:18 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4
+        platycephalus","author":"Cass.","rank":"SPECIES","taxonomicStatus":"Homotypic_Synonym"}],"synonyms":[{"fqId":"urn:lsid:ipni.org:names:212108-1","name":"Helianthus
+        grandiflorus","author":"Wender. ex Steud.","rank":"SPECIES","taxonomicStatus":"Heterotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:119029-2","name":"Helianthus
+        annuus var. pumilus","author":"DC.","rank":"VARIETY","taxonomicStatus":"Heterotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:119008-2","name":"Helianthus
+        annuus var. convolutus","author":"Cockerell","rank":"VARIETY","taxonomicStatus":"Heterotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:119004-2","name":"Helianthus
+        annuus var. apicalis","author":"Cockerell","rank":"VARIETY","taxonomicStatus":"Heterotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:119006-2","name":"Helianthus
+        annuus var. basalis","author":"Cockerell","rank":"VARIETY","taxonomicStatus":"Heterotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:119048-2","name":"Helianthus
+        aridus","author":"Rydb.","rank":"SPECIES","taxonomicStatus":"Heterotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:119025-2","name":"Helianthus
+        annuus var. pallescens","author":"Cockerell","rank":"VARIETY","taxonomicStatus":"Heterotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:119023-2","name":"Helianthus
+        annuus var. niger","author":"Cockerell","rank":"VARIETY","taxonomicStatus":"Heterotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:119021-2","name":"Helianthus
+        annuus var. lenticularis","author":"(Douglas ex Lindl.) Steyerm.","rank":"VARIETY","taxonomicStatus":"Heterotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:119234-2","name":"Helianthus
+        pumilus","author":"Pers.","rank":"SPECIES","taxonomicStatus":"Heterotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:119030-2","name":"Helianthus
+        annuus var. reversus","author":"Cockerell","rank":"VARIETY","taxonomicStatus":"Heterotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:119162-2","name":"Helianthus
+        lenticularis var. aridus","author":"Cockerell","rank":"VARIETY","taxonomicStatus":"Heterotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:119019-2","name":"Helianthus
+        annuus f. lenticularis","author":"(Douglas ex Lindl.) B.Boivin","rank":"Form","taxonomicStatus":"Heterotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:119017-2","name":"Helianthus
+        annuus var. latibasis","author":"Cockerell","rank":"VARIETY","taxonomicStatus":"Heterotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:119038-2","name":"Helianthus
+        annuus var. tortuosus","author":"Cockerell","rank":"VARIETY","taxonomicStatus":"Heterotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:119015-2","name":"Helianthus
+        annuus var. indicus","author":"(L.) DC.","rank":"VARIETY","taxonomicStatus":"Heterotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:119036-2","name":"Helianthus
+        annuus subsp. texanus","author":"Heiser","rank":"SUBSPECIES","taxonomicStatus":"Heterotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:119013-2","name":"Helianthus
+        annuus f. fallax","author":"B.Boivin","rank":"Form","taxonomicStatus":"Heterotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:119034-2","name":"Helianthus
+        annuus var. semivinosus","author":"Cockerell","rank":"VARIETY","taxonomicStatus":"Heterotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:119032-2","name":"Helianthus
+        annuus var. ruberrimus","author":"Cockerell","rank":"VARIETY","taxonomicStatus":"Heterotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:119020-2","name":"Helianthus
+        annuus subsp. lenticularis","author":"(Douglas ex Lindl.) Cockerell","rank":"SUBSPECIES","taxonomicStatus":"Heterotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:119041-2","name":"Helianthus
+        annuus var. vinosus","author":"Cockerell","rank":"VARIETY","taxonomicStatus":"Heterotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:329237-2","name":"Helianthus
+        macrocarpus","author":"DC.","rank":"SPECIES","taxonomicStatus":"Heterotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:212217-1","name":"Helianthus
+        petiolaris","author":"DC.","rank":"SPECIES","taxonomicStatus":"Heterotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:77181303-1","name":"Helianthus
+        ultiflorus","author":"L.","rank":"SPECIES","taxonomicStatus":"Heterotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:212081-1","name":"Helianthus
+        erythrocarpus","author":"Bartl.","rank":"SPECIES","taxonomicStatus":"Heterotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:295069-2","name":"Helianthus
+        annuus var. aridus","author":"Cockerell","rank":"VARIETY","taxonomicStatus":"Heterotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:297667-2","name":"Helianthus
+        annuus mut. inornatus","author":"Cockerell","rank":"InfraspecificName","taxonomicStatus":"Heterotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:119009-2","name":"Helianthus
+        annuus var. coronatus","author":"Cockerell","rank":"VARIETY","taxonomicStatus":"Heterotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:119007-2","name":"Helianthus
+        annuus var. chrysanthemoides","author":"Cockerell","rank":"VARIETY","taxonomicStatus":"Heterotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:315754-2","name":"Helianthus
+        indicus","author":"L.","rank":"SPECIES","taxonomicStatus":"Heterotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:119028-2","name":"Helianthus
+        annuus var. primulinus","author":"Cockerell","rank":"VARIETY","taxonomicStatus":"Heterotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:119049-2","name":"Helianthus
+        aridus var. citrinus","author":"Cockerell","rank":"VARIETY","taxonomicStatus":"Heterotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:3270162-4","name":"Helianthus
+        annuus var. californicus","author":"(T.Moore) Bushell","rank":"VARIETY","taxonomicStatus":"Heterotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:119026-2","name":"Helianthus
+        annuus var. passiflora","author":"Cockerell","rank":"VARIETY","taxonomicStatus":"Heterotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:119022-2","name":"Helianthus
+        annuus var. macrocarpus","author":"(DC.) Cockerell","rank":"VARIETY","taxonomicStatus":"Heterotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:119031-2","name":"Helianthus
+        annuus var. revolutus","author":"Cockerell","rank":"VARIETY","taxonomicStatus":"Heterotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:212222-1","name":"Helianthus
+        platycephalus","author":"Cass.","rank":"SPECIES","taxonomicStatus":"Homotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:212207-1","name":"Helianthus
+        ovatus","author":"Lehm.","rank":"SPECIES","taxonomicStatus":"Heterotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:119147-2","name":"Helianthus
+        jaegeri","author":"Heiser","rank":"SPECIES","taxonomicStatus":"Heterotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:3267964-4","name":"Helianthus
+        annuus californicus","author":"T.Moore","rank":"SPECIES","taxonomicStatus":"Heterotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:119163-2","name":"Helianthus
+        lenticularis var. primulinus","author":"Cockerell","rank":"VARIETY","taxonomicStatus":"Heterotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:119161-2","name":"Helianthus
+        lenticularis var. angustus","author":"Cockerell","rank":"VARIETY","taxonomicStatus":"Heterotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:212156-1","name":"Helianthus
+        lindheimerianus","author":"Scheele","rank":"SPECIES","taxonomicStatus":"Heterotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:119018-2","name":"Helianthus
+        annuus lenticularis","author":"(Douglas ex Lindl.) Cockerell","rank":"SPECIES","taxonomicStatus":"Heterotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:119016-2","name":"Helianthus
+        annuus subsp. jaegeri","author":"(Heiser) Heiser","rank":"SUBSPECIES","taxonomicStatus":"Heterotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:119039-2","name":"Helianthus
+        annuus var. trizonatus","author":"Cockerell","rank":"VARIETY","taxonomicStatus":"Heterotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:212152-1","name":"Helianthus
+        lenticularis","author":"Douglas ex Lindl.","rank":"SPECIES","taxonomicStatus":"Heterotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:119037-2","name":"Helianthus
+        annuus var. texanus","author":"(Heiser) Shinners","rank":"VARIETY","taxonomicStatus":"Heterotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:119014-2","name":"Helianthus
+        annuus var. flavobasis","author":"Cockerell","rank":"VARIETY","taxonomicStatus":"Heterotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:119012-2","name":"Helianthus
+        annuus var. dilutus","author":"Cockerell","rank":"VARIETY","taxonomicStatus":"Heterotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:119035-2","name":"Helianthus
+        annuus f. silvester","author":"Thell.","rank":"Form","taxonomicStatus":"Heterotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:119033-2","name":"Helianthus
+        annuus var. selene","author":"Cockerell","rank":"VARIETY","taxonomicStatus":"Heterotypic_Synonym"},{"fqId":"urn:lsid:ipni.org:names:119040-2","name":"Helianthus
+        annuus var. vinosissimus","author":"Cockerell","rank":"VARIETY","taxonomicStatus":"Heterotypic_Synonym"}]}'
+  recorded_at: 2024-09-05 22:24:09 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0

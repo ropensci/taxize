@@ -18,6 +18,8 @@ test_that("internal functions of class2tree", {
   skip_on_cran() # uses secrets
   vcr::use_cassette("class2tree_internal_fxns", {
     out <- classification(spnames, db = "ncbi", messages = FALSE)
+    spnames <- c("Proteus mirabilis","Citrus sinensis","Cyanophora paradoxa")
+    out2 <- classification(spnames, db = "ncbi", messages = FALSE)
   })
   
   rankList <- dt2df(lapply(out, get_rank), idcol = FALSE)
@@ -40,9 +42,7 @@ test_that("internal functions of class2tree", {
   expect_true(nrow(taxMatrix) == 17)
   
   # wrong indexing
-  spnames <- c("Proteus mirabilis","Citrus sinensis","Cyanophora paradoxa")
-  out <- classification(spnames, db = "ncbi", messages = FALSE)
-  rankList <- dt2df(lapply(out, get_rank), idcol = FALSE)
+  rankList <- dt2df(lapply(out2, get_rank), idcol = FALSE)
   rankList[3,] <- c(
     "Cyanophora paradoxa","species","genus","family","superkingdom",
     "norank_131567","class",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
@@ -91,6 +91,6 @@ test_that("class2tree detects duplicated taxa in higher levels", {
     vcr::use_cassette("class2tree_classification_dup_high_level", {
         out <- classification(duptaxa, db = "ncbi", messages = FALSE)
     })
-    tree <- class2tree(out)
+    tree <- class2tree(out, remove_shared = TRUE)
     expect_true(nrow(tree$classification) < length(duptaxa))
 })

@@ -8,28 +8,32 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/0.9.2.92 rOpenSci(taxize/0.9.97.93)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.2.92 rOpenSci(taxize/0.9.97.93)
+      User-Agent: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: 'HTTP/2 200 '
-      server: nginx/1.14.2
-      date: Tue, 30 Jun 2020 18:11:33 GMT
-      content-type: text/plain;charset=UTF-8
-      content-length: '63'
       content-disposition: inline;filename=f.txt
       content-language: en
+      content-length: '63'
+      content-type: text/plain;charset=UTF-8
+      date: Thu, 26 Sep 2024 22:30:58 GMT
+      server: nginx/1.14.2
+      status: 'HTTP/2 200 '
+      vary:
+      - Origin
+      - Access-Control-Request-Method
+      - Access-Control-Request-Headers
     body:
-      encoding: UTF-8
+      encoding: ''
       file: no
       string: |
         Id%Version%Family%Full name without family and authors%Authors
-  recorded_at: 2020-06-30 18:11:34 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2024-09-26 22:30:59 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
 - request:
     method: get
     uri: https://www.ipni.org/ipni/advPlantNameSearch.do?output_format=delimited-minimal&find_genus=adfasdfasffd
@@ -39,25 +43,29 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/0.9.2.92 rOpenSci(taxize/0.9.97.93)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.2.92 rOpenSci(taxize/0.9.97.93)
+      User-Agent: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: 'HTTP/2 200 '
-      server: nginx/1.14.2
-      date: Tue, 30 Jun 2020 18:11:33 GMT
-      content-type: text/plain;charset=UTF-8
-      content-length: '63'
       content-disposition: inline;filename=f.txt
       content-language: en
+      content-length: '63'
+      content-type: text/plain;charset=UTF-8
+      date: Thu, 26 Sep 2024 22:30:59 GMT
+      server: nginx/1.14.2
+      status: 'HTTP/2 200 '
+      vary:
+      - Origin
+      - Access-Control-Request-Method
+      - Access-Control-Request-Headers
     body:
-      encoding: UTF-8
+      encoding: ''
       file: no
       string: |
         Id%Version%Family%Full name without family and authors%Authors
-  recorded_at: 2020-06-30 18:11:34 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2024-09-26 22:30:59 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0

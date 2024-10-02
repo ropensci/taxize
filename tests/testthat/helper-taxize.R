@@ -10,7 +10,8 @@ invisible(vcr::vcr_configure(
     "<<entrez_api_token>>" = Sys.getenv("ENTREZ_KEY"),
     "<<tropicos_api_token>>" = Sys.getenv("TROPICOS_KEY"),
     "<<natureserve_api_token>>" = Sys.getenv("NATURE_SERVE_KEY")
-  )
+  ),
+  record = 'new_episodes' # Seems to be needed because of unpredictable switching between http and https
 ))
 vcr::check_cassette_names()
 
@@ -29,3 +30,4 @@ skip_if_net_down <- function() {
   }
   testthat::skip("no internet")
 }
+

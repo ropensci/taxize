@@ -278,7 +278,7 @@ as.data.frame.pow <- function(x, ...){
 }
 
 make_pow <- function(x, check=TRUE) {
-  make_generic(x, 'http://powo.science.kew.org/taxon/%s', "pow", check)
+  make_generic(x, 'https://powo.science.kew.org/taxon/%s', "pow", check)
 }
 
 check_pow <- function(x){

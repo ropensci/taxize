@@ -1,14 +1,15 @@
 http_interactions:
 - request:
     method: get
-    uri: http://www.indexfungorum.org/ixfwebservice/fungus.asmx/NameFullByKey?NameLsid=urn%3Alsid%3Aindexfungorum.org%3Anames%3A81085
+    uri: https://www.indexfungorum.org/ixfwebservice/fungus.asmx/NameFullByKey?NameLsid=urn%3Alsid%3Aindexfungorum.org%3Anames%3A81085
     body:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
@@ -16,20 +17,170 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx
-      date: Thu, 24 Jan 2019 01:37:37 GMT
-      content-type: text/xml; charset=utf-8
-      transfer-encoding: chunked
-      connection: keep-alive
-      keep-alive: timeout=20
-      vary: Accept-Encoding
+      date: Fri, 27 Sep 2024 01:49:28 GMT
+      server: Microsoft-IIS/10.0
       cache-control: private, max-age=0
+      content-type: text/xml; charset=utf-8
       x-aspnet-version: 2.0.50727
-      x-powered-by: ASP.NET
+      vary: Accept-Encoding
       content-encoding: gzip
+      content-length: '131'
+      x-frame-options: SAMEORIGIN
+      x-content-type-options: nosniff
+      x-xss-protection: 1; mode=block
+      strict-transport-security: max-age=0
     body:
-      encoding: UTF-8
+      encoding: ''
+      file: no
       string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<string xmlns=\"http://Cabi/FungusServer/\">Omphalotaceae
         Bresinsky1985</string>"
-  recorded_at: 2019-01-24 01:38:11 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2024-09-27 15:36:29 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://www.indexfungorum.org/ixfwebservice/fungus.asmx/NameFullByKey?NameLsid=urn%3Alsid%3Aindexfungorum.org%3Anames%3A81085
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 27 Sep 2024 02:22:37 GMT
+      server: Microsoft-IIS/10.0
+      cache-control: private, max-age=0
+      content-type: text/xml; charset=utf-8
+      x-aspnet-version: 2.0.50727
+      vary: Accept-Encoding
+      content-encoding: gzip
+      content-length: '131'
+      x-frame-options: SAMEORIGIN
+      x-content-type-options: nosniff
+      x-xss-protection: 1; mode=block
+      strict-transport-security: max-age=0
+    body:
+      encoding: ''
+      file: no
+      string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<string xmlns=\"http://Cabi/FungusServer/\">Omphalotaceae
+        Bresinsky1985</string>"
+  recorded_at: 2024-09-27 15:36:29 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://www.indexfungorum.org/ixfwebservice/fungus.asmx/NameFullByKey?NameLsid=urn%3Alsid%3Aindexfungorum.org%3Anames%3A81085
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 27 Sep 2024 02:52:52 GMT
+      server: Microsoft-IIS/10.0
+      cache-control: private, max-age=0
+      content-type: text/xml; charset=utf-8
+      x-aspnet-version: 2.0.50727
+      vary: Accept-Encoding
+      content-encoding: gzip
+      content-length: '131'
+      x-frame-options: SAMEORIGIN
+      x-content-type-options: nosniff
+      x-xss-protection: 1; mode=block
+      strict-transport-security: max-age=0
+    body:
+      encoding: ''
+      file: no
+      string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<string xmlns=\"http://Cabi/FungusServer/\">Omphalotaceae
+        Bresinsky1985</string>"
+  recorded_at: 2024-09-27 15:36:29 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://www.indexfungorum.org/ixfwebservice/fungus.asmx/NameFullByKey?NameLsid=urn%3Alsid%3Aindexfungorum.org%3Anames%3A81085
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 27 Sep 2024 15:16:55 GMT
+      server: Microsoft-IIS/10.0
+      cache-control: private, max-age=0
+      content-type: text/xml; charset=utf-8
+      x-aspnet-version: 2.0.50727
+      vary: Accept-Encoding
+      content-encoding: gzip
+      content-length: '131'
+      x-frame-options: SAMEORIGIN
+      x-content-type-options: nosniff
+      x-xss-protection: 1; mode=block
+      strict-transport-security: max-age=0
+    body:
+      encoding: ''
+      file: no
+      string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<string xmlns=\"http://Cabi/FungusServer/\">Omphalotaceae
+        Bresinsky1985</string>"
+  recorded_at: 2024-09-27 15:36:29 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://www.indexfungorum.org/ixfwebservice/fungus.asmx/NameFullByKey?NameLsid=urn%3Alsid%3Aindexfungorum.org%3Anames%3A81085
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 27 Sep 2024 15:36:28 GMT
+      server: Microsoft-IIS/10.0
+      cache-control: private, max-age=0
+      content-type: text/xml; charset=utf-8
+      x-aspnet-version: 2.0.50727
+      vary: Accept-Encoding
+      content-encoding: gzip
+      content-length: '131'
+      x-frame-options: SAMEORIGIN
+      x-content-type-options: nosniff
+      x-xss-protection: 1; mode=block
+      strict-transport-security: max-age=0
+    body:
+      encoding: ''
+      file: no
+      string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<string xmlns=\"http://Cabi/FungusServer/\">Omphalotaceae
+        Bresinsky1985</string>"
+  recorded_at: 2024-09-27 15:36:29 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0

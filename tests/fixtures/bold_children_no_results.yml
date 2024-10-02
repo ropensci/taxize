@@ -6,7 +6,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.81.0 r-curl/5.2.2 crul/1.5.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -15,17 +15,16 @@ http_interactions:
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: 'HTTP/2 200 '
-      server: nginx
-      date: Thu, 23 Apr 2020 22:35:50 GMT
       content-type: text/html; charset=utf-8
+      date: Wed, 04 Sep 2024 23:39:18 GMT
+      server: nginx
+      set-cookie:
+      - session=e2cqmtgkubu6qohu6l9dhg24p3; path=/
+      - https=on;Path=/;Max-Age=3600;httponly;SameSite=Lax
+      status: 'HTTP/2 200 '
       x-powered-by: PHP/5.3.15
-      set-cookie: session=v6jmpdgkhe3qr0b8eto5cuuv71; path=/
-      x-frame-options: SAMEORIGIN
-      x-content-type-options: nosniff
-      x-xss-protection: 1; mode=block
     body:
-      encoding: UTF-8
+      encoding: ''
       file: no
       string: "<!DOCTYPE HTML>\r\n<html>\r\n<head>\r\n\t<meta charset=\"utf-8\" />\n<meta
         http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\">\n\n<title>No
@@ -138,7 +137,7 @@ http_interactions:
         &.ui-state-active &.ui-state-focus{\n\t\t\t\tcolor: #ffffff;\n\t\t\t\ttext-decoration:
         none;\n\t\t\t\tbackground-color: #0088cc !important;\n\t\t\t\tborder-radius:
         0px;\n\t\t\t\t-webkit-border-radius: 0px;\n\t\t\t\t-moz-border-radius: 0px;\n\t\t\t\tbackground-image:
-        none;\n\t\t\t}\n\t\t}\n\t}\n\t.ui-helper-hidden-accessible{\n\t\tdisplay:none;\n\t}\n</style>\t<style>\r\n\t</style>\r\n</head>\r\n<body>\r\n\t<div
+        none;\n\t\t\t}\n\t\t}\n\t}\n\t.ui-helper-hidden-accessible{\n\t\tdisplay:none;\n\t}\n</style>\n\t<style>\r\n\t</style>\r\n</head>\r\n<body>\r\n\t<div
         class=\"page-container\">\n\t\t<div class=\"bloc sticky-nav bgc-dark-jungle-green
         d-bloc\">\n\t\t\t<div class=\"container bloc-xs\">\n\t\t\t\t<nav class=\"navbar
         row\">\n\t\t\t\t\t<div class=\"navbar-header\">\n\t\t\t\t\t\t<a class=\"navbar-brand\"
@@ -187,7 +186,8 @@ http_interactions:
         class=\"list-unstyled\">\n\t\t\t\t\t\t  <!--<li><a href=\"/index.php/resources/handbook?chapter=1_gettingstarted.html\">Documentation</a></li>-->\n\t\t\t\t\t\t
         \ <li><a href=\"/libhtml/docs/bold.pdf\">Citing BOLD</a></li>\n\t\t\t\t\t\t
         \ <li><a href=\"/index.php/NewsFeed\">News and Events</a></li>\n\t\t\t\t\t\t
-        \ <li><a href=\"/index.php/datarelease\">Data Releases</a></li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div
+        \ <li hidden><a href=\"/index.php/datarelease\">Data Releases</a></li>\n\t\t\t\t\t\t
+        \ <li><a href=\"/index.php/datapackages\">Data Packages</a></li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div
         class=\"col-sm-3\">\n\t\t\t\t\t\t<h3 class=\"mg-md\">Organization</h3>\n\t\t\t\t\t\t<ul
         class=\"list-unstyled\">\n\t\t\t\t\t\t  <li><a href=\"/index.php/Resources/whatIsBOLD\">About
         Us</a></li>\n\t\t\t\t\t\t  <li><a href=\"/index.php/Resources/ContactUs\">Contact
@@ -212,6 +212,6 @@ http_interactions:
         class=\"col-sm-2\">\n\t\t\t\t\t\t<img class=\"img-responsive center-block\"
         src=\"/libhtml_v4/img/UoGuelph_image18-100x100.png\" />\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div
         class=\"row\">\n\t\t\t\t\t<div class=\"col-xs-12\"><br/><h5><small><strong>Copyright</strong>
-        BOLD &copy; 2014-2020</small></h5></div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</body>\r\n</html>"
-  recorded_at: 2020-04-23 22:35:50 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+        BOLD &copy; 2014-2024</small></h5></div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</body>\r\n</html>"
+  recorded_at: 2024-09-04 23:39:19 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0

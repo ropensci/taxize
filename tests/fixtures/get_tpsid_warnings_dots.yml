@@ -1,15 +1,15 @@
 http_interactions:
 - request:
     method: get
-    uri: http://services.tropicos.org/Name/Search?format=json&name=Pinus%20contorta%20var%252E%20yukonensis&apikey=<<tropicos_api_token>>
+    uri: http://services.tropicos.org/Name/Search?format=json&name=Pinus%20contorta%20var%252E%20yukonensis&apikey=00ca3d6a-cbcc-4924-b882-c26b16d54446
     body:
       encoding: ''
       string: ''
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(taxize/0.9.7)
-      X-USER-AGENT: r-curl/3.3 crul/0.7.4 rOpenSci(taxize/0.9.7)
+      User-Agent: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
@@ -18,28 +18,29 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       cache-control: private
-      content-length: '33'
       content-type: application/json; charset=utf-8
-      server: Microsoft-IIS/7.5
+      server: Microsoft-IIS/10.0
       x-aspnet-version: 4.0.30319
       x-powered-by: ASP.NET
-      date: Wed, 08 May 2019 20:53:48 GMT
+      date: Wed, 25 Sep 2024 18:54:50 GMT
+      content-length: '33'
     body:
-      encoding: ASCII-8BIT
-      string: W3siRXJyb3IiOiJObyBuYW1lcyB3ZXJlIGZvdW5kIn1d
-  recorded_at: 2019-05-08 20:53:51 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
+      encoding: ''
+      file: no
+      base64_string: W3siRXJyb3IiOiJObyBuYW1lcyB3ZXJlIGZvdW5kIn1d
+  recorded_at: 2024-09-25 18:54:56 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
 - request:
     method: get
-    uri: http://services.tropicos.org/Name/Search?format=json&name=Pinus%20contorta%20yukonensis&apikey=<<tropicos_api_token>>
+    uri: http://services.tropicos.org/Name/Search?format=json&name=Pinus%20contorta%20yukonensis&apikey=00ca3d6a-cbcc-4924-b882-c26b16d54446
     body:
       encoding: ''
       string: ''
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(taxize/0.9.7)
-      X-USER-AGENT: r-curl/3.3 crul/0.7.4 rOpenSci(taxize/0.9.7)
+      User-Agent: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
@@ -48,14 +49,20 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       cache-control: private
-      content-length: '351'
       content-type: application/json; charset=utf-8
-      server: Microsoft-IIS/7.5
+      server: Microsoft-IIS/10.0
       x-aspnet-version: 4.0.30319
       x-powered-by: ASP.NET
-      date: Wed, 08 May 2019 20:53:50 GMT
+      date: Wed, 25 Sep 2024 18:54:50 GMT
+      content-length: '351'
     body:
-      encoding: ASCII-8BIT
-      string: W3siTmFtZUlkIjoxMDAzNjM3MDUsIlNjaWVudGlmaWNOYW1lIjoiUGludXMgY29udG9ydGEgdmFyLiB5dWtvbmVuc2lzIiwiU2NpZW50aWZpY05hbWVXaXRoQXV0aG9ycyI6IlBpbnVzIGNvbnRvcnRhIHZhci4geXVrb25lbnNpcyBXLkwuIFN0cm9uZyIsIkZhbWlseSI6IlBpbmFjZWFlIiwiUmFua0FiYnJldmlhdGlvbiI6InZhci4iLCJOb21lbmNsYXR1cmVTdGF0dXNOYW1lIjoiTm8gb3BpbmlvbiIsIkF1dGhvciI6IlcuTC4gU3Ryb25nIiwiRGlzcGxheVJlZmVyZW5jZSI6Ik5vcmRpYyBKLiBCb3QuIDI4OiA0NDjigJM0NTIsIGYuIDEsIDJB4oCTQyIsIkRpc3BsYXlEYXRlIjoiMjAxMCIsIlRvdGFsUm93cyI6MX1d
-  recorded_at: 2019-05-08 20:53:51 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
+      encoding: ''
+      file: no
+      base64_string: W3siTmFtZUlkIjoxMDAzNjM3MDUsIlNjaWVudGlmaWNOYW1lIjoiUGludXMgY29udG9ydGEgdmFyLiB5
+        dWtvbmVuc2lzIiwiU2NpZW50aWZpY05hbWVXaXRoQXV0aG9ycyI6IlBpbnVzIGNvbnRvcnRhIHZhci4g
+        eXVrb25lbnNpcyBXLkwuIFN0cm9uZyIsIkZhbWlseSI6IlBpbmFjZWFlIiwiUmFua0FiYnJldmlhdGlv
+        biI6InZhci4iLCJOb21lbmNsYXR1cmVTdGF0dXNOYW1lIjoiTm8gb3BpbmlvbiIsIkF1dGhvciI6Ilcu
+        TC4gU3Ryb25nIiwiRGlzcGxheVJlZmVyZW5jZSI6Ik5vcmRpYyBKLiBCb3QuIDI4OiA0NDjigJM0NTIs
+        IGYuIDEsIDJB4oCTQyIsIkRpc3BsYXlEYXRlIjoiMjAxMCIsIlRvdGFsUm93cyI6MX1d
+  recorded_at: 2024-09-25 18:54:56 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0

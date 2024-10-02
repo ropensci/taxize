@@ -1,15 +1,15 @@
 http_interactions:
 - request:
     method: get
-    uri: http://services.tropicos.org/Name/Search?format=json&name=adsf%20asdf%20asdf&apikey=<<tropicos_api_token>>
+    uri: http://services.tropicos.org/Name/Search?format=json&name=adsf%20asdf%20asdf&apikey=00ca3d6a-cbcc-4924-b882-c26b16d54446
     body:
       encoding: ''
       string: ''
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/3.3 crul/0.7.0.9100 taxize/0.9.4.9914
-      X-User-Agent: r-curl/3.3 crul/0.7.0.9100 taxize/0.9.4.9914
+      User-Agent: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
@@ -18,14 +18,15 @@ http_interactions:
     headers:
       status: HTTP/1.1 200 OK
       cache-control: private
-      content-length: '33'
       content-type: application/json; charset=utf-8
-      server: Microsoft-IIS/7.5
+      server: Microsoft-IIS/10.0
       x-aspnet-version: 4.0.30319
       x-powered-by: ASP.NET
-      date: Thu, 24 Jan 2019 22:27:03 GMT
+      date: Wed, 25 Sep 2024 18:54:48 GMT
+      content-length: '33'
     body:
-      encoding: UTF-8
+      encoding: ''
+      file: no
       string: '[{"Error":"No names were found"}]'
-  recorded_at: 2019-01-24 22:27:03 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2024-09-25 18:54:55 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0

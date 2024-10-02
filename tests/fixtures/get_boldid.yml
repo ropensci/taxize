@@ -1,12 +1,12 @@
 http_interactions:
 - request:
     method: get
-    uri: https://v4.boldsystems.org/index.php/API_Tax/TaxonSearch?taxName=Helianthus
+    uri: https://v4.boldsystems.org/index.php/API_Tax/TaxonSearch?taxName=Helianthus&fuzzy=false
     body:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.81.0 r-curl/5.2.2 crul/1.5.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -17,25 +17,25 @@ http_interactions:
     headers:
       status: 'HTTP/2 200 '
       server: nginx
-      date: Tue, 05 May 2020 01:00:22 GMT
+      date: Thu, 05 Sep 2024 22:54:19 GMT
       content-type: text/html; charset=utf-8
       content-length: '319'
       x-powered-by: PHP/5.3.15
       set-cookie: https=on;Path=/;Max-Age=3600;httponly;SameSite=Lax
     body:
-      encoding: UTF-8
+      encoding: ''
       file: no
-      string: '{"top_matched_names":[{"taxid":125295,"taxon":"Helianthus","tax_rank":"genus","tax_division":"Plantae","parentid":151101,"parentname":"Asteroideae","taxonrep":"Helianthus","representitive_image":{"image":"SDH\/CCDB-24909-C11_h153421+1421197108.jpg","apectratio":0.688},"specimenrecords":"328"}],"total_matched_names":1}'
-  recorded_at: 2020-05-05 01:00:23 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+      string: '{"top_matched_names":[{"taxid":125295,"taxon":"Helianthus","tax_rank":"genus","tax_division":"Plantae","parentid":151101,"parentname":"Asteroideae","taxonrep":"Helianthus","representitive_image":{"image":"SDH\/CCDB-24909-C11_h153421+1421197108.jpg","apectratio":0.688},"specimenrecords":"355"}],"total_matched_names":1}'
+  recorded_at: 2024-09-05 22:54:20 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
 - request:
     method: get
-    uri: https://v4.boldsystems.org/index.php/API_Tax/TaxonSearch?taxName=adsf%20asdf%20asdf
+    uri: https://v4.boldsystems.org/index.php/API_Tax/TaxonSearch?taxName=adsf%20asdf%20asdf&fuzzy=false
     body:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.81.0 r-curl/5.2.2 crul/1.5.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -46,25 +46,25 @@ http_interactions:
     headers:
       status: 'HTTP/2 200 '
       server: nginx
-      date: Tue, 05 May 2020 01:00:22 GMT
+      date: Thu, 05 Sep 2024 22:54:19 GMT
       content-type: text/html; charset=utf-8
       content-length: '48'
       x-powered-by: PHP/5.3.15
       set-cookie: https=on;Path=/;Max-Age=3600;httponly;SameSite=Lax
     body:
-      encoding: UTF-8
+      encoding: ''
       file: no
       string: '{"top_matched_names":[],"total_matched_names":0}'
-  recorded_at: 2020-05-05 01:00:23 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2024-09-05 22:54:20 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
 - request:
     method: get
-    uri: https://v4.boldsystems.org/index.php/API_Tax/TaxonSearch?taxName=Helianthus%20excubitor
+    uri: https://v4.boldsystems.org/index.php/API_Tax/TaxonSearch?taxName=Helianthus%20excubitor&fuzzy=false
     body:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.81.0 r-curl/5.2.2 crul/1.5.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -75,25 +75,25 @@ http_interactions:
     headers:
       status: 'HTTP/2 200 '
       server: nginx
-      date: Tue, 05 May 2020 01:00:22 GMT
+      date: Thu, 05 Sep 2024 22:54:19 GMT
       content-type: text/html; charset=utf-8
       content-length: '48'
       x-powered-by: PHP/5.3.15
       set-cookie: https=on;Path=/;Max-Age=3600;httponly;SameSite=Lax
     body:
-      encoding: UTF-8
+      encoding: ''
       file: no
       string: '{"top_matched_names":[],"total_matched_names":0}'
-  recorded_at: 2020-05-05 01:00:23 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2024-09-05 22:54:20 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
 - request:
     method: get
-    uri: https://v4.boldsystems.org/index.php/API_Tax/TaxonSearch?taxName=adsf%20asdf%20asdf
+    uri: https://v4.boldsystems.org/index.php/API_Tax/TaxonSearch?taxName=adsf%20asdf%20asdf&fuzzy=false
     body:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.81.0 r-curl/5.2.2 crul/1.5.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -104,14 +104,14 @@ http_interactions:
     headers:
       status: 'HTTP/2 200 '
       server: nginx
-      date: Tue, 05 May 2020 01:00:23 GMT
+      date: Thu, 05 Sep 2024 22:54:20 GMT
       content-type: text/html; charset=utf-8
       content-length: '48'
       x-powered-by: PHP/5.3.15
       set-cookie: https=on;Path=/;Max-Age=3600;httponly;SameSite=Lax
     body:
-      encoding: UTF-8
+      encoding: ''
       file: no
       string: '{"top_matched_names":[],"total_matched_names":0}'
-  recorded_at: 2020-05-05 01:00:23 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2024-09-05 22:54:20 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0

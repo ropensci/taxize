@@ -8,8 +8,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
-      X-USER-AGENT: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
+      User-Agent: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
@@ -17,22 +17,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Thu, 09 Mar 2023 21:24:04 GMT
+      date: Thu, 05 Sep 2024 16:39:29 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
       referrer-policy: origin-when-cross-origin
-      ncbi-sid: 3F9E7D833862D6F6_DD26SID
-      ncbi-phid: 939B640887F4D8E500005400B24D08DE.1.1.m_1
+      ncbi-sid: 4CA1BEEF80D95925_93E6SID
+      ncbi-phid: 322CCF3C14420015000017B6CE1DB9D9.1.1.m_1
       content-type: text/xml; charset=UTF-8
       cache-control: private
       content-encoding: gzip
       x-ratelimit-limit: '10'
-      x-ratelimit-remaining: '8'
+      x-ratelimit-remaining: '6'
       access-control-allow-origin: '*'
       access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
-      set-cookie: ncbi_sid=3F9E7D833862D6F6_DD26SID; domain=.nih.gov; path=/; expires=Sat,
-        09 Mar 2024 21:24:05 GMT
+      set-cookie: ncbi_sid=4CA1BEEF80D95925_93E6SID; domain=.nih.gov; path=/; expires=Fri,
+        05 Sep 2025 16:39:29 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -45,8 +45,8 @@ http_interactions:
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>152733</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Klattia+flava[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Klattia+flava[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2023-03-09 21:24:20 GMT
-  recorded_with: vcr/1.2.0, webmockr/0.8.2
+  recorded_at: 2024-09-05 16:39:35 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Trollius%2Bsibiricus&api_key=<<entrez_api_token>>
@@ -56,8 +56,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
-      X-USER-AGENT: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
+      User-Agent: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
@@ -65,22 +65,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Thu, 09 Mar 2023 21:24:05 GMT
+      date: Thu, 05 Sep 2024 16:39:28 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
       referrer-policy: origin-when-cross-origin
-      ncbi-sid: 3DE81F381B164D9A_913ESID
-      ncbi-phid: 939B640887F4D8E500005100B4E87F3D.1.1.m_1
+      ncbi-sid: 6B9ECBC8ECD7E24B_B41DSID
+      ncbi-phid: 322CCF3C1442001500003BB6CECE97C4.1.1.m_1
       content-type: text/xml; charset=UTF-8
       cache-control: private
       content-encoding: gzip
       x-ratelimit-limit: '10'
-      x-ratelimit-remaining: '8'
+      x-ratelimit-remaining: '6'
       access-control-allow-origin: '*'
       access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
-      set-cookie: ncbi_sid=3DE81F381B164D9A_913ESID; domain=.nih.gov; path=/; expires=Sat,
-        09 Mar 2024 21:24:06 GMT
+      set-cookie: ncbi_sid=6B9ECBC8ECD7E24B_B41DSID; domain=.nih.gov; path=/; expires=Fri,
+        05 Sep 2025 16:39:29 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -93,8 +93,8 @@ http_interactions:
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>944286</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Trollius+sibiricus[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Trollius+sibiricus[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2023-03-09 21:24:20 GMT
-  recorded_with: vcr/1.2.0, webmockr/0.8.2
+  recorded_at: 2024-09-05 16:39:35 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Arachis%2Bparaguariensis&api_key=<<entrez_api_token>>
@@ -104,8 +104,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
-      X-USER-AGENT: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
+      User-Agent: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
@@ -113,22 +113,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Thu, 09 Mar 2023 21:24:07 GMT
+      date: Thu, 05 Sep 2024 16:39:29 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
       referrer-policy: origin-when-cross-origin
-      ncbi-sid: 0178A90DD02F9A25_987ASID
-      ncbi-phid: 939B640887F4D8E500004200B78B840F.1.1.m_1
+      ncbi-sid: 162177C32FF94441_0845SID
+      ncbi-phid: 322CCF3C14420015000030B6CF6A5FD9.1.1.m_1
       content-type: text/xml; charset=UTF-8
       cache-control: private
       content-encoding: gzip
       x-ratelimit-limit: '10'
-      x-ratelimit-remaining: '9'
+      x-ratelimit-remaining: '6'
       access-control-allow-origin: '*'
       access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
-      set-cookie: ncbi_sid=0178A90DD02F9A25_987ASID; domain=.nih.gov; path=/; expires=Sat,
-        09 Mar 2024 21:24:07 GMT
+      set-cookie: ncbi_sid=162177C32FF94441_0845SID; domain=.nih.gov; path=/; expires=Fri,
+        05 Sep 2025 16:39:30 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -141,8 +141,8 @@ http_interactions:
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>224337</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Arachis+paraguariensis[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Arachis+paraguariensis[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2023-03-09 21:24:20 GMT
-  recorded_with: vcr/1.2.0, webmockr/0.8.2
+  recorded_at: 2024-09-05 16:39:35 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Tanacetum%2Bboreale&api_key=<<entrez_api_token>>
@@ -152,8 +152,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
-      X-USER-AGENT: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
+      User-Agent: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
@@ -161,22 +161,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Thu, 09 Mar 2023 21:24:07 GMT
+      date: Thu, 05 Sep 2024 16:39:29 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
       referrer-policy: origin-when-cross-origin
-      ncbi-sid: D08A9C3321BFCC45_511ASID
-      ncbi-phid: 939B640887F4D8E500003800BA25829B.1.1.m_1
+      ncbi-sid: B5D71BE4AC77BCF5_7DDFSID
+      ncbi-phid: 322CCF3C1442001500004AB6CFE84B4F.1.1.m_1
       content-type: text/xml; charset=UTF-8
       cache-control: private
       content-encoding: gzip
       x-ratelimit-limit: '10'
-      x-ratelimit-remaining: '9'
+      x-ratelimit-remaining: '6'
       access-control-allow-origin: '*'
       access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
-      set-cookie: ncbi_sid=D08A9C3321BFCC45_511ASID; domain=.nih.gov; path=/; expires=Sat,
-        09 Mar 2024 21:24:08 GMT
+      set-cookie: ncbi_sid=B5D71BE4AC77BCF5_7DDFSID; domain=.nih.gov; path=/; expires=Fri,
+        05 Sep 2025 16:39:30 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -189,8 +189,8 @@ http_interactions:
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>128002</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Tanacetum+boreale[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Tanacetum+boreale[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2023-03-09 21:24:20 GMT
-  recorded_with: vcr/1.2.0, webmockr/0.8.2
+  recorded_at: 2024-09-05 16:39:35 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Gentiana%2Byakushimensis&api_key=<<entrez_api_token>>
@@ -200,8 +200,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
-      X-USER-AGENT: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
+      User-Agent: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
@@ -209,22 +209,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Thu, 09 Mar 2023 21:24:08 GMT
+      date: Thu, 05 Sep 2024 16:39:30 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
       referrer-policy: origin-when-cross-origin
-      ncbi-sid: 5494CC94403F0EA4_0B61SID
-      ncbi-phid: 939B640887F4D8E500003E00BB9954D4.1.1.m_1
+      ncbi-sid: 7F237B7922691AEB_EC81SID
+      ncbi-phid: 322CCF3C14420015000036B6D0B4D1B9.1.1.m_1
       content-type: text/xml; charset=UTF-8
       cache-control: private
       content-encoding: gzip
       x-ratelimit-limit: '10'
-      x-ratelimit-remaining: '8'
+      x-ratelimit-remaining: '6'
       access-control-allow-origin: '*'
       access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
-      set-cookie: ncbi_sid=5494CC94403F0EA4_0B61SID; domain=.nih.gov; path=/; expires=Sat,
-        09 Mar 2024 21:24:09 GMT
+      set-cookie: ncbi_sid=7F237B7922691AEB_EC81SID; domain=.nih.gov; path=/; expires=Fri,
+        05 Sep 2025 16:39:30 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -237,8 +237,8 @@ http_interactions:
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>553063</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Gentiana+yakushimensis[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Gentiana+yakushimensis[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2023-03-09 21:24:20 GMT
-  recorded_with: vcr/1.2.0, webmockr/0.8.2
+  recorded_at: 2024-09-05 16:39:35 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Sesamum%2Bschinzianum&api_key=<<entrez_api_token>>
@@ -248,8 +248,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
-      X-USER-AGENT: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
+      User-Agent: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
@@ -257,22 +257,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Thu, 09 Mar 2023 21:24:09 GMT
+      date: Thu, 05 Sep 2024 16:39:30 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
       referrer-policy: origin-when-cross-origin
-      ncbi-sid: 11446A439D4A17A5_7496SID
-      ncbi-phid: 939B640887F4D8E500002700BD97B983.1.1.m_1
+      ncbi-sid: 02DA096275D2B821_65EDSID
+      ncbi-phid: 322CCF3C14420015000063B6D16F23A7.1.1.m_1
       content-type: text/xml; charset=UTF-8
       cache-control: private
       content-encoding: gzip
       x-ratelimit-limit: '10'
-      x-ratelimit-remaining: '8'
+      x-ratelimit-remaining: '6'
       access-control-allow-origin: '*'
       access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
-      set-cookie: ncbi_sid=11446A439D4A17A5_7496SID; domain=.nih.gov; path=/; expires=Sat,
-        09 Mar 2024 21:24:09 GMT
+      set-cookie: ncbi_sid=02DA096275D2B821_65EDSID; domain=.nih.gov; path=/; expires=Fri,
+        05 Sep 2025 16:39:31 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -285,8 +285,8 @@ http_interactions:
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>768545</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Sesamum+schinzianum[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Sesamum+schinzianum[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2023-03-09 21:24:20 GMT
-  recorded_with: vcr/1.2.0, webmockr/0.8.2
+  recorded_at: 2024-09-05 16:39:35 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Pilea%2Bverrucosa&api_key=<<entrez_api_token>>
@@ -296,8 +296,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
-      X-USER-AGENT: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
+      User-Agent: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
@@ -305,22 +305,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Thu, 09 Mar 2023 21:24:10 GMT
+      date: Thu, 05 Sep 2024 16:39:31 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
       referrer-policy: origin-when-cross-origin
-      ncbi-sid: C4436A4A082F6542_6536SID
-      ncbi-phid: D0BD29F778F3A205000030FA2A2659F5.1.1.m_1
+      ncbi-sid: ACBF9424ACF9B64A_91CASID
+      ncbi-phid: 322CCF3C14420015000056B6D20F4ABB.1.1.m_1
       content-type: text/xml; charset=UTF-8
       cache-control: private
       content-encoding: gzip
       x-ratelimit-limit: '10'
-      x-ratelimit-remaining: '8'
+      x-ratelimit-remaining: '6'
       access-control-allow-origin: '*'
       access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
-      set-cookie: ncbi_sid=C4436A4A082F6542_6536SID; domain=.nih.gov; path=/; expires=Sat,
-        09 Mar 2024 21:24:10 GMT
+      set-cookie: ncbi_sid=ACBF9424ACF9B64A_91CASID; domain=.nih.gov; path=/; expires=Fri,
+        05 Sep 2025 16:39:31 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -333,8 +333,8 @@ http_interactions:
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>1399730</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Pilea+verrucosa[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Pilea+verrucosa[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2023-03-09 21:24:20 GMT
-  recorded_with: vcr/1.2.0, webmockr/0.8.2
+  recorded_at: 2024-09-05 16:39:35 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Tibouchina%2Bstriphnocalyx&api_key=<<entrez_api_token>>
@@ -344,8 +344,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
-      X-USER-AGENT: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
+      User-Agent: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
@@ -353,22 +353,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Thu, 09 Mar 2023 21:24:10 GMT
+      date: Thu, 05 Sep 2024 16:39:31 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
       referrer-policy: origin-when-cross-origin
-      ncbi-sid: 80FF91ED90D2E294_8809SID
-      ncbi-phid: D0BD29F778F3A20500004CFA2C5D7F38.1.1.m_1
+      ncbi-sid: 843F85B56C4755C3_8E40SID
+      ncbi-phid: 322CCF3C14420015000040B6D29EAB10.1.1.m_1
       content-type: text/xml; charset=UTF-8
       cache-control: private
       content-encoding: gzip
       x-ratelimit-limit: '10'
-      x-ratelimit-remaining: '8'
+      x-ratelimit-remaining: '6'
       access-control-allow-origin: '*'
       access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
-      set-cookie: ncbi_sid=80FF91ED90D2E294_8809SID; domain=.nih.gov; path=/; expires=Sat,
-        09 Mar 2024 21:24:11 GMT
+      set-cookie: ncbi_sid=843F85B56C4755C3_8E40SID; domain=.nih.gov; path=/; expires=Fri,
+        05 Sep 2025 16:39:31 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -381,8 +381,8 @@ http_interactions:
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>1160690</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Tibouchina+striphnocalyx[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Tibouchina+striphnocalyx[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2023-03-09 21:24:20 GMT
-  recorded_with: vcr/1.2.0, webmockr/0.8.2
+  recorded_at: 2024-09-05 16:39:35 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Lycium%2Bdasystemum&api_key=<<entrez_api_token>>
@@ -392,8 +392,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
-      X-USER-AGENT: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
+      User-Agent: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
@@ -401,22 +401,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Thu, 09 Mar 2023 21:24:10 GMT
+      date: Thu, 05 Sep 2024 16:39:31 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
       referrer-policy: origin-when-cross-origin
-      ncbi-sid: 3F8CA4E80BB0A3AE_9729SID
-      ncbi-phid: D0BD29F778F3A205000035FA2EAB6D3A.1.1.m_1
+      ncbi-sid: 8F28BC23B727466A_7174SID
+      ncbi-phid: 322CCF3C14420015000029B6D3320413.1.1.m_1
       content-type: text/xml; charset=UTF-8
       cache-control: private
       content-encoding: gzip
       x-ratelimit-limit: '10'
-      x-ratelimit-remaining: '8'
+      x-ratelimit-remaining: '6'
       access-control-allow-origin: '*'
       access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
-      set-cookie: ncbi_sid=3F8CA4E80BB0A3AE_9729SID; domain=.nih.gov; path=/; expires=Sat,
-        09 Mar 2024 21:24:11 GMT
+      set-cookie: ncbi_sid=8F28BC23B727466A_7174SID; domain=.nih.gov; path=/; expires=Fri,
+        05 Sep 2025 16:39:31 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -429,8 +429,8 @@ http_interactions:
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>942185</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Lycium+dasystemum[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Lycium+dasystemum[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2023-03-09 21:24:20 GMT
-  recorded_with: vcr/1.2.0, webmockr/0.8.2
+  recorded_at: 2024-09-05 16:39:35 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Berkheya%2Bechinacea&api_key=<<entrez_api_token>>
@@ -440,8 +440,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
-      X-USER-AGENT: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
+      User-Agent: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
@@ -449,22 +449,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Thu, 09 Mar 2023 21:24:12 GMT
+      date: Thu, 05 Sep 2024 16:39:32 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
       referrer-policy: origin-when-cross-origin
-      ncbi-sid: DB5D199D54E283AF_760BSID
-      ncbi-phid: D0BD29F778F3A20500004CFA309C78AB.1.1.m_1
+      ncbi-sid: 15B081BF147CA21D_C16BSID
+      ncbi-phid: 322CCF3C1442001500004DB6D3ECB420.1.1.m_1
       content-type: text/xml; charset=UTF-8
       cache-control: private
       content-encoding: gzip
       x-ratelimit-limit: '10'
-      x-ratelimit-remaining: '8'
+      x-ratelimit-remaining: '6'
       access-control-allow-origin: '*'
       access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
-      set-cookie: ncbi_sid=DB5D199D54E283AF_760BSID; domain=.nih.gov; path=/; expires=Sat,
-        09 Mar 2024 21:24:12 GMT
+      set-cookie: ncbi_sid=15B081BF147CA21D_C16BSID; domain=.nih.gov; path=/; expires=Fri,
+        05 Sep 2025 16:39:32 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -477,8 +477,8 @@ http_interactions:
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>527996</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Berkheya+echinacea[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Berkheya+echinacea[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2023-03-09 21:24:20 GMT
-  recorded_with: vcr/1.2.0, webmockr/0.8.2
+  recorded_at: 2024-09-05 16:39:35 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Androcymbium%2Bvillosum&api_key=<<entrez_api_token>>
@@ -488,8 +488,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
-      X-USER-AGENT: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
+      User-Agent: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
@@ -497,22 +497,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Thu, 09 Mar 2023 21:24:12 GMT
+      date: Thu, 05 Sep 2024 16:39:31 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
       referrer-policy: origin-when-cross-origin
-      ncbi-sid: 0E20449612D800EF_943CSID
-      ncbi-phid: D0BD29F778F3A20500005DFA32B56516.1.1.m_1
+      ncbi-sid: 005765EACFA5073E_594ASID
+      ncbi-phid: 322CCF3C14420015000037B6D4DF2C3B.1.1.m_1
       content-type: text/xml; charset=UTF-8
       cache-control: private
       content-encoding: gzip
       x-ratelimit-limit: '10'
-      x-ratelimit-remaining: '8'
+      x-ratelimit-remaining: '6'
       access-control-allow-origin: '*'
       access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
-      set-cookie: ncbi_sid=0E20449612D800EF_943CSID; domain=.nih.gov; path=/; expires=Sat,
-        09 Mar 2024 21:24:13 GMT
+      set-cookie: ncbi_sid=005765EACFA5073E_594ASID; domain=.nih.gov; path=/; expires=Fri,
+        05 Sep 2025 16:39:32 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -525,8 +525,8 @@ http_interactions:
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>279457</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Androcymbium+villosum[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Androcymbium+villosum[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2023-03-09 21:24:20 GMT
-  recorded_with: vcr/1.2.0, webmockr/0.8.2
+  recorded_at: 2024-09-05 16:39:35 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Helianthus%2Bannuus&api_key=<<entrez_api_token>>
@@ -536,8 +536,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
-      X-USER-AGENT: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
+      User-Agent: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
@@ -545,22 +545,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Thu, 09 Mar 2023 21:24:13 GMT
+      date: Thu, 05 Sep 2024 16:39:31 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
       referrer-policy: origin-when-cross-origin
-      ncbi-sid: F41CB39A4905538B_F957SID
-      ncbi-phid: D0BD29F778F3A205000047FA351153D1.1.1.m_1
+      ncbi-sid: 3D68D549BB095D97_FD7ASID
+      ncbi-phid: 322CCF3C14420015000030B6D5CB99F5.1.1.m_1
       content-type: text/xml; charset=UTF-8
       cache-control: private
       content-encoding: gzip
       x-ratelimit-limit: '10'
-      x-ratelimit-remaining: '8'
+      x-ratelimit-remaining: '6'
       access-control-allow-origin: '*'
       access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
-      set-cookie: ncbi_sid=F41CB39A4905538B_F957SID; domain=.nih.gov; path=/; expires=Sat,
-        09 Mar 2024 21:24:14 GMT
+      set-cookie: ncbi_sid=3D68D549BB095D97_FD7ASID; domain=.nih.gov; path=/; expires=Fri,
+        05 Sep 2025 16:39:32 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -573,8 +573,8 @@ http_interactions:
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>4232</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Helianthus+annuus[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Helianthus+annuus[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2023-03-09 21:24:20 GMT
-  recorded_with: vcr/1.2.0, webmockr/0.8.2
+  recorded_at: 2024-09-05 16:39:35 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Madia%2Belegans&api_key=<<entrez_api_token>>
@@ -584,8 +584,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
-      X-USER-AGENT: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
+      User-Agent: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
@@ -593,22 +593,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Thu, 09 Mar 2023 21:24:14 GMT
+      date: Thu, 05 Sep 2024 16:39:32 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
       referrer-policy: origin-when-cross-origin
-      ncbi-sid: A375846A682C0C76_C7ECSID
-      ncbi-phid: D0BD29F778F3A205000057FA387DB46A.1.1.m_1
+      ncbi-sid: 035744D1789A91ED_C3FASID
+      ncbi-phid: 322CCF3C1442001500004FB6D704EC3D.1.1.m_1
       content-type: text/xml; charset=UTF-8
       cache-control: private
       content-encoding: gzip
       x-ratelimit-limit: '10'
-      x-ratelimit-remaining: '8'
+      x-ratelimit-remaining: '6'
       access-control-allow-origin: '*'
       access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
-      set-cookie: ncbi_sid=A375846A682C0C76_C7ECSID; domain=.nih.gov; path=/; expires=Sat,
-        09 Mar 2024 21:24:14 GMT
+      set-cookie: ncbi_sid=035744D1789A91ED_C3FASID; domain=.nih.gov; path=/; expires=Fri,
+        05 Sep 2025 16:39:33 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -621,8 +621,8 @@ http_interactions:
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>4255</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Madia+elegans[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Madia+elegans[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2023-03-09 21:24:20 GMT
-  recorded_with: vcr/1.2.0, webmockr/0.8.2
+  recorded_at: 2024-09-05 16:39:35 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Lupinus%2Balbicaulis&api_key=<<entrez_api_token>>
@@ -632,8 +632,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
-      X-USER-AGENT: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
+      User-Agent: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
@@ -641,22 +641,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Thu, 09 Mar 2023 21:24:14 GMT
+      date: Thu, 05 Sep 2024 16:39:32 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
       referrer-policy: origin-when-cross-origin
-      ncbi-sid: F7ADEB7F0B1D0D1B_E39ESID
-      ncbi-phid: D0BD29F778F3A205000048FA3ABE52FB.1.1.m_1
+      ncbi-sid: 5A3F16CC47341A62_9B7FSID
+      ncbi-phid: 322CCF3C1442001500004FB6D814DB2A.1.1.m_1
       content-type: text/xml; charset=UTF-8
       cache-control: private
       content-encoding: gzip
       x-ratelimit-limit: '10'
-      x-ratelimit-remaining: '8'
+      x-ratelimit-remaining: '6'
       access-control-allow-origin: '*'
       access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
-      set-cookie: ncbi_sid=F7ADEB7F0B1D0D1B_E39ESID; domain=.nih.gov; path=/; expires=Sat,
-        09 Mar 2024 21:24:15 GMT
+      set-cookie: ncbi_sid=5A3F16CC47341A62_9B7FSID; domain=.nih.gov; path=/; expires=Fri,
+        05 Sep 2025 16:39:33 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -669,8 +669,8 @@ http_interactions:
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>377318</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Lupinus+albicaulis[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Lupinus+albicaulis[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2023-03-09 21:24:20 GMT
-  recorded_with: vcr/1.2.0, webmockr/0.8.2
+  recorded_at: 2024-09-05 16:39:35 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Pinus%2Blambertiana&api_key=<<entrez_api_token>>
@@ -680,8 +680,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
-      X-USER-AGENT: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
+      User-Agent: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
@@ -689,25 +689,24 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Thu, 09 Mar 2023 21:24:15 GMT
+      date: Thu, 05 Sep 2024 16:39:33 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
       referrer-policy: origin-when-cross-origin
-      ncbi-sid: A120AF42E0F54039_3D54SID
-      ncbi-phid: D0BD29F778F3A20500003CFA3D0E31E7.1.1.m_1
+      ncbi-sid: D36DA9ABB8F28715_5071SID
+      ncbi-phid: 322CCF3C14420015000032B6D9B0D870.1.1.m_1
       content-type: text/xml; charset=UTF-8
       cache-control: private
       content-encoding: gzip
       x-ratelimit-limit: '10'
-      x-ratelimit-remaining: '8'
+      x-ratelimit-remaining: '6'
       access-control-allow-origin: '*'
       access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
-      set-cookie: ncbi_sid=A120AF42E0F54039_3D54SID; domain=.nih.gov; path=/; expires=Sat,
-        09 Mar 2024 21:24:16 GMT
+      set-cookie: ncbi_sid=D36DA9ABB8F28715_5071SID; domain=.nih.gov; path=/; expires=Fri,
+        05 Sep 2025 16:39:33 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
-      connection: close
       transfer-encoding: chunked
     body:
       encoding: ''
@@ -718,8 +717,8 @@ http_interactions:
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>3343</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Pinus+lambertiana[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Pinus+lambertiana[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2023-03-09 21:24:20 GMT
-  recorded_with: vcr/1.2.0, webmockr/0.8.2
+  recorded_at: 2024-09-05 16:39:35 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Haloarcula%2Bamylolytica%2BJCM%2B13557&api_key=<<entrez_api_token>>
@@ -729,8 +728,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
-      X-USER-AGENT: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
+      User-Agent: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
@@ -738,22 +737,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Thu, 09 Mar 2023 21:24:17 GMT
+      date: Thu, 05 Sep 2024 16:39:33 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
       referrer-policy: origin-when-cross-origin
-      ncbi-sid: E819E5D2F4B9B4AF_4AB7SID
-      ncbi-phid: D0BD29F778F3A205000035FA460297B2.1.1.m_1
+      ncbi-sid: ADDE4003A66EF1B8_883DSID
+      ncbi-phid: 322CCF3C14420015000036B6DAF4BE8A.1.1.m_1
       content-type: text/xml; charset=UTF-8
       cache-control: private
       content-encoding: gzip
       x-ratelimit-limit: '10'
-      x-ratelimit-remaining: '9'
+      x-ratelimit-remaining: '6'
       access-control-allow-origin: '*'
       access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
-      set-cookie: ncbi_sid=E819E5D2F4B9B4AF_4AB7SID; domain=.nih.gov; path=/; expires=Sat,
-        09 Mar 2024 21:24:17 GMT
+      set-cookie: ncbi_sid=ADDE4003A66EF1B8_883DSID; domain=.nih.gov; path=/; expires=Fri,
+        05 Sep 2025 16:39:34 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -766,8 +765,8 @@ http_interactions:
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>1227452</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Haloarcula+amylolytica+JCM+13557[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Haloarcula+amylolytica+JCM+13557[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2023-03-09 21:24:20 GMT
-  recorded_with: vcr/1.2.0, webmockr/0.8.2
+  recorded_at: 2024-09-05 16:39:35 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Halomonas%2Bsp.%2B%27Soap%2BLake%2B%236%27&api_key=<<entrez_api_token>>
@@ -777,8 +776,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
-      X-USER-AGENT: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
+      User-Agent: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
@@ -786,22 +785,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Thu, 09 Mar 2023 21:24:18 GMT
+      date: Thu, 05 Sep 2024 16:39:33 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
       referrer-policy: origin-when-cross-origin
-      ncbi-sid: 8945A5EFDE213F05_FE1ASID
-      ncbi-phid: D0BD29F778F3A20500005BFA4895A696.1.1.m_1
+      ncbi-sid: A730168A530861DC_99DASID
+      ncbi-phid: 322CCF3C14420015000031B6DC576E7D.1.1.m_1
       content-type: text/xml; charset=UTF-8
       cache-control: private
       content-encoding: gzip
       x-ratelimit-limit: '10'
-      x-ratelimit-remaining: '8'
+      x-ratelimit-remaining: '6'
       access-control-allow-origin: '*'
       access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
-      set-cookie: ncbi_sid=8945A5EFDE213F05_FE1ASID; domain=.nih.gov; path=/; expires=Sat,
-        09 Mar 2024 21:24:18 GMT
+      set-cookie: ncbi_sid=A730168A530861DC_99DASID; domain=.nih.gov; path=/; expires=Fri,
+        05 Sep 2025 16:39:34 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -814,8 +813,8 @@ http_interactions:
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>1949203</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Halomonas+sp.+'Soap+Lake+#6'[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Halomonas+sp.+'Soap+Lake+#6'[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2023-03-09 21:24:20 GMT
-  recorded_with: vcr/1.2.0, webmockr/0.8.2
+  recorded_at: 2024-09-05 16:39:35 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=152733%2C944286%2C224337%2C128002%2C553063%2C768545%2C1399730%2C1160690%2C942185%2C527996%2C279457%2C4232%2C4255%2C377318%2C3343%2C1227452%2C1949203&api_key=<<entrez_api_token>>
@@ -823,7 +822,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.81.0 r-curl/4.3.3 crul/1.3
+      User-Agent: libcurl/7.81.0 r-curl/5.2.2 crul/1.5.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -833,22 +832,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Thu, 09 Mar 2023 21:24:19 GMT
+      date: Thu, 05 Sep 2024 16:39:34 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
       referrer-policy: origin-when-cross-origin
-      ncbi-sid: FE583F53D68D7DC7_D8ACSID
-      ncbi-phid: D0BD29F778F3A20500005BFA4BB8AA30.1.1.m_5
+      ncbi-sid: 803A7D18BC426551_9EAESID
+      ncbi-phid: 322CCF3C1442001500003DB6DD9E4A94.1.1.m_3
       content-type: text/xml; charset=UTF-8
       cache-control: private
       content-encoding: gzip
       x-ratelimit-limit: '10'
-      x-ratelimit-remaining: '8'
+      x-ratelimit-remaining: '6'
       access-control-allow-origin: '*'
       access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
-      set-cookie: ncbi_sid=FE583F53D68D7DC7_D8ACSID; domain=.nih.gov; path=/; expires=Sat,
-        09 Mar 2024 21:24:19 GMT
+      set-cookie: ncbi_sid=803A7D18BC426551_9EAESID; domain=.nih.gov; path=/; expires=Fri,
+        05 Sep 2025 16:39:34 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -864,7 +863,7 @@ http_interactions:
             <OtherNames>
                 <Name>
                     <ClassCDE>authority</ClassCDE>
-                    <DispName>Klattia flava (G.J.Lewis) Goldblatt</DispName>
+                    <DispName>Klattia flava (G.J.Lewis) Goldblatt, 1993</DispName>
                 </Name>
             </OtherNames>
             <ParentTaxId>152732</ParentTaxId>
@@ -982,7 +981,7 @@ http_interactions:
             <OtherNames>
                 <Name>
                     <ClassCDE>authority</ClassCDE>
-                    <DispName>Trollius sibiricus Schipcz.</DispName>
+                    <DispName>Trollius sibiricus Schipcz., 1923</DispName>
                 </Name>
             </OtherNames>
             <ParentTaxId>39245</ParentTaxId>
@@ -1095,7 +1094,7 @@ http_interactions:
             <OtherNames>
                 <Name>
                     <ClassCDE>authority</ClassCDE>
-                    <DispName>Arachis paraguariensis Chodat &amp; Hassl.</DispName>
+                    <DispName>Arachis paraguariensis Chodat &amp; Hassl., 1904</DispName>
                 </Name>
                 <Name>
                     <ClassCDE>misspelling</ClassCDE>
@@ -1263,7 +1262,7 @@ http_interactions:
                 </Name>
                 <Name>
                     <ClassCDE>authority</ClassCDE>
-                    <DispName>Tanacetum vulgare L.</DispName>
+                    <DispName>Tanacetum vulgare L., 1753</DispName>
                 </Name>
                 <Name>
                     <ClassCDE>authority</ClassCDE>
@@ -1410,7 +1409,7 @@ http_interactions:
             <OtherNames>
                 <Name>
                     <ClassCDE>authority</ClassCDE>
-                    <DispName>Gentiana yakushimensis Makino</DispName>
+                    <DispName>Gentiana yakushimensis Makino, 1909</DispName>
                 </Name>
             </OtherNames>
             <ParentTaxId>21496</ParentTaxId>
@@ -1548,7 +1547,7 @@ http_interactions:
             <OtherNames>
                 <Name>
                     <ClassCDE>authority</ClassCDE>
-                    <DispName>Sesamum schinzianum Asch. ex Schinz</DispName>
+                    <DispName>Sesamum schinzianum Asch., 1888</DispName>
                 </Name>
                 <Name>
                     <ClassCDE>misspelling</ClassCDE>
@@ -1680,7 +1679,7 @@ http_interactions:
             <OtherNames>
                 <Name>
                     <ClassCDE>authority</ClassCDE>
-                    <DispName>Pilea verrucosa Killip</DispName>
+                    <DispName>Pilea verrucosa Killip, 1925</DispName>
                 </Name>
             </OtherNames>
             <ParentTaxId>24775</ParentTaxId>
@@ -1808,7 +1807,7 @@ http_interactions:
             <OtherNames>
                 <Name>
                     <ClassCDE>authority</ClassCDE>
-                    <DispName>Tibouchina striphnocalyx (DC.) Gleason</DispName>
+                    <DispName>Tibouchina striphnocalyx (DC.) Pittier, 1947</DispName>
                 </Name>
             </OtherNames>
             <ParentTaxId>40008</ParentTaxId>
@@ -1946,7 +1945,7 @@ http_interactions:
             <OtherNames>
                 <Name>
                     <ClassCDE>authority</ClassCDE>
-                    <DispName>Lycium dasystemum Pojark.</DispName>
+                    <DispName>Lycium dasystemum Pojark., 1950</DispName>
                 </Name>
             </OtherNames>
             <ParentTaxId>24646</ParentTaxId>
@@ -2084,7 +2083,7 @@ http_interactions:
             <OtherNames>
                 <Name>
                     <ClassCDE>authority</ClassCDE>
-                    <DispName>Berkheya echinacea (Harv.) Burtt Davy</DispName>
+                    <DispName>Berkheya echinacea Burtt Davy, 1935</DispName>
                 </Name>
             </OtherNames>
             <ParentTaxId>165077</ParentTaxId>
@@ -2227,7 +2226,7 @@ http_interactions:
             <OtherNames>
                 <Name>
                     <ClassCDE>authority</ClassCDE>
-                    <DispName>Androcymbium villosum U.Muell.-Doblies &amp; D.Muell.-Doblies</DispName>
+                    <DispName>Androcymbium villosum U.Müll.-Doblies &amp; D.Müll.-Doblies, 1984</DispName>
                 </Name>
             </OtherNames>
             <ParentTaxId>59022</ParentTaxId>
@@ -2341,7 +2340,7 @@ http_interactions:
                 <GenbankCommonName>common sunflower</GenbankCommonName>
                 <Name>
                     <ClassCDE>authority</ClassCDE>
-                    <DispName>Helianthus annuus L.</DispName>
+                    <DispName>Helianthus annuus L., 1753</DispName>
                 </Name>
                 <Name>
                     <ClassCDE>misspelling</ClassCDE>
@@ -2497,7 +2496,7 @@ http_interactions:
                 <CommonName>common Madia</CommonName>
                 <Name>
                     <ClassCDE>authority</ClassCDE>
-                    <DispName>Madia elegans D.Don ex Lindl.</DispName>
+                    <DispName>Madia elegans D.Don, 1831</DispName>
                 </Name>
             </OtherNames>
             <ParentTaxId>4253</ParentTaxId>
@@ -2645,7 +2644,7 @@ http_interactions:
             <OtherNames>
                 <Name>
                     <ClassCDE>authority</ClassCDE>
-                    <DispName>Lupinus albicaulis Douglas ex Hook.</DispName>
+                    <DispName>Lupinus albicaulis Douglas, 1832</DispName>
                 </Name>
             </OtherNames>
             <ParentTaxId>3869</ParentTaxId>
@@ -2799,7 +2798,7 @@ http_interactions:
                 <GenbankCommonName>sugar pine</GenbankCommonName>
                 <Name>
                     <ClassCDE>authority</ClassCDE>
-                    <DispName>Pinus lambertiana Douglas</DispName>
+                    <DispName>Pinus lambertiana Douglas, 1827</DispName>
                 </Name>
             </OtherNames>
             <ParentTaxId>139272</ParentTaxId>
@@ -3040,5 +3039,5 @@ http_interactions:
         </Taxon>
 
         </TaxaSet>
-  recorded_at: 2023-03-09 21:24:20 GMT
-  recorded_with: vcr/1.2.0, webmockr/0.8.2
+  recorded_at: 2024-09-05 16:39:35 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0

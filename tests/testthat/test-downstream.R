@@ -40,7 +40,7 @@ test_that("downstream - multiple data sources", {
 test_that("downstream - Use the rows parameter", {
   skip_on_cran()
   vcr::use_cassette("downstream_rows_param", {
-    aa <- downstream("Hereroa", db = 'gbif', downto = "species",
+    aa <- downstream("Pinus", db = 'gbif', downto = "species",
       rows = 1, messages = FALSE)
   })
 

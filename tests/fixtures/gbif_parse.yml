@@ -4,33 +4,41 @@ http_interactions:
     uri: https://api.gbif.org/v1/parser/name
     body:
       encoding: ''
-      string: ''
+      string: '["x Agropogon littoralis L."]'
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
       Content-Type: application/json
-      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(taxize/0.9.7)
-      X-USER-AGENT: r-curl/3.3 crul/0.7.4 rOpenSci(taxize/0.9.7)
+      User-Agent: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '201'
       message: Created
       explanation: Document created, URL follows
     headers:
-      status: HTTP/1.1 201 Created
-      date: Wed, 08 May 2019 20:52:40 GMT
+      status: 'HTTP/2 201 '
+      vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-xss-protection: 1; mode=block
+      pragma: no-cache
+      expires: '0'
+      x-frame-options: DENY
       content-type: application/json
-      access-control-allow-origin: '*'
-      access-control-allow-methods: HEAD, GET, POST, DELETE, PUT
-      server: Jetty(9.3.z-SNAPSHOT)
+      date: Thu, 05 Sep 2024 22:54:16 GMT
       cache-control: public, max-age=3601
-      x-varnish: '560464171'
+      x-varnish: '700715066'
       age: '0'
-      via: 1.1 varnish (Varnish/5.2)
-      content-length: '361'
-      connection: keep-alive
+      via: 1.1 varnish (Varnish/6.0)
     body:
-      encoding: ASCII-8BIT
-      string: W3sic2NpZW50aWZpY05hbWUiOiJ4IEFncm9wb2dvbiBsaXR0b3JhbGlzIEwuIiwidHlwZSI6IlNDSUVOVElGSUMiLCJnZW51c09yQWJvdmUiOiJBZ3JvcG9nb24iLCJzcGVjaWZpY0VwaXRoZXQiOiJsaXR0b3JhbGlzIiwibm90aG8iOiJHRU5FUklDIiwiYXV0aG9yc2hpcCI6IkwuIiwicGFyc2VkIjp0cnVlLCJwYXJzZWRQYXJ0aWFsbHkiOmZhbHNlLCJjYW5vbmljYWxOYW1lIjoiQWdyb3BvZ29uIGxpdHRvcmFsaXMiLCJjYW5vbmljYWxOYW1lV2l0aE1hcmtlciI6IsOXQWdyb3BvZ29uIGxpdHRvcmFsaXMiLCJjYW5vbmljYWxOYW1lQ29tcGxldGUiOiLDl0Fncm9wb2dvbiBsaXR0b3JhbGlzIEwuIiwicmFua01hcmtlciI6InNwLiJ9XQ==
-  recorded_at: 2019-05-08 20:52:40 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
+      encoding: ''
+      file: no
+      base64_string: W3sic2NpZW50aWZpY05hbWUiOiJ4IEFncm9wb2dvbiBsaXR0b3JhbGlzIEwuIiwidHlwZSI6IlNDSUVO
+        VElGSUMiLCJnZW51c09yQWJvdmUiOiJBZ3JvcG9nb24iLCJzcGVjaWZpY0VwaXRoZXQiOiJsaXR0b3Jh
+        bGlzIiwibm90aG8iOiJHRU5FUklDIiwiYXV0aG9yc2hpcCI6IkwuIiwicGFyc2VkIjp0cnVlLCJwYXJz
+        ZWRQYXJ0aWFsbHkiOmZhbHNlLCJjYW5vbmljYWxOYW1lIjoiQWdyb3BvZ29uIGxpdHRvcmFsaXMiLCJj
+        YW5vbmljYWxOYW1lQ29tcGxldGUiOiLDl0Fncm9wb2dvbiBsaXR0b3JhbGlzIEwuIiwiY2Fub25pY2Fs
+        TmFtZVdpdGhNYXJrZXIiOiLDl0Fncm9wb2dvbiBsaXR0b3JhbGlzIiwicmFua01hcmtlciI6InNwLiJ9
+        XQ==
+  recorded_at: 2024-09-05 22:54:16 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0

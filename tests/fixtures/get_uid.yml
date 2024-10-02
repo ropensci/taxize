@@ -6,9 +6,10 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
@@ -16,34 +17,36 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 20:12:29 GMT
+      date: Wed, 25 Sep 2024 22:37:52 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '8'
-      ncbi-phid: 322CDAEFF3EFD7B500001AB61FF1B6BD.1.1.m_1
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: 758254845AA335C4_D3ACSID
+      ncbi-phid: 322CC6EF7F896A0500004AFE92E5BFDA.1.1.m_1
+      content-type: text/xml; charset=UTF-8
       cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: 4FA8C38D8FCA67E6_8387SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '9'
       access-control-allow-origin: '*'
-      content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=4FA8C38D8FCA67E6_8387SID; domain=.nih.gov; path=/; expires=Sun,
-        26 Jan 2020 20:12:29 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=758254845AA335C4_D3ACSID; domain=.nih.gov; path=/; expires=Thu,
+        25 Sep 2025 22:37:53 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
     body:
-      encoding: UTF-8
+      encoding: ''
+      file: no
       string: |
         <?xml version="1.0" encoding="UTF-8" ?>
         <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>315576</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Chironomus+riparius[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Chironomus+riparius[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2019-01-26 20:12:31 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2024-09-25 22:37:54 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=aaa&api_key=<<entrez_api_token>>
@@ -51,9 +54,10 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
@@ -61,32 +65,34 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 20:12:29 GMT
+      date: Wed, 25 Sep 2024 22:37:53 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '7'
-      ncbi-phid: D0BD37B365326FC5000025868FB1768D.1.1.m_1
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: 50B211368A2AE22A_75E0SID
+      ncbi-phid: 322CC6EF7F896A0500003DFE940216D2.1.1.m_1
+      content-type: text/xml; charset=UTF-8
       cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: 4604242102D92CD1_724BSID
       content-encoding: gzip
       x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '8'
       access-control-allow-origin: '*'
-      content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=4604242102D92CD1_724BSID; domain=.nih.gov; path=/; expires=Sun,
-        26 Jan 2020 20:12:30 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=50B211368A2AE22A_75E0SID; domain=.nih.gov; path=/; expires=Thu,
+        25 Sep 2025 22:37:53 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
     body:
-      encoding: UTF-8
+      encoding: ''
+      file: no
       string: |
         <?xml version="1.0" encoding="UTF-8" ?>
         <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
         <eSearchResult><Count>0</Count><RetMax>0</RetMax><RetStart>0</RetStart><IdList/><TranslationSet/><QueryTranslation>(aaa[All Names])</QueryTranslation><ErrorList><PhraseNotFound>aaa</PhraseNotFound></ErrorList><WarningList><OutputMessage>No items found.</OutputMessage></WarningList></eSearchResult>
-  recorded_at: 2019-01-26 20:12:31 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2024-09-25 22:37:54 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Chironomus%2Briparius&api_key=<<entrez_api_token>>
@@ -94,9 +100,10 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
@@ -104,79 +111,36 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 20:12:30 GMT
+      date: Wed, 25 Sep 2024 22:37:53 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '6'
-      ncbi-phid: 939B131039D6F975000026B10B7629BE.1.1.m_1
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: 7FBC28862A081A9F_D747SID
+      ncbi-phid: 322CC6EF7F896A05000027FE95255E2B.1.1.m_1
+      content-type: text/xml; charset=UTF-8
       cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: 028640F2034C1DC8_0E65SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '7'
       access-control-allow-origin: '*'
-      content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=028640F2034C1DC8_0E65SID; domain=.nih.gov; path=/; expires=Sun,
-        26 Jan 2020 20:12:30 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=7FBC28862A081A9F_D747SID; domain=.nih.gov; path=/; expires=Thu,
+        25 Sep 2025 22:37:53 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
-    body:
-      encoding: UTF-8
-      string: |
-        <?xml version="1.0" encoding="UTF-8" ?>
-        <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
-        <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
-        <Id>315576</Id>
-        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Chironomus+riparius[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Chironomus+riparius[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2019-01-26 20:12:31 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
-- request:
-    method: get
-    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Chironomus%2Briparius&api_key=<<entrez_api_token>>
     body:
       encoding: ''
-      string: ''
-    headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
-      Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 20:12:30 GMT
-      server: Finatra
-      strict-transport-security: max-age=31536000; includeSubDomains; preload
-      content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '6'
-      ncbi-phid: 939B131039D6F975000025B10BA1C1B7.1.1.m_1
-      cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: 028640F2034C1DC8_0E65SID
-      content-encoding: gzip
-      x-ratelimit-limit: '10'
-      access-control-allow-origin: '*'
-      content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=028640F2034C1DC8_0E65SID; domain=.nih.gov; path=/; expires=Sun,
-        26 Jan 2020 20:12:30 GMT
-      x-ua-compatible: IE=Edge
-      x-xss-protection: 1; mode=block
-      transfer-encoding: chunked
-    body:
-      encoding: UTF-8
+      file: no
       string: |
         <?xml version="1.0" encoding="UTF-8" ?>
         <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>315576</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Chironomus+riparius[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Chironomus+riparius[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2019-01-26 20:12:31 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2024-09-25 22:37:54 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Chaetopteryx&api_key=<<entrez_api_token>>
@@ -184,9 +148,10 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
@@ -194,31 +159,33 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 20:12:30 GMT
+      date: Wed, 25 Sep 2024 22:37:53 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '4'
-      ncbi-phid: 322CDAEFF3EFD7B5000021B620A0F4B8.1.1.m_1
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: 9E3F84F8B288F20F_67ECSID
+      ncbi-phid: 322CC6EF7F896A05000026FE96324E2C.1.1.m_1
+      content-type: text/xml; charset=UTF-8
       cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: 2911B56C7852920B_923ASID
       content-encoding: gzip
       x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '6'
       access-control-allow-origin: '*'
-      content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=2911B56C7852920B_923ASID; domain=.nih.gov; path=/; expires=Sun,
-        26 Jan 2020 20:12:31 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=9E3F84F8B288F20F_67ECSID; domain=.nih.gov; path=/; expires=Thu,
+        25 Sep 2025 22:37:54 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
     body:
-      encoding: UTF-8
+      encoding: ''
+      file: no
       string: |
         <?xml version="1.0" encoding="UTF-8" ?>
         <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>492549</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Chaetopteryx[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Chaetopteryx[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2019-01-26 20:12:31 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2024-09-25 22:37:54 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0

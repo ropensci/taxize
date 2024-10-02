@@ -52,7 +52,7 @@ tx_msg_not_found <-
 # url templates for uri attributes of get_* functions
 get_url_templates <- list(
   gbif = "https://www.gbif.org/species/%s",
-  pow = "http://powo.science.kew.org/taxon/%s",
+  pow = "https://powo.science.kew.org/taxon/%s",
   tol = "https://tree.opentreeoflife.org/opentree/argus/ottol@%s",
   tropicos = "http://tropicos.org/Name/%s",
   worms = "http://www.marinespecies.org/aphia.php?p=taxdetails&id=%s",

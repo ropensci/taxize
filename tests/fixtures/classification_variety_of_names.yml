@@ -8,8 +8,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
-      X-USER-AGENT: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
+      User-Agent: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
@@ -17,22 +17,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Thu, 09 Mar 2023 21:24:37 GMT
+      date: Thu, 05 Sep 2024 16:40:09 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
       referrer-policy: origin-when-cross-origin
-      ncbi-sid: EB03103224018CF5_CA8DSID
-      ncbi-phid: 322C2D2E52F04595000056D50D170834.1.1.m_1
+      ncbi-sid: 3D75C8A02DAF82E5_F181SID
+      ncbi-phid: D0BD9D8EE5AB4CE5000030AF56F2815F.1.1.m_1
       content-type: text/xml; charset=UTF-8
       cache-control: private
       content-encoding: gzip
       x-ratelimit-limit: '10'
-      x-ratelimit-remaining: '8'
+      x-ratelimit-remaining: '7'
       access-control-allow-origin: '*'
       access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
-      set-cookie: ncbi_sid=EB03103224018CF5_CA8DSID; domain=.nih.gov; path=/; expires=Sat,
-        09 Mar 2024 21:24:37 GMT
+      set-cookie: ncbi_sid=3D75C8A02DAF82E5_F181SID; domain=.nih.gov; path=/; expires=Fri,
+        05 Sep 2025 16:40:09 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -45,8 +45,8 @@ http_interactions:
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>992823</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Regmatodon+orthostegius[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Regmatodon+orthostegius[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2023-03-09 21:24:41 GMT
-  recorded_with: vcr/1.2.0, webmockr/0.8.2
+  recorded_at: 2024-09-05 16:40:12 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=992823&api_key=<<entrez_api_token>>
@@ -54,7 +54,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.81.0 r-curl/4.3.3 crul/1.3
+      User-Agent: libcurl/7.81.0 r-curl/5.2.2 crul/1.5.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -64,22 +64,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Thu, 09 Mar 2023 21:24:37 GMT
+      date: Thu, 05 Sep 2024 16:40:10 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
       referrer-policy: origin-when-cross-origin
-      ncbi-sid: 8DFD1A1E79ECAC31_2877SID
-      ncbi-phid: 322C2D2E52F04595000030D50FBA3C1C.1.1.m_5
+      ncbi-sid: 37A8A0AE0D3DD244_75D7SID
+      ncbi-phid: D0BD9D8EE5AB4CE5000031AF580EB3AA.1.1.m_3
       content-type: text/xml; charset=UTF-8
       cache-control: private
       content-encoding: gzip
       x-ratelimit-limit: '10'
-      x-ratelimit-remaining: '8'
+      x-ratelimit-remaining: '7'
       access-control-allow-origin: '*'
       access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
-      set-cookie: ncbi_sid=8DFD1A1E79ECAC31_2877SID; domain=.nih.gov; path=/; expires=Sat,
-        09 Mar 2024 21:24:38 GMT
+      set-cookie: ncbi_sid=37A8A0AE0D3DD244_75D7SID; domain=.nih.gov; path=/; expires=Fri,
+        05 Sep 2025 16:40:10 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -194,8 +194,8 @@ http_interactions:
         </Taxon>
 
         </TaxaSet>
-  recorded_at: 2023-03-09 21:24:41 GMT
-  recorded_with: vcr/1.2.0, webmockr/0.8.2
+  recorded_at: 2024-09-05 16:40:12 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Fagraea%2Bfragrans&api_key=<<entrez_api_token>>
@@ -205,8 +205,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
-      X-USER-AGENT: r-curl/4.3.3 crul/1.3 rOpenSci(taxize/0.9.100)
+      User-Agent: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
@@ -214,13 +214,13 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Thu, 09 Mar 2023 21:24:39 GMT
+      date: Thu, 05 Sep 2024 16:40:10 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
       referrer-policy: origin-when-cross-origin
-      ncbi-sid: 322A4DBD61E5FCFA_F174SID
-      ncbi-phid: 322C2D2E52F04595000059D5140BF856.1.1.m_1
+      ncbi-sid: 6FA98E5C9C2737C9_C3A2SID
+      ncbi-phid: D0BD9D8EE5AB4CE5000045AF5C56E0AD.1.1.m_1
       content-type: text/xml; charset=UTF-8
       cache-control: private
       content-encoding: gzip
@@ -228,8 +228,8 @@ http_interactions:
       x-ratelimit-remaining: '8'
       access-control-allow-origin: '*'
       access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
-      set-cookie: ncbi_sid=322A4DBD61E5FCFA_F174SID; domain=.nih.gov; path=/; expires=Sat,
-        09 Mar 2024 21:24:39 GMT
+      set-cookie: ncbi_sid=6FA98E5C9C2737C9_C3A2SID; domain=.nih.gov; path=/; expires=Fri,
+        05 Sep 2025 16:40:11 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -242,8 +242,8 @@ http_interactions:
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>84942</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Fagraea+fragrans[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Fagraea+fragrans[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2023-03-09 21:24:41 GMT
-  recorded_with: vcr/1.2.0, webmockr/0.8.2
+  recorded_at: 2024-09-05 16:40:12 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=84942&api_key=<<entrez_api_token>>
@@ -251,7 +251,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.81.0 r-curl/4.3.3 crul/1.3
+      User-Agent: libcurl/7.81.0 r-curl/5.2.2 crul/1.5.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -261,13 +261,13 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Thu, 09 Mar 2023 21:24:40 GMT
+      date: Thu, 05 Sep 2024 16:40:12 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
       referrer-policy: origin-when-cross-origin
-      ncbi-sid: 0F92931871DD9CAA_EE12SID
-      ncbi-phid: 322C2D2E52F04595000029D516D09095.1.1.m_3
+      ncbi-sid: 991358D693017896_8186SID
+      ncbi-phid: D0BD9D8EE5AB4CE5000052AF5D79CF95.1.1.m_5
       content-type: text/xml; charset=UTF-8
       cache-control: private
       content-encoding: gzip
@@ -275,8 +275,8 @@ http_interactions:
       x-ratelimit-remaining: '8'
       access-control-allow-origin: '*'
       access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
-      set-cookie: ncbi_sid=0F92931871DD9CAA_EE12SID; domain=.nih.gov; path=/; expires=Sat,
-        09 Mar 2024 21:24:40 GMT
+      set-cookie: ncbi_sid=991358D693017896_8186SID; domain=.nih.gov; path=/; expires=Fri,
+        05 Sep 2025 16:40:11 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -431,5 +431,5 @@ http_interactions:
         </Taxon>
 
         </TaxaSet>
-  recorded_at: 2023-03-09 21:24:41 GMT
-  recorded_with: vcr/1.2.0, webmockr/0.8.2
+  recorded_at: 2024-09-05 16:40:12 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0

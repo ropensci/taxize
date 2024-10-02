@@ -6,7 +6,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.70.0 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.81.0 r-curl/5.2.2 crul/1.5.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -16,25 +16,27 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Tue, 09 Jun 2020 00:06:38 GMT
+      date: Thu, 05 Sep 2024 16:40:20 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '9'
-      ncbi-phid: D0BD06731A00A61500004716154FC7CD.1.1.m_5
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: 263F615FD757BC55_2CF6SID
+      ncbi-phid: D0BD9D8EE5AB4CE500003CAF8CB1A790.1.1.m_3
+      content-type: text/xml; charset=UTF-8
       cache-control: private
-      ncbi-sid: 7462A9406F67D850_141FSID
       content-encoding: gzip
       x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '7'
       access-control-allow-origin: '*'
-      content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=7462A9406F67D850_141FSID; domain=.nih.gov; path=/; expires=Wed,
-        09 Jun 2021 00:06:38 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=263F615FD757BC55_2CF6SID; domain=.nih.gov; path=/; expires=Fri,
+        05 Sep 2025 16:40:20 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
     body:
-      encoding: UTF-8
+      encoding: ''
       file: no
       string: |-
         <?xml version="1.0" ?>
@@ -74,7 +76,7 @@ http_interactions:
                 <MGCId>4</MGCId>
                 <MGCName>Mold Mitochondrial; Protozoan Mitochondrial; Coelenterate Mitochondrial; Mycoplasma; Spiroplasma</MGCName>
             </MitoGeneticCode>
-            <Lineage>cellular organisms; Eukaryota; Opisthokonta; Metazoa; Eumetazoa; Cnidaria; Anthozoa; Octocorallia; Alcyonacea; Alcyoniina; Alcyoniidae; Sinularia</Lineage>
+            <Lineage>cellular organisms; Eukaryota; Opisthokonta; Metazoa; Eumetazoa; Cnidaria; Anthozoa; Octocorallia; Malacalcyonacea; Sinulariidae; Sinularia</Lineage>
             <LineageEx>
                 <Taxon>
                     <TaxId>131567</TaxId>
@@ -89,7 +91,7 @@ http_interactions:
                 <Taxon>
                     <TaxId>33154</TaxId>
                     <ScientificName>Opisthokonta</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>33208</TaxId>
@@ -99,7 +101,7 @@ http_interactions:
                 <Taxon>
                     <TaxId>6072</TaxId>
                     <ScientificName>Eumetazoa</ScientificName>
-                    <Rank>no rank</Rank>
+                    <Rank>clade</Rank>
                 </Taxon>
                 <Taxon>
                     <TaxId>6073</TaxId>
@@ -117,18 +119,13 @@ http_interactions:
                     <Rank>subclass</Rank>
                 </Taxon>
                 <Taxon>
-                    <TaxId>40677</TaxId>
-                    <ScientificName>Alcyonacea</ScientificName>
+                    <TaxId>3028843</TaxId>
+                    <ScientificName>Malacalcyonacea</ScientificName>
                     <Rank>order</Rank>
                 </Taxon>
                 <Taxon>
-                    <TaxId>723662</TaxId>
-                    <ScientificName>Alcyoniina</ScientificName>
-                    <Rank>no rank</Rank>
-                </Taxon>
-                <Taxon>
-                    <TaxId>40678</TaxId>
-                    <ScientificName>Alcyoniidae</ScientificName>
+                    <TaxId>3037776</TaxId>
+                    <ScientificName>Sinulariidae</ScientificName>
                     <Rank>family</Rank>
                 </Taxon>
                 <Taxon>
@@ -138,7 +135,7 @@ http_interactions:
                 </Taxon>
             </LineageEx>
             <CreateDate>2009/08/21 17:25:27</CreateDate>
-            <UpdateDate>2020/06/02 19:06:50</UpdateDate>
+            <UpdateDate>2020/06/02 19:06:48</UpdateDate>
             <PubDate>2010/01/31 18:00:31</PubDate>
             <AkaTaxIds>
                 <TaxId>668400</TaxId>
@@ -146,5 +143,5 @@ http_interactions:
         </Taxon>
 
         </TaxaSet>
-  recorded_at: 2020-06-09 00:06:38 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2024-09-05 16:40:20 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0

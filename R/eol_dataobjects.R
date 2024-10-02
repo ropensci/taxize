@@ -18,23 +18,25 @@
 #' eol_dataobjects(id = 7561533, verbose = TRUE)
 #' }
 eol_dataobjects <- function(id, taxonomy = TRUE, language = NULL, ...) {
+  
+  .Defunct("eol", "originr", msg = "This function is defunct since it seems that the data_objects part of the EOL API v1 does not work anymore.")
 
-  cli <- crul::HttpClient$new(
-    url = file.path(eol_url("data_objects"), paste0(id, ".json")),
-    headers = tx_ual,
-    opts = list(...)
-  )
-  args <- argsnull(tc(list(taxonomy = as_l(taxonomy), language = language)))
-  res <- cli$get(query = args)
-  res$raise_for_status()
-  tt <- res$parse("UTF-8")
-  tmp <- jsonlite::fromJSON(tt)
-  tmp <- nmslwr(tmp)
-  if ("taxonconcepts" %in% names(tmp)) {
-    tmp$taxonconcepts <- nmslwr(tmp$taxonconcepts)
-    tmp$taxonconcepts$taxonrank <- tolower(tmp$taxonconcepts$taxonrank)
-  }
-  return(tmp)
+  # cli <- crul::HttpClient$new(
+  #   url = file.path(eol_url("data_objects"), paste0(id, ".json")),
+  #   headers = tx_ual,
+  #   opts = list(...)
+  # )
+  # args <- argsnull(tc(list(taxonomy = as_l(taxonomy), language = language)))
+  # res <- cli$get(query = args)
+  # res$raise_for_status()
+  # tt <- res$parse("UTF-8")
+  # tmp <- jsonlite::fromJSON(tt)
+  # tmp <- nmslwr(tmp)
+  # if ("taxonconcepts" %in% names(tmp)) {
+  #   tmp$taxonconcepts <- nmslwr(tmp$taxonconcepts)
+  #   tmp$taxonconcepts$taxonrank <- tolower(tmp$taxonconcepts$taxonrank)
+  # }
+  # return(tmp)
 }
 
 nmslwr <- function(x) {

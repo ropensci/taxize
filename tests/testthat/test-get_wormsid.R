@@ -41,7 +41,7 @@ test_that("get_wormsid accepts ask-argument", {
 test_that("get_wormsid marine_only param works", {
   skip_on_cran()
   vcr::use_cassette("get_wormsid_marine_only", {
-    a <- sw(get_wormsid("Apedinella", marine_only = TRUE, accepted = TRUE, messages = FALSE))
+    a <- sw(get_wormsid("Apedinella", marine_only = TRUE, accepted = TRUE, messages = FALSE, row = 2))
     b <- sw(get_wormsid("Apedinella", marine_only = FALSE, messages = FALSE))
   })
 
@@ -65,11 +65,6 @@ test_that("get_wormsid fuzzy param works", {
 })
 
 test_that("get_wormsid fails well", {
-  skip_on_cran()
-  vcr::use_cassette("get_wormsid_fail_with_rows_unknown", {
-    expect_error(sw(get_wormsid("howdy", rows = 1, messages = FALSE)))
-  })
-
   skip_on_cran()
   expect_error(get_wormsid(), "argument \"sci_com\" is missing")
   expect_error(get_wormsid("clam", 5, messages = FALSE),

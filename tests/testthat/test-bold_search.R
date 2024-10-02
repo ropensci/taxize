@@ -7,7 +7,7 @@ test_that("bold_search returns the correct value, dimensions, and classes", {
     d <- bold_search(id = 88899)
   })
 
-	expect_equal(names(a)[1], "taxid")
+	expect_equal(names(a)[2], "taxid")
 	expect_that(a$taxon, equals("Apis"))
 
   expect_equal(NROW(a), 1)

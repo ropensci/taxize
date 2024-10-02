@@ -8,40 +8,41 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/3.3 crul/0.7.0.9100 taxize/0.9.4.9914
-      X-User-Agent: r-curl/3.3 crul/0.7.0.9100 taxize/0.9.4.9914
+      User-Agent: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 17:01:10 GMT
+      status: 'HTTP/2 200 '
+      vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-xss-protection: 1; mode=block
+      pragma: no-cache
+      expires: '0'
+      x-frame-options: DENY
       content-type: application/json
-      access-control-allow-origin: '*'
-      access-control-allow-methods: HEAD, GET, POST, DELETE, PUT
-      server: Jetty(9.3.z-SNAPSHOT)
+      date: Thu, 05 Sep 2024 22:54:30 GMT
       cache-control: public, max-age=3601
-      x-varnish: 56067269 58884305
-      age: '375'
-      via: 1.1 varnish (Varnish/5.2)
+      x-varnish: '741671050'
+      age: '0'
+      via: 1.1 varnish (Varnish/6.0)
       accept-ranges: bytes
-      content-length: '2888'
-      connection: keep-alive
     body:
-      encoding: UTF-8
+      encoding: ''
+      file: no
       string: '{"confidence":100,"note":"Multiple equal matches for Dugesia","matchType":"NONE","alternatives":[{"usageKey":3091142,"scientificName":"Dugesia
         A.Gray","canonicalName":"Dugesia","rank":"GENUS","status":"ACCEPTED","confidence":99,"note":"Similarity:
-        name=100; authorship=0; classification=-2; rank=0; status=1","matchType":"EXACT","kingdom":"Plantae","phylum":"Tracheophyta","order":"Asterales","family":"Asteraceae","genus":"Dugesia","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":414,"familyKey":3065,"genusKey":3091142,"synonym":false,"class":"Magnoliopsida"},{"usageKey":2502872,"scientificName":"Dugesia
-        Girard, 1851","canonicalName":"Dugesia","rank":"GENUS","status":"ACCEPTED","confidence":99,"note":"Similarity:
-        name=100; authorship=0; classification=-2; rank=0; status=1","matchType":"EXACT","kingdom":"Animalia","phylum":"Platyhelminthes","order":"Tricladida","family":"Dugesiidae","genus":"Dugesia","kingdomKey":1,"phylumKey":108,"classKey":5967490,"orderKey":427,"familyKey":6365,"genusKey":2502872,"synonym":false,"class":"Rhabditophora"},{"usageKey":3253009,"acceptedUsageKey":6006594,"scientificName":"Dugesia
+        name=100; authorship=0; classification=-2; rank=0; status=1; score=99","matchType":"EXACT","kingdom":"Plantae","phylum":"Tracheophyta","order":"Asterales","family":"Asteraceae","genus":"Dugesia","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":414,"familyKey":3065,"genusKey":3091142,"synonym":false,"class":"Magnoliopsida"},{"usageKey":2502872,"scientificName":"Dugesia
+        Girard, 1850","canonicalName":"Dugesia","rank":"GENUS","status":"ACCEPTED","confidence":99,"note":"Similarity:
+        name=100; authorship=0; classification=-2; rank=0; status=1; score=99","matchType":"EXACT","kingdom":"Animalia","phylum":"Platyhelminthes","order":"Tricladida","family":"Dugesiidae","genus":"Dugesia","kingdomKey":1,"phylumKey":108,"orderKey":427,"familyKey":6365,"genusKey":2502872,"synonym":false},{"usageKey":3253009,"acceptedUsageKey":6006594,"scientificName":"Dugesia
         Berlese, 1883","canonicalName":"Dugesia","rank":"GENUS","status":"SYNONYM","confidence":98,"note":"Similarity:
-        name=100; authorship=0; classification=-2; rank=0; status=0","matchType":"EXACT","kingdom":"Animalia","phylum":"Arthropoda","order":"Trombidiformes","family":"Calyptostomatidae","genus":"Smaris","kingdomKey":1,"phylumKey":54,"classKey":367,"orderKey":543,"familyKey":3252736,"genusKey":6006594,"synonym":true,"class":"Arachnida"},{"usageKey":9388019,"scientificName":"Dugezia","canonicalName":"Dugezia","rank":"GENUS","status":"DOUBTFUL","confidence":68,"note":"Similarity:
-        name=75; authorship=0; classification=-2; rank=0; status=-5","matchType":"FUZZY","kingdom":"Plantae","genus":"Dugezia","kingdomKey":6,"genusKey":9388019,"synonym":false},{"usageKey":7290774,"scientificName":"Dugezia
-        Montrouz.","canonicalName":"Dugezia","rank":"GENUS","status":"DOUBTFUL","confidence":68,"note":"Similarity:
-        name=75; authorship=0; classification=-2; rank=0; status=-5","matchType":"FUZZY","kingdom":"Plantae","phylum":"Tracheophyta","order":"Malpighiales","family":"Clusiaceae","genus":"Dugezia","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":1414,"familyKey":6646,"genusKey":7290774,"synonym":false,"class":"Magnoliopsida"},{"usageKey":8038959,"scientificName":"Dugezia
-        Montrouz. ex Beauvis.","canonicalName":"Dugezia","rank":"GENUS","status":"DOUBTFUL","confidence":68,"note":"Similarity:
-        name=75; authorship=0; classification=-2; rank=0; status=-5","matchType":"FUZZY","kingdom":"Plantae","phylum":"Tracheophyta","order":"Ericales","family":"Primulaceae","genus":"Dugezia","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":1353,"familyKey":6674,"genusKey":8038959,"synonym":false,"class":"Magnoliopsida"}],"synonym":false}'
-  recorded_at: 2019-01-26 17:07:25 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+        name=100; authorship=0; classification=-2; rank=0; status=0; score=98","matchType":"EXACT","kingdom":"Animalia","phylum":"Arthropoda","order":"Trombidiformes","family":"Smarididae","genus":"Smaris","kingdomKey":1,"phylumKey":54,"classKey":367,"orderKey":543,"familyKey":2805,"genusKey":6006594,"synonym":true,"class":"Arachnida"},{"usageKey":8038959,"scientificName":"Dugezia
+        Montrouz. ex Beauvis., 1901","canonicalName":"Dugezia","rank":"GENUS","status":"ACCEPTED","confidence":74,"note":"Similarity:
+        name=75; authorship=0; classification=-2; rank=0; status=1; score=74","matchType":"FUZZY","kingdom":"Plantae","phylum":"Tracheophyta","order":"Ericales","family":"Primulaceae","genus":"Dugezia","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":1353,"familyKey":6674,"genusKey":8038959,"synonym":false,"class":"Magnoliopsida"},{"usageKey":7290774,"acceptedUsageKey":3169330,"scientificName":"Dugezia
+        Montrouz.","canonicalName":"Dugezia","rank":"GENUS","status":"SYNONYM","confidence":73,"note":"Similarity:
+        name=75; authorship=0; classification=-2; rank=0; status=0; score=73","matchType":"FUZZY","kingdom":"Plantae","phylum":"Tracheophyta","order":"Ericales","family":"Primulaceae","genus":"Lysimachia","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":1353,"familyKey":6674,"genusKey":3169330,"synonym":true,"class":"Magnoliopsida"}],"synonym":false}'
+  recorded_at: 2024-09-05 22:54:31 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0

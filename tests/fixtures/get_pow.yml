@@ -1,126 +1,114 @@
 http_interactions:
 - request:
     method: get
-    uri: http://www.plantsoftheworldonline.org/api/2/search?q=adsf%20asdf%20asdf&perPage=100&cursor=%2A
+    uri: https://powo.science.kew.org/api/2/search?q=adsf%20asdf%20asdf&perPage=100&cursor=%2A
     body:
       encoding: ''
       string: ''
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/3.3 crul/0.7.0 taxize/0.9.5.9310
-      X-User-Agent: r-curl/3.3 crul/0.7.0 taxize/0.9.5.9310
+      User-Agent: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: HTTP/1.1 200 OK
-      date: Thu, 21 Feb 2019 00:38:05 GMT
-      server: Apache/2.4.38 (Unix)
-      etag: '"087a75e35cca4694f5c2a4abfb14b9d9f-gzip"'
+      status: 'HTTP/1.1 200 '
+      date: Thu, 05 Sep 2024 22:54:43 GMT
+      server: nginx/1.15.12
       content-type: application/json;charset=UTF-8
-      vary: Accept-Encoding
-      content-encoding: gzip
-      cache-control: max-age=0, must-revalidate, proxy-revalidate
-      transfer-encoding: chunked
+      content-length: '229'
+      access-control-allow-origin: '*'
+      access-control-allow-methods: GET, OPTIONS, HEAD
+      etag: '"079f43b03e319832200d33519d1aafd9b"'
+      set-cookie: __kewlb=899334528.1.2094344064.1330290176; path=/;secure ;
+      x-frame-options: SAMEORIGIN
+      x-content-type-options: nosniff
+      x-xss-protection: 1; mode=block
+      strict-transport-security: max-age=0
     body:
-      encoding: UTF-8
-      string: '{"totalResults":0,"page":0,"totalPages":0,"perPage":100,"cursor":"*"}'
-  recorded_at: 2019-02-21 00:38:06 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4
+      encoding: ''
+      file: no
+      string: '{"totalResults":0,"page":1,"totalPages":0,"perPage":100,"cursor":"*","message":"If
+        you would like to download and use the POWO data in a conciencious way, please
+        use our official library pykew [https://github.com/RBGKew/pykew]."}'
+  recorded_at: 2024-09-05 22:54:44 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
 - request:
     method: get
-    uri: http://www.plantsoftheworldonline.org/api/2/search?q=Helianthus%20excubitor&perPage=100&cursor=%2A
+    uri: https://powo.science.kew.org/api/2/search?q=Helianthus%20excubitor&perPage=100&cursor=%2A
     body:
       encoding: ''
       string: ''
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/3.3 crul/0.7.0 taxize/0.9.5.9310
-      X-User-Agent: r-curl/3.3 crul/0.7.0 taxize/0.9.5.9310
+      User-Agent: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: HTTP/1.1 200 OK
-      date: Thu, 21 Feb 2019 00:38:05 GMT
-      server: Apache/2.4.38 (Unix)
-      etag: '"0b8b70cc85af8cfbd082f475e8e29685b-gzip"'
+      status: 'HTTP/1.1 200 '
+      date: Thu, 05 Sep 2024 22:54:43 GMT
+      server: nginx/1.15.12
       content-type: application/json;charset=UTF-8
-      vary: Accept-Encoding
-      content-encoding: gzip
-      cache-control: max-age=0, must-revalidate, proxy-revalidate
-      transfer-encoding: chunked
+      content-length: '529'
+      access-control-allow-origin: '*'
+      access-control-allow-methods: GET, OPTIONS, HEAD
+      etag: '"01545ab021713d7972919125a9285f8e4"'
+      x-frame-options: SAMEORIGIN
+      x-content-type-options: nosniff
+      x-xss-protection: 1; mode=block
+      strict-transport-security: max-age=0
     body:
-      encoding: UTF-8
-      string: '{"totalResults":1,"page":0,"totalPages":1,"perPage":100,"cursor":"AoMIQVhEhT8BNjAwQXN0ZXJhY2VhZUhlbGlhbnRodXNleGN1Yml0b3ItVGF4b25fMTA3NzQxOA==","results":[{"accepted":true,"author":"E.Watson","kingdom":"Plantae","family":"Asteraceae","name":"Helianthus
+      encoding: ''
+      file: no
+      string: '{"totalResults":1,"page":1,"totalPages":1,"perPage":100,"cursor":"AoMIQVxwQT8BNjAwQXN0ZXJhY2VhZUhlbGlhbnRodXNleGN1Yml0b3IsVGF4b25fNDIxNTk0","message":"If
+        you would like to download and use the POWO data in a conciencious way, please
+        use our official library pykew [https://github.com/RBGKew/pykew].","results":[{"accepted":true,"author":"E.Watson","kingdom":"Plantae","family":"Asteraceae","name":"Helianthus
         excubitor","rank":"Species","url":"/taxon/urn:lsid:ipni.org:names:119125-2","fqId":"urn:lsid:ipni.org:names:119125-2"}]}'
-  recorded_at: 2019-02-21 00:38:06 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4
+  recorded_at: 2024-09-05 22:54:44 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
 - request:
     method: get
-    uri: http://www.plantsoftheworldonline.org/api/2/search?q=adsf%20asdf%20asdf&perPage=100&cursor=%2A
+    uri: https://powo.science.kew.org/api/2/search?q=adsf%20asdf%20asdf&perPage=100&cursor=%2A
     body:
       encoding: ''
       string: ''
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/3.3 crul/0.7.0 taxize/0.9.5.9310
-      X-User-Agent: r-curl/3.3 crul/0.7.0 taxize/0.9.5.9310
+      User-Agent: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: HTTP/1.1 200 OK
-      date: Thu, 21 Feb 2019 00:38:05 GMT
-      server: Apache/2.4.38 (Unix)
-      etag: '"087a75e35cca4694f5c2a4abfb14b9d9f-gzip"'
+      status: 'HTTP/1.1 200 '
+      date: Thu, 05 Sep 2024 22:54:44 GMT
+      server: nginx/1.15.12
       content-type: application/json;charset=UTF-8
-      vary: Accept-Encoding
-      content-encoding: gzip
-      cache-control: max-age=0, must-revalidate, proxy-revalidate
-      transfer-encoding: chunked
-    body:
-      encoding: UTF-8
-      string: '{"totalResults":0,"page":0,"totalPages":0,"perPage":100,"cursor":"*"}'
-  recorded_at: 2019-02-21 00:38:06 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4
-- request:
-    method: get
-    uri: http://www.plantsoftheworldonline.org/api/2/search?q=adsf%20asdf%20asdf&perPage=100&cursor=%2A
+      content-length: '229'
+      access-control-allow-origin: '*'
+      access-control-allow-methods: GET, OPTIONS, HEAD
+      etag: '"079f43b03e319832200d33519d1aafd9b"'
+      x-frame-options: SAMEORIGIN
+      x-content-type-options: nosniff
+      x-xss-protection: 1; mode=block
+      strict-transport-security: max-age=0
     body:
       encoding: ''
-      string: ''
-    headers:
-      Accept-Encoding: gzip, deflate
-      Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/3.3 crul/0.7.0 taxize/0.9.5.9310
-      X-User-Agent: r-curl/3.3 crul/0.7.0 taxize/0.9.5.9310
-  response:
-    status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
-    headers:
-      status: HTTP/1.1 200 OK
-      date: Thu, 21 Feb 2019 00:38:06 GMT
-      server: Apache/2.4.38 (Unix)
-      etag: '"087a75e35cca4694f5c2a4abfb14b9d9f-gzip"'
-      content-type: application/json;charset=UTF-8
-      vary: Accept-Encoding
-      content-encoding: gzip
-      cache-control: max-age=0, must-revalidate, proxy-revalidate
-      transfer-encoding: chunked
-    body:
-      encoding: UTF-8
-      string: '{"totalResults":0,"page":0,"totalPages":0,"perPage":100,"cursor":"*"}'
-  recorded_at: 2019-02-21 00:38:06 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4
+      file: no
+      string: '{"totalResults":0,"page":1,"totalPages":0,"perPage":100,"cursor":"*","message":"If
+        you would like to download and use the POWO data in a conciencious way, please
+        use our official library pykew [https://github.com/RBGKew/pykew]."}'
+  recorded_at: 2024-09-05 22:54:44 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0

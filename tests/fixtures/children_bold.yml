@@ -6,7 +6,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.81.0 r-curl/5.2.2 crul/1.5.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -16,15 +16,15 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       content-type: text/html; charset=utf-8
-      date: Tue, 05 May 2020 00:16:49 GMT
+      date: Thu, 05 Sep 2024 16:45:24 GMT
       server: nginx
       set-cookie:
-      - session=sp8bhpf1m8vaa9eoocve0uoui0; path=/
+      - session=eh12ftsp4elh8qe6t4cp3svp64; path=/
       - https=on;Path=/;Max-Age=3600;httponly;SameSite=Lax
       status: 'HTTP/2 200 '
       x-powered-by: PHP/5.3.15
     body:
-      encoding: UTF-8
+      encoding: ''
       file: no
       string: "<!DOCTYPE HTML>\n<html>\n<head>\n\t<meta charset=\"utf-8\" />\n<meta
         http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\">\n\n<title>Momotus
@@ -137,7 +137,7 @@ http_interactions:
         &.ui-state-active &.ui-state-focus{\n\t\t\t\tcolor: #ffffff;\n\t\t\t\ttext-decoration:
         none;\n\t\t\t\tbackground-color: #0088cc !important;\n\t\t\t\tborder-radius:
         0px;\n\t\t\t\t-webkit-border-radius: 0px;\n\t\t\t\t-moz-border-radius: 0px;\n\t\t\t\tbackground-image:
-        none;\n\t\t\t}\n\t\t}\n\t}\n\t.ui-helper-hidden-accessible{\n\t\tdisplay:none;\n\t}\n</style>\t<link
+        none;\n\t\t\t}\n\t\t}\n\t}\n\t.ui-helper-hidden-accessible{\n\t\tdisplay:none;\n\t}\n</style>\n\t<link
         rel=\"stylesheet\" type=\"text/css\" href=\"/libhtml/highslide/highslide.css\"
         />\n\t<script type=\"text/javascript\" src=\"/libhtml/highslide/highslide-full.js\"></script>\n\t<!--
         ChartJS-->\n\t<script src=\"/libhtml_v4/js/plugins/chartjs/Chart.js\"></script>\n\t<script
@@ -151,7 +151,7 @@ http_interactions:
         '<div class=\"closebutton\" onclick=\"return hs.close(this)\" title=\"Close\"></div>',\n\t\t\t\t\tposition:
         'top right',\n\t\t\t\t\tuseOnHtml: true,\n\t\t\t\t\tfade: 2 // fading the
         semi-transparent overlay looks bad in IE\n\t\t\t});\n\n</script>\n\t<script
-        language=\"javascript\">\n\t\t\tvar allCountriesData = {\"Brazil\":4,\"Colombia\":2,\"Mexico\":2,\"Panama\":10,\"Guatemala\":1,\"Peru\":17,\"Bolivia\":6,\"Ecuador\":2};\n\n\t\t\t$(document).ready(function()
+        language=\"javascript\">\n\t\t\tvar allCountriesData = {\"Panama\":10,\"Peru\":19,\"Ecuador\":2,\"Bolivia\":6,\"Guatemala\":1,\"Mexico\":2,\"Brazil\":4,\"Colombia\":6};\n\n\t\t\t$(document).ready(function()
         {\n\t\t\t\t//Taxonomy Search event handler\n\t\t\t\t$('button[name=\"searchTax\"]').click(function
         () {\n\t\t\t\t\twindow.location = \"/index.php/Taxbrowser_Taxonpage?taxon=\"+
         $('input[name=\"taxon\"]').val();\n\t\t\t\t});\n\t\t\t\t//Species Summary
@@ -243,7 +243,7 @@ http_interactions:
         ;loop through the colour\n\t\t\t\t\t\t\tchartColourIndex = 0;\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t\tvar
         ctx = document.getElementById(\"chart\"+suffix).getContext(\"2d\");\n\t\t\t\t\tvar
         tgChart = new Chart(ctx).Doughnut(chartData, doughnutOptions);\n\t\t\t\t\t$(\"#legend\"+suffix).html(tgChart.generateLegend());\n\t\t\t\t});\n\t\t\t}\n\n\t\t\t$(document).ready(function()
-        {\n\t\t\t\t\t\t\t\tbuildChart('/index.php/TaxBrowser_Charts_institutionsrcdata','Depositry');\n\t\t\t\t\t\t\t\t\t\t\t\tbuildChart('/index.php/TaxBrowser_Charts_institutionsrcdata/sequencinglabs','Sequence');\n\t\t\t\t\t\t\t});\n\t</script>\n\n\t<style
+        {\n\t\t\t\t\t\t\t\tbuildChart('/index.php/TaxBrowser_Charts_institutionsrcdata','Depository');\n\t\t\t\t\t\t\t\t\t\t\t\tbuildChart('/index.php/TaxBrowser_Charts_institutionsrcdata/sequencinglabs','Sequence');\n\t\t\t\t\t\t\t});\n\t</script>\n\n\t<style
         type=\"text/css\">\n\n\t\t.highslide-heading {\n\t\t\tcolor:#dedede;\n\t\t}\n\t\t.highslide-caption{\n\t\t\tfont-size:10pt
         !important;\n\t\t}\n\t\t.imagegallery_preview {\n\t\t\tbackground-color: #FFFFFF;\n\t\t\tmargin:
         8px;\n\t\t\tborder: 1px solid #111111;\n\t\t\tpadding: 0px;\n\t\t\twidth:400px;\n\t\t\ttext-align:
@@ -311,19 +311,19 @@ http_interactions:
         col-md-6\">\n\t\t\t<div class=\"ibox\">\n\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t<h2>Statistics</h2>\n\t\t\t\t</div>\n\t\t\t\t<div
         class=\"ibox-content\">\n\t\t\t\t<div class=\"ibox float-e-margins\">\n\t\t\t\t\t<table
         class=\"table table-striped noborder\">\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td
-        width=\"41%\">Specimen Records:</td>\n\t\t\t\t\t\t\t<td width=\"17%\">82</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Specimens
-        with Sequences:</td>\n\t\t\t\t\t\t\t<td>65</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Specimens
-        with Barcodes:</td>\n\t\t\t\t\t\t\t<td><specimendataforlivestats/>59<specimendataforlivestats/></td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Species:</td>\n\t\t\t\t\t\t\t<td>3</td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Species
+        width=\"41%\">Specimen Records:</td>\n\t\t\t\t\t\t\t<td width=\"17%\">89</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Specimens
+        with Sequences:</td>\n\t\t\t\t\t\t\t<td>72</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Specimens
+        with Barcodes:</td>\n\t\t\t\t\t\t\t<td><specimendataforlivestats/>66<specimendataforlivestats/></td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Species:</td>\n\t\t\t\t\t\t\t<td>3</td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Species
         With Barcodes:</td>\n\t\t\t\t\t\t\t<td>3</td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td
-        width=\"60%\">Public Records:</td>\n\t\t\t\t\t\t\t<td width=\"40%\">39</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Public
-        Species:</td>\n\t\t\t\t\t\t\t<td>2</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Public
-        BINs:</td>\n\t\t\t\t\t\t\t<td>8</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td><button
+        width=\"60%\">Public Records:</td>\n\t\t\t\t\t\t\t<td width=\"40%\">56</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Public
+        Species:</td>\n\t\t\t\t\t\t\t<td>3</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Public
+        BINs:</td>\n\t\t\t\t\t\t\t<td>10</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td><button
         class=\"btn btn-sm btn-info\" name=\"speciesSummaryOpen\"> Species List  </button></td>\n\t\t\t\t\t\t\t<td><button
         class=\"btn btn-sm btn-info\" name=\"accessPublishedData\">Public Data</button></td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</table>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t\t</div>\n\n\n\t\t<div
         class=\"col-lg-4 col-md-6\">\n\t\t\t<div class=\"ibox\">\n\t\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t\t<h2>Specimen
         Depositories</h2>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ibox-content\">\n\t\t\t\t\t<div
-        class=\"ibox float-e-margins\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div id=\"divDepositry\"><canvas
-        id=\"chartDepositry\"></canvas></div>\n\t\t\t\t\t\t<div id=\"legendDepositry\"
+        class=\"ibox float-e-margins\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div id=\"divDepository\"><canvas
+        id=\"chartDepository\"></canvas></div>\n\t\t\t\t\t\t<div id=\"legendDepository\"
         class=\"legendFont\"></div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div id=\"institutionsList2\"></div>\n\t\t\t\t\t\t\t<script
         language=\"javascript\">\n\t\t\t\t\t\t\tvar institutionsReduced=true;\n\t\t\t\t\t\t\tfunction
         institutionsExpandReduce() {\n\t\t\t\t\t\t\t\tif (institutionsReduced==true)
@@ -340,7 +340,9 @@ http_interactions:
         class=\"highslide\" onclick=\"return hs.expand(this,{width:maxColWidth,height:maxColHeight})\"
         href=\"/index.php/TaxBrowser_Maps_CollectionSites?taxid=88899\" ><img border=\"0\"
         width=\"100%\" src=\"/index.php/TaxBrowser_Maps_CollectionSites?taxid=88899\"></img></a>\n\t\t\t\t\t\t\t\t</br>\n\t\t\t\t\t\t\t\t<img
-        src=\"/libhtml/icons/mapScale_BOLD.png\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t</div>
+        src=\"/libhtml/icons/mapScale_BOLD.png\">\n\t\t\t\t\t\t\t\t<a href=\"/index.php/TaxBrowser_Maps_CollectionSites?taxid=88899\"
+        target=\"_blank\" style=\"margin-top:1px !important\" class=\"btn btn-xs btn-info
+        pull-right\" download=\"taxonmap.png\">Download map <i class=\"fa fa-cloud-download\"></i></a>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t</div>
         <!-- END OF FIFTH ROW -->\n\n\t<div class=\"row\">\n\t\t<div class=\"col-lg-12\">\n\t\t\t<div
         class=\"ibox\">\n\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t<h2>Countries</h2>\n\t\t\t\t\t<span>Collected
         from <strong>8</strong> countries. </span> <a class=\"link\" onClick = \"populateAllCountries();\">
@@ -351,18 +353,18 @@ http_interactions:
         class=\"ibox-content\">\n\t\t\t\t\t<!-- Left Menu START-->\n\t\t\t\t\t<div
         class=\"ibox float-e-margins\">\n\n\t\t\t\t\t\t\t<lh>Species (3) </lh><ol><li><a
         href=\"/index.php/Taxbrowser_Taxonpage?taxid=115130\">Momotus aequatorialis
-        [5]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=106839\">Momotus
+        [7]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=106839\">Momotus
         mexicanus [24]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=88900\">Momotus
-        momota [53]</a></li></ol>\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t</div>\n\t\t
+        momota [58]</a></li></ol>\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t</div>\n\t\t
         <!-- Left Menu END -->\n\t\t<div class=\"col-md-6\">\n\t\t\t\t\t\t\t\t<div
         class=\"ibox float-e-margins\">\n\t\t\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t\t\t<h2>Imagery</h2>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div
         class=\"ibox-content\">\n\t\t\t\t\t\t<i> Images representing subtaxa of Momotus</i>
         <div class=\"row\"><div class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return
-        hs.expand(this,{width:500, height:125} )\" href=\"//v4.boldsystems.org/pics/AVIPE/MHNSM_MUSM-Orn-22421b.jpg%2B1430161804.JPG\"><img
-        title=\" (Momotus aequatorialis - MUSM-Orn-22421b)  Copyright - All Rights
-        Reserved (2014)  \" alt=\" (Momotus aequatorialis - MUSM-Orn-22421b)  @11
+        hs.expand(this,{width:500, height:118} )\" href=\"//v4.boldsystems.org/pics/AVIPE/MHNSM_MUSM-Orn-22421a.jpg%2B1430161804.JPG\"><img
+        title=\" (Momotus aequatorialis - MUSM-Orn-22421a)  Copyright - All Rights
+        Reserved (2014)  \" alt=\" (Momotus aequatorialis - MUSM-Orn-22421a)  @11
         [ ] Copyright - All Rights Reserved (2014) Unspecified Museo de Historia Natural\"
-        \ src=\"//v4.boldsystems.org/pics/_w300/AVIPE/MHNSM_MUSM-Orn-22421b.jpg%2B1430161804.JPG\"width=\"200\"
+        \ src=\"//v4.boldsystems.org/pics/_w300/AVIPE/MHNSM_MUSM-Orn-22421a.jpg%2B1430161804.JPG\"width=\"200\"
         class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
         auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
         href=\"/index.php/Taxbrowser_Taxonpage?taxid=115130\">Momotus aequatorialis</a></div></div><div
@@ -398,7 +400,8 @@ http_interactions:
         class=\"list-unstyled\">\n\t\t\t\t\t\t  <!--<li><a href=\"/index.php/resources/handbook?chapter=1_gettingstarted.html\">Documentation</a></li>-->\n\t\t\t\t\t\t
         \ <li><a href=\"/libhtml/docs/bold.pdf\">Citing BOLD</a></li>\n\t\t\t\t\t\t
         \ <li><a href=\"/index.php/NewsFeed\">News and Events</a></li>\n\t\t\t\t\t\t
-        \ <li><a href=\"/index.php/datarelease\">Data Releases</a></li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div
+        \ <li hidden><a href=\"/index.php/datarelease\">Data Releases</a></li>\n\t\t\t\t\t\t
+        \ <li><a href=\"/index.php/datapackages\">Data Packages</a></li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div
         class=\"col-sm-3\">\n\t\t\t\t\t\t<h3 class=\"mg-md\">Organization</h3>\n\t\t\t\t\t\t<ul
         class=\"list-unstyled\">\n\t\t\t\t\t\t  <li><a href=\"/index.php/Resources/whatIsBOLD\">About
         Us</a></li>\n\t\t\t\t\t\t  <li><a href=\"/index.php/Resources/ContactUs\">Contact
@@ -423,17 +426,17 @@ http_interactions:
         class=\"col-sm-2\">\n\t\t\t\t\t\t<img class=\"img-responsive center-block\"
         src=\"/libhtml_v4/img/UoGuelph_image18-100x100.png\" />\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div
         class=\"row\">\n\t\t\t\t\t<div class=\"col-xs-12\"><br/><h5><small><strong>Copyright</strong>
-        BOLD &copy; 2014-2020</small></h5></div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t</body>\n</html>\n"
-  recorded_at: 2020-05-05 00:16:53 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+        BOLD &copy; 2014-2024</small></h5></div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t</body>\n</html>\n"
+  recorded_at: 2024-09-05 16:45:30 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
-    uri: https://v4.boldsystems.org/index.php/API_Tax/TaxonSearch?taxName=Momotus
+    uri: https://v4.boldsystems.org/index.php/API_Tax/TaxonSearch?taxName=Momotus&fuzzy=false
     body:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.81.0 r-curl/5.2.2 crul/1.5.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -444,17 +447,17 @@ http_interactions:
     headers:
       status: 'HTTP/2 200 '
       server: nginx
-      date: Tue, 05 May 2020 00:16:50 GMT
+      date: Thu, 05 Sep 2024 16:45:24 GMT
       content-type: text/html; charset=utf-8
       content-length: '191'
       x-powered-by: PHP/5.3.15
       set-cookie: https=on;Path=/;Max-Age=3600;httponly;SameSite=Lax
     body:
-      encoding: UTF-8
+      encoding: ''
       file: no
-      string: '{"top_matched_names":[{"taxid":88899,"taxon":"Momotus","tax_rank":"genus","tax_division":"Animalia","parentid":88898,"parentname":"Momotidae","specimenrecords":"82"}],"total_matched_names":1}'
-  recorded_at: 2020-05-05 00:16:53 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+      string: '{"top_matched_names":[{"taxid":88899,"taxon":"Momotus","tax_rank":"genus","tax_division":"Animalia","parentid":88898,"parentname":"Momotidae","specimenrecords":"89"}],"total_matched_names":1}'
+  recorded_at: 2024-09-05 16:45:30 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
     uri: https://v4.boldsystems.org/index.php/Taxbrowser_Taxonpage?taxid=88899
@@ -462,7 +465,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.81.0 r-curl/5.2.2 crul/1.5.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -472,15 +475,15 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       content-type: text/html; charset=utf-8
-      date: Tue, 05 May 2020 00:16:53 GMT
+      date: Thu, 05 Sep 2024 16:45:30 GMT
       server: nginx
       set-cookie:
-      - session=ihtpgl8lh8sb5959q5kfnujmn7; path=/
+      - session=1c6qujiilemjojpujb0tb3gvq3; path=/
       - https=on;Path=/;Max-Age=3600;httponly;SameSite=Lax
       status: 'HTTP/2 200 '
       x-powered-by: PHP/5.3.15
     body:
-      encoding: UTF-8
+      encoding: ''
       file: no
       string: "<!DOCTYPE HTML>\n<html>\n<head>\n\t<meta charset=\"utf-8\" />\n<meta
         http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\">\n\n<title>Momotus
@@ -593,7 +596,7 @@ http_interactions:
         &.ui-state-active &.ui-state-focus{\n\t\t\t\tcolor: #ffffff;\n\t\t\t\ttext-decoration:
         none;\n\t\t\t\tbackground-color: #0088cc !important;\n\t\t\t\tborder-radius:
         0px;\n\t\t\t\t-webkit-border-radius: 0px;\n\t\t\t\t-moz-border-radius: 0px;\n\t\t\t\tbackground-image:
-        none;\n\t\t\t}\n\t\t}\n\t}\n\t.ui-helper-hidden-accessible{\n\t\tdisplay:none;\n\t}\n</style>\t<link
+        none;\n\t\t\t}\n\t\t}\n\t}\n\t.ui-helper-hidden-accessible{\n\t\tdisplay:none;\n\t}\n</style>\n\t<link
         rel=\"stylesheet\" type=\"text/css\" href=\"/libhtml/highslide/highslide.css\"
         />\n\t<script type=\"text/javascript\" src=\"/libhtml/highslide/highslide-full.js\"></script>\n\t<!--
         ChartJS-->\n\t<script src=\"/libhtml_v4/js/plugins/chartjs/Chart.js\"></script>\n\t<script
@@ -607,7 +610,7 @@ http_interactions:
         '<div class=\"closebutton\" onclick=\"return hs.close(this)\" title=\"Close\"></div>',\n\t\t\t\t\tposition:
         'top right',\n\t\t\t\t\tuseOnHtml: true,\n\t\t\t\t\tfade: 2 // fading the
         semi-transparent overlay looks bad in IE\n\t\t\t});\n\n</script>\n\t<script
-        language=\"javascript\">\n\t\t\tvar allCountriesData = {\"Brazil\":4,\"Colombia\":2,\"Mexico\":2,\"Panama\":10,\"Guatemala\":1,\"Peru\":17,\"Bolivia\":6,\"Ecuador\":2};\n\n\t\t\t$(document).ready(function()
+        language=\"javascript\">\n\t\t\tvar allCountriesData = {\"Panama\":10,\"Peru\":19,\"Ecuador\":2,\"Bolivia\":6,\"Guatemala\":1,\"Mexico\":2,\"Brazil\":4,\"Colombia\":6};\n\n\t\t\t$(document).ready(function()
         {\n\t\t\t\t//Taxonomy Search event handler\n\t\t\t\t$('button[name=\"searchTax\"]').click(function
         () {\n\t\t\t\t\twindow.location = \"/index.php/Taxbrowser_Taxonpage?taxon=\"+
         $('input[name=\"taxon\"]').val();\n\t\t\t\t});\n\t\t\t\t//Species Summary
@@ -699,7 +702,7 @@ http_interactions:
         ;loop through the colour\n\t\t\t\t\t\t\tchartColourIndex = 0;\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t\tvar
         ctx = document.getElementById(\"chart\"+suffix).getContext(\"2d\");\n\t\t\t\t\tvar
         tgChart = new Chart(ctx).Doughnut(chartData, doughnutOptions);\n\t\t\t\t\t$(\"#legend\"+suffix).html(tgChart.generateLegend());\n\t\t\t\t});\n\t\t\t}\n\n\t\t\t$(document).ready(function()
-        {\n\t\t\t\t\t\t\t\tbuildChart('/index.php/TaxBrowser_Charts_institutionsrcdata','Depositry');\n\t\t\t\t\t\t\t\t\t\t\t\tbuildChart('/index.php/TaxBrowser_Charts_institutionsrcdata/sequencinglabs','Sequence');\n\t\t\t\t\t\t\t});\n\t</script>\n\n\t<style
+        {\n\t\t\t\t\t\t\t\tbuildChart('/index.php/TaxBrowser_Charts_institutionsrcdata','Depository');\n\t\t\t\t\t\t\t\t\t\t\t\tbuildChart('/index.php/TaxBrowser_Charts_institutionsrcdata/sequencinglabs','Sequence');\n\t\t\t\t\t\t\t});\n\t</script>\n\n\t<style
         type=\"text/css\">\n\n\t\t.highslide-heading {\n\t\t\tcolor:#dedede;\n\t\t}\n\t\t.highslide-caption{\n\t\t\tfont-size:10pt
         !important;\n\t\t}\n\t\t.imagegallery_preview {\n\t\t\tbackground-color: #FFFFFF;\n\t\t\tmargin:
         8px;\n\t\t\tborder: 1px solid #111111;\n\t\t\tpadding: 0px;\n\t\t\twidth:400px;\n\t\t\ttext-align:
@@ -767,19 +770,19 @@ http_interactions:
         col-md-6\">\n\t\t\t<div class=\"ibox\">\n\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t<h2>Statistics</h2>\n\t\t\t\t</div>\n\t\t\t\t<div
         class=\"ibox-content\">\n\t\t\t\t<div class=\"ibox float-e-margins\">\n\t\t\t\t\t<table
         class=\"table table-striped noborder\">\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td
-        width=\"41%\">Specimen Records:</td>\n\t\t\t\t\t\t\t<td width=\"17%\">82</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Specimens
-        with Sequences:</td>\n\t\t\t\t\t\t\t<td>65</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Specimens
-        with Barcodes:</td>\n\t\t\t\t\t\t\t<td><specimendataforlivestats/>59<specimendataforlivestats/></td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Species:</td>\n\t\t\t\t\t\t\t<td>3</td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Species
+        width=\"41%\">Specimen Records:</td>\n\t\t\t\t\t\t\t<td width=\"17%\">89</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Specimens
+        with Sequences:</td>\n\t\t\t\t\t\t\t<td>72</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Specimens
+        with Barcodes:</td>\n\t\t\t\t\t\t\t<td><specimendataforlivestats/>66<specimendataforlivestats/></td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Species:</td>\n\t\t\t\t\t\t\t<td>3</td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Species
         With Barcodes:</td>\n\t\t\t\t\t\t\t<td>3</td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td
-        width=\"60%\">Public Records:</td>\n\t\t\t\t\t\t\t<td width=\"40%\">39</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Public
-        Species:</td>\n\t\t\t\t\t\t\t<td>2</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Public
-        BINs:</td>\n\t\t\t\t\t\t\t<td>8</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td><button
+        width=\"60%\">Public Records:</td>\n\t\t\t\t\t\t\t<td width=\"40%\">56</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Public
+        Species:</td>\n\t\t\t\t\t\t\t<td>3</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Public
+        BINs:</td>\n\t\t\t\t\t\t\t<td>10</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td><button
         class=\"btn btn-sm btn-info\" name=\"speciesSummaryOpen\"> Species List  </button></td>\n\t\t\t\t\t\t\t<td><button
         class=\"btn btn-sm btn-info\" name=\"accessPublishedData\">Public Data</button></td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</table>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t\t</div>\n\n\n\t\t<div
         class=\"col-lg-4 col-md-6\">\n\t\t\t<div class=\"ibox\">\n\t\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t\t<h2>Specimen
         Depositories</h2>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ibox-content\">\n\t\t\t\t\t<div
-        class=\"ibox float-e-margins\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div id=\"divDepositry\"><canvas
-        id=\"chartDepositry\"></canvas></div>\n\t\t\t\t\t\t<div id=\"legendDepositry\"
+        class=\"ibox float-e-margins\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div id=\"divDepository\"><canvas
+        id=\"chartDepository\"></canvas></div>\n\t\t\t\t\t\t<div id=\"legendDepository\"
         class=\"legendFont\"></div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div id=\"institutionsList2\"></div>\n\t\t\t\t\t\t\t<script
         language=\"javascript\">\n\t\t\t\t\t\t\tvar institutionsReduced=true;\n\t\t\t\t\t\t\tfunction
         institutionsExpandReduce() {\n\t\t\t\t\t\t\t\tif (institutionsReduced==true)
@@ -796,7 +799,9 @@ http_interactions:
         class=\"highslide\" onclick=\"return hs.expand(this,{width:maxColWidth,height:maxColHeight})\"
         href=\"/index.php/TaxBrowser_Maps_CollectionSites?taxid=88899\" ><img border=\"0\"
         width=\"100%\" src=\"/index.php/TaxBrowser_Maps_CollectionSites?taxid=88899\"></img></a>\n\t\t\t\t\t\t\t\t</br>\n\t\t\t\t\t\t\t\t<img
-        src=\"/libhtml/icons/mapScale_BOLD.png\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t</div>
+        src=\"/libhtml/icons/mapScale_BOLD.png\">\n\t\t\t\t\t\t\t\t<a href=\"/index.php/TaxBrowser_Maps_CollectionSites?taxid=88899\"
+        target=\"_blank\" style=\"margin-top:1px !important\" class=\"btn btn-xs btn-info
+        pull-right\" download=\"taxonmap.png\">Download map <i class=\"fa fa-cloud-download\"></i></a>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t</div>
         <!-- END OF FIFTH ROW -->\n\n\t<div class=\"row\">\n\t\t<div class=\"col-lg-12\">\n\t\t\t<div
         class=\"ibox\">\n\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t<h2>Countries</h2>\n\t\t\t\t\t<span>Collected
         from <strong>8</strong> countries. </span> <a class=\"link\" onClick = \"populateAllCountries();\">
@@ -807,18 +812,18 @@ http_interactions:
         class=\"ibox-content\">\n\t\t\t\t\t<!-- Left Menu START-->\n\t\t\t\t\t<div
         class=\"ibox float-e-margins\">\n\n\t\t\t\t\t\t\t<lh>Species (3) </lh><ol><li><a
         href=\"/index.php/Taxbrowser_Taxonpage?taxid=115130\">Momotus aequatorialis
-        [5]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=106839\">Momotus
+        [7]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=106839\">Momotus
         mexicanus [24]</a></li><li><a href=\"/index.php/Taxbrowser_Taxonpage?taxid=88900\">Momotus
-        momota [53]</a></li></ol>\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t</div>\n\t\t
+        momota [58]</a></li></ol>\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t</div>\n\t\t
         <!-- Left Menu END -->\n\t\t<div class=\"col-md-6\">\n\t\t\t\t\t\t\t\t<div
         class=\"ibox float-e-margins\">\n\t\t\t\t\t\t<div class=\"ibox-title\">\n\t\t\t\t\t\t\t<h2>Imagery</h2>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div
         class=\"ibox-content\">\n\t\t\t\t\t\t<i> Images representing subtaxa of Momotus</i>
         <div class=\"row\"><div class=\"col-xs-4\"><a class=\"highslide\" onclick=\"return
-        hs.expand(this,{width:500, height:125} )\" href=\"//v4.boldsystems.org/pics/AVIPE/MHNSM_MUSM-Orn-22421b.jpg%2B1430161804.JPG\"><img
-        title=\" (Momotus aequatorialis - MUSM-Orn-22421b)  Copyright - All Rights
-        Reserved (2014)  \" alt=\" (Momotus aequatorialis - MUSM-Orn-22421b)  @11
+        hs.expand(this,{width:500, height:118} )\" href=\"//v4.boldsystems.org/pics/AVIPE/MHNSM_MUSM-Orn-22421a.jpg%2B1430161804.JPG\"><img
+        title=\" (Momotus aequatorialis - MUSM-Orn-22421a)  Copyright - All Rights
+        Reserved (2014)  \" alt=\" (Momotus aequatorialis - MUSM-Orn-22421a)  @11
         [ ] Copyright - All Rights Reserved (2014) Unspecified Museo de Historia Natural\"
-        \ src=\"//v4.boldsystems.org/pics/_w300/AVIPE/MHNSM_MUSM-Orn-22421b.jpg%2B1430161804.JPG\"width=\"200\"
+        \ src=\"//v4.boldsystems.org/pics/_w300/AVIPE/MHNSM_MUSM-Orn-22421a.jpg%2B1430161804.JPG\"width=\"200\"
         class=\"img-responsive\"></a><div class=\"highslide-heading\" style=\"text-align:center;position:absolute;top:10px;left:0;right:0;margins:0
         auto;\"><a style=\"color:white; text-align:center; margin-top:40px; text-decoration:underline;\"
         href=\"/index.php/Taxbrowser_Taxonpage?taxid=115130\">Momotus aequatorialis</a></div></div><div
@@ -854,7 +859,8 @@ http_interactions:
         class=\"list-unstyled\">\n\t\t\t\t\t\t  <!--<li><a href=\"/index.php/resources/handbook?chapter=1_gettingstarted.html\">Documentation</a></li>-->\n\t\t\t\t\t\t
         \ <li><a href=\"/libhtml/docs/bold.pdf\">Citing BOLD</a></li>\n\t\t\t\t\t\t
         \ <li><a href=\"/index.php/NewsFeed\">News and Events</a></li>\n\t\t\t\t\t\t
-        \ <li><a href=\"/index.php/datarelease\">Data Releases</a></li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div
+        \ <li hidden><a href=\"/index.php/datarelease\">Data Releases</a></li>\n\t\t\t\t\t\t
+        \ <li><a href=\"/index.php/datapackages\">Data Packages</a></li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div
         class=\"col-sm-3\">\n\t\t\t\t\t\t<h3 class=\"mg-md\">Organization</h3>\n\t\t\t\t\t\t<ul
         class=\"list-unstyled\">\n\t\t\t\t\t\t  <li><a href=\"/index.php/Resources/whatIsBOLD\">About
         Us</a></li>\n\t\t\t\t\t\t  <li><a href=\"/index.php/Resources/ContactUs\">Contact
@@ -879,6 +885,6 @@ http_interactions:
         class=\"col-sm-2\">\n\t\t\t\t\t\t<img class=\"img-responsive center-block\"
         src=\"/libhtml_v4/img/UoGuelph_image18-100x100.png\" />\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div
         class=\"row\">\n\t\t\t\t\t<div class=\"col-xs-12\"><br/><h5><small><strong>Copyright</strong>
-        BOLD &copy; 2014-2020</small></h5></div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t</body>\n</html>\n"
-  recorded_at: 2020-05-05 00:16:53 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+        BOLD &copy; 2014-2024</small></h5></div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t</body>\n</html>\n"
+  recorded_at: 2024-09-05 16:45:30 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0

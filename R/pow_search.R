@@ -11,7 +11,7 @@
 #' @return a list with slots for metadata (`meta`) with list of response
 #' attributes, and data (`data`) with a data.frame of results
 #' @author Scott Chamberlain, 
-#' @references http://powo.science.kew.org/
+#' @references https://powo.science.kew.org/
 #' @family pow
 #' @examples \dontrun{
 #' x <- pow_search(sci_com = "Quercus")
@@ -111,4 +111,4 @@ pow_GET <- function(url, args, ...){
   list(meta = meta, data = json$results)
 }
 
-pow_base <- function() "http://www.plantsoftheworldonline.org"
+pow_base <- function() "https://powo.science.kew.org"

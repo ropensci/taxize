@@ -8,328 +8,339 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.94)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.94)
+      User-Agent: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: HTTP/1.1 200 OK
-      date: Fri, 06 Mar 2020 19:18:35 GMT
+      status: 'HTTP/2 200 '
+      vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-xss-protection: 1; mode=block
+      pragma: no-cache
+      expires: '0'
+      x-frame-options: DENY
       content-type: application/json
-      access-control-allow-origin: '*'
-      access-control-allow-methods: HEAD, GET, POST, DELETE, PUT, OPTIONS
-      server: Jetty(9.3.z-SNAPSHOT)
+      date: Thu, 05 Sep 2024 16:40:29 GMT
       cache-control: public, max-age=3601
-      x-varnish: '288524431'
+      x-varnish: '309593712'
       age: '0'
-      via: 1.1 varnish (Varnish/5.2)
+      via: 1.1 varnish (Varnish/6.0)
       accept-ranges: bytes
-      transfer-encoding: chunked
-      connection: keep-alive
     body:
-      encoding: UTF-8
+      encoding: ''
       file: no
-      string: '{"usageKey":7799978,"scientificName":"Apis Fabricius","canonicalName":"Apis","rank":"GENUS","status":"ACCEPTED","confidence":94,"note":"Similarity:
-        name=100; authorship=0; classification=-2; rank=0; status=1; nextMatch=3","matchType":"EXACT","alternatives":[{"usageKey":1334757,"scientificName":"Apis
-        Linnaeus, 1758","canonicalName":"Apis","rank":"GENUS","status":"DOUBTFUL","confidence":90,"note":"Similarity:
-        name=100; authorship=0; classification=-2; rank=0; status=-5","matchType":"EXACT","kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":1334757,"synonym":false,"class":"Insecta"},{"usageKey":3242821,"scientificName":"Acis
-        Duchassaing & Michelotti, 1860","canonicalName":"Acis","rank":"GENUS","status":"ACCEPTED","confidence":74,"note":"Similarity:
-        name=75; authorship=0; classification=-2; rank=0; status=1","matchType":"FUZZY","kingdom":"Animalia","phylum":"Cnidaria","order":"Alcyonacea","family":"Plexauridae","genus":"Acis","kingdomKey":1,"phylumKey":43,"classKey":206,"orderKey":1437,"familyKey":9242,"genusKey":3242821,"synonym":false,"class":"Anthozoa"},{"usageKey":8347994,"scientificName":"Acis
+      string: '{"usageKey":1334757,"scientificName":"Apis Linnaeus, 1758","canonicalName":"Apis","rank":"GENUS","status":"ACCEPTED","confidence":94,"note":"Similarity:
+        name=100; authorship=0; classification=-2; rank=0; status=1; score=99; nextMatch=3","matchType":"EXACT","alternatives":[{"usageKey":7799978,"scientificName":"Apis","canonicalName":"Apis","rank":"GENUS","status":"DOUBTFUL","confidence":90,"note":"Similarity:
+        name=100; authorship=0; classification=-2; rank=0; status=-5; score=93","matchType":"EXACT","kingdom":"Animalia","genus":"Apis","kingdomKey":1,"genusKey":7799978,"synonym":false},{"usageKey":12354605,"scientificName":"Apis
+        Fabricius","canonicalName":"Apis","rank":"GENUS","status":"DOUBTFUL","confidence":90,"note":"Similarity:
+        name=100; authorship=0; classification=-2; rank=0; status=-5; score=93","matchType":"EXACT","kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":12354605,"synonym":false,"class":"Insecta"},{"usageKey":8347994,"scientificName":"Acis
         Salisb.","canonicalName":"Acis","rank":"GENUS","status":"ACCEPTED","confidence":74,"note":"Similarity:
-        name=75; authorship=0; classification=-2; rank=0; status=1","matchType":"FUZZY","kingdom":"Plantae","phylum":"Tracheophyta","order":"Asparagales","family":"Amaryllidaceae","genus":"Acis","kingdomKey":6,"phylumKey":7707728,"classKey":196,"orderKey":1169,"familyKey":7682,"genusKey":8347994,"synonym":false,"class":"Liliopsida"},{"usageKey":4455287,"scientificName":"Akis
+        name=75; authorship=0; classification=-2; rank=0; status=1; score=74","matchType":"FUZZY","kingdom":"Plantae","phylum":"Tracheophyta","order":"Asparagales","family":"Amaryllidaceae","genus":"Acis","kingdomKey":6,"phylumKey":7707728,"classKey":196,"orderKey":1169,"familyKey":7682,"genusKey":8347994,"synonym":false,"class":"Liliopsida"},{"usageKey":4455287,"scientificName":"Akis
         Herbst, 1799","canonicalName":"Akis","rank":"GENUS","status":"ACCEPTED","confidence":74,"note":"Similarity:
-        name=75; authorship=0; classification=-2; rank=0; status=1","matchType":"FUZZY","kingdom":"Animalia","phylum":"Arthropoda","order":"Coleoptera","family":"Tenebrionidae","genus":"Akis","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1470,"familyKey":7857,"genusKey":4455287,"synonym":false,"class":"Insecta"},{"usageKey":2064811,"scientificName":"Apia
+        name=75; authorship=0; classification=-2; rank=0; status=1; score=74","matchType":"FUZZY","kingdom":"Animalia","phylum":"Arthropoda","order":"Coleoptera","family":"Tenebrionidae","genus":"Akis","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1470,"familyKey":7857,"genusKey":4455287,"synonym":false,"class":"Insecta"},{"usageKey":2064811,"scientificName":"Apia
         Distant, 1909","canonicalName":"Apia","rank":"GENUS","status":"ACCEPTED","confidence":74,"note":"Similarity:
-        name=75; authorship=0; classification=-2; rank=0; status=1","matchType":"FUZZY","kingdom":"Animalia","phylum":"Arthropoda","order":"Hemiptera","family":"Lophopidae","genus":"Apia","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":809,"familyKey":8588,"genusKey":2064811,"synonym":false,"class":"Insecta"},{"usageKey":3254185,"scientificName":"Apias
+        name=75; authorship=0; classification=-2; rank=0; status=1; score=74","matchType":"FUZZY","kingdom":"Animalia","phylum":"Arthropoda","order":"Hemiptera","family":"Lophopidae","genus":"Apia","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":809,"familyKey":8588,"genusKey":2064811,"synonym":false,"class":"Insecta"},{"usageKey":3254185,"scientificName":"Apias
         Rathbun, 1897","canonicalName":"Apias","rank":"GENUS","status":"ACCEPTED","confidence":74,"note":"Similarity:
-        name=75; authorship=0; classification=-2; rank=0; status=1","matchType":"FUZZY","kingdom":"Animalia","phylum":"Arthropoda","order":"Decapoda","family":"Epialtidae","genus":"Apias","kingdomKey":1,"phylumKey":54,"classKey":229,"orderKey":637,"familyKey":3865,"genusKey":3254185,"synonym":false,"class":"Malacostraca"},{"usageKey":2966790,"scientificName":"Apios
+        name=75; authorship=0; classification=-2; rank=0; status=1; score=74","matchType":"FUZZY","kingdom":"Animalia","phylum":"Arthropoda","order":"Decapoda","family":"Epialtidae","genus":"Apias","kingdomKey":1,"phylumKey":54,"classKey":229,"orderKey":637,"familyKey":3865,"genusKey":3254185,"synonym":false,"class":"Malacostraca"},{"usageKey":2966790,"scientificName":"Apios
         Fabr.","canonicalName":"Apios","rank":"GENUS","status":"ACCEPTED","confidence":74,"note":"Similarity:
-        name=75; authorship=0; classification=-2; rank=0; status=1","matchType":"FUZZY","kingdom":"Plantae","phylum":"Tracheophyta","order":"Fabales","family":"Fabaceae","genus":"Apios","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":1370,"familyKey":5386,"genusKey":2966790,"synonym":false,"class":"Magnoliopsida"},{"usageKey":8903677,"scientificName":"Apisa
+        name=75; authorship=0; classification=-2; rank=0; status=1; score=74","matchType":"FUZZY","kingdom":"Plantae","phylum":"Tracheophyta","order":"Fabales","family":"Fabaceae","genus":"Apios","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":1370,"familyKey":5386,"genusKey":2966790,"synonym":false,"class":"Magnoliopsida"},{"usageKey":8903677,"scientificName":"Apisa
         Walker, 1855","canonicalName":"Apisa","rank":"GENUS","status":"ACCEPTED","confidence":74,"note":"Similarity:
-        name=75; authorship=0; classification=-2; rank=0; status=1","matchType":"FUZZY","kingdom":"Animalia","phylum":"Arthropoda","order":"Lepidoptera","family":"Arctiidae","genus":"Apisa","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":797,"familyKey":4548,"genusKey":8903677,"synonym":false,"class":"Insecta"},{"usageKey":1245765,"scientificName":"Apsis
-        Germar, 1817","canonicalName":"Apsis","rank":"GENUS","status":"ACCEPTED","confidence":74,"note":"Similarity:
-        name=75; authorship=0; classification=-2; rank=0; status=1","matchType":"FUZZY","kingdom":"Animalia","phylum":"Arthropoda","order":"Coleoptera","family":"Curculionidae","genus":"Apsis","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1470,"familyKey":4239,"genusKey":1245765,"synonym":false,"class":"Insecta"},{"usageKey":2235048,"scientificName":"Apus
+        name=75; authorship=0; classification=-2; rank=0; status=1; score=74","matchType":"FUZZY","kingdom":"Animalia","phylum":"Arthropoda","order":"Lepidoptera","family":"Erebidae","genus":"Apisa","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":797,"familyKey":4532185,"genusKey":8903677,"synonym":false,"class":"Insecta"},{"usageKey":1245765,"scientificName":"Apsis
+        Germar, 1820","canonicalName":"Apsis","rank":"GENUS","status":"ACCEPTED","confidence":74,"note":"Similarity:
+        name=75; authorship=0; classification=-2; rank=0; status=1; score=74","matchType":"FUZZY","kingdom":"Animalia","phylum":"Arthropoda","order":"Coleoptera","family":"Curculionidae","genus":"Apsis","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1470,"familyKey":4239,"genusKey":1245765,"synonym":false,"class":"Insecta"},{"usageKey":2235048,"scientificName":"Apus
         Scopoli, 1777","canonicalName":"Apus","rank":"GENUS","status":"ACCEPTED","confidence":74,"note":"Similarity:
-        name=75; authorship=0; classification=-2; rank=0; status=1","matchType":"FUZZY","kingdom":"Animalia","phylum":"Chordata","order":"Apodiformes","family":"Apodidae","genus":"Apus","kingdomKey":1,"phylumKey":44,"classKey":212,"orderKey":1448,"familyKey":2993,"genusKey":2235048,"synonym":false,"class":"Aves"},{"usageKey":2440932,"scientificName":"Axis
+        name=75; authorship=0; classification=-2; rank=0; status=1; score=74","matchType":"FUZZY","kingdom":"Animalia","phylum":"Chordata","order":"Apodiformes","family":"Apodidae","genus":"Apus","kingdomKey":1,"phylumKey":44,"classKey":212,"orderKey":1448,"familyKey":2993,"genusKey":2235048,"synonym":false,"class":"Aves"},{"usageKey":2440932,"scientificName":"Axis
         C.H.Smith, 1827","canonicalName":"Axis","rank":"GENUS","status":"ACCEPTED","confidence":74,"note":"Similarity:
-        name=75; authorship=0; classification=-2; rank=0; status=1","matchType":"FUZZY","kingdom":"Animalia","phylum":"Chordata","order":"Artiodactyla","family":"Cervidae","genus":"Axis","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":731,"familyKey":5298,"genusKey":2440932,"synonym":false,"class":"Mammalia"},{"usageKey":3262026,"acceptedUsageKey":4455287,"scientificName":"Acis
+        name=75; authorship=0; classification=-2; rank=0; status=1; score=74","matchType":"FUZZY","kingdom":"Animalia","phylum":"Chordata","order":"Artiodactyla","family":"Cervidae","genus":"Axis","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":731,"familyKey":5298,"genusKey":2440932,"synonym":false,"class":"Mammalia"},{"usageKey":10965142,"acceptedUsageKey":11084913,"scientificName":"Acis
+        Berlese, 1883","canonicalName":"Acis","rank":"GENUS","status":"SYNONYM","confidence":73,"note":"Similarity:
+        name=75; authorship=0; classification=-2; rank=0; status=0; score=73","matchType":"FUZZY","kingdom":"Animalia","phylum":"Arthropoda","order":"Pseudoscorpiones","family":"Atemnidae","genus":"Atemnus","kingdomKey":1,"phylumKey":54,"classKey":367,"orderKey":1161,"familyKey":7655,"genusKey":11084913,"synonym":true,"class":"Arachnida"},{"usageKey":3262026,"acceptedUsageKey":4455287,"scientificName":"Acis
         Billberg, 1820","canonicalName":"Acis","rank":"GENUS","status":"SYNONYM","confidence":73,"note":"Similarity:
-        name=75; authorship=0; classification=-2; rank=0; status=0","matchType":"FUZZY","kingdom":"Animalia","phylum":"Arthropoda","order":"Coleoptera","family":"Tenebrionidae","genus":"Akis","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1470,"familyKey":7857,"genusKey":4455287,"synonym":true,"class":"Insecta"},{"usageKey":2126469,"acceptedUsageKey":2126435,"scientificName":"Acis
+        name=75; authorship=0; classification=-2; rank=0; status=0; score=73","matchType":"FUZZY","kingdom":"Animalia","phylum":"Arthropoda","order":"Coleoptera","family":"Tenebrionidae","genus":"Akis","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1470,"familyKey":7857,"genusKey":4455287,"synonym":true,"class":"Insecta"},{"usageKey":2126469,"acceptedUsageKey":2126435,"scientificName":"Acis
         Canestrini, 1883","canonicalName":"Acis","rank":"GENUS","status":"SYNONYM","confidence":73,"note":"Similarity:
-        name=75; authorship=0; classification=-2; rank=0; status=0","matchType":"FUZZY","kingdom":"Animalia","phylum":"Arthropoda","order":"Pseudoscorpiones","family":"Atemnidae","genus":"Atemnus","kingdomKey":1,"phylumKey":54,"classKey":367,"orderKey":1161,"familyKey":7655,"genusKey":2126435,"synonym":true,"class":"Arachnida"},{"usageKey":7943484,"acceptedUsageKey":3260090,"scientificName":"Acis
-        Chevrolat, 1837","canonicalName":"Acis","rank":"GENUS","status":"SYNONYM","confidence":73,"note":"Similarity:
-        name=75; authorship=0; classification=-2; rank=0; status=0","matchType":"FUZZY","kingdom":"Animalia","phylum":"Arthropoda","order":"Coleoptera","family":"Chrysomelidae","genus":"Colasposoma","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1470,"familyKey":7780,"genusKey":3260090,"synonym":true,"class":"Insecta"},{"usageKey":1995867,"acceptedUsageKey":5150423,"scientificName":"Agis
+        name=75; authorship=0; classification=-2; rank=0; status=0; score=73","matchType":"FUZZY","kingdom":"Animalia","phylum":"Arthropoda","order":"Pseudoscorpiones","family":"Atemnidae","genus":"Atemnus","kingdomKey":1,"phylumKey":54,"classKey":367,"orderKey":1161,"familyKey":7655,"genusKey":2126435,"synonym":true,"class":"Arachnida"},{"usageKey":7943484,"acceptedUsageKey":3260090,"scientificName":"Acis
+        Chevrolat, 1836","canonicalName":"Acis","rank":"GENUS","status":"SYNONYM","confidence":73,"note":"Similarity:
+        name=75; authorship=0; classification=-2; rank=0; status=0; score=73","matchType":"FUZZY","kingdom":"Animalia","phylum":"Arthropoda","order":"Coleoptera","family":"Chrysomelidae","genus":"Colasposoma","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1470,"familyKey":7780,"genusKey":3260090,"synonym":true,"class":"Insecta"},{"usageKey":3242821,"acceptedUsageKey":12237510,"scientificName":"Acis
+        Duchassaing & Michelotti, 1860","canonicalName":"Acis","rank":"GENUS","status":"SYNONYM","confidence":73,"note":"Similarity:
+        name=75; authorship=0; classification=-2; rank=0; status=0; score=73","matchType":"FUZZY","kingdom":"Animalia","phylum":"Cnidaria","order":"Malacalcyonacea","family":"Paramuriceidae","genus":"Neoacis","kingdomKey":1,"phylumKey":43,"classKey":206,"orderKey":12204028,"familyKey":3250302,"genusKey":12237510,"synonym":true,"class":"Anthozoa"},{"usageKey":1995867,"acceptedUsageKey":5150423,"scientificName":"Agis
         Rehn, 1933","canonicalName":"Agis","rank":"GENUS","status":"SYNONYM","confidence":73,"note":"Similarity:
-        name=75; authorship=0; classification=-2; rank=0; status=0","matchType":"FUZZY","kingdom":"Animalia","phylum":"Arthropoda","order":"Blattodea","family":"Blaberidae","genus":"Cyrtotria","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":800,"familyKey":5521,"genusKey":5150423,"synonym":true,"class":"Insecta"},{"usageKey":8407694,"acceptedUsageKey":9580281,"scientificName":"Apius
+        name=75; authorship=0; classification=-2; rank=0; status=0; score=73","matchType":"FUZZY","kingdom":"Animalia","phylum":"Arthropoda","order":"Blattodea","family":"Blaberidae","genus":"Cyrtotria","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":800,"familyKey":5521,"genusKey":5150423,"synonym":true,"class":"Insecta"},{"usageKey":8407694,"acceptedUsageKey":9580281,"scientificName":"Apius
         Billberg, 1820","canonicalName":"Apius","rank":"GENUS","status":"SYNONYM","confidence":73,"note":"Similarity:
-        name=75; authorship=0; classification=-2; rank=0; status=0","matchType":"FUZZY","kingdom":"Animalia","phylum":"Arthropoda","order":"Coleoptera","family":"Apionidae","genus":"Apion","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1470,"familyKey":4207,"genusKey":9580281,"synonym":true,"class":"Insecta"},{"usageKey":3258786,"acceptedUsageKey":4298296,"scientificName":"Apius
+        name=75; authorship=0; classification=-2; rank=0; status=0; score=73","matchType":"FUZZY","kingdom":"Animalia","phylum":"Arthropoda","order":"Coleoptera","family":"Apionidae","genus":"Apion","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1470,"familyKey":4207,"genusKey":9580281,"synonym":true,"class":"Insecta"},{"usageKey":3258786,"acceptedUsageKey":4298296,"scientificName":"Apius
         Jurine, 1807","canonicalName":"Apius","rank":"GENUS","status":"SYNONYM","confidence":73,"note":"Similarity:
-        name=75; authorship=0; classification=-2; rank=0; status=0","matchType":"FUZZY","kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Crabronidae","genus":"Trypoxylon","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":7906,"genusKey":4298296,"synonym":true,"class":"Insecta"},{"usageKey":8204580,"acceptedUsageKey":2235049,"scientificName":"Apus
+        name=75; authorship=0; classification=-2; rank=0; status=0; score=73","matchType":"FUZZY","kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Crabronidae","genus":"Trypoxylon","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":7906,"genusKey":4298296,"synonym":true,"class":"Insecta"},{"usageKey":1248732,"acceptedUsageKey":4298296,"scientificName":"Apius
+        Panzer, 1806","canonicalName":"Apius","rank":"GENUS","status":"SYNONYM","confidence":73,"note":"Similarity:
+        name=75; authorship=0; classification=-2; rank=0; status=0; score=73","matchType":"FUZZY","kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Crabronidae","genus":"Trypoxylon","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":7906,"genusKey":4298296,"synonym":true,"class":"Insecta"},{"usageKey":12095645,"acceptedUsageKey":2235049,"scientificName":"Apus
         Cuvier, 1798","canonicalName":"Apus","rank":"GENUS","status":"SYNONYM","confidence":73,"note":"Similarity:
-        name=75; authorship=0; classification=-2; rank=0; status=0","matchType":"FUZZY","kingdom":"Animalia","phylum":"Arthropoda","order":"Notostraca","family":"Triopsidae","genus":"Lepidurus","kingdomKey":1,"phylumKey":54,"classKey":281,"orderKey":1159,"familyKey":2235047,"genusKey":2235049,"synonym":true,"class":"Branchiopoda"},{"usageKey":6005967,"acceptedUsageKey":2529580,"scientificName":"Apus
+        name=75; authorship=0; classification=-2; rank=0; status=0; score=73","matchType":"FUZZY","kingdom":"Animalia","phylum":"Arthropoda","order":"Notostraca","family":"Triopsidae","genus":"Lepidurus","kingdomKey":1,"phylumKey":54,"classKey":281,"orderKey":1159,"familyKey":2235047,"genusKey":2235049,"synonym":true,"class":"Branchiopoda"},{"usageKey":6005967,"acceptedUsageKey":2529580,"scientificName":"Apus
         Gray","canonicalName":"Apus","rank":"GENUS","status":"SYNONYM","confidence":73,"note":"Similarity:
-        name=75; authorship=0; classification=-2; rank=0; status=0","matchType":"FUZZY","kingdom":"Fungi","phylum":"Basidiomycota","order":"Agaricales","family":"Schizophyllaceae","genus":"Schizophyllum","kingdomKey":5,"phylumKey":34,"classKey":186,"orderKey":1499,"familyKey":4185,"genusKey":2529580,"synonym":true,"class":"Agaricomycetes"},{"usageKey":6008154,"acceptedUsageKey":4578677,"scientificName":"Apus
+        name=75; authorship=0; classification=-2; rank=0; status=0; score=73","matchType":"FUZZY","kingdom":"Fungi","phylum":"Basidiomycota","order":"Agaricales","family":"Schizophyllaceae","genus":"Schizophyllum","kingdomKey":5,"phylumKey":34,"classKey":186,"orderKey":1499,"familyKey":4185,"genusKey":2529580,"synonym":true,"class":"Agaricomycetes"},{"usageKey":11231324,"acceptedUsageKey":2235057,"scientificName":"Apus
+        Schaeffer, 1756","canonicalName":"Apus","rank":"GENUS","status":"SYNONYM","confidence":73,"note":"Similarity:
+        name=75; authorship=0; classification=-2; rank=0; status=0; score=73","matchType":"FUZZY","kingdom":"Animalia","phylum":"Arthropoda","order":"Notostraca","family":"Triopsidae","genus":"Triops","kingdomKey":1,"phylumKey":54,"classKey":281,"orderKey":1159,"familyKey":2235047,"genusKey":2235057,"synonym":true,"class":"Branchiopoda"},{"usageKey":12121841,"acceptedUsageKey":1001916,"scientificName":"Apus
         Schoch, 1868","canonicalName":"Apus","rank":"GENUS","status":"SYNONYM","confidence":73,"note":"Similarity:
-        name=75; authorship=0; classification=-2; rank=0; status=0","matchType":"FUZZY","kingdom":"Animalia","phylum":"Rotifera","order":"Ploima","family":"Asplanchnidae","genus":"Schochapus","kingdomKey":1,"phylumKey":91,"classKey":307,"orderKey":1235,"familyKey":8059,"genusKey":4578677,"synonym":true,"class":"Eurotatoria"},{"usageKey":3263201,"acceptedUsageKey":4718402,"scientificName":"Axis
-        Gistl, 1848","canonicalName":"Axis","rank":"GENUS","status":"SYNONYM","confidence":73,"note":"Similarity:
-        name=75; authorship=0; classification=-2; rank=0; status=0","matchType":"FUZZY","kingdom":"Animalia","phylum":"Arthropoda","order":"Coleoptera","family":"Chrysomelidae","genus":"Hybosa","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1470,"familyKey":7780,"genusKey":4718402,"synonym":true,"class":"Insecta"},{"usageKey":3260091,"scientificName":"Acis
-        Dejean, 1835","canonicalName":"Acis","rank":"GENUS","status":"DOUBTFUL","confidence":68,"note":"Similarity:
-        name=75; authorship=0; classification=-2; rank=0; status=-5","matchType":"FUZZY","kingdom":"Animalia","phylum":"Arthropoda","order":"Coleoptera","family":"Chrysomelidae","genus":"Acis","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1470,"familyKey":7780,"genusKey":3260091,"synonym":false,"class":"Insecta"},{"usageKey":9620201,"scientificName":"Acis
+        name=75; authorship=0; classification=-2; rank=0; status=0; score=73","matchType":"FUZZY","kingdom":"Animalia","phylum":"Rotifera","order":"Ploima","family":"Asplanchnidae","genus":"Asplanchna","kingdomKey":1,"phylumKey":91,"classKey":307,"orderKey":1235,"familyKey":8059,"genusKey":1001916,"synonym":true,"class":"Eurotatoria"},{"usageKey":3263201,"acceptedUsageKey":4718402,"scientificName":"Axis
+        Gistel, 1848","canonicalName":"Axis","rank":"GENUS","status":"SYNONYM","confidence":73,"note":"Similarity:
+        name=75; authorship=0; classification=-2; rank=0; status=0; score=73","matchType":"FUZZY","kingdom":"Animalia","phylum":"Arthropoda","order":"Coleoptera","family":"Chrysomelidae","genus":"Hybosa","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1470,"familyKey":7780,"genusKey":4718402,"synonym":true,"class":"Insecta"},{"usageKey":9620201,"scientificName":"Acis
         Lesson, 1830-1831","canonicalName":"Acis","rank":"GENUS","status":"DOUBTFUL","confidence":68,"note":"Similarity:
-        name=75; authorship=0; classification=-2; rank=0; status=-5","matchType":"FUZZY","kingdom":"Animalia","phylum":"Chordata","genus":"Acis","kingdomKey":1,"phylumKey":44,"classKey":212,"genusKey":9620201,"synonym":false,"class":"Aves"},{"usageKey":7379273,"scientificName":"Apios
-        Moench","canonicalName":"Apios","rank":"GENUS","status":"DOUBTFUL","confidence":68,"note":"Similarity:
-        name=75; authorship=0; classification=-2; rank=0; status=-5","matchType":"FUZZY","kingdom":"Plantae","phylum":"Tracheophyta","order":"Fabales","family":"Fabaceae","genus":"Apios","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":1370,"familyKey":5386,"genusKey":7379273,"synonym":false,"class":"Magnoliopsida"},{"usageKey":4667736,"scientificName":"Apos
+        name=75; authorship=0; classification=-2; rank=0; status=-5; score=68","matchType":"FUZZY","kingdom":"Animalia","phylum":"Chordata","genus":"Acis","kingdomKey":1,"phylumKey":44,"classKey":212,"genusKey":9620201,"synonym":false,"class":"Aves"},{"usageKey":7379273,"scientificName":"Apios
+        Moench, 1794","canonicalName":"Apios","rank":"GENUS","status":"DOUBTFUL","confidence":68,"note":"Similarity:
+        name=75; authorship=0; classification=-2; rank=0; status=-5; score=68","matchType":"FUZZY","kingdom":"Plantae","phylum":"Tracheophyta","order":"Fabales","family":"Fabaceae","genus":"Apios","kingdomKey":6,"phylumKey":7707728,"classKey":220,"orderKey":1370,"familyKey":5386,"genusKey":7379273,"synonym":false,"class":"Magnoliopsida"},{"usageKey":4667736,"scientificName":"Apos
         Scopoli, 1777","canonicalName":"Apos","rank":"GENUS","status":"DOUBTFUL","confidence":68,"note":"Similarity:
-        name=75; authorship=0; classification=-2; rank=0; status=-5","matchType":"FUZZY","kingdom":"incertae
-        sedis","genus":"Apos","kingdomKey":0,"genusKey":4667736,"synonym":false},{"usageKey":8535967,"scientificName":"Axis
+        name=75; authorship=0; classification=-2; rank=0; status=-5; score=68","matchType":"FUZZY","kingdom":"Animalia","genus":"Apos","kingdomKey":1,"genusKey":4667736,"synonym":false},{"usageKey":8204580,"scientificName":"Apus","canonicalName":"Apus","rank":"GENUS","status":"DOUBTFUL","confidence":68,"note":"Similarity:
+        name=75; authorship=0; classification=-2; rank=0; status=-5; score=68","matchType":"FUZZY","kingdom":"Animalia","phylum":"Chordata","order":"Strigiformes","family":"Tytonidae","genus":"Apus","kingdomKey":1,"phylumKey":44,"classKey":212,"orderKey":1450,"familyKey":5292,"genusKey":8204580,"synonym":false,"class":"Aves"},{"usageKey":6008154,"scientificName":"Apus","canonicalName":"Apus","rank":"GENUS","status":"DOUBTFUL","confidence":68,"note":"Similarity:
+        name=75; authorship=0; classification=-2; rank=0; status=-5; score=68","matchType":"FUZZY","kingdom":"Animalia","phylum":"Chordata","order":"Caprimulgiformes","family":"Caprimulgidae","genus":"Apus","kingdomKey":1,"phylumKey":44,"classKey":212,"orderKey":8510645,"familyKey":5225,"genusKey":6008154,"synonym":false,"class":"Aves"},{"usageKey":8535967,"scientificName":"Axis
         Gray, 1825","canonicalName":"Axis","rank":"GENUS","status":"DOUBTFUL","confidence":68,"note":"Similarity:
-        name=75; authorship=0; classification=-2; rank=0; status=-5","matchType":"FUZZY","kingdom":"Animalia","phylum":"Chordata","order":"Artiodactyla","family":"Cervidae","genus":"Axis","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":731,"familyKey":5298,"genusKey":8535967,"synonym":false,"class":"Mammalia"},{"usageKey":9167866,"scientificName":"Axis
+        name=75; authorship=0; classification=-2; rank=0; status=-5; score=68","matchType":"FUZZY","kingdom":"Animalia","phylum":"Chordata","order":"Artiodactyla","family":"Cervidae","genus":"Axis","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":731,"familyKey":5298,"genusKey":8535967,"synonym":false,"class":"Mammalia"},{"usageKey":9167866,"scientificName":"Axis
         Linnaeus, 1758","canonicalName":"Axis","rank":"GENUS","status":"DOUBTFUL","confidence":68,"note":"Similarity:
-        name=75; authorship=0; classification=-2; rank=0; status=-5","matchType":"FUZZY","kingdom":"Animalia","phylum":"Chordata","order":"Artiodactyla","family":"Cervidae","genus":"Axis","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":731,"familyKey":5298,"genusKey":9167866,"synonym":false,"class":"Mammalia"},{"usageKey":4695644,"scientificName":"Alpis
-        Walker, 1855","canonicalName":"Alpis","rank":"GENUS","status":"ACCEPTED","confidence":0,"note":"Similarity:
-        name=-5; authorship=0; classification=-2; rank=0; status=1","matchType":"FUZZY","kingdom":"Animalia","phylum":"Arthropoda","order":"Lepidoptera","genus":"Alpis","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":797,"genusKey":4695644,"synonym":false,"class":"Insecta"},{"usageKey":2049562,"scientificName":"Aphis
+        name=75; authorship=0; classification=-2; rank=0; status=-5; score=68","matchType":"FUZZY","kingdom":"Animalia","phylum":"Chordata","order":"Artiodactyla","family":"Cervidae","genus":"Axis","kingdomKey":1,"phylumKey":44,"classKey":359,"orderKey":731,"familyKey":5298,"genusKey":9167866,"synonym":false,"class":"Mammalia"},{"usageKey":2049562,"scientificName":"Aphis
         Linnaeus, 1758","canonicalName":"Aphis","rank":"GENUS","status":"ACCEPTED","confidence":0,"note":"Similarity:
-        name=-5; authorship=0; classification=-2; rank=0; status=1","matchType":"FUZZY","kingdom":"Animalia","phylum":"Arthropoda","order":"Hemiptera","family":"Aphididae","genus":"Aphis","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":809,"familyKey":3042,"genusKey":2049562,"synonym":false,"class":"Insecta"},{"usageKey":6946033,"acceptedUsageKey":1245765,"scientificName":"Aspis
+        name=-5; authorship=0; classification=-2; rank=0; status=1; score=-6","matchType":"FUZZY","kingdom":"Animalia","phylum":"Arthropoda","order":"Hemiptera","family":"Aphididae","genus":"Aphis","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":809,"familyKey":3042,"genusKey":2049562,"synonym":false,"class":"Insecta"},{"usageKey":2443747,"scientificName":"Aspis
+        Laurenti, 1768","canonicalName":"Aspis","rank":"GENUS","status":"ACCEPTED","confidence":0,"note":"Similarity:
+        name=-5; authorship=0; classification=-2; rank=0; status=1; score=-6","matchType":"FUZZY","kingdom":"Animalia","genus":"Aspis","kingdomKey":1,"genusKey":2443747,"synonym":false},{"usageKey":4695644,"acceptedUsageKey":1751552,"scientificName":"Alpis
+        Walker, 1855","canonicalName":"Alpis","rank":"GENUS","status":"SYNONYM","confidence":0,"note":"Similarity:
+        name=-5; authorship=0; classification=-2; rank=0; status=0; score=-7","matchType":"FUZZY","kingdom":"Animalia","phylum":"Arthropoda","order":"Lepidoptera","family":"Megalopygidae","genus":"Megalopyge","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":797,"familyKey":9409,"genusKey":1751552,"synonym":true,"class":"Insecta"},{"usageKey":8643682,"acceptedUsageKey":2069512,"scientificName":"Aphis","canonicalName":"Aphis","rank":"GENUS","status":"SYNONYM","confidence":0,"note":"Similarity:
+        name=-5; authorship=0; classification=-2; rank=0; status=0; score=-7","matchType":"FUZZY","kingdom":"Animalia","phylum":"Arthropoda","order":"Hemiptera","family":"Aphididae","genus":"Rhopalosiphum","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":809,"familyKey":3042,"genusKey":2069512,"synonym":true,"class":"Insecta"},{"usageKey":9507621,"acceptedUsageKey":4386325,"scientificName":"Aphis","canonicalName":"Aphis","rank":"GENUS","status":"SYNONYM","confidence":0,"note":"Similarity:
+        name=-5; authorship=0; classification=-2; rank=0; status=0; score=-7","matchType":"FUZZY","kingdom":"Animalia","phylum":"Arthropoda","order":"Hemiptera","family":"Aphididae","genus":"Abura","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":809,"familyKey":3042,"genusKey":4386325,"synonym":true,"class":"Insecta"},{"usageKey":6946033,"acceptedUsageKey":1245765,"scientificName":"Aspis
         Agassiz, 1846","canonicalName":"Aspis","rank":"GENUS","status":"SYNONYM","confidence":0,"note":"Similarity:
-        name=-5; authorship=0; classification=-2; rank=0; status=0","matchType":"FUZZY","kingdom":"Animalia","phylum":"Arthropoda","order":"Coleoptera","family":"Curculionidae","genus":"Apsis","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1470,"familyKey":4239,"genusKey":1245765,"synonym":true,"class":"Insecta"},{"usageKey":3256440,"acceptedUsageKey":1741338,"scientificName":"Aspis
+        name=-5; authorship=0; classification=-2; rank=0; status=0; score=-7","matchType":"FUZZY","kingdom":"Animalia","phylum":"Arthropoda","order":"Coleoptera","family":"Curculionidae","genus":"Apsis","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1470,"familyKey":4239,"genusKey":1245765,"synonym":true,"class":"Insecta"},{"usageKey":3256440,"acceptedUsageKey":1741338,"scientificName":"Aspis
         Treitschke, 1829","canonicalName":"Aspis","rank":"GENUS","status":"SYNONYM","confidence":0,"note":"Similarity:
-        name=-5; authorship=0; classification=-2; rank=0; status=0","matchType":"FUZZY","kingdom":"Animalia","phylum":"Arthropoda","order":"Lepidoptera","family":"Tortricidae","genus":"Notocelia","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":797,"familyKey":5343,"genusKey":1741338,"synonym":true,"class":"Insecta"},{"usageKey":2443747,"scientificName":"Aspis
-        Laurenti, 1768","canonicalName":"Aspis","rank":"GENUS","status":"DOUBTFUL","confidence":0,"note":"Similarity:
-        name=-5; authorship=0; classification=-2; rank=0; status=-5","matchType":"FUZZY","kingdom":"incertae
-        sedis","genus":"Aspis","kingdomKey":0,"genusKey":2443747,"synonym":false},{"usageKey":7573228,"scientificName":"Aspis
+        name=-5; authorship=0; classification=-2; rank=0; status=0; score=-7","matchType":"FUZZY","kingdom":"Animalia","phylum":"Arthropoda","order":"Lepidoptera","family":"Tortricidae","genus":"Notocelia","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":797,"familyKey":5343,"genusKey":1741338,"synonym":true,"class":"Insecta"},{"usageKey":7573228,"scientificName":"Aspis
         Nishimura, 1992","canonicalName":"Aspis","rank":"GENUS","status":"DOUBTFUL","confidence":0,"note":"Similarity:
-        name=-5; authorship=0; classification=-2; rank=0; status=-5","matchType":"FUZZY","kingdom":"Chromista","genus":"Aspis","kingdomKey":4,"genusKey":7573228,"synonym":false}],"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":7799978,"synonym":false,"class":"Insecta"}'
-  recorded_at: 2020-03-06 19:18:39 GMT
-  recorded_with: vcr/0.5.0, webmockr/0.6.0
+        name=-5; authorship=0; classification=-2; rank=0; status=-5; score=-12","matchType":"FUZZY","kingdom":"Animalia","genus":"Aspis","kingdomKey":1,"genusKey":7573228,"synonym":false},{"usageKey":7237017,"scientificName":"Aspis
+        Wagler, 1830","canonicalName":"Aspis","rank":"GENUS","status":"DOUBTFUL","confidence":0,"note":"Similarity:
+        name=-5; authorship=0; classification=-2; rank=0; status=-5; score=-12","matchType":"FUZZY","kingdom":"Animalia","phylum":"Chordata","genus":"Aspis","kingdomKey":1,"phylumKey":44,"genusKey":7237017,"synonym":false}],"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":1334757,"synonym":false,"class":"Insecta"}'
+  recorded_at: 2024-09-05 16:40:31 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
-    uri: https://api.gbif.org/v1/species/7799978?limit=20
+    uri: https://api.gbif.org/v1/species/1334757?limit=20
     body:
       encoding: ''
       string: ''
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.94)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.94)
+      User-Agent: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: HTTP/1.1 200 OK
-      date: Fri, 06 Mar 2020 19:18:36 GMT
+      status: 'HTTP/2 200 '
+      vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-xss-protection: 1; mode=block
+      pragma: no-cache
+      expires: '0'
+      x-frame-options: DENY
       content-type: application/json
-      access-control-allow-origin: '*'
-      access-control-allow-methods: HEAD, GET, POST, DELETE, PUT, OPTIONS
-      server: Jetty(9.3.z-SNAPSHOT)
+      date: Thu, 05 Sep 2024 16:40:30 GMT
       cache-control: public, max-age=3601
-      x-varnish: '291736038'
+      x-varnish: '309593713'
       age: '0'
-      via: 1.1 varnish (Varnish/5.2)
+      via: 1.1 varnish (Varnish/6.0)
       accept-ranges: bytes
-      content-length: '761'
-      connection: keep-alive
+      content-length: '1086'
     body:
-      encoding: UTF-8
+      encoding: ''
       file: no
-      string: '{"key":7799978,"nameKey":837464,"taxonID":"gbif:7799978","kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":7799978,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":4334,"parent":"Apidae","scientificName":"Apis
-        Fabricius","canonicalName":"Apis","authorship":"Fabricius","nameType":"SCIENTIFIC","rank":"GENUS","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":62,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T04:29:36.604+0000","issues":[],"synonym":false,"class":"Insecta"}'
-  recorded_at: 2020-03-06 19:18:39 GMT
-  recorded_with: vcr/0.5.0, webmockr/0.6.0
+      string: '{"key":1334757,"nubKey":1334757,"nameKey":837474,"taxonID":"gbif:1334757","sourceTaxonKey":173465646,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":1334757,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":4334,"parent":"Apidae","scientificName":"Apis
+        Linnaeus, 1758","canonicalName":"Apis","vernacularName":"honey bee","authorship":"Linnaeus,
+        1758","nameType":"SCIENTIFIC","rank":"GENUS","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","publishedIn":"Linnæus,
+        Carolus. 1758. Systema naturae per regna tria naturae, secundum classes, ordines,
+        genera, species, cum characteribus, differentiis, synonymis, locis. Laurentii
+        Salvii, Holmiae. Vol. Tomus I, Editio decima, reformata: i-ii, 1-824.","numDescendants":75,"lastCrawled":"2023-08-22T23:20:59.545+00:00","lastInterpreted":"2023-08-22T22:29:58.642+00:00","issues":[],"class":"Insecta"}'
+  recorded_at: 2024-09-05 16:40:31 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
-    uri: https://api.gbif.org/v1/species/7799978/children?limit=100
+    uri: https://api.gbif.org/v1/species/1334757/children?limit=100
     body:
       encoding: ''
       string: ''
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.94)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.94)
+      User-Agent: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: HTTP/1.1 200 OK
-      date: Fri, 06 Mar 2020 19:18:38 GMT
+      status: 'HTTP/2 200 '
+      vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-xss-protection: 1; mode=block
+      pragma: no-cache
+      expires: '0'
+      x-frame-options: DENY
       content-type: application/json
-      access-control-allow-origin: '*'
-      access-control-allow-methods: HEAD, GET, POST, DELETE, PUT, OPTIONS
-      server: Jetty(9.3.z-SNAPSHOT)
+      date: Thu, 05 Sep 2024 16:40:30 GMT
       cache-control: public, max-age=3601
-      x-varnish: '301203797'
+      x-varnish: '309593714'
       age: '0'
-      via: 1.1 varnish (Varnish/5.2)
+      via: 1.1 varnish (Varnish/6.0)
       accept-ranges: bytes
-      transfer-encoding: chunked
-      connection: keep-alive
     body:
-      encoding: UTF-8
+      encoding: ''
       file: no
-      string: '{"offset":0,"limit":100,"endOfRecords":true,"results":[{"key":9637818,"nameKey":16165306,"taxonID":"gbif:9637818","sourceTaxonKey":134863113,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
-        albiventris","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":7799978,"speciesKey":9637818,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":7799978,"parent":"Apis","scientificName":"Apis
-        albiventris Panzer, 1798","canonicalName":"Apis albiventris","authorship":"Panzer,
-        1798","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Panzer,
-        Georg W. F. 1798. Faunae insectorum Germanicae initia. Felsecker, Nürnberg.:
-        Heft 56: 1-24.","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T04:29:36.825+0000","issues":[],"synonym":false,"class":"Insecta"},{"key":1341975,"nubKey":1341975,"nameKey":837544,"taxonID":"gbif:1341975","sourceTaxonKey":110189262,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
-        andreniformis","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":7799978,"speciesKey":1341975,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":7799978,"parent":"Apis","scientificName":"Apis
-        andreniformis Smith, 1858","canonicalName":"Apis andreniformis","authorship":"Smith,
-        1858","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":1,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T04:29:36.766+0000","issues":[],"synonym":false,"class":"Insecta"},{"key":9397835,"nameKey":16165316,"taxonID":"gbif:9397835","sourceTaxonKey":134863132,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
-        arenaria","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":7799978,"speciesKey":9397835,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":7799978,"parent":"Apis","scientificName":"Apis
-        arenaria Panzer, 1800","canonicalName":"Apis arenaria","authorship":"Panzer,
-        1800","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Panzer,
-        Georg W. F. 1800. Faunae insectorum Germanicae initia. Felsecker, Nürnberg.:
-        Heft 74: 1-24.","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T04:29:36.820+0000","issues":[],"synonym":false,"class":"Insecta"},{"key":9255183,"nameKey":16165327,"taxonID":"gbif:9255183","sourceTaxonKey":134863147,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
-        bidentata","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":7799978,"speciesKey":9255183,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":7799978,"parent":"Apis","scientificName":"Apis
-        bidentata Panzer, 1798","canonicalName":"Apis bidentata","authorship":"Panzer,
-        1798","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Panzer,
-        Georg W. F. 1798. Faunae insectorum Germanicae initia. Felsecker, Nürnberg.:
-        Heft 59: 1-24.","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T04:29:36.817+0000","issues":[],"synonym":false,"class":"Insecta"},{"key":9297594,"nameKey":16165323,"taxonID":"gbif:9297594","sourceTaxonKey":134863141,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
-        calendarum","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":7799978,"speciesKey":9297594,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":7799978,"parent":"Apis","scientificName":"Apis
-        calendarum Panzer, 1801","canonicalName":"Apis calendarum","authorship":"Panzer,
-        1801","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Panzer,
-        Georg W. F. 1801. Faunae insectorum Germanicae initia. Felsecker, Nürnberg.:
-        Heft 83: 1-24.","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T04:29:36.832+0000","issues":[],"synonym":false,"class":"Insecta"},{"key":1341979,"nubKey":1341979,"nameKey":837664,"taxonID":"gbif:1341979","sourceTaxonKey":110189263,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
-        cerana","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":7799978,"speciesKey":1341979,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":7799978,"parent":"Apis","scientificName":"Apis
-        cerana Fabricius, 1793","canonicalName":"Apis cerana","authorship":"Fabricius,
-        1793","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":7,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T04:29:36.781+0000","issues":[],"synonym":false,"class":"Insecta"},{"key":10222575,"nameKey":30081270,"taxonID":"gbif:10222575","sourceTaxonKey":146694186,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
-        dalica","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":7799978,"speciesKey":10222575,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":7799978,"parent":"Apis","scientificName":"Apis
-        dalica Engel & Wappler, 2018","canonicalName":"Apis dalica","authorship":"Engel
-        & Wappler, 2018","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Engel,
-        Michael S., Bo Wang, Abdulaziz S. Alqarni, Lin-Bo Jia, Tao Su, Zhe-kun Zhou
-        & Torsten Wappler. 2018. A primitive honey bee from the Middle Miocene deposits
-        of southeastern Yunnan, China (Hymenoptera, Apidae). ZooKeys 775: 117-129.","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T04:29:36.838+0000","issues":[],"synonym":false,"class":"Insecta"},{"key":7646250,"nameKey":837705,"taxonID":"gbif:7646250","sourceTaxonKey":100080812,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
-        dimidiata","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":7799978,"speciesKey":7646250,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"80b4b440-eaca-4860-aadf-d0dfdd3e856e","parentKey":7799978,"parent":"Apis","scientificName":"Apis
-        dimidiata Fabricius, 1793","canonicalName":"Apis dimidiata","authorship":"Fabricius,
-        1793","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","publishedIn":"Fabricius,
-        Johann C. 1793. Entomologia systematica emendata et aucta. Secundum classes,
-        ordines, genera, species, adjectis synonimis, locis, observationibus, descriptionibus.
-        C.G. Proft, Fil. et Soc., Hafniae. Vol. 2: 1-519.","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T04:29:36.803+0000","issues":[],"synonym":false,"class":"Insecta"},{"key":1341978,"nubKey":1341978,"nameKey":837714,"taxonID":"gbif:1341978","sourceTaxonKey":110189264,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
-        dorsata","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":7799978,"speciesKey":1341978,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":7799978,"parent":"Apis","scientificName":"Apis
-        dorsata Fabricius, 1793","canonicalName":"Apis dorsata","authorship":"Fabricius,
-        1793","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":3,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T04:29:36.796+0000","issues":[],"synonym":false,"class":"Insecta"},{"key":9443021,"nameKey":16165310,"taxonID":"gbif:9443021","sourceTaxonKey":134863122,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
-        dumetorum","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":7799978,"speciesKey":9443021,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":7799978,"parent":"Apis","scientificName":"Apis
-        dumetorum Panzer, 1798","canonicalName":"Apis dumetorum","authorship":"Panzer,
-        1798","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Panzer,
-        Georg W. F. 1798. Faunae insectorum Germanicae initia. Felsecker, Nürnberg.:
-        Heft 56: 1-24.","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T04:29:36.828+0000","issues":[],"synonym":false,"class":"Insecta"},{"key":9591950,"nameKey":16165326,"taxonID":"gbif:9591950","sourceTaxonKey":134863146,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
-        ericetorum","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":7799978,"speciesKey":9591950,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":7799978,"parent":"Apis","scientificName":"Apis
-        ericetorum Panzer, 1800","canonicalName":"Apis ericetorum","authorship":"Panzer,
-        1800","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Panzer,
-        Georg W. F. 1800. Faunae insectorum Germanicae initia. Felsecker, Nürnberg.:
-        Heft 75: 1-24.","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T04:29:36.640+0000","issues":[],"synonym":false,"class":"Insecta"},{"key":1341974,"nubKey":1341974,"nameKey":837743,"taxonID":"gbif:1341974","sourceTaxonKey":110189265,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
-        florea","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":7799978,"speciesKey":1341974,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":7799978,"parent":"Apis","scientificName":"Apis
-        florea Fabricius, 1787","canonicalName":"Apis florea","authorship":"Fabricius,
-        1787","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":2,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T04:29:36.770+0000","issues":[],"synonym":false,"class":"Insecta"},{"key":9515823,"nameKey":16165328,"taxonID":"gbif:9515823","sourceTaxonKey":134863153,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
-        fronticornis","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":7799978,"speciesKey":9515823,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":7799978,"parent":"Apis","scientificName":"Apis
-        fronticornis Panzer, 1799","canonicalName":"Apis fronticornis","authorship":"Panzer,
-        1799","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Panzer,
-        Georg W. F. 1799. Faunae insectorum Germanicae initia. Felsecker, Nürnberg.:
-        Heft 63: 1-24.","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T04:29:36.845+0000","issues":[],"synonym":false,"class":"Insecta"},{"key":9369126,"nameKey":16165325,"taxonID":"gbif:9369126","sourceTaxonKey":134863145,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
-        frutetorum","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":7799978,"speciesKey":9369126,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":7799978,"parent":"Apis","scientificName":"Apis
-        frutetorum Panzer, 1800","canonicalName":"Apis frutetorum","authorship":"Panzer,
-        1800","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Panzer,
-        Georg W. F. 1800. Faunae insectorum Germanicae initia. Felsecker, Nürnberg.:
-        Heft 75: 1-24.","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T04:29:36.644+0000","issues":[],"synonym":false,"class":"Insecta"},{"key":9324716,"nameKey":16165311,"taxonID":"gbif:9324716","sourceTaxonKey":134863124,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
-        fuliginosa","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":7799978,"speciesKey":9324716,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":7799978,"parent":"Apis","scientificName":"Apis
-        fuliginosa Panzer, 1798","canonicalName":"Apis fuliginosa","authorship":"Panzer,
-        1798","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Panzer,
-        Georg W. F. 1798. Faunae insectorum Germanicae initia. Felsecker, Nürnberg.:
-        Heft 56: 1-24.","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T04:29:36.840+0000","issues":[],"synonym":false,"class":"Insecta"},{"key":9717849,"nameKey":18013612,"taxonID":"gbif:9717849","sourceTaxonKey":142227146,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
-        fuliginosa","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":7799978,"speciesKey":9717849,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":7799978,"parent":"Apis","scientificName":"Apis
-        fuliginosa Scopoli, 1770","canonicalName":"Apis fuliginosa","authorship":"Scopoli,
-        1770","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"Possible
-        variant of Apis fuliginosa Panzer, 1798","publishedIn":"Scopoli, Giovanni
-        A. 1770. Annus historico-naturalis. C. G. Hilscher, Lipsiae. Vol. 4: 1-152.","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T04:29:36.834+0000","issues":["ORTHOGRAPHIC_VARIANT"],"synonym":false,"class":"Insecta"},{"key":9425713,"nameKey":16451751,"taxonID":"gbif:9425713","sourceTaxonKey":137681595,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
-        glutinans","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":7799978,"speciesKey":9425713,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":7799978,"parent":"Apis","scientificName":"Apis
-        glutinans Cuvier, 1797","canonicalName":"Apis glutinans","authorship":"Cuvier,
-        1797","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Cuvier,
-        Georges. 1797. Tableau élémentaire de l’Histoire Naturélle des animaux. Baudouin,
-        Imprimeur du Corps législatif et de l''Institut national, place du Carrousel,
-        N°. 662,an 6, Paris.: i-xvi, 1-710, Pl. 1-14.","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T04:29:36.818+0000","issues":[],"synonym":false,"class":"Insecta"},{"key":9281978,"nameKey":16165324,"taxonID":"gbif:9281978","sourceTaxonKey":134863143,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
-        haematopoda","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":7799978,"speciesKey":9281978,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":7799978,"parent":"Apis","scientificName":"Apis
-        haematopoda Panzer, 1801","canonicalName":"Apis haematopoda","authorship":"Panzer,
-        1801","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Panzer,
-        Georg W. F. 1801. Faunae insectorum Germanicae initia. Felsecker, Nürnberg.:
-        Heft 81: 1-24.","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T04:29:36.836+0000","issues":[],"synonym":false,"class":"Insecta"},{"key":9545558,"nameKey":16165317,"taxonID":"gbif:9545558","sourceTaxonKey":134863134,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
-        hemisphaerica","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":7799978,"speciesKey":9545558,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":7799978,"parent":"Apis","scientificName":"Apis
-        hemisphaerica Schrank, 1781","canonicalName":"Apis hemisphaerica","authorship":"Schrank,
-        1781","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Schrank,
-        Franz von P. 1781. Enumeratio insectorum Austriae indigenorum. Eberhard Klett
-        et Franck, Augustae Vindelicorum.: ; 1-548; ; pls. 1-4.","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T04:29:36.642+0000","issues":[],"synonym":false,"class":"Insecta"},{"key":7725401,"nameKey":837806,"taxonID":"gbif:7725401","sourceTaxonKey":100133607,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
-        indica","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":7799978,"speciesKey":7725401,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"6f1f2052-7db5-4422-995c-48c1faab2d3a","parentKey":7799978,"parent":"Apis","scientificName":"Apis
-        indica","canonicalName":"Apis indica","authorship":"","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T04:29:36.609+0000","issues":[],"synonym":false,"class":"Insecta"},{"key":1341977,"nubKey":1341977,"nameKey":837823,"taxonID":"gbif:1341977","sourceTaxonKey":110189266,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
-        koschevnikovi","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":7799978,"speciesKey":1341977,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":7799978,"parent":"Apis","scientificName":"Apis
-        koschevnikovi Enderlein, 1906","canonicalName":"Apis koschevnikovi","authorship":"Enderlein,
-        1906","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":2,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T04:29:36.775+0000","issues":[],"synonym":false,"class":"Insecta"},{"key":10337043,"nameKey":837827,"taxonID":"gbif:10337043","sourceTaxonKey":157813275,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
-        laboriosa","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":7799978,"speciesKey":10337043,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"4cec8fef-f129-4966-89b7-4f8439aba058","parentKey":7799978,"parent":"Apis","scientificName":"Apis
-        laboriosa","canonicalName":"Apis laboriosa","authorship":"","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":1,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T04:29:36.617+0000","issues":[],"synonym":false,"class":"Insecta"},{"key":10273728,"nameKey":29405319,"taxonID":"gbif:10273728","sourceTaxonKey":159286588,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
-        maxillosa","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":7799978,"speciesKey":10273728,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":7799978,"parent":"Apis","scientificName":"Apis
-        maxillosa Linnaeus, 1767","canonicalName":"Apis maxillosa","authorship":"Linnaeus,
-        1767","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Linnaeus,
-        Carolus. 1767. Systema naturae sive regna tria naturae, secundum classes,
-        ordines, genera, species, cum characteribus, differentiis, synonymis, locis.
-        Laurentii Salvii, Holmiae. Vol. I, No. 2, Edito duodecima, reformata: 533-1327,.","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T04:29:36.822+0000","issues":[],"synonym":false,"class":"Insecta"},{"key":1341976,"nubKey":1341976,"nameKey":837924,"taxonID":"gbif:1341976","sourceTaxonKey":110189267,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
-        mellifera","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":7799978,"speciesKey":1341976,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":7799978,"parent":"Apis","scientificName":"Apis
-        mellifera Linnaeus, 1758","canonicalName":"Apis mellifera","authorship":"Linnaeus,
+      string: '{"offset":0,"limit":100,"endOfRecords":true,"results":[{"key":9414554,"nubKey":9414554,"nameKey":16749747,"taxonID":"gbif:9414554","sourceTaxonKey":121403639,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apidae
+        melisuga","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":1334757,"speciesKey":9414554,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c33ce2f2-c3cc-43a5-a380-fe4526d63650","parentKey":1334757,"parent":"Apis","scientificName":"Apidae
+        melisuga (Handlirsch, 1907)","canonicalName":"Apidae melisuga","authorship":"(Handlirsch,
+        1907) ","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2023-08-22T23:20:59.545+00:00","lastInterpreted":"2023-08-22T22:29:58.650+00:00","issues":["NAME_PARENT_MISMATCH"],"class":"Insecta"},{"key":9003872,"nubKey":9003872,"nameKey":13489881,"taxonID":"gbif:9003872","sourceTaxonKey":128353420,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
+        4-dentata","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":1334757,"speciesKey":9003872,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":1334757,"parent":"Apis","scientificName":"Apis
+        4-dentata Linnaeus, 1758","canonicalName":"Apis 4-dentata","authorship":"Linnæus,
         1758","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","publishedIn":"Linnæus,
         Carolus. 1758. Systema naturae per regna tria naturae, secundum classes, ordines,
         genera, species, cum characteribus, differentiis, synonymis, locis. Laurentii
-        Salvii, Holmiae. Vol. Tomus I, Editio decima, reformata: i-ii, 1-824.","numDescendants":6,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T04:29:36.747+0000","issues":[],"synonym":false,"class":"Insecta"},{"key":9533424,"nameKey":16165321,"taxonID":"gbif:9533424","sourceTaxonKey":134863139,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
-        meridiana","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":7799978,"speciesKey":9533424,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":7799978,"parent":"Apis","scientificName":"Apis
-        meridiana Panzer, 1801","canonicalName":"Apis meridiana","authorship":"Panzer,
-        1801","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Panzer,
-        Georg W. F. 1801. Faunae insectorum Germanicae initia. Felsecker, Nürnberg.:
-        Heft 80: 1-24.","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T04:29:36.847+0000","issues":[],"synonym":false,"class":"Insecta"},{"key":9608822,"nameKey":16165320,"taxonID":"gbif:9608822","sourceTaxonKey":134863138,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
-        neutra","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":7799978,"speciesKey":9608822,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":7799978,"parent":"Apis","scientificName":"Apis
-        neutra Panzer, 1801","canonicalName":"Apis neutra","authorship":"Panzer, 1801","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Panzer,
-        Georg W. F. 1801. Faunae insectorum Germanicae initia. Felsecker, Nürnberg.:
-        Heft 83: 1-24.","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T04:29:36.844+0000","issues":[],"synonym":false,"class":"Insecta"},{"key":1341980,"nubKey":1341980,"nameKey":837807,"taxonID":"gbif:1341980","sourceTaxonKey":110189268,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
-        nigrocincta","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":7799978,"speciesKey":1341980,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":7799978,"parent":"Apis","scientificName":"Apis
-        nigrocincta Smith, 1861","canonicalName":"Apis nigrocincta","authorship":"Smith,
-        1861","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":2,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T04:29:36.737+0000","issues":[],"synonym":false,"class":"Insecta"},{"key":9942401,"nameKey":837815,"taxonID":"gbif:9942401","sourceTaxonKey":157813278,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
-        nuluensis","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":7799978,"speciesKey":9942401,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"4cec8fef-f129-4966-89b7-4f8439aba058","parentKey":7799978,"parent":"Apis","scientificName":"Apis
-        nuluensis","canonicalName":"Apis nuluensis","authorship":"","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":1,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T04:29:36.613+0000","issues":[],"synonym":false,"class":"Insecta"},{"key":8240925,"nameKey":837854,"taxonID":"gbif:8240925","sourceTaxonKey":100133610,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
-        perrottetii","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":7799978,"speciesKey":8240925,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"6f1f2052-7db5-4422-995c-48c1faab2d3a","parentKey":7799978,"parent":"Apis","scientificName":"Apis
-        perrottetii","canonicalName":"Apis perrottetii","authorship":"","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T04:29:36.611+0000","issues":[],"synonym":false,"class":"Insecta"},{"key":7476452,"nameKey":837864,"taxonID":"gbif:7476452","sourceTaxonKey":100080821,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
-        pilipes","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":7799978,"speciesKey":7476452,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"80b4b440-eaca-4860-aadf-d0dfdd3e856e","parentKey":7799978,"parent":"Apis","scientificName":"Apis
-        pilipes Fabricius, 1775","canonicalName":"Apis pilipes","authorship":"Fabricius,
-        1775","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","publishedIn":"Fabricius,
-        Johann C. 1775. Systema Entomologiae: sistens insectorvm classes, ordines,
-        genera, species, adiectis synonymis, locis, descriptionibvs, observationibvs.
-        Officina Libraria Kortii, Flensburgi et Lipsiae.: i–xvi; 1–832.","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T04:29:36.811+0000","issues":[],"synonym":false,"class":"Insecta"},{"key":7529049,"nameKey":837873,"taxonID":"gbif:7529049","sourceTaxonKey":100080822,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
-        proava","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":7799978,"speciesKey":7529049,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"80b4b440-eaca-4860-aadf-d0dfdd3e856e","parentKey":7799978,"parent":"Apis","scientificName":"Apis
-        proava Menge, 1856","canonicalName":"Apis proava","authorship":"Menge, 1856","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T04:29:36.805+0000","issues":[],"synonym":false,"class":"Insecta"},{"key":9441933,"nameKey":16165309,"taxonID":"gbif:9441933","sourceTaxonKey":134863116,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
-        rotundata","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":7799978,"speciesKey":9441933,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":7799978,"parent":"Apis","scientificName":"Apis
-        rotundata Panzer, 1798","canonicalName":"Apis rotundata","authorship":"Panzer,
-        1798","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Panzer,
+        Salvii, Holmiae. Vol. Tomus I, Editio decima, reformata: i-ii, 1-824.","numDescendants":0,"lastCrawled":"2023-08-22T23:20:59.545+00:00","lastInterpreted":"2023-08-22T22:29:58.754+00:00","issues":[],"class":"Insecta"},{"key":9637818,"nubKey":9637818,"nameKey":16165306,"taxonID":"gbif:9637818","sourceTaxonKey":134863113,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
+        albiventris","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":1334757,"speciesKey":9637818,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":1334757,"parent":"Apis","scientificName":"Apis
+        albiventris Panzer, 1798","canonicalName":"Apis albiventris","authorship":"Panzer,
+        1798","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","publishedIn":"Panzer,
         Georg W. F. 1798. Faunae insectorum Germanicae initia. Felsecker, Nürnberg.:
-        Heft 56: 1-24.","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T04:29:36.826+0000","issues":[],"synonym":false,"class":"Insecta"},{"key":9325779,"nameKey":16165307,"taxonID":"gbif:9325779","sourceTaxonKey":134863114,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
-        sphegoides","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":7799978,"speciesKey":9325779,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":7799978,"parent":"Apis","scientificName":"Apis
+        Heft 56: 1-24.","numDescendants":0,"lastCrawled":"2023-08-22T23:20:59.545+00:00","lastInterpreted":"2023-08-22T22:29:58.735+00:00","issues":[],"class":"Insecta"},{"key":1341975,"nubKey":1341975,"nameKey":37644747,"taxonID":"gbif:1341975","sourceTaxonKey":173466003,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
+        andreniformis","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":1334757,"speciesKey":1341975,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":1334757,"parent":"Apis","scientificName":"Apis
+        andreniformis Smith, 1857","canonicalName":"Apis andreniformis","authorship":"Smith,
+        1857","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","publishedIn":"Smith,
+        & Frederick. (1857). Catalogue of the Hymenopterous Insects Collected at Sarawak,
+        Borneo; Mount Ophir, Malacca; and Singapore, by A. R. Wallace. Journal of
+        the Proceedings of the Linnean Society, Vol. 2.","numDescendants":1,"lastCrawled":"2023-08-22T23:20:59.545+00:00","lastInterpreted":"2023-08-22T22:29:58.903+00:00","issues":[],"class":"Insecta"},{"key":8515574,"nubKey":8515574,"nameKey":837568,"taxonID":"gbif:8515574","sourceTaxonKey":190007714,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
+        aquitaniensis","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":1334757,"speciesKey":8515574,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"5a13b875-12b3-4def-a8e3-abcc8ea2c7d9","parentKey":1334757,"parent":"Apis","scientificName":"Apis
+        aquitaniensis de Rilly, 1930","canonicalName":"Apis aquitaniensis","authorship":"de
+        Rilly, 1930","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2023-08-22T23:20:59.545+00:00","lastInterpreted":"2023-08-22T22:29:58.689+00:00","issues":[],"class":"Insecta"},{"key":8608326,"nubKey":8608326,"nameKey":837578,"taxonID":"gbif:8608326","sourceTaxonKey":121403691,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
+        armbrusteri","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":1334757,"speciesKey":8608326,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c33ce2f2-c3cc-43a5-a380-fe4526d63650","parentKey":1334757,"parent":"Apis","scientificName":"Apis
+        armbrusteri (Zeuner, 1931)","canonicalName":"Apis armbrusteri","vernacularName":"Armbruster''s
+        honey bee","authorship":"(Zeuner, 1931) ","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":4,"lastCrawled":"2023-08-22T23:20:59.545+00:00","lastInterpreted":"2023-08-22T22:29:58.662+00:00","issues":[],"class":"Insecta"},{"key":9297594,"nubKey":9297594,"nameKey":16165323,"taxonID":"gbif:9297594","sourceTaxonKey":134863141,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
+        calendarum","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":1334757,"speciesKey":9297594,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":1334757,"parent":"Apis","scientificName":"Apis
+        calendarum Panzer, 1801","canonicalName":"Apis calendarum","authorship":"Panzer,
+        1801","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","publishedIn":"Panzer,
+        Georg W. F. 1801. Faunae insectorum Germanicae initia. Felsecker, Nürnberg.:
+        Heft 83: 1-24.","numDescendants":0,"lastCrawled":"2023-08-22T23:20:59.545+00:00","lastInterpreted":"2023-08-22T22:29:58.729+00:00","issues":[],"class":"Insecta"},{"key":10724099,"nubKey":10724099,"nameKey":40799867,"taxonID":"gbif:10724099","sourceTaxonKey":128353414,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
+        cariosa","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":1334757,"speciesKey":10724099,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":1334757,"parent":"Apis","scientificName":"Apis
+        cariosa Linnaeus, 1758","canonicalName":"Apis cariosa","authorship":"Linnæus,
+        1758","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","publishedIn":"Linnæus,
+        Carolus. 1758. Systema naturae per regna tria naturae, secundum classes, ordines,
+        genera, species, cum characteribus, differentiis, synonymis, locis. Laurentii
+        Salvii, Holmiae. Vol. Tomus I, Editio decima, reformata: i-ii, 1-824.","numDescendants":0,"lastCrawled":"2023-08-22T23:20:59.545+00:00","lastInterpreted":"2023-08-22T22:29:58.752+00:00","issues":[],"class":"Insecta"},{"key":11146026,"nubKey":11146026,"nameKey":46380726,"taxonID":"gbif:11146026","sourceTaxonKey":181608272,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
+        catula","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":1334757,"speciesKey":11146026,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":1334757,"parent":"Apis","scientificName":"Apis
+        catula Gravenhorst, 1807","canonicalName":"Apis catula","authorship":"Gravenhorst,
+        1807","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","publishedIn":"Gravenhorst,
+        Johann L. C. 1807. Vergleichende Uebersicht des linnéischen und einiger neuern
+        zoologischen Systeme nebst dem eingeschalteten Verzeichnisse der zoologischen
+        Sammlung des Verfassers und den Beschreibungen neuer Thierarten, die in derselben
+        vorhanden sind. Heinrich Dieterich, Göttingen.: i-xx, 1-476.","numDescendants":0,"lastCrawled":"2023-08-22T23:20:59.545+00:00","lastInterpreted":"2023-08-22T22:29:58.721+00:00","issues":[],"class":"Insecta"},{"key":1341979,"nubKey":1341979,"nameKey":837664,"taxonID":"gbif:1341979","sourceTaxonKey":173465915,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
+        cerana","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":1334757,"speciesKey":1341979,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":1334757,"parent":"Apis","scientificName":"Apis
+        cerana Fabricius, 1793","canonicalName":"Apis cerana","vernacularName":"Honey
+        Bee","authorship":"Fabricius, 1793","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":8,"lastCrawled":"2023-08-22T23:20:59.545+00:00","lastInterpreted":"2023-08-22T22:29:58.972+00:00","issues":[],"class":"Insecta"},{"key":8493594,"nubKey":8493594,"nameKey":837694,"taxonID":"gbif:8493594","sourceTaxonKey":121403688,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
+        cuenoti","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":1334757,"speciesKey":8493594,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c33ce2f2-c3cc-43a5-a380-fe4526d63650","parentKey":1334757,"parent":"Apis","scientificName":"Apis
+        cuenoti (Theobald, 1937)","canonicalName":"Apis cuenoti","authorship":"(Theobald,
+        1937) ","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2023-08-22T23:20:59.545+00:00","lastInterpreted":"2023-08-22T22:29:58.660+00:00","issues":[],"class":"Insecta"},{"key":10222575,"nubKey":10222575,"nameKey":30081270,"taxonID":"gbif:10222575","sourceTaxonKey":146694186,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
+        dalica","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":1334757,"speciesKey":10222575,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":1334757,"parent":"Apis","scientificName":"Apis
+        dalica Engel & Wappler, 2018","canonicalName":"Apis dalica","authorship":"Engel
+        & Wappler, 2018","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","publishedIn":"Engel,
+        Michael S., Bo Wang, Abdulaziz S. Alqarni, Lin-Bo Jia, Tao Su, Zhe-kun Zhou
+        & Torsten Wappler. 2018. A primitive honey bee from the Middle Miocene deposits
+        of southeastern Yunnan, China (Hymenoptera, Apidae). ZooKeys 775: 117-129.","numDescendants":0,"lastCrawled":"2023-08-22T23:20:59.545+00:00","lastInterpreted":"2023-08-22T22:29:58.726+00:00","issues":[],"class":"Insecta"},{"key":1341978,"nubKey":1341978,"nameKey":837714,"taxonID":"gbif:1341978","sourceTaxonKey":173465875,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
+        dorsata","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":1334757,"speciesKey":1341978,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":1334757,"parent":"Apis","scientificName":"Apis
+        dorsata Fabricius, 1793","canonicalName":"Apis dorsata","authorship":"Fabricius,
+        1793","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":7,"lastCrawled":"2023-08-22T23:20:59.545+00:00","lastInterpreted":"2023-08-22T22:29:58.926+00:00","issues":[],"class":"Insecta"},{"key":1341974,"nubKey":1341974,"nameKey":837743,"taxonID":"gbif:1341974","sourceTaxonKey":173465849,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
+        florea","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":1334757,"speciesKey":1341974,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":1334757,"parent":"Apis","scientificName":"Apis
+        florea Fabricius, 1787","canonicalName":"Apis florea","authorship":"Fabricius,
+        1787","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":3,"lastCrawled":"2023-08-22T23:20:59.545+00:00","lastInterpreted":"2023-08-22T22:29:58.908+00:00","issues":[],"class":"Insecta"},{"key":9717849,"nubKey":9717849,"nameKey":18013612,"taxonID":"gbif:9717849","sourceTaxonKey":142227146,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
+        fuliginosa","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":1334757,"speciesKey":9717849,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":1334757,"parent":"Apis","scientificName":"Apis
+        fuliginosa Scopoli, 1770","canonicalName":"Apis fuliginosa","authorship":"Scopoli,
+        1770","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","publishedIn":"Scopoli,
+        Giovanni A. 1770. Annus historico-naturalis. C. G. Hilscher, Lipsiae. Vol.
+        4: 1-152.","numDescendants":0,"lastCrawled":"2023-08-22T23:20:59.545+00:00","lastInterpreted":"2023-08-22T22:29:58.738+00:00","issues":[],"class":"Insecta"},{"key":9281978,"nubKey":9281978,"nameKey":16165324,"taxonID":"gbif:9281978","sourceTaxonKey":134863143,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
+        haematopoda","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":1334757,"speciesKey":9281978,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":1334757,"parent":"Apis","scientificName":"Apis
+        haematopoda Panzer, 1801","canonicalName":"Apis haematopoda","authorship":"Panzer,
+        1801","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","publishedIn":"Panzer,
+        Georg W. F. 1801. Faunae insectorum Germanicae initia. Felsecker, Nürnberg.:
+        Heft 81: 1-24.","numDescendants":0,"lastCrawled":"2023-08-22T23:20:59.545+00:00","lastInterpreted":"2023-08-22T22:29:58.723+00:00","issues":[],"class":"Insecta"},{"key":8510936,"nubKey":8510936,"nameKey":62669814,"taxonID":"gbif:8510936","sourceTaxonKey":190007716,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
+        henshawi","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":1334757,"speciesKey":8510936,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"5a13b875-12b3-4def-a8e3-abcc8ea2c7d9","parentKey":1334757,"parent":"Apis","scientificName":"Apis
+        henshawi Cockerell","canonicalName":"Apis henshawi","vernacularName":"Henshaw''s
+        honey bee","authorship":"Cockerell","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":1,"lastCrawled":"2023-08-22T23:20:59.545+00:00","lastInterpreted":"2023-08-22T22:29:58.691+00:00","issues":[],"class":"Insecta"},{"key":1341977,"nubKey":1341977,"nameKey":837823,"taxonID":"gbif:1341977","sourceTaxonKey":175339090,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
+        koschevnikovi","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":1334757,"speciesKey":1341977,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":1334757,"parent":"Apis","scientificName":"Apis
+        koschevnikovi Enderlein, 1906","canonicalName":"Apis koschevnikovi","authorship":"Enderlein,
+        1906","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":2,"lastCrawled":"2023-08-22T23:20:59.545+00:00","lastInterpreted":"2023-08-22T22:29:58.962+00:00","issues":[],"class":"Insecta"},{"key":10337043,"nubKey":10337043,"nameKey":837829,"taxonID":"gbif:10337043","sourceTaxonKey":173465825,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
+        laboriosa","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":1334757,"speciesKey":10337043,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":1334757,"parent":"Apis","scientificName":"Apis
+        laboriosa Smith, 1871","canonicalName":"Apis laboriosa","authorship":"Smith,
+        1871","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":1,"lastCrawled":"2023-08-22T23:20:59.545+00:00","lastInterpreted":"2023-08-22T22:29:58.955+00:00","issues":[],"class":"Insecta"},{"key":8627692,"nubKey":8627692,"nameKey":837867,"taxonID":"gbif:8627692","sourceTaxonKey":121403811,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
+        lithohermaea","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":1334757,"speciesKey":8627692,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c33ce2f2-c3cc-43a5-a380-fe4526d63650","parentKey":1334757,"parent":"Apis","scientificName":"Apis
+        lithohermaea Engel, 2006","canonicalName":"Apis lithohermaea","authorship":"Engel,
+        2006","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2023-08-22T23:20:59.545+00:00","lastInterpreted":"2023-08-22T22:29:58.658+00:00","issues":[],"class":"Insecta"},{"key":8577512,"nubKey":8577512,"nameKey":837879,"taxonID":"gbif:8577512","sourceTaxonKey":121403672,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
+        longitibia","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":1334757,"speciesKey":8577512,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c33ce2f2-c3cc-43a5-a380-fe4526d63650","parentKey":1334757,"parent":"Apis","scientificName":"Apis
+        longitibia (Zhang, 1990)","canonicalName":"Apis longitibia","vernacularName":"long-legged
+        honey bee","authorship":"(Zhang, 1990) ","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2023-08-22T23:20:59.545+00:00","lastInterpreted":"2023-08-22T22:29:58.655+00:00","issues":[],"class":"Insecta"},{"key":1341976,"nubKey":1341976,"nameKey":837924,"taxonID":"gbif:1341976","sourceTaxonKey":173465657,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
+        mellifera","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":1334757,"speciesKey":1341976,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":1334757,"parent":"Apis","scientificName":"Apis
+        mellifera Linnaeus, 1758","canonicalName":"Apis mellifera","vernacularName":"western
+        honey bee","authorship":"Linnaeus, 1758","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","publishedIn":"Linnæus,
+        Carolus. 1758. Systema naturae per regna tria naturae, secundum classes, ordines,
+        genera, species, cum characteribus, differentiis, synonymis, locis. Laurentii
+        Salvii, Holmiae. Vol. Tomus I, Editio decima, reformata: i-ii, 1-824.","numDescendants":9,"lastCrawled":"2023-08-22T23:20:59.545+00:00","lastInterpreted":"2023-08-22T22:29:58.755+00:00","issues":[],"class":"Insecta"},{"key":4945788,"nubKey":4945788,"nameKey":69255340,"taxonID":"gbif:4945788","sourceTaxonKey":121403665,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
+        miocenica","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":1334757,"speciesKey":4945788,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c33ce2f2-c3cc-43a5-a380-fe4526d63650","parentKey":1334757,"parent":"Apis","scientificName":"Apis
+        miocenica (Hong, 1984)","canonicalName":"Apis miocenica","vernacularName":"Chinese
+        Miocene honey bee","authorship":"(Hong, 1984) ","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2023-08-22T23:20:59.545+00:00","lastInterpreted":"2023-08-22T22:29:58.644+00:00","issues":[],"class":"Insecta"},{"key":8692741,"nubKey":8692741,"nameKey":30080952,"taxonID":"gbif:8692741","sourceTaxonKey":121403632,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
+        nearctica","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":1334757,"speciesKey":8692741,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c33ce2f2-c3cc-43a5-a380-fe4526d63650","parentKey":1334757,"parent":"Apis","scientificName":"Apis
+        nearctica Engel et al., 2009","canonicalName":"Apis nearctica","authorship":"Engel
+        et al., 2009","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2023-08-22T23:20:59.545+00:00","lastInterpreted":"2023-08-22T22:29:58.657+00:00","issues":[],"class":"Insecta"},{"key":11212932,"nubKey":11212932,"nameKey":46380727,"taxonID":"gbif:11212932","sourceTaxonKey":181608273,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
+        nigella","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":1334757,"speciesKey":11212932,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":1334757,"parent":"Apis","scientificName":"Apis
+        nigella Gravenhorst, 1807","canonicalName":"Apis nigella","authorship":"Gravenhorst,
+        1807","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","publishedIn":"Gravenhorst,
+        Johann L. C. 1807. Vergleichende Uebersicht des linnéischen und einiger neuern
+        zoologischen Systeme nebst dem eingeschalteten Verzeichnisse der zoologischen
+        Sammlung des Verfassers und den Beschreibungen neuer Thierarten, die in derselben
+        vorhanden sind. Heinrich Dieterich, Göttingen.: i-xx, 1-476.","numDescendants":0,"lastCrawled":"2023-08-22T23:20:59.545+00:00","lastInterpreted":"2023-08-22T22:29:58.740+00:00","issues":[],"class":"Insecta"},{"key":1341980,"nubKey":1341980,"nameKey":34578732,"taxonID":"gbif:1341980","sourceTaxonKey":173465649,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
+        nigrocincta","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":1334757,"speciesKey":1341980,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":1334757,"parent":"Apis","scientificName":"Apis
+        nigrocincta Smith, 1860","canonicalName":"Apis nigrocincta","authorship":"Smith,
+        1860","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":2,"lastCrawled":"2023-08-22T23:20:59.545+00:00","lastInterpreted":"2023-08-22T22:29:58.950+00:00","issues":[],"class":"Insecta"},{"key":11128648,"nubKey":11128648,"nameKey":46380730,"taxonID":"gbif:11128648","sourceTaxonKey":181608281,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
+        pallicincta","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":1334757,"speciesKey":11128648,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":1334757,"parent":"Apis","scientificName":"Apis
+        pallicincta Kirby, 1802","canonicalName":"Apis pallicincta","authorship":"Kirby,
+        1802","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","publishedIn":"Kirby,
+        William. 1802. Monographia apum Angliæ; or, An attempt to divide into their
+        natural genera and families, such species of the Linnean genus Apis as have
+        been discovered in England; with descriptions and observations. To which are
+        prefixed some introductory remarks upon the class Hymenoptera, and a synoptical
+        table of the nomenclature of the external parts of these insects. J. Raw,
+        Ipswich, London. Vol. 2: 258 pp.","numDescendants":0,"lastCrawled":"2023-08-22T23:20:59.545+00:00","lastInterpreted":"2023-08-22T22:29:58.731+00:00","issues":[],"class":"Insecta"},{"key":12126679,"nubKey":12126679,"nameKey":97032003,"taxonID":"gbif:12126679","sourceTaxonKey":167126966,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
+        spec","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":1334757,"speciesKey":12126679,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"bc73ac48-fb45-413e-94af-84c188ec1850","parentKey":1334757,"parent":"Apis","scientificName":"Apis
+        spec Fabricius, 1787","canonicalName":"Apis spec","authorship":"Fabricius,
+        1787","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"Possible
+        variant of Apis spec Linnaeus, 1758","numDescendants":0,"lastCrawled":"2023-08-22T23:20:59.545+00:00","lastInterpreted":"2023-08-22T22:29:58.687+00:00","issues":["ORTHOGRAPHIC_VARIANT"],"class":"Insecta"},{"key":11962247,"nubKey":11962247,"nameKey":97032001,"taxonID":"gbif:11962247","sourceTaxonKey":100133607,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
+        spec","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":1334757,"speciesKey":11962247,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"6f1f2052-7db5-4422-995c-48c1faab2d3a","parentKey":1334757,"parent":"Apis","scientificName":"Apis
+        spec Indica","canonicalName":"Apis spec","authorship":"Indica","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"Possible
+        variant of Apis spec Linnaeus, 1758","numDescendants":0,"lastCrawled":"2023-08-22T23:20:59.545+00:00","lastInterpreted":"2023-08-22T22:29:58.684+00:00","issues":["ORTHOGRAPHIC_VARIANT"],"class":"Insecta"},{"key":9711550,"nubKey":9711550,"nameKey":18545839,"taxonID":"gbif:9711550","sourceTaxonKey":128353409,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
+        spec","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":1334757,"speciesKey":9711550,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":1334757,"parent":"Apis","scientificName":"Apis
+        spec Linnaeus, 1758","canonicalName":"Apis spec","authorship":"Linnæus, 1758","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","publishedIn":"Linnæus,
+        Carolus. 1758. Systema naturae per regna tria naturae, secundum classes, ordines,
+        genera, species, cum characteribus, differentiis, synonymis, locis. Laurentii
+        Salvii, Holmiae. Vol. Tomus I, Editio decima, reformata: i-ii, 1-824.","numDescendants":0,"lastCrawled":"2023-08-22T23:20:59.545+00:00","lastInterpreted":"2023-08-22T22:29:58.743+00:00","issues":[],"class":"Insecta"},{"key":12081698,"nubKey":12081698,"nameKey":97032002,"taxonID":"gbif:12081698","sourceTaxonKey":100133610,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
+        spec","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":1334757,"speciesKey":12081698,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"6f1f2052-7db5-4422-995c-48c1faab2d3a","parentKey":1334757,"parent":"Apis","scientificName":"Apis
+        spec Perrottetii","canonicalName":"Apis spec","authorship":"Perrottetii","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"Possible
+        variant of Apis spec Linnaeus, 1758","numDescendants":0,"lastCrawled":"2023-08-22T23:20:59.545+00:00","lastInterpreted":"2023-08-22T22:29:58.686+00:00","issues":["ORTHOGRAPHIC_VARIANT"],"class":"Insecta"},{"key":9325779,"nubKey":9325779,"nameKey":16165307,"taxonID":"gbif:9325779","sourceTaxonKey":134863114,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
+        sphegoides","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":1334757,"speciesKey":9325779,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":1334757,"parent":"Apis","scientificName":"Apis
         sphegoides Panzer, 1798","canonicalName":"Apis sphegoides","authorship":"Panzer,
-        1798","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Panzer,
+        1798","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","publishedIn":"Panzer,
         Georg W. F. 1798. Faunae insectorum Germanicae initia. Felsecker, Nürnberg.:
-        Heft 56: 1-24.","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T04:29:36.842+0000","issues":[],"synonym":false,"class":"Insecta"},{"key":7772831,"nameKey":837967,"taxonID":"gbif:7772831","sourceTaxonKey":100133612,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
-        testacea","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":7799978,"speciesKey":7772831,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"6f1f2052-7db5-4422-995c-48c1faab2d3a","parentKey":7799978,"parent":"Apis","scientificName":"Apis
-        testacea","canonicalName":"Apis testacea","authorship":"","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T04:29:36.607+0000","issues":[],"synonym":false,"class":"Insecta"},{"key":9516910,"nameKey":16165329,"taxonID":"gbif:9516910","sourceTaxonKey":134863155,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
-        ventralis","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":7799978,"speciesKey":9516910,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":7799978,"parent":"Apis","scientificName":"Apis
-        ventralis Panzer, 1798","canonicalName":"Apis ventralis","authorship":"Panzer,
-        1798","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Panzer,
-        Georg W. F. 1798. Faunae insectorum Germanicae initia. Felsecker, Nürnberg.:
-        Heft 56: 1-24.","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T04:29:36.830+0000","issues":[],"synonym":false,"class":"Insecta"},{"key":9353209,"nameKey":16165312,"taxonID":"gbif:9353209","sourceTaxonKey":134863125,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
-        vestila","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":7799978,"speciesKey":9353209,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":7799978,"parent":"Apis","scientificName":"Apis
+        Heft 56: 1-24.","numDescendants":0,"lastCrawled":"2023-08-22T23:20:59.545+00:00","lastInterpreted":"2023-08-22T22:29:58.719+00:00","issues":[],"class":"Insecta"},{"key":9353209,"nubKey":9353209,"nameKey":16165312,"taxonID":"gbif:9353209","sourceTaxonKey":134863125,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
+        vestila","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":1334757,"speciesKey":9353209,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c8227bb4-4143-443f-8cb2-51f9576aff14","parentKey":1334757,"parent":"Apis","scientificName":"Apis
         vestila Fabricius, 1793","canonicalName":"Apis vestila","authorship":"Fabricius,
-        1793","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"DOUBTFUL","nomenclaturalStatus":[],"remarks":"","publishedIn":"Fabricius,
+        1793","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","publishedIn":"Fabricius,
         Johann C. 1793. Entomologia systematica emendata et aucta. Secundum classes,
         ordines, genera, species, adjectis synonimis, locis, observationibus, descriptionibus.
-        C.G. Proft, Fil. et Soc., Hafniae. Vol. 2: 1-519.","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T04:29:36.815+0000","issues":[],"synonym":false,"class":"Insecta"},{"key":9893672,"nameKey":30081223,"taxonID":"gbif:9893672","sourceTaxonKey":157813318,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":7799978,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"4cec8fef-f129-4966-89b7-4f8439aba058","parentKey":7799978,"parent":"Apis","scientificName":"BOLD:ACP2245","authorship":"","nameType":"OTU","rank":"UNRANKED","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2019-09-06T05:41:48.812+0000","lastInterpreted":"2019-09-06T04:29:36.637+0000","issues":[],"synonym":false,"class":"Insecta"}]}'
-  recorded_at: 2020-03-06 19:18:39 GMT
-  recorded_with: vcr/0.5.0, webmockr/0.6.0
+        C.G. Proft, Fil. et Soc., Hafniae. Vol. 2: 1-519.","numDescendants":0,"lastCrawled":"2023-08-22T23:20:59.545+00:00","lastInterpreted":"2023-08-22T22:29:58.733+00:00","issues":[],"class":"Insecta"},{"key":8482777,"nubKey":8482777,"nameKey":16749761,"taxonID":"gbif:8482777","sourceTaxonKey":121403679,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Apis
+        vetustus","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":1334757,"speciesKey":8482777,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c33ce2f2-c3cc-43a5-a380-fe4526d63650","parentKey":1334757,"parent":"Apis","scientificName":"Apis
+        vetustus (Engel, 1998)","canonicalName":"Apis vetustus","authorship":"(Engel,
+        1998) ","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2023-08-22T23:20:59.545+00:00","lastInterpreted":"2023-08-22T22:29:58.653+00:00","issues":[],"class":"Insecta"},{"key":9386831,"nubKey":9386831,"nameKey":56326308,"taxonID":"gbif:9386831","sourceTaxonKey":121403675,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","species":"Synapis
+        petrefacta","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":1334757,"speciesKey":9386831,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"c33ce2f2-c3cc-43a5-a380-fe4526d63650","parentKey":1334757,"parent":"Apis","scientificName":"Synapis
+        petrefacta (Říha, 1973)","canonicalName":"Synapis petrefacta","vernacularName":"petrified
+        honey bee","authorship":"(Říha, 1973) ","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2023-08-22T23:20:59.545+00:00","lastInterpreted":"2023-08-22T22:29:58.680+00:00","issues":["NAME_PARENT_MISMATCH"],"class":"Insecta"},{"key":9893672,"nubKey":9893672,"nameKey":30081223,"taxonID":"gbif:9893672","sourceTaxonKey":157813318,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":1334757,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"4cec8fef-f129-4966-89b7-4f8439aba058","parentKey":1334757,"parent":"Apis","scientificName":"BOLD:ACP2245","authorship":"","nameType":"OTU","rank":"UNRANKED","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2023-08-22T23:20:59.545+00:00","lastInterpreted":"2023-08-22T22:29:58.715+00:00","issues":[],"class":"Insecta"},{"key":9849494,"nubKey":9849494,"nameKey":30081249,"taxonID":"gbif:9849494","sourceTaxonKey":157813285,"kingdom":"Animalia","phylum":"Arthropoda","order":"Hymenoptera","family":"Apidae","genus":"Apis","kingdomKey":1,"phylumKey":54,"classKey":216,"orderKey":1457,"familyKey":4334,"genusKey":1334757,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"4cec8fef-f129-4966-89b7-4f8439aba058","parentKey":1334757,"parent":"Apis","scientificName":"BOLD:ACQ6799","authorship":"","nameType":"OTU","rank":"UNRANKED","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","numDescendants":0,"lastCrawled":"2023-08-22T23:20:59.545+00:00","lastInterpreted":"2023-08-22T22:29:58.717+00:00","issues":[],"class":"Insecta"}]}'
+  recorded_at: 2024-09-05 16:40:31 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0

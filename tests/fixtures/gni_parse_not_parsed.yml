@@ -8,35 +8,25 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3.1 crul/1.1.0 rOpenSci(taxize/0.9.99.94)
-      X-USER-AGENT: r-curl/4.3.1 crul/1.1.0 rOpenSci(taxize/0.9.99.94)
+      User-Agent: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
+      status_code: '404'
+      message: Not Found
+      explanation: Nothing matches the given URI
     headers:
-      accept-ranges: bytes
-      age: '0'
-      cache-control: private, max-age=0, must-revalidate
+      status: HTTP/1.1 404 Not Found
+      server: nginx/1.18.0 (Ubuntu)
+      date: Thu, 26 Sep 2024 22:30:49 GMT
+      content-type: application/json; charset=UTF-8
+      content-length: '24'
       connection: keep-alive
-      content-length: '87'
-      content-type: application/json; charset=utf-8
-      date: Mon, 03 May 2021 21:27:05 GMT
-      etag: '"f003ec2832883ef62f03058c185ec25d"'
-      server: nginx/1.8.1
-      set-cookie: ''
-      status:
-      - HTTP/1.1 200 OK
-      - 200 OK
-      via: 1.1 varnish
-      x-runtime: '2'
-      x-varnish: '203005162'
+      vary: Accept-Encoding
     body:
-      encoding: UTF-8
+      encoding: ''
       file: no
-      string: |-
-        [{"scientificName":{"parsed":false,"parser_version":"3.1.4","verbatim":"Nu aakhu\n"}}
-        ]
-  recorded_at: 2021-05-03 21:27:05 GMT
-  recorded_with: vcr/0.6.5.93, webmockr/0.8.0
+      string: |
+        {"message":"Not Found"}
+  recorded_at: 2024-09-26 22:30:49 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0

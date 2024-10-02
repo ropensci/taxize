@@ -1,15 +1,15 @@
 http_interactions:
 - request:
     method: get
-    uri: http://www.indexfungorum.org/ixfwebservice/fungus.asmx/NameByKey?NameKey=17703
+    uri: https://www.indexfungorum.org/ixfwebservice/fungus.asmx/NameByKey?NameKey=17703
     body:
       encoding: ''
       string: ''
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/0.9.2.92 rOpenSci(taxize/0.9.97.93)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.2.92 rOpenSci(taxize/0.9.97.93)
+      User-Agent: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
@@ -17,56 +17,350 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx
-      date: Tue, 30 Jun 2020 17:09:47 GMT
-      content-type: text/xml; charset=utf-8
-      transfer-encoding: chunked
-      connection: keep-alive
-      keep-alive: timeout=20
-      vary: Accept-Encoding
+      date: Fri, 27 Sep 2024 01:49:27 GMT
+      server: Microsoft-IIS/10.0
       cache-control: private, max-age=0
+      content-type: text/xml; charset=utf-8
       x-aspnet-version: 2.0.50727
-      x-powered-by: ASP.NET
+      vary: Accept-Encoding
       content-encoding: gzip
+      content-length: '1341'
+      x-frame-options: SAMEORIGIN
+      x-content-type-options: nosniff
+      x-xss-protection: 1; mode=block
+      strict-transport-security: max-age=0
     body:
-      encoding: UTF-8
+      encoding: ''
       file: no
       string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<NewDataSet>\r\n  <IndexFungorum>\r\n
         \   <NAME_x0020_OF_x0020_FUNGUS>Gymnopus</NAME_x0020_OF_x0020_FUNGUS>\r\n
-        \   <AUTHORS>(Pers.) Roussel</AUTHORS>\r\n    <INFRASPECIFIC_x0020_RANK>gen.</INFRASPECIFIC_x0020_RANK>\r\n
-        \   <PAGE>62</PAGE>\r\n    <YEAR_x0020_OF_x0020_PUBLICATION>1806</YEAR_x0020_OF_x0020_PUBLICATION>\r\n
-        \   <EDITORIAL_x0020_COMMENT>Lectotype designated by Singer &amp; Smith (Mycologia
-        38: 249. 1946). Rejected against &lt;i&gt;Collybia&lt;/i&gt; (Fr.) Staude
-        1857</EDITORIAL_x0020_COMMENT>\r\n    <NOMENCLATURAL_x0020_COMMENT>Nom. rejic.,
-        see Arts 14.6, Ex. 5 and 14.7</NOMENCLATURAL_x0020_COMMENT>\r\n    <CORRECTION>https://biodiversitylibrary.org/page/30087306</CORRECTION>\r\n
-        \   <LITERATURE_x0020_LINK>2622</LITERATURE_x0020_LINK>\r\n    <STS_x0020_FLAG>g</STS_x0020_FLAG>\r\n
+        \   <AUTHORS>(Pers.) Gray</AUTHORS>\r\n    <INFRASPECIFIC_x0020_RANK>gen.</INFRASPECIFIC_x0020_RANK>\r\n
+        \   <VOLUME>1</VOLUME>\r\n    <PAGE>604</PAGE>\r\n    <YEAR_x0020_OF_x0020_PUBLICATION>1821</YEAR_x0020_OF_x0020_PUBLICATION>\r\n
+        \   <EDITORIAL_x0020_COMMENT>Rejected against &lt;i&gt;Collybia&lt;/i&gt;
+        (Fr.) Staude 1857</EDITORIAL_x0020_COMMENT>\r\n    <NOMENCLATURAL_x0020_COMMENT>Nom.
+        rejic., but see Arts 14.6, Ex. 5 and 14.7</NOMENCLATURAL_x0020_COMMENT>\r\n
+        \   <NOTES>See also https://hdl.handle.net/2027/hvd.32044106411366?urlappend=%3Bseq=66
+        : not at the rank of genus</NOTES>\r\n    <CORRECTION>https://www.biodiversitylibrary.org/page/30087306</CORRECTION>\r\n
+        \   <LITERATURE_x0020_LINK>1287</LITERATURE_x0020_LINK>\r\n    <STS_x0020_FLAG>g</STS_x0020_FLAG>\r\n
         \   <RECORD_x0020_NUMBER>17703</RECORD_x0020_NUMBER>\r\n    <BASIONYM_x0020_RECORD_x0020_NUMBER>700943</BASIONYM_x0020_RECORD_x0020_NUMBER>\r\n
         \   <PROTONYM_x0020_RECORD_x0020_NUMBER>700943</PROTONYM_x0020_RECORD_x0020_NUMBER>\r\n
         \   <NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17703</NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
         \   <CURRENT_x0020_NAME>Gymnopus</CURRENT_x0020_NAME>\r\n    <CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>17703</CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>\r\n
         \   <CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17703</CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
         \   <UpdatedBy>sa</UpdatedBy>\r\n    <AddedBy>CABI_UK\\KIRK</AddedBy>\r\n
-        \   <UpdatedDate>2020-01-04T12:00:17.87+00:00</UpdatedDate>\r\n    <AddedDate>2006-11-20T14:45:00+00:00</AddedDate>\r\n
-        \   <UUID>b09b05ac-8031-11d5-bebb-00508bca8de8</UUID>\r\n    <pubLink>2622</pubLink>\r\n
-        \   <pubType />\r\n    <pubOriginalTitle>Flore du Calvados et des terreins
-        adjacens: composée suivant la méthode de M. Jussieu, comparée avec celle de
-        Tournefort et de Linné</pubOriginalTitle>\r\n    <pubTransTitle />\r\n    <pubSupTitle>Edition
-        2</pubSupTitle>\r\n    <pubOtherTitle />\r\n    <pubEdition />\r\n    <pubISBN
-        />\r\n    <pubISSN />\r\n    <pubTransSupTitle />\r\n    <pubTransOther />\r\n
-        \   <pubPublishers />\r\n    <pubEditors />\r\n    <pubNotes />\r\n    <pubAcceptedTitle>Flora
-        Calvados, Edn 2</pubAcceptedTitle>\r\n    <pubIMIAbbr>Fl. Calvados</pubIMIAbbr>\r\n
-        \   <pubIMISupAbbr>Edn 2</pubIMISupAbbr>\r\n    <pubAddBy />\r\n    <pubUpdateBy
+        \   <UpdatedDate>2024-04-12T14:31:18.597+01:00</UpdatedDate>\r\n    <AddedDate>2006-11-20T14:45:00+00:00</AddedDate>\r\n
+        \   <UUID>b09b05ac-8031-11d5-bebb-00508bca8de8</UUID>\r\n    <pubLink>1287</pubLink>\r\n
+        \   <pubType>B</pubType>\r\n    <pubOriginalTitle>Natural Arrangement of British
+        Plants</pubOriginalTitle>\r\n    <pubTransTitle />\r\n    <pubOtherTitle />\r\n
+        \   <pubEdition />\r\n    <pubPlaceOfPublication>London</pubPlaceOfPublication>\r\n
+        \   <pubISBN />\r\n    <pubISSN />\r\n    <pubTransSupTitle />\r\n    <pubTransOther
+        />\r\n    <pubPublishers>Baldwin, Cradock &amp; Joy</pubPublishers>\r\n    <pubEditors
+        />\r\n    <pubNotes />\r\n    <pubAcceptedTitle>Natural Arrangement of British
+        Plants</pubAcceptedTitle>\r\n    <pubIMIAbbr>Nat. Arr. Brit. Pl.</pubIMIAbbr>\r\n
+        \   <pubIMIAbbrLoc>London</pubIMIAbbrLoc>\r\n    <pubAddBy />\r\n    <pubUpdateBy
         />\r\n    <pubUpdateDate>2000-03-21T00:00:00+00:00</pubUpdateDate>\r\n    <Genus_x0020_name>Gymnopus</Genus_x0020_name>\r\n
         \   <Family_x0020_name>Omphalotaceae</Family_x0020_name>\r\n    <Order_x0020_name>Agaricales</Order_x0020_name>\r\n
         \   <Subclass_x0020_name>Agaricomycetidae</Subclass_x0020_name>\r\n    <Class_x0020_name>Agaricomycetes</Class_x0020_name>\r\n
         \   <Subphylum_x0020_name>Agaricomycotina</Subphylum_x0020_name>\r\n    <Phylum_x0020_name>Basidiomycota</Phylum_x0020_name>\r\n
         \   <Kingdom_x0020_name>Fungi</Kingdom_x0020_name>\r\n    <Authors1>(Pers.)
-        Roussel</Authors1>\r\n    <Volume1>1</Volume1>\r\n    <Page1>627</Page1>\r\n
-        \   <Year_x0020_of_x0020_Publication1>1806</Year_x0020_of_x0020_Publication1>\r\n
+        Gray</Authors1>\r\n    <Volume1>1</Volume1>\r\n    <Page1>604</Page1>\r\n
+        \   <Year_x0020_of_x0020_Publication1>1821</Year_x0020_of_x0020_Publication1>\r\n
         \   <Literature_x0020_Link1>1287</Literature_x0020_Link1>\r\n    <Fundic_x0020_Record_x0020_Number>17703</Fundic_x0020_Record_x0020_Number>\r\n
         \   <ING-NCU_x0020_Flag>X</ING-NCU_x0020_Flag>\r\n    <Current_x0020_Use>X</Current_x0020_Use>\r\n
         \   <IsUnique>n</IsUnique>\r\n    <FUNINDEX_x0020_Record_x0020_Number_x0020_of_x0020_type_x0020_species>486466</FUNINDEX_x0020_Record_x0020_Number_x0020_of_x0020_type_x0020_species>\r\n
         \   <UpdatedBy1>CABI_UK\\kirk</UpdatedBy1>\r\n    <UpdatedDate1>2001-11-29T09:05:32+00:00</UpdatedDate1>\r\n
         \   <timestamp>AAAAAAhmqQY=</timestamp>\r\n  </IndexFungorum>\r\n</NewDataSet>"
-  recorded_at: 2020-06-30 17:07:49 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+  recorded_at: 2024-09-27 15:36:28 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://www.indexfungorum.org/ixfwebservice/fungus.asmx/NameByKey?NameKey=17703
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 27 Sep 2024 02:22:36 GMT
+      server: Microsoft-IIS/10.0
+      cache-control: private, max-age=0
+      content-type: text/xml; charset=utf-8
+      x-aspnet-version: 2.0.50727
+      vary: Accept-Encoding
+      content-encoding: gzip
+      content-length: '1341'
+      x-frame-options: SAMEORIGIN
+      x-content-type-options: nosniff
+      x-xss-protection: 1; mode=block
+      strict-transport-security: max-age=0
+    body:
+      encoding: ''
+      file: no
+      string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<NewDataSet>\r\n  <IndexFungorum>\r\n
+        \   <NAME_x0020_OF_x0020_FUNGUS>Gymnopus</NAME_x0020_OF_x0020_FUNGUS>\r\n
+        \   <AUTHORS>(Pers.) Gray</AUTHORS>\r\n    <INFRASPECIFIC_x0020_RANK>gen.</INFRASPECIFIC_x0020_RANK>\r\n
+        \   <VOLUME>1</VOLUME>\r\n    <PAGE>604</PAGE>\r\n    <YEAR_x0020_OF_x0020_PUBLICATION>1821</YEAR_x0020_OF_x0020_PUBLICATION>\r\n
+        \   <EDITORIAL_x0020_COMMENT>Rejected against &lt;i&gt;Collybia&lt;/i&gt;
+        (Fr.) Staude 1857</EDITORIAL_x0020_COMMENT>\r\n    <NOMENCLATURAL_x0020_COMMENT>Nom.
+        rejic., but see Arts 14.6, Ex. 5 and 14.7</NOMENCLATURAL_x0020_COMMENT>\r\n
+        \   <NOTES>See also https://hdl.handle.net/2027/hvd.32044106411366?urlappend=%3Bseq=66
+        : not at the rank of genus</NOTES>\r\n    <CORRECTION>https://www.biodiversitylibrary.org/page/30087306</CORRECTION>\r\n
+        \   <LITERATURE_x0020_LINK>1287</LITERATURE_x0020_LINK>\r\n    <STS_x0020_FLAG>g</STS_x0020_FLAG>\r\n
+        \   <RECORD_x0020_NUMBER>17703</RECORD_x0020_NUMBER>\r\n    <BASIONYM_x0020_RECORD_x0020_NUMBER>700943</BASIONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <PROTONYM_x0020_RECORD_x0020_NUMBER>700943</PROTONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17703</NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <CURRENT_x0020_NAME>Gymnopus</CURRENT_x0020_NAME>\r\n    <CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>17703</CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17703</CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <UpdatedBy>sa</UpdatedBy>\r\n    <AddedBy>CABI_UK\\KIRK</AddedBy>\r\n
+        \   <UpdatedDate>2024-04-12T14:31:18.597+01:00</UpdatedDate>\r\n    <AddedDate>2006-11-20T14:45:00+00:00</AddedDate>\r\n
+        \   <UUID>b09b05ac-8031-11d5-bebb-00508bca8de8</UUID>\r\n    <pubLink>1287</pubLink>\r\n
+        \   <pubType>B</pubType>\r\n    <pubOriginalTitle>Natural Arrangement of British
+        Plants</pubOriginalTitle>\r\n    <pubTransTitle />\r\n    <pubOtherTitle />\r\n
+        \   <pubEdition />\r\n    <pubPlaceOfPublication>London</pubPlaceOfPublication>\r\n
+        \   <pubISBN />\r\n    <pubISSN />\r\n    <pubTransSupTitle />\r\n    <pubTransOther
+        />\r\n    <pubPublishers>Baldwin, Cradock &amp; Joy</pubPublishers>\r\n    <pubEditors
+        />\r\n    <pubNotes />\r\n    <pubAcceptedTitle>Natural Arrangement of British
+        Plants</pubAcceptedTitle>\r\n    <pubIMIAbbr>Nat. Arr. Brit. Pl.</pubIMIAbbr>\r\n
+        \   <pubIMIAbbrLoc>London</pubIMIAbbrLoc>\r\n    <pubAddBy />\r\n    <pubUpdateBy
+        />\r\n    <pubUpdateDate>2000-03-21T00:00:00+00:00</pubUpdateDate>\r\n    <Genus_x0020_name>Gymnopus</Genus_x0020_name>\r\n
+        \   <Family_x0020_name>Omphalotaceae</Family_x0020_name>\r\n    <Order_x0020_name>Agaricales</Order_x0020_name>\r\n
+        \   <Subclass_x0020_name>Agaricomycetidae</Subclass_x0020_name>\r\n    <Class_x0020_name>Agaricomycetes</Class_x0020_name>\r\n
+        \   <Subphylum_x0020_name>Agaricomycotina</Subphylum_x0020_name>\r\n    <Phylum_x0020_name>Basidiomycota</Phylum_x0020_name>\r\n
+        \   <Kingdom_x0020_name>Fungi</Kingdom_x0020_name>\r\n    <Authors1>(Pers.)
+        Gray</Authors1>\r\n    <Volume1>1</Volume1>\r\n    <Page1>604</Page1>\r\n
+        \   <Year_x0020_of_x0020_Publication1>1821</Year_x0020_of_x0020_Publication1>\r\n
+        \   <Literature_x0020_Link1>1287</Literature_x0020_Link1>\r\n    <Fundic_x0020_Record_x0020_Number>17703</Fundic_x0020_Record_x0020_Number>\r\n
+        \   <ING-NCU_x0020_Flag>X</ING-NCU_x0020_Flag>\r\n    <Current_x0020_Use>X</Current_x0020_Use>\r\n
+        \   <IsUnique>n</IsUnique>\r\n    <FUNINDEX_x0020_Record_x0020_Number_x0020_of_x0020_type_x0020_species>486466</FUNINDEX_x0020_Record_x0020_Number_x0020_of_x0020_type_x0020_species>\r\n
+        \   <UpdatedBy1>CABI_UK\\kirk</UpdatedBy1>\r\n    <UpdatedDate1>2001-11-29T09:05:32+00:00</UpdatedDate1>\r\n
+        \   <timestamp>AAAAAAhmqQY=</timestamp>\r\n  </IndexFungorum>\r\n</NewDataSet>"
+  recorded_at: 2024-09-27 15:36:28 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://www.indexfungorum.org/ixfwebservice/fungus.asmx/NameByKey?NameKey=17703
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 27 Sep 2024 02:52:51 GMT
+      server: Microsoft-IIS/10.0
+      cache-control: private, max-age=0
+      content-type: text/xml; charset=utf-8
+      x-aspnet-version: 2.0.50727
+      vary: Accept-Encoding
+      content-encoding: gzip
+      content-length: '1341'
+      x-frame-options: SAMEORIGIN
+      x-content-type-options: nosniff
+      x-xss-protection: 1; mode=block
+      strict-transport-security: max-age=0
+    body:
+      encoding: ''
+      file: no
+      string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<NewDataSet>\r\n  <IndexFungorum>\r\n
+        \   <NAME_x0020_OF_x0020_FUNGUS>Gymnopus</NAME_x0020_OF_x0020_FUNGUS>\r\n
+        \   <AUTHORS>(Pers.) Gray</AUTHORS>\r\n    <INFRASPECIFIC_x0020_RANK>gen.</INFRASPECIFIC_x0020_RANK>\r\n
+        \   <VOLUME>1</VOLUME>\r\n    <PAGE>604</PAGE>\r\n    <YEAR_x0020_OF_x0020_PUBLICATION>1821</YEAR_x0020_OF_x0020_PUBLICATION>\r\n
+        \   <EDITORIAL_x0020_COMMENT>Rejected against &lt;i&gt;Collybia&lt;/i&gt;
+        (Fr.) Staude 1857</EDITORIAL_x0020_COMMENT>\r\n    <NOMENCLATURAL_x0020_COMMENT>Nom.
+        rejic., but see Arts 14.6, Ex. 5 and 14.7</NOMENCLATURAL_x0020_COMMENT>\r\n
+        \   <NOTES>See also https://hdl.handle.net/2027/hvd.32044106411366?urlappend=%3Bseq=66
+        : not at the rank of genus</NOTES>\r\n    <CORRECTION>https://www.biodiversitylibrary.org/page/30087306</CORRECTION>\r\n
+        \   <LITERATURE_x0020_LINK>1287</LITERATURE_x0020_LINK>\r\n    <STS_x0020_FLAG>g</STS_x0020_FLAG>\r\n
+        \   <RECORD_x0020_NUMBER>17703</RECORD_x0020_NUMBER>\r\n    <BASIONYM_x0020_RECORD_x0020_NUMBER>700943</BASIONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <PROTONYM_x0020_RECORD_x0020_NUMBER>700943</PROTONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17703</NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <CURRENT_x0020_NAME>Gymnopus</CURRENT_x0020_NAME>\r\n    <CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>17703</CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17703</CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <UpdatedBy>sa</UpdatedBy>\r\n    <AddedBy>CABI_UK\\KIRK</AddedBy>\r\n
+        \   <UpdatedDate>2024-04-12T14:31:18.597+01:00</UpdatedDate>\r\n    <AddedDate>2006-11-20T14:45:00+00:00</AddedDate>\r\n
+        \   <UUID>b09b05ac-8031-11d5-bebb-00508bca8de8</UUID>\r\n    <pubLink>1287</pubLink>\r\n
+        \   <pubType>B</pubType>\r\n    <pubOriginalTitle>Natural Arrangement of British
+        Plants</pubOriginalTitle>\r\n    <pubTransTitle />\r\n    <pubOtherTitle />\r\n
+        \   <pubEdition />\r\n    <pubPlaceOfPublication>London</pubPlaceOfPublication>\r\n
+        \   <pubISBN />\r\n    <pubISSN />\r\n    <pubTransSupTitle />\r\n    <pubTransOther
+        />\r\n    <pubPublishers>Baldwin, Cradock &amp; Joy</pubPublishers>\r\n    <pubEditors
+        />\r\n    <pubNotes />\r\n    <pubAcceptedTitle>Natural Arrangement of British
+        Plants</pubAcceptedTitle>\r\n    <pubIMIAbbr>Nat. Arr. Brit. Pl.</pubIMIAbbr>\r\n
+        \   <pubIMIAbbrLoc>London</pubIMIAbbrLoc>\r\n    <pubAddBy />\r\n    <pubUpdateBy
+        />\r\n    <pubUpdateDate>2000-03-21T00:00:00+00:00</pubUpdateDate>\r\n    <Genus_x0020_name>Gymnopus</Genus_x0020_name>\r\n
+        \   <Family_x0020_name>Omphalotaceae</Family_x0020_name>\r\n    <Order_x0020_name>Agaricales</Order_x0020_name>\r\n
+        \   <Subclass_x0020_name>Agaricomycetidae</Subclass_x0020_name>\r\n    <Class_x0020_name>Agaricomycetes</Class_x0020_name>\r\n
+        \   <Subphylum_x0020_name>Agaricomycotina</Subphylum_x0020_name>\r\n    <Phylum_x0020_name>Basidiomycota</Phylum_x0020_name>\r\n
+        \   <Kingdom_x0020_name>Fungi</Kingdom_x0020_name>\r\n    <Authors1>(Pers.)
+        Gray</Authors1>\r\n    <Volume1>1</Volume1>\r\n    <Page1>604</Page1>\r\n
+        \   <Year_x0020_of_x0020_Publication1>1821</Year_x0020_of_x0020_Publication1>\r\n
+        \   <Literature_x0020_Link1>1287</Literature_x0020_Link1>\r\n    <Fundic_x0020_Record_x0020_Number>17703</Fundic_x0020_Record_x0020_Number>\r\n
+        \   <ING-NCU_x0020_Flag>X</ING-NCU_x0020_Flag>\r\n    <Current_x0020_Use>X</Current_x0020_Use>\r\n
+        \   <IsUnique>n</IsUnique>\r\n    <FUNINDEX_x0020_Record_x0020_Number_x0020_of_x0020_type_x0020_species>486466</FUNINDEX_x0020_Record_x0020_Number_x0020_of_x0020_type_x0020_species>\r\n
+        \   <UpdatedBy1>CABI_UK\\kirk</UpdatedBy1>\r\n    <UpdatedDate1>2001-11-29T09:05:32+00:00</UpdatedDate1>\r\n
+        \   <timestamp>AAAAAAhmqQY=</timestamp>\r\n  </IndexFungorum>\r\n</NewDataSet>"
+  recorded_at: 2024-09-27 15:36:28 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://www.indexfungorum.org/ixfwebservice/fungus.asmx/NameByKey?NameKey=17703
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 27 Sep 2024 15:16:54 GMT
+      server: Microsoft-IIS/10.0
+      cache-control: private, max-age=0
+      content-type: text/xml; charset=utf-8
+      x-aspnet-version: 2.0.50727
+      vary: Accept-Encoding
+      content-encoding: gzip
+      content-length: '1341'
+      x-frame-options: SAMEORIGIN
+      x-content-type-options: nosniff
+      x-xss-protection: 1; mode=block
+      strict-transport-security: max-age=0
+    body:
+      encoding: ''
+      file: no
+      string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<NewDataSet>\r\n  <IndexFungorum>\r\n
+        \   <NAME_x0020_OF_x0020_FUNGUS>Gymnopus</NAME_x0020_OF_x0020_FUNGUS>\r\n
+        \   <AUTHORS>(Pers.) Gray</AUTHORS>\r\n    <INFRASPECIFIC_x0020_RANK>gen.</INFRASPECIFIC_x0020_RANK>\r\n
+        \   <VOLUME>1</VOLUME>\r\n    <PAGE>604</PAGE>\r\n    <YEAR_x0020_OF_x0020_PUBLICATION>1821</YEAR_x0020_OF_x0020_PUBLICATION>\r\n
+        \   <EDITORIAL_x0020_COMMENT>Rejected against &lt;i&gt;Collybia&lt;/i&gt;
+        (Fr.) Staude 1857</EDITORIAL_x0020_COMMENT>\r\n    <NOMENCLATURAL_x0020_COMMENT>Nom.
+        rejic., but see Arts 14.6, Ex. 5 and 14.7</NOMENCLATURAL_x0020_COMMENT>\r\n
+        \   <NOTES>See also https://hdl.handle.net/2027/hvd.32044106411366?urlappend=%3Bseq=66
+        : not at the rank of genus</NOTES>\r\n    <CORRECTION>https://www.biodiversitylibrary.org/page/30087306</CORRECTION>\r\n
+        \   <LITERATURE_x0020_LINK>1287</LITERATURE_x0020_LINK>\r\n    <STS_x0020_FLAG>g</STS_x0020_FLAG>\r\n
+        \   <RECORD_x0020_NUMBER>17703</RECORD_x0020_NUMBER>\r\n    <BASIONYM_x0020_RECORD_x0020_NUMBER>700943</BASIONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <PROTONYM_x0020_RECORD_x0020_NUMBER>700943</PROTONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17703</NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <CURRENT_x0020_NAME>Gymnopus</CURRENT_x0020_NAME>\r\n    <CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>17703</CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17703</CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <UpdatedBy>sa</UpdatedBy>\r\n    <AddedBy>CABI_UK\\KIRK</AddedBy>\r\n
+        \   <UpdatedDate>2024-04-12T14:31:18.597+01:00</UpdatedDate>\r\n    <AddedDate>2006-11-20T14:45:00+00:00</AddedDate>\r\n
+        \   <UUID>b09b05ac-8031-11d5-bebb-00508bca8de8</UUID>\r\n    <pubLink>1287</pubLink>\r\n
+        \   <pubType>B</pubType>\r\n    <pubOriginalTitle>Natural Arrangement of British
+        Plants</pubOriginalTitle>\r\n    <pubTransTitle />\r\n    <pubOtherTitle />\r\n
+        \   <pubEdition />\r\n    <pubPlaceOfPublication>London</pubPlaceOfPublication>\r\n
+        \   <pubISBN />\r\n    <pubISSN />\r\n    <pubTransSupTitle />\r\n    <pubTransOther
+        />\r\n    <pubPublishers>Baldwin, Cradock &amp; Joy</pubPublishers>\r\n    <pubEditors
+        />\r\n    <pubNotes />\r\n    <pubAcceptedTitle>Natural Arrangement of British
+        Plants</pubAcceptedTitle>\r\n    <pubIMIAbbr>Nat. Arr. Brit. Pl.</pubIMIAbbr>\r\n
+        \   <pubIMIAbbrLoc>London</pubIMIAbbrLoc>\r\n    <pubAddBy />\r\n    <pubUpdateBy
+        />\r\n    <pubUpdateDate>2000-03-21T00:00:00+00:00</pubUpdateDate>\r\n    <Genus_x0020_name>Gymnopus</Genus_x0020_name>\r\n
+        \   <Family_x0020_name>Omphalotaceae</Family_x0020_name>\r\n    <Order_x0020_name>Agaricales</Order_x0020_name>\r\n
+        \   <Subclass_x0020_name>Agaricomycetidae</Subclass_x0020_name>\r\n    <Class_x0020_name>Agaricomycetes</Class_x0020_name>\r\n
+        \   <Subphylum_x0020_name>Agaricomycotina</Subphylum_x0020_name>\r\n    <Phylum_x0020_name>Basidiomycota</Phylum_x0020_name>\r\n
+        \   <Kingdom_x0020_name>Fungi</Kingdom_x0020_name>\r\n    <Authors1>(Pers.)
+        Gray</Authors1>\r\n    <Volume1>1</Volume1>\r\n    <Page1>604</Page1>\r\n
+        \   <Year_x0020_of_x0020_Publication1>1821</Year_x0020_of_x0020_Publication1>\r\n
+        \   <Literature_x0020_Link1>1287</Literature_x0020_Link1>\r\n    <Fundic_x0020_Record_x0020_Number>17703</Fundic_x0020_Record_x0020_Number>\r\n
+        \   <ING-NCU_x0020_Flag>X</ING-NCU_x0020_Flag>\r\n    <Current_x0020_Use>X</Current_x0020_Use>\r\n
+        \   <IsUnique>n</IsUnique>\r\n    <FUNINDEX_x0020_Record_x0020_Number_x0020_of_x0020_type_x0020_species>486466</FUNINDEX_x0020_Record_x0020_Number_x0020_of_x0020_type_x0020_species>\r\n
+        \   <UpdatedBy1>CABI_UK\\kirk</UpdatedBy1>\r\n    <UpdatedDate1>2001-11-29T09:05:32+00:00</UpdatedDate1>\r\n
+        \   <timestamp>AAAAAAhmqQY=</timestamp>\r\n  </IndexFungorum>\r\n</NewDataSet>"
+  recorded_at: 2024-09-27 15:36:28 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://www.indexfungorum.org/ixfwebservice/fungus.asmx/NameByKey?NameKey=17703
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 27 Sep 2024 15:36:27 GMT
+      server: Microsoft-IIS/10.0
+      cache-control: private, max-age=0
+      content-type: text/xml; charset=utf-8
+      x-aspnet-version: 2.0.50727
+      vary: Accept-Encoding
+      content-encoding: gzip
+      content-length: '1341'
+      x-frame-options: SAMEORIGIN
+      x-content-type-options: nosniff
+      x-xss-protection: 1; mode=block
+      strict-transport-security: max-age=0
+    body:
+      encoding: ''
+      file: no
+      string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<NewDataSet>\r\n  <IndexFungorum>\r\n
+        \   <NAME_x0020_OF_x0020_FUNGUS>Gymnopus</NAME_x0020_OF_x0020_FUNGUS>\r\n
+        \   <AUTHORS>(Pers.) Gray</AUTHORS>\r\n    <INFRASPECIFIC_x0020_RANK>gen.</INFRASPECIFIC_x0020_RANK>\r\n
+        \   <VOLUME>1</VOLUME>\r\n    <PAGE>604</PAGE>\r\n    <YEAR_x0020_OF_x0020_PUBLICATION>1821</YEAR_x0020_OF_x0020_PUBLICATION>\r\n
+        \   <EDITORIAL_x0020_COMMENT>Rejected against &lt;i&gt;Collybia&lt;/i&gt;
+        (Fr.) Staude 1857</EDITORIAL_x0020_COMMENT>\r\n    <NOMENCLATURAL_x0020_COMMENT>Nom.
+        rejic., but see Arts 14.6, Ex. 5 and 14.7</NOMENCLATURAL_x0020_COMMENT>\r\n
+        \   <NOTES>See also https://hdl.handle.net/2027/hvd.32044106411366?urlappend=%3Bseq=66
+        : not at the rank of genus</NOTES>\r\n    <CORRECTION>https://www.biodiversitylibrary.org/page/30087306</CORRECTION>\r\n
+        \   <LITERATURE_x0020_LINK>1287</LITERATURE_x0020_LINK>\r\n    <STS_x0020_FLAG>g</STS_x0020_FLAG>\r\n
+        \   <RECORD_x0020_NUMBER>17703</RECORD_x0020_NUMBER>\r\n    <BASIONYM_x0020_RECORD_x0020_NUMBER>700943</BASIONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <PROTONYM_x0020_RECORD_x0020_NUMBER>700943</PROTONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17703</NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <CURRENT_x0020_NAME>Gymnopus</CURRENT_x0020_NAME>\r\n    <CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>17703</CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17703</CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <UpdatedBy>sa</UpdatedBy>\r\n    <AddedBy>CABI_UK\\KIRK</AddedBy>\r\n
+        \   <UpdatedDate>2024-04-12T14:31:18.597+01:00</UpdatedDate>\r\n    <AddedDate>2006-11-20T14:45:00+00:00</AddedDate>\r\n
+        \   <UUID>b09b05ac-8031-11d5-bebb-00508bca8de8</UUID>\r\n    <pubLink>1287</pubLink>\r\n
+        \   <pubType>B</pubType>\r\n    <pubOriginalTitle>Natural Arrangement of British
+        Plants</pubOriginalTitle>\r\n    <pubTransTitle />\r\n    <pubOtherTitle />\r\n
+        \   <pubEdition />\r\n    <pubPlaceOfPublication>London</pubPlaceOfPublication>\r\n
+        \   <pubISBN />\r\n    <pubISSN />\r\n    <pubTransSupTitle />\r\n    <pubTransOther
+        />\r\n    <pubPublishers>Baldwin, Cradock &amp; Joy</pubPublishers>\r\n    <pubEditors
+        />\r\n    <pubNotes />\r\n    <pubAcceptedTitle>Natural Arrangement of British
+        Plants</pubAcceptedTitle>\r\n    <pubIMIAbbr>Nat. Arr. Brit. Pl.</pubIMIAbbr>\r\n
+        \   <pubIMIAbbrLoc>London</pubIMIAbbrLoc>\r\n    <pubAddBy />\r\n    <pubUpdateBy
+        />\r\n    <pubUpdateDate>2000-03-21T00:00:00+00:00</pubUpdateDate>\r\n    <Genus_x0020_name>Gymnopus</Genus_x0020_name>\r\n
+        \   <Family_x0020_name>Omphalotaceae</Family_x0020_name>\r\n    <Order_x0020_name>Agaricales</Order_x0020_name>\r\n
+        \   <Subclass_x0020_name>Agaricomycetidae</Subclass_x0020_name>\r\n    <Class_x0020_name>Agaricomycetes</Class_x0020_name>\r\n
+        \   <Subphylum_x0020_name>Agaricomycotina</Subphylum_x0020_name>\r\n    <Phylum_x0020_name>Basidiomycota</Phylum_x0020_name>\r\n
+        \   <Kingdom_x0020_name>Fungi</Kingdom_x0020_name>\r\n    <Authors1>(Pers.)
+        Gray</Authors1>\r\n    <Volume1>1</Volume1>\r\n    <Page1>604</Page1>\r\n
+        \   <Year_x0020_of_x0020_Publication1>1821</Year_x0020_of_x0020_Publication1>\r\n
+        \   <Literature_x0020_Link1>1287</Literature_x0020_Link1>\r\n    <Fundic_x0020_Record_x0020_Number>17703</Fundic_x0020_Record_x0020_Number>\r\n
+        \   <ING-NCU_x0020_Flag>X</ING-NCU_x0020_Flag>\r\n    <Current_x0020_Use>X</Current_x0020_Use>\r\n
+        \   <IsUnique>n</IsUnique>\r\n    <FUNINDEX_x0020_Record_x0020_Number_x0020_of_x0020_type_x0020_species>486466</FUNINDEX_x0020_Record_x0020_Number_x0020_of_x0020_type_x0020_species>\r\n
+        \   <UpdatedBy1>CABI_UK\\kirk</UpdatedBy1>\r\n    <UpdatedDate1>2001-11-29T09:05:32+00:00</UpdatedDate1>\r\n
+        \   <timestamp>AAAAAAhmqQY=</timestamp>\r\n  </IndexFungorum>\r\n</NewDataSet>"
+  recorded_at: 2024-09-27 15:36:28 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0

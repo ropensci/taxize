@@ -6,7 +6,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.81.0 r-curl/5.2.2 crul/1.5.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -15,32 +15,28 @@ http_interactions:
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      connection: keep-alive
-      content-length: '109'
+      status: 'HTTP/2 200 '
+      date: Thu, 05 Sep 2024 16:45:12 GMT
       content-type: text/json;charset=ISO-8859-1
-      date: Mon, 10 Feb 2020 22:14:16 GMT
-      status: 'HTTP/1.1 200 '
-      strict-transport-security:
-      - max-age=63072000; includeSubdomains; preload
-      - max-age=63072000; includeSubdomains; preload
-      x-application: itis_webservices
-      x-node-name: not shown
-      x-upstream-member: not shown
+      content-length: '109'
+      x-frame-options: SAMEORIGIN
+      strict-transport-security: max-age=63072000; includeSubdomains; preload
+      x-robots-tag: noindex, nofollow, nosnippet, noarchive
     body:
-      encoding: UTF-8
+      encoding: ''
       file: no
       string: |
         {"class":"gov.usgs.itis.itis_service.data.SvcItisTermList","itisTerms":[null],"requestedName":"23424234234"}
-  recorded_at: 2020-02-10 22:14:18 GMT
-  recorded_with: vcr/0.4.1.94, webmockr/0.5.1.98
+  recorded_at: 2024-09-05 16:45:12 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
-    uri: http://www.marinespecies.org/rest/AphiaRecordsByName/23424234234?like=true&marine_only=true&offset=1
+    uri: https://www.marinespecies.org/rest/AphiaRecordsByName/23424234234?like=true&marine_only=true&offset=1
     body:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.81.0 r-curl/5.2.2 crul/1.5.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -49,17 +45,21 @@ http_interactions:
       message: No Content
       explanation: Request fulfilled, nothing follows
     headers:
-      status: HTTP/1.1 204 No Content
-      date: Mon, 10 Feb 2020 22:14:17 GMT
-      server: Apache/2.4.39 (Win64)
+      status: 'HTTP/2 204 '
+      date: Thu, 05 Sep 2024 16:45:12 GMT
+      server: Apache/2.4.57 (Win64)
+      content-security-policy: upgrade-insecure-requests; script-src * 'unsafe-inline'
+        'unsafe-eval' blob:; object-src *; frame-ancestors 'self' www.vliz.be vliz.be
+        form.vliz.be www.omes-monitoring.be omes-monitoring.be;
+      cross-origin-opener-policy: same-origin
       access-control-allow-origin: '*'
       access-control-allow-headers: X-Requested-With, Content-Type, Accept, Origin,
         Authorization
       access-control-allow-methods: GET, POST, OPTIONS
       set-cookie: vliz_webc=vliz_webc1; path=/
     body:
-      encoding: UTF-8
+      encoding: ''
       file: no
       string: ''
-  recorded_at: 2020-02-10 22:14:18 GMT
-  recorded_with: vcr/0.4.1.94, webmockr/0.5.1.98
+  recorded_at: 2024-09-05 16:45:12 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0

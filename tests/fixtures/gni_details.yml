@@ -6,43 +6,176 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      accept-ranges: bytes
-      age: '0'
-      cache-control: private, max-age=0, must-revalidate
+      status: HTTP/1.1 200 OK
+      server: nginx/1.18.0 (Ubuntu)
+      date: Wed, 25 Sep 2024 23:42:26 GMT
+      content-type: text/html; charset=UTF-8
+      transfer-encoding: chunked
       connection: keep-alive
-      content-length: '1352'
-      content-type: application/json; charset=utf-8
-      date: Sat, 26 Jan 2019 00:43:57 GMT
-      etag: '"dad22422a1edf0c9406b7c894fcdba46"'
-      server: nginx/1.8.1
-      set-cookie: ''
-      status:
-      - HTTP/1.1 200 OK
-      - 200 OK
-      via: 1.1 varnish
-      x-runtime: '7'
-      x-varnish: '398772045'
+      content-encoding: gzip
+      vary: Accept-Encoding
     body:
-      encoding: UTF-8
-      string: '{"data":[{"data_source":{"web_site_url":"http://www.organismnames.com/","data_url":"http://gnapartnership.org/gna_test/ion/data.xml","data_hash":"da39a3ee5e6b4b0d3255bfef95601890afd80709","name_strings_count":4104326,"created_at":"2009/08/14
-        18:56:01 +0000","id":30,"data_zip_compressed":null,"title":"Index to Organism
-        Names","unique_names_count":2511782,"refresh_period_days":14,"description":"ION
-        will ultimately contain all the organism names related data found within the
-        Thomson Reuters life science literature databases.","updated_at":"2010/05/14
-        22:47:59 +0000"},"name_index_id":98448788,"records":[{"local_id":"2521957","record_hash":null,"name_index_id":98448788,"global_id":null,"created_at":"2009/09/27
-        10:27:31 +0000","original_name_string":null,"id":127858346,"name_rank_id":2,"kingdom_id":null,"url":"http://www.organismnames.com/details.htm?lsid=2521957","updated_at":"2009/09/27
-        10:27:31 +0000","nomenclatural_code_id":null}],"records_number":1}],"name_string":{"normalized":"ACALLEPITRIX
-        ANILA","is_canonical_form":1,"resource_uri":null,"name":"Acallepitrix anila","canonical_form_id":5703176,"uuid_hex":"35fa270e-1a07-5e5d-914c-90230dc8680a","has_words":true,"created_at":"2009/08/14
-        15:14:10 +0000","id":17802847,"lsid":"urn:lsid:globalnames.org:index:35fa270e-1a07-5e5d-914c-90230dc8680a","updated_at":"2009/08/14
-        15:14:10 +0000"}}'
-  recorded_at: 2019-01-26 00:43:57 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+      encoding: ''
+      file: no
+      string: "\n<!DOCTYPE html>\n<html>\n  <head>\n    <title>Global Names Verifier</title>\n
+        \   <link href=\"/static/styles/screen.css\" media=\"screen\" rel=\"stylesheet\"
+        type=\"text/css\" />\n    <link href='/static/images/favicon.ico' rel='icon'
+        type='image/x-icon'>\n    <script src=\"/static/js/jquery-3.6.0.min.js\"></script>\n
+        \   \n    <script src=\"/static/js/home.js\"></script>\n    \n  </head>\n
+        \ <body>\n    <div id=\"SiteContainer\" class=\"structural\">\n\n      <div
+        class=\"background\"></div>\n\n      <div id=\"Header\" class=\"structural
+        fixedWidth\">\n        <div class=\"inner\">\n          <div id=\"Logo\">\n
+        \           <a href=\"/\">\n              <h1>Global Names Verifier</h1>\n
+        \           </a>\n          </div>\n          <ul id=\"SiteNavigation\">\n
+        \           \n            <li class=\"active\"><a href=\"/\">Home</a></li>\n
+        \           \n\n            \n            <li><a href=\"/data_sources\">Sources</a></li>\n
+        \           \n\n            <li>\n            <a href=\"https://github.com/gnames/gnverifier/issues\">Issues</a>\n
+        \           </li>\n\n            \n            <li><a href=\"/about\">About</a></li>\n
+        \           \n\n            \n            <li><a href=\"/api\">API</a></li>\n
+        \           \n          </ul>\n        </div>\n      </div>\n\n      <div
+        id=\"BodyContent\" class=\"structural fixedWidth clear\">\n        <div class=\"inner\">\n
+        \         <div id=\"content-wrapper\">\n            <div id=\"content-body\">\n
+        \             \n              \n\n<p>Learn how to <a href='https://github.com/gnames/gnverifier/wiki/OpenRefine-readme'>use
+        GNverifier with OpenRefine</a></p>\n\n<p>Verify a list of scientific names
+        against\n  <a href=\"/data_sources\">biodiversity data-sources</a>.\n  This
+        service parses incoming names, executes exact or\n  fuzzy matching as required,
+        and returns the best-scored result.\n  Optionally, it can also return matches
+        from data-sources selected by a user.\n</p>\n\n<div id='resolver-form'>\n
+        \   <p>\n      Paste Scientific Names, one per line (up to 5,000 names) <br/>or
+        write an\n      <a href='https://github.com/gnames/gnverifier#advanced-search-query-language'\n
+        \     target='_blank'>Advanced Search Query</a>\n      (e.g.:\n      <code
+        style='background-color: #ddd; padding: 0.2em'>n:B. bubo Linn. 1700-1800</code>).\n
+        \   </p>\n  <form action='/' method='POST'>\n    <div>\n      <label for='format'>Output
+        format</label>\n      <select id='format' name='format'>\n        <option
+        value='html'>HTML</option>\n        <option value='json'>JSON</option>\n        <option
+        value='csv'>CSV</option>\n        <option value='tsv'>TSV</option>\n      </select>\n
+        \     &nbsp;&nbsp;&nbsp;\n      <input id='capitalize' name='capitalize' type='checkbox'
+        checked='checked'/>\n      <label for='capitalize'>Capitalize the first rharacter</label>\n
+        \     &nbsp;&nbsp;&nbsp;\n        <input id='all_matches' name='all_matches'
+        type='checkbox'>\n        <label for='all_matches'>Show All Matches</lbel>\n
+        \   </div>\n    <textarea cols='24' name='names' rows='12'></textarea>\n    <div
+        id='advanced_options'>\n      <a href='#'>Advanced Options &gt;&gt;</a>\n
+        \   </div>\n    <div id='advanced_selections'>\n\n      <table class=\"nobg\">\n
+        \       <tr class=\"nobg\">\n          <td class=\"nobg\">\n            <input
+        id='fuzzy_relaxed' name='fuzzy_relaxed' type='checkbox'/>\n            <label
+        for='fuzzy_relaxed'>Relax fuzzy matching rules (50 names max)</label>\n          </td>\n
+        \         <td class=\"nobg\">\n            <input id='fuzzy_uninomial' name='fuzzy_uninomial'
+        type='checkbox'/>\n            <label for='fuzzy_uninomial'>Include uninomials
+        into fuzzy matching</label>\n          </td>\n        </tr>\n        <tr class=\"nobg\">\n
+        \         <td class=\"nobg\">\n            <input id='species_group' name='species_group'
+        type='checkbox'/>\n            <label for='species_group'>Use species group
+        in verification</label>\n          </td>\n          <td class=\"nobg\">\n
+        \         </td>\n        </tr>\n      </table>\n\n      <fieldset>\n        <legend>Pick
+        Data Sources</legend>\n        <table class=\"nobg\">\n          <tr class=\"nobg\">\n
+        \           <td class=\"nobg\">\n              <input id='data_source_ids_195'
+        name='ds' value='195' type='checkbox'>\n              <label for='data_source_ids_195'>AlgaeBase</label><a
+        href=\"/data_sources/195\">\U0001F6C8</a>\n            </td>\n            <td
+        class=\"nobg\">\n              <input id='data_source_ids_170' name='ds' value='170'
+        type='checkbox'>\n              <label for='data_source_ids_170'>Arctos</label><a
+        href=\"/data_sources/170\">\U0001F6C8</a>\n            </td>\n            <td
+        class=\"nobg\">\n              <input id='data_source_ids_183' name='ds' value='183'
+        type='checkbox'>\n              <label for='data_source_ids_183'>ASM Mammal
+        DB</label><a href=\"/data_sources/183\">\U0001F6C8</a>\n            </td>\n
+        \         </tr>\n\n          <tr class=\"nobg\">\n            <td class=\"nobg\">\n
+        \             <input id='data_source_ids_1' name='ds' value='1' type='checkbox'>\n
+        \             <label for='data_source_ids_1'>Catalogue of Life</label><a href=\"/data_sources/1\">\U0001F6C8</a>\n
+        \           </td>\n            <td class=\"nobg\">\n              <input id='data_source_ids_12'
+        name='ds' value='12' type='checkbox'>\n              <label for='data_source_ids_12'>EOL</label><a
+        href=\"/data_sources/12\">\U0001F6C8</a>\n            </td>\n            <td
+        class=\"nobg\">\n              <input id='data_source_ids_11' name='ds' value='11'
+        type='checkbox'>\n              <label for='data_source_ids_11'>GBIF</label><a
+        href=\"/data_sources/11\">\U0001F6C8</a>\n            </td>\n          </tr>\n\n\n
+        \         <tr class=\"nobg\">\n            <td class=\"nobg\">\n              <input
+        id='data_source_ids_180' name='ds' value='180' type='checkbox'>\n              <label
+        for='data_source_ids_180'>iNaturalist</label><a href=\"/data_sources/180\">\U0001F6C8</a>\n
+        \           </td>\n            <td class=\"nobg\">\n              <input id='data_source_ids_5'
+        name='ds' value='5' type='checkbox'>\n              <label for='data_source_ids_5'>Index
+        Fungorum</label><a href=\"/data_sources/5\">\U0001F6C8</a>\n            </td>\n
+        \           <td class=\"nobg\">\n              <input id='data_source_ids_168'
+        name='ds' value='168' type='checkbox'>\n              <label for='data_source_ids_168'>ION</label><a
+        href=\"/data_sources/168\">\U0001F6C8</a>\n            </td>\n          </tr>\n\n
+        \         <tr class=\"nobg\">\n            <td class=\"nobg\">\n              <input
+        id='data_source_ids_167' name='ds' value='167' type='checkbox'>\n              <label
+        for='data_source_ids_167'>IPNI</label><a href=\"/data_sources/167\">\U0001F6C8</a>\n
+        \           </td>\n            <td class=\"nobg\">\n              <input id='data_source_ids_181'
+        name='ds' value='181' type='checkbox'>\n              <label for='data_source_ids_181'>IRMNG</label><a
+        href=\"/data_sources/181\">\U0001F6C8</a>\n            </td>\n            <td
+        class=\"nobg\">\n              <input id='data_source_ids_3' name='ds' value='3'
+        type='checkbox'>\n              <label for='data_source_ids_3'>ITIS</label><a
+        href=\"/data_sources/3\">\U0001F6C8</a>\n            </td>\n          </tr>\n\n
+        \         <tr class=\"nobg\">\n            <td class=\"nobg\">\n              <input
+        id='data_source_ids_204' name='ds' value='204' type='checkbox'>\n              <label
+        for='data_source_ids_204'>Fungal Names</label><a href=\"/data_sources/204\">\U0001F6C8</a>\n
+        \           </td>\n            <td class=\"nobg\">\n              <input id='data_source_ids_208'
+        name='ds' value='208' type='checkbox'>\n              <label for='data_source_ids_208'>LPSN</label><a
+        href=\"/data_sources/208\">\U0001F6C8</a>\n            </td>\n            <td
+        class=\"nobg\">\n              <input id='data_source_ids_186' name='ds' value='186'
+        type='checkbox'>\n              <label for='data_source_ids_186'>MCZbase</label><a
+        href=\"/data_sources/186\">\U0001F6C8</a>\n            </td class=\"nobg\">\n
+        \         </tr>\n\n          <tr class=\"nobg\">\n            <td class=\"nobg\">\n
+        \             <input id='data_source_ids_203' name='ds' value='203' type='checkbox'>\n
+        \             <label for='data_source_ids_203'>MycoBank</label><a href=\"/data_sources/203\">\U0001F6C8</a>\n
+        \           </td>\n            <td class=\"nobg\">\n              <input id='data_source_ids_4'
+        name='ds' value='4' type='checkbox'>\n              <label for='data_source_ids_4'>NCBI</label><a
+        href=\"/data_sources/4\">\U0001F6C8</a>\n            </td class=\"nobg\">\n
+        \           <td class=\"nobg\">\n              <input id='data_source_ids_205'
+        name='ds' value='205' type='checkbox'>\n              <label for='data_source_ids_205'>Nomenclator
+        Zoologicus</label><a href=\"/data_sources/205\">\U0001F6C8</a>\n            </td>\n
+        \         </tr>\n\n          <tr class=\"nobg\">\n            <td class=\"nobg\">\n
+        \             <input id='data_source_ids_209' name='ds' value='209' type='checkbox'>\n
+        \             <label for='data_source_ids_209'>NZOR</label><a href=\"/data_sources/209\">\U0001F6C8</a>\n
+        \           </td>\n            <td class=\"nobg\">\n              <input id='data_source_ids_179'
+        name='ds' value='179' type='checkbox'>\n              <label for='data_source_ids_179'>Open
+        Tree Of Life</label><a href=\"/data_sources/179\">\U0001F6C8</a>\n            </td>\n
+        \           <td class=\"nobg\">\n              <input id='data_source_ids_172'
+        name='ds' value='172' type='checkbox'>\n              <label for='data_source_ids_172'>PaleoBioDB</label><a
+        href=\"/data_sources/172\">\U0001F6C8</a>\n            </td>\n          </tr>\n\n
+        \         <tr class=\"nobg\">\n            <td class=\"nobg\">\n              <input
+        id='data_source_ids_194' name='ds' value='194' type='checkbox'>\n              <label
+        for='data_source_ids_194'>Plazi</label><a href=\"/data_sources/194\">\U0001F6C8</a>\n
+        \           </td>\n            <td class=\"nobg\">\n              <input id='data_source_ids_165'
+        name='ds' value='165' type='checkbox'>\n              <label for='data_source_ids_165'>Tropicos</label><a
+        href=\"/data_sources/165\">\U0001F6C8</a>\n            </td>\n            <td
+        class=\"nobg\">\n              <input id='data_source_ids_147' name='ds' value='147'
+        type='checkbox'>\n              <label for='data_source_ids_147'>VASCAN</label><a
+        href=\"/data_sources/147\">\U0001F6C8</a>\n            </td>\n          </tr>\n\n
+        \         <tr class=\"nobg\">\n            <td class=\"nobg\">\n              <input
+        id='data_source_ids_197' name='ds' value='197' type='checkbox'>\n              <label
+        for='data_source_ids_197'>WCVP Kew</label><a href=\"/data_sources/197\">\U0001F6C8</a>\n
+        \           </td>\n            <td class=\"nobg\">\n              <input id='data_source_ids_207'
+        name='ds' value='207' type='checkbox'>\n              <label for='data_source_ids_207'>Wikidata</label><a
+        href=\"/data_sources/207\">\U0001F6C8</a>\n            </td>\n            <td
+        class=\"nobg\">\n              <input id='data_source_ids_2' name='ds' value='2'
+        type='checkbox'>\n              <label for='data_source_ids_2'>Wikispecies</label><a
+        href=\"/data_sources/2\">\U0001F6C8</a>\n            </td>\n          </tr>\n\n
+        \         <tr class=\"nobg\">\n            <td class=\"nobg\">\n              <input
+        id='data_source_ids_196' name='ds' value='196' type='checkbox'>\n              <label
+        for='data_source_ids_196'>World Flora Online</label><a href=\"/data_sources/196\">\U0001F6C8</a>\n
+        \           </td>\n            <td class=\"nobg\">\n              <input id='data_source_ids_9'
+        name='ds' value='9' type='checkbox'>\n              <label for='data_source_ids_9'>WoRMS</label><a
+        href=\"/data_sources/9\">\U0001F6C8</a>\n            </td>\n            <td
+        class=\"nobg\"/>\n          </tr>\n        </table>\n      </fieldset>\n    </div>\n
+        \   <div>\n      <input class='form-button submit-button' type='submit' value='Search
+        Names'>\n    </div>\n  </form>\n</div>\n\n\n              \n\n              <p
+        id=\"version\">\n                <a href='https://github.com/gnames/gnverifier'>\n
+        \               <img src=\"/static/images/github-mark.svg\" alt=\"GitHub link\"/>\n
+        \                 Version v1.2.0\n                </a>\n              </p>\n\n
+        \           </div>\n          </div>\n        </div>\n      </div>\n\n      <div
+        id=\"Footer\" class=\"structural fixedWidth\">\n        <div class=\"inner\">\n
+        \         <span><a href=\"https://globalnames.org\">Global Names</a></span>|\n
+        \         <span><a href=\"https://parser.globalnames.org\">Global Names Parser</a></span>|\n
+        \         <span><a href=\"https://finder.globalnames.org\">Global Names Finder</a></span>|\n
+        \         <span><a href=\"https://verifier.globalnames.org\">Global Names
+        Verifier</a></span>|\n        </div>\n      </div>\n    </div>\n</body>\n</html>\n"
+  recorded_at: 2024-09-25 23:42:26 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0

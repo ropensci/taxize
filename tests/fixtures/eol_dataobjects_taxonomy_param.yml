@@ -8,44 +8,40 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(taxize/0.9.92.93)
+      User-Agent: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
-      status_code: '200'
-      message: OK
-      explanation: Request fulfilled, document follows
+      status_code: '503'
+      message: Service Unavailable
+      explanation: The server cannot process the request due to a high load
     headers:
-      status: HTTP/1.1 200 OK
-      date: Fri, 06 Mar 2020 18:04:22 GMT
-      content-type: application/json; charset=utf-8
-      content-length: '1893'
+      status: HTTP/1.1 503 Backend fetch failed
+      date: Thu, 05 Sep 2024 16:40:40 GMT
+      content-type: text/html; charset=utf-8
+      content-length: '283'
       connection: keep-alive
-      x-frame-options: ALLOWALL
-      x-robots-tag: noindex
-      etag: W/"110574c67458e250f79ce896965f91b9"
-      cache-control: max-age=0, private, must-revalidate
-      x-request-id: 73d2dcec-4953-4674-a953-1237c2d8bb10
-      x-runtime: '0.029870'
+      retry-after: '5'
       age: '0'
       x-cache: MISS
       x-cache-hits: '0'
-      accept-ranges: bytes
     body:
-      encoding: UTF-8
+      encoding: ''
       file: no
-      string: '{"taxon":{"identifier":46554351,"scientificName":"Aurelia aurita (Linnaeus,
-        1758)","richness_score":null,"dataObjects":[{"identifier":"EOL-media-509-12138291","dataObjectVersionID":7561533,"dataType":"http://purl.org/dc/dcmitype/StillImage","dataSubtype":"jpg","vettedStatus":"Trusted","dataRatings":"","dataRating":"2.5","mimeType":"image/jpeg","created":"2018-04-05T10:48:10.000Z","modified":"2019-08-14T06:52:12.000Z","title":"Aurelia
-        aurita (auge24eu).jpg","license":"http://creativecommons.org/licenses/by/3.0/","license_id":11,"rightsHolder":"Andreas
-        Augstein","source":"https://commons.wikimedia.org/wiki/File:Aurelia_aurita_(auge24eu).jpg","mediaURL":"https://upload.wikimedia.org/wikipedia/commons/4/4e/Aurelia_aurita_(auge24eu).jpg","description":"Summary[\u003ca
-        href=\"https://commons.wikimedia.org/w/index.php?title=API\u0026amp;action=edit\u0026amp;section=1\"
-        title=\"Edit section: Summary\"\u003eedit\u003c/a\u003e]   DescriptionAPI  English:
-        This image shows two moon jelly fish (Aurelia aurita). Deutsch: Dieses Bild
-        zeigt zwei Ohrenquallen (Aurelia aurita).    Date 15 November 2009   Source
-        Own work selbst fotografiert; Ort: Aquarium Berlin.   Author \u003ca href=\"https://commons.wikimedia.org/w/index.php?title=Benutzer:Andreas_Augstein\u0026amp;action=edit\u0026amp;redlink=1\"
-        title=\"Benutzer:Andreas Augstein\"\u003eAndreas Augstein\u003c/a\u003e  ","eolMediaURL":"https://content.eol.org/data/media/55/a9/97/509.12138291.jpg","eolThumbnailURL":"https://content.eol.org/data/media/55/a9/97/509.12138291.98x68.jpg","agents":[{"full_name":"Andreas
-        Augstein","homepage":"https://commons.wikimedia.org/w/index.php?title=Benutzer:Andreas_Augstein\u0026action=edit\u0026redlink=1","role":"creator"},{"full_name":"Own
-        work selbst fotografiert; Ort: Aquarium Berlin.","homepage":null,"role":"source"},{"full_name":"Wikimedia
-        Commons","homepage":null,"role":"provider"}]}]}}'
-  recorded_at: 2020-03-06 18:04:22 GMT
-  recorded_with: vcr/0.5.0, webmockr/0.6.0
+      string: |
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <title>503 Backend fetch failed</title>
+          </head>
+          <body>
+            <h1>Error 503 Backend fetch failed</h1>
+            <p>Backend fetch failed</p>
+            <h3>Guru Meditation:</h3>
+            <p>XID: 110695</p>
+            <hr>
+            <p>Varnish cache server</p>
+          </body>
+        </html>
+  recorded_at: 2024-09-05 16:40:40 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0

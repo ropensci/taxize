@@ -1,15 +1,15 @@
 http_interactions:
 - request:
     method: get
-    uri: http://www.plantsoftheworldonline.org/api/2/search?q=Homalium%20leucophloeum&perPage=100&cursor=%2A
+    uri: https://powo.science.kew.org/api/2/search?q=Homalium%20leucophloeum&perPage=100&cursor=%2A
     body:
       encoding: ''
       string: ''
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.99.92)
-      X-USER-AGENT: r-curl/4.3 crul/1.0.0 rOpenSci(taxize/0.9.99.92)
+      User-Agent: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
@@ -17,19 +17,24 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: 'HTTP/1.1 200 '
+      date: Thu, 05 Sep 2024 22:54:44 GMT
       server: nginx/1.15.12
-      date: Thu, 10 Dec 2020 17:36:53 GMT
       content-type: application/json;charset=UTF-8
-      transfer-encoding: chunked
-      connection: keep-alive
-      etag: W/"0f15cc2c11fb3cb77b02dbc1df01b8868"
-      content-encoding: gzip
+      content-length: '761'
+      access-control-allow-origin: '*'
+      access-control-allow-methods: GET, OPTIONS, HEAD
+      etag: '"0d8555d7c9abfa0496fd5cb410e1d36f7"'
+      x-frame-options: SAMEORIGIN
+      x-content-type-options: nosniff
+      x-xss-protection: 1; mode=block
+      strict-transport-security: max-age=0
     body:
-      encoding: UTF-8
+      encoding: ''
       file: no
-      string: '{"totalResults":1,"page":1,"totalPages":1,"perPage":100,"cursor":"AoMIQVleSj8CNjAwU2FsaWNhY2VhZUhvbWFsaXVtbGV1Y29waGxvZXVtLFRheG9uXzkzMTAwMQ==","message":"If
+      string: '{"totalResults":1,"page":1,"totalPages":1,"perPage":100,"cursor":"AoMIQVxwQT8CNjAwU2FsaWNhY2VhZUhvbWFsaXVtbGV1Y29waGxvZXVtLFRheG9uXzM0MDk2OA==","message":"If
         you would like to download and use the POWO data in a conciencious way, please
-        use our official library pykew [https://github.com/RBGKew/pykew].","results":[{"accepted":false,"author":"(Tul.)
-        Baill.","kingdom":"Plantae","family":"Salicaceae","name":"Homalium leucophloeum","rank":"Species","url":"/taxon/urn:lsid:ipni.org:names:779816-1","fqId":"urn:lsid:ipni.org:names:779816-1"}]}'
-  recorded_at: 2020-12-10 17:36:53 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.7.4
+        use our official library pykew [https://github.com/RBGKew/pykew].","results":[{"accepted":true,"author":"(Tul.)
+        Baill.","kingdom":"Plantae","family":"Salicaceae","name":"Homalium leucophloeum","rank":"Species","url":"/taxon/urn:lsid:ipni.org:names:779816-1","fqId":"urn:lsid:ipni.org:names:779816-1","images":[{"thumbnail":"//d2seqvvyy3b8p2.cloudfront.net/8e0b69db5740fecd640655b4fc858591.jpg","fullsize":"//d2seqvvyy3b8p2.cloudfront.net/6535bddf743d17ceef3b3427be89e720.jpg","caption":"A
+        specimen from Kew''s Herbarium"}]}]}'
+  recorded_at: 2024-09-05 22:54:45 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0

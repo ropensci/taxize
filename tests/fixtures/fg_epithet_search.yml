@@ -1,14 +1,15 @@
 http_interactions:
 - request:
     method: get
-    uri: http://www.indexfungorum.org/ixfwebservice/fungus.asmx/EpithetSearch?SearchText=phalloides&AnywhereInText=true&MaxNumber=2
+    uri: https://www.indexfungorum.org/ixfwebservice/fungus.asmx/EpithetSearch?SearchText=phalloides&AnywhereInText=true&MaxNumber=2
     body:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
@@ -16,26 +17,29 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      server: nginx
-      date: Thu, 24 Jan 2019 01:37:36 GMT
-      content-type: text/xml; charset=utf-8
-      transfer-encoding: chunked
-      connection: keep-alive
-      keep-alive: timeout=20
-      vary: Accept-Encoding
+      date: Fri, 27 Sep 2024 01:49:27 GMT
+      server: Microsoft-IIS/10.0
       cache-control: private, max-age=0
+      content-type: text/xml; charset=utf-8
       x-aspnet-version: 2.0.50727
-      x-powered-by: ASP.NET
+      vary: Accept-Encoding
       content-encoding: gzip
+      content-length: '923'
+      x-frame-options: SAMEORIGIN
+      x-content-type-options: nosniff
+      x-xss-protection: 1; mode=block
+      strict-transport-security: max-age=0
     body:
-      encoding: UTF-8
+      encoding: ''
+      file: no
       string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<NewDataSet>\r\n  <IndexFungorum>\r\n
         \   <NAME_x0020_OF_x0020_FUNGUS>Agaricus phalloides</NAME_x0020_OF_x0020_FUNGUS>\r\n
         \   <AUTHORS>Vaill. ex Fr.</AUTHORS>\r\n    <SPECIFIC_x0020_EPITHET>phalloides</SPECIFIC_x0020_EPITHET>\r\n
-        \   <INFRASPECIFIC_x0020_RANK>sp.</INFRASPECIFIC_x0020_RANK>\r\n    <VOLUME>1</VOLUME>\r\n
-        \   <PAGE>13</PAGE>\r\n    <YEAR_x0020_OF_x0020_PUBLICATION>1821</YEAR_x0020_OF_x0020_PUBLICATION>\r\n
-        \   <CORRECTION>$Nhttp://www.librifungorum.org/Image.asp?ItemID=21&amp;ImageFileName=0013b.jpg</CORRECTION>\r\n
-        \   <SANCTIONING_x0020_AUTHOR>Fr.$http://www.librifungorum.org/Image.asp?ItemID=21&amp;ImageFileName=0013b.jpg</SANCTIONING_x0020_AUTHOR>\r\n
+        \   <INFRASPECIFIC_x0020_RANK>sp.</INFRASPECIFIC_x0020_RANK>\r\n    <TYPIFICATION_x0020_DETAILS>Typification:
+        Tab. 14, fig. 5 (Vaillant, par.; 'Fung. phalloid.')</TYPIFICATION_x0020_DETAILS>\r\n
+        \   <VOLUME>1</VOLUME>\r\n    <PAGE>13</PAGE>\r\n    <YEAR_x0020_OF_x0020_PUBLICATION>1821</YEAR_x0020_OF_x0020_PUBLICATION>\r\n
+        \   <CORRECTION>https://www.biodiversitylibrary.org/page/4338020</CORRECTION>\r\n
+        \   <SANCTIONING_x0020_AUTHOR>Fr.$https://www.biodiversitylibrary.org/page/4338020</SANCTIONING_x0020_AUTHOR>\r\n
         \   <SANCTIONING_x0020_REFERENCE_x0020_VOLUME>1</SANCTIONING_x0020_REFERENCE_x0020_VOLUME>\r\n
         \   <SANCTIONING_x0020_REFERENCE_x0020_PAGE>13</SANCTIONING_x0020_REFERENCE_x0020_PAGE>\r\n
         \   <SANCTIONING_x0020_REFERENCE_x0020_YEAR>1821</SANCTIONING_x0020_REFERENCE_x0020_YEAR>\r\n
@@ -47,23 +51,311 @@ http_interactions:
         \   <CURRENT_x0020_NAME>Amanita phalloides</CURRENT_x0020_NAME>\r\n    <CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>178962</CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>\r\n
         \   <CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17045</CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
         \   <GSD_x0020_FLAG>GSD25</GSD_x0020_FLAG>\r\n    <SQLTimeStamp>AAAAAAhdJ0A=</SQLTimeStamp>\r\n
-        \   <UpdatedBy>IUSR_KPPIND01</UpdatedBy>\r\n    <AddedBy>CABI_UK\\kirk</AddedBy>\r\n
-        \   <UpdatedDate>2015-06-21T08:19:02.11+01:00</UpdatedDate>\r\n    <AddedDate>2001-01-12T07:55:00+00:00</AddedDate>\r\n
+        \   <UpdatedBy>sa</UpdatedBy>\r\n    <AddedBy>CABI_UK\\kirk</AddedBy>\r\n
+        \   <UpdatedDate>2023-11-07T11:41:28.243+00:00</UpdatedDate>\r\n    <AddedDate>2001-01-12T07:55:00+00:00</AddedDate>\r\n
         \   <UUID>1cb1aea7-36b9-11d5-9548-00d0592d548c</UUID>\r\n  </IndexFungorum>\r\n
-        \ <IndexFungorum>\r\n    <NAME_x0020_OF_x0020_FUNGUS>Agaricus phalloides</NAME_x0020_OF_x0020_FUNGUS>\r\n
-        \   <AUTHORS>Bull.</AUTHORS>\r\n    <SPECIFIC_x0020_EPITHET>phalloides</SPECIFIC_x0020_EPITHET>\r\n
-        \   <INFRASPECIFIC_x0020_RANK>sp.</INFRASPECIFIC_x0020_RANK>\r\n    <PAGE>tab.
-        2, 577</PAGE>\r\n    <YEAR_x0020_OF_x0020_PUBLICATION>1792</YEAR_x0020_OF_x0020_PUBLICATION>\r\n
-        \   <EDITORIAL_x0020_COMMENT>Unpriorable because of sanctioned name</EDITORIAL_x0020_COMMENT>\r\n
-        \   <LITERATURE_x0020_LINK>7184</LITERATURE_x0020_LINK>\r\n    <RECORD_x0020_NUMBER>490346</RECORD_x0020_NUMBER>\r\n
-        \   <BASIONYM_x0020_RECORD_x0020_NUMBER>490346</BASIONYM_x0020_RECORD_x0020_NUMBER>\r\n
-        \   <PROTONYM_x0020_RECORD_x0020_NUMBER>490346</PROTONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \ <IndexFungorum>\r\n    <NAME_x0020_OF_x0020_FUNGUS>Agaricus phalloides subsp.
+        vernus</NAME_x0020_OF_x0020_FUNGUS>\r\n    <AUTHORS>(Bull. ex Lam.) G. Winter</AUTHORS>\r\n
+        \   <SPECIFIC_x0020_EPITHET>phalloides</SPECIFIC_x0020_EPITHET>\r\n    <INFRASPECIFIC_x0020_RANK>subsp.</INFRASPECIFIC_x0020_RANK>\r\n
+        \   <INFRASPECIFIC_x0020_EPITHET>vernus</INFRASPECIFIC_x0020_EPITHET>\r\n
+        \   <VOLUME>1.1</VOLUME>\r\n    <PAGE>850</PAGE>\r\n    <YEAR_x0020_OF_x0020_PUBLICATION>1882</YEAR_x0020_OF_x0020_PUBLICATION>\r\n
+        \   <YEAR_x0020_ON_x0020_PUBLICATION>1884</YEAR_x0020_ON_x0020_PUBLICATION>\r\n
+        \   <SANCTIONING_x0020_AUTHOR>Fr.</SANCTIONING_x0020_AUTHOR>\r\n    <LITERATURE_x0020_LINK>1016</LITERATURE_x0020_LINK>\r\n
+        \   <RECORD_x0020_NUMBER>654473</RECORD_x0020_NUMBER>\r\n    <BASIONYM_x0020_RECORD_x0020_NUMBER>163667</BASIONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <PROTONYM_x0020_RECORD_x0020_NUMBER>163667</PROTONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17030</NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <CURRENT_x0020_NAME>Amanita verna</CURRENT_x0020_NAME>\r\n    <CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>163667</CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17045</CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <GSD_x0020_FLAG>GSD25</GSD_x0020_FLAG>\r\n    <UpdatedBy>sa</UpdatedBy>\r\n
+        \   <UpdatedDate>2023-03-06T17:29:06.867+00:00</UpdatedDate>\r\n    <AddedDate>2022-03-21T15:04:33.727+00:00</AddedDate>\r\n
+        \   <UUID>65519314-d885-4d56-994c-7d4c5692917f</UUID>\r\n  </IndexFungorum>\r\n</NewDataSet>"
+  recorded_at: 2024-09-27 15:36:28 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://www.indexfungorum.org/ixfwebservice/fungus.asmx/EpithetSearch?SearchText=phalloides&AnywhereInText=true&MaxNumber=2
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 27 Sep 2024 02:22:36 GMT
+      server: Microsoft-IIS/10.0
+      cache-control: private, max-age=0
+      content-type: text/xml; charset=utf-8
+      x-aspnet-version: 2.0.50727
+      vary: Accept-Encoding
+      content-encoding: gzip
+      content-length: '923'
+      x-frame-options: SAMEORIGIN
+      x-content-type-options: nosniff
+      x-xss-protection: 1; mode=block
+      strict-transport-security: max-age=0
+    body:
+      encoding: ''
+      file: no
+      string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<NewDataSet>\r\n  <IndexFungorum>\r\n
+        \   <NAME_x0020_OF_x0020_FUNGUS>Agaricus phalloides</NAME_x0020_OF_x0020_FUNGUS>\r\n
+        \   <AUTHORS>Vaill. ex Fr.</AUTHORS>\r\n    <SPECIFIC_x0020_EPITHET>phalloides</SPECIFIC_x0020_EPITHET>\r\n
+        \   <INFRASPECIFIC_x0020_RANK>sp.</INFRASPECIFIC_x0020_RANK>\r\n    <TYPIFICATION_x0020_DETAILS>Typification:
+        Tab. 14, fig. 5 (Vaillant, par.; 'Fung. phalloid.')</TYPIFICATION_x0020_DETAILS>\r\n
+        \   <VOLUME>1</VOLUME>\r\n    <PAGE>13</PAGE>\r\n    <YEAR_x0020_OF_x0020_PUBLICATION>1821</YEAR_x0020_OF_x0020_PUBLICATION>\r\n
+        \   <CORRECTION>https://www.biodiversitylibrary.org/page/4338020</CORRECTION>\r\n
+        \   <SANCTIONING_x0020_AUTHOR>Fr.$https://www.biodiversitylibrary.org/page/4338020</SANCTIONING_x0020_AUTHOR>\r\n
+        \   <SANCTIONING_x0020_REFERENCE_x0020_VOLUME>1</SANCTIONING_x0020_REFERENCE_x0020_VOLUME>\r\n
+        \   <SANCTIONING_x0020_REFERENCE_x0020_PAGE>13</SANCTIONING_x0020_REFERENCE_x0020_PAGE>\r\n
+        \   <SANCTIONING_x0020_REFERENCE_x0020_YEAR>1821</SANCTIONING_x0020_REFERENCE_x0020_YEAR>\r\n
+        \   <SANCTIONING_x0020_REFERENCE_x0020_LITERATURE_x0020_LINK>889</SANCTIONING_x0020_REFERENCE_x0020_LITERATURE_x0020_LINK>\r\n
+        \   <LITERATURE_x0020_LINK>889</LITERATURE_x0020_LINK>\r\n    <RECORD_x0020_NUMBER>452913</RECORD_x0020_NUMBER>\r\n
+        \   <BASIONYM_x0020_RECORD_x0020_NUMBER>452913</BASIONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <PROTONYM_x0020_RECORD_x0020_NUMBER>452913</PROTONYM_x0020_RECORD_x0020_NUMBER>\r\n
         \   <NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17030</NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
         \   <CURRENT_x0020_NAME>Amanita phalloides</CURRENT_x0020_NAME>\r\n    <CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>178962</CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>\r\n
         \   <CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17045</CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
-        \   <GSD_x0020_FLAG>GSD25</GSD_x0020_FLAG>\r\n    <UpdatedBy>IUSR_KPPIND01</UpdatedBy>\r\n
-        \   <AddedBy>CABI_UK\\KIRK</AddedBy>\r\n    <UpdatedDate>2015-06-21T08:19:02.11+01:00</UpdatedDate>\r\n
-        \   <AddedDate>2007-03-26T12:35:00+01:00</AddedDate>\r\n    <UUID>dc643e71-308d-4564-ba9d-42e0e7891c40</UUID>\r\n
-        \ </IndexFungorum>\r\n</NewDataSet>"
-  recorded_at: 2019-01-24 01:38:10 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+        \   <GSD_x0020_FLAG>GSD25</GSD_x0020_FLAG>\r\n    <SQLTimeStamp>AAAAAAhdJ0A=</SQLTimeStamp>\r\n
+        \   <UpdatedBy>sa</UpdatedBy>\r\n    <AddedBy>CABI_UK\\kirk</AddedBy>\r\n
+        \   <UpdatedDate>2023-11-07T11:41:28.243+00:00</UpdatedDate>\r\n    <AddedDate>2001-01-12T07:55:00+00:00</AddedDate>\r\n
+        \   <UUID>1cb1aea7-36b9-11d5-9548-00d0592d548c</UUID>\r\n  </IndexFungorum>\r\n
+        \ <IndexFungorum>\r\n    <NAME_x0020_OF_x0020_FUNGUS>Agaricus phalloides subsp.
+        vernus</NAME_x0020_OF_x0020_FUNGUS>\r\n    <AUTHORS>(Bull. ex Lam.) G. Winter</AUTHORS>\r\n
+        \   <SPECIFIC_x0020_EPITHET>phalloides</SPECIFIC_x0020_EPITHET>\r\n    <INFRASPECIFIC_x0020_RANK>subsp.</INFRASPECIFIC_x0020_RANK>\r\n
+        \   <INFRASPECIFIC_x0020_EPITHET>vernus</INFRASPECIFIC_x0020_EPITHET>\r\n
+        \   <VOLUME>1.1</VOLUME>\r\n    <PAGE>850</PAGE>\r\n    <YEAR_x0020_OF_x0020_PUBLICATION>1882</YEAR_x0020_OF_x0020_PUBLICATION>\r\n
+        \   <YEAR_x0020_ON_x0020_PUBLICATION>1884</YEAR_x0020_ON_x0020_PUBLICATION>\r\n
+        \   <SANCTIONING_x0020_AUTHOR>Fr.</SANCTIONING_x0020_AUTHOR>\r\n    <LITERATURE_x0020_LINK>1016</LITERATURE_x0020_LINK>\r\n
+        \   <RECORD_x0020_NUMBER>654473</RECORD_x0020_NUMBER>\r\n    <BASIONYM_x0020_RECORD_x0020_NUMBER>163667</BASIONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <PROTONYM_x0020_RECORD_x0020_NUMBER>163667</PROTONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17030</NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <CURRENT_x0020_NAME>Amanita verna</CURRENT_x0020_NAME>\r\n    <CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>163667</CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17045</CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <GSD_x0020_FLAG>GSD25</GSD_x0020_FLAG>\r\n    <UpdatedBy>sa</UpdatedBy>\r\n
+        \   <UpdatedDate>2023-03-06T17:29:06.867+00:00</UpdatedDate>\r\n    <AddedDate>2022-03-21T15:04:33.727+00:00</AddedDate>\r\n
+        \   <UUID>65519314-d885-4d56-994c-7d4c5692917f</UUID>\r\n  </IndexFungorum>\r\n</NewDataSet>"
+  recorded_at: 2024-09-27 15:36:28 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://www.indexfungorum.org/ixfwebservice/fungus.asmx/EpithetSearch?SearchText=phalloides&AnywhereInText=true&MaxNumber=2
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 27 Sep 2024 02:52:51 GMT
+      server: Microsoft-IIS/10.0
+      cache-control: private, max-age=0
+      content-type: text/xml; charset=utf-8
+      x-aspnet-version: 2.0.50727
+      vary: Accept-Encoding
+      content-encoding: gzip
+      content-length: '923'
+      x-frame-options: SAMEORIGIN
+      x-content-type-options: nosniff
+      x-xss-protection: 1; mode=block
+      strict-transport-security: max-age=0
+    body:
+      encoding: ''
+      file: no
+      string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<NewDataSet>\r\n  <IndexFungorum>\r\n
+        \   <NAME_x0020_OF_x0020_FUNGUS>Agaricus phalloides</NAME_x0020_OF_x0020_FUNGUS>\r\n
+        \   <AUTHORS>Vaill. ex Fr.</AUTHORS>\r\n    <SPECIFIC_x0020_EPITHET>phalloides</SPECIFIC_x0020_EPITHET>\r\n
+        \   <INFRASPECIFIC_x0020_RANK>sp.</INFRASPECIFIC_x0020_RANK>\r\n    <TYPIFICATION_x0020_DETAILS>Typification:
+        Tab. 14, fig. 5 (Vaillant, par.; 'Fung. phalloid.')</TYPIFICATION_x0020_DETAILS>\r\n
+        \   <VOLUME>1</VOLUME>\r\n    <PAGE>13</PAGE>\r\n    <YEAR_x0020_OF_x0020_PUBLICATION>1821</YEAR_x0020_OF_x0020_PUBLICATION>\r\n
+        \   <CORRECTION>https://www.biodiversitylibrary.org/page/4338020</CORRECTION>\r\n
+        \   <SANCTIONING_x0020_AUTHOR>Fr.$https://www.biodiversitylibrary.org/page/4338020</SANCTIONING_x0020_AUTHOR>\r\n
+        \   <SANCTIONING_x0020_REFERENCE_x0020_VOLUME>1</SANCTIONING_x0020_REFERENCE_x0020_VOLUME>\r\n
+        \   <SANCTIONING_x0020_REFERENCE_x0020_PAGE>13</SANCTIONING_x0020_REFERENCE_x0020_PAGE>\r\n
+        \   <SANCTIONING_x0020_REFERENCE_x0020_YEAR>1821</SANCTIONING_x0020_REFERENCE_x0020_YEAR>\r\n
+        \   <SANCTIONING_x0020_REFERENCE_x0020_LITERATURE_x0020_LINK>889</SANCTIONING_x0020_REFERENCE_x0020_LITERATURE_x0020_LINK>\r\n
+        \   <LITERATURE_x0020_LINK>889</LITERATURE_x0020_LINK>\r\n    <RECORD_x0020_NUMBER>452913</RECORD_x0020_NUMBER>\r\n
+        \   <BASIONYM_x0020_RECORD_x0020_NUMBER>452913</BASIONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <PROTONYM_x0020_RECORD_x0020_NUMBER>452913</PROTONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17030</NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <CURRENT_x0020_NAME>Amanita phalloides</CURRENT_x0020_NAME>\r\n    <CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>178962</CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17045</CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <GSD_x0020_FLAG>GSD25</GSD_x0020_FLAG>\r\n    <SQLTimeStamp>AAAAAAhdJ0A=</SQLTimeStamp>\r\n
+        \   <UpdatedBy>sa</UpdatedBy>\r\n    <AddedBy>CABI_UK\\kirk</AddedBy>\r\n
+        \   <UpdatedDate>2023-11-07T11:41:28.243+00:00</UpdatedDate>\r\n    <AddedDate>2001-01-12T07:55:00+00:00</AddedDate>\r\n
+        \   <UUID>1cb1aea7-36b9-11d5-9548-00d0592d548c</UUID>\r\n  </IndexFungorum>\r\n
+        \ <IndexFungorum>\r\n    <NAME_x0020_OF_x0020_FUNGUS>Agaricus phalloides subsp.
+        vernus</NAME_x0020_OF_x0020_FUNGUS>\r\n    <AUTHORS>(Bull. ex Lam.) G. Winter</AUTHORS>\r\n
+        \   <SPECIFIC_x0020_EPITHET>phalloides</SPECIFIC_x0020_EPITHET>\r\n    <INFRASPECIFIC_x0020_RANK>subsp.</INFRASPECIFIC_x0020_RANK>\r\n
+        \   <INFRASPECIFIC_x0020_EPITHET>vernus</INFRASPECIFIC_x0020_EPITHET>\r\n
+        \   <VOLUME>1.1</VOLUME>\r\n    <PAGE>850</PAGE>\r\n    <YEAR_x0020_OF_x0020_PUBLICATION>1882</YEAR_x0020_OF_x0020_PUBLICATION>\r\n
+        \   <YEAR_x0020_ON_x0020_PUBLICATION>1884</YEAR_x0020_ON_x0020_PUBLICATION>\r\n
+        \   <SANCTIONING_x0020_AUTHOR>Fr.</SANCTIONING_x0020_AUTHOR>\r\n    <LITERATURE_x0020_LINK>1016</LITERATURE_x0020_LINK>\r\n
+        \   <RECORD_x0020_NUMBER>654473</RECORD_x0020_NUMBER>\r\n    <BASIONYM_x0020_RECORD_x0020_NUMBER>163667</BASIONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <PROTONYM_x0020_RECORD_x0020_NUMBER>163667</PROTONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17030</NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <CURRENT_x0020_NAME>Amanita verna</CURRENT_x0020_NAME>\r\n    <CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>163667</CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17045</CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <GSD_x0020_FLAG>GSD25</GSD_x0020_FLAG>\r\n    <UpdatedBy>sa</UpdatedBy>\r\n
+        \   <UpdatedDate>2023-03-06T17:29:06.867+00:00</UpdatedDate>\r\n    <AddedDate>2022-03-21T15:04:33.727+00:00</AddedDate>\r\n
+        \   <UUID>65519314-d885-4d56-994c-7d4c5692917f</UUID>\r\n  </IndexFungorum>\r\n</NewDataSet>"
+  recorded_at: 2024-09-27 15:36:28 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://www.indexfungorum.org/ixfwebservice/fungus.asmx/EpithetSearch?SearchText=phalloides&AnywhereInText=true&MaxNumber=2
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 27 Sep 2024 15:16:54 GMT
+      server: Microsoft-IIS/10.0
+      cache-control: private, max-age=0
+      content-type: text/xml; charset=utf-8
+      x-aspnet-version: 2.0.50727
+      vary: Accept-Encoding
+      content-encoding: gzip
+      content-length: '923'
+      x-frame-options: SAMEORIGIN
+      x-content-type-options: nosniff
+      x-xss-protection: 1; mode=block
+      strict-transport-security: max-age=0
+    body:
+      encoding: ''
+      file: no
+      string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<NewDataSet>\r\n  <IndexFungorum>\r\n
+        \   <NAME_x0020_OF_x0020_FUNGUS>Agaricus phalloides</NAME_x0020_OF_x0020_FUNGUS>\r\n
+        \   <AUTHORS>Vaill. ex Fr.</AUTHORS>\r\n    <SPECIFIC_x0020_EPITHET>phalloides</SPECIFIC_x0020_EPITHET>\r\n
+        \   <INFRASPECIFIC_x0020_RANK>sp.</INFRASPECIFIC_x0020_RANK>\r\n    <TYPIFICATION_x0020_DETAILS>Typification:
+        Tab. 14, fig. 5 (Vaillant, par.; 'Fung. phalloid.')</TYPIFICATION_x0020_DETAILS>\r\n
+        \   <VOLUME>1</VOLUME>\r\n    <PAGE>13</PAGE>\r\n    <YEAR_x0020_OF_x0020_PUBLICATION>1821</YEAR_x0020_OF_x0020_PUBLICATION>\r\n
+        \   <CORRECTION>https://www.biodiversitylibrary.org/page/4338020</CORRECTION>\r\n
+        \   <SANCTIONING_x0020_AUTHOR>Fr.$https://www.biodiversitylibrary.org/page/4338020</SANCTIONING_x0020_AUTHOR>\r\n
+        \   <SANCTIONING_x0020_REFERENCE_x0020_VOLUME>1</SANCTIONING_x0020_REFERENCE_x0020_VOLUME>\r\n
+        \   <SANCTIONING_x0020_REFERENCE_x0020_PAGE>13</SANCTIONING_x0020_REFERENCE_x0020_PAGE>\r\n
+        \   <SANCTIONING_x0020_REFERENCE_x0020_YEAR>1821</SANCTIONING_x0020_REFERENCE_x0020_YEAR>\r\n
+        \   <SANCTIONING_x0020_REFERENCE_x0020_LITERATURE_x0020_LINK>889</SANCTIONING_x0020_REFERENCE_x0020_LITERATURE_x0020_LINK>\r\n
+        \   <LITERATURE_x0020_LINK>889</LITERATURE_x0020_LINK>\r\n    <RECORD_x0020_NUMBER>452913</RECORD_x0020_NUMBER>\r\n
+        \   <BASIONYM_x0020_RECORD_x0020_NUMBER>452913</BASIONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <PROTONYM_x0020_RECORD_x0020_NUMBER>452913</PROTONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17030</NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <CURRENT_x0020_NAME>Amanita phalloides</CURRENT_x0020_NAME>\r\n    <CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>178962</CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17045</CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <GSD_x0020_FLAG>GSD25</GSD_x0020_FLAG>\r\n    <SQLTimeStamp>AAAAAAhdJ0A=</SQLTimeStamp>\r\n
+        \   <UpdatedBy>sa</UpdatedBy>\r\n    <AddedBy>CABI_UK\\kirk</AddedBy>\r\n
+        \   <UpdatedDate>2023-11-07T11:41:28.243+00:00</UpdatedDate>\r\n    <AddedDate>2001-01-12T07:55:00+00:00</AddedDate>\r\n
+        \   <UUID>1cb1aea7-36b9-11d5-9548-00d0592d548c</UUID>\r\n  </IndexFungorum>\r\n
+        \ <IndexFungorum>\r\n    <NAME_x0020_OF_x0020_FUNGUS>Agaricus phalloides subsp.
+        vernus</NAME_x0020_OF_x0020_FUNGUS>\r\n    <AUTHORS>(Bull. ex Lam.) G. Winter</AUTHORS>\r\n
+        \   <SPECIFIC_x0020_EPITHET>phalloides</SPECIFIC_x0020_EPITHET>\r\n    <INFRASPECIFIC_x0020_RANK>subsp.</INFRASPECIFIC_x0020_RANK>\r\n
+        \   <INFRASPECIFIC_x0020_EPITHET>vernus</INFRASPECIFIC_x0020_EPITHET>\r\n
+        \   <VOLUME>1.1</VOLUME>\r\n    <PAGE>850</PAGE>\r\n    <YEAR_x0020_OF_x0020_PUBLICATION>1882</YEAR_x0020_OF_x0020_PUBLICATION>\r\n
+        \   <YEAR_x0020_ON_x0020_PUBLICATION>1884</YEAR_x0020_ON_x0020_PUBLICATION>\r\n
+        \   <SANCTIONING_x0020_AUTHOR>Fr.</SANCTIONING_x0020_AUTHOR>\r\n    <LITERATURE_x0020_LINK>1016</LITERATURE_x0020_LINK>\r\n
+        \   <RECORD_x0020_NUMBER>654473</RECORD_x0020_NUMBER>\r\n    <BASIONYM_x0020_RECORD_x0020_NUMBER>163667</BASIONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <PROTONYM_x0020_RECORD_x0020_NUMBER>163667</PROTONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17030</NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <CURRENT_x0020_NAME>Amanita verna</CURRENT_x0020_NAME>\r\n    <CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>163667</CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17045</CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <GSD_x0020_FLAG>GSD25</GSD_x0020_FLAG>\r\n    <UpdatedBy>sa</UpdatedBy>\r\n
+        \   <UpdatedDate>2023-03-06T17:29:06.867+00:00</UpdatedDate>\r\n    <AddedDate>2022-03-21T15:04:33.727+00:00</AddedDate>\r\n
+        \   <UUID>65519314-d885-4d56-994c-7d4c5692917f</UUID>\r\n  </IndexFungorum>\r\n</NewDataSet>"
+  recorded_at: 2024-09-27 15:36:28 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://www.indexfungorum.org/ixfwebservice/fungus.asmx/EpithetSearch?SearchText=phalloides&AnywhereInText=true&MaxNumber=2
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 27 Sep 2024 15:36:27 GMT
+      server: Microsoft-IIS/10.0
+      cache-control: private, max-age=0
+      content-type: text/xml; charset=utf-8
+      x-aspnet-version: 2.0.50727
+      vary: Accept-Encoding
+      content-encoding: gzip
+      content-length: '923'
+      x-frame-options: SAMEORIGIN
+      x-content-type-options: nosniff
+      x-xss-protection: 1; mode=block
+      strict-transport-security: max-age=0
+    body:
+      encoding: ''
+      file: no
+      string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<NewDataSet>\r\n  <IndexFungorum>\r\n
+        \   <NAME_x0020_OF_x0020_FUNGUS>Agaricus phalloides</NAME_x0020_OF_x0020_FUNGUS>\r\n
+        \   <AUTHORS>Vaill. ex Fr.</AUTHORS>\r\n    <SPECIFIC_x0020_EPITHET>phalloides</SPECIFIC_x0020_EPITHET>\r\n
+        \   <INFRASPECIFIC_x0020_RANK>sp.</INFRASPECIFIC_x0020_RANK>\r\n    <TYPIFICATION_x0020_DETAILS>Typification:
+        Tab. 14, fig. 5 (Vaillant, par.; 'Fung. phalloid.')</TYPIFICATION_x0020_DETAILS>\r\n
+        \   <VOLUME>1</VOLUME>\r\n    <PAGE>13</PAGE>\r\n    <YEAR_x0020_OF_x0020_PUBLICATION>1821</YEAR_x0020_OF_x0020_PUBLICATION>\r\n
+        \   <CORRECTION>https://www.biodiversitylibrary.org/page/4338020</CORRECTION>\r\n
+        \   <SANCTIONING_x0020_AUTHOR>Fr.$https://www.biodiversitylibrary.org/page/4338020</SANCTIONING_x0020_AUTHOR>\r\n
+        \   <SANCTIONING_x0020_REFERENCE_x0020_VOLUME>1</SANCTIONING_x0020_REFERENCE_x0020_VOLUME>\r\n
+        \   <SANCTIONING_x0020_REFERENCE_x0020_PAGE>13</SANCTIONING_x0020_REFERENCE_x0020_PAGE>\r\n
+        \   <SANCTIONING_x0020_REFERENCE_x0020_YEAR>1821</SANCTIONING_x0020_REFERENCE_x0020_YEAR>\r\n
+        \   <SANCTIONING_x0020_REFERENCE_x0020_LITERATURE_x0020_LINK>889</SANCTIONING_x0020_REFERENCE_x0020_LITERATURE_x0020_LINK>\r\n
+        \   <LITERATURE_x0020_LINK>889</LITERATURE_x0020_LINK>\r\n    <RECORD_x0020_NUMBER>452913</RECORD_x0020_NUMBER>\r\n
+        \   <BASIONYM_x0020_RECORD_x0020_NUMBER>452913</BASIONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <PROTONYM_x0020_RECORD_x0020_NUMBER>452913</PROTONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17030</NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <CURRENT_x0020_NAME>Amanita phalloides</CURRENT_x0020_NAME>\r\n    <CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>178962</CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17045</CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <GSD_x0020_FLAG>GSD25</GSD_x0020_FLAG>\r\n    <SQLTimeStamp>AAAAAAhdJ0A=</SQLTimeStamp>\r\n
+        \   <UpdatedBy>sa</UpdatedBy>\r\n    <AddedBy>CABI_UK\\kirk</AddedBy>\r\n
+        \   <UpdatedDate>2023-11-07T11:41:28.243+00:00</UpdatedDate>\r\n    <AddedDate>2001-01-12T07:55:00+00:00</AddedDate>\r\n
+        \   <UUID>1cb1aea7-36b9-11d5-9548-00d0592d548c</UUID>\r\n  </IndexFungorum>\r\n
+        \ <IndexFungorum>\r\n    <NAME_x0020_OF_x0020_FUNGUS>Agaricus phalloides subsp.
+        vernus</NAME_x0020_OF_x0020_FUNGUS>\r\n    <AUTHORS>(Bull. ex Lam.) G. Winter</AUTHORS>\r\n
+        \   <SPECIFIC_x0020_EPITHET>phalloides</SPECIFIC_x0020_EPITHET>\r\n    <INFRASPECIFIC_x0020_RANK>subsp.</INFRASPECIFIC_x0020_RANK>\r\n
+        \   <INFRASPECIFIC_x0020_EPITHET>vernus</INFRASPECIFIC_x0020_EPITHET>\r\n
+        \   <VOLUME>1.1</VOLUME>\r\n    <PAGE>850</PAGE>\r\n    <YEAR_x0020_OF_x0020_PUBLICATION>1882</YEAR_x0020_OF_x0020_PUBLICATION>\r\n
+        \   <YEAR_x0020_ON_x0020_PUBLICATION>1884</YEAR_x0020_ON_x0020_PUBLICATION>\r\n
+        \   <SANCTIONING_x0020_AUTHOR>Fr.</SANCTIONING_x0020_AUTHOR>\r\n    <LITERATURE_x0020_LINK>1016</LITERATURE_x0020_LINK>\r\n
+        \   <RECORD_x0020_NUMBER>654473</RECORD_x0020_NUMBER>\r\n    <BASIONYM_x0020_RECORD_x0020_NUMBER>163667</BASIONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <PROTONYM_x0020_RECORD_x0020_NUMBER>163667</PROTONYM_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17030</NAME_x0020_OF_x0020_FUNGUS_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <CURRENT_x0020_NAME>Amanita verna</CURRENT_x0020_NAME>\r\n    <CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>163667</CURRENT_x0020_NAME_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>17045</CURRENT_x0020_NAME_x0020_FUNDIC_x0020_RECORD_x0020_NUMBER>\r\n
+        \   <GSD_x0020_FLAG>GSD25</GSD_x0020_FLAG>\r\n    <UpdatedBy>sa</UpdatedBy>\r\n
+        \   <UpdatedDate>2023-03-06T17:29:06.867+00:00</UpdatedDate>\r\n    <AddedDate>2022-03-21T15:04:33.727+00:00</AddedDate>\r\n
+        \   <UUID>65519314-d885-4d56-994c-7d4c5692917f</UUID>\r\n  </IndexFungorum>\r\n</NewDataSet>"
+  recorded_at: 2024-09-27 15:36:28 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0

@@ -8,8 +8,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/0.9.2.92 rOpenSci(taxize/0.9.97.93)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.2.92 rOpenSci(taxize/0.9.97.93)
+      User-Agent: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
@@ -17,34 +17,36 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Tue, 30 Jun 2020 17:08:00 GMT
+      date: Wed, 25 Sep 2024 22:37:55 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '9'
-      ncbi-phid: 322C66B925E1ECB500005EB68F81922E.1.1.m_1
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: 43C5754F78E7D90D_BDDDSID
+      ncbi-phid: 322CC6EF7F896A05000055FE9E68C508.1.1.m_1
+      content-type: text/xml; charset=UTF-8
       cache-control: private
-      ncbi-sid: BEBC18213E76BBC5_E157SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '5'
       access-control-allow-origin: '*'
-      content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=BEBC18213E76BBC5_E157SID; domain=.nih.gov; path=/; expires=Wed,
-        30 Jun 2021 17:08:01 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=43C5754F78E7D90D_BDDDSID; domain=.nih.gov; path=/; expires=Thu,
+        25 Sep 2025 22:37:55 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
     body:
-      encoding: UTF-8
+      encoding: ''
       file: no
       string: |
         <?xml version="1.0" encoding="UTF-8" ?>
         <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>28641</Id>
-        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Bombus[All Names]</Term>    <Field>All Names</Field>    <Count>2</Count>    <Explode>N</Explode>   </TermSet>   <TermSet>    <Term>genus[Rank]</Term>    <Field>Rank</Field>    <Count>94547</Count>    <Explode>N</Explode>   </TermSet>   <OP>AND</OP>  </TranslationStack><QueryTranslation>Bombus[All Names] AND genus[Rank]</QueryTranslation></eSearchResult>
-  recorded_at: 2020-06-30 17:08:02 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Bombus[All Names]</Term>    <Field>All Names</Field>    <Count>2</Count>    <Explode>N</Explode>   </TermSet>   <TermSet>    <Term>genus[Rank]</Term>    <Field>Rank</Field>    <Count>110196</Count>    <Explode>N</Explode>   </TermSet>   <OP>AND</OP>  </TranslationStack><QueryTranslation>Bombus[All Names] AND genus[Rank]</QueryTranslation></eSearchResult>
+  recorded_at: 2024-09-25 22:37:56 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Bombus%20AND%20subgenus%5BRank%5D&api_key=<<entrez_api_token>>
@@ -54,8 +56,8 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/4.3 crul/0.9.2.92 rOpenSci(taxize/0.9.97.93)
-      X-USER-AGENT: r-curl/4.3 crul/0.9.2.92 rOpenSci(taxize/0.9.97.93)
+      User-Agent: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
@@ -63,31 +65,33 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Tue, 30 Jun 2020 17:08:01 GMT
+      date: Wed, 25 Sep 2024 22:37:55 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '8'
-      ncbi-phid: 322C66B925E1ECB5000034B6904AC5D6.1.1.m_1
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: D6B15E195E8E8704_E15FSID
+      ncbi-phid: 322CC6EF7F896A0500002BFE9F9AE800.1.1.m_1
+      content-type: text/xml; charset=UTF-8
       cache-control: private
-      ncbi-sid: C004527CD37A68AD_3C19SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '5'
       access-control-allow-origin: '*'
-      content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=C004527CD37A68AD_3C19SID; domain=.nih.gov; path=/; expires=Wed,
-        30 Jun 2021 17:08:01 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=D6B15E195E8E8704_E15FSID; domain=.nih.gov; path=/; expires=Thu,
+        25 Sep 2025 22:37:56 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
     body:
-      encoding: UTF-8
+      encoding: ''
       file: no
       string: |
         <?xml version="1.0" encoding="UTF-8" ?>
         <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>144708</Id>
-        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Bombus[All Names]</Term>    <Field>All Names</Field>    <Count>2</Count>    <Explode>N</Explode>   </TermSet>   <TermSet>    <Term>subgenus[Rank]</Term>    <Field>Rank</Field>    <Count>1566</Count>    <Explode>N</Explode>   </TermSet>   <OP>AND</OP>  </TranslationStack><QueryTranslation>Bombus[All Names] AND subgenus[Rank]</QueryTranslation></eSearchResult>
-  recorded_at: 2020-06-30 17:08:02 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Bombus[All Names]</Term>    <Field>All Names</Field>    <Count>2</Count>    <Explode>N</Explode>   </TermSet>   <TermSet>    <Term>subgenus[Rank]</Term>    <Field>Rank</Field>    <Count>1824</Count>    <Explode>N</Explode>   </TermSet>   <OP>AND</OP>  </TranslationStack><QueryTranslation>Bombus[All Names] AND subgenus[Rank]</QueryTranslation></eSearchResult>
+  recorded_at: 2024-09-25 22:37:56 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0

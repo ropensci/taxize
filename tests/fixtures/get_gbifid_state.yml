@@ -8,32 +8,44 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(taxize/0.9.7.9100)
-      X-USER-AGENT: r-curl/3.3 crul/0.7.4 rOpenSci(taxize/0.9.7.9100)
+      User-Agent: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: HTTP/1.1 200 OK
-      date: Mon, 20 May 2019 22:44:38 GMT
+      status: 'HTTP/2 200 '
+      vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-xss-protection: 1; mode=block
+      pragma: no-cache
+      expires: '0'
+      x-frame-options: DENY
       content-type: application/json
-      access-control-allow-origin: '*'
-      access-control-allow-methods: HEAD, GET, POST, DELETE, PUT
-      server: Jetty(9.3.z-SNAPSHOT)
+      date: Thu, 05 Sep 2024 22:54:33 GMT
       cache-control: public, max-age=3601
-      x-varnish: 86576919 139427949
-      age: '45'
-      via: 1.1 varnish (Varnish/5.2)
+      x-varnish: '741671057'
+      age: '0'
+      via: 1.1 varnish (Varnish/6.0)
       accept-ranges: bytes
-      content-length: '565'
-      connection: keep-alive
+      content-length: '577'
     body:
-      encoding: ASCII-8BIT
-      string: eyJ1c2FnZUtleSI6NTUzMzc1Niwic2NpZW50aWZpY05hbWUiOiJJbGV4IHp5Z29waHlsbGEgTWVyci4iLCJjYW5vbmljYWxOYW1lIjoiSWxleCB6eWdvcGh5bGxhIiwicmFuayI6IlNQRUNJRVMiLCJzdGF0dXMiOiJBQ0NFUFRFRCIsImNvbmZpZGVuY2UiOjk4LCJub3RlIjoiU2ltaWxhcml0eTogbmFtZT0xMTA7IGF1dGhvcnNoaXA9MDsgY2xhc3NpZmljYXRpb249LTI7IHJhbms9NTsgc3RhdHVzPTE7IHNpbmdsZU1hdGNoPTUiLCJtYXRjaFR5cGUiOiJFWEFDVCIsImtpbmdkb20iOiJQbGFudGFlIiwicGh5bHVtIjoiVHJhY2hlb3BoeXRhIiwib3JkZXIiOiJBcXVpZm9saWFsZXMiLCJmYW1pbHkiOiJBcXVpZm9saWFjZWFlIiwiZ2VudXMiOiJJbGV4Iiwic3BlY2llcyI6IklsZXggenlnb3BoeWxsYSIsImtpbmdkb21LZXkiOjYsInBoeWx1bUtleSI6NzcwNzcyOCwiY2xhc3NLZXkiOjIyMCwib3JkZXJLZXkiOjcyMjY2MzgsImZhbWlseUtleSI6NjcxNiwiZ2VudXNLZXkiOjMxNjkwMTMsInNwZWNpZXNLZXkiOjU1MzM3NTYsInN5bm9ueW0iOmZhbHNlLCJjbGFzcyI6Ik1hZ25vbGlvcHNpZGEifQ==
-  recorded_at: 2019-05-20 22:45:25 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
+      encoding: ''
+      file: no
+      base64_string: eyJ1c2FnZUtleSI6NTUzMzc1Niwic2NpZW50aWZpY05hbWUiOiJJbGV4IHp5Z29waHlsbGEgTWVyci4i
+        LCJjYW5vbmljYWxOYW1lIjoiSWxleCB6eWdvcGh5bGxhIiwicmFuayI6IlNQRUNJRVMiLCJzdGF0dXMi
+        OiJBQ0NFUFRFRCIsImNvbmZpZGVuY2UiOjk5LCJub3RlIjoiU2ltaWxhcml0eTogbmFtZT0xMTA7IGF1
+        dGhvcnNoaXA9MDsgY2xhc3NpZmljYXRpb249LTI7IHJhbms9Njsgc3RhdHVzPTE7IHNjb3JlPTExNTsg
+        c2luZ2xlTWF0Y2g9NSIsIm1hdGNoVHlwZSI6IkVYQUNUIiwia2luZ2RvbSI6IlBsYW50YWUiLCJwaHls
+        dW0iOiJUcmFjaGVvcGh5dGEiLCJvcmRlciI6IkFxdWlmb2xpYWxlcyIsImZhbWlseSI6IkFxdWlmb2xp
+        YWNlYWUiLCJnZW51cyI6IklsZXgiLCJzcGVjaWVzIjoiSWxleCB6eWdvcGh5bGxhIiwia2luZ2RvbUtl
+        eSI6NiwicGh5bHVtS2V5Ijo3NzA3NzI4LCJjbGFzc0tleSI6MjIwLCJvcmRlcktleSI6NzIyNjYzOCwi
+        ZmFtaWx5S2V5Ijo2NzE2LCJnZW51c0tleSI6MTA3OTIyMTcsInNwZWNpZXNLZXkiOjU1MzM3NTYsInN5
+        bm9ueW0iOmZhbHNlLCJjbGFzcyI6Ik1hZ25vbGlvcHNpZGEifQ==
+  recorded_at: 2024-09-05 22:54:35 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
 - request:
     method: get
     uri: https://api.gbif.org/v1/species/match?name=Astronia%20shungolensis&strict=FALSE&verbose=TRUE&limit=500
@@ -43,32 +55,44 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(taxize/0.9.7.9100)
-      X-USER-AGENT: r-curl/3.3 crul/0.7.4 rOpenSci(taxize/0.9.7.9100)
+      User-Agent: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: HTTP/1.1 200 OK
-      date: Mon, 20 May 2019 22:44:38 GMT
+      status: 'HTTP/2 200 '
+      vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-xss-protection: 1; mode=block
+      pragma: no-cache
+      expires: '0'
+      x-frame-options: DENY
       content-type: application/json
-      access-control-allow-origin: '*'
-      access-control-allow-methods: HEAD, GET, POST, DELETE, PUT
-      server: Jetty(9.3.z-SNAPSHOT)
+      date: Thu, 05 Sep 2024 22:54:33 GMT
       cache-control: public, max-age=3601
-      x-varnish: 66851401 139427953
-      age: '45'
-      via: 1.1 varnish (Varnish/5.2)
+      x-varnish: '741671058'
+      age: '0'
+      via: 1.1 varnish (Varnish/6.0)
       accept-ranges: bytes
-      content-length: '587'
-      connection: keep-alive
+      content-length: '598'
     body:
-      encoding: ASCII-8BIT
-      string: eyJ1c2FnZUtleSI6NTYwMTMxOSwic2NpZW50aWZpY05hbWUiOiJBc3Ryb25pYSBzaHVuZ29sZW5zaXMgSi5GLk1heHdlbGwiLCJjYW5vbmljYWxOYW1lIjoiQXN0cm9uaWEgc2h1bmdvbGVuc2lzIiwicmFuayI6IlNQRUNJRVMiLCJzdGF0dXMiOiJBQ0NFUFRFRCIsImNvbmZpZGVuY2UiOjk4LCJub3RlIjoiU2ltaWxhcml0eTogbmFtZT0xMTA7IGF1dGhvcnNoaXA9MDsgY2xhc3NpZmljYXRpb249LTI7IHJhbms9NTsgc3RhdHVzPTE7IHNpbmdsZU1hdGNoPTUiLCJtYXRjaFR5cGUiOiJFWEFDVCIsImtpbmdkb20iOiJQbGFudGFlIiwicGh5bHVtIjoiVHJhY2hlb3BoeXRhIiwib3JkZXIiOiJNeXJ0YWxlcyIsImZhbWlseSI6Ik1lbGFzdG9tYXRhY2VhZSIsImdlbnVzIjoiQXN0cm9uaWEiLCJzcGVjaWVzIjoiQXN0cm9uaWEgc2h1bmdvbGVuc2lzIiwia2luZ2RvbUtleSI6NiwicGh5bHVtS2V5Ijo3NzA3NzI4LCJjbGFzc0tleSI6MjIwLCJvcmRlcktleSI6NjkwLCJmYW1pbHlLZXkiOjY2ODMsImdlbnVzS2V5IjozMjMxNDg4LCJzcGVjaWVzS2V5Ijo1NjAxMzE5LCJzeW5vbnltIjpmYWxzZSwiY2xhc3MiOiJNYWdub2xpb3BzaWRhIn0=
-  recorded_at: 2019-05-20 22:45:25 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
+      encoding: ''
+      file: no
+      base64_string: 'eyJ1c2FnZUtleSI6NTYwMTMxOSwic2NpZW50aWZpY05hbWUiOiJBc3Ryb25pYSBzaHVuZ29sZW5zaXMg
+        Si5GLk1heHdlbGwiLCJjYW5vbmljYWxOYW1lIjoiQXN0cm9uaWEgc2h1bmdvbGVuc2lzIiwicmFuayI6
+        IlNQRUNJRVMiLCJzdGF0dXMiOiJBQ0NFUFRFRCIsImNvbmZpZGVuY2UiOjk5LCJub3RlIjoiU2ltaWxh
+        cml0eTogbmFtZT0xMTA7IGF1dGhvcnNoaXA9MDsgY2xhc3NpZmljYXRpb249LTI7IHJhbms9Njsgc3Rh
+        dHVzPTE7IHNjb3JlPTExNTsgc2luZ2xlTWF0Y2g9NSIsIm1hdGNoVHlwZSI6IkVYQUNUIiwia2luZ2Rv
+        bSI6IlBsYW50YWUiLCJwaHlsdW0iOiJUcmFjaGVvcGh5dGEiLCJvcmRlciI6Ik15cnRhbGVzIiwiZmFt
+        aWx5IjoiTWVsYXN0b21hdGFjZWFlIiwiZ2VudXMiOiJBc3Ryb25pYSIsInNwZWNpZXMiOiJBc3Ryb25p
+        YSBzaHVuZ29sZW5zaXMiLCJraW5nZG9tS2V5Ijo2LCJwaHlsdW1LZXkiOjc3MDc3MjgsImNsYXNzS2V5
+        IjoyMjAsIm9yZGVyS2V5Ijo2OTAsImZhbWlseUtleSI6NjY4MywiZ2VudXNLZXkiOjMyMzE0ODgsInNw
+        ZWNpZXNLZXkiOjU2MDEzMTksInN5bm9ueW0iOmZhbHNlLCJjbGFzcyI6Ik1hZ25vbGlvcHNpZGEifQ== '
+  recorded_at: 2024-09-05 22:54:35 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
 - request:
     method: get
     uri: https://api.gbif.org/v1/species/match?name=Uromorus%20anthopophagorum&strict=FALSE&verbose=TRUE&limit=500
@@ -78,29 +102,53 @@ http_interactions:
     headers:
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
-      User-Agent: r-curl/3.3 crul/0.7.4 rOpenSci(taxize/0.9.7.9100)
-      X-USER-AGENT: r-curl/3.3 crul/0.7.4 rOpenSci(taxize/0.9.7.9100)
+      User-Agent: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: HTTP/1.1 200 OK
-      date: Mon, 20 May 2019 22:44:39 GMT
+      status: 'HTTP/2 200 '
+      vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-xss-protection: 1; mode=block
+      pragma: no-cache
+      expires: '0'
+      x-frame-options: DENY
       content-type: application/json
-      access-control-allow-origin: '*'
-      access-control-allow-methods: HEAD, GET, POST, DELETE, PUT
-      server: Jetty(9.3.z-SNAPSHOT)
+      date: Thu, 05 Sep 2024 22:54:33 GMT
       cache-control: public, max-age=3601
-      x-varnish: 124323414 129861774
-      age: '45'
-      via: 1.1 varnish (Varnish/5.2)
+      x-varnish: '741671059'
+      age: '0'
+      via: 1.1 varnish (Varnish/6.0)
       accept-ranges: bytes
-      content-length: '1201'
-      connection: keep-alive
+      content-length: '1273'
     body:
-      encoding: ASCII-8BIT
-      string: eyJ1c2FnZUtleSI6Mzc2NjI4NSwic2NpZW50aWZpY05hbWUiOiJVcm9tb3J1cyBhbnRob3BvcGhhZ29ydW0gQnVyZWF1IiwiY2Fub25pY2FsTmFtZSI6IlVyb21vcnVzIGFudGhvcG9waGFnb3J1bSIsInJhbmsiOiJTUEVDSUVTIiwic3RhdHVzIjoiRE9VQlRGVUwiLCJjb25maWRlbmNlIjo5Nywibm90ZSI6IlNpbWlsYXJpdHk6IG5hbWU9MTEwOyBhdXRob3JzaGlwPTA7IGNsYXNzaWZpY2F0aW9uPS0yOyByYW5rPTU7IHN0YXR1cz0tNTsgbmV4dE1hdGNoPTUiLCJtYXRjaFR5cGUiOiJFWEFDVCIsImFsdGVybmF0aXZlcyI6W3sidXNhZ2VLZXkiOjgyNTk0NzQsImFjY2VwdGVkVXNhZ2VLZXkiOjUzNjE5NDEsInNjaWVudGlmaWNOYW1lIjoiVXJvbW9ydXMgYW50aHJvcG9waGFnb3J1bSAoU2VlbS4pIEJ1ci4iLCJjYW5vbmljYWxOYW1lIjoiVXJvbW9ydXMgYW50aHJvcG9waGFnb3J1bSIsInJhbmsiOiJTUEVDSUVTIiwic3RhdHVzIjoiU1lOT05ZTSIsImNvbmZpZGVuY2UiOjkyLCJub3RlIjoiU2ltaWxhcml0eTogbmFtZT05NTsgYXV0aG9yc2hpcD0wOyBjbGFzc2lmaWNhdGlvbj0tMjsgcmFuaz01OyBzdGF0dXM9MCIsIm1hdGNoVHlwZSI6IkZVWlpZIiwia2luZ2RvbSI6IlBsYW50YWUiLCJwaHlsdW0iOiJUcmFjaGVvcGh5dGEiLCJvcmRlciI6IlJvc2FsZXMiLCJmYW1pbHkiOiJNb3JhY2VhZSIsImdlbnVzIjoiU3RyZWJsdXMiLCJzcGVjaWVzIjoiU3RyZWJsdXMgYW50aHJvcG9waGFnb3J1bSIsImtpbmdkb21LZXkiOjYsInBoeWx1bUtleSI6NzcwNzcyOCwiY2xhc3NLZXkiOjIyMCwib3JkZXJLZXkiOjY5MSwiZmFtaWx5S2V5Ijo2NjQwLCJnZW51c0tleSI6Mjk4NDYzNCwic3BlY2llc0tleSI6NTM2MTk0MSwic3lub255bSI6dHJ1ZSwiY2xhc3MiOiJNYWdub2xpb3BzaWRhIn1dLCJraW5nZG9tIjoiUGxhbnRhZSIsInBoeWx1bSI6IlRyYWNoZW9waHl0YSIsIm9yZGVyIjoiUm9zYWxlcyIsImZhbWlseSI6Ik1vcmFjZWFlIiwiZ2VudXMiOiJTdHJlYmx1cyIsInNwZWNpZXMiOiJVcm9tb3J1cyBhbnRob3BvcGhhZ29ydW0iLCJraW5nZG9tS2V5Ijo2LCJwaHlsdW1LZXkiOjc3MDc3MjgsImNsYXNzS2V5IjoyMjAsIm9yZGVyS2V5Ijo2OTEsImZhbWlseUtleSI6NjY0MCwiZ2VudXNLZXkiOjI5ODQ2MzQsInNwZWNpZXNLZXkiOjM3NjYyODUsInN5bm9ueW0iOmZhbHNlLCJjbGFzcyI6Ik1hZ25vbGlvcHNpZGEifQ==
-  recorded_at: 2019-05-20 22:45:25 GMT
-  recorded_with: vcr/0.2.6, webmockr/0.3.4.9100
+      encoding: ''
+      file: no
+      base64_string: eyJ1c2FnZUtleSI6Mzc2NjI4NSwiYWNjZXB0ZWRVc2FnZUtleSI6MTIyMzk3NjksInNjaWVudGlmaWNO
+        YW1lIjoiVXJvbW9ydXMgYW50aG9wb3BoYWdvcnVtIChTZWVtLikgQnVyZWF1IiwiY2Fub25pY2FsTmFt
+        ZSI6IlVyb21vcnVzIGFudGhvcG9waGFnb3J1bSIsInJhbmsiOiJTUEVDSUVTIiwic3RhdHVzIjoiU1lO
+        T05ZTSIsImNvbmZpZGVuY2UiOjk4LCJub3RlIjoiU2ltaWxhcml0eTogbmFtZT0xMTA7IGF1dGhvcnNo
+        aXA9MDsgY2xhc3NpZmljYXRpb249LTI7IHJhbms9Njsgc3RhdHVzPTA7IHNjb3JlPTExNDsgbmV4dE1h
+        dGNoPTUiLCJtYXRjaFR5cGUiOiJFWEFDVCIsImFsdGVybmF0aXZlcyI6W3sidXNhZ2VLZXkiOjgyNTk0
+        NzQsImFjY2VwdGVkVXNhZ2VLZXkiOjEyMjM5NzY5LCJzY2llbnRpZmljTmFtZSI6IlVyb21vcnVzIGFu
+        dGhyb3BvcGhhZ29ydW0gKFNlZW0uKSBCdXJlYXUiLCJjYW5vbmljYWxOYW1lIjoiVXJvbW9ydXMgYW50
+        aHJvcG9waGFnb3J1bSIsInJhbmsiOiJTUEVDSUVTIiwic3RhdHVzIjoiU1lOT05ZTSIsImNvbmZpZGVu
+        Y2UiOjkyLCJub3RlIjoiU2ltaWxhcml0eTogbmFtZT05NTsgYXV0aG9yc2hpcD0wOyBjbGFzc2lmaWNh
+        dGlvbj0tMjsgcmFuaz02OyBzdGF0dXM9MDsgc2NvcmU9OTkiLCJtYXRjaFR5cGUiOiJGVVpaWSIsImtp
+        bmdkb20iOiJQbGFudGFlIiwicGh5bHVtIjoiVHJhY2hlb3BoeXRhIiwib3JkZXIiOiJSb3NhbGVzIiwi
+        ZmFtaWx5IjoiTW9yYWNlYWUiLCJnZW51cyI6IlBhcmF0cm9waGlzIiwic3BlY2llcyI6IlBhcmF0cm9w
+        aGlzIGFudGhyb3BvcGhhZ29ydW0iLCJraW5nZG9tS2V5Ijo2LCJwaHlsdW1LZXkiOjc3MDc3MjgsImNs
+        YXNzS2V5IjoyMjAsIm9yZGVyS2V5Ijo2OTEsImZhbWlseUtleSI6NjY0MCwiZ2VudXNLZXkiOjcyNjI3
+        MjAsInNwZWNpZXNLZXkiOjEyMjM5NzY5LCJzeW5vbnltIjp0cnVlLCJjbGFzcyI6Ik1hZ25vbGlvcHNp
+        ZGEifV0sImtpbmdkb20iOiJQbGFudGFlIiwicGh5bHVtIjoiVHJhY2hlb3BoeXRhIiwib3JkZXIiOiJS
+        b3NhbGVzIiwiZmFtaWx5IjoiTW9yYWNlYWUiLCJnZW51cyI6IlBhcmF0cm9waGlzIiwic3BlY2llcyI6
+        IlBhcmF0cm9waGlzIGFudGhyb3BvcGhhZ29ydW0iLCJraW5nZG9tS2V5Ijo2LCJwaHlsdW1LZXkiOjc3
+        MDc3MjgsImNsYXNzS2V5IjoyMjAsIm9yZGVyS2V5Ijo2OTEsImZhbWlseUtleSI6NjY0MCwiZ2VudXNL
+        ZXkiOjcyNjI3MjAsInNwZWNpZXNLZXkiOjEyMjM5NzY5LCJzeW5vbnltIjp0cnVlLCJjbGFzcyI6Ik1h
+        Z25vbGlvcHNpZGEifQ==
+  recorded_at: 2024-09-05 22:54:35 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0

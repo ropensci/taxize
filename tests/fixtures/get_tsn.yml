@@ -6,7 +6,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      User-Agent: libcurl/7.81.0 r-curl/5.2.2 crul/1.5.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -15,23 +15,20 @@ http_interactions:
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      connection: keep-alive
-      content-length: '106'
+      status: 'HTTP/2 200 '
+      date: Wed, 25 Sep 2024 18:55:00 GMT
       content-type: text/json;charset=ISO-8859-1
-      date: Thu, 24 Jan 2019 06:30:04 GMT
-      status: 'HTTP/1.1 200 '
-      strict-transport-security:
-      - max-age=63072000; includeSubdomains; preload
-      - max-age=63072000; includeSubdomains; preload
-      x-application: itis_webservices
-      x-node-name: not shown
-      x-upstream-member: not shown
+      content-length: '106'
+      x-frame-options: SAMEORIGIN
+      strict-transport-security: max-age=63072000; includeSubdomains; preload
+      x-robots-tag: noindex, nofollow, nosnippet, noarchive
     body:
-      encoding: UTF-8
+      encoding: ''
+      file: no
       string: |
         {"class":"gov.usgs.itis.itis_service.data.SvcItisTermList","itisTerms":[null],"requestedName":"asdfasdf"}
-  recorded_at: 2019-01-24 06:30:07 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2024-09-25 18:55:01 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
 - request:
     method: get
     uri: https://www.itis.gov/ITISWebService/jsonservice/getITISTermsFromScientificName?srchKey=Chironomus%20riparius
@@ -39,7 +36,7 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
+      User-Agent: libcurl/7.81.0 r-curl/5.2.2 crul/1.5.0
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
   response:
@@ -48,20 +45,17 @@ http_interactions:
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      connection: keep-alive
-      content-length: '287'
+      status: 'HTTP/2 200 '
+      date: Wed, 25 Sep 2024 18:55:00 GMT
       content-type: text/json;charset=ISO-8859-1
-      date: Thu, 24 Jan 2019 06:30:07 GMT
-      status: 'HTTP/1.1 200 '
-      strict-transport-security:
-      - max-age=63072000; includeSubdomains; preload
-      - max-age=63072000; includeSubdomains; preload
-      x-application: itis_webservices
-      x-node-name: not shown
-      x-upstream-member: not shown
+      content-length: '287'
+      x-frame-options: SAMEORIGIN
+      strict-transport-security: max-age=63072000; includeSubdomains; preload
+      x-robots-tag: noindex, nofollow, nosnippet, noarchive
     body:
-      encoding: UTF-8
+      encoding: ''
+      file: no
       string: |
         {"class":"gov.usgs.itis.itis_service.data.SvcItisTermList","itisTerms":[{"author":"Meigen, 1804","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"valid","scientificName":"Chironomus riparius","tsn":"129313"}],"requestedName":"Chironomus riparius"}
-  recorded_at: 2019-01-24 06:30:07 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2024-09-25 18:55:01 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0

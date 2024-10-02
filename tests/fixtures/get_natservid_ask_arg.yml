@@ -6,7 +6,7 @@ http_interactions:
       encoding: ''
       string: '{"criteriaType":"species","textCriteria":[{"paramType":"textSearch","searchToken":"howdy","matchAgainst":"allScientificNames","operator":"similarTo"}]}'
     headers:
-      User-Agent: libcurl/7.64.1 r-curl/4.3 crul/0.9.0
+      User-Agent: libcurl/7.81.0 r-curl/5.2.2 crul/1.5.0
       Content-Type: application/json
       Accept-Encoding: gzip, deflate
       Accept: application/json
@@ -17,13 +17,14 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 200
-      date: Fri, 15 May 2020 18:52:04 GMT
-      server: Apache/2.4.41 (Win64) OpenSSL/1.1.1c
+      date: Thu, 05 Sep 2024 22:54:42 GMT
+      server: Apache/2.4.62 (Win64) OpenSSL/3.1.6
+      vary: Origin,Access-Control-Request-Method,Access-Control-Request-Headers
       content-type: application/json;charset=UTF-8
       transfer-encoding: chunked
     body:
-      encoding: UTF-8
+      encoding: ''
       file: no
-      string: '{"results":[],"resultsSummary":{"page":0,"recordsPerPage":20,"totalPages":0,"totalResults":0,"speciesResults":{"total":0}},"searchCriteria":{"criteriaType":"species","textCriteria":[{"paramType":"textSearch","searchToken":"howdy","matchAgainst":"allScientificNames","operator":"similarTo"}],"statusCriteria":null,"locationCriteria":null,"pagingOptions":{"page":0,"recordsPerPage":20},"recordSubtypeCriteria":null,"modifiedSince":null,"speciesTaxonomyCriteria":null}}'
-  recorded_at: 2020-05-15 18:52:02 GMT
-  recorded_with: vcr/0.5.4, webmockr/0.6.2
+      string: '{"results":[],"resultsSummary":{"page":0,"recordsPerPage":20,"totalPages":0,"totalResults":0,"speciesResults":{"total":0}},"searchCriteria":{"criteriaType":"species","textCriteria":[{"paramType":"textSearch","searchToken":"howdy","matchAgainst":"allScientificNames","operator":"similarTo"}],"statusCriteria":null,"locationCriteria":null,"pagingOptions":{"page":0,"recordsPerPage":20},"recordSubtypeCriteria":null,"modifiedSince":null,"locationOptions":null,"classificationOptions":null,"speciesTaxonomyCriteria":null}}'
+  recorded_at: 2024-09-05 22:54:42 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0

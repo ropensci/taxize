@@ -6,9 +6,10 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
@@ -16,34 +17,36 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 20:12:32 GMT
+      date: Wed, 25 Sep 2024 22:37:54 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '6'
-      ncbi-phid: 939B131039D6F975000025B10D071AB9.1.1.m_1
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: F22A9DA7AE3B0E28_5B08SID
+      ncbi-phid: 322CC6EF7F896A05000039FE9B6C3D8A.1.1.m_1
+      content-type: text/xml; charset=UTF-8
       cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: 7B1E88F16E0D1759_CF3BSID
       content-encoding: gzip
       x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '7'
       access-control-allow-origin: '*'
-      content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=7B1E88F16E0D1759_CF3BSID; domain=.nih.gov; path=/; expires=Sun,
-        26 Jan 2020 20:12:32 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=F22A9DA7AE3B0E28_5B08SID; domain=.nih.gov; path=/; expires=Thu,
+        25 Sep 2025 22:37:55 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
     body:
-      encoding: UTF-8
+      encoding: ''
+      file: no
       string: |
         <?xml version="1.0" encoding="UTF-8" ?>
         <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>12945</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Aratinga[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Aratinga[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2019-01-26 20:12:34 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2024-09-25 22:37:55 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Aratinga%5BOrganism%5D&api_key=<<entrez_api_token>>
@@ -51,9 +54,10 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
@@ -61,26 +65,28 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 20:12:32 GMT
+      date: Wed, 25 Sep 2024 22:37:55 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '6'
-      ncbi-phid: 939B131039D6F97500001FB10D3C1523.1.1.m_1
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: F6117079A1A29241_F315SID
+      ncbi-phid: 322CC6EF7F896A0500002AFE9C9AED9C.1.1.m_1
+      content-type: text/xml; charset=UTF-8
       cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: 23895C6A394DCF6F_6920SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '6'
       access-control-allow-origin: '*'
-      content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=23895C6A394DCF6F_6920SID; domain=.nih.gov; path=/; expires=Sun,
-        26 Jan 2020 20:12:33 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=F6117079A1A29241_F315SID; domain=.nih.gov; path=/; expires=Thu,
+        25 Sep 2025 22:37:55 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
     body:
-      encoding: UTF-8
+      encoding: ''
+      file: no
       string: |
         <?xml version="1.0" encoding="UTF-8" ?>
         <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
@@ -93,8 +99,8 @@ http_interactions:
         <Id>51908</Id>
         <Id>12945</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Aratinga[Organism]</Term>    <Field>Organism</Field>    <Count>7</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Aratinga[Organism]</QueryTranslation></eSearchResult>
-  recorded_at: 2019-01-26 20:12:34 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2024-09-25 22:37:55 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
 - request:
     method: get
     uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&ID=1230190%2C867384%2C231027%2C190661%2C176015%2C51908%2C12945&api_key=<<entrez_api_token>>
@@ -102,9 +108,10 @@ http_interactions:
       encoding: ''
       string: ''
     headers:
-      User-Agent: libcurl/7.54.0 r-curl/3.3 crul/0.7.0.9100
       Accept-Encoding: gzip, deflate
       Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
   response:
     status:
       status_code: '200'
@@ -112,26 +119,28 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Sat, 26 Jan 2019 20:12:33 GMT
+      date: Wed, 25 Sep 2024 22:37:54 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
-      x-ratelimit-remaining: '7'
-      ncbi-phid: 322CDAEFF3EFD7B5000026B622A8740F.1.1.m_1
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: 9D51B13E4BE32534_2613SID
+      ncbi-phid: 322CC6EF7F896A05000052FE9D9875C5.1.1.m_1
+      content-type: text/xml; charset=UTF-8
       cache-control: private
-      l5d-success-class: '1.0'
-      ncbi-sid: 9919857D50A2FFEA_7F16SID
       content-encoding: gzip
       x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '5'
       access-control-allow-origin: '*'
-      content-type: text/xml; charset=UTF-8
-      set-cookie: ncbi_sid=9919857D50A2FFEA_7F16SID; domain=.nih.gov; path=/; expires=Sun,
-        26 Jan 2020 20:12:34 GMT
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=9D51B13E4BE32534_2613SID; domain=.nih.gov; path=/; expires=Thu,
+        25 Sep 2025 22:37:55 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
     body:
-      encoding: UTF-8
+      encoding: ''
+      file: no
       string: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!DOCTYPE eSummaryResult
         PUBLIC \"-//NLM//DTD esummary v1 20041029//EN\" \"https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20041029/esummary-v1.dtd\">\n<eSummaryResult>\n<DocSum>\n\t<Id>1230190</Id>\n\t<Item
         Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
@@ -185,5 +194,5 @@ http_interactions:
         Name=\"Genus\" Type=\"String\"></Item>\n\t<Item Name=\"Species\" Type=\"String\"></Item>\n\t<Item
         Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
         Type=\"Date\">2002/05/08 00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
-  recorded_at: 2019-01-26 20:12:34 GMT
-  recorded_with: vcr/0.2.2, webmockr/0.3.0
+  recorded_at: 2024-09-25 22:37:55 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0

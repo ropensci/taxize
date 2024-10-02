@@ -24,7 +24,10 @@ gn_parse <- function(names, ...) {
   assert(names, "character")
   method <- ifelse(length(names) <= 20, "get", "post")
   tmp <- gn_http(method, names, ...)
-  tibble::as_tibble(jsonlite::fromJSON(tmp))
+  out <- jsonlite::fromJSON(tmp)
+  out[paste0('canonical_', colnames(out$canonical))] <- out$canonical
+  out$canonical <- NULL
+  tibble::as_tibble(out)
 }
 
 gn_http <- function(method, names, ...) {
@@ -33,8 +36,8 @@ gn_http <- function(method, names, ...) {
   res <- switch(method,
     get = {
       names <- paste0(names, collapse = "|")
-      args <- list(q = names)
-      cli$get("api", query = args)
+      # args <- list(q = names)
+      cli$get(paste0("api/v1/", names))
     },
     post = {
       cli$headers <- c(cli$headers, list(`Content-Type` = "application/json",

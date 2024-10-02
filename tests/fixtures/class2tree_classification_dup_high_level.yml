@@ -1,0 +1,750 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Haliotis&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 05 Sep 2024 16:39:36 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: D9F9E2760EDD7F7D_AEE6SID
+      ncbi-phid: D0BD9D8EE5AB4CE5000050AEDED81EA4.1.1.m_1
+      content-type: text/xml; charset=UTF-8
+      cache-control: private
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '7'
+      access-control-allow-origin: '*'
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=D9F9E2760EDD7F7D_AEE6SID; domain=.nih.gov; path=/; expires=Fri,
+        05 Sep 2025 16:39:37 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: |
+        <?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
+        <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
+        <Id>6452</Id>
+        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Haliotis[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Haliotis[All Names]</QueryTranslation></eSearchResult>
+  recorded_at: 2024-09-05 16:39:41 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Haliotis%2Bcracherodii&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 05 Sep 2024 16:39:37 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: 3019CB900C4D0E96_A495SID
+      ncbi-phid: D0BD9D8EE5AB4CE500002DAEE15F2405.1.1.m_1
+      content-type: text/xml; charset=UTF-8
+      cache-control: private
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '7'
+      access-control-allow-origin: '*'
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=3019CB900C4D0E96_A495SID; domain=.nih.gov; path=/; expires=Fri,
+        05 Sep 2025 16:39:37 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: |
+        <?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
+        <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
+        <Id>6455</Id>
+        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Haliotis+cracherodii[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Haliotis+cracherodii[All Names]</QueryTranslation></eSearchResult>
+  recorded_at: 2024-09-05 16:39:41 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Haliotis%2Brufescens&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 05 Sep 2024 16:39:36 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: 0B63C163245BD9DC_38FESID
+      ncbi-phid: D0BD9D8EE5AB4CE500003DAEE33FB0B2.1.1.m_1
+      content-type: text/xml; charset=UTF-8
+      cache-control: private
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '7'
+      access-control-allow-origin: '*'
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=0B63C163245BD9DC_38FESID; domain=.nih.gov; path=/; expires=Fri,
+        05 Sep 2025 16:39:37 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: |
+        <?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
+        <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
+        <Id>6454</Id>
+        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Haliotis+rufescens[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Haliotis+rufescens[All Names]</QueryTranslation></eSearchResult>
+  recorded_at: 2024-09-05 16:39:41 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Megabalanus%2Bcalifornicus&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.2 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 05 Sep 2024 16:39:37 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: 7FA753A119BD9B1F_944ASID
+      ncbi-phid: D0BD9D8EE5AB4CE5000060AEE4FF78D6.1.1.m_1
+      content-type: text/xml; charset=UTF-8
+      cache-control: private
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '6'
+      access-control-allow-origin: '*'
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=7FA753A119BD9B1F_944ASID; domain=.nih.gov; path=/; expires=Fri,
+        05 Sep 2025 16:39:38 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: |
+        <?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
+        <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
+        <Id>110524</Id>
+        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Megabalanus+californicus[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Megabalanus+californicus[All Names]</QueryTranslation></eSearchResult>
+  recorded_at: 2024-09-05 16:39:41 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=6452%2C6455%2C6454%2C110524&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.81.0 r-curl/5.2.2 crul/1.5.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '400'
+      message: Bad Request
+      explanation: Bad request syntax or unsupported method
+    headers:
+      status: HTTP/1.1 400 Bad Request
+      date: Thu, 05 Sep 2024 16:39:39 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: 29BDE6735BB02CB5_37ECSID
+      ncbi-phid: D0BD9D8EE5AB4CE5000049AEE6B42747.1.1.m_3
+      content-type: text/xml; charset=UTF-8
+      cache-control: private
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '6'
+      access-control-allow-origin: '*'
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=29BDE6735BB02CB5_37ECSID; domain=.nih.gov; path=/; expires=Fri,
+        05 Sep 2025 16:39:38 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      connection: close
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!DOCTYPE eEfetchResult
+        PUBLIC \"-//NLM//DTD efetch 20131226//EN\" \"https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20131226/efetch.dtd\">\n<eFetchResult>\n\t<ERROR>
+        Error: External viewer error: Empty Response. Bytes read: 0 Status: Timeout</ERROR>\n</eFetchResult>\n"
+  recorded_at: 2024-09-05 16:39:41 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=6452%2C6455%2C6454%2C110524&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.81.0 r-curl/5.2.2 crul/1.5.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 05 Sep 2024 16:39:40 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: 29BDE6735BB02CB5_37ECSID
+      ncbi-phid: D0BD9D8EE5AB4CE5000051AEF74B5DA4.1.1.m_5
+      content-type: text/xml; charset=UTF-8
+      cache-control: private
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '9'
+      access-control-allow-origin: '*'
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=29BDE6735BB02CB5_37ECSID; domain=.nih.gov; path=/; expires=Fri,
+        05 Sep 2025 16:39:41 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: |-
+        <?xml version="1.0" ?>
+        <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
+        <TaxaSet><Taxon>
+            <TaxId>6452</TaxId>
+            <ScientificName>Haliotis</ScientificName>
+            <ParentTaxId>6451</ParentTaxId>
+            <Rank>genus</Rank>
+            <Division>Invertebrates</Division>
+            <GeneticCode>
+                <GCId>1</GCId>
+                <GCName>Standard</GCName>
+            </GeneticCode>
+            <MitoGeneticCode>
+                <MGCId>5</MGCId>
+                <MGCName>Invertebrate Mitochondrial</MGCName>
+            </MitoGeneticCode>
+            <Lineage>cellular organisms; Eukaryota; Opisthokonta; Metazoa; Eumetazoa; Bilateria; Protostomia; Spiralia; Lophotrochozoa; Mollusca; Gastropoda; Vetigastropoda; Lepetellida; Haliotoidea; Haliotidae</Lineage>
+            <LineageEx>
+                <Taxon>
+                    <TaxId>131567</TaxId>
+                    <ScientificName>cellular organisms</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>2759</TaxId>
+                    <ScientificName>Eukaryota</ScientificName>
+                    <Rank>superkingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33154</TaxId>
+                    <ScientificName>Opisthokonta</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33208</TaxId>
+                    <ScientificName>Metazoa</ScientificName>
+                    <Rank>kingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6072</TaxId>
+                    <ScientificName>Eumetazoa</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33213</TaxId>
+                    <ScientificName>Bilateria</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33317</TaxId>
+                    <ScientificName>Protostomia</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>2697495</TaxId>
+                    <ScientificName>Spiralia</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1206795</TaxId>
+                    <ScientificName>Lophotrochozoa</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6447</TaxId>
+                    <ScientificName>Mollusca</ScientificName>
+                    <Rank>phylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6448</TaxId>
+                    <ScientificName>Gastropoda</ScientificName>
+                    <Rank>class</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>216275</TaxId>
+                    <ScientificName>Vetigastropoda</ScientificName>
+                    <Rank>subclass</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>2315723</TaxId>
+                    <ScientificName>Lepetellida</ScientificName>
+                    <Rank>order</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>216276</TaxId>
+                    <ScientificName>Haliotoidea</ScientificName>
+                    <Rank>superfamily</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6451</TaxId>
+                    <ScientificName>Haliotidae</ScientificName>
+                    <Rank>family</Rank>
+                </Taxon>
+            </LineageEx>
+            <CreateDate>1995/02/27 09:24:00</CreateDate>
+            <UpdateDate>2015/07/22 14:01:08</UpdateDate>
+            <PubDate>1993/04/20 01:00:00</PubDate>
+        </Taxon>
+        <Taxon>
+            <TaxId>6455</TaxId>
+            <ScientificName>Haliotis cracherodii</ScientificName>
+            <OtherNames>
+                <GenbankCommonName>black abalone</GenbankCommonName>
+                <Name>
+                    <ClassCDE>authority</ClassCDE>
+                    <DispName>Haliotis cracherodii Leach, 1814</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>Haliotis cracherodil</DispName>
+                </Name>
+            </OtherNames>
+            <ParentTaxId>6452</ParentTaxId>
+            <Rank>species</Rank>
+            <Division>Invertebrates</Division>
+            <GeneticCode>
+                <GCId>1</GCId>
+                <GCName>Standard</GCName>
+            </GeneticCode>
+            <MitoGeneticCode>
+                <MGCId>5</MGCId>
+                <MGCName>Invertebrate Mitochondrial</MGCName>
+            </MitoGeneticCode>
+            <Lineage>cellular organisms; Eukaryota; Opisthokonta; Metazoa; Eumetazoa; Bilateria; Protostomia; Spiralia; Lophotrochozoa; Mollusca; Gastropoda; Vetigastropoda; Lepetellida; Haliotoidea; Haliotidae; Haliotis</Lineage>
+            <LineageEx>
+                <Taxon>
+                    <TaxId>131567</TaxId>
+                    <ScientificName>cellular organisms</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>2759</TaxId>
+                    <ScientificName>Eukaryota</ScientificName>
+                    <Rank>superkingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33154</TaxId>
+                    <ScientificName>Opisthokonta</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33208</TaxId>
+                    <ScientificName>Metazoa</ScientificName>
+                    <Rank>kingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6072</TaxId>
+                    <ScientificName>Eumetazoa</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33213</TaxId>
+                    <ScientificName>Bilateria</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33317</TaxId>
+                    <ScientificName>Protostomia</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>2697495</TaxId>
+                    <ScientificName>Spiralia</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1206795</TaxId>
+                    <ScientificName>Lophotrochozoa</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6447</TaxId>
+                    <ScientificName>Mollusca</ScientificName>
+                    <Rank>phylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6448</TaxId>
+                    <ScientificName>Gastropoda</ScientificName>
+                    <Rank>class</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>216275</TaxId>
+                    <ScientificName>Vetigastropoda</ScientificName>
+                    <Rank>subclass</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>2315723</TaxId>
+                    <ScientificName>Lepetellida</ScientificName>
+                    <Rank>order</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>216276</TaxId>
+                    <ScientificName>Haliotoidea</ScientificName>
+                    <Rank>superfamily</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6451</TaxId>
+                    <ScientificName>Haliotidae</ScientificName>
+                    <Rank>family</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6452</TaxId>
+                    <ScientificName>Haliotis</ScientificName>
+                    <Rank>genus</Rank>
+                </Taxon>
+            </LineageEx>
+            <CreateDate>1995/02/27 09:24:00</CreateDate>
+            <UpdateDate>2018/11/23 13:57:52</UpdateDate>
+            <PubDate>1993/04/26 01:00:00</PubDate>
+        </Taxon>
+        <Taxon>
+            <TaxId>6454</TaxId>
+            <ScientificName>Haliotis rufescens</ScientificName>
+            <OtherNames>
+                <GenbankCommonName>red abalone</GenbankCommonName>
+                <Synonym>Haliotis rufenscens</Synonym>
+                <CommonName>California red abalone</CommonName>
+                <Name>
+                    <ClassCDE>authority</ClassCDE>
+                    <DispName>Haliotis rufescens Swainson, 1822</DispName>
+                </Name>
+            </OtherNames>
+            <ParentTaxId>6452</ParentTaxId>
+            <Rank>species</Rank>
+            <Division>Invertebrates</Division>
+            <GeneticCode>
+                <GCId>1</GCId>
+                <GCName>Standard</GCName>
+            </GeneticCode>
+            <MitoGeneticCode>
+                <MGCId>5</MGCId>
+                <MGCName>Invertebrate Mitochondrial</MGCName>
+            </MitoGeneticCode>
+            <Lineage>cellular organisms; Eukaryota; Opisthokonta; Metazoa; Eumetazoa; Bilateria; Protostomia; Spiralia; Lophotrochozoa; Mollusca; Gastropoda; Vetigastropoda; Lepetellida; Haliotoidea; Haliotidae; Haliotis</Lineage>
+            <LineageEx>
+                <Taxon>
+                    <TaxId>131567</TaxId>
+                    <ScientificName>cellular organisms</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>2759</TaxId>
+                    <ScientificName>Eukaryota</ScientificName>
+                    <Rank>superkingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33154</TaxId>
+                    <ScientificName>Opisthokonta</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33208</TaxId>
+                    <ScientificName>Metazoa</ScientificName>
+                    <Rank>kingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6072</TaxId>
+                    <ScientificName>Eumetazoa</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33213</TaxId>
+                    <ScientificName>Bilateria</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33317</TaxId>
+                    <ScientificName>Protostomia</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>2697495</TaxId>
+                    <ScientificName>Spiralia</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1206795</TaxId>
+                    <ScientificName>Lophotrochozoa</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6447</TaxId>
+                    <ScientificName>Mollusca</ScientificName>
+                    <Rank>phylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6448</TaxId>
+                    <ScientificName>Gastropoda</ScientificName>
+                    <Rank>class</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>216275</TaxId>
+                    <ScientificName>Vetigastropoda</ScientificName>
+                    <Rank>subclass</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>2315723</TaxId>
+                    <ScientificName>Lepetellida</ScientificName>
+                    <Rank>order</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>216276</TaxId>
+                    <ScientificName>Haliotoidea</ScientificName>
+                    <Rank>superfamily</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6451</TaxId>
+                    <ScientificName>Haliotidae</ScientificName>
+                    <Rank>family</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6452</TaxId>
+                    <ScientificName>Haliotis</ScientificName>
+                    <Rank>genus</Rank>
+                </Taxon>
+            </LineageEx>
+            <CreateDate>1995/02/27 09:24:00</CreateDate>
+            <UpdateDate>2017/06/14 10:56:24</UpdateDate>
+            <PubDate>1993/04/26 01:00:00</PubDate>
+        </Taxon>
+        <Taxon>
+            <TaxId>110524</TaxId>
+            <ScientificName>Megabalanus californicus</ScientificName>
+            <OtherNames>
+                <Includes>Balanidae sp. 142641A</Includes>
+                <Includes>Balanidae sp. 142706A</Includes>
+                <Includes>Balanidae sp. 142709A</Includes>
+                <Includes>Balanidae sp. 142721A</Includes>
+                <Includes>Balanidae sp. 151978A</Includes>
+                <Includes>Balanidae sp. 153439A</Includes>
+                <Name>
+                    <ClassCDE>authority</ClassCDE>
+                    <DispName>Megabalanus californicus (Pilsbry, 1916)</DispName>
+                </Name>
+            </OtherNames>
+            <ParentTaxId>6679</ParentTaxId>
+            <Rank>species</Rank>
+            <Division>Invertebrates</Division>
+            <GeneticCode>
+                <GCId>1</GCId>
+                <GCName>Standard</GCName>
+            </GeneticCode>
+            <MitoGeneticCode>
+                <MGCId>5</MGCId>
+                <MGCName>Invertebrate Mitochondrial</MGCName>
+            </MitoGeneticCode>
+            <Lineage>cellular organisms; Eukaryota; Opisthokonta; Metazoa; Eumetazoa; Bilateria; Protostomia; Ecdysozoa; Panarthropoda; Arthropoda; Mandibulata; Pancrustacea; Crustacea; Multicrustacea; Thecostraca; Cirripedia; Thoracica; Thoracicalcarea; Balanomorpha; Balanoidea; Balanidae; Megabalaninae; Megabalanus</Lineage>
+            <LineageEx>
+                <Taxon>
+                    <TaxId>131567</TaxId>
+                    <ScientificName>cellular organisms</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>2759</TaxId>
+                    <ScientificName>Eukaryota</ScientificName>
+                    <Rank>superkingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33154</TaxId>
+                    <ScientificName>Opisthokonta</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33208</TaxId>
+                    <ScientificName>Metazoa</ScientificName>
+                    <Rank>kingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6072</TaxId>
+                    <ScientificName>Eumetazoa</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33213</TaxId>
+                    <ScientificName>Bilateria</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33317</TaxId>
+                    <ScientificName>Protostomia</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1206794</TaxId>
+                    <ScientificName>Ecdysozoa</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>88770</TaxId>
+                    <ScientificName>Panarthropoda</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6656</TaxId>
+                    <ScientificName>Arthropoda</ScientificName>
+                    <Rank>phylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>197563</TaxId>
+                    <ScientificName>Mandibulata</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>197562</TaxId>
+                    <ScientificName>Pancrustacea</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6657</TaxId>
+                    <ScientificName>Crustacea</ScientificName>
+                    <Rank>subphylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>2172821</TaxId>
+                    <ScientificName>Multicrustacea</ScientificName>
+                    <Rank>superclass</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>116172</TaxId>
+                    <ScientificName>Thecostraca</ScientificName>
+                    <Rank>class</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6675</TaxId>
+                    <ScientificName>Cirripedia</ScientificName>
+                    <Rank>subclass</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6676</TaxId>
+                    <ScientificName>Thoracica</ScientificName>
+                    <Rank>infraclass</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>2899756</TaxId>
+                    <ScientificName>Thoracicalcarea</ScientificName>
+                    <Rank>superorder</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>2899670</TaxId>
+                    <ScientificName>Balanomorpha</ScientificName>
+                    <Rank>order</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>2899671</TaxId>
+                    <ScientificName>Balanoidea</ScientificName>
+                    <Rank>superfamily</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>37806</TaxId>
+                    <ScientificName>Balanidae</ScientificName>
+                    <Rank>family</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>2899665</TaxId>
+                    <ScientificName>Megabalaninae</ScientificName>
+                    <Rank>subfamily</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6679</TaxId>
+                    <ScientificName>Megabalanus</ScientificName>
+                    <Rank>genus</Rank>
+                </Taxon>
+            </LineageEx>
+            <CreateDate>1999/12/14 11:42:00</CreateDate>
+            <UpdateDate>2019/07/17 13:31:00</UpdateDate>
+            <PubDate>2000/01/17 00:00:00</PubDate>
+        </Taxon>
+
+        </TaxaSet>
+  recorded_at: 2024-09-05 16:39:41 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
