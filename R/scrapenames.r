@@ -1,38 +1,41 @@
 #' @title Resolve names using Global Names Recognition and Discovery.
 #'
 #' @description Uses the Global Names Recognition and Discovery service, see
-#' http://gnrd.globalnames.org/
+#'   http://gnrd.globalnames.org/
 #'
-#' Note: this function sometimes gives data back and sometimes not. The API
-#' that this function is extremely buggy.
+#'   Note: this function sometimes gives data back and sometimes not. The API
+#'   that this function is extremely buggy.
 #'
 #' @export
-#' @param url An encoded URL for a web page, PDF, Microsoft Office document, or
-#' image file, see examples
-#' @param file When using multipart/form-data as the content-type, a file may
-#' be sent. This should be a path to your file on your machine.
-#' @param text Type: string. Text content; best used with a POST request, see
-#' examples
-#' @param engine (optional) (integer) Default: 0. Either 1 for TaxonFinder,
-#' 2 for NetiNeti, or 0 for both. If absent, both engines are used.
-#' @param unique (optional) (logical) If `TRUE` (default), response has
-#' unique names without offsets.
-#' @param verbatim (optional) Type: boolean, If `TRUE` (default to
-#' `FALSE`), response excludes verbatim strings.
-#' @param detect_language (optional) Type: boolean, When `TRUE` (default),
-#' NetiNeti is not used if the language of incoming text is determined not to
-#' be English. When `FALSE`, NetiNeti will be used if requested.
-#' @param all_data_sources (optional) Type: boolean. Resolve found names
-#' against all available Data Sources.
-#' @param data_source_ids (optional) Type: string. Pipe separated list of
-#' data source ids to resolve found names against. See list of Data Sources
-#' http://resolver.globalnames.org/data_sources
-#' @param return_content (logical) return OCR'ed text. returns text
-#' string in `x$meta$content` slot. Default: `FALSE`
+#' @param url Defunct. Use the `text` input for URLs as well as text strings.
+#' @param file When using multipart/form-data as the content-type, a file may be
+#'   sent. This should be a path to your file on your machine.
+#' @param text A text (or URL pointing to a text) for name detection.
+#' @param engine (optional) (integer) Defunct. The API used no longer supports
+#'   this option.
+#' @param unique Defunct. See the `unique_names` option.
+#' @param unique_names (optional) (logical) If `TRUE` (the default), the output
+#'   returns unique names, instead of all name occurrences, without position
+#'   information of a name in the text.
+#' @param verbatim (optional) Defunct. The API used no longer supports this
+#'   option.
+#' @param detect_language (optional) Defunct. See the `language` option.
+#' @param language The language of the text. Language value is used for
+#'   calculation of Bayesian odds. If this parameter is not given, eng is used
+#'   by default. Currently only English and German languages are supported.
+#'   Valid values are: `eng`, `deu`, `detect`.
+#' @param all_data_sources (optional) Defunct. The API used no longer supports
+#'   this option.
+#' @param data_source_ids (optional) Defunct. See the `sources` option.
+#' @param sources Pipe separated list of data source ids to resolve found names
+#'   against. See list of Data Sources
+#'   http://resolver.globalnames.org/data_sources
+#' @param return_content (logical) return OCR'ed text. returns text string in
+#'   `x$meta$content` slot. Default: `FALSE`
 #' @param ... Further args passed to [crul::verb-GET]
-#' @author Scott Chamberlain 
+#' @author Scott Chamberlain
 #' @return A list of length two, first is metadata, second is the data as a
-#' data.frame.
+#'   data.frame.
 #' @details One of url, file, or text must be specified - and only one of them.
 #' @examples \dontrun{
 #' # Get data from a website using its URL
@@ -49,7 +52,7 @@
 #'
 #' # With arguments
 #' scrapenames(url = 'https://www.mapress.com/zootaxa/2012/f/z03372p265f.pdf',
-#'   unique=TRUE)
+#'   unique_names=TRUE)
 #' scrapenames(url = 'https://en.wikipedia.org/wiki/Spider',
 #'   data_source_ids=c(1, 169))
 #'
@@ -69,24 +72,56 @@
 #' scrapenames(url='https://www.mapress.com/zootaxa/2012/f/z03372p265f.pdf',
 #'   return_content = TRUE)
 #' }
-scrapenames <- function(url = NULL, file = NULL, text = NULL, engine = NULL,
-  unique = NULL, verbatim = NULL, detect_language = NULL,
-  all_data_sources = NULL, data_source_ids = NULL,
-  return_content = FALSE, ...) {
-
+scrapenames <- function(
+    url = NULL,
+    file = NULL,
+    text = NULL,
+    engine = NULL,
+    unique = NULL,
+    unique_names = NULL,
+    verbatim = NULL,
+    detect_language = NULL,
+    language = NULL,
+    all_data_sources = NULL,
+    data_source_ids = NULL,
+    sources = NULL,
+    return_content = FALSE, 
+    ...
+) {
+  
+  # Error if defunct parameters are used.
+  if (!is.null(url)) {
+    stop(call. = FALSE, 'The `url` option is defunct. Use the `text` option for URLs as well as text strings.')
+  }
+  if (!is.null(unique)) {
+    stop(call. = FALSE, 'The `unique` option is defunct. See the `unique_names` option. ')
+  }
+  if (!is.null(engine)) {
+    stop(call. = FALSE, 'The `engine` option is defunct. The API no longer supports this option. ')
+  }
+  if (!is.null(detect_language)) {
+    stop(call. = FALSE, 'The `detect_language` option is defunct. See the `language` option. ')
+  }
+  if (!is.null(data_source_ids)) {
+    stop(call. = FALSE, 'The `data_source_ids` option is defunct. See the `source` option. ')
+  }
+  
   method <- tc(list(url = url, file = file, text = text))
   if (length(method) > 1) {
     stop("Only one of url, file, or text can be used", call. = FALSE)
   }
 
-  base <- "http://gnrd.globalnames.org/name_finder.json"
+  base <- "http://gnrd.globalnames.org/api/v1/find"
   if (!is.null(data_source_ids))
     data_source_ids <- paste0(data_source_ids, collapse = "|")
-  args <- tc(list(url = url, text = text, engine = engine, unique = unique,
-                  verbatim = verbatim, detect_language = detect_language,
-                  all_data_sources = all_data_sources,
-                  data_source_ids = data_source_ids,
-                  return_content = as_l(return_content)))
+  args <- tc(list(
+    text = text,
+    unique_names = unique_names,
+    verbatim = verbatim,
+    language = language,
+    source = source,
+    return_content = as_l(return_content)
+  ))
   cli <- crul::HttpClient$new(base, headers = tx_ual, opts = list(...))
   if (names(method) == 'url') {
     tt <- cli$get(query = args)
@@ -116,3 +151,4 @@ scrapenames <- function(url = NULL, file = NULL, text = NULL, engine = NULL,
   meta <- datout[!names(datout) %in% c("names")]
   list(meta = meta, data = nmslwr(datout$names))
 }
+

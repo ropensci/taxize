@@ -1,7 +1,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=9606&api_key=<<entrez_api_token>>
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=9606&api_key=
     body:
       encoding: ''
       string: ''
@@ -273,7 +273,7 @@ http_interactions:
         </Taxon>
 
         </TaxaSet>
-  recorded_at: 2024-09-05 16:40:08 GMT
+  recorded_at: 2024-10-02 20:58:02 GMT
   recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
@@ -303,7 +303,7 @@ http_interactions:
       file: no
       string: |
         {"author":"","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecordList","hierarchyList":[{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"","parentTsn":"","rankName":"Kingdom","taxonName":"Animalia","tsn":"202423"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Animalia","parentTsn":"202423","rankName":"Subkingdom","taxonName":"Bilateria","tsn":"914154"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Bilateria","parentTsn":"914154","rankName":"Infrakingdom","taxonName":"Protostomia","tsn":"914155"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Protostomia","parentTsn":"914155","rankName":"Superphylum","taxonName":"Ecdysozoa","tsn":"914158"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ecdysozoa","parentTsn":"914158","rankName":"Phylum","taxonName":"Arthropoda","tsn":"82696"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Arthropoda","parentTsn":"82696","rankName":"Subphylum","taxonName":"Hexapoda","tsn":"563886"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Hexapoda","parentTsn":"563886","rankName":"Class","taxonName":"Insecta","tsn":"99208"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Insecta","parentTsn":"99208","rankName":"Subclass","taxonName":"Pterygota","tsn":"100500"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Pterygota","parentTsn":"100500","rankName":"Infraclass","taxonName":"Neoptera","tsn":"563890"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Neoptera","parentTsn":"563890","rankName":"Superorder","taxonName":"Holometabola","tsn":"914213"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Holometabola","parentTsn":"914213","rankName":"Order","taxonName":"Diptera","tsn":"118831"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Diptera","parentTsn":"118831","rankName":"Suborder","taxonName":"Nematocera","tsn":"118832"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Nematocera","parentTsn":"118832","rankName":"Infraorder","taxonName":"Culicomorpha","tsn":"125808"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Culicomorpha","parentTsn":"125808","rankName":"Family","taxonName":"Chironomidae","tsn":"127917"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Chironomidae","parentTsn":"127917","rankName":"Subfamily","taxonName":"Chironominae","tsn":"129228"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Chironominae","parentTsn":"129228","rankName":"Tribe","taxonName":"Chironomini","tsn":"129229"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Chironomini","parentTsn":"129229","rankName":"Genus","taxonName":"Chironomus","tsn":"129254"},{"author":"Meigen, 1804","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Chironomus","parentTsn":"129254","rankName":"Species","taxonName":"Chironomus riparius","tsn":"129313"}],"rankName":"","sciName":"","tsn":"129313"}
-  recorded_at: 2024-09-05 16:40:08 GMT
+  recorded_at: 2024-10-02 20:58:02 GMT
   recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
@@ -344,7 +344,7 @@ http_interactions:
         annua","kingdomKey":6,"phylumKey":7707728,"classKey":196,"orderKey":1369,"familyKey":3073,"genusKey":2704173,"speciesKey":2704179,"datasetKey":"d7dddbf4-2cf0-4f39-9b2a-bb099caae36c","constituentKey":"7ddf754f-d193-4cc9-b351-99906754a03b","parentKey":2704173,"parent":"Poa","scientificName":"Poa
         annua L.","canonicalName":"Poa annua","vernacularName":"Annual Bluegrass","authorship":"L.","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","publishedIn":"Sp.
         Pl.: 68 (1753)","numDescendants":2,"lastCrawled":"2023-08-22T23:20:59.545+00:00","lastInterpreted":"2023-08-22T23:15:26.842+00:00","issues":[],"class":"Liliopsida"}'
-  recorded_at: 2024-09-05 16:40:08 GMT
+  recorded_at: 2024-10-02 20:58:02 GMT
   recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
@@ -386,5 +386,573 @@ http_interactions:
         bison Linnaeus, 1758","scientificName":"Bison bison (Linnaeus, 1758)","canonicalName":"Bison
         bison","vernacularName":"American bison","authorship":"(Linnaeus, 1758) ","nameType":"SCIENTIFIC","rank":"SPECIES","origin":"SOURCE","taxonomicStatus":"ACCEPTED","nomenclaturalStatus":[],"remarks":"","publishedIn":"Syst.
         Nat., 10th ed. vol.1 p.72","numDescendants":1,"lastCrawled":"2023-08-22T23:20:59.545+00:00","lastInterpreted":"2023-08-22T22:19:04.993+00:00","issues":[],"class":"Mammalia"}'
-  recorded_at: 2024-09-05 16:40:08 GMT
+  recorded_at: 2024-10-02 20:58:02 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=9606
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.81.0 r-curl/5.2.3 crul/1.5.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Wed, 02 Oct 2024 18:39:53 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: C76D68242C45BDA8_A770SID
+      ncbi-phid: 322CA97A31CAA4B500005ADBC64CD6AE.1.1.m_3
+      content-type: text/xml; charset=UTF-8
+      cache-control: private
+      content-encoding: gzip
+      x-ratelimit-limit: '3'
+      x-ratelimit-remaining: '1'
+      access-control-allow-origin: '*'
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=C76D68242C45BDA8_A770SID; domain=.nih.gov; path=/; expires=Thu,
+        02 Oct 2025 18:39:54 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: |-
+        <?xml version="1.0" ?>
+        <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
+        <TaxaSet><Taxon>
+            <TaxId>9606</TaxId>
+            <ScientificName>Homo sapiens</ScientificName>
+            <OtherNames>
+                <GenbankCommonName>human</GenbankCommonName>
+                <Name>
+                    <ClassCDE>authority</ClassCDE>
+                    <DispName>Homo sapiens Linnaeus, 1758</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>Home sapiens</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>Homo sampiens</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>Homo sapeins</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>Homo sapian</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>Homo sapians</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>Homo sapien</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>Homo sapience</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>Homo sapiens (PARIS)</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>Homo sapiens (SIRT6)</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>Homo sapiense</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>Homo sapients</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>Homo sapines</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>Homo spaiens</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>Homo spiens</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>Humo sapiens</DispName>
+                </Name>
+            </OtherNames>
+            <ParentTaxId>9605</ParentTaxId>
+            <Rank>species</Rank>
+            <Division>Primates</Division>
+            <GeneticCode>
+                <GCId>1</GCId>
+                <GCName>Standard</GCName>
+            </GeneticCode>
+            <MitoGeneticCode>
+                <MGCId>2</MGCId>
+                <MGCName>Vertebrate Mitochondrial</MGCName>
+            </MitoGeneticCode>
+            <Lineage>cellular organisms; Eukaryota; Opisthokonta; Metazoa; Eumetazoa; Bilateria; Deuterostomia; Chordata; Craniata; Vertebrata; Gnathostomata; Teleostomi; Euteleostomi; Sarcopterygii; Dipnotetrapodomorpha; Tetrapoda; Amniota; Mammalia; Theria; Eutheria; Boreoeutheria; Euarchontoglires; Primates; Haplorrhini; Simiiformes; Catarrhini; Hominoidea; Hominidae; Homininae; Homo</Lineage>
+            <LineageEx>
+                <Taxon>
+                    <TaxId>131567</TaxId>
+                    <ScientificName>cellular organisms</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>2759</TaxId>
+                    <ScientificName>Eukaryota</ScientificName>
+                    <Rank>superkingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33154</TaxId>
+                    <ScientificName>Opisthokonta</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33208</TaxId>
+                    <ScientificName>Metazoa</ScientificName>
+                    <Rank>kingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6072</TaxId>
+                    <ScientificName>Eumetazoa</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33213</TaxId>
+                    <ScientificName>Bilateria</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33511</TaxId>
+                    <ScientificName>Deuterostomia</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>7711</TaxId>
+                    <ScientificName>Chordata</ScientificName>
+                    <Rank>phylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>89593</TaxId>
+                    <ScientificName>Craniata</ScientificName>
+                    <Rank>subphylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>7742</TaxId>
+                    <ScientificName>Vertebrata</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>7776</TaxId>
+                    <ScientificName>Gnathostomata</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>117570</TaxId>
+                    <ScientificName>Teleostomi</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>117571</TaxId>
+                    <ScientificName>Euteleostomi</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>8287</TaxId>
+                    <ScientificName>Sarcopterygii</ScientificName>
+                    <Rank>superclass</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1338369</TaxId>
+                    <ScientificName>Dipnotetrapodomorpha</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>32523</TaxId>
+                    <ScientificName>Tetrapoda</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>32524</TaxId>
+                    <ScientificName>Amniota</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>40674</TaxId>
+                    <ScientificName>Mammalia</ScientificName>
+                    <Rank>class</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>32525</TaxId>
+                    <ScientificName>Theria</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>9347</TaxId>
+                    <ScientificName>Eutheria</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1437010</TaxId>
+                    <ScientificName>Boreoeutheria</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>314146</TaxId>
+                    <ScientificName>Euarchontoglires</ScientificName>
+                    <Rank>superorder</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>9443</TaxId>
+                    <ScientificName>Primates</ScientificName>
+                    <Rank>order</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>376913</TaxId>
+                    <ScientificName>Haplorrhini</ScientificName>
+                    <Rank>suborder</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>314293</TaxId>
+                    <ScientificName>Simiiformes</ScientificName>
+                    <Rank>infraorder</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>9526</TaxId>
+                    <ScientificName>Catarrhini</ScientificName>
+                    <Rank>parvorder</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>314295</TaxId>
+                    <ScientificName>Hominoidea</ScientificName>
+                    <Rank>superfamily</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>9604</TaxId>
+                    <ScientificName>Hominidae</ScientificName>
+                    <Rank>family</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>207598</TaxId>
+                    <ScientificName>Homininae</ScientificName>
+                    <Rank>subfamily</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>9605</TaxId>
+                    <ScientificName>Homo</ScientificName>
+                    <Rank>genus</Rank>
+                </Taxon>
+            </LineageEx>
+            <CreateDate>1995/02/27 09:24:00</CreateDate>
+            <UpdateDate>2024/09/10 17:51:10</UpdateDate>
+            <PubDate>1992/05/26 01:00:00</PubDate>
+        </Taxon>
+
+        </TaxaSet>
+  recorded_at: 2024-10-02 20:58:02 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=9606&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.81.0 r-curl/5.2.3 crul/1.5.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Wed, 02 Oct 2024 20:58:01 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: 8A551CE44A8B9E5E_8626SID
+      ncbi-phid: D0BD77404C21C3D50000364B09F38A33.1.1.m_3
+      content-type: text/xml; charset=UTF-8
+      cache-control: private
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '7'
+      access-control-allow-origin: '*'
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=8A551CE44A8B9E5E_8626SID; domain=.nih.gov; path=/; expires=Thu,
+        02 Oct 2025 20:58:01 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: |-
+        <?xml version="1.0" ?>
+        <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
+        <TaxaSet><Taxon>
+            <TaxId>9606</TaxId>
+            <ScientificName>Homo sapiens</ScientificName>
+            <OtherNames>
+                <GenbankCommonName>human</GenbankCommonName>
+                <Name>
+                    <ClassCDE>authority</ClassCDE>
+                    <DispName>Homo sapiens Linnaeus, 1758</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>Home sapiens</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>Homo sampiens</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>Homo sapeins</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>Homo sapian</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>Homo sapians</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>Homo sapien</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>Homo sapience</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>Homo sapiens (PARIS)</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>Homo sapiens (SIRT6)</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>Homo sapiense</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>Homo sapients</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>Homo sapines</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>Homo spaiens</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>Homo spiens</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>Humo sapiens</DispName>
+                </Name>
+            </OtherNames>
+            <ParentTaxId>9605</ParentTaxId>
+            <Rank>species</Rank>
+            <Division>Primates</Division>
+            <GeneticCode>
+                <GCId>1</GCId>
+                <GCName>Standard</GCName>
+            </GeneticCode>
+            <MitoGeneticCode>
+                <MGCId>2</MGCId>
+                <MGCName>Vertebrate Mitochondrial</MGCName>
+            </MitoGeneticCode>
+            <Lineage>cellular organisms; Eukaryota; Opisthokonta; Metazoa; Eumetazoa; Bilateria; Deuterostomia; Chordata; Craniata; Vertebrata; Gnathostomata; Teleostomi; Euteleostomi; Sarcopterygii; Dipnotetrapodomorpha; Tetrapoda; Amniota; Mammalia; Theria; Eutheria; Boreoeutheria; Euarchontoglires; Primates; Haplorrhini; Simiiformes; Catarrhini; Hominoidea; Hominidae; Homininae; Homo</Lineage>
+            <LineageEx>
+                <Taxon>
+                    <TaxId>131567</TaxId>
+                    <ScientificName>cellular organisms</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>2759</TaxId>
+                    <ScientificName>Eukaryota</ScientificName>
+                    <Rank>superkingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33154</TaxId>
+                    <ScientificName>Opisthokonta</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33208</TaxId>
+                    <ScientificName>Metazoa</ScientificName>
+                    <Rank>kingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6072</TaxId>
+                    <ScientificName>Eumetazoa</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33213</TaxId>
+                    <ScientificName>Bilateria</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33511</TaxId>
+                    <ScientificName>Deuterostomia</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>7711</TaxId>
+                    <ScientificName>Chordata</ScientificName>
+                    <Rank>phylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>89593</TaxId>
+                    <ScientificName>Craniata</ScientificName>
+                    <Rank>subphylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>7742</TaxId>
+                    <ScientificName>Vertebrata</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>7776</TaxId>
+                    <ScientificName>Gnathostomata</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>117570</TaxId>
+                    <ScientificName>Teleostomi</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>117571</TaxId>
+                    <ScientificName>Euteleostomi</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>8287</TaxId>
+                    <ScientificName>Sarcopterygii</ScientificName>
+                    <Rank>superclass</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1338369</TaxId>
+                    <ScientificName>Dipnotetrapodomorpha</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>32523</TaxId>
+                    <ScientificName>Tetrapoda</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>32524</TaxId>
+                    <ScientificName>Amniota</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>40674</TaxId>
+                    <ScientificName>Mammalia</ScientificName>
+                    <Rank>class</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>32525</TaxId>
+                    <ScientificName>Theria</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>9347</TaxId>
+                    <ScientificName>Eutheria</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1437010</TaxId>
+                    <ScientificName>Boreoeutheria</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>314146</TaxId>
+                    <ScientificName>Euarchontoglires</ScientificName>
+                    <Rank>superorder</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>9443</TaxId>
+                    <ScientificName>Primates</ScientificName>
+                    <Rank>order</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>376913</TaxId>
+                    <ScientificName>Haplorrhini</ScientificName>
+                    <Rank>suborder</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>314293</TaxId>
+                    <ScientificName>Simiiformes</ScientificName>
+                    <Rank>infraorder</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>9526</TaxId>
+                    <ScientificName>Catarrhini</ScientificName>
+                    <Rank>parvorder</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>314295</TaxId>
+                    <ScientificName>Hominoidea</ScientificName>
+                    <Rank>superfamily</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>9604</TaxId>
+                    <ScientificName>Hominidae</ScientificName>
+                    <Rank>family</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>207598</TaxId>
+                    <ScientificName>Homininae</ScientificName>
+                    <Rank>subfamily</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>9605</TaxId>
+                    <ScientificName>Homo</ScientificName>
+                    <Rank>genus</Rank>
+                </Taxon>
+            </LineageEx>
+            <CreateDate>1995/02/27 09:24:00</CreateDate>
+            <UpdateDate>2024/09/10 17:51:10</UpdateDate>
+            <PubDate>1992/05/26 01:00:00</PubDate>
+        </Taxon>
+
+        </TaxaSet>
+  recorded_at: 2024-10-02 20:58:02 GMT
   recorded_with: vcr/1.6.0, webmockr/1.0.0

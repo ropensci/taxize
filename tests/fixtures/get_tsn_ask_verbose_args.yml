@@ -1,1 +1,31 @@
 http_interactions:
+- request:
+    method: get
+    uri: https://www.itis.gov/ITISWebService/jsonservice/getITISTermsFromCommonName?srchKey=black%20bear
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.81.0 r-curl/5.2.3 crul/1.5.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: 'HTTP/2 200 '
+      date: Wed, 02 Oct 2024 21:16:53 GMT
+      content-type: text/json;charset=ISO-8859-1
+      content-length: '1121'
+      x-frame-options: SAMEORIGIN
+      strict-transport-security: max-age=63072000; includeSubdomains; preload
+      x-robots-tag: noindex, nofollow, nosnippet, noarchive
+    body:
+      encoding: ''
+      file: no
+      string: |
+        {"class":"gov.usgs.itis.itis_service.data.SvcItisTermList","itisTerms":[{"author":"Pallas, 1780","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["American Black Bear","black bear"],"nameUsage":"valid","scientificName":"Ursus americanus","tsn":"180544"},{"author":"Pallas, 1780","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["American black bear"],"nameUsage":"valid","scientificName":"Ursus americanus americanus","tsn":"202387"},{"author":"Griffith, 1821","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["Louisiana black bear"],"nameUsage":"valid","scientificName":"Ursus americanus luteolus","tsn":"202388"},{"author":"(Hoffmannsegg, 1807)","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["Black Bearded Saki"],"nameUsage":"valid","scientificName":"Chiropotes satanas","tsn":"572986"},{"author":"G.[Baron] Cuvier, 1823","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["Asiatic Black Bear","Asian Black Bear"],"nameUsage":"valid","scientificName":"Ursus thibetanus","tsn":"621850"}],"requestedName":"black bear"}
+  recorded_at: 2024-10-02 21:16:53 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0

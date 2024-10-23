@@ -1,0 +1,149 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://www.itis.gov/ITISWebService/jsonservice/getFullHierarchyFromTSN?tsn=180543
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.81.0 r-curl/5.2.3 crul/1.5.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: 'HTTP/2 200 '
+      date: Wed, 02 Oct 2024 21:17:03 GMT
+      content-type: text/json;charset=ISO-8859-1
+      content-length: '6420'
+      x-frame-options: SAMEORIGIN
+      strict-transport-security: max-age=63072000; includeSubdomains; preload
+      x-robots-tag: noindex, nofollow, nosnippet, noarchive
+    body:
+      encoding: ''
+      file: no
+      string: |
+        {"author":"","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecordList","hierarchyList":[{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"","parentTsn":"","rankName":"Kingdom","taxonName":"Animalia","tsn":"202423"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Animalia","parentTsn":"202423","rankName":"Subkingdom","taxonName":"Bilateria","tsn":"914154"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Bilateria","parentTsn":"914154","rankName":"Infrakingdom","taxonName":"Deuterostomia","tsn":"914156"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Deuterostomia","parentTsn":"914156","rankName":"Phylum","taxonName":"Chordata","tsn":"158852"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Chordata","parentTsn":"158852","rankName":"Subphylum","taxonName":"Vertebrata","tsn":"331030"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Vertebrata","parentTsn":"331030","rankName":"Infraphylum","taxonName":"Gnathostomata","tsn":"914179"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Gnathostomata","parentTsn":"914179","rankName":"Superclass","taxonName":"Tetrapoda","tsn":"914181"},{"author":"Linnaeus, 1758","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Tetrapoda","parentTsn":"914181","rankName":"Class","taxonName":"Mammalia","tsn":"179913"},{"author":"Parker and Haswell, 1897","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Mammalia","parentTsn":"179913","rankName":"Subclass","taxonName":"Theria","tsn":"179916"},{"author":"Gill, 1872","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Theria","parentTsn":"179916","rankName":"Infraclass","taxonName":"Eutheria","tsn":"179925"},{"author":"Bowdich, 1821","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Eutheria","parentTsn":"179925","rankName":"Order","taxonName":"Carnivora","tsn":"180539"},{"author":"Kretzoi, 1938","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Carnivora","parentTsn":"180539","rankName":"Suborder","taxonName":"Caniformia","tsn":"552303"},{"author":"G. Fischer von Waldheim, 1817","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Caniformia","parentTsn":"552303","rankName":"Family","taxonName":"Ursidae","tsn":"180540"},{"author":"Linnaeus, 1758","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ursidae","parentTsn":"180540","rankName":"Genus","taxonName":"Ursus","tsn":"180541"},{"author":"Linnaeus, 1758","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ursus","parentTsn":"180541","rankName":"Species","taxonName":"Ursus arctos","tsn":"180543"},{"author":"Merriam, 1896","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ursus arctos","parentTsn":"180543","rankName":"Subspecies","taxonName":"Ursus arctos alascensis","tsn":"726985"},{"author":"Linnaeus, 1758","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ursus arctos","parentTsn":"180543","rankName":"Subspecies","taxonName":"Ursus arctos arctos","tsn":"202383"},{"author":"Middendorff, 1853","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ursus arctos","parentTsn":"180543","rankName":"Subspecies","taxonName":"Ursus arctos beringianus","tsn":"726986"},{"author":"Merriam, 1896","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ursus arctos","parentTsn":"180543","rankName":"Subspecies","taxonName":"Ursus arctos californicus","tsn":"726987"},{"author":"F. G. Cuvier, 1824","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ursus arctos","parentTsn":"180543","rankName":"Subspecies","taxonName":"Ursus arctos collaris","tsn":"726988"},{"author":"Schinz, 1844","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ursus arctos","parentTsn":"180543","rankName":"Subspecies","taxonName":"Ursus arctos crowtheri","tsn":"726989"},{"author":"Merriam, 1896","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ursus arctos","parentTsn":"180543","rankName":"Subspecies","taxonName":"Ursus arctos dalli","tsn":"726990"},{"author":"Merriam, 1902","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ursus arctos","parentTsn":"180543","rankName":"Subspecies","taxonName":"Ursus arctos gyas","tsn":"726991"},{"author":"Ord, 1815","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ursus arctos","parentTsn":"180543","rankName":"Subspecies","taxonName":"Ursus arctos horribilis","tsn":"202385"},{"author":"Horsfield, 1826","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ursus arctos","parentTsn":"180543","rankName":"Subspecies","taxonName":"Ursus arctos isabellinus","tsn":"622068"},{"author":"Gray, 1867","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ursus arctos","parentTsn":"180543","rankName":"Subspecies","taxonName":"Ursus arctos lasiotus","tsn":"726992"},{"author":"Merriam, 1896","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ursus arctos","parentTsn":"180543","rankName":"Subspecies","taxonName":"Ursus arctos middendorffi","tsn":"726993"},{"author":"Blyth, 1854","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ursus arctos","parentTsn":"180543","rankName":"Subspecies","taxonName":"Ursus arctos pruinosus","tsn":"202386"},{"author":"Merriam, 1896","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ursus arctos","parentTsn":"180543","rankName":"Subspecies","taxonName":"Ursus arctos sitkensis","tsn":"726994"},{"author":"Merriam, 1914","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ursus arctos","parentTsn":"180543","rankName":"Subspecies","taxonName":"Ursus arctos stikeenensis","tsn":"726995"},{"author":"Hemprich and Ehrenberg, 1828","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ursus arctos","parentTsn":"180543","rankName":"Subspecies","taxonName":"Ursus arctos syriacus","tsn":"726996"}],"rankName":"","sciName":"","tsn":"180543"}
+  recorded_at: 2024-10-04 17:14:03 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://www.itis.gov/ITISWebService/jsonservice/getHierarchyUpFromTSN?tsn=180543
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.81.0 r-curl/5.2.3 crul/1.5.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: 'HTTP/2 200 '
+      date: Wed, 02 Oct 2024 21:17:03 GMT
+      content-type: text/json;charset=ISO-8859-1
+      content-length: '194'
+      x-frame-options: SAMEORIGIN
+      strict-transport-security: max-age=63072000; includeSubdomains; preload
+      x-robots-tag: noindex, nofollow, nosnippet, noarchive
+    body:
+      encoding: ''
+      file: no
+      string: |
+        {"author":"Linnaeus, 1758","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ursus","parentTsn":"180541","rankName":"Species","taxonName":"Ursus arctos","tsn":"180543"}
+  recorded_at: 2024-10-04 17:14:03 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://www.itis.gov/ITISWebService/jsonservice/getHierarchyDownFromTSN?tsn=180543
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.81.0 r-curl/5.2.3 crul/1.5.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: 'HTTP/2 200 '
+      date: Wed, 02 Oct 2024 21:17:03 GMT
+      content-type: text/json;charset=ISO-8859-1
+      content-length: '3597'
+      x-frame-options: SAMEORIGIN
+      strict-transport-security: max-age=63072000; includeSubdomains; preload
+      x-robots-tag: noindex, nofollow, nosnippet, noarchive
+    body:
+      encoding: ''
+      file: no
+      string: |
+        {"author":"Linnaeus, 1758","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecordList","hierarchyList":[{"author":"Blyth, 1854","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ursus arctos","parentTsn":"180543","rankName":"Subspecies","taxonName":"Ursus arctos pruinosus","tsn":"202386"},{"author":"Gray, 1867","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ursus arctos","parentTsn":"180543","rankName":"Subspecies","taxonName":"Ursus arctos lasiotus","tsn":"726992"},{"author":"Linnaeus, 1758","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ursus arctos","parentTsn":"180543","rankName":"Subspecies","taxonName":"Ursus arctos arctos","tsn":"202383"},{"author":"Merriam, 1902","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ursus arctos","parentTsn":"180543","rankName":"Subspecies","taxonName":"Ursus arctos gyas","tsn":"726991"},{"author":"Merriam, 1914","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ursus arctos","parentTsn":"180543","rankName":"Subspecies","taxonName":"Ursus arctos stikeenensis","tsn":"726995"},{"author":"Ord, 1815","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ursus arctos","parentTsn":"180543","rankName":"Subspecies","taxonName":"Ursus arctos horribilis","tsn":"202385"},{"author":"Horsfield, 1826","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ursus arctos","parentTsn":"180543","rankName":"Subspecies","taxonName":"Ursus arctos isabellinus","tsn":"622068"},{"author":"Merriam, 1896","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ursus arctos","parentTsn":"180543","rankName":"Subspecies","taxonName":"Ursus arctos alascensis","tsn":"726985"},{"author":"Merriam, 1896","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ursus arctos","parentTsn":"180543","rankName":"Subspecies","taxonName":"Ursus arctos californicus","tsn":"726987"},{"author":"Merriam, 1896","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ursus arctos","parentTsn":"180543","rankName":"Subspecies","taxonName":"Ursus arctos dalli","tsn":"726990"},{"author":"Merriam, 1896","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ursus arctos","parentTsn":"180543","rankName":"Subspecies","taxonName":"Ursus arctos middendorffi","tsn":"726993"},{"author":"Merriam, 1896","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ursus arctos","parentTsn":"180543","rankName":"Subspecies","taxonName":"Ursus arctos sitkensis","tsn":"726994"},{"author":"F. G. Cuvier, 1824","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ursus arctos","parentTsn":"180543","rankName":"Subspecies","taxonName":"Ursus arctos collaris","tsn":"726988"},{"author":"Schinz, 1844","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ursus arctos","parentTsn":"180543","rankName":"Subspecies","taxonName":"Ursus arctos crowtheri","tsn":"726989"},{"author":"Hemprich and Ehrenberg, 1828","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ursus arctos","parentTsn":"180543","rankName":"Subspecies","taxonName":"Ursus arctos syriacus","tsn":"726996"},{"author":"Middendorff, 1853","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ursus arctos","parentTsn":"180543","rankName":"Subspecies","taxonName":"Ursus arctos beringianus","tsn":"726986"}],"rankName":"Species","sciName":"Ursus arctos","tsn":"180543"}
+  recorded_at: 2024-10-04 17:14:03 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://www.itis.gov/ITISWebService/jsonservice/getFullHierarchyFromTSN?tsn=180543
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.81.0 r-curl/5.2.3 crul/1.5.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: 'HTTP/2 200 '
+      date: Wed, 02 Oct 2024 21:17:03 GMT
+      content-type: text/json;charset=ISO-8859-1
+      content-length: '6420'
+      x-frame-options: SAMEORIGIN
+      strict-transport-security: max-age=63072000; includeSubdomains; preload
+      x-robots-tag: noindex, nofollow, nosnippet, noarchive
+    body:
+      encoding: ''
+      file: no
+      string: |
+        {"author":"","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecordList","hierarchyList":[{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"","parentTsn":"","rankName":"Kingdom","taxonName":"Animalia","tsn":"202423"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Animalia","parentTsn":"202423","rankName":"Subkingdom","taxonName":"Bilateria","tsn":"914154"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Bilateria","parentTsn":"914154","rankName":"Infrakingdom","taxonName":"Deuterostomia","tsn":"914156"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Deuterostomia","parentTsn":"914156","rankName":"Phylum","taxonName":"Chordata","tsn":"158852"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Chordata","parentTsn":"158852","rankName":"Subphylum","taxonName":"Vertebrata","tsn":"331030"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Vertebrata","parentTsn":"331030","rankName":"Infraphylum","taxonName":"Gnathostomata","tsn":"914179"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Gnathostomata","parentTsn":"914179","rankName":"Superclass","taxonName":"Tetrapoda","tsn":"914181"},{"author":"Linnaeus, 1758","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Tetrapoda","parentTsn":"914181","rankName":"Class","taxonName":"Mammalia","tsn":"179913"},{"author":"Parker and Haswell, 1897","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Mammalia","parentTsn":"179913","rankName":"Subclass","taxonName":"Theria","tsn":"179916"},{"author":"Gill, 1872","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Theria","parentTsn":"179916","rankName":"Infraclass","taxonName":"Eutheria","tsn":"179925"},{"author":"Bowdich, 1821","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Eutheria","parentTsn":"179925","rankName":"Order","taxonName":"Carnivora","tsn":"180539"},{"author":"Kretzoi, 1938","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Carnivora","parentTsn":"180539","rankName":"Suborder","taxonName":"Caniformia","tsn":"552303"},{"author":"G. Fischer von Waldheim, 1817","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Caniformia","parentTsn":"552303","rankName":"Family","taxonName":"Ursidae","tsn":"180540"},{"author":"Linnaeus, 1758","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ursidae","parentTsn":"180540","rankName":"Genus","taxonName":"Ursus","tsn":"180541"},{"author":"Linnaeus, 1758","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ursus","parentTsn":"180541","rankName":"Species","taxonName":"Ursus arctos","tsn":"180543"},{"author":"Merriam, 1896","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ursus arctos","parentTsn":"180543","rankName":"Subspecies","taxonName":"Ursus arctos alascensis","tsn":"726985"},{"author":"Linnaeus, 1758","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ursus arctos","parentTsn":"180543","rankName":"Subspecies","taxonName":"Ursus arctos arctos","tsn":"202383"},{"author":"Middendorff, 1853","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ursus arctos","parentTsn":"180543","rankName":"Subspecies","taxonName":"Ursus arctos beringianus","tsn":"726986"},{"author":"Merriam, 1896","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ursus arctos","parentTsn":"180543","rankName":"Subspecies","taxonName":"Ursus arctos californicus","tsn":"726987"},{"author":"F. G. Cuvier, 1824","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ursus arctos","parentTsn":"180543","rankName":"Subspecies","taxonName":"Ursus arctos collaris","tsn":"726988"},{"author":"Schinz, 1844","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ursus arctos","parentTsn":"180543","rankName":"Subspecies","taxonName":"Ursus arctos crowtheri","tsn":"726989"},{"author":"Merriam, 1896","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ursus arctos","parentTsn":"180543","rankName":"Subspecies","taxonName":"Ursus arctos dalli","tsn":"726990"},{"author":"Merriam, 1902","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ursus arctos","parentTsn":"180543","rankName":"Subspecies","taxonName":"Ursus arctos gyas","tsn":"726991"},{"author":"Ord, 1815","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ursus arctos","parentTsn":"180543","rankName":"Subspecies","taxonName":"Ursus arctos horribilis","tsn":"202385"},{"author":"Horsfield, 1826","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ursus arctos","parentTsn":"180543","rankName":"Subspecies","taxonName":"Ursus arctos isabellinus","tsn":"622068"},{"author":"Gray, 1867","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ursus arctos","parentTsn":"180543","rankName":"Subspecies","taxonName":"Ursus arctos lasiotus","tsn":"726992"},{"author":"Merriam, 1896","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ursus arctos","parentTsn":"180543","rankName":"Subspecies","taxonName":"Ursus arctos middendorffi","tsn":"726993"},{"author":"Blyth, 1854","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ursus arctos","parentTsn":"180543","rankName":"Subspecies","taxonName":"Ursus arctos pruinosus","tsn":"202386"},{"author":"Merriam, 1896","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ursus arctos","parentTsn":"180543","rankName":"Subspecies","taxonName":"Ursus arctos sitkensis","tsn":"726994"},{"author":"Merriam, 1914","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ursus arctos","parentTsn":"180543","rankName":"Subspecies","taxonName":"Ursus arctos stikeenensis","tsn":"726995"},{"author":"Hemprich and Ehrenberg, 1828","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ursus arctos","parentTsn":"180543","rankName":"Subspecies","taxonName":"Ursus arctos syriacus","tsn":"726996"}],"rankName":"","sciName":"","tsn":"180543"}
+  recorded_at: 2024-10-04 17:14:03 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://www.itis.gov/ITISWebService/jsonservice/getFullHierarchyFromTSN?tsn=41074
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.81.0 r-curl/5.2.3 crul/1.5.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: 'HTTP/2 200 '
+      date: Fri, 04 Oct 2024 17:14:03 GMT
+      content-length: '0'
+      x-frame-options: SAMEORIGIN
+      strict-transport-security: max-age=63072000; includeSubdomains; preload
+      x-robots-tag: noindex, nofollow, nosnippet, noarchive
+    body:
+      encoding: ''
+      file: no
+      string: ''
+  recorded_at: 2024-10-04 17:14:03 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0

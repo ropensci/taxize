@@ -1,1 +1,31 @@
-
+http_interactions:
+- request:
+    method: get
+    uri: https://www.itis.gov/ITISWebService/jsonservice/getAcceptedNamesFromTSN?tsn=504239
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.81.0 r-curl/5.2.3 crul/1.5.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: 'HTTP/2 200 '
+      date: Wed, 02 Oct 2024 21:17:02 GMT
+      content-type: text/json;charset=ISO-8859-1
+      content-length: '239'
+      x-frame-options: SAMEORIGIN
+      strict-transport-security: max-age=63072000; includeSubdomains; preload
+      x-robots-tag: noindex, nofollow, nosnippet, noarchive
+    body:
+      encoding: ''
+      file: no
+      string: |
+        {"acceptedNames":[{"acceptedName":"Dasiphora fruticosa","acceptedTsn":"836659","author":"(L.) Rydb.","class":"gov.usgs.itis.itis_service.data.SvcAcceptedName"}],"class":"gov.usgs.itis.itis_service.data.SvcAcceptedNameList","tsn":"504239"}
+  recorded_at: 2024-10-02 21:17:02 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0

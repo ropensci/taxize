@@ -1,7 +1,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=nucleotide&id=62689767&api_key=<<entrez_api_token>>
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=nucleotide&id=62689767&api_key=
     body:
       encoding: ''
       string: ''
@@ -49,11 +49,11 @@ http_interactions:
         Name=\"Length\" Type=\"Integer\">1455</Item>\n\t<Item Name=\"Status\" Type=\"String\">live</Item>\n\t<Item
         Name=\"ReplacedBy\" Type=\"String\"></Item>\n\t<Item Name=\"Comment\" Type=\"String\"><![CDATA[
         \ ]]></Item>\n\t<Item Name=\"AccessionVersion\" Type=\"String\">AJ748748.1</Item>\n</DocSum>\n\n</eSummaryResult>\n"
-  recorded_at: 2024-09-05 22:54:17 GMT
-  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+  recorded_at: 2024-10-02 20:58:28 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
-    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=nucleotide&id=62689767%2C156446673&api_key=<<entrez_api_token>>
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=nucleotide&id=62689767%2C156446673&api_key=
     body:
       encoding: ''
       string: ''
@@ -111,5 +111,233 @@ http_interactions:
         Name=\"Length\" Type=\"Integer\">1214</Item>\n\t<Item Name=\"Status\" Type=\"String\">live</Item>\n\t<Item
         Name=\"ReplacedBy\" Type=\"String\"></Item>\n\t<Item Name=\"Comment\" Type=\"String\"><![CDATA[
         \ ]]></Item>\n\t<Item Name=\"AccessionVersion\" Type=\"String\">EF579752.1</Item>\n</DocSum>\n\n</eSummaryResult>\n"
-  recorded_at: 2024-09-05 22:54:17 GMT
-  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+  recorded_at: 2024-10-02 20:58:28 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=nucleotide&id=62689767
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Wed, 02 Oct 2024 18:40:24 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: 52DF4EA43C87B3CB_86F8SID
+      ncbi-phid: 322CA97A31CAA4B500005DDC70DBE669.1.1.m_1
+      content-type: text/xml; charset=UTF-8
+      cache-control: private
+      content-encoding: gzip
+      x-ratelimit-limit: '3'
+      x-ratelimit-remaining: '1'
+      access-control-allow-origin: '*'
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=52DF4EA43C87B3CB_86F8SID; domain=.nih.gov; path=/; expires=Thu,
+        02 Oct 2025 18:40:25 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!DOCTYPE eSummaryResult
+        PUBLIC \"-//NLM//DTD esummary v1 20041029//EN\" \"https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20041029/esummary-v1.dtd\">\n<eSummaryResult>\n<DocSum>\n\t<Id>62689767</Id>\n\t<Item
+        Name=\"Caption\" Type=\"String\">AJ748748</Item>\n\t<Item Name=\"Title\" Type=\"String\">Nereida
+        ignava 16S rRNA gene, type strain 2SM4T</Item>\n\t<Item Name=\"Extra\" Type=\"String\">gi|62689767|emb|AJ748748.1|[62689767]</Item>\n\t<Item
+        Name=\"Gi\" Type=\"Integer\">62689767</Item>\n\t<Item Name=\"CreateDate\"
+        Type=\"String\">2005/04/15</Item>\n\t<Item Name=\"UpdateDate\" Type=\"String\">2005/04/15</Item>\n\t<Item
+        Name=\"Flags\" Type=\"Integer\">0</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">282199</Item>\n\t<Item
+        Name=\"Length\" Type=\"Integer\">1455</Item>\n\t<Item Name=\"Status\" Type=\"String\">live</Item>\n\t<Item
+        Name=\"ReplacedBy\" Type=\"String\"></Item>\n\t<Item Name=\"Comment\" Type=\"String\"><![CDATA[
+        \ ]]></Item>\n\t<Item Name=\"AccessionVersion\" Type=\"String\">AJ748748.1</Item>\n</DocSum>\n\n</eSummaryResult>\n"
+  recorded_at: 2024-10-02 20:58:28 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=nucleotide&id=62689767%2C156446673
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Wed, 02 Oct 2024 18:40:25 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: 22C8CEDBF4C210C7_95E2SID
+      ncbi-phid: 322CA97A31CAA4B5000017DC74B12EC2.1.1.m_1
+      content-type: text/xml; charset=UTF-8
+      cache-control: private
+      content-encoding: gzip
+      x-ratelimit-limit: '3'
+      x-ratelimit-remaining: '1'
+      access-control-allow-origin: '*'
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=22C8CEDBF4C210C7_95E2SID; domain=.nih.gov; path=/; expires=Thu,
+        02 Oct 2025 18:40:25 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!DOCTYPE eSummaryResult
+        PUBLIC \"-//NLM//DTD esummary v1 20041029//EN\" \"https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20041029/esummary-v1.dtd\">\n<eSummaryResult>\n<DocSum>\n\t<Id>62689767</Id>\n\t<Item
+        Name=\"Caption\" Type=\"String\">AJ748748</Item>\n\t<Item Name=\"Title\" Type=\"String\">Nereida
+        ignava 16S rRNA gene, type strain 2SM4T</Item>\n\t<Item Name=\"Extra\" Type=\"String\">gi|62689767|emb|AJ748748.1|[62689767]</Item>\n\t<Item
+        Name=\"Gi\" Type=\"Integer\">62689767</Item>\n\t<Item Name=\"CreateDate\"
+        Type=\"String\">2005/04/15</Item>\n\t<Item Name=\"UpdateDate\" Type=\"String\">2005/04/15</Item>\n\t<Item
+        Name=\"Flags\" Type=\"Integer\">0</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">282199</Item>\n\t<Item
+        Name=\"Length\" Type=\"Integer\">1455</Item>\n\t<Item Name=\"Status\" Type=\"String\">live</Item>\n\t<Item
+        Name=\"ReplacedBy\" Type=\"String\"></Item>\n\t<Item Name=\"Comment\" Type=\"String\"><![CDATA[
+        \ ]]></Item>\n\t<Item Name=\"AccessionVersion\" Type=\"String\">AJ748748.1</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>156446673</Id>\n\t<Item
+        Name=\"Caption\" Type=\"String\">EF579752</Item>\n\t<Item Name=\"Title\" Type=\"String\">Cronartium
+        comandrae from Pinus contorta var. latifolia 28S ribosomal RNA gene, partial
+        sequence; intergenic spacer 1, complete sequence; and 5S ribosomal RNA gene,
+        partial sequence</Item>\n\t<Item Name=\"Extra\" Type=\"String\">gi|156446673|gb|EF579752.1|[156446673]</Item>\n\t<Item
+        Name=\"Gi\" Type=\"Integer\">156446673</Item>\n\t<Item Name=\"CreateDate\"
+        Type=\"String\">2007/11/01</Item>\n\t<Item Name=\"UpdateDate\" Type=\"String\">2010/05/14</Item>\n\t<Item
+        Name=\"Flags\" Type=\"Integer\">0</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">53958</Item>\n\t<Item
+        Name=\"Length\" Type=\"Integer\">1214</Item>\n\t<Item Name=\"Status\" Type=\"String\">live</Item>\n\t<Item
+        Name=\"ReplacedBy\" Type=\"String\"></Item>\n\t<Item Name=\"Comment\" Type=\"String\"><![CDATA[
+        \ ]]></Item>\n\t<Item Name=\"AccessionVersion\" Type=\"String\">EF579752.1</Item>\n</DocSum>\n\n</eSummaryResult>\n"
+  recorded_at: 2024-10-02 20:58:28 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=nucleotide&id=62689767&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Wed, 02 Oct 2024 20:58:27 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: 0F82FA1DA6DE7633_BDE0SID
+      ncbi-phid: D0BD77404C21C3D50000504B661383BA.1.1.m_1
+      content-type: text/xml; charset=UTF-8
+      cache-control: private
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '7'
+      access-control-allow-origin: '*'
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=0F82FA1DA6DE7633_BDE0SID; domain=.nih.gov; path=/; expires=Thu,
+        02 Oct 2025 20:58:28 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!DOCTYPE eSummaryResult
+        PUBLIC \"-//NLM//DTD esummary v1 20041029//EN\" \"https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20041029/esummary-v1.dtd\">\n<eSummaryResult>\n<DocSum>\n\t<Id>62689767</Id>\n\t<Item
+        Name=\"Caption\" Type=\"String\">AJ748748</Item>\n\t<Item Name=\"Title\" Type=\"String\">Nereida
+        ignava 16S rRNA gene, type strain 2SM4T</Item>\n\t<Item Name=\"Extra\" Type=\"String\">gi|62689767|emb|AJ748748.1|[62689767]</Item>\n\t<Item
+        Name=\"Gi\" Type=\"Integer\">62689767</Item>\n\t<Item Name=\"CreateDate\"
+        Type=\"String\">2005/04/15</Item>\n\t<Item Name=\"UpdateDate\" Type=\"String\">2005/04/15</Item>\n\t<Item
+        Name=\"Flags\" Type=\"Integer\">0</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">282199</Item>\n\t<Item
+        Name=\"Length\" Type=\"Integer\">1455</Item>\n\t<Item Name=\"Status\" Type=\"String\">live</Item>\n\t<Item
+        Name=\"ReplacedBy\" Type=\"String\"></Item>\n\t<Item Name=\"Comment\" Type=\"String\"><![CDATA[
+        \ ]]></Item>\n\t<Item Name=\"AccessionVersion\" Type=\"String\">AJ748748.1</Item>\n</DocSum>\n\n</eSummaryResult>\n"
+  recorded_at: 2024-10-02 20:58:28 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=nucleotide&id=62689767%2C156446673&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Wed, 02 Oct 2024 20:58:27 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: 7354DB45D88A0363_CA62SID
+      ncbi-phid: D0BD77404C21C3D500002B4B6774754B.1.1.m_1
+      content-type: text/xml; charset=UTF-8
+      cache-control: private
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '7'
+      access-control-allow-origin: '*'
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=7354DB45D88A0363_CA62SID; domain=.nih.gov; path=/; expires=Thu,
+        02 Oct 2025 20:58:28 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!DOCTYPE eSummaryResult
+        PUBLIC \"-//NLM//DTD esummary v1 20041029//EN\" \"https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20041029/esummary-v1.dtd\">\n<eSummaryResult>\n<DocSum>\n\t<Id>62689767</Id>\n\t<Item
+        Name=\"Caption\" Type=\"String\">AJ748748</Item>\n\t<Item Name=\"Title\" Type=\"String\">Nereida
+        ignava 16S rRNA gene, type strain 2SM4T</Item>\n\t<Item Name=\"Extra\" Type=\"String\">gi|62689767|emb|AJ748748.1|[62689767]</Item>\n\t<Item
+        Name=\"Gi\" Type=\"Integer\">62689767</Item>\n\t<Item Name=\"CreateDate\"
+        Type=\"String\">2005/04/15</Item>\n\t<Item Name=\"UpdateDate\" Type=\"String\">2005/04/15</Item>\n\t<Item
+        Name=\"Flags\" Type=\"Integer\">0</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">282199</Item>\n\t<Item
+        Name=\"Length\" Type=\"Integer\">1455</Item>\n\t<Item Name=\"Status\" Type=\"String\">live</Item>\n\t<Item
+        Name=\"ReplacedBy\" Type=\"String\"></Item>\n\t<Item Name=\"Comment\" Type=\"String\"><![CDATA[
+        \ ]]></Item>\n\t<Item Name=\"AccessionVersion\" Type=\"String\">AJ748748.1</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>156446673</Id>\n\t<Item
+        Name=\"Caption\" Type=\"String\">EF579752</Item>\n\t<Item Name=\"Title\" Type=\"String\">Cronartium
+        comandrae from Pinus contorta var. latifolia 28S ribosomal RNA gene, partial
+        sequence; intergenic spacer 1, complete sequence; and 5S ribosomal RNA gene,
+        partial sequence</Item>\n\t<Item Name=\"Extra\" Type=\"String\">gi|156446673|gb|EF579752.1|[156446673]</Item>\n\t<Item
+        Name=\"Gi\" Type=\"Integer\">156446673</Item>\n\t<Item Name=\"CreateDate\"
+        Type=\"String\">2007/11/01</Item>\n\t<Item Name=\"UpdateDate\" Type=\"String\">2010/05/14</Item>\n\t<Item
+        Name=\"Flags\" Type=\"Integer\">0</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">53958</Item>\n\t<Item
+        Name=\"Length\" Type=\"Integer\">1214</Item>\n\t<Item Name=\"Status\" Type=\"String\">live</Item>\n\t<Item
+        Name=\"ReplacedBy\" Type=\"String\"></Item>\n\t<Item Name=\"Comment\" Type=\"String\"><![CDATA[
+        \ ]]></Item>\n\t<Item Name=\"AccessionVersion\" Type=\"String\">EF579752.1</Item>\n</DocSum>\n\n</eSummaryResult>\n"
+  recorded_at: 2024-10-02 20:58:28 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0

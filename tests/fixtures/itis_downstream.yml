@@ -1,0 +1,91 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://www.itis.gov/ITISWebService/jsonservice/getTaxonomicRankNameFromTSN?tsn=183264
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.81.0 r-curl/5.2.3 crul/1.5.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: 'HTTP/2 200 '
+      date: Wed, 02 Oct 2024 21:17:02 GMT
+      content-type: text/json;charset=ISO-8859-1
+      content-length: '150'
+      x-frame-options: SAMEORIGIN
+      strict-transport-security: max-age=63072000; includeSubdomains; preload
+      x-robots-tag: noindex, nofollow, nosnippet, noarchive
+    body:
+      encoding: ''
+      file: no
+      string: |
+        {"class":"gov.usgs.itis.itis_service.data.SvcTaxonRankInfo","kingdomId":"3","kingdomName":"Plantae","rankId":"180","rankName":"Genus","tsn":"183264"}
+  recorded_at: 2024-10-02 21:17:02 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://www.itis.gov/ITISWebService/jsonservice/getHierarchyDownFromTSN?tsn=183264
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.81.0 r-curl/5.2.3 crul/1.5.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: 'HTTP/2 200 '
+      date: Wed, 02 Oct 2024 21:17:02 GMT
+      content-type: text/json;charset=ISO-8859-1
+      content-length: '336'
+      x-frame-options: SAMEORIGIN
+      strict-transport-security: max-age=63072000; includeSubdomains; preload
+      x-robots-tag: noindex, nofollow, nosnippet, noarchive
+    body:
+      encoding: ''
+      file: no
+      string: |
+        {"author":"L.","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecordList","hierarchyList":[{"author":"L.","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Ginkgo","parentTsn":"183264","rankName":"Species","taxonName":"Ginkgo biloba","tsn":"183269"}],"rankName":"Genus","sciName":"Ginkgo","tsn":"183264"}
+  recorded_at: 2024-10-02 21:17:02 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://www.itis.gov/ITISWebService/jsonservice/getTaxonomicRankNameFromTSN?tsn=183269
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.81.0 r-curl/5.2.3 crul/1.5.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: 'HTTP/2 200 '
+      date: Wed, 02 Oct 2024 21:17:02 GMT
+      content-type: text/json;charset=ISO-8859-1
+      content-length: '152'
+      x-frame-options: SAMEORIGIN
+      strict-transport-security: max-age=63072000; includeSubdomains; preload
+      x-robots-tag: noindex, nofollow, nosnippet, noarchive
+    body:
+      encoding: ''
+      file: no
+      string: |
+        {"class":"gov.usgs.itis.itis_service.data.SvcTaxonRankInfo","kingdomId":"3","kingdomName":"Plantae","rankId":"220","rankName":"Species","tsn":"183269"}
+  recorded_at: 2024-10-02 21:17:02 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0

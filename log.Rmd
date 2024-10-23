@@ -10,6 +10,19 @@ clipr::write_clip(paste0('## ', format(Sys.time(), "%F (%A %B %e)\n\n")))
 # Date and time:
 clipr::write_clip(paste0('## ', format(Sys.time(), "%F %X %Z (%A %B %e)\n\n")))
 ```
+## 2024-10-16 (Wednesday October 16)
+
+Working on updating `scrapenames`.
+The options have been updated, but it has not been tested.
+
+## 2024-10-04 (Friday October  4)
+
+It seems some of the functions that use the Global Names APIs no longer work. 
+There seem to be multiple APIs (and corresponding command line tools) with multiple endpoints, so its hard to tell which is the new version for presumably depreciated APIs.
+I will look into each of the API/tools.
+
+* GNFinder: searches for latin names in text. Seems intended to provide metadata about species mentioned in old publications. Results can be passed to GNVerifier.
+* GNVerifier: Used to provide the currently accepted name for a species. 
 
 ## 2021-10-13 (Wednesday October 13)
 

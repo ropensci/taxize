@@ -1,7 +1,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Asdfafsfd%5BNext%20Level%5D&RetMax=1000&RetStart=0&api_key=<<entrez_api_token>>
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Asdfafsfd%5BNext%20Level%5D&RetMax=1000&RetStart=0&api_key=
     body:
       encoding: ''
       string: ''
@@ -43,5 +43,97 @@ http_interactions:
         <?xml version="1.0" encoding="UTF-8" ?>
         <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
         <eSearchResult><Count>0</Count><RetMax>0</RetMax><RetStart>0</RetStart><IdList/><TranslationSet/><QueryTranslation>(Asdfafsfd[Next Level])</QueryTranslation><ErrorList><PhraseNotFound>Asdfafsfd[Next Level]</PhraseNotFound></ErrorList><WarningList><OutputMessage>No items found.</OutputMessage></WarningList></eSearchResult>
-  recorded_at: 2024-09-05 16:45:10 GMT
+  recorded_at: 2024-10-02 20:57:25 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Asdfafsfd%5BNext%20Level%5D&RetMax=1000&RetStart=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Wed, 02 Oct 2024 18:39:07 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: CA6BF65C056D97E1_ABEBSID
+      ncbi-phid: D0BD77404C21C3D5000061D43C9FF6FA.1.1.m_1
+      content-type: text/xml; charset=UTF-8
+      cache-control: private
+      content-encoding: gzip
+      x-ratelimit-limit: '3'
+      x-ratelimit-remaining: '2'
+      access-control-allow-origin: '*'
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=CA6BF65C056D97E1_ABEBSID; domain=.nih.gov; path=/; expires=Thu,
+        02 Oct 2025 18:39:07 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: |
+        <?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
+        <eSearchResult><Count>0</Count><RetMax>0</RetMax><RetStart>0</RetStart><IdList/><TranslationSet/><QueryTranslation>(Asdfafsfd[Next Level])</QueryTranslation><ErrorList><PhraseNotFound>Asdfafsfd[Next Level]</PhraseNotFound></ErrorList><WarningList><OutputMessage>No items found.</OutputMessage></WarningList></eSearchResult>
+  recorded_at: 2024-10-02 20:57:25 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Asdfafsfd%5BNext%20Level%5D&RetMax=1000&RetStart=0&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Wed, 02 Oct 2024 20:57:24 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: 7A661DC78BD06215_A600SID
+      ncbi-phid: 939BD0A2308B10B500004D29A98CC265.1.1.m_1
+      content-type: text/xml; charset=UTF-8
+      cache-control: private
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '7'
+      access-control-allow-origin: '*'
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=7A661DC78BD06215_A600SID; domain=.nih.gov; path=/; expires=Thu,
+        02 Oct 2025 20:57:25 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: |
+        <?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
+        <eSearchResult><Count>0</Count><RetMax>0</RetMax><RetStart>0</RetStart><IdList/><TranslationSet/><QueryTranslation>(Asdfafsfd[Next Level])</QueryTranslation><ErrorList><PhraseNotFound>Asdfafsfd[Next Level]</PhraseNotFound></ErrorList><WarningList><OutputMessage>No items found.</OutputMessage></WarningList></eSearchResult>
+  recorded_at: 2024-10-02 20:57:25 GMT
   recorded_with: vcr/1.6.0, webmockr/1.0.0

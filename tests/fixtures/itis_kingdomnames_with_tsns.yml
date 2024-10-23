@@ -1,0 +1,29 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://www.itis.gov/ITISWebService/jsonservice/getKingdomNameFromTSN?tsn=202385
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.81.0 r-curl/5.2.3 crul/1.5.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: 'HTTP/2 200 '
+      date: Fri, 04 Oct 2024 17:14:03 GMT
+      content-length: '0'
+      x-frame-options: SAMEORIGIN
+      strict-transport-security: max-age=63072000; includeSubdomains; preload
+      x-robots-tag: noindex, nofollow, nosnippet, noarchive
+    body:
+      encoding: ''
+      file: no
+      string: ''
+  recorded_at: 2024-10-04 17:14:03 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0

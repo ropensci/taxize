@@ -1,7 +1,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=8028&api_key=<<entrez_api_token>>
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=8028&api_key=
     body:
       encoding: ''
       string: ''
@@ -188,11 +188,11 @@ http_interactions:
         </Taxon>
 
         </TaxaSet>
-  recorded_at: 2024-09-05 16:50:52 GMT
+  recorded_at: 2024-10-02 20:57:25 GMT
   recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
-    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Salmo%5BNext%20Level%5D%20AND%20Salmoninae%5Bsubtree%5D&RetMax=1000&RetStart=0&api_key=<<entrez_api_token>>
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Salmo%5BNext%20Level%5D%20AND%20Salmoninae%5Bsubtree%5D&RetMax=1000&RetStart=0&api_key=
     body:
       encoding: ''
       string: ''
@@ -295,11 +295,11 @@ http_interactions:
         <Id>8032</Id>
         <Id>8030</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Salmo[Next Level]</Term>    <Field>Next Level</Field>    <Count>60</Count>    <Explode>N</Explode>   </TermSet>   <TermSet>    <Term>Salmoninae[subtree]</Term>    <Field>subtree</Field>    <Count>419</Count>    <Explode>N</Explode>   </TermSet>   <OP>AND</OP>  </TranslationStack><QueryTranslation>Salmo[Next Level] AND Salmoninae[subtree]</QueryTranslation></eSearchResult>
-  recorded_at: 2024-09-05 16:50:52 GMT
+  recorded_at: 2024-10-02 20:57:25 GMT
   recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
-    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&id=3146437%2B3075334%2B3075333%2B3075332%2B2972643%2B2928103%2B2912309%2B2860723%2B2789652%2B2789651%2B2789524%2B2759368%2B2752229%2B2752228%2B2739741%2B2739740%2B2739739%2B2739738%2B2739737%2B2739736%2B2705433%2B2629501%2B2358192%2B2304094%2B2304093%2B2304092%2B2304091%2B2304090%2B2126688%2B1814159%2B1509524%2B1484545%2B1483130%2B1483129%2B1483128%2B1483127%2B1483126%2B1483125%2B1483124%2B1483123%2B1483122%2B1483121%2B1483120%2B1483119%2B1483118%2B1483117%2B1201173%2B1035833%2B700588%2B602068%2B237411%2B235141%2B234793%2B157020%2B62065%2B33518%2B33516%2B33515%2B8032%2B8030&api_key=<<entrez_api_token>>
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&id=3146437%2B3075334%2B3075333%2B3075332%2B2972643%2B2928103%2B2912309%2B2860723%2B2789652%2B2789651%2B2789524%2B2759368%2B2752229%2B2752228%2B2739741%2B2739740%2B2739739%2B2739738%2B2739737%2B2739736%2B2705433%2B2629501%2B2358192%2B2304094%2B2304093%2B2304092%2B2304091%2B2304090%2B2126688%2B1814159%2B1509524%2B1484545%2B1483130%2B1483129%2B1483128%2B1483127%2B1483126%2B1483125%2B1483124%2B1483123%2B1483122%2B1483121%2B1483120%2B1483119%2B1483118%2B1483117%2B1201173%2B1035833%2B700588%2B602068%2B237411%2B235141%2B234793%2B157020%2B62065%2B33518%2B33516%2B33515%2B8032%2B8030&api_key=
     body:
       encoding: ''
       string: ''
@@ -792,7 +792,7 @@ http_interactions:
         Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
         Name=\"Species\" Type=\"String\">salar</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
         Name=\"ModificationDate\" Type=\"Date\">2017/06/14 00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
-  recorded_at: 2024-09-05 16:50:52 GMT
+  recorded_at: 2024-10-02 20:57:25 GMT
   recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
@@ -1077,7 +1077,7 @@ http_interactions:
         R. and D. Pauly. Editors. (2024). FishBase. Gadus magellanicus Forster, 1801.
         Accessed through: World Register of Marine Species at: https:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300758
         on 2024-09-05","lsid":"urn:lsid:marinespecies.org:taxname:300758","isMarine":1,"isBrackish":0,"isFreshwater":0,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2017-08-17T13:35:34.540Z"}]'
-  recorded_at: 2024-09-05 16:50:52 GMT
+  recorded_at: 2024-10-02 20:57:25 GMT
   recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
@@ -1357,5 +1357,1611 @@ http_interactions:
         R. and D. Pauly. Editors. (2024). FishBase. Gadus wachna Pallas, 1814. Accessed
         through: World Register of Marine Species at: https:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=300794
         on 2024-09-05","lsid":"urn:lsid:marinespecies.org:taxname:300794","isMarine":1,"isBrackish":1,"isFreshwater":1,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2023-01-10T08:56:01.993Z"}]'
-  recorded_at: 2024-09-05 16:50:52 GMT
+  recorded_at: 2024-10-02 20:57:25 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=8028
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.81.0 r-curl/5.2.3 crul/1.5.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Wed, 02 Oct 2024 18:39:05 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: 340FA4E3713270A4_7876SID
+      ncbi-phid: D0BD77404C21C3D500002ED43052BE93.1.1.m_3
+      content-type: text/xml; charset=UTF-8
+      cache-control: private
+      content-encoding: gzip
+      x-ratelimit-limit: '3'
+      x-ratelimit-remaining: '2'
+      access-control-allow-origin: '*'
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=340FA4E3713270A4_7876SID; domain=.nih.gov; path=/; expires=Thu,
+        02 Oct 2025 18:39:05 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: |-
+        <?xml version="1.0" ?>
+        <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
+        <TaxaSet><Taxon>
+            <TaxId>8028</TaxId>
+            <ScientificName>Salmo</ScientificName>
+            <OtherNames>
+                <Synonym>Acantholingua</Synonym>
+                <Synonym>Salmothymus</Synonym>
+            </OtherNames>
+            <ParentTaxId>504568</ParentTaxId>
+            <Rank>genus</Rank>
+            <Division>Vertebrates</Division>
+            <GeneticCode>
+                <GCId>1</GCId>
+                <GCName>Standard</GCName>
+            </GeneticCode>
+            <MitoGeneticCode>
+                <MGCId>2</MGCId>
+                <MGCName>Vertebrate Mitochondrial</MGCName>
+            </MitoGeneticCode>
+            <Lineage>cellular organisms; Eukaryota; Opisthokonta; Metazoa; Eumetazoa; Bilateria; Deuterostomia; Chordata; Craniata; Vertebrata; Gnathostomata; Teleostomi; Euteleostomi; Actinopterygii; Actinopteri; Neopterygii; Teleostei; Osteoglossocephalai; Clupeocephala; Euteleosteomorpha; Protacanthopterygii; Salmoniformes; Salmonidae; Salmoninae</Lineage>
+            <LineageEx>
+                <Taxon>
+                    <TaxId>131567</TaxId>
+                    <ScientificName>cellular organisms</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>2759</TaxId>
+                    <ScientificName>Eukaryota</ScientificName>
+                    <Rank>superkingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33154</TaxId>
+                    <ScientificName>Opisthokonta</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33208</TaxId>
+                    <ScientificName>Metazoa</ScientificName>
+                    <Rank>kingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6072</TaxId>
+                    <ScientificName>Eumetazoa</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33213</TaxId>
+                    <ScientificName>Bilateria</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33511</TaxId>
+                    <ScientificName>Deuterostomia</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>7711</TaxId>
+                    <ScientificName>Chordata</ScientificName>
+                    <Rank>phylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>89593</TaxId>
+                    <ScientificName>Craniata</ScientificName>
+                    <Rank>subphylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>7742</TaxId>
+                    <ScientificName>Vertebrata</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>7776</TaxId>
+                    <ScientificName>Gnathostomata</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>117570</TaxId>
+                    <ScientificName>Teleostomi</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>117571</TaxId>
+                    <ScientificName>Euteleostomi</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>7898</TaxId>
+                    <ScientificName>Actinopterygii</ScientificName>
+                    <Rank>superclass</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>186623</TaxId>
+                    <ScientificName>Actinopteri</ScientificName>
+                    <Rank>class</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>41665</TaxId>
+                    <ScientificName>Neopterygii</ScientificName>
+                    <Rank>subclass</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>32443</TaxId>
+                    <ScientificName>Teleostei</ScientificName>
+                    <Rank>infraclass</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1489341</TaxId>
+                    <ScientificName>Osteoglossocephalai</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>186625</TaxId>
+                    <ScientificName>Clupeocephala</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1489388</TaxId>
+                    <ScientificName>Euteleosteomorpha</ScientificName>
+                    <Rank>cohort</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>41705</TaxId>
+                    <ScientificName>Protacanthopterygii</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>8006</TaxId>
+                    <ScientificName>Salmoniformes</ScientificName>
+                    <Rank>order</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>8015</TaxId>
+                    <ScientificName>Salmonidae</ScientificName>
+                    <Rank>family</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>504568</TaxId>
+                    <ScientificName>Salmoninae</ScientificName>
+                    <Rank>subfamily</Rank>
+                </Taxon>
+            </LineageEx>
+            <CreateDate>1995/02/27 09:24:00</CreateDate>
+            <UpdateDate>2015/07/15 12:16:00</UpdateDate>
+            <PubDate>1993/08/04 01:00:00</PubDate>
+        </Taxon>
+
+        </TaxaSet>
+  recorded_at: 2024-10-02 20:57:25 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Salmo%5BNext%20Level%5D%20AND%20Salmoninae%5Bsubtree%5D&RetMax=1000&RetStart=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Wed, 02 Oct 2024 18:39:05 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: 9CF219F9516FC24C_2318SID
+      ncbi-phid: D0BD77404C21C3D500005BD433CD6089.1.1.m_1
+      content-type: text/xml; charset=UTF-8
+      cache-control: private
+      content-encoding: gzip
+      x-ratelimit-limit: '3'
+      x-ratelimit-remaining: '1'
+      access-control-allow-origin: '*'
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=9CF219F9516FC24C_2318SID; domain=.nih.gov; path=/; expires=Thu,
+        02 Oct 2025 18:39:06 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: |
+        <?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
+        <eSearchResult><Count>61</Count><RetMax>61</RetMax><RetStart>0</RetStart><IdList>
+        <Id>3242767</Id>
+        <Id>3146437</Id>
+        <Id>3075334</Id>
+        <Id>3075333</Id>
+        <Id>3075332</Id>
+        <Id>2972643</Id>
+        <Id>2928103</Id>
+        <Id>2912309</Id>
+        <Id>2860723</Id>
+        <Id>2789652</Id>
+        <Id>2789651</Id>
+        <Id>2789524</Id>
+        <Id>2759368</Id>
+        <Id>2752229</Id>
+        <Id>2752228</Id>
+        <Id>2739741</Id>
+        <Id>2739740</Id>
+        <Id>2739739</Id>
+        <Id>2739738</Id>
+        <Id>2739737</Id>
+        <Id>2739736</Id>
+        <Id>2705433</Id>
+        <Id>2629501</Id>
+        <Id>2358192</Id>
+        <Id>2304094</Id>
+        <Id>2304093</Id>
+        <Id>2304092</Id>
+        <Id>2304091</Id>
+        <Id>2304090</Id>
+        <Id>2126688</Id>
+        <Id>1814159</Id>
+        <Id>1509524</Id>
+        <Id>1484545</Id>
+        <Id>1483130</Id>
+        <Id>1483129</Id>
+        <Id>1483128</Id>
+        <Id>1483127</Id>
+        <Id>1483126</Id>
+        <Id>1483125</Id>
+        <Id>1483124</Id>
+        <Id>1483123</Id>
+        <Id>1483122</Id>
+        <Id>1483121</Id>
+        <Id>1483120</Id>
+        <Id>1483119</Id>
+        <Id>1483118</Id>
+        <Id>1483117</Id>
+        <Id>1201173</Id>
+        <Id>1035833</Id>
+        <Id>700588</Id>
+        <Id>602068</Id>
+        <Id>237411</Id>
+        <Id>235141</Id>
+        <Id>234793</Id>
+        <Id>157020</Id>
+        <Id>62065</Id>
+        <Id>33518</Id>
+        <Id>33516</Id>
+        <Id>33515</Id>
+        <Id>8032</Id>
+        <Id>8030</Id>
+        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Salmo[Next Level]</Term>    <Field>Next Level</Field>    <Count>61</Count>    <Explode>N</Explode>   </TermSet>   <TermSet>    <Term>Salmoninae[subtree]</Term>    <Field>subtree</Field>    <Count>422</Count>    <Explode>N</Explode>   </TermSet>   <OP>AND</OP>  </TranslationStack><QueryTranslation>Salmo[Next Level] AND Salmoninae[subtree]</QueryTranslation></eSearchResult>
+  recorded_at: 2024-10-02 20:57:25 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&id=3242767%2B3146437%2B3075334%2B3075333%2B3075332%2B2972643%2B2928103%2B2912309%2B2860723%2B2789652%2B2789651%2B2789524%2B2759368%2B2752229%2B2752228%2B2739741%2B2739740%2B2739739%2B2739738%2B2739737%2B2739736%2B2705433%2B2629501%2B2358192%2B2304094%2B2304093%2B2304092%2B2304091%2B2304090%2B2126688%2B1814159%2B1509524%2B1484545%2B1483130%2B1483129%2B1483128%2B1483127%2B1483126%2B1483125%2B1483124%2B1483123%2B1483122%2B1483121%2B1483120%2B1483119%2B1483118%2B1483117%2B1201173%2B1035833%2B700588%2B602068%2B237411%2B235141%2B234793%2B157020%2B62065%2B33518%2B33516%2B33515%2B8032%2B8030
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Wed, 02 Oct 2024 18:39:06 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: 4D147DB51A110431_97B5SID
+      ncbi-phid: D0BD77404C21C3D500005CD434DC6E80.1.1.m_1
+      content-type: text/xml; charset=UTF-8
+      cache-control: private
+      content-encoding: gzip
+      x-ratelimit-limit: '3'
+      x-ratelimit-remaining: '0'
+      access-control-allow-origin: '*'
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=4D147DB51A110431_97B5SID; domain=.nih.gov; path=/; expires=Thu,
+        02 Oct 2025 18:39:06 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!DOCTYPE eSummaryResult
+        PUBLIC \"-//NLM//DTD esummary v1 20041029//EN\" \"https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20041029/esummary-v1.dtd\">\n<eSummaryResult>\n<DocSum>\n\t<Id>3242767</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo salar x Salmo trutta</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">3242767</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\"></Item>\n\t<Item
+        Name=\"Species\" Type=\"String\"></Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2024/08/29 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>3146437</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo ekmekciae</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">3146437</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">ekmekciae</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2024/06/20
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>3075334</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo murathani</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">3075334</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">murathani</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2023/09/27
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>3075333</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo ardahanensis</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">3075333</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">ardahanensis</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2023/09/27
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>3075332</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo araxensis</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">3075332</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">araxensis</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2023/09/27
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2972643</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo pallaryi</Item>\n\t<Item Name=\"CommonName\" Type=\"String\">Lake
+        Sidi Ali trout</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2972643</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">pallaryi</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2023/05/30 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2928103</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo trutta complex sp. GP-2022</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2928103</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">trutta complex sp. GP-2022</Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2022/10/28 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2912309</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo baliki</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">2912309</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">baliki</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2022/02/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2860723</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo trutta complex sp. LT-2021</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2860723</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">trutta complex sp. LT-2021</Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2021/08/02 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2789652</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo cf. cenerinus 640 HS-2020</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2789652</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">cf. cenerinus 640 HS-2020</Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2021/12/02 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2789651</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo cf. cenerinus 637 HS-2020</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2789651</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">cf. cenerinus 637 HS-2020</Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2021/12/02 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2789524</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo oxianus</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">2789524</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">oxianus</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2021/06/07 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2759368</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo lumi</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">2759368</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">lumi</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2021/06/07 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2752229</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo cf. pelagonicus IA-2020</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2752229</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">cf. pelagonicus IA-2020</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2022/01/06
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2752228</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo kottelati</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">2752228</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">kottelati</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2022/01/06
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2739741</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo tigridis</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">2739741</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">tigridis</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2020/06/09 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2739740</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo rizeensis</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">2739740</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">rizeensis</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2020/06/09
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2739739</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo okumusi</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">2739739</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">okumusi</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2020/06/09 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2739738</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo munzuricus</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">2739738</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">munzuricus</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2020/06/09
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2739737</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo fahrettini</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">2739737</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">fahrettini</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2020/06/09
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2739736</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo euphrataeus</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">2739736</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">euphrataeus</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2020/06/09
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2705433</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo ghigii</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">2705433</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">ghigii</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2020/02/10 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2629501</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\"></Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">unclassified Salmo</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">2629501</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\"></Item>\n\t<Item
+        Name=\"Species\" Type=\"String\"></Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2019/09/24 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2358192</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo coruhensis</Item>\n\t<Item Name=\"CommonName\" Type=\"String\">Coruh
+        trout</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2358192</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">coruhensis</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2020/06/09
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2304094</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo caspius complex sp. H2</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2304094</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">caspius complex sp. H2</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2018/08/29
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2304093</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo caspius complex sp. H1</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2304093</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">caspius complex sp. H1</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2018/08/29
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2304092</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo abanticus complex sp. H2</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2304092</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">abanticus complex sp. H2</Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2018/08/29 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2304091</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo abanticus complex sp. H1</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2304091</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">abanticus complex sp. H1</Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2018/08/29 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2304090</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo abanticus</Item>\n\t<Item Name=\"CommonName\" Type=\"String\">Abant
+        trout</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2304090</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">abanticus</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2018/10/31
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2126688</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo ciscaucasicus</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">2126688</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">ciscaucasicus</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2018/03/29
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>1814159</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\"></Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">environmental samples</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">1814159</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\"></Item>\n\t<Item
+        Name=\"Species\" Type=\"String\"></Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2017/01/02 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>1509524</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo marmoratus x Salmo trutta</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">1509524</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\"></Item>\n\t<Item
+        Name=\"Species\" Type=\"String\"></Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2014/07/14 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>1484545</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo cf. cenerinus BOLD:AAB3872</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">1484545</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">cf. cenerinus BOLD:AAB3872</Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2014/04/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>1483130</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo zrmanjaensis</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">1483130</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">zrmanjaensis</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2018/10/31
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>1483129</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo visovacensis</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">1483129</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">visovacensis</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2014/04/18
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>1483128</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo rhodanensis</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">1483128</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">rhodanensis</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2018/10/31
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>1483127</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo pellegrini</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">1483127</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">pellegrini</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2018/10/31
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>1483126</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo opimus</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">1483126</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">opimus</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2014/04/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>1483125</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo macedonicus</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">1483125</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">macedonicus</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2018/11/26
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>1483124</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo lourosensis</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">1483124</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">lourosensis</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2014/04/18
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>1483123</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo labecula</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">1483123</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">labecula</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2014/04/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>1483122</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo farioides</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">1483122</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">farioides</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2014/04/18
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>1483121</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo chilo</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">1483121</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">chilo</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2014/04/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>1483120</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo cettii</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">1483120</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">cettii</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2014/04/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>1483119</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo cenerinus</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">1483119</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">cenerinus</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2014/07/14
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>1483118</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo aphelios</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">1483118</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">aphelios</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2014/04/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>1483117</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo akairos</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">1483117</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">akairos</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2014/04/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>1201173</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo peristericus</Item>\n\t<Item Name=\"CommonName\" Type=\"String\">Prespa
+        trout</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">1201173</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">peristericus</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2018/10/31
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>1035833</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo ischchan</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">1035833</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">ischchan</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2011/05/31 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>700588</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo labrax</Item>\n\t<Item Name=\"CommonName\" Type=\"String\">Black
+        sea salmon</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">700588</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">labrax</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2018/10/31 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>602068</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo caspius</Item>\n\t<Item Name=\"CommonName\" Type=\"String\">Caspian
+        trout</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">602068</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">caspius</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2018/10/31 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>237411</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo obtusirostris</Item>\n\t<Item Name=\"CommonName\" Type=\"String\">Adriatic
+        trout</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">237411</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">obtusirostris</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2020/07/28
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>235141</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo platycephalus</Item>\n\t<Item Name=\"CommonName\" Type=\"String\">flathead
+        trout</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">235141</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">platycephalus</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2018/10/29
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>234793</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo letnica</Item>\n\t<Item Name=\"CommonName\" Type=\"String\">Lake
+        Ohrid brown trout</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">234793</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">letnica</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2020/07/28 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>157020</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo macrostigma</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">157020</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item Name=\"Species\" Type=\"String\">macrostigma</Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2020/07/31 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>62065</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo ohridanus</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">62065</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item Name=\"Species\" Type=\"String\">ohridanus</Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2018/11/26 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>33518</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo marmoratus</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">33518</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item Name=\"Species\" Type=\"String\">marmoratus</Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2018/10/31 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>33516</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo fibreni</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">33516</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item Name=\"Species\" Type=\"String\">fibreni</Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2016/08/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>33515</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo carpio</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">33515</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item Name=\"Species\" Type=\"String\">carpio</Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2016/08/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>8032</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo trutta</Item>\n\t<Item Name=\"CommonName\" Type=\"String\">river
+        trout</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">8032</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">trutta</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2017/06/14 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>8030</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo salar</Item>\n\t<Item Name=\"CommonName\" Type=\"String\">Atlantic
+        salmon</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">8030</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">salar</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2017/06/14 00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
+  recorded_at: 2024-10-02 20:57:25 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=8028&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.81.0 r-curl/5.2.3 crul/1.5.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Wed, 02 Oct 2024 20:57:23 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: D6C81AFF20377AC6_72C6SID
+      ncbi-phid: 939BD0A2308B10B500003129A6BCF859.1.1.m_3
+      content-type: text/xml; charset=UTF-8
+      cache-control: private
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '7'
+      access-control-allow-origin: '*'
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=D6C81AFF20377AC6_72C6SID; domain=.nih.gov; path=/; expires=Thu,
+        02 Oct 2025 20:57:23 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: |-
+        <?xml version="1.0" ?>
+        <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
+        <TaxaSet><Taxon>
+            <TaxId>8028</TaxId>
+            <ScientificName>Salmo</ScientificName>
+            <OtherNames>
+                <Synonym>Acantholingua</Synonym>
+                <Synonym>Salmothymus</Synonym>
+            </OtherNames>
+            <ParentTaxId>504568</ParentTaxId>
+            <Rank>genus</Rank>
+            <Division>Vertebrates</Division>
+            <GeneticCode>
+                <GCId>1</GCId>
+                <GCName>Standard</GCName>
+            </GeneticCode>
+            <MitoGeneticCode>
+                <MGCId>2</MGCId>
+                <MGCName>Vertebrate Mitochondrial</MGCName>
+            </MitoGeneticCode>
+            <Lineage>cellular organisms; Eukaryota; Opisthokonta; Metazoa; Eumetazoa; Bilateria; Deuterostomia; Chordata; Craniata; Vertebrata; Gnathostomata; Teleostomi; Euteleostomi; Actinopterygii; Actinopteri; Neopterygii; Teleostei; Osteoglossocephalai; Clupeocephala; Euteleosteomorpha; Protacanthopterygii; Salmoniformes; Salmonidae; Salmoninae</Lineage>
+            <LineageEx>
+                <Taxon>
+                    <TaxId>131567</TaxId>
+                    <ScientificName>cellular organisms</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>2759</TaxId>
+                    <ScientificName>Eukaryota</ScientificName>
+                    <Rank>superkingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33154</TaxId>
+                    <ScientificName>Opisthokonta</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33208</TaxId>
+                    <ScientificName>Metazoa</ScientificName>
+                    <Rank>kingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6072</TaxId>
+                    <ScientificName>Eumetazoa</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33213</TaxId>
+                    <ScientificName>Bilateria</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33511</TaxId>
+                    <ScientificName>Deuterostomia</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>7711</TaxId>
+                    <ScientificName>Chordata</ScientificName>
+                    <Rank>phylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>89593</TaxId>
+                    <ScientificName>Craniata</ScientificName>
+                    <Rank>subphylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>7742</TaxId>
+                    <ScientificName>Vertebrata</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>7776</TaxId>
+                    <ScientificName>Gnathostomata</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>117570</TaxId>
+                    <ScientificName>Teleostomi</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>117571</TaxId>
+                    <ScientificName>Euteleostomi</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>7898</TaxId>
+                    <ScientificName>Actinopterygii</ScientificName>
+                    <Rank>superclass</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>186623</TaxId>
+                    <ScientificName>Actinopteri</ScientificName>
+                    <Rank>class</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>41665</TaxId>
+                    <ScientificName>Neopterygii</ScientificName>
+                    <Rank>subclass</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>32443</TaxId>
+                    <ScientificName>Teleostei</ScientificName>
+                    <Rank>infraclass</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1489341</TaxId>
+                    <ScientificName>Osteoglossocephalai</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>186625</TaxId>
+                    <ScientificName>Clupeocephala</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1489388</TaxId>
+                    <ScientificName>Euteleosteomorpha</ScientificName>
+                    <Rank>cohort</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>41705</TaxId>
+                    <ScientificName>Protacanthopterygii</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>8006</TaxId>
+                    <ScientificName>Salmoniformes</ScientificName>
+                    <Rank>order</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>8015</TaxId>
+                    <ScientificName>Salmonidae</ScientificName>
+                    <Rank>family</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>504568</TaxId>
+                    <ScientificName>Salmoninae</ScientificName>
+                    <Rank>subfamily</Rank>
+                </Taxon>
+            </LineageEx>
+            <CreateDate>1995/02/27 09:24:00</CreateDate>
+            <UpdateDate>2015/07/15 12:16:00</UpdateDate>
+            <PubDate>1993/08/04 01:00:00</PubDate>
+        </Taxon>
+
+        </TaxaSet>
+  recorded_at: 2024-10-02 20:57:25 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Salmo%5BNext%20Level%5D%20AND%20Salmoninae%5Bsubtree%5D&RetMax=1000&RetStart=0&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Wed, 02 Oct 2024 20:57:24 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: 6AD25743F740E94D_ABA4SID
+      ncbi-phid: 939BD0A2308B10B500004129A7F08DD8.1.1.m_1
+      content-type: text/xml; charset=UTF-8
+      cache-control: private
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '8'
+      access-control-allow-origin: '*'
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=6AD25743F740E94D_ABA4SID; domain=.nih.gov; path=/; expires=Thu,
+        02 Oct 2025 20:57:24 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: |
+        <?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
+        <eSearchResult><Count>61</Count><RetMax>61</RetMax><RetStart>0</RetStart><IdList>
+        <Id>3242767</Id>
+        <Id>3146437</Id>
+        <Id>3075334</Id>
+        <Id>3075333</Id>
+        <Id>3075332</Id>
+        <Id>2972643</Id>
+        <Id>2928103</Id>
+        <Id>2912309</Id>
+        <Id>2860723</Id>
+        <Id>2789652</Id>
+        <Id>2789651</Id>
+        <Id>2789524</Id>
+        <Id>2759368</Id>
+        <Id>2752229</Id>
+        <Id>2752228</Id>
+        <Id>2739741</Id>
+        <Id>2739740</Id>
+        <Id>2739739</Id>
+        <Id>2739738</Id>
+        <Id>2739737</Id>
+        <Id>2739736</Id>
+        <Id>2705433</Id>
+        <Id>2629501</Id>
+        <Id>2358192</Id>
+        <Id>2304094</Id>
+        <Id>2304093</Id>
+        <Id>2304092</Id>
+        <Id>2304091</Id>
+        <Id>2304090</Id>
+        <Id>2126688</Id>
+        <Id>1814159</Id>
+        <Id>1509524</Id>
+        <Id>1484545</Id>
+        <Id>1483130</Id>
+        <Id>1483129</Id>
+        <Id>1483128</Id>
+        <Id>1483127</Id>
+        <Id>1483126</Id>
+        <Id>1483125</Id>
+        <Id>1483124</Id>
+        <Id>1483123</Id>
+        <Id>1483122</Id>
+        <Id>1483121</Id>
+        <Id>1483120</Id>
+        <Id>1483119</Id>
+        <Id>1483118</Id>
+        <Id>1483117</Id>
+        <Id>1201173</Id>
+        <Id>1035833</Id>
+        <Id>700588</Id>
+        <Id>602068</Id>
+        <Id>237411</Id>
+        <Id>235141</Id>
+        <Id>234793</Id>
+        <Id>157020</Id>
+        <Id>62065</Id>
+        <Id>33518</Id>
+        <Id>33516</Id>
+        <Id>33515</Id>
+        <Id>8032</Id>
+        <Id>8030</Id>
+        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Salmo[Next Level]</Term>    <Field>Next Level</Field>    <Count>61</Count>    <Explode>N</Explode>   </TermSet>   <TermSet>    <Term>Salmoninae[subtree]</Term>    <Field>subtree</Field>    <Count>422</Count>    <Explode>N</Explode>   </TermSet>   <OP>AND</OP>  </TranslationStack><QueryTranslation>Salmo[Next Level] AND Salmoninae[subtree]</QueryTranslation></eSearchResult>
+  recorded_at: 2024-10-02 20:57:25 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&id=3242767%2B3146437%2B3075334%2B3075333%2B3075332%2B2972643%2B2928103%2B2912309%2B2860723%2B2789652%2B2789651%2B2789524%2B2759368%2B2752229%2B2752228%2B2739741%2B2739740%2B2739739%2B2739738%2B2739737%2B2739736%2B2705433%2B2629501%2B2358192%2B2304094%2B2304093%2B2304092%2B2304091%2B2304090%2B2126688%2B1814159%2B1509524%2B1484545%2B1483130%2B1483129%2B1483128%2B1483127%2B1483126%2B1483125%2B1483124%2B1483123%2B1483122%2B1483121%2B1483120%2B1483119%2B1483118%2B1483117%2B1201173%2B1035833%2B700588%2B602068%2B237411%2B235141%2B234793%2B157020%2B62065%2B33518%2B33516%2B33515%2B8032%2B8030&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Wed, 02 Oct 2024 20:57:24 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: A8D2C912F30A4BE1_FD1DSID
+      ncbi-phid: 939BD0A2308B10B500006029A8808982.1.1.m_1
+      content-type: text/xml; charset=UTF-8
+      cache-control: private
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '7'
+      access-control-allow-origin: '*'
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=A8D2C912F30A4BE1_FD1DSID; domain=.nih.gov; path=/; expires=Thu,
+        02 Oct 2025 20:57:24 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!DOCTYPE eSummaryResult
+        PUBLIC \"-//NLM//DTD esummary v1 20041029//EN\" \"https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20041029/esummary-v1.dtd\">\n<eSummaryResult>\n<DocSum>\n\t<Id>3242767</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo salar x Salmo trutta</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">3242767</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\"></Item>\n\t<Item
+        Name=\"Species\" Type=\"String\"></Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2024/08/29 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>3146437</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo ekmekciae</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">3146437</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">ekmekciae</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2024/06/20
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>3075334</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo murathani</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">3075334</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">murathani</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2023/09/27
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>3075333</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo ardahanensis</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">3075333</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">ardahanensis</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2023/09/27
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>3075332</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo araxensis</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">3075332</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">araxensis</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2023/09/27
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2972643</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo pallaryi</Item>\n\t<Item Name=\"CommonName\" Type=\"String\">Lake
+        Sidi Ali trout</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2972643</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">pallaryi</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2023/05/30 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2928103</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo trutta complex sp. GP-2022</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2928103</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">trutta complex sp. GP-2022</Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2022/10/28 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2912309</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo baliki</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">2912309</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">baliki</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2022/02/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2860723</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo trutta complex sp. LT-2021</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2860723</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">trutta complex sp. LT-2021</Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2021/08/02 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2789652</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo cf. cenerinus 640 HS-2020</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2789652</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">cf. cenerinus 640 HS-2020</Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2021/12/02 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2789651</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo cf. cenerinus 637 HS-2020</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2789651</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">cf. cenerinus 637 HS-2020</Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2021/12/02 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2789524</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo oxianus</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">2789524</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">oxianus</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2021/06/07 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2759368</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo lumi</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">2759368</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">lumi</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2021/06/07 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2752229</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo cf. pelagonicus IA-2020</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2752229</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">cf. pelagonicus IA-2020</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2022/01/06
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2752228</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo kottelati</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">2752228</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">kottelati</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2022/01/06
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2739741</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo tigridis</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">2739741</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">tigridis</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2020/06/09 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2739740</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo rizeensis</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">2739740</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">rizeensis</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2020/06/09
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2739739</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo okumusi</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">2739739</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">okumusi</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2020/06/09 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2739738</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo munzuricus</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">2739738</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">munzuricus</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2020/06/09
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2739737</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo fahrettini</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">2739737</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">fahrettini</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2020/06/09
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2739736</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo euphrataeus</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">2739736</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">euphrataeus</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2020/06/09
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2705433</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo ghigii</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">2705433</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">ghigii</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2020/02/10 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2629501</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\"></Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">unclassified Salmo</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">2629501</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\"></Item>\n\t<Item
+        Name=\"Species\" Type=\"String\"></Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2019/09/24 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2358192</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo coruhensis</Item>\n\t<Item Name=\"CommonName\" Type=\"String\">Coruh
+        trout</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2358192</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">coruhensis</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2020/06/09
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2304094</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo caspius complex sp. H2</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2304094</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">caspius complex sp. H2</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2018/08/29
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2304093</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo caspius complex sp. H1</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2304093</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">caspius complex sp. H1</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2018/08/29
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2304092</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo abanticus complex sp. H2</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2304092</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">abanticus complex sp. H2</Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2018/08/29 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2304091</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo abanticus complex sp. H1</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2304091</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">abanticus complex sp. H1</Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2018/08/29 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2304090</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo abanticus</Item>\n\t<Item Name=\"CommonName\" Type=\"String\">Abant
+        trout</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2304090</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">abanticus</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2018/10/31
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2126688</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo ciscaucasicus</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">2126688</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">ciscaucasicus</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2018/03/29
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>1814159</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\"></Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">environmental samples</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">1814159</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\"></Item>\n\t<Item
+        Name=\"Species\" Type=\"String\"></Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2017/01/02 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>1509524</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo marmoratus x Salmo trutta</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">1509524</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\"></Item>\n\t<Item
+        Name=\"Species\" Type=\"String\"></Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2014/07/14 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>1484545</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo cf. cenerinus BOLD:AAB3872</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">1484545</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">cf. cenerinus BOLD:AAB3872</Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2014/04/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>1483130</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo zrmanjaensis</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">1483130</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">zrmanjaensis</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2018/10/31
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>1483129</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo visovacensis</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">1483129</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">visovacensis</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2014/04/18
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>1483128</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo rhodanensis</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">1483128</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">rhodanensis</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2018/10/31
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>1483127</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo pellegrini</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">1483127</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">pellegrini</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2018/10/31
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>1483126</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo opimus</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">1483126</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">opimus</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2014/04/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>1483125</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo macedonicus</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">1483125</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">macedonicus</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2018/11/26
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>1483124</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo lourosensis</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">1483124</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">lourosensis</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2014/04/18
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>1483123</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo labecula</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">1483123</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">labecula</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2014/04/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>1483122</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo farioides</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">1483122</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">farioides</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2014/04/18
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>1483121</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo chilo</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">1483121</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">chilo</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2014/04/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>1483120</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo cettii</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">1483120</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">cettii</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2014/04/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>1483119</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo cenerinus</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">1483119</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">cenerinus</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2014/07/14
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>1483118</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo aphelios</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">1483118</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">aphelios</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2014/04/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>1483117</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo akairos</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">1483117</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">akairos</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2014/04/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>1201173</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo peristericus</Item>\n\t<Item Name=\"CommonName\" Type=\"String\">Prespa
+        trout</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">1201173</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">peristericus</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2018/10/31
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>1035833</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo ischchan</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">1035833</Item>\n\t<Item Name=\"AkaTaxId\"
+        Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">ischchan</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2011/05/31 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>700588</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo labrax</Item>\n\t<Item Name=\"CommonName\" Type=\"String\">Black
+        sea salmon</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">700588</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">labrax</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2018/10/31 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>602068</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo caspius</Item>\n\t<Item Name=\"CommonName\" Type=\"String\">Caspian
+        trout</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">602068</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">caspius</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2018/10/31 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>237411</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo obtusirostris</Item>\n\t<Item Name=\"CommonName\" Type=\"String\">Adriatic
+        trout</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">237411</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">obtusirostris</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2020/07/28
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>235141</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo platycephalus</Item>\n\t<Item Name=\"CommonName\" Type=\"String\">flathead
+        trout</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">235141</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">platycephalus</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2018/10/29
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>234793</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo letnica</Item>\n\t<Item Name=\"CommonName\" Type=\"String\">Lake
+        Ohrid brown trout</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">234793</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">letnica</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2020/07/28 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>157020</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo macrostigma</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">157020</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item Name=\"Species\" Type=\"String\">macrostigma</Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2020/07/31 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>62065</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo ohridanus</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">62065</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item Name=\"Species\" Type=\"String\">ohridanus</Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2018/11/26 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>33518</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo marmoratus</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">33518</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item Name=\"Species\" Type=\"String\">marmoratus</Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2018/10/31 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>33516</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo fibreni</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">33516</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item Name=\"Species\" Type=\"String\">fibreni</Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2016/08/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>33515</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo carpio</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">33515</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item Name=\"Species\" Type=\"String\">carpio</Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2016/08/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>8032</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo trutta</Item>\n\t<Item Name=\"CommonName\" Type=\"String\">river
+        trout</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">8032</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">trutta</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2017/06/14 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>8030</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">bony fishes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmo salar</Item>\n\t<Item Name=\"CommonName\" Type=\"String\">Atlantic
+        salmon</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">8030</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmo</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">salar</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2017/06/14 00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
+  recorded_at: 2024-10-02 20:57:25 GMT
   recorded_with: vcr/1.6.0, webmockr/1.0.0

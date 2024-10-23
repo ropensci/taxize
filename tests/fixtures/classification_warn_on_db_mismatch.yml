@@ -1,7 +1,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Chironomus%2Briparius&api_key=<<entrez_api_token>>
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Chironomus%2Briparius&api_key=
     body:
       encoding: ''
       string: ''
@@ -45,11 +45,11 @@ http_interactions:
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>315576</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Chironomus+riparius[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Chironomus+riparius[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2024-09-05 16:40:20 GMT
+  recorded_at: 2024-10-02 20:58:07 GMT
   recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
-    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=315576&api_key=<<entrez_api_token>>
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=315576&api_key=
     body:
       encoding: ''
       string: ''
@@ -253,5 +253,517 @@ http_interactions:
         </Taxon>
 
         </TaxaSet>
-  recorded_at: 2024-09-05 16:40:20 GMT
+  recorded_at: 2024-10-02 20:58:07 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Chironomus%2Briparius
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Wed, 02 Oct 2024 18:40:01 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: B63AB054595C179A_208FSID
+      ncbi-phid: 322CA97A31CAA4B5000032DBE309ED01.1.1.m_1
+      content-type: text/xml; charset=UTF-8
+      cache-control: private
+      content-encoding: gzip
+      x-ratelimit-limit: '3'
+      x-ratelimit-remaining: '2'
+      access-control-allow-origin: '*'
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=B63AB054595C179A_208FSID; domain=.nih.gov; path=/; expires=Thu,
+        02 Oct 2025 18:40:01 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: |
+        <?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
+        <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
+        <Id>315576</Id>
+        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Chironomus+riparius[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Chironomus+riparius[All Names]</QueryTranslation></eSearchResult>
+  recorded_at: 2024-10-02 20:58:07 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=315576
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.81.0 r-curl/5.2.3 crul/1.5.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Wed, 02 Oct 2024 18:40:02 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: DC5278E16ECAE3B2_7BF0SID
+      ncbi-phid: 322CA97A31CAA4B5000025DBE403CA11.1.1.m_5
+      content-type: text/xml; charset=UTF-8
+      cache-control: private
+      content-encoding: gzip
+      x-ratelimit-limit: '3'
+      x-ratelimit-remaining: '1'
+      access-control-allow-origin: '*'
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=DC5278E16ECAE3B2_7BF0SID; domain=.nih.gov; path=/; expires=Thu,
+        02 Oct 2025 18:40:02 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: |-
+        <?xml version="1.0" ?>
+        <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
+        <TaxaSet><Taxon>
+            <TaxId>315576</TaxId>
+            <ScientificName>Chironomus riparius</ScientificName>
+            <OtherNames>
+                <Name>
+                    <ClassCDE>authority</ClassCDE>
+                    <DispName>Chironomus riparius Meigen, 1804</DispName>
+                </Name>
+            </OtherNames>
+            <ParentTaxId>1165752</ParentTaxId>
+            <Rank>species</Rank>
+            <Division>Invertebrates</Division>
+            <GeneticCode>
+                <GCId>1</GCId>
+                <GCName>Standard</GCName>
+            </GeneticCode>
+            <MitoGeneticCode>
+                <MGCId>5</MGCId>
+                <MGCName>Invertebrate Mitochondrial</MGCName>
+            </MitoGeneticCode>
+            <Lineage>cellular organisms; Eukaryota; Opisthokonta; Metazoa; Eumetazoa; Bilateria; Protostomia; Ecdysozoa; Panarthropoda; Arthropoda; Mandibulata; Pancrustacea; Hexapoda; Insecta; Dicondylia; Pterygota; Neoptera; Endopterygota; Diptera; Nematocera; Culicomorpha; Chironomoidea; Chironomidae; Chironominae; Chironomini; Chironomus; Chironomus incertae sedis</Lineage>
+            <LineageEx>
+                <Taxon>
+                    <TaxId>131567</TaxId>
+                    <ScientificName>cellular organisms</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>2759</TaxId>
+                    <ScientificName>Eukaryota</ScientificName>
+                    <Rank>superkingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33154</TaxId>
+                    <ScientificName>Opisthokonta</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33208</TaxId>
+                    <ScientificName>Metazoa</ScientificName>
+                    <Rank>kingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6072</TaxId>
+                    <ScientificName>Eumetazoa</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33213</TaxId>
+                    <ScientificName>Bilateria</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33317</TaxId>
+                    <ScientificName>Protostomia</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1206794</TaxId>
+                    <ScientificName>Ecdysozoa</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>88770</TaxId>
+                    <ScientificName>Panarthropoda</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6656</TaxId>
+                    <ScientificName>Arthropoda</ScientificName>
+                    <Rank>phylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>197563</TaxId>
+                    <ScientificName>Mandibulata</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>197562</TaxId>
+                    <ScientificName>Pancrustacea</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6960</TaxId>
+                    <ScientificName>Hexapoda</ScientificName>
+                    <Rank>subphylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>50557</TaxId>
+                    <ScientificName>Insecta</ScientificName>
+                    <Rank>class</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>85512</TaxId>
+                    <ScientificName>Dicondylia</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>7496</TaxId>
+                    <ScientificName>Pterygota</ScientificName>
+                    <Rank>subclass</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33340</TaxId>
+                    <ScientificName>Neoptera</ScientificName>
+                    <Rank>infraclass</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33392</TaxId>
+                    <ScientificName>Endopterygota</ScientificName>
+                    <Rank>cohort</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>7147</TaxId>
+                    <ScientificName>Diptera</ScientificName>
+                    <Rank>order</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>7148</TaxId>
+                    <ScientificName>Nematocera</ScientificName>
+                    <Rank>suborder</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>43786</TaxId>
+                    <ScientificName>Culicomorpha</ScientificName>
+                    <Rank>infraorder</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>41828</TaxId>
+                    <ScientificName>Chironomoidea</ScientificName>
+                    <Rank>superfamily</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>7149</TaxId>
+                    <ScientificName>Chironomidae</ScientificName>
+                    <Rank>family</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>54970</TaxId>
+                    <ScientificName>Chironominae</ScientificName>
+                    <Rank>subfamily</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>72530</TaxId>
+                    <ScientificName>Chironomini</ScientificName>
+                    <Rank>tribe</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>7150</TaxId>
+                    <ScientificName>Chironomus</ScientificName>
+                    <Rank>genus</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1165752</TaxId>
+                    <ScientificName>Chironomus incertae sedis</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+            </LineageEx>
+            <CreateDate>2005/02/28 12:43:28</CreateDate>
+            <UpdateDate>2005/12/31 18:22:20</UpdateDate>
+            <PubDate>2005/12/31 18:00:12</PubDate>
+        </Taxon>
+
+        </TaxaSet>
+  recorded_at: 2024-10-02 20:58:07 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Chironomus%2Briparius&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Wed, 02 Oct 2024 20:58:06 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: D5829D42B689D7B9_989ASID
+      ncbi-phid: 939BD0A2308B10B50000272A2E62B36B.1.1.m_1
+      content-type: text/xml; charset=UTF-8
+      cache-control: private
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '8'
+      access-control-allow-origin: '*'
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=D5829D42B689D7B9_989ASID; domain=.nih.gov; path=/; expires=Thu,
+        02 Oct 2025 20:58:07 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: |
+        <?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
+        <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
+        <Id>315576</Id>
+        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Chironomus+riparius[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Chironomus+riparius[All Names]</QueryTranslation></eSearchResult>
+  recorded_at: 2024-10-02 20:58:07 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=315576&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.81.0 r-curl/5.2.3 crul/1.5.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Wed, 02 Oct 2024 20:58:06 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: 9E12E7EBC0C0348C_7970SID
+      ncbi-phid: 939BD0A2308B10B50000372A2FE93F82.1.1.m_5
+      content-type: text/xml; charset=UTF-8
+      cache-control: private
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '7'
+      access-control-allow-origin: '*'
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=9E12E7EBC0C0348C_7970SID; domain=.nih.gov; path=/; expires=Thu,
+        02 Oct 2025 20:58:07 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: |-
+        <?xml version="1.0" ?>
+        <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
+        <TaxaSet><Taxon>
+            <TaxId>315576</TaxId>
+            <ScientificName>Chironomus riparius</ScientificName>
+            <OtherNames>
+                <Name>
+                    <ClassCDE>authority</ClassCDE>
+                    <DispName>Chironomus riparius Meigen, 1804</DispName>
+                </Name>
+            </OtherNames>
+            <ParentTaxId>1165752</ParentTaxId>
+            <Rank>species</Rank>
+            <Division>Invertebrates</Division>
+            <GeneticCode>
+                <GCId>1</GCId>
+                <GCName>Standard</GCName>
+            </GeneticCode>
+            <MitoGeneticCode>
+                <MGCId>5</MGCId>
+                <MGCName>Invertebrate Mitochondrial</MGCName>
+            </MitoGeneticCode>
+            <Lineage>cellular organisms; Eukaryota; Opisthokonta; Metazoa; Eumetazoa; Bilateria; Protostomia; Ecdysozoa; Panarthropoda; Arthropoda; Mandibulata; Pancrustacea; Hexapoda; Insecta; Dicondylia; Pterygota; Neoptera; Endopterygota; Diptera; Nematocera; Culicomorpha; Chironomoidea; Chironomidae; Chironominae; Chironomini; Chironomus; Chironomus incertae sedis</Lineage>
+            <LineageEx>
+                <Taxon>
+                    <TaxId>131567</TaxId>
+                    <ScientificName>cellular organisms</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>2759</TaxId>
+                    <ScientificName>Eukaryota</ScientificName>
+                    <Rank>superkingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33154</TaxId>
+                    <ScientificName>Opisthokonta</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33208</TaxId>
+                    <ScientificName>Metazoa</ScientificName>
+                    <Rank>kingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6072</TaxId>
+                    <ScientificName>Eumetazoa</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33213</TaxId>
+                    <ScientificName>Bilateria</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33317</TaxId>
+                    <ScientificName>Protostomia</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1206794</TaxId>
+                    <ScientificName>Ecdysozoa</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>88770</TaxId>
+                    <ScientificName>Panarthropoda</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6656</TaxId>
+                    <ScientificName>Arthropoda</ScientificName>
+                    <Rank>phylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>197563</TaxId>
+                    <ScientificName>Mandibulata</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>197562</TaxId>
+                    <ScientificName>Pancrustacea</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6960</TaxId>
+                    <ScientificName>Hexapoda</ScientificName>
+                    <Rank>subphylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>50557</TaxId>
+                    <ScientificName>Insecta</ScientificName>
+                    <Rank>class</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>85512</TaxId>
+                    <ScientificName>Dicondylia</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>7496</TaxId>
+                    <ScientificName>Pterygota</ScientificName>
+                    <Rank>subclass</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33340</TaxId>
+                    <ScientificName>Neoptera</ScientificName>
+                    <Rank>infraclass</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33392</TaxId>
+                    <ScientificName>Endopterygota</ScientificName>
+                    <Rank>cohort</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>7147</TaxId>
+                    <ScientificName>Diptera</ScientificName>
+                    <Rank>order</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>7148</TaxId>
+                    <ScientificName>Nematocera</ScientificName>
+                    <Rank>suborder</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>43786</TaxId>
+                    <ScientificName>Culicomorpha</ScientificName>
+                    <Rank>infraorder</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>41828</TaxId>
+                    <ScientificName>Chironomoidea</ScientificName>
+                    <Rank>superfamily</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>7149</TaxId>
+                    <ScientificName>Chironomidae</ScientificName>
+                    <Rank>family</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>54970</TaxId>
+                    <ScientificName>Chironominae</ScientificName>
+                    <Rank>subfamily</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>72530</TaxId>
+                    <ScientificName>Chironomini</ScientificName>
+                    <Rank>tribe</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>7150</TaxId>
+                    <ScientificName>Chironomus</ScientificName>
+                    <Rank>genus</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1165752</TaxId>
+                    <ScientificName>Chironomus incertae sedis</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+            </LineageEx>
+            <CreateDate>2005/02/28 12:43:28</CreateDate>
+            <UpdateDate>2005/12/31 18:22:20</UpdateDate>
+            <PubDate>2005/12/31 18:00:12</PubDate>
+        </Taxon>
+
+        </TaxaSet>
+  recorded_at: 2024-10-02 20:58:07 GMT
   recorded_with: vcr/1.6.0, webmockr/1.0.0

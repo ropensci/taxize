@@ -1,0 +1,44 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://www.itis.gov/ITISWebService/jsonservice/getKingdomNameFromTSN?tsn=stuff
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.81.0 r-curl/5.2.3 crul/1.5.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '400'
+      message: Bad Request
+      explanation: Bad request syntax or unsupported method
+    headers:
+      status: 'HTTP/2 400 '
+      date: Fri, 04 Oct 2024 17:14:03 GMT
+      content-type: text/html
+      etag: '"624f162d-284"'
+    body:
+      encoding: ''
+      file: no
+      string: |
+        <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+        <html xmlns="http://www.w3.org/1999/xhtml">
+        <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+        <title>Bad Request</title>
+        <link href="/_errors/plain/styles/common.css" rel="stylesheet" type="text/css" />
+        </head>
+
+        <body>
+
+        <h1>HTTP 400 - Bad Request</h1>
+        <p class="message">The server is unable to process your request due to an apparent client error (e.g., bad syntax).</p>
+
+        <input action="action" onclick="window.history.go(-1); return false;" type="button" value="Back" />
+
+        </body>
+        </html>
+  recorded_at: 2024-10-04 17:14:03 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
