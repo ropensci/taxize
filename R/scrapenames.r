@@ -160,10 +160,11 @@ scrapenames <- function(
   }
   
   # Parse and return results
+  raw_output <- response$parse("UTF-8")
   switch (format,
-    csv = read.csv(text = response$parse("UTF-8")),
-    tsv = read.csv(text = response$parse("UTF-8"), sep = '\t'),
-    json = jsonlite::fromJSON(response$parse("UTF-8")),
+    csv = tibble::as_tibble(read.csv(text = raw_output)),
+    tsv = tibble::as_tibble(read.csv(text = raw_output, sep = '\t')),
+    json = jsonlite::fromJSON(raw_output),
     other = stop("Invalid 'format' option.")
   )
 }
