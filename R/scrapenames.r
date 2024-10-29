@@ -1,22 +1,25 @@
-#' @title Resolve names using Global Names Recognition and Discovery.
+#' @title Find taxon names using Global Names Recognition and Discovery
 #'
 #' @description Uses the Global Names Recognition and Discovery service, see
 #'   http://gnrd.globalnames.org/
 #'
-#'   Note: this function sometimes gives data back and sometimes not. The API
-#'   that this function is extremely buggy.
+#'   NOTE: This function sometimes gives data back and sometimes not. The API
+#'   that this function is using is extremely buggy.
 #'
 #' @export
-#' @param url (character) If text parameter is empty, and url is given, GNfinder will
-#'   process the URL and will find names in the content of its body.
-#' @param text (character) Contains the text which will be checked for scientific names. If
-#'   this parameter is not empty, the url parameter is ignored.
-#' @param format (character) Sets the output format. It can be set to: "csv" (the default),
-#'   "tsv", or "json".
-#' @param bytes_offset (logical) This changes how the position of a detected name in text
-#'   is calculated. Normally a name's start and end positions are given as the
-#'   number of UTF-8 characters from the beginning of the text. If bytesOffset
-#'   flag is true, the start and end offsets are recalculated in the number of
+#'
+#' @param url (character) If text parameter is empty, and `url` is given,
+#'   GNfinder will process the URL and will find names in the content of its
+#'   body.
+#' @param text (character) Contains the text which will be checked for
+#'   scientific names. If this parameter is not empty, the `url` parameter is
+#'   ignored.
+#' @param format (character) Sets the output format. It can be set to: `"csv"`
+#'   (the default), `"tsv"`, or `"json"`.
+#' @param bytes_offset (logical) This changes how the position of a detected
+#'   name in text is calculated. Normally a name's start and end positions are
+#'   given as the number of UTF-8 characters from the beginning of the text. If
+#'   this is `TRUE`, the start and end offsets are recalculated in the number of
 #'   bytes.
 #' @param return_content (logical) If this is `TRUE`, the text used for the name
 #'   detection is returned back. This is especially useful if the input was not
@@ -26,26 +29,26 @@
 #' @param unique_names (logical) If this is `TRUE`, the output returns a list of
 #'   unique names, instead of a list of all name occurrences. Unique list of
 #'   names does not provide position information of a name in the text.
-#' @param ambiguousNames (logical) If this is `TRUE`, strings which are simultaneously
-#'   scientific names and "normal" words are not filtered out from the results.
-#'   For example generic names like America, Cancer, Cafeteria will be returned
-#'   in the results.
-#' @param no_bayes (logical) If this is `TRUE`, only heuristic algorithms are used for
-#'   name detection.
-#' @param odds_details (logical) If true, the result will contain odds of all features
-#'   used for calculation of NaiveBayes odds. Odds describe probability of a
-#'   name to be 'real'. The higher the odds, the higher the probability that a
-#'   detected name is not a false positive. Odds are calculated by
+#' @param ambiguousNames (logical) If this is `TRUE`, strings which are
+#'   simultaneously scientific names and "normal" words are not filtered out
+#'   from the results. For example, generic names like America, Cancer,
+#'   Cafeteria will be returned in the results.
+#' @param no_bayes (logical) If this is `TRUE`, only heuristic algorithms are
+#'   used for name detection.
+#' @param odds_details (logical) If `TRUE`, the result will contain odds of all
+#'   features used for calculation of NaiveBayes odds. Odds describe probability
+#'   of a name to be 'real'. The higher the odds, the higher the probability
+#'   that a detected name is not a false positive. Odds are calculated by
 #'   multiplication of the odds of separate features. Odds details explain how
 #'   the final odds value is calculated.
-#' @param language (character) The language of the text. Language value is used for
-#'   calculation of Bayesian odds. If this parameter is not given, eng is used
-#'   by default. Currently only English and German languages are supported.
-#'   Valid values are: `eng`, `deu`, `detect`.
-#' @param words_around (integer) Allows to see the context surrounding a name-string. This
-#'   sets the number of words located immediately before or after a detected
-#'   name. These words are then returned in the output. Default is 0, maximum
-#'   value is 5.
+#' @param language (character) The language of the text. Language value is used
+#'   for calculation of Bayesian odds. If this parameter is not given, `"eng"`
+#'   is used by default. Currently only English and German languages are
+#'   supported. Valid values are: `"eng"`, `"deu"`, and `"detect"`.
+#' @param words_around (integer) Allows to see the context surrounding a
+#'   name-string. This sets the number of words located immediately before or
+#'   after a detected name. These words are then returned in the output. Default
+#'   is 0, maximum value is 5.
 #' @param verification (character) When this `TRUE`, there is an additional
 #'   verification step for detected names. This step requires internet
 #'   connection and uses https://verifier.globalnames.org/api/v1 for
@@ -62,44 +65,26 @@
 #' @param unique Defunct. See the `unique_names` option.
 #' @param engine Defunct. The API used no longer supports this option.
 #' @param verbatim Defunct. The API used no longer supports this option.
-#' @author Scott Chamberlain
-#' @return A list of length two, first is metadata, second is the data as a
-#'   data.frame.
-#' @details One of url, file, or text must be specified - and only one of them.
+#'
+#' @author Scott Chamberlain, Zachary Foster
+#'
+#' @return A [tibble::tibble()] or list representing parsed JSON output
+#'   depending on the value of the `format` option.
 #' @examples \dontrun{
 #' # Get data from a website using its URL
 #' scrapenames('https://en.wikipedia.org/wiki/Spider')
 #' scrapenames('https://en.wikipedia.org/wiki/Animal')
 #' scrapenames('https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0095068')
 #' scrapenames('https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0080498')
-#' scrapenames('http://ucjeps.berkeley.edu/cgi-bin/get_JM_treatment.pl?CARYOPHYLLACEAE')
 #'
-#' # Scrape names from a pdf at a URL
-#' url <- 'https://journals.plos.org/plosone/article/file?id=
-#' 10.1371/journal.pone.0058268&type=printable'
-#' scrapenames(url = sub('\n', '', url))
-#'
-#' # With arguments
-#' scrapenames(url = 'https://www.mapress.com/zootaxa/2012/f/z03372p265f.pdf',
-#'   unique_names=TRUE)
-#' scrapenames(url = 'https://en.wikipedia.org/wiki/Spider',
-#'   data_source_ids=c(1, 169))
-#'
-#' # Get data from a file
-#' speciesfile <- system.file("examples", "species.txt", package = "taxize")
-#' scrapenames(file = speciesfile)
-#'
-#' nms <- paste0(names_list("species"), collapse="\n")
-#' file <- tempfile(fileext = ".txt")
-#' writeLines(nms, file)
-#' scrapenames(file = file)
+#' scrapenames(url = 'https://en.wikipedia.org/wiki/Spider', source=c(1, 169))
 #'
 #' # Get data from text string
 #' scrapenames(text='A spider named Pardosa moesta Banks, 1892')
 #'
 #' # return OCR content
-#' scrapenames(url='https://www.mapress.com/zootaxa/2012/f/z03372p265f.pdf',
-#'   return_content = TRUE)
+#' scrapenames(text='A spider named Pardosa moesta Banks, 1892',
+#'             return_content = TRUE, format = 'json')
 #' }
 scrapenames <- function(
     url = NULL,
@@ -138,7 +123,7 @@ scrapenames <- function(
   if (!is.null(data_source_ids)) {
     stop(call. = FALSE, 'The `data_source_ids` option is defunct. See the `source` option. ')
   }
-  if (!is.null(method)) {
+  if (!is.null(file) || !is.null(method)) {
     stop(call. = FALSE, 'This function can no longer submit files. If you feel this is important functionality submit an issue at "https://github.com/ropensci/taxize".')
   }
   
@@ -149,7 +134,7 @@ scrapenames <- function(
   
   # Make query
   base <- "http://gnrd.globalnames.org/api/v1/find"
-  args <- list(
+  args <- tc(list(
     text = text,
     url = url,
     format = format,
@@ -162,11 +147,17 @@ scrapenames <- function(
     language = language,
     wordsAround = words_around,
     verification = verification,
-    sources = sources,
+    sources = paste0(sources, collapse = '|'),
     allMatches = all_matches
-  )
+  ))
   cli <- crul::HttpClient$new(base, headers = tx_ual, opts = list(...))
-  response <- cli$post(body = args, encode = "multipart")
+  response <- cli$post(body = args, encode = "form")
+  
+  # Check for errors
+  if (response$status_code == "500") {
+    warning(call. = FALSE, 'The GNR server has encountered an internal error trying to process this request.')
+    return(NULL)
+  }
   
   # Parse and return results
   switch (format,
@@ -176,4 +167,3 @@ scrapenames <- function(
     other = stop("Invalid 'format' option.")
   )
 }
-

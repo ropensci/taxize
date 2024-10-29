@@ -2,70 +2,121 @@
 % Please edit documentation in R/scrapenames.r
 \name{scrapenames}
 \alias{scrapenames}
-\title{Resolve names using Global Names Recognition and Discovery.}
+\title{Find taxon names using Global Names Recognition and Discovery}
 \usage{
 scrapenames(
   url = NULL,
-  file = NULL,
   text = NULL,
-  engine = NULL,
-  unique = NULL,
-  verbatim = NULL,
-  detect_language = NULL,
-  all_data_sources = NULL,
-  data_source_ids = NULL,
+  format = "csv",
+  bytes_offset = FALSE,
   return_content = FALSE,
-  ...
+  unique_names = TRUE,
+  ambiguous_names = FALSE,
+  no_bayes = FALSE,
+  odds_details = FALSE,
+  language = "detect",
+  words_around = 0,
+  verification = TRUE,
+  sources = NULL,
+  all_matches = FALSE,
+  ...,
+  file = NULL,
+  unique = NULL,
+  engine = NULL,
+  detect_language = NULL,
+  data_source_ids = NULL,
+  method = NULL
 )
 }
 \arguments{
-\item{url}{An encoded URL for a web page, PDF, Microsoft Office document, or
-image file, see examples}
+\item{url}{(character) If text parameter is empty, and \code{url} is given,
+GNfinder will process the URL and will find names in the content of its
+body.}
 
-\item{file}{When using multipart/form-data as the content-type, a file may
-be sent. This should be a path to your file on your machine.}
+\item{text}{(character) Contains the text which will be checked for
+scientific names. If this parameter is not empty, the \code{url} parameter is
+ignored.}
 
-\item{text}{Type: string. Text content; best used with a POST request, see
-examples}
+\item{format}{(character) Sets the output format. It can be set to: \code{"csv"}
+(the default), \code{"tsv"}, or \code{"json"}.}
 
-\item{engine}{(optional) (integer) Default: 0. Either 1 for TaxonFinder,
-2 for NetiNeti, or 0 for both. If absent, both engines are used.}
+\item{bytes_offset}{(logical) This changes how the position of a detected
+name in text is calculated. Normally a name's start and end positions are
+given as the number of UTF-8 characters from the beginning of the text. If
+this is \code{TRUE}, the start and end offsets are recalculated in the number of
+bytes.}
 
-\item{unique}{(optional) (logical) If \code{TRUE} (default), response has
-unique names without offsets.}
+\item{return_content}{(logical) If this is \code{TRUE}, the text used for the name
+detection is returned back. This is especially useful if the input was not
+a plain UTF-8 text and had to be prepared for name-finding. Then the
+returned content can be used together with start and end fields of detected
+name-strings to locate the strings in the text.}
 
-\item{verbatim}{(optional) Type: boolean, If \code{TRUE} (default to
-\code{FALSE}), response excludes verbatim strings.}
+\item{unique_names}{(logical) If this is \code{TRUE}, the output returns a list of
+unique names, instead of a list of all name occurrences. Unique list of
+names does not provide position information of a name in the text.}
 
-\item{detect_language}{(optional) Type: boolean, When \code{TRUE} (default),
-NetiNeti is not used if the language of incoming text is determined not to
-be English. When \code{FALSE}, NetiNeti will be used if requested.}
+\item{no_bayes}{(logical) If this is \code{TRUE}, only heuristic algorithms are
+used for name detection.}
 
-\item{all_data_sources}{(optional) Type: boolean. Resolve found names
-against all available Data Sources.}
+\item{odds_details}{(logical) If \code{TRUE}, the result will contain odds of all
+features used for calculation of NaiveBayes odds. Odds describe probability
+of a name to be 'real'. The higher the odds, the higher the probability
+that a detected name is not a false positive. Odds are calculated by
+multiplication of the odds of separate features. Odds details explain how
+the final odds value is calculated.}
 
-\item{data_source_ids}{(optional) Type: string. Pipe separated list of
-data source ids to resolve found names against. See list of Data Sources
+\item{language}{(character) The language of the text. Language value is used
+for calculation of Bayesian odds. If this parameter is not given, \code{"eng"}
+is used by default. Currently only English and German languages are
+supported. Valid values are: \code{"eng"}, \code{"deu"}, and \code{"detect"}.}
+
+\item{words_around}{(integer) Allows to see the context surrounding a
+name-string. This sets the number of words located immediately before or
+after a detected name. These words are then returned in the output. Default
+is 0, maximum value is 5.}
+
+\item{verification}{(character) When this \code{TRUE}, there is an additional
+verification step for detected names. This step requires internet
+connection and uses https://verifier.globalnames.org/api/v1 for
+verification queries.}
+
+\item{sources}{Pipe separated list of data source ids to resolve found names
+against. See list of Data Sources
 http://resolver.globalnames.org/data_sources}
 
-\item{return_content}{(logical) return OCR'ed text. returns text
-string in \code{x$meta$content} slot. Default: \code{FALSE}}
-
 \item{...}{Further args passed to \link[crul:verb-GET]{crul::verb-GET}}
+
+\item{file}{Defunct. If you feel this is important functionality submit an
+issue at "https://github.com/ropensci/taxize"}
+
+\item{unique}{Defunct. See the \code{unique_names} option.}
+
+\item{engine}{Defunct. The API used no longer supports this option.}
+
+\item{detect_language}{Defunct. See the \code{language} option.}
+
+\item{data_source_ids}{Defunct. See the \code{sources} option.}
+
+\item{ambiguousNames}{(logical) If this is \code{TRUE}, strings which are
+simultaneously scientific names and "normal" words are not filtered out
+from the results. For example, generic names like America, Cancer,
+Cafeteria will be returned in the results.}
+
+\item{all_data_sources}{Defunct. The API used no longer supports this option.}
+
+\item{verbatim}{Defunct. The API used no longer supports this option.}
 }
 \value{
-A list of length two, first is metadata, second is the data as a
-data.frame.
+A \code{\link[tibble:tibble]{tibble::tibble()}} or list representing parsed JSON output
+depending on the value of the \code{format} option.
 }
 \description{
 Uses the Global Names Recognition and Discovery service, see
 http://gnrd.globalnames.org/
 
-Note: this function sometimes gives data back and sometimes not. The API
-that this function is extremely buggy.
-}
-\details{
-One of url, file, or text must be specified - and only one of them.
+NOTE: This function sometimes gives data back and sometimes not. The API
+that this function is using is extremely buggy.
 }
 \examples{
 \dontrun{
@@ -74,36 +125,17 @@ scrapenames('https://en.wikipedia.org/wiki/Spider')
 scrapenames('https://en.wikipedia.org/wiki/Animal')
 scrapenames('https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0095068')
 scrapenames('https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0080498')
-scrapenames('http://ucjeps.berkeley.edu/cgi-bin/get_JM_treatment.pl?CARYOPHYLLACEAE')
 
-# Scrape names from a pdf at a URL
-url <- 'https://journals.plos.org/plosone/article/file?id=
-10.1371/journal.pone.0058268&type=printable'
-scrapenames(url = sub('\n', '', url))
-
-# With arguments
-scrapenames(url = 'https://www.mapress.com/zootaxa/2012/f/z03372p265f.pdf',
-  unique=TRUE)
-scrapenames(url = 'https://en.wikipedia.org/wiki/Spider',
-  data_source_ids=c(1, 169))
-
-# Get data from a file
-speciesfile <- system.file("examples", "species.txt", package = "taxize")
-scrapenames(file = speciesfile)
-
-nms <- paste0(names_list("species"), collapse="\n")
-file <- tempfile(fileext = ".txt")
-writeLines(nms, file)
-scrapenames(file = file)
+scrapenames(url = 'https://en.wikipedia.org/wiki/Spider', source=c(1, 169))
 
 # Get data from text string
 scrapenames(text='A spider named Pardosa moesta Banks, 1892')
 
 # return OCR content
-scrapenames(url='https://www.mapress.com/zootaxa/2012/f/z03372p265f.pdf',
-  return_content = TRUE)
+scrapenames(text='A spider named Pardosa moesta Banks, 1892',
+            return_content = TRUE, format = 'json')
 }
 }
 \author{
-Scott Chamberlain
+Scott Chamberlain, Zachary Foster
 }
