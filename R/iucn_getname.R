@@ -24,7 +24,7 @@
 #' }
 iucn_getname <- function(name, verbose = TRUE, ...) {
   mssg(verbose, "searching Global Names ...")
-  all_names <- gni_search(sci = name, parse_names = TRUE)
+  all_names <- gna_search(sci = name, parse_names = TRUE)
   if (NROW(all_names) == 0) {
     stop("No names found matching ", name, call. = FALSE)
   }

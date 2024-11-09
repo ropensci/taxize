@@ -132,7 +132,7 @@ data_citations <- function(x){
     gisd_isinvasive = list(gisd = c_gisd),
     gni_details = list(gni = c_gni),
     gni_parse = list(gni = c_gni),
-    gni_search = list(gni = c_gni),
+    gna_search = list(gni = c_gni),
     gnr_datasources = list(global_names = c_gnames),
     gnr_resolve = list(global_names = c_gnames),
     iplant_resolve = list(iplant = c_iplant),

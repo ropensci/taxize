@@ -8,7 +8,7 @@
 #' all species names in `scientificname`.
 #' @author John Baumgartner \email{johnbb@@student.unimelb.edu.au}
 #' @references https://www.gbif.org/tools/name-parser/about
-#' @seealso [gni_parse()], [gn_parse()]
+#' @seealso [gni_parse()], [gna_parse()]
 #' @examples \dontrun{
 #' gbif_parse(scientificname='x Agropogon littoralis')
 #' gbif_parse(c('Arrhenatherum elatius var. elatius',

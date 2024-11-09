@@ -74,7 +74,6 @@
 #' @importFrom cli symbol cat_line rule
 #' @name taxize-package
 #' @aliases taxize
-#' @docType package
 #' @author Scott Chamberlain 
 #' @author Eduard Szoecs \email{eduardszoecs@@gmail.com}
 #' @author Zachary Foster \email{zacharyfoster1989@@gmail.com}

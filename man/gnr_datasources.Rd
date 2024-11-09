@@ -35,7 +35,7 @@ out[agrep("zoo", out$title, ignore.case = TRUE), ]
 https://resolver.globalnames.org/data_sources
 }
 \seealso{
-\code{\link[=gnr_resolve]{gnr_resolve()}}, \code{\link[=gni_search]{gni_search()}}
+\code{\link[=gnr_resolve]{gnr_resolve()}}, \code{\link[=gna_search]{gna_search()}}
 }
 \keyword{names}
 \keyword{resolve}

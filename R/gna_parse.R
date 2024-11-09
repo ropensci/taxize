@@ -8,43 +8,53 @@
 #' @seealso [gbif_parse()], [gni_parse()]
 #' @references http://gni.globalnames.org/
 #' @examples \dontrun{
-#' gn_parse("Cyanistes caeruleus")
-#' gn_parse("Plantago minor")
-#' gn_parse("Plantago minor minor")
-#' gn_parse(c("Plantago minor minor","Helianthus annuus texanus"))
+#' gna_parse("Cyanistes caeruleus")
+#' gna_parse("Plantago minor")
+#' gna_parse("Plantago minor minor")
+#' gna_parse(c("Plantago minor minor","Helianthus annuus texanus"))
 #' 
 #' # if > 20 names, uses an HTTP POST request
 #' x <- names_list("species", size = 30)
-#' gn_parse(x)
+#' gna_parse(x)
 #'
 #' # pass on curl options
-#' gn_parse("Cyanistes caeruleus", verbose = TRUE)
+#' gna_parse("Cyanistes caeruleus", verbose = TRUE)
 #' }
-gn_parse <- function(names, ...) {
+gna_parse <- function(names, ...) {
   assert(names, "character")
   method <- ifelse(length(names) <= 20, "get", "post")
-  tmp <- gn_http(method, names, ...)
+  tmp <- gna_http(method, names, ...)
   out <- jsonlite::fromJSON(tmp)
   out[paste0('canonical_', colnames(out$canonical))] <- out$canonical
   out$canonical <- NULL
   tibble::as_tibble(out)
 }
 
-gn_http <- function(method, names, ...) {
-  cli <- crul::HttpClient$new("https://parser.globalnames.org",
+gna_http <- function(method, names, ...) {
+  cli <- crul::HttpClient$new("https://parser.globalnames.org/api/v1/",
     headers = tx_ual, opts = list(...))
   res <- switch(method,
     get = {
-      names <- paste0(names, collapse = "|")
-      # args <- list(q = names)
-      cli$get(paste0("api/v1/", names))
+      cli$get(paste0('api/v1/', paste0(names, collapse = "|")))
     },
     post = {
       cli$headers <- c(cli$headers, list(`Content-Type` = "application/json",
-        Accept = "application/json"))
-      cli$post("api", body = jsonlite::toJSON(names))
+        accept = "application/json"))
+      cli$post(body = jsonlite::toJSON(list(names = names)))
     }
   )
   res$raise_for_status()
   res$parse("UTF-8")
+}
+
+
+#' Parse scientific names using EOL's name parser.
+#'
+#' THIS FUNCTION IS DEFUNCT.
+#' 
+#' @export
+#' @keywords internal
+gni_parse <- function(names, ...) {
+  .Defunct("ncbi_searcher", "traits",
+           msg = "This function is defunct. See gna_parse()")
 }

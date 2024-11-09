@@ -29,7 +29,7 @@ gni_details(id = 17802847, verbose = TRUE)
 }
 }
 \seealso{
-\code{\link[=gnr_datasources]{gnr_datasources()}}, \code{\link[=gni_search]{gni_search()}}.
+\code{\link[=gnr_datasources]{gnr_datasources()}}, \code{\link[=gna_search]{gna_search()}}.
 }
 \author{
 Scott Chamberlain

@@ -9,7 +9,7 @@
 #' @param ... Curl options passed on to [crul::verb-GET]
 #' @author Scott Chamberlain
 #' @return Data.frame of results.
-#' @seealso [gnr_datasources()], [gni_search()].
+#' @seealso [gnr_datasources()], [gna_search()].
 #' @keywords globalnamesindex names taxonomy
 #' @examples \dontrun{
 #' gni_details(id = 17802847)
