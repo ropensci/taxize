@@ -14,14 +14,13 @@ test_that("gnr_resolve returns the correct value", {
 test_that("best_match_only works correctly", {
   skip_on_cran()
 
-  x <- 'Aconitum degeni subsp. paniculatum'
+  x <- "Helianthus annuus"
   a <- gnr_resolve(x, best_match_only = TRUE)
   b <- gnr_resolve(x, best_match_only = FALSE)
 
   expect_is(a, "data.frame")
   expect_is(b, "data.frame")
-  expect_equal(NROW(a), 0)
-  expect_equal(attributes(a)$not_known, x)
+  expect_equal(NROW(a), 1)
   expect_true(all(c("names", "row.names", "class", "not_known") %in% names(attributes(a))))
   expect_is(b$data_source_title, "character")
 

@@ -34,7 +34,7 @@ http_interactions:
         1762","rank":"Genus","nomenclaturalReference":null},"accordingTo":"FaEu_v2.6.1
         export for PESI","url":"http://www.eu-nomen.eu/portal/taxon.php?GUID=urn:lsid:faunaeur.org:taxname:115091","taxonomicStatus":"accepted","identifier":"urn:lsid:faunaeur.org:taxname:115091"},"otherNames":[],"vernacularNames":[],"checklist":"PESI","checklistId":"pesi","checklistUrl":"http://www.eu-nomen.eu/portal/index.php","checklistVersion":null,"checklistCitation":null,"matchingNameString":"Prionus
         Geoffroy, 1762","matchingNameType":"TAXON","synonyms":[]}],"clientStatus":[{"checklistId":"pesi","duration":267,"statusMessage":"ok"}]}]}'
-  recorded_at: 2024-10-04 17:13:25 GMT
+  recorded_at: 2024-11-09 07:02:45 GMT
   recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
@@ -82,7 +82,7 @@ http_interactions:
         guides to their identification. Collection Patrimoines Naturels,</i> 50: pp.
         357-374"}],"identifier":"urn:lsid:marinespecies.org:taxname:126141"},"otherNames":[],"vernacularNames":[],"checklist":"PESI","checklistId":"pesi","checklistUrl":"http://www.eu-nomen.eu/portal/index.php","checklistVersion":null,"checklistCitation":null,"matchingNameString":"Salmo
         Linnaeus, 1758","matchingNameType":"TAXON","synonyms":[]}],"clientStatus":[{"checklistId":"pesi","duration":245,"statusMessage":"ok"},{"checklistId":"worms","duration":null,"statusMessage":"ok"}]}]}'
-  recorded_at: 2024-10-04 17:13:25 GMT
+  recorded_at: 2024-11-09 07:02:45 GMT
   recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
@@ -119,7 +119,7 @@ http_interactions:
         1762","rank":"Genus","nomenclaturalReference":null},"accordingTo":"FaEu_v2.6.1
         export for PESI","url":"http://www.eu-nomen.eu/portal/taxon.php?GUID=urn:lsid:faunaeur.org:taxname:115091","taxonomicStatus":"accepted","identifier":"urn:lsid:faunaeur.org:taxname:115091"},"otherNames":[],"vernacularNames":[],"checklist":"PESI","checklistId":"pesi","checklistUrl":"http://www.eu-nomen.eu/portal/index.php","checklistVersion":null,"checklistCitation":null,"matchingNameString":"Prionus
         Geoffroy, 1762","matchingNameType":"TAXON","synonyms":[]}],"clientStatus":[{"checklistId":"pesi","duration":366,"statusMessage":"ok"}]}]}'
-  recorded_at: 2024-10-04 17:13:25 GMT
+  recorded_at: 2024-11-09 07:02:45 GMT
   recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
@@ -167,7 +167,7 @@ http_interactions:
         guides to their identification. Collection Patrimoines Naturels,</i> 50: pp.
         357-374"}],"identifier":"urn:lsid:marinespecies.org:taxname:126141"},"otherNames":[],"vernacularNames":[],"checklist":"PESI","checklistId":"pesi","checklistUrl":"http://www.eu-nomen.eu/portal/index.php","checklistVersion":null,"checklistCitation":null,"matchingNameString":"Salmo
         Linnaeus, 1758","matchingNameType":"TAXON","synonyms":[]}],"clientStatus":[{"checklistId":"pesi","duration":159,"statusMessage":"ok"},{"checklistId":"worms","duration":null,"statusMessage":"ok"}]}]}'
-  recorded_at: 2024-10-04 17:13:25 GMT
+  recorded_at: 2024-11-09 07:02:45 GMT
   recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
@@ -204,7 +204,7 @@ http_interactions:
         1762","rank":"Genus","nomenclaturalReference":null},"accordingTo":"FaEu_v2.6.1
         export for PESI","url":"http://www.eu-nomen.eu/portal/taxon.php?GUID=urn:lsid:faunaeur.org:taxname:115091","taxonomicStatus":"accepted","identifier":"urn:lsid:faunaeur.org:taxname:115091"},"otherNames":[],"vernacularNames":[],"checklist":"PESI","checklistId":"pesi","checklistUrl":"http://www.eu-nomen.eu/portal/index.php","checklistVersion":null,"checklistCitation":null,"matchingNameString":"Prionus
         Geoffroy, 1762","matchingNameType":"TAXON","synonyms":[]}],"clientStatus":[{"checklistId":"pesi","duration":288,"statusMessage":"ok"}]}]}'
-  recorded_at: 2024-10-04 17:13:25 GMT
+  recorded_at: 2024-11-09 07:02:45 GMT
   recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
@@ -252,7 +252,7 @@ http_interactions:
         guides to their identification. Collection Patrimoines Naturels,</i> 50: pp.
         357-374"}],"identifier":"urn:lsid:marinespecies.org:taxname:126141"},"otherNames":[],"vernacularNames":[],"checklist":"PESI","checklistId":"pesi","checklistUrl":"http://www.eu-nomen.eu/portal/index.php","checklistVersion":null,"checklistCitation":null,"matchingNameString":"Salmo
         Linnaeus, 1758","matchingNameType":"TAXON","synonyms":[]}],"clientStatus":[{"checklistId":"pesi","duration":137,"statusMessage":"ok"},{"checklistId":"worms","duration":null,"statusMessage":"ok"}]}]}'
-  recorded_at: 2024-10-04 17:13:25 GMT
+  recorded_at: 2024-11-09 07:02:45 GMT
   recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
@@ -289,7 +289,7 @@ http_interactions:
         1762","rank":"Genus","nomenclaturalReference":null},"accordingTo":"FaEu_v2.6.1
         export for PESI","url":"http://www.eu-nomen.eu/portal/taxon.php?GUID=urn:lsid:faunaeur.org:taxname:115091","taxonomicStatus":"accepted","identifier":"urn:lsid:faunaeur.org:taxname:115091"},"otherNames":[],"vernacularNames":[],"checklist":"PESI","checklistId":"pesi","checklistUrl":"http://www.eu-nomen.eu/portal/index.php","checklistVersion":null,"checklistCitation":null,"matchingNameString":"Prionus
         Geoffroy, 1762","matchingNameType":"TAXON","synonyms":[]}],"clientStatus":[{"checklistId":"pesi","duration":251,"statusMessage":"ok"}]}]}'
-  recorded_at: 2024-10-04 17:13:25 GMT
+  recorded_at: 2024-11-09 07:02:45 GMT
   recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
@@ -337,7 +337,7 @@ http_interactions:
         guides to their identification. Collection Patrimoines Naturels,</i> 50: pp.
         357-374"}],"identifier":"urn:lsid:marinespecies.org:taxname:126141"},"otherNames":[],"vernacularNames":[],"checklist":"PESI","checklistId":"pesi","checklistUrl":"http://www.eu-nomen.eu/portal/index.php","checklistVersion":null,"checklistCitation":null,"matchingNameString":"Salmo
         Linnaeus, 1758","matchingNameType":"TAXON","synonyms":[]}],"clientStatus":[{"checklistId":"pesi","duration":173,"statusMessage":"ok"},{"checklistId":"worms","duration":null,"statusMessage":"ok"}]}]}'
-  recorded_at: 2024-10-04 17:13:25 GMT
+  recorded_at: 2024-11-09 07:02:45 GMT
   recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
@@ -374,7 +374,7 @@ http_interactions:
         1762","rank":"Genus","nomenclaturalReference":null},"accordingTo":"FaEu_v2.6.1
         export for PESI","url":"http://www.eu-nomen.eu/portal/taxon.php?GUID=urn:lsid:faunaeur.org:taxname:115091","taxonomicStatus":"accepted","identifier":"urn:lsid:faunaeur.org:taxname:115091"},"otherNames":[],"vernacularNames":[],"checklist":"PESI","checklistId":"pesi","checklistUrl":"http://www.eu-nomen.eu/portal/index.php","checklistVersion":null,"checklistCitation":null,"matchingNameString":"Prionus
         Geoffroy, 1762","matchingNameType":"TAXON","synonyms":[]}],"clientStatus":[{"checklistId":"pesi","duration":248,"statusMessage":"ok"}]}]}'
-  recorded_at: 2024-10-04 17:13:25 GMT
+  recorded_at: 2024-11-09 07:02:45 GMT
   recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
@@ -422,7 +422,7 @@ http_interactions:
         guides to their identification. Collection Patrimoines Naturels,</i> 50: pp.
         357-374"}],"identifier":"urn:lsid:marinespecies.org:taxname:126141"},"otherNames":[],"vernacularNames":[],"checklist":"PESI","checklistId":"pesi","checklistUrl":"http://www.eu-nomen.eu/portal/index.php","checklistVersion":null,"checklistCitation":null,"matchingNameString":"Salmo
         Linnaeus, 1758","matchingNameType":"TAXON","synonyms":[]}],"clientStatus":[{"checklistId":"pesi","duration":159,"statusMessage":"ok"},{"checklistId":"worms","duration":null,"statusMessage":"ok"}]}]}'
-  recorded_at: 2024-10-04 17:13:25 GMT
+  recorded_at: 2024-11-09 07:02:45 GMT
   recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
@@ -459,7 +459,7 @@ http_interactions:
         1762","rank":"Genus","nomenclaturalReference":null},"accordingTo":"FaEu_v2.6.1
         export for PESI","url":"http://www.eu-nomen.eu/portal/taxon.php?GUID=urn:lsid:faunaeur.org:taxname:115091","taxonomicStatus":"accepted","identifier":"urn:lsid:faunaeur.org:taxname:115091"},"otherNames":[],"vernacularNames":[],"checklist":"PESI","checklistId":"pesi","checklistUrl":"http://www.eu-nomen.eu/portal/index.php","checklistVersion":null,"checklistCitation":null,"matchingNameString":"Prionus
         Geoffroy, 1762","matchingNameType":"TAXON","synonyms":[]}],"clientStatus":[{"checklistId":"pesi","duration":212,"statusMessage":"ok"}]}]}'
-  recorded_at: 2024-10-04 17:13:25 GMT
+  recorded_at: 2024-11-09 07:02:45 GMT
   recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
@@ -507,7 +507,7 @@ http_interactions:
         guides to their identification. Collection Patrimoines Naturels,</i> 50: pp.
         357-374"}],"identifier":"urn:lsid:marinespecies.org:taxname:126141"},"otherNames":[],"vernacularNames":[],"checklist":"PESI","checklistId":"pesi","checklistUrl":"http://www.eu-nomen.eu/portal/index.php","checklistVersion":null,"checklistCitation":null,"matchingNameString":"Salmo
         Linnaeus, 1758","matchingNameType":"TAXON","synonyms":[]}],"clientStatus":[{"checklistId":"pesi","duration":506,"statusMessage":"ok"},{"checklistId":"worms","duration":null,"statusMessage":"ok"}]}]}'
-  recorded_at: 2024-10-04 17:13:25 GMT
+  recorded_at: 2024-11-09 07:02:45 GMT
   recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
@@ -544,7 +544,7 @@ http_interactions:
         1762","rank":"Genus","nomenclaturalReference":null},"accordingTo":"FaEu_v2.6.1
         export for PESI","url":"http://www.eu-nomen.eu/portal/taxon.php?GUID=urn:lsid:faunaeur.org:taxname:115091","taxonomicStatus":"accepted","identifier":"urn:lsid:faunaeur.org:taxname:115091"},"otherNames":[],"vernacularNames":[],"checklist":"PESI","checklistId":"pesi","checklistUrl":"http://www.eu-nomen.eu/portal/index.php","checklistVersion":null,"checklistCitation":null,"matchingNameString":"Prionus
         Geoffroy, 1762","matchingNameType":"TAXON","synonyms":[]}],"clientStatus":[{"checklistId":"pesi","duration":242,"statusMessage":"ok"}]}]}'
-  recorded_at: 2024-10-04 17:13:25 GMT
+  recorded_at: 2024-11-09 07:02:45 GMT
   recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
@@ -592,7 +592,7 @@ http_interactions:
         guides to their identification. Collection Patrimoines Naturels,</i> 50: pp.
         357-374"}],"identifier":"urn:lsid:marinespecies.org:taxname:126141"},"otherNames":[],"vernacularNames":[],"checklist":"PESI","checklistId":"pesi","checklistUrl":"http://www.eu-nomen.eu/portal/index.php","checklistVersion":null,"checklistCitation":null,"matchingNameString":"Salmo
         Linnaeus, 1758","matchingNameType":"TAXON","synonyms":[]}],"clientStatus":[{"checklistId":"pesi","duration":296,"statusMessage":"ok"},{"checklistId":"worms","duration":null,"statusMessage":"ok"}]}]}'
-  recorded_at: 2024-10-04 17:13:25 GMT
+  recorded_at: 2024-11-09 07:02:45 GMT
   recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
@@ -629,7 +629,7 @@ http_interactions:
         1762","rank":"Genus","nomenclaturalReference":null},"accordingTo":"FaEu_v2.6.1
         export for PESI","url":"http://www.eu-nomen.eu/portal/taxon.php?GUID=urn:lsid:faunaeur.org:taxname:115091","taxonomicStatus":"accepted","identifier":"urn:lsid:faunaeur.org:taxname:115091"},"otherNames":[],"vernacularNames":[],"checklist":"PESI","checklistId":"pesi","checklistUrl":"http://www.eu-nomen.eu/portal/index.php","checklistVersion":null,"checklistCitation":null,"matchingNameString":"Prionus
         Geoffroy, 1762","matchingNameType":"TAXON","synonyms":[]}],"clientStatus":[{"checklistId":"pesi","duration":269,"statusMessage":"ok"}]}]}'
-  recorded_at: 2024-10-04 17:13:25 GMT
+  recorded_at: 2024-11-09 07:02:45 GMT
   recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
@@ -677,7 +677,7 @@ http_interactions:
         guides to their identification. Collection Patrimoines Naturels,</i> 50: pp.
         357-374"}],"identifier":"urn:lsid:marinespecies.org:taxname:126141"},"otherNames":[],"vernacularNames":[],"checklist":"PESI","checklistId":"pesi","checklistUrl":"http://www.eu-nomen.eu/portal/index.php","checklistVersion":null,"checklistCitation":null,"matchingNameString":"Salmo
         Linnaeus, 1758","matchingNameType":"TAXON","synonyms":[]}],"clientStatus":[{"checklistId":"pesi","duration":318,"statusMessage":"ok"},{"checklistId":"worms","duration":null,"statusMessage":"ok"}]}]}'
-  recorded_at: 2024-10-04 17:13:25 GMT
+  recorded_at: 2024-11-09 07:02:45 GMT
   recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
@@ -714,7 +714,7 @@ http_interactions:
         1762","rank":"Genus","nomenclaturalReference":null},"accordingTo":"FaEu_v2.6.1
         export for PESI","url":"http://www.eu-nomen.eu/portal/taxon.php?GUID=urn:lsid:faunaeur.org:taxname:115091","taxonomicStatus":"accepted","identifier":"urn:lsid:faunaeur.org:taxname:115091"},"otherNames":[],"vernacularNames":[],"checklist":"PESI","checklistId":"pesi","checklistUrl":"http://www.eu-nomen.eu/portal/index.php","checklistVersion":null,"checklistCitation":null,"matchingNameString":"Prionus
         Geoffroy, 1762","matchingNameType":"TAXON","synonyms":[]}],"clientStatus":[{"checklistId":"pesi","duration":406,"statusMessage":"ok"}]}]}'
-  recorded_at: 2024-10-04 17:13:25 GMT
+  recorded_at: 2024-11-09 07:02:45 GMT
   recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
@@ -762,7 +762,7 @@ http_interactions:
         guides to their identification. Collection Patrimoines Naturels,</i> 50: pp.
         357-374"}],"identifier":"urn:lsid:marinespecies.org:taxname:126141"},"otherNames":[],"vernacularNames":[],"checklist":"PESI","checklistId":"pesi","checklistUrl":"http://www.eu-nomen.eu/portal/index.php","checklistVersion":null,"checklistCitation":null,"matchingNameString":"Salmo
         Linnaeus, 1758","matchingNameType":"TAXON","synonyms":[]}],"clientStatus":[{"checklistId":"pesi","duration":261,"statusMessage":"ok"},{"checklistId":"worms","duration":null,"statusMessage":"ok"}]}]}'
-  recorded_at: 2024-10-04 17:13:25 GMT
+  recorded_at: 2024-11-09 07:02:45 GMT
   recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
@@ -799,7 +799,7 @@ http_interactions:
         1762","rank":"Genus","nomenclaturalReference":null},"accordingTo":"FaEu_v2.6.1
         export for PESI","url":"http://www.eu-nomen.eu/portal/taxon.php?GUID=urn:lsid:faunaeur.org:taxname:115091","taxonomicStatus":"accepted","identifier":"urn:lsid:faunaeur.org:taxname:115091"},"otherNames":[],"vernacularNames":[],"checklist":"PESI","checklistId":"pesi","checklistUrl":"http://www.eu-nomen.eu/portal/index.php","checklistVersion":null,"checklistCitation":null,"matchingNameString":"Prionus
         Geoffroy, 1762","matchingNameType":"TAXON","synonyms":[]}],"clientStatus":[{"checklistId":"pesi","duration":352,"statusMessage":"ok"}]}]}'
-  recorded_at: 2024-10-04 17:13:25 GMT
+  recorded_at: 2024-11-09 07:02:45 GMT
   recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
@@ -847,7 +847,7 @@ http_interactions:
         guides to their identification. Collection Patrimoines Naturels,</i> 50: pp.
         357-374"}],"identifier":"urn:lsid:marinespecies.org:taxname:126141"},"otherNames":[],"vernacularNames":[],"checklist":"PESI","checklistId":"pesi","checklistUrl":"http://www.eu-nomen.eu/portal/index.php","checklistVersion":null,"checklistCitation":null,"matchingNameString":"Salmo
         Linnaeus, 1758","matchingNameType":"TAXON","synonyms":[]}],"clientStatus":[{"checklistId":"pesi","duration":313,"statusMessage":"ok"},{"checklistId":"worms","duration":null,"statusMessage":"ok"}]}]}'
-  recorded_at: 2024-10-04 17:13:25 GMT
+  recorded_at: 2024-11-09 07:02:45 GMT
   recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
@@ -884,7 +884,7 @@ http_interactions:
         1762","rank":"Genus","nomenclaturalReference":null},"accordingTo":"FaEu_v2.6.1
         export for PESI","url":"http://www.eu-nomen.eu/portal/taxon.php?GUID=urn:lsid:faunaeur.org:taxname:115091","taxonomicStatus":"accepted","identifier":"urn:lsid:faunaeur.org:taxname:115091"},"otherNames":[],"vernacularNames":[],"checklist":"PESI","checklistId":"pesi","checklistUrl":"http://www.eu-nomen.eu/portal/index.php","checklistVersion":null,"checklistCitation":null,"matchingNameString":"Prionus
         Geoffroy, 1762","matchingNameType":"TAXON","synonyms":[]}],"clientStatus":[{"checklistId":"pesi","duration":306,"statusMessage":"ok"}]}]}'
-  recorded_at: 2024-10-04 17:13:25 GMT
+  recorded_at: 2024-11-09 07:02:45 GMT
   recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
@@ -932,7 +932,7 @@ http_interactions:
         guides to their identification. Collection Patrimoines Naturels,</i> 50: pp.
         357-374"}],"identifier":"urn:lsid:marinespecies.org:taxname:126141"},"otherNames":[],"vernacularNames":[],"checklist":"PESI","checklistId":"pesi","checklistUrl":"http://www.eu-nomen.eu/portal/index.php","checklistVersion":null,"checklistCitation":null,"matchingNameString":"Salmo
         Linnaeus, 1758","matchingNameType":"TAXON","synonyms":[]}],"clientStatus":[{"checklistId":"pesi","duration":294,"statusMessage":"ok"},{"checklistId":"worms","duration":null,"statusMessage":"ok"}]}]}'
-  recorded_at: 2024-10-04 17:13:25 GMT
+  recorded_at: 2024-11-09 07:02:45 GMT
   recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
@@ -969,7 +969,7 @@ http_interactions:
         1762","rank":"Genus","nomenclaturalReference":null},"accordingTo":"FaEu_v2.6.1
         export for PESI","url":"http://www.eu-nomen.eu/portal/taxon.php?GUID=urn:lsid:faunaeur.org:taxname:115091","taxonomicStatus":"accepted","identifier":"urn:lsid:faunaeur.org:taxname:115091"},"otherNames":[],"vernacularNames":[],"checklist":"PESI","checklistId":"pesi","checklistUrl":"http://www.eu-nomen.eu/portal/index.php","checklistVersion":null,"checklistCitation":null,"matchingNameString":"Prionus
         Geoffroy, 1762","matchingNameType":"TAXON","synonyms":[]}],"clientStatus":[{"checklistId":"pesi","duration":297,"statusMessage":"ok"}]}]}'
-  recorded_at: 2024-10-04 17:13:25 GMT
+  recorded_at: 2024-11-09 07:02:45 GMT
   recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
@@ -1017,7 +1017,7 @@ http_interactions:
         guides to their identification. Collection Patrimoines Naturels,</i> 50: pp.
         357-374"}],"identifier":"urn:lsid:marinespecies.org:taxname:126141"},"otherNames":[],"vernacularNames":[],"checklist":"PESI","checklistId":"pesi","checklistUrl":"http://www.eu-nomen.eu/portal/index.php","checklistVersion":null,"checklistCitation":null,"matchingNameString":"Salmo
         Linnaeus, 1758","matchingNameType":"TAXON","synonyms":[]}],"clientStatus":[{"checklistId":"pesi","duration":638,"statusMessage":"ok"},{"checklistId":"worms","duration":null,"statusMessage":"ok"}]}]}'
-  recorded_at: 2024-10-04 17:13:25 GMT
+  recorded_at: 2024-11-09 07:02:45 GMT
   recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
@@ -1054,7 +1054,7 @@ http_interactions:
         1762","rank":"Genus","nomenclaturalReference":null},"accordingTo":"FaEu_v2.6.1
         export for PESI","url":"http://www.eu-nomen.eu/portal/taxon.php?GUID=urn:lsid:faunaeur.org:taxname:115091","taxonomicStatus":"accepted","identifier":"urn:lsid:faunaeur.org:taxname:115091"},"otherNames":[],"vernacularNames":[],"checklist":"PESI","checklistId":"pesi","checklistUrl":"http://www.eu-nomen.eu/portal/index.php","checklistVersion":null,"checklistCitation":null,"matchingNameString":"Prionus
         Geoffroy, 1762","matchingNameType":"TAXON","synonyms":[]}],"clientStatus":[{"checklistId":"pesi","duration":262,"statusMessage":"ok"}]}]}'
-  recorded_at: 2024-10-04 17:13:25 GMT
+  recorded_at: 2024-11-09 07:02:45 GMT
   recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
@@ -1102,5 +1102,175 @@ http_interactions:
         guides to their identification. Collection Patrimoines Naturels,</i> 50: pp.
         357-374"}],"identifier":"urn:lsid:marinespecies.org:taxname:126141"},"otherNames":[],"vernacularNames":[],"checklist":"PESI","checklistId":"pesi","checklistUrl":"http://www.eu-nomen.eu/portal/index.php","checklistVersion":null,"checklistCitation":null,"matchingNameString":"Salmo
         Linnaeus, 1758","matchingNameType":"TAXON","synonyms":[]}],"clientStatus":[{"checklistId":"pesi","duration":230,"statusMessage":"ok"},{"checklistId":"worms","duration":null,"statusMessage":"ok"}]}]}'
-  recorded_at: 2024-10-04 17:13:25 GMT
+  recorded_at: 2024-11-09 07:02:45 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://cybertaxonomy.org/eu-bon/utis/1.3/search?query=Prionus&providers=pesi&searchMode=scientificNameExact&addSynonymy=false&addParentTaxon=false&timeout=0&pageSize=20&pageIndex=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 08 Nov 2024 22:27:29 GMT
+      server: Jetty(9.4.44.v20210927)
+      access-control-allow-origin: '*'
+      access-control-allow-methods: POST, GET, OPTIONS, DELETE
+      access-control-max-age: '3600'
+      access-control-allow-headers: x-requested-with
+      content-type: application/json;charset=utf-8
+      x-frame-options: ALLOW-FROM http://ww2.bgbm.org
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: '{"query":[{"request":{"queryString":"Prionus","searchMode":"scientificNameExact","addSynonymy":false,"addParentTaxon":false,"pageSize":20,"pageIndex":0},"response":[{"taxon":{"taxonName":{"scientificName":"Prionus
+        Geoffroy, 1762","canonicalName":"Prionus","atomisedName":null,"authorship":"Geoffroy,
+        1762","rank":"Genus","nomenclaturalReference":null},"accordingTo":"FaEu_v2.6.1
+        export for PESI","url":"http://www.eu-nomen.eu/portal/taxon.php?GUID=urn:lsid:faunaeur.org:taxname:115091","taxonomicStatus":"accepted","identifier":"urn:lsid:faunaeur.org:taxname:115091"},"otherNames":[],"vernacularNames":[],"checklist":"PESI","checklistId":"pesi","checklistUrl":"http://www.eu-nomen.eu/portal/index.php","checklistVersion":null,"checklistCitation":null,"matchingNameString":"Prionus
+        Geoffroy, 1762","matchingNameType":"TAXON","synonyms":[]}],"clientStatus":[{"checklistId":"pesi","duration":216,"statusMessage":"ok"}]}]}'
+  recorded_at: 2024-11-09 07:02:45 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://cybertaxonomy.org/eu-bon/utis/1.3/search?query=Salmo&providers=pesi%2Cworms&searchMode=scientificNameExact&addSynonymy=false&addParentTaxon=false&timeout=0&pageSize=20&pageIndex=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 08 Nov 2024 22:27:30 GMT
+      server: Jetty(9.4.44.v20210927)
+      access-control-allow-origin: '*'
+      access-control-allow-methods: POST, GET, OPTIONS, DELETE
+      access-control-max-age: '3600'
+      access-control-allow-headers: x-requested-with
+      content-type: application/json;charset=utf-8
+      x-frame-options: ALLOW-FROM http://ww2.bgbm.org
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: '{"query":[{"request":{"queryString":"Salmo","searchMode":"scientificNameExact","addSynonymy":false,"addParentTaxon":false,"pageSize":20,"pageIndex":0},"response":[{"taxon":{"taxonName":{"scientificName":"Salmo
+        Linnaeus, 1758","canonicalName":"Salmo","atomisedName":null,"authorship":"Linnaeus,
+        1758","rank":"Genus","nomenclaturalReference":null},"accordingTo":"ERMS export
+        for PESI","url":"http://www.eu-nomen.eu/portal/taxon.php?GUID=urn:lsid:marinespecies.org:taxname:126141","taxonomicStatus":"accepted","sources":[{"url":null,"identifier":"http://gdz.sub.uni-goettingen.de/no_cache/dms/load/toc/?IDDOC=265100","datasetName":null,"name":null,"title":"Linnaeus,
+        C. (1758). Systema Naturae per regna tria naturae, secundum classes, ordines,
+        genera, species, cum characteribus, differentiis, synonymis, locis. Editio
+        decima, reformata. Laurentius Salvius: Holmiae. ii, 824 pp."},{"url":null,"identifier":null,"datasetName":null,"name":null,"title":"FishBase,
+        version october 2012"},{"url":null,"identifier":"http://researcharchive.calacademy.org/research/Ichthyology/catalog/fishcatmain.asp","datasetName":null,"name":null,"title":"Eschmeyer,
+        W.: Catalog of fishes; California Academy of Sciences, department Ichtyology."},{"url":null,"identifier":null,"datasetName":null,"name":null,"title":"van
+        der Land, J.; Costello, M.J.; Zavodnik, D.; Santos, R.S.; Porteiro, F.M.;
+        Bailly, N.; Eschmeyer, W.N.; Froese, R. (2001). Pisces, <B><I>in</I></B>:
+        Costello, M.J. <i>et al.</i> (Ed.) (2001). <i>European register of marine
+        species: a check-list of the marine species in Europe and a bibliography of
+        guides to their identification. Collection Patrimoines Naturels,</i> 50: pp.
+        357-374"}],"identifier":"urn:lsid:marinespecies.org:taxname:126141"},"otherNames":[],"vernacularNames":[],"checklist":"PESI","checklistId":"pesi","checklistUrl":"http://www.eu-nomen.eu/portal/index.php","checklistVersion":null,"checklistCitation":null,"matchingNameString":"Salmo
+        Linnaeus, 1758","matchingNameType":"TAXON","synonyms":[]}],"clientStatus":[{"checklistId":"pesi","duration":206,"statusMessage":"ok"},{"checklistId":"worms","duration":null,"statusMessage":"ok"}]}]}'
+  recorded_at: 2024-11-09 07:02:45 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://cybertaxonomy.org/eu-bon/utis/1.3/search?query=Prionus&providers=pesi&searchMode=scientificNameExact&addSynonymy=false&addParentTaxon=false&timeout=0&pageSize=20&pageIndex=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Sat, 09 Nov 2024 07:02:43 GMT
+      server: Jetty(9.4.44.v20210927)
+      access-control-allow-origin: '*'
+      access-control-allow-methods: POST, GET, OPTIONS, DELETE
+      access-control-max-age: '3600'
+      access-control-allow-headers: x-requested-with
+      content-type: application/json;charset=utf-8
+      x-frame-options: ALLOW-FROM http://ww2.bgbm.org
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: '{"query":[{"request":{"queryString":"Prionus","searchMode":"scientificNameExact","addSynonymy":false,"addParentTaxon":false,"pageSize":20,"pageIndex":0},"response":[{"taxon":{"taxonName":{"scientificName":"Prionus
+        Geoffroy, 1762","canonicalName":"Prionus","atomisedName":null,"authorship":"Geoffroy,
+        1762","rank":"Genus","nomenclaturalReference":null},"accordingTo":"FaEu_v2.6.1
+        export for PESI","url":"http://www.eu-nomen.eu/portal/taxon.php?GUID=urn:lsid:faunaeur.org:taxname:115091","taxonomicStatus":"accepted","identifier":"urn:lsid:faunaeur.org:taxname:115091"},"otherNames":[],"vernacularNames":[],"checklist":"PESI","checklistId":"pesi","checklistUrl":"http://www.eu-nomen.eu/portal/index.php","checklistVersion":null,"checklistCitation":null,"matchingNameString":"Prionus
+        Geoffroy, 1762","matchingNameType":"TAXON","synonyms":[]}],"clientStatus":[{"checklistId":"pesi","duration":155,"statusMessage":"ok"}]}]}'
+  recorded_at: 2024-11-09 07:02:45 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://cybertaxonomy.org/eu-bon/utis/1.3/search?query=Salmo&providers=pesi%2Cworms&searchMode=scientificNameExact&addSynonymy=false&addParentTaxon=false&timeout=0&pageSize=20&pageIndex=0
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Sat, 09 Nov 2024 07:02:44 GMT
+      server: Jetty(9.4.44.v20210927)
+      access-control-allow-origin: '*'
+      access-control-allow-methods: POST, GET, OPTIONS, DELETE
+      access-control-max-age: '3600'
+      access-control-allow-headers: x-requested-with
+      content-type: application/json;charset=utf-8
+      x-frame-options: ALLOW-FROM http://ww2.bgbm.org
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: '{"query":[{"request":{"queryString":"Salmo","searchMode":"scientificNameExact","addSynonymy":false,"addParentTaxon":false,"pageSize":20,"pageIndex":0},"response":[{"taxon":{"taxonName":{"scientificName":"Salmo
+        Linnaeus, 1758","canonicalName":"Salmo","atomisedName":null,"authorship":"Linnaeus,
+        1758","rank":"Genus","nomenclaturalReference":null},"accordingTo":"ERMS export
+        for PESI","url":"http://www.eu-nomen.eu/portal/taxon.php?GUID=urn:lsid:marinespecies.org:taxname:126141","taxonomicStatus":"accepted","sources":[{"url":null,"identifier":"http://gdz.sub.uni-goettingen.de/no_cache/dms/load/toc/?IDDOC=265100","datasetName":null,"name":null,"title":"Linnaeus,
+        C. (1758). Systema Naturae per regna tria naturae, secundum classes, ordines,
+        genera, species, cum characteribus, differentiis, synonymis, locis. Editio
+        decima, reformata. Laurentius Salvius: Holmiae. ii, 824 pp."},{"url":null,"identifier":null,"datasetName":null,"name":null,"title":"FishBase,
+        version october 2012"},{"url":null,"identifier":"http://researcharchive.calacademy.org/research/Ichthyology/catalog/fishcatmain.asp","datasetName":null,"name":null,"title":"Eschmeyer,
+        W.: Catalog of fishes; California Academy of Sciences, department Ichtyology."},{"url":null,"identifier":null,"datasetName":null,"name":null,"title":"van
+        der Land, J.; Costello, M.J.; Zavodnik, D.; Santos, R.S.; Porteiro, F.M.;
+        Bailly, N.; Eschmeyer, W.N.; Froese, R. (2001). Pisces, <B><I>in</I></B>:
+        Costello, M.J. <i>et al.</i> (Ed.) (2001). <i>European register of marine
+        species: a check-list of the marine species in Europe and a bibliography of
+        guides to their identification. Collection Patrimoines Naturels,</i> 50: pp.
+        357-374"}],"identifier":"urn:lsid:marinespecies.org:taxname:126141"},"otherNames":[],"vernacularNames":[],"checklist":"PESI","checklistId":"pesi","checklistUrl":"http://www.eu-nomen.eu/portal/index.php","checklistVersion":null,"checklistCitation":null,"matchingNameString":"Salmo
+        Linnaeus, 1758","matchingNameType":"TAXON","synonyms":[]}],"clientStatus":[{"checklistId":"pesi","duration":222,"statusMessage":"ok"},{"checklistId":"worms","duration":null,"statusMessage":"ok"}]}]}'
+  recorded_at: 2024-11-09 07:02:45 GMT
   recorded_with: vcr/1.6.0, webmockr/1.0.0

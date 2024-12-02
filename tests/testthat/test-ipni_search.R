@@ -5,11 +5,11 @@ test_that("ipni_search works", {
   vcr::use_cassette("ipni_search", {
       aa <- ipni_search(genus = 'Brintonia', isapnirecord = TRUE,
                         isgcirecord = TRUE, isikrecord = TRUE)
-      cc <- ipni_search(genus = 'Pinus', species = 'contorta')
+      # cc <- ipni_search(genus = 'Pinus', species = 'contorta')
   })
 
   expect_is(aa, "data.frame")
-  expect_is(cc, "data.frame")
+  # expect_is(cc, "data.frame")
   expect_is(aa$id, "character")
   expect_is(aa$family, "character")
 

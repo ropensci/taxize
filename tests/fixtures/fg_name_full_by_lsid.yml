@@ -34,7 +34,7 @@ http_interactions:
       file: no
       string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<string xmlns=\"http://Cabi/FungusServer/\">Omphalotaceae
         Bresinsky1985</string>"
-  recorded_at: 2024-10-04 17:13:34 GMT
+  recorded_at: 2024-11-09 07:02:55 GMT
   recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
@@ -71,7 +71,7 @@ http_interactions:
       file: no
       string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<string xmlns=\"http://Cabi/FungusServer/\">Omphalotaceae
         Bresinsky1985</string>"
-  recorded_at: 2024-10-04 17:13:34 GMT
+  recorded_at: 2024-11-09 07:02:55 GMT
   recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
@@ -108,7 +108,7 @@ http_interactions:
       file: no
       string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<string xmlns=\"http://Cabi/FungusServer/\">Omphalotaceae
         Bresinsky1985</string>"
-  recorded_at: 2024-10-04 17:13:34 GMT
+  recorded_at: 2024-11-09 07:02:55 GMT
   recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
@@ -145,7 +145,7 @@ http_interactions:
       file: no
       string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<string xmlns=\"http://Cabi/FungusServer/\">Omphalotaceae
         Bresinsky1985</string>"
-  recorded_at: 2024-10-04 17:13:34 GMT
+  recorded_at: 2024-11-09 07:02:55 GMT
   recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
@@ -182,7 +182,7 @@ http_interactions:
       file: no
       string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<string xmlns=\"http://Cabi/FungusServer/\">Omphalotaceae
         Bresinsky1985</string>"
-  recorded_at: 2024-10-04 17:13:34 GMT
+  recorded_at: 2024-11-09 07:02:55 GMT
   recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
@@ -219,7 +219,7 @@ http_interactions:
       file: no
       string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<string xmlns=\"http://Cabi/FungusServer/\">Omphalotaceae
         Bresinsky1985</string>"
-  recorded_at: 2024-10-04 17:13:34 GMT
+  recorded_at: 2024-11-09 07:02:55 GMT
   recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
@@ -256,7 +256,7 @@ http_interactions:
       file: no
       string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<string xmlns=\"http://Cabi/FungusServer/\">Omphalotaceae
         Bresinsky1985</string>"
-  recorded_at: 2024-10-04 17:13:34 GMT
+  recorded_at: 2024-11-09 07:02:55 GMT
   recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
@@ -293,7 +293,7 @@ http_interactions:
       file: no
       string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<string xmlns=\"http://Cabi/FungusServer/\">Omphalotaceae
         Bresinsky1985</string>"
-  recorded_at: 2024-10-04 17:13:34 GMT
+  recorded_at: 2024-11-09 07:02:55 GMT
   recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
@@ -330,7 +330,7 @@ http_interactions:
       file: no
       string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<string xmlns=\"http://Cabi/FungusServer/\">Omphalotaceae
         Bresinsky1985</string>"
-  recorded_at: 2024-10-04 17:13:34 GMT
+  recorded_at: 2024-11-09 07:02:55 GMT
   recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
@@ -367,7 +367,7 @@ http_interactions:
       file: no
       string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<string xmlns=\"http://Cabi/FungusServer/\">Omphalotaceae
         Bresinsky1985</string>"
-  recorded_at: 2024-10-04 17:13:34 GMT
+  recorded_at: 2024-11-09 07:02:55 GMT
   recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
@@ -404,7 +404,7 @@ http_interactions:
       file: no
       string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<string xmlns=\"http://Cabi/FungusServer/\">Omphalotaceae
         Bresinsky1985</string>"
-  recorded_at: 2024-10-04 17:13:34 GMT
+  recorded_at: 2024-11-09 07:02:55 GMT
   recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
@@ -441,7 +441,7 @@ http_interactions:
       file: no
       string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<string xmlns=\"http://Cabi/FungusServer/\">Omphalotaceae
         Bresinsky1985</string>"
-  recorded_at: 2024-10-04 17:13:34 GMT
+  recorded_at: 2024-11-09 07:02:55 GMT
   recorded_with: vcr/1.6.0, webmockr/1.0.0
 - request:
     method: get
@@ -478,5 +478,79 @@ http_interactions:
       file: no
       string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<string xmlns=\"http://Cabi/FungusServer/\">Omphalotaceae
         Bresinsky1985</string>"
-  recorded_at: 2024-10-04 17:13:34 GMT
+  recorded_at: 2024-11-09 07:02:55 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://www.indexfungorum.org/ixfwebservice/fungus.asmx/NameFullByKey?NameLsid=urn%3Alsid%3Aindexfungorum.org%3Anames%3A81085
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Fri, 08 Nov 2024 22:27:42 GMT
+      server: Microsoft-IIS/10.0
+      cache-control: private, max-age=0
+      content-type: text/xml; charset=utf-8
+      x-aspnet-version: 2.0.50727
+      vary: Accept-Encoding
+      content-encoding: gzip
+      content-length: '131'
+      x-frame-options: SAMEORIGIN
+      x-content-type-options: nosniff
+      x-xss-protection: 1; mode=block
+      strict-transport-security: max-age=0
+    body:
+      encoding: ''
+      file: no
+      string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<string xmlns=\"http://Cabi/FungusServer/\">Omphalotaceae
+        Bresinsky1985</string>"
+  recorded_at: 2024-11-09 07:02:55 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://www.indexfungorum.org/ixfwebservice/fungus.asmx/NameFullByKey?NameLsid=urn%3Alsid%3Aindexfungorum.org%3Anames%3A81085
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Sat, 09 Nov 2024 07:02:55 GMT
+      server: Microsoft-IIS/10.0
+      cache-control: private, max-age=0
+      content-type: text/xml; charset=utf-8
+      x-aspnet-version: 2.0.50727
+      vary: Accept-Encoding
+      content-encoding: gzip
+      content-length: '131'
+      x-frame-options: SAMEORIGIN
+      x-content-type-options: nosniff
+      x-xss-protection: 1; mode=block
+      strict-transport-security: max-age=0
+    body:
+      encoding: ''
+      file: no
+      string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<string xmlns=\"http://Cabi/FungusServer/\">Omphalotaceae
+        Bresinsky1985</string>"
+  recorded_at: 2024-11-09 07:02:55 GMT
   recorded_with: vcr/1.6.0, webmockr/1.0.0

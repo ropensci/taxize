@@ -1,0 +1,91 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://www.itis.gov/ITISWebService/jsonservice/getPublicationsFromTSN?tsn=202385
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.81.0 r-curl/5.2.3 crul/1.5.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: 'HTTP/2 200 '
+      date: Fri, 08 Nov 2024 22:29:08 GMT
+      content-type: text/json;charset=ISO-8859-1
+      content-length: '2584'
+      x-frame-options: SAMEORIGIN
+      strict-transport-security: max-age=63072000; includeSubdomains; preload
+      x-robots-tag: noindex, nofollow, nosnippet, noarchive
+    body:
+      encoding: ''
+      file: no
+      string: |
+        {"class":"gov.usgs.itis.itis_service.data.SvcTaxonPublicationList","publications":[{"actualPubDate":"1981-04-03","class":"gov.usgs.itis.itis_service.data.SvcTaxonPublication","isbn":"0-471-05443-5","issn":"","listedPubDate":"1981-04-03","pages":"601-1175","pubComment":"","pubName":"The Mammals of North America, vol. 2, 2nd ed.","pubPlace":"New York, New York, USA","publisher":"John Wiley and Sons, Inc.","referenceAuthor":"Hall, E. Raymond","referenceFor":[{"class":"gov.usgs.itis.itis_service.data.SvcReferenceForElement","name":"Ursus arctos horribilis","refLanguage":null,"referredTsn":"202385"}],"title":"","updateDate":"2024-02-26"},{"actualPubDate":"2005-10-01","class":"gov.usgs.itis.itis_service.data.SvcTaxonPublication","isbn":"0-8018-8221-4","issn":"","listedPubDate":"2005-10-01","pages":"2142","pubComment":"","pubName":"Mammal Species of the World: A Taxonomic and Geographic Reference, 3rd ed., vols. 1 & 2","pubPlace":"Baltimore, Maryland, USA","publisher":"Johns Hopkins University Press","referenceAuthor":"Wilson, Don E., and DeeAnn M. Reeder, eds.","referenceFor":[{"class":"gov.usgs.itis.itis_service.data.SvcReferenceForElement","name":"Ursus arctos horribilis","refLanguage":null,"referredTsn":"202385"}],"title":"","updateDate":"2024-06-25"},{"actualPubDate":"1993-01-01","class":"gov.usgs.itis.itis_service.data.SvcTaxonPublication","isbn":"1-56098-217-9","issn":"","listedPubDate":"1992-01-01","pages":"xviii + 1207","pubComment":"Corrections were made to text at 3rd printing","pubName":"Mammal Species of the World: A Taxonomic and Geographic Reference, 2nd ed., 3rd printing","pubPlace":"Washington, DC, USA","publisher":"Smithsonian Institution Press","referenceAuthor":"Wilson, Don E., and DeeAnn M. Reeder, eds.","referenceFor":[{"class":"gov.usgs.itis.itis_service.data.SvcReferenceForElement","name":"Ursus arctos horribilis","refLanguage":null,"referredTsn":"202385"}],"title":"","updateDate":"2024-06-25"},{"actualPubDate":"2009-01-01","class":"gov.usgs.itis.itis_service.data.SvcTaxonPublication","isbn":"978-84-96553-49","issn":"","listedPubDate":"2009-01-01","pages":"448-492","pubComment":"","pubName":"Handbook of the Mammals of the World. Vol. 1: Carnivores","pubPlace":"Barcelona, Spain","publisher":"Lynx Edicions","referenceAuthor":"Garshelis, D. L. / Don E. Wilson and Russell A. Mittermeier, eds.","referenceFor":[{"class":"gov.usgs.itis.itis_service.data.SvcReferenceForElement","name":"Ursus arctos horribilis","refLanguage":null,"referredTsn":"202385"}],"title":"Family Ursidae (Bears)","updateDate":"2024-02-26"}],"tsn":"202385"}
+  recorded_at: 2024-11-08 22:29:09 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://www.itis.gov/ITISWebService/jsonservice/getPublicationsFromTSN?tsn=202385
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.81.0 r-curl/5.2.3 crul/1.5.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: 'HTTP/2 200 '
+      date: Fri, 08 Nov 2024 22:29:08 GMT
+      content-type: text/json;charset=ISO-8859-1
+      content-length: '2584'
+      x-frame-options: SAMEORIGIN
+      strict-transport-security: max-age=63072000; includeSubdomains; preload
+      x-robots-tag: noindex, nofollow, nosnippet, noarchive
+    body:
+      encoding: ''
+      file: no
+      string: |
+        {"class":"gov.usgs.itis.itis_service.data.SvcTaxonPublicationList","publications":[{"actualPubDate":"1981-04-03","class":"gov.usgs.itis.itis_service.data.SvcTaxonPublication","isbn":"0-471-05443-5","issn":"","listedPubDate":"1981-04-03","pages":"601-1175","pubComment":"","pubName":"The Mammals of North America, vol. 2, 2nd ed.","pubPlace":"New York, New York, USA","publisher":"John Wiley and Sons, Inc.","referenceAuthor":"Hall, E. Raymond","referenceFor":[{"class":"gov.usgs.itis.itis_service.data.SvcReferenceForElement","name":"Ursus arctos horribilis","refLanguage":null,"referredTsn":"202385"}],"title":"","updateDate":"2024-02-26"},{"actualPubDate":"2005-10-01","class":"gov.usgs.itis.itis_service.data.SvcTaxonPublication","isbn":"0-8018-8221-4","issn":"","listedPubDate":"2005-10-01","pages":"2142","pubComment":"","pubName":"Mammal Species of the World: A Taxonomic and Geographic Reference, 3rd ed., vols. 1 & 2","pubPlace":"Baltimore, Maryland, USA","publisher":"Johns Hopkins University Press","referenceAuthor":"Wilson, Don E., and DeeAnn M. Reeder, eds.","referenceFor":[{"class":"gov.usgs.itis.itis_service.data.SvcReferenceForElement","name":"Ursus arctos horribilis","refLanguage":null,"referredTsn":"202385"}],"title":"","updateDate":"2024-06-25"},{"actualPubDate":"1993-01-01","class":"gov.usgs.itis.itis_service.data.SvcTaxonPublication","isbn":"1-56098-217-9","issn":"","listedPubDate":"1992-01-01","pages":"xviii + 1207","pubComment":"Corrections were made to text at 3rd printing","pubName":"Mammal Species of the World: A Taxonomic and Geographic Reference, 2nd ed., 3rd printing","pubPlace":"Washington, DC, USA","publisher":"Smithsonian Institution Press","referenceAuthor":"Wilson, Don E., and DeeAnn M. Reeder, eds.","referenceFor":[{"class":"gov.usgs.itis.itis_service.data.SvcReferenceForElement","name":"Ursus arctos horribilis","refLanguage":null,"referredTsn":"202385"}],"title":"","updateDate":"2024-06-25"},{"actualPubDate":"2009-01-01","class":"gov.usgs.itis.itis_service.data.SvcTaxonPublication","isbn":"978-84-96553-49","issn":"","listedPubDate":"2009-01-01","pages":"448-492","pubComment":"","pubName":"Handbook of the Mammals of the World. Vol. 1: Carnivores","pubPlace":"Barcelona, Spain","publisher":"Lynx Edicions","referenceAuthor":"Garshelis, D. L. / Don E. Wilson and Russell A. Mittermeier, eds.","referenceFor":[{"class":"gov.usgs.itis.itis_service.data.SvcReferenceForElement","name":"Ursus arctos horribilis","refLanguage":null,"referredTsn":"202385"}],"title":"Family Ursidae (Bears)","updateDate":"2024-02-26"}],"tsn":"202385"}
+  recorded_at: 2024-11-08 22:29:09 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://www.itis.gov/ITISWebService/jsonservice/getPublicationsFromTSN?tsn=70340
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.81.0 r-curl/5.2.3 crul/1.5.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: 'HTTP/2 200 '
+      date: Fri, 08 Nov 2024 22:29:09 GMT
+      content-type: text/json;charset=ISO-8859-1
+      content-length: '2341'
+      x-frame-options: SAMEORIGIN
+      strict-transport-security: max-age=63072000; includeSubdomains; preload
+      x-robots-tag: noindex, nofollow, nosnippet, noarchive
+    body:
+      encoding: ''
+      file: no
+      string: |
+        {"class":"gov.usgs.itis.itis_service.data.SvcTaxonPublicationList","publications":[{"actualPubDate":"1988-01-01","class":"gov.usgs.itis.itis_service.data.SvcTaxonPublication","isbn":"0-913235-47-4","issn":"0097-0638","listedPubDate":"1988-01-01","pages":"vii + 277","pubComment":"","pubName":"American Fisheries Society Special Publication 16","pubPlace":"Bethesda, Maryland, USA","publisher":"American Fisheries Society","referenceAuthor":"Turgeon, D. D., A. E. Bogan, E. V. Coan, W. K. Emerson, W. G. Lyons, W. Pratt, et al.","referenceFor":[{"class":"gov.usgs.itis.itis_service.data.SvcReferenceForElement","name":"Tulotoma magnifica","refLanguage":null,"referredTsn":"70340"}],"title":"Common and scientific names of aquatic invertebrates from the United States and Canada: mollusks","updateDate":"2023-11-16"},{"actualPubDate":"1998-01-01","class":"gov.usgs.itis.itis_service.data.SvcTaxonPublication","isbn":"1-888569-01-8","issn":"0097-0638","listedPubDate":"1998-01-01","pages":"526","pubComment":"","pubName":"American Fisheries Society Special Publication 26","pubPlace":"Bethesda, Maryland, USA","publisher":"American Fisheries Society","referenceAuthor":"Turgeon, D. D., J. F. Quinn, Jr., A. E. Bogan, E. V. Coan, F. G. Hochberg, W. G. Lyons, et al.","referenceFor":[{"class":"gov.usgs.itis.itis_service.data.SvcReferenceForElement","name":"Tulotoma magnifica","refLanguage":null,"referredTsn":"70340"}],"title":"Common and scientific names of aquatic invertebrates from the United States and Canada: Mollusks, 2nd ed.","updateDate":"2024-06-25"},{"actualPubDate":"2013-06-01","class":"gov.usgs.itis.itis_service.data.SvcTaxonPublication","isbn":"","issn":"0363-2415","listedPubDate":"2013-06-01","pages":"247-282","pubComment":"","pubName":"Fisheries, vol. 38, no. 6","pubPlace":"","publisher":"","referenceAuthor":"Johnson, Paul D., Arthur E. Bogan, Kenneth M. Brown, Noel M. Burkhead, James R. Cordeiro, et al.","referenceFor":[{"class":"gov.usgs.itis.itis_service.data.SvcReferenceForElement","name":"Tulotoma magnifica","refLanguage":null,"referredTsn":"70340"},{"class":"gov.usgs.itis.itis_service.data.SvcReferenceForElement","name":"Tulotoma","refLanguage":"English","referredTsn":"70340"}],"title":"Conservation Status of Freshwater Gastropods of Canada and the United States","updateDate":"2023-07-25"}],"tsn":"70340"}
+  recorded_at: 2024-11-08 22:29:09 GMT
+  recorded_with: vcr/1.6.0, webmockr/1.0.0
