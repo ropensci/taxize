@@ -1,0 +1,61 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://www.itis.gov/ITISWebService/jsonservice/getITISTermsFromScientificName?srchKey=Helianthus%20annuus
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.81.0 r-curl/6.1.0 crul/1.5.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: 'HTTP/2 200 '
+      date: Thu, 16 Jan 2025 22:39:37 GMT
+      content-type: text/json;charset=ISO-8859-1
+      content-length: '1547'
+      x-frame-options: SAMEORIGIN
+      strict-transport-security: max-age=63072000; includeSubdomains; preload
+      x-robots-tag: noindex, nofollow, nosnippet, noarchive
+    body:
+      encoding: ''
+      file: no
+      string: |
+        {"class":"gov.usgs.itis.itis_service.data.SvcItisTermList","itisTerms":[{"author":"L.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":["annual sunflower","sunflower","wild sunflower","common sunflower"],"nameUsage":"accepted","scientificName":"Helianthus annuus","tsn":"36616"},{"author":"(Heiser) Heiser","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus annuus ssp. jaegeri","tsn":"525928"},{"author":"(Douglas ex Lindl.) Cockerell","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus annuus ssp. lenticularis","tsn":"525929"},{"author":"Heiser","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus annuus ssp. texanus","tsn":"525930"},{"author":"(Douglas ex Lindl.) Steyerm.","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus annuus var. lenticularis","tsn":"536095"},{"author":"(DC.) Cockerell","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus annuus var. macrocarpus","tsn":"536096"},{"author":"(Heiser) Shinners","class":"gov.usgs.itis.itis_service.data.SvcItisTerm","commonNames":[null],"nameUsage":"not accepted","scientificName":"Helianthus annuus var. texanus","tsn":"536097"}],"requestedName":"Helianthus annuus"}
+  recorded_at: 2025-01-16 22:39:37 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://www.itis.gov/ITISWebService/jsonservice/getFullHierarchyFromTSN?tsn=36616
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.81.0 r-curl/6.1.0 crul/1.5.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: 'HTTP/2 200 '
+      date: Thu, 16 Jan 2025 22:39:37 GMT
+      content-type: text/json;charset=ISO-8859-1
+      content-length: '2377'
+      x-frame-options: SAMEORIGIN
+      strict-transport-security: max-age=63072000; includeSubdomains; preload
+      x-robots-tag: noindex, nofollow, nosnippet, noarchive
+    body:
+      encoding: ''
+      file: no
+      string: |
+        {"author":"","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecordList","hierarchyList":[{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"","parentTsn":"","rankName":"Kingdom","taxonName":"Plantae","tsn":"202422"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Plantae","parentTsn":"202422","rankName":"Subkingdom","taxonName":"Viridiplantae","tsn":"954898"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Viridiplantae","parentTsn":"954898","rankName":"Infrakingdom","taxonName":"Streptophyta","tsn":"846494"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Streptophyta","parentTsn":"846494","rankName":"Superdivision","taxonName":"Embryophyta","tsn":"954900"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Embryophyta","parentTsn":"954900","rankName":"Division","taxonName":"Tracheophyta","tsn":"846496"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Tracheophyta","parentTsn":"846496","rankName":"Subdivision","taxonName":"Spermatophytina","tsn":"846504"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Spermatophytina","parentTsn":"846504","rankName":"Class","taxonName":"Magnoliopsida","tsn":"18063"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Magnoliopsida","parentTsn":"18063","rankName":"Superorder","taxonName":"Asteranae","tsn":"846535"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Asteranae","parentTsn":"846535","rankName":"Order","taxonName":"Asterales","tsn":"35419"},{"author":null,"class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Asterales","parentTsn":"35419","rankName":"Family","taxonName":"Asteraceae","tsn":"35420"},{"author":"L.","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Asteraceae","parentTsn":"35420","rankName":"Genus","taxonName":"Helianthus","tsn":"36611"},{"author":"L.","class":"gov.usgs.itis.itis_service.data.SvcHierarchyRecord","parentName":"Helianthus","parentTsn":"36611","rankName":"Species","taxonName":"Helianthus annuus","tsn":"36616"}],"rankName":"","sciName":"","tsn":"36616"}
+  recorded_at: 2025-01-16 22:39:37 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0

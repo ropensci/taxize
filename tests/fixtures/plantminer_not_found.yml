@@ -1,0 +1,32 @@
+http_interactions:
+- request:
+    method: get
+    uri: http://www.plantminer.com/tpl?taxon=foo%20bar
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx/1.10.1 (Ubuntu)
+      date: Thu, 16 Jan 2025 22:39:10 GMT
+      content-type: application/json
+      content-length: '251'
+      connection: keep-alive
+      access-control-allow-origin: '*'
+    body:
+      encoding: ''
+      file: no
+      string: '[{"id":"","family":"","genus":"","species":"","infraspecific.rank":"","infraspecific.epithet":"","authorship":"","taxonomic.status.in.tpl":"","confidence.level":"","source":"","accepted.id":"","name":"","note":"not
+        found","original.search":"foo bar"}]'
+  recorded_at: 2025-01-16 22:39:10 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0

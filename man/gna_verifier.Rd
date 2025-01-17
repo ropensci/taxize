@@ -53,6 +53,9 @@ output has rows that correspond 1-1 with the input data.}
 
 \item{...}{Curl options passed on to \link[crul:HttpClient]{crul::HttpClient}}
 }
+\value{
+Depends on the value of the \code{output_type} option
+}
 \description{
 This service parses incoming names, executes exact or fuzzy matching as
 required, and returns the best-scored result. Optionally, it can also return

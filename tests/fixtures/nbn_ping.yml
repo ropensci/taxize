@@ -1,0 +1,127 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://species-ws.nbnatlas.org/species/NHMSYS0000502940
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      content-encoding: gzip
+      content-security-policy: upgrade-insecure-requests
+      content-type: application/json;charset=UTF-8
+      date: Thu, 16 Jan 2025 22:38:55 GMT
+      referrer-policy: strict-origin-when-cross-origin
+      server: nginx
+      status: 'HTTP/2 200 '
+      strict-transport-security: max-age=31536000
+      vary:
+      - Origin
+      - Access-Control-Request-Method
+      - Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-frame-options: DENY
+    body:
+      encoding: ''
+      file: no
+      string: '{"taxonConcept":{"guid":"NHMSYS0000502940","parentGuid":null,"nameString":"Inachis
+        io","nameComplete":"Inachis io (Linnaeus, 1758)","nameFormatted":"<span class=\"scientific-name
+        rank-species\"><span class=\"name\">Inachis io<\/span> <span class=\"author\">(Linnaeus,
+        1758)<\/span><\/span>","author":"(Linnaeus, 1758)","nomenclaturalCode":null,"taxonomicStatus":"synonym","nomenclaturalStatus":null,"rankString":"species","nameAuthority":"UKSI","rankID":7000,"nameAccordingTo":null,"nameAccordingToID":null,"namePublishedIn":null,"namePublishedInYear":null,"namePublishedInID":null,"taxonRemarks":null,"provenance":null,"favourite":null,"infoSourceURL":null,"datasetURL":null,"acceptedConceptID":"NHMSYS0021143568","acceptedConceptName":"Aglais
+        io (Linnaeus, 1758)"},"taxonName":[],"classification":{"scientificName":"Inachis
+        io","guid":"NHMSYS0000502940","species":"Inachis io","speciesGuid":"NHMSYS0000502940"},"synonyms":[],"commonNames":[],"imageIdentifier":null,"conservationStatuses":{},"extantStatuses":[],"habitats":[],"categories":[],"simpleProperties":[],"images":[],"identifiers":[],"variants":[],"establishmentMeans":"Native","occurrenceCounts":{}}'
+  recorded_at: 2025-01-16 22:38:56 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://species-ws.nbnatlas.org/species/NHMSYS0000502940
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      content-encoding: gzip
+      content-security-policy: upgrade-insecure-requests
+      content-type: application/json;charset=UTF-8
+      date: Thu, 16 Jan 2025 22:38:56 GMT
+      referrer-policy: strict-origin-when-cross-origin
+      server: nginx
+      status: 'HTTP/2 200 '
+      strict-transport-security: max-age=31536000
+      vary:
+      - Origin
+      - Access-Control-Request-Method
+      - Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-frame-options: DENY
+    body:
+      encoding: ''
+      file: no
+      string: '{"taxonConcept":{"guid":"NHMSYS0000502940","parentGuid":null,"nameString":"Inachis
+        io","nameComplete":"Inachis io (Linnaeus, 1758)","nameFormatted":"<span class=\"scientific-name
+        rank-species\"><span class=\"name\">Inachis io<\/span> <span class=\"author\">(Linnaeus,
+        1758)<\/span><\/span>","author":"(Linnaeus, 1758)","nomenclaturalCode":null,"taxonomicStatus":"synonym","nomenclaturalStatus":null,"rankString":"species","nameAuthority":"UKSI","rankID":7000,"nameAccordingTo":null,"nameAccordingToID":null,"namePublishedIn":null,"namePublishedInYear":null,"namePublishedInID":null,"taxonRemarks":null,"provenance":null,"favourite":null,"infoSourceURL":null,"datasetURL":null,"acceptedConceptID":"NHMSYS0021143568","acceptedConceptName":"Aglais
+        io (Linnaeus, 1758)"},"taxonName":[],"classification":{"scientificName":"Inachis
+        io","guid":"NHMSYS0000502940","species":"Inachis io","speciesGuid":"NHMSYS0000502940"},"synonyms":[],"commonNames":[],"imageIdentifier":null,"conservationStatuses":{},"extantStatuses":[],"habitats":[],"categories":[],"simpleProperties":[],"images":[],"identifiers":[],"variants":[],"establishmentMeans":"Native","occurrenceCounts":{}}'
+  recorded_at: 2025-01-16 22:38:56 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://species-ws.nbnatlas.org/species/NHMSYS0000502940
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      content-encoding: gzip
+      content-security-policy: upgrade-insecure-requests
+      content-type: application/json;charset=UTF-8
+      date: Thu, 16 Jan 2025 22:38:56 GMT
+      referrer-policy: strict-origin-when-cross-origin
+      server: nginx
+      status: 'HTTP/2 200 '
+      strict-transport-security: max-age=31536000
+      vary:
+      - Origin
+      - Access-Control-Request-Method
+      - Access-Control-Request-Headers
+      x-content-type-options: nosniff
+      x-frame-options: DENY
+    body:
+      encoding: ''
+      file: no
+      string: '{"taxonConcept":{"guid":"NHMSYS0000502940","parentGuid":null,"nameString":"Inachis
+        io","nameComplete":"Inachis io (Linnaeus, 1758)","nameFormatted":"<span class=\"scientific-name
+        rank-species\"><span class=\"name\">Inachis io<\/span> <span class=\"author\">(Linnaeus,
+        1758)<\/span><\/span>","author":"(Linnaeus, 1758)","nomenclaturalCode":null,"taxonomicStatus":"synonym","nomenclaturalStatus":null,"rankString":"species","nameAuthority":"UKSI","rankID":7000,"nameAccordingTo":null,"nameAccordingToID":null,"namePublishedIn":null,"namePublishedInYear":null,"namePublishedInID":null,"taxonRemarks":null,"provenance":null,"favourite":null,"infoSourceURL":null,"datasetURL":null,"acceptedConceptID":"NHMSYS0021143568","acceptedConceptName":"Aglais
+        io (Linnaeus, 1758)"},"taxonName":[],"classification":{"scientificName":"Inachis
+        io","guid":"NHMSYS0000502940","species":"Inachis io","speciesGuid":"NHMSYS0000502940"},"synonyms":[],"commonNames":[],"imageIdentifier":null,"conservationStatuses":{},"extantStatuses":[],"habitats":[],"categories":[],"simpleProperties":[],"images":[],"identifiers":[],"variants":[],"establishmentMeans":"Native","occurrenceCounts":{}}'
+  recorded_at: 2025-01-16 22:38:56 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0

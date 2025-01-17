@@ -1,0 +1,695 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Baetis&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 16 Jan 2025 22:39:21 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: 83BE539A392C70A1_8CE2SID
+      ncbi-phid: 939B0852ECD83E85000046CACE0A2F44.1.1.m_1
+      content-type: text/xml; charset=UTF-8
+      cache-control: private
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '6'
+      access-control-allow-origin: '*'
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=83BE539A392C70A1_8CE2SID; domain=.nih.gov; path=/; expires=Fri,
+        16 Jan 2026 22:39:22 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: |
+        <?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
+        <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
+        <Id>189838</Id>
+        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Baetis[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Baetis[All Names]</QueryTranslation></eSearchResult>
+  recorded_at: 2025-01-16 22:39:23 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=189838&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.81.0 r-curl/6.1.0 crul/1.5.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 16 Jan 2025 22:39:22 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: 4B9472305F9C58CE_4550SID
+      ncbi-phid: 939B0852ECD83E85000054CACE93926B.1.1.m_3
+      content-type: text/xml; charset=UTF-8
+      cache-control: private
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '6'
+      access-control-allow-origin: '*'
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=4B9472305F9C58CE_4550SID; domain=.nih.gov; path=/; expires=Fri,
+        16 Jan 2026 22:39:22 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: |-
+        <?xml version="1.0" ?>
+        <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
+        <TaxaSet><Taxon>
+            <TaxId>189838</TaxId>
+            <ScientificName>Baetis</ScientificName>
+            <OtherNames>
+                <CommonName>blue-winged olives</CommonName>
+            </OtherNames>
+            <ParentTaxId>172515</ParentTaxId>
+            <Rank>genus</Rank>
+            <Division>Invertebrates</Division>
+            <GeneticCode>
+                <GCId>1</GCId>
+                <GCName>Standard</GCName>
+            </GeneticCode>
+            <MitoGeneticCode>
+                <MGCId>5</MGCId>
+                <MGCName>Invertebrate Mitochondrial</MGCName>
+            </MitoGeneticCode>
+            <Lineage>cellular organisms; Eukaryota; Opisthokonta; Metazoa; Eumetazoa; Bilateria; Protostomia; Ecdysozoa; Panarthropoda; Arthropoda; Mandibulata; Pancrustacea; Hexapoda; Insecta; Dicondylia; Pterygota; Palaeoptera; Ephemeroptera; Pisciforma; Baetidae</Lineage>
+            <LineageEx>
+                <Taxon>
+                    <TaxId>131567</TaxId>
+                    <ScientificName>cellular organisms</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>2759</TaxId>
+                    <ScientificName>Eukaryota</ScientificName>
+                    <Rank>superkingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33154</TaxId>
+                    <ScientificName>Opisthokonta</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33208</TaxId>
+                    <ScientificName>Metazoa</ScientificName>
+                    <Rank>kingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6072</TaxId>
+                    <ScientificName>Eumetazoa</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33213</TaxId>
+                    <ScientificName>Bilateria</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33317</TaxId>
+                    <ScientificName>Protostomia</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1206794</TaxId>
+                    <ScientificName>Ecdysozoa</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>88770</TaxId>
+                    <ScientificName>Panarthropoda</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6656</TaxId>
+                    <ScientificName>Arthropoda</ScientificName>
+                    <Rank>phylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>197563</TaxId>
+                    <ScientificName>Mandibulata</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>197562</TaxId>
+                    <ScientificName>Pancrustacea</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6960</TaxId>
+                    <ScientificName>Hexapoda</ScientificName>
+                    <Rank>subphylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>50557</TaxId>
+                    <ScientificName>Insecta</ScientificName>
+                    <Rank>class</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>85512</TaxId>
+                    <ScientificName>Dicondylia</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>7496</TaxId>
+                    <ScientificName>Pterygota</ScientificName>
+                    <Rank>subclass</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33339</TaxId>
+                    <ScientificName>Palaeoptera</ScientificName>
+                    <Rank>infraclass</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>30073</TaxId>
+                    <ScientificName>Ephemeroptera</ScientificName>
+                    <Rank>order</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>185809</TaxId>
+                    <ScientificName>Pisciforma</ScientificName>
+                    <Rank>suborder</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>172515</TaxId>
+                    <ScientificName>Baetidae</ScientificName>
+                    <Rank>family</Rank>
+                </Taxon>
+            </LineageEx>
+            <CreateDate>2002/03/14 11:39:00</CreateDate>
+            <UpdateDate>2017/06/14 10:56:24</UpdateDate>
+            <PubDate>2002/09/05 19:00:00</PubDate>
+        </Taxon>
+
+        </TaxaSet>
+  recorded_at: 2025-01-16 22:39:23 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Helianthus%2Bannuus&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 16 Jan 2025 22:39:22 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: F418F0702AA41190_2815SID
+      ncbi-phid: 939B0852ECD83E85000038CACF2FC616.1.1.m_1
+      content-type: text/xml; charset=UTF-8
+      cache-control: private
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '6'
+      access-control-allow-origin: '*'
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=F418F0702AA41190_2815SID; domain=.nih.gov; path=/; expires=Fri,
+        16 Jan 2026 22:39:22 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: |
+        <?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
+        <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
+        <Id>4232</Id>
+        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Helianthus+annuus[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Helianthus+annuus[All Names]</QueryTranslation></eSearchResult>
+  recorded_at: 2025-01-16 22:39:23 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=4232&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.81.0 r-curl/6.1.0 crul/1.5.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 16 Jan 2025 22:39:23 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: 3971E790079A2198_9A2ASID
+      ncbi-phid: 939B0852ECD83E85000047CACFBC7A55.1.1.m_3
+      content-type: text/xml; charset=UTF-8
+      cache-control: private
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '6'
+      access-control-allow-origin: '*'
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=3971E790079A2198_9A2ASID; domain=.nih.gov; path=/; expires=Fri,
+        16 Jan 2026 22:39:23 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: |-
+        <?xml version="1.0" ?>
+        <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
+        <TaxaSet><Taxon>
+            <TaxId>4232</TaxId>
+            <ScientificName>Helianthus annuus</ScientificName>
+            <OtherNames>
+                <GenbankCommonName>common sunflower</GenbankCommonName>
+                <Name>
+                    <ClassCDE>authority</ClassCDE>
+                    <DispName>Helianthus annuus L., 1753</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>Helianthus annua</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>Helianthus annus</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>Helianthus annuus8</DispName>
+                </Name>
+            </OtherNames>
+            <ParentTaxId>4231</ParentTaxId>
+            <Rank>species</Rank>
+            <Division>Plants and Fungi</Division>
+            <GeneticCode>
+                <GCId>1</GCId>
+                <GCName>Standard</GCName>
+            </GeneticCode>
+            <MitoGeneticCode>
+                <MGCId>1</MGCId>
+                <MGCName>Standard</MGCName>
+            </MitoGeneticCode>
+            <Lineage>cellular organisms; Eukaryota; Viridiplantae; Streptophyta; Streptophytina; Embryophyta; Tracheophyta; Euphyllophyta; Spermatophyta; Magnoliopsida; Mesangiospermae; eudicotyledons; Gunneridae; Pentapetalae; asterids; campanulids; Asterales; Asteraceae; Asteroideae; Heliantheae alliance; Heliantheae; Helianthus</Lineage>
+            <LineageEx>
+                <Taxon>
+                    <TaxId>131567</TaxId>
+                    <ScientificName>cellular organisms</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>2759</TaxId>
+                    <ScientificName>Eukaryota</ScientificName>
+                    <Rank>superkingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33090</TaxId>
+                    <ScientificName>Viridiplantae</ScientificName>
+                    <Rank>kingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>35493</TaxId>
+                    <ScientificName>Streptophyta</ScientificName>
+                    <Rank>phylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>131221</TaxId>
+                    <ScientificName>Streptophytina</ScientificName>
+                    <Rank>subphylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>3193</TaxId>
+                    <ScientificName>Embryophyta</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>58023</TaxId>
+                    <ScientificName>Tracheophyta</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>78536</TaxId>
+                    <ScientificName>Euphyllophyta</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>58024</TaxId>
+                    <ScientificName>Spermatophyta</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>3398</TaxId>
+                    <ScientificName>Magnoliopsida</ScientificName>
+                    <Rank>class</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1437183</TaxId>
+                    <ScientificName>Mesangiospermae</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>71240</TaxId>
+                    <ScientificName>eudicotyledons</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>91827</TaxId>
+                    <ScientificName>Gunneridae</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1437201</TaxId>
+                    <ScientificName>Pentapetalae</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>71274</TaxId>
+                    <ScientificName>asterids</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>91882</TaxId>
+                    <ScientificName>campanulids</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>4209</TaxId>
+                    <ScientificName>Asterales</ScientificName>
+                    <Rank>order</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>4210</TaxId>
+                    <ScientificName>Asteraceae</ScientificName>
+                    <Rank>family</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>102804</TaxId>
+                    <ScientificName>Asteroideae</ScientificName>
+                    <Rank>subfamily</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>911341</TaxId>
+                    <ScientificName>Heliantheae alliance</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>102814</TaxId>
+                    <ScientificName>Heliantheae</ScientificName>
+                    <Rank>tribe</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>4231</TaxId>
+                    <ScientificName>Helianthus</ScientificName>
+                    <Rank>genus</Rank>
+                </Taxon>
+            </LineageEx>
+            <Properties>
+                <Property>
+                    <PropName>pgcode</PropName>
+                    <PropValueInt>11</PropValueInt>
+                </Property>
+            </Properties>
+            <CreateDate>1995/02/27 09:24:00</CreateDate>
+            <UpdateDate>2018/11/23 13:57:52</UpdateDate>
+            <PubDate>1993/08/03 01:00:00</PubDate>
+        </Taxon>
+
+        </TaxaSet>
+  recorded_at: 2025-01-16 22:39:23 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Baetis%2Brhodani&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 16 Jan 2025 22:39:23 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: 29D26FE69D0CD360_DADBSID
+      ncbi-phid: 939B0852ECD83E8500005CCAD0A9799C.1.1.m_1
+      content-type: text/xml; charset=UTF-8
+      cache-control: private
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '6'
+      access-control-allow-origin: '*'
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=29D26FE69D0CD360_DADBSID; domain=.nih.gov; path=/; expires=Fri,
+        16 Jan 2026 22:39:23 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: |
+        <?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
+        <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
+        <Id>189839</Id>
+        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Baetis+rhodani[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Baetis+rhodani[All Names]</QueryTranslation></eSearchResult>
+  recorded_at: 2025-01-16 22:39:23 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=189839&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.81.0 r-curl/6.1.0 crul/1.5.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 16 Jan 2025 22:39:22 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: ADB7300BF87390D4_EDEASID
+      ncbi-phid: 939B0852ECD83E8500003FCAD144BACE.1.1.m_3
+      content-type: text/xml; charset=UTF-8
+      cache-control: private
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '6'
+      access-control-allow-origin: '*'
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=ADB7300BF87390D4_EDEASID; domain=.nih.gov; path=/; expires=Fri,
+        16 Jan 2026 22:39:23 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: |-
+        <?xml version="1.0" ?>
+        <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
+        <TaxaSet><Taxon>
+            <TaxId>189839</TaxId>
+            <ScientificName>Baetis rhodani</ScientificName>
+            <OtherNames>
+                <Name>
+                    <ClassCDE>authority</ClassCDE>
+                    <DispName>Baetis rhodani Pictet, 1843</DispName>
+                </Name>
+            </OtherNames>
+            <ParentTaxId>189838</ParentTaxId>
+            <Rank>species</Rank>
+            <Division>Invertebrates</Division>
+            <GeneticCode>
+                <GCId>1</GCId>
+                <GCName>Standard</GCName>
+            </GeneticCode>
+            <MitoGeneticCode>
+                <MGCId>5</MGCId>
+                <MGCName>Invertebrate Mitochondrial</MGCName>
+            </MitoGeneticCode>
+            <Lineage>cellular organisms; Eukaryota; Opisthokonta; Metazoa; Eumetazoa; Bilateria; Protostomia; Ecdysozoa; Panarthropoda; Arthropoda; Mandibulata; Pancrustacea; Hexapoda; Insecta; Dicondylia; Pterygota; Palaeoptera; Ephemeroptera; Pisciforma; Baetidae; Baetis</Lineage>
+            <LineageEx>
+                <Taxon>
+                    <TaxId>131567</TaxId>
+                    <ScientificName>cellular organisms</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>2759</TaxId>
+                    <ScientificName>Eukaryota</ScientificName>
+                    <Rank>superkingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33154</TaxId>
+                    <ScientificName>Opisthokonta</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33208</TaxId>
+                    <ScientificName>Metazoa</ScientificName>
+                    <Rank>kingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6072</TaxId>
+                    <ScientificName>Eumetazoa</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33213</TaxId>
+                    <ScientificName>Bilateria</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33317</TaxId>
+                    <ScientificName>Protostomia</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1206794</TaxId>
+                    <ScientificName>Ecdysozoa</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>88770</TaxId>
+                    <ScientificName>Panarthropoda</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6656</TaxId>
+                    <ScientificName>Arthropoda</ScientificName>
+                    <Rank>phylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>197563</TaxId>
+                    <ScientificName>Mandibulata</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>197562</TaxId>
+                    <ScientificName>Pancrustacea</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6960</TaxId>
+                    <ScientificName>Hexapoda</ScientificName>
+                    <Rank>subphylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>50557</TaxId>
+                    <ScientificName>Insecta</ScientificName>
+                    <Rank>class</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>85512</TaxId>
+                    <ScientificName>Dicondylia</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>7496</TaxId>
+                    <ScientificName>Pterygota</ScientificName>
+                    <Rank>subclass</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33339</TaxId>
+                    <ScientificName>Palaeoptera</ScientificName>
+                    <Rank>infraclass</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>30073</TaxId>
+                    <ScientificName>Ephemeroptera</ScientificName>
+                    <Rank>order</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>185809</TaxId>
+                    <ScientificName>Pisciforma</ScientificName>
+                    <Rank>suborder</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>172515</TaxId>
+                    <ScientificName>Baetidae</ScientificName>
+                    <Rank>family</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>189838</TaxId>
+                    <ScientificName>Baetis</ScientificName>
+                    <Rank>genus</Rank>
+                </Taxon>
+            </LineageEx>
+            <CreateDate>2002/03/14 11:39:00</CreateDate>
+            <UpdateDate>2015/08/05 21:35:24</UpdateDate>
+            <PubDate>2002/09/05 19:00:00</PubDate>
+        </Taxon>
+
+        </TaxaSet>
+  recorded_at: 2025-01-16 22:39:23 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0

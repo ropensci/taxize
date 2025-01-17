@@ -1,0 +1,91 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://v4.boldsystems.org/index.php/API_Tax/TaxonData?taxId=88899&dataTypes=basic&includeTree=FALSE
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: 'HTTP/2 200 '
+      server: nginx
+      date: Thu, 16 Jan 2025 22:39:03 GMT
+      content-type: text/html; charset=utf-8
+      content-length: '120'
+      x-powered-by: PHP/5.3.15
+      set-cookie: https=on;Path=/;Max-Age=3600;httponly;SameSite=Lax
+    body:
+      encoding: ''
+      file: no
+      string: '{"taxid":88899,"taxon":"Momotus","tax_rank":"genus","tax_division":"Animalia","parentid":88898,"parentname":"Momotidae"}'
+  recorded_at: 2025-01-16 22:39:03 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://v4.boldsystems.org/index.php/API_Tax/TaxonData?taxId=88899&dataTypes=basic&includeTree=FALSE
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: 'HTTP/2 200 '
+      server: nginx
+      date: Thu, 16 Jan 2025 22:39:03 GMT
+      content-type: text/html; charset=utf-8
+      content-length: '120'
+      x-powered-by: PHP/5.3.15
+      set-cookie: https=on;Path=/;Max-Age=3600;httponly;SameSite=Lax
+    body:
+      encoding: ''
+      file: no
+      string: '{"taxid":88899,"taxon":"Momotus","tax_rank":"genus","tax_division":"Animalia","parentid":88898,"parentname":"Momotidae"}'
+  recorded_at: 2025-01-16 22:39:03 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://v4.boldsystems.org/index.php/API_Tax/TaxonData?taxId=88899&dataTypes=basic&includeTree=FALSE
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: 'HTTP/2 200 '
+      server: nginx
+      date: Thu, 16 Jan 2025 22:39:03 GMT
+      content-type: text/html; charset=utf-8
+      content-length: '120'
+      x-powered-by: PHP/5.3.15
+      set-cookie: https=on;Path=/;Max-Age=3600;httponly;SameSite=Lax
+    body:
+      encoding: ''
+      file: no
+      string: '{"taxid":88899,"taxon":"Momotus","tax_rank":"genus","tax_division":"Animalia","parentid":88898,"parentname":"Momotidae"}'
+  recorded_at: 2025-01-16 22:39:03 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0

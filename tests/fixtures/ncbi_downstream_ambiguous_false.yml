@@ -1,0 +1,236 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=590&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.81.0 r-curl/6.1.0 crul/1.5.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 16 Jan 2025 22:38:42 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: AF69147F380D9CC9_4A8FSID
+      ncbi-phid: 322CDAF63A8875A5000058EA2501DBB8.1.1.m_3
+      content-type: text/xml; charset=UTF-8
+      cache-control: private
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '5'
+      access-control-allow-origin: '*'
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=AF69147F380D9CC9_4A8FSID; domain=.nih.gov; path=/; expires=Fri,
+        16 Jan 2026 22:38:42 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: |-
+        <?xml version="1.0" ?>
+        <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
+        <TaxaSet><Taxon>
+            <TaxId>590</TaxId>
+            <ScientificName>Salmonella</ScientificName>
+            <OtherNames>
+                <Name>
+                    <ClassCDE>authority</ClassCDE>
+                    <DispName>Salmonella Lignieres 1900</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>misspelling</ClassCDE>
+                    <DispName>Samonella</DispName>
+                </Name>
+            </OtherNames>
+            <ParentTaxId>543</ParentTaxId>
+            <Rank>genus</Rank>
+            <Division>Bacteria</Division>
+            <GeneticCode>
+                <GCId>11</GCId>
+                <GCName>Bacterial, Archaeal and Plant Plastid</GCName>
+            </GeneticCode>
+            <MitoGeneticCode>
+                <MGCId>0</MGCId>
+                <MGCName>Unspecified</MGCName>
+            </MitoGeneticCode>
+            <Lineage>cellular organisms; Bacteria; Pseudomonadati; Pseudomonadota; Gammaproteobacteria; Enterobacterales; Enterobacteriaceae</Lineage>
+            <LineageEx>
+                <Taxon>
+                    <TaxId>131567</TaxId>
+                    <ScientificName>cellular organisms</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>2</TaxId>
+                    <ScientificName>Bacteria</ScientificName>
+                    <Rank>superkingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>3379134</TaxId>
+                    <ScientificName>Pseudomonadati</ScientificName>
+                    <Rank>kingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1224</TaxId>
+                    <ScientificName>Pseudomonadota</ScientificName>
+                    <Rank>phylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1236</TaxId>
+                    <ScientificName>Gammaproteobacteria</ScientificName>
+                    <Rank>class</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>91347</TaxId>
+                    <ScientificName>Enterobacterales</ScientificName>
+                    <Rank>order</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>543</TaxId>
+                    <ScientificName>Enterobacteriaceae</ScientificName>
+                    <Rank>family</Rank>
+                </Taxon>
+            </LineageEx>
+            <CreateDate>1995/02/27 09:24:00</CreateDate>
+            <UpdateDate>2018/11/23 13:57:52</UpdateDate>
+            <PubDate>1993/04/21 01:00:00</PubDate>
+        </Taxon>
+
+        </TaxaSet>
+  recorded_at: 2025-01-16 22:38:43 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Salmonella%5BNext%20Level%5D%20AND%20Enterobacteriaceae%5Bsubtree%5D&RetMax=1000&RetStart=0&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 16 Jan 2025 22:38:42 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: 4295F83479CA90F1_D06ASID
+      ncbi-phid: 322CDAF63A8875A5000055EA2607E401.1.1.m_1
+      content-type: text/xml; charset=UTF-8
+      cache-control: private
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '6'
+      access-control-allow-origin: '*'
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=4295F83479CA90F1_D06ASID; domain=.nih.gov; path=/; expires=Fri,
+        16 Jan 2026 22:38:42 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: |
+        <?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
+        <eSearchResult><Count>4</Count><RetMax>4</RetMax><RetStart>0</RetStart><IdList>
+        <Id>2614656</Id>
+        <Id>263770</Id>
+        <Id>54736</Id>
+        <Id>28901</Id>
+        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Salmonella[Next Level]</Term>    <Field>Next Level</Field>    <Count>4</Count>    <Explode>N</Explode>   </TermSet>   <TermSet>    <Term>Enterobacteriaceae[subtree]</Term>    <Field>subtree</Field>    <Count>25932</Count>    <Explode>N</Explode>   </TermSet>   <OP>AND</OP>  </TranslationStack><QueryTranslation>Salmonella[Next Level] AND Enterobacteriaceae[subtree]</QueryTranslation></eSearchResult>
+  recorded_at: 2025-01-16 22:38:43 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&id=2614656%2B263770%2B54736%2B28901&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 16 Jan 2025 22:38:42 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: AF5CD9D26B446318_58E0SID
+      ncbi-phid: 322CDAF63A8875A500004EEA2658E355.1.1.m_1
+      content-type: text/xml; charset=UTF-8
+      cache-control: private
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '5'
+      access-control-allow-origin: '*'
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=AF5CD9D26B446318_58E0SID; domain=.nih.gov; path=/; expires=Fri,
+        16 Jan 2026 22:38:43 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!DOCTYPE eSummaryResult
+        PUBLIC \"-//NLM//DTD esummary v1 20041029//EN\" \"https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20041029/esummary-v1.dtd\">\n<eSummaryResult>\n<DocSum>\n\t<Id>2614656</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\"></Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">enterobacteria</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">unclassified Salmonella</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2614656</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\"></Item>\n\t<Item
+        Name=\"Species\" Type=\"String\"></Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2019/09/22 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>263770</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\"></Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">enterobacteria</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">environmental samples</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">263770</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\"></Item>\n\t<Item
+        Name=\"Species\" Type=\"String\"></Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2018/10/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>54736</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">enterobacteria</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmonella bongori</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">54736</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Salmonella</Item>\n\t<Item Name=\"Species\"
+        Type=\"String\">bongori</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2018/10/31 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>28901</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">enterobacteria</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmonella enterica</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">28901</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Salmonella</Item>\n\t<Item Name=\"Species\"
+        Type=\"String\">enterica</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2024/03/08 00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
+  recorded_at: 2025-01-16 22:38:43 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0

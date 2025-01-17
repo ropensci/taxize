@@ -1,0 +1,306 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Bacillus&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 16 Jan 2025 22:39:37 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: A565D9020C50F9C9_9C96SID
+      ncbi-phid: 939B0852ECD83E8500004ACAF9288F30.1.1.m_1
+      content-type: text/xml; charset=UTF-8
+      cache-control: private
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '9'
+      access-control-allow-origin: '*'
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=A565D9020C50F9C9_9C96SID; domain=.nih.gov; path=/; expires=Fri,
+        16 Jan 2026 22:39:37 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: |
+        <?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
+        <eSearchResult><Count>2</Count><RetMax>2</RetMax><RetStart>0</RetStart><IdList>
+        <Id>55087</Id>
+        <Id>1386</Id>
+        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Bacillus[All Names]</Term>    <Field>All Names</Field>    <Count>2</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Bacillus[All Names]</QueryTranslation></eSearchResult>
+  recorded_at: 2025-01-16 22:39:38 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&ID=55087%2C1386&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 16 Jan 2025 22:39:37 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: D7CD9510AE5F2104_EA2ESID
+      ncbi-phid: 939B0852ECD83E85000042CAF99EDCA1.1.1.m_1
+      content-type: text/xml; charset=UTF-8
+      cache-control: private
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '8'
+      access-control-allow-origin: '*'
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=D7CD9510AE5F2104_EA2ESID; domain=.nih.gov; path=/; expires=Fri,
+        16 Jan 2026 22:39:37 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!DOCTYPE eSummaryResult
+        PUBLIC \"-//NLM//DTD esummary v1 20041029//EN\" \"https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20041029/esummary-v1.dtd\">\n<eSummaryResult>\n<DocSum>\n\t<Id>55087</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">genus</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">walking sticks</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Bacillus</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">55087</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\"></Item>\n\t<Item Name=\"Species\" Type=\"String\"></Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2015/09/16 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>1386</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">genus</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">firmicutes</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Bacillus</Item>\n\t<Item Name=\"CommonName\" Type=\"String\">Bacillus
+        rRNA group 1</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">1386</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\"></Item>\n\t<Item
+        Name=\"Species\" Type=\"String\"></Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2021/12/27 00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
+  recorded_at: 2025-01-16 22:39:38 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=55087&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.81.0 r-curl/6.1.0 crul/1.5.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 16 Jan 2025 22:39:37 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: E214733DB48E9532_F9A2SID
+      ncbi-phid: 939B0852ECD83E85000038CAF9E39028.1.1.m_3
+      content-type: text/xml; charset=UTF-8
+      cache-control: private
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '7'
+      access-control-allow-origin: '*'
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=E214733DB48E9532_F9A2SID; domain=.nih.gov; path=/; expires=Fri,
+        16 Jan 2026 22:39:37 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: |-
+        <?xml version="1.0" ?>
+        <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
+        <TaxaSet><Taxon>
+            <TaxId>55087</TaxId>
+            <ScientificName>Bacillus</ScientificName>
+            <OtherNames>
+                <Name>
+                    <ClassCDE>authority</ClassCDE>
+                    <DispName>Bacillus Berthold, 1827</DispName>
+                </Name>
+            </OtherNames>
+            <ParentTaxId>262150</ParentTaxId>
+            <Rank>genus</Rank>
+            <Division>Invertebrates</Division>
+            <GeneticCode>
+                <GCId>1</GCId>
+                <GCName>Standard</GCName>
+            </GeneticCode>
+            <MitoGeneticCode>
+                <MGCId>5</MGCId>
+                <MGCName>Invertebrate Mitochondrial</MGCName>
+            </MitoGeneticCode>
+            <Lineage>cellular organisms; Eukaryota; Opisthokonta; Metazoa; Eumetazoa; Bilateria; Protostomia; Ecdysozoa; Panarthropoda; Arthropoda; Mandibulata; Pancrustacea; Hexapoda; Insecta; Dicondylia; Pterygota; Neoptera; Polyneoptera; Phasmatodea; Verophasmatodea; Areolatae; Bacilloidea; Bacillidae; Bacillinae; Bacillini</Lineage>
+            <LineageEx>
+                <Taxon>
+                    <TaxId>131567</TaxId>
+                    <ScientificName>cellular organisms</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>2759</TaxId>
+                    <ScientificName>Eukaryota</ScientificName>
+                    <Rank>superkingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33154</TaxId>
+                    <ScientificName>Opisthokonta</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33208</TaxId>
+                    <ScientificName>Metazoa</ScientificName>
+                    <Rank>kingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6072</TaxId>
+                    <ScientificName>Eumetazoa</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33213</TaxId>
+                    <ScientificName>Bilateria</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33317</TaxId>
+                    <ScientificName>Protostomia</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1206794</TaxId>
+                    <ScientificName>Ecdysozoa</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>88770</TaxId>
+                    <ScientificName>Panarthropoda</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6656</TaxId>
+                    <ScientificName>Arthropoda</ScientificName>
+                    <Rank>phylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>197563</TaxId>
+                    <ScientificName>Mandibulata</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>197562</TaxId>
+                    <ScientificName>Pancrustacea</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6960</TaxId>
+                    <ScientificName>Hexapoda</ScientificName>
+                    <Rank>subphylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>50557</TaxId>
+                    <ScientificName>Insecta</ScientificName>
+                    <Rank>class</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>85512</TaxId>
+                    <ScientificName>Dicondylia</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>7496</TaxId>
+                    <ScientificName>Pterygota</ScientificName>
+                    <Rank>subclass</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33340</TaxId>
+                    <ScientificName>Neoptera</ScientificName>
+                    <Rank>infraclass</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33341</TaxId>
+                    <ScientificName>Polyneoptera</ScientificName>
+                    <Rank>cohort</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>7020</TaxId>
+                    <ScientificName>Phasmatodea</ScientificName>
+                    <Rank>order</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>213547</TaxId>
+                    <ScientificName>Verophasmatodea</ScientificName>
+                    <Rank>suborder</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>523721</TaxId>
+                    <ScientificName>Areolatae</ScientificName>
+                    <Rank>infraorder</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>523864</TaxId>
+                    <ScientificName>Bacilloidea</ScientificName>
+                    <Rank>superfamily</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>55086</TaxId>
+                    <ScientificName>Bacillidae</ScientificName>
+                    <Rank>family</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>524420</TaxId>
+                    <ScientificName>Bacillinae</ScientificName>
+                    <Rank>subfamily</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>262150</TaxId>
+                    <ScientificName>Bacillini</ScientificName>
+                    <Rank>tribe</Rank>
+                </Taxon>
+            </LineageEx>
+            <CreateDate>1996/12/05 17:09:00</CreateDate>
+            <UpdateDate>2015/09/16 10:19:20</UpdateDate>
+            <PubDate>1996/12/05 17:09:00</PubDate>
+        </Taxon>
+
+        </TaxaSet>
+  recorded_at: 2025-01-16 22:39:38 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0

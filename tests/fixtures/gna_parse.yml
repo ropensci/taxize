@@ -1,0 +1,34 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://parser.globalnames.org/api/v1/Cyanistes%20caeruleus
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      content-encoding: gzip
+      content-length: '200'
+      content-type: application/json
+      date: Thu, 16 Jan 2025 19:20:33 GMT
+      server: nginx/1.24.0 (Ubuntu)
+      status: 'HTTP/2 200 '
+      vary:
+      - Accept-Encoding
+      - Origin
+    body:
+      encoding: ''
+      file: no
+      string: |
+        [{"parsed":true,"quality":1,"verbatim":"Cyanistes caeruleus","normalized":"Cyanistes caeruleus","canonical":{"stemmed":"Cyanistes caerule","simple":"Cyanistes caeruleus","full":"Cyanistes caeruleus"},"cardinality":2,"rank":"sp.","id":"88e91191-2617-571d-94ef-bf3fafd32c1e","parserVersion":"v1.11.1"}]
+  recorded_at: 2025-01-16 19:20:33 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0

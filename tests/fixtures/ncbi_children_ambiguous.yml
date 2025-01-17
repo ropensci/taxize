@@ -1,0 +1,1146 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=28901&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.81.0 r-curl/6.1.0 crul/1.5.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 16 Jan 2025 22:38:38 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: 1DE7DD842AA182A2_2BD8SID
+      ncbi-phid: 939B0852ECD83E8500002BCA95651080.1.1.m_3
+      content-type: text/xml; charset=UTF-8
+      cache-control: private
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '5'
+      access-control-allow-origin: '*'
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=1DE7DD842AA182A2_2BD8SID; domain=.nih.gov; path=/; expires=Fri,
+        16 Jan 2026 22:38:39 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: |-
+        <?xml version="1.0" ?>
+        <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
+        <TaxaSet><Taxon>
+            <TaxId>28901</TaxId>
+            <ScientificName>Salmonella enterica</ScientificName>
+            <OtherNames>
+                <Synonym>Bacillus cholerae-suis</Synonym>
+                <Synonym>Salmonella cholerae-suis</Synonym>
+                <Synonym>Salmonella choleraesuis</Synonym>
+                <Synonym>Salmonella enterica ser. choleraesuis</Synonym>
+                <Includes>Salmonella sp. 22OH10_CL01-S1</Includes>
+                <Includes>Salmonella sp. 22OH12_PC07-S1</Includes>
+                <Includes>Salmonella sp. 23OH01_CG01-S1</Includes>
+                <Includes>Salmonella sp. 23OH01_GT01-S1</Includes>
+                <Includes>Salmonella sp. 23OH01_GT02-S1</Includes>
+                <Includes>Salmonella sp. 23OH02_GT02-S1</Includes>
+                <Includes>Salmonella sp. 23OH04_CG01-S1</Includes>
+                <Includes>Salmonella sp. 23OH05_CB01-S1</Includes>
+                <Includes>Salmonella sp. 23OH06_CG01-S1</Includes>
+                <Includes>Salmonella sp. 23OH06_CH01-S1</Includes>
+                <Includes>Salmonella sp. 23OH06_GT01-S1</Includes>
+                <Includes>Salmonella sp. 23OH07_CB02-S1</Includes>
+                <Includes>Salmonella sp. 23OH07_GT04-S1</Includes>
+                <Includes>Salmonella sp. 23OH08_CG01-S1</Includes>
+                <Includes>Salmonella sp. 23OH10_CB03-S1</Includes>
+                <Includes>Salmonella sp. 23OH10_CG01-S1</Includes>
+                <Includes>Salmonella sp. AMC 200</Includes>
+                <Includes>Salmonella sp. AMC 238</Includes>
+                <Includes>Salmonella sp. AMC 239</Includes>
+                <Includes>Salmonella sp. AMC 240</Includes>
+                <Includes>Salmonella sp. AMC 253</Includes>
+                <Includes>Salmonella sp. AMC 257</Includes>
+                <Includes>Salmonella sp. AMC 265</Includes>
+                <Includes>Salmonella sp. AMC 266</Includes>
+                <Includes>Salmonella sp. AMC 267</Includes>
+                <Includes>Salmonella sp. AMC 268</Includes>
+                <Includes>Salmonella sp. AMC 270</Includes>
+                <Includes>Salmonella sp. AMC 28</Includes>
+                <Includes>Salmonella sp. AMC 289</Includes>
+                <Includes>Salmonella sp. AMC 291</Includes>
+                <Includes>Salmonella sp. AMC 294</Includes>
+                <Includes>Salmonella sp. AMC 299</Includes>
+                <Includes>Salmonella sp. AMC 301</Includes>
+                <Includes>Salmonella sp. AMC 327</Includes>
+                <Includes>Salmonella sp. AMC 90</Includes>
+                <Includes>Salmonella sp. FDA00013420</Includes>
+                <Includes>Salmonella sp. FDA00013433</Includes>
+                <Includes>Salmonella sp. FDA00013434</Includes>
+                <Includes>Salmonella sp. FDA00013435</Includes>
+                <Includes>Salmonella sp. FDA00013436</Includes>
+                <Includes>Salmonella sp. FDA00013437</Includes>
+                <Includes>Salmonella sp. FDA00013438</Includes>
+                <Includes>Salmonella sp. FDA00013439</Includes>
+                <Includes>Salmonella sp. FDA00013440</Includes>
+                <Includes>Salmonella sp. FDA00013468</Includes>
+                <Includes>Salmonella sp. FDA00013469</Includes>
+                <Includes>Salmonella sp. FDA00013470</Includes>
+                <Includes>Salmonella sp. FDA00013495</Includes>
+                <Includes>Salmonella sp. FDA00013496</Includes>
+                <Includes>Salmonella sp. FDA00013499</Includes>
+                <Includes>Salmonella sp. FDA00013500</Includes>
+                <Includes>Salmonella sp. FDA00013513</Includes>
+                <Includes>Salmonella sp. FDA00013514</Includes>
+                <Includes>Salmonella sp. FDA00013515</Includes>
+                <Includes>Salmonella sp. FDA00013516</Includes>
+                <Includes>Salmonella sp. FDA00013517</Includes>
+                <Includes>Salmonella sp. FDA00013518</Includes>
+                <Includes>Salmonella sp. FDA00013519</Includes>
+                <Includes>Salmonella sp. FDA00013520</Includes>
+                <Includes>Salmonella sp. FDA00013521</Includes>
+                <Includes>Salmonella sp. FDA00013522</Includes>
+                <Includes>Salmonella sp. FDA00013523</Includes>
+                <Includes>Salmonella sp. FDA00013524</Includes>
+                <Includes>Salmonella sp. FDA00013525</Includes>
+                <Includes>Salmonella sp. FDA00013526</Includes>
+                <Includes>Salmonella sp. FDA00013597</Includes>
+                <Includes>Salmonella sp. HC-257</Includes>
+                <Includes>Salmonella sp. IA1-174</Includes>
+                <Includes>Salmonella sp. MH3-A1</Includes>
+                <Includes>Salmonella sp. MH3-A2</Includes>
+                <Includes>Salmonella sp. MH3-A3</Includes>
+                <Includes>Salmonella sp. MH3-C</Includes>
+                <Includes>Salmonella sp. MH3-D1</Includes>
+                <Includes>Salmonella sp. MH3-D2</Includes>
+                <Includes>Salmonella sp. MH3-D3</Includes>
+                <Includes>Salmonella sp. MH3-D4</Includes>
+                <Includes>Salmonella sp. MH3-Z1</Includes>
+                <Includes>Salmonella sp. MH3-Z2</Includes>
+                <Includes>Salmonella sp. MH4-A2</Includes>
+                <Includes>Salmonella sp. MH4-A3</Includes>
+                <Includes>Salmonella sp. MH4-A4</Includes>
+                <Includes>Salmonella sp. MH4-Z2</Includes>
+                <Includes>Salmonella sp. NYVetLIRN-85</Includes>
+                <Includes>Salmonella sp. NYVetLIRN-86</Includes>
+                <Includes>Salmonella sp. NYVetLIRN-87</Includes>
+                <Includes>Salmonella sp. NYVetLIRN-88</Includes>
+                <Includes>Salmonella sp. OH-18-15149</Includes>
+                <Includes>Salmonella sp. OH-18-15334</Includes>
+                <Includes>Salmonella sp. OH-18-15363</Includes>
+                <Includes>Salmonella sp. OH-18-16886</Includes>
+                <Includes>Salmonella sp. OH-18-16934</Includes>
+                <Includes>Salmonella sp. OH-18-18132-1</Includes>
+                <Includes>Salmonella sp. OH-18-18132-10</Includes>
+                <Includes>Salmonella sp. OH-18-18132-11</Includes>
+                <Includes>Salmonella sp. OH-18-18132-12</Includes>
+                <Includes>Salmonella sp. OH-18-18132-13</Includes>
+                <Includes>Salmonella sp. OH-18-18132-14</Includes>
+                <Includes>Salmonella sp. OH-18-18132-15</Includes>
+                <Includes>Salmonella sp. OH-18-18132-2</Includes>
+                <Includes>Salmonella sp. OH-18-18132-3</Includes>
+                <Includes>Salmonella sp. OH-18-18132-4</Includes>
+                <Includes>Salmonella sp. OH-18-18132-5</Includes>
+                <Includes>Salmonella sp. OH-18-18132-6</Includes>
+                <Includes>Salmonella sp. OH-18-18132-7</Includes>
+                <Includes>Salmonella sp. OH-18-18132-8</Includes>
+                <Includes>Salmonella sp. OH-18-18132-9</Includes>
+                <Includes>Salmonella sp. OH-18-18281-1</Includes>
+                <Includes>Salmonella sp. OH-18-18281-2</Includes>
+                <Includes>Salmonella sp. OH-18-18411</Includes>
+                <Includes>Salmonella sp. OH-18-18446</Includes>
+                <Includes>Salmonella sp. OH-18-18447</Includes>
+                <Includes>Salmonella sp. OH-18-18941</Includes>
+                <Includes>Salmonella sp. OH-18-19201</Includes>
+                <Includes>Salmonella sp. OH-18-19951-1</Includes>
+                <Includes>Salmonella sp. OH-18-20073-2T</Includes>
+                <Includes>Salmonella sp. OH-18-20117-1</Includes>
+                <Includes>Salmonella sp. OH-18-20132-7</Includes>
+                <Includes>Salmonella sp. OH-18-20225-1-S</Includes>
+                <Includes>Salmonella sp. OH-18-20225-2-S</Includes>
+                <Includes>Salmonella sp. OH-18-20299-1</Includes>
+                <Includes>Salmonella sp. OH-18-20299-2</Includes>
+                <Includes>Salmonella sp. OH-18-20299-3</Includes>
+                <Includes>Salmonella sp. OH-18-20299-4</Includes>
+                <Includes>Salmonella sp. OH-18-20299-5</Includes>
+                <Includes>Salmonella sp. OH-18-20299-6</Includes>
+                <Includes>Salmonella sp. OH-18-20299-7</Includes>
+                <Includes>Salmonella sp. OH-18-20299-8</Includes>
+                <Includes>Salmonella sp. OH-18-20386</Includes>
+                <Includes>Salmonella sp. OH-18-20895</Includes>
+                <Includes>Salmonella sp. OH-18-20897</Includes>
+                <Includes>Salmonella sp. OH-18-21102</Includes>
+                <Includes>Salmonella sp. OH-18-21112</Includes>
+                <Includes>Salmonella sp. OH-18-21175</Includes>
+                <Includes>Salmonella sp. OH-18-21493-S</Includes>
+                <Includes>Salmonella sp. OH-18-21628</Includes>
+                <Includes>Salmonella sp. OH-18-21629</Includes>
+                <Includes>Salmonella sp. OH-18-21765</Includes>
+                <Includes>Salmonella sp. OH-18-21865-2</Includes>
+                <Includes>Salmonella sp. OH-18-22026</Includes>
+                <Includes>Salmonella sp. OH-18-22045</Includes>
+                <Includes>Salmonella sp. OH-18-22168</Includes>
+                <Includes>Salmonella sp. OH-18-22269-1</Includes>
+                <Includes>Salmonella sp. OH-18-22479</Includes>
+                <Includes>Salmonella sp. SAL-18-VL-LA-TX-0007</Includes>
+                <Includes>Salmonella sp. SAL-18-VL-LA-TX-0008</Includes>
+                <Includes>Salmonella sp. SAL-18-VL-LA-TX-0009</Includes>
+                <Includes>Salmonella sp. SAL-18-VL-NY-MS-0001</Includes>
+                <Includes>Salmonella sp. SAL-18-VL-NY-MS-0002</Includes>
+                <Includes>Salmonella sp. SAL-18-VL-NY-MS-0003</Includes>
+                <Includes>Salmonella sp. SAL-18-VL-NY-NJ-0001</Includes>
+                <Includes>Salmonella sp. SAL-18-VL-NY-UP-NBC-0001</Includes>
+                <Includes>Salmonella sp. SAL-18-VL-NY-UP-NBC-0004</Includes>
+                <Includes>Salmonella sp. SAL-18-VL-NY-UP-NBC-0005</Includes>
+                <Includes>Salmonella sp. SAL-18-VL-NY-UP-NBC-0006</Includes>
+                <Includes>Salmonella sp. SAL-18-VL-NY-UP-NBC-0007</Includes>
+                <Includes>Salmonella sp. SAL-18-VL-OH-IN-0001</Includes>
+                <Includes>Salmonella sp. SAL-18-VL-OH-IN-0002</Includes>
+                <Includes>Salmonella sp. SAL-18-VL-OH-IN-0003</Includes>
+                <Includes>Salmonella sp. SAL-18-VL-OH-IN-0005</Includes>
+                <Includes>Salmonella sp. SAL-18-VL-OH-IN-0007</Includes>
+                <Includes>Salmonella sp. SAL-18-VL-OH-WA-0012</Includes>
+                <Includes>Salmonella sp. SAL-18-VL-OH-WA-0013</Includes>
+                <Includes>Salmonella sp. SAL-18-VL-OH-WA-0014</Includes>
+                <Includes>Salmonella sp. SAL-18-VL-OH-WA-0017</Includes>
+                <Includes>Salmonella sp. TTU_251</Includes>
+                <Includes>Salmonella sp. TTU_258</Includes>
+                <Includes>Salmonella sp. TTU_262</Includes>
+                <Includes>Salmonella sp. TTU_264</Includes>
+                <Includes>Salmonella sp. TTU_265</Includes>
+                <Includes>Salmonella sp. TTU_266</Includes>
+                <Includes>Salmonella sp. TTU_267</Includes>
+                <Includes>Salmonella sp. TTU_269</Includes>
+                <Includes>Salmonella sp. TTU_274</Includes>
+                <Includes>Salmonella sp. TTU_279</Includes>
+                <Includes>Salmonella sp. TTU_282</Includes>
+                <Includes>Salmonella sp. TTU_284</Includes>
+                <Includes>Salmonella sp. TTU_287</Includes>
+                <Includes>Salmonella sp. TTU_289</Includes>
+                <Includes>Salmonella sp. TTU_297</Includes>
+                <Includes>Salmonella sp. TTU_298</Includes>
+                <Includes>Salmonella sp. TTU_299</Includes>
+                <Includes>Salmonella sp. TTU_303</Includes>
+                <Includes>Salmonella sp. TTU_304</Includes>
+                <Includes>Salmonella sp. TTU_305</Includes>
+                <Includes>Salmonella sp. TTU_306</Includes>
+                <Includes>Salmonella sp. TTU_307</Includes>
+                <Includes>Salmonella sp. TTU_308</Includes>
+                <Includes>Salmonella sp. TTU_309</Includes>
+                <Includes>Salmonella sp. TTU_310</Includes>
+                <Includes>Salmonella sp. TTU_311</Includes>
+                <Includes>Salmonella sp. TTU_312</Includes>
+                <Includes>Salmonella sp. TTU_313</Includes>
+                <Includes>Salmonella sp. TTU_314</Includes>
+                <Includes>Salmonella sp. TTU_315</Includes>
+                <Includes>Salmonella sp. TTU_316</Includes>
+                <Includes>Salmonella sp. TTU_317</Includes>
+                <Includes>Salmonella sp. TTU_318</Includes>
+                <Includes>Salmonella sp. TTU_319</Includes>
+                <Includes>Salmonella sp. TTU_320</Includes>
+                <Includes>Salmonella sp. TTU_321</Includes>
+                <Includes>Salmonella sp. TTU_322</Includes>
+                <Includes>Salmonella sp. TTU_323</Includes>
+                <Includes>Salmonella sp. TTU_324</Includes>
+                <Includes>Salmonella sp. TTU_325</Includes>
+                <Includes>Salmonella sp. TTU_326</Includes>
+                <Includes>Salmonella sp. TTU_327</Includes>
+                <Includes>Salmonella sp. TTU_328</Includes>
+                <Includes>Salmonella sp. TTU_329</Includes>
+                <Includes>Salmonella sp. TTU_330</Includes>
+                <Includes>Salmonella sp. TTU_331</Includes>
+                <Includes>Salmonella sp. TTU_332</Includes>
+                <Includes>Salmonella sp. TTU_333</Includes>
+                <Includes>Salmonella sp. TTU_334</Includes>
+                <Includes>Salmonella sp. TTU_335</Includes>
+                <Includes>Salmonella sp. TTU_338</Includes>
+                <Includes>Salmonella sp. TTU_345</Includes>
+                <Includes>Salmonella sp. TTU_352</Includes>
+                <Includes>Salmonella sp. TTU_353</Includes>
+                <Includes>Salmonella sp. TTU_357</Includes>
+                <Includes>Salmonella sp. TTU_358</Includes>
+                <Includes>Salmonella sp. TTU_359</Includes>
+                <Includes>Salmonella sp. TXACF1801691</Includes>
+                <Includes>Salmonella sp. Z-172</Includes>
+                <Includes>Salmonella sp. ZH-248</Includes>
+                <Name>
+                    <ClassCDE>authority</ClassCDE>
+                    <DispName>&quot;Bacillus cholerae-suis&quot; Smith 1894</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>authority</ClassCDE>
+                    <DispName>&quot;Salmonella enterica&quot; Kauffmann and Edwards 1952</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>authority</ClassCDE>
+                    <DispName>Salmonella choleraesuis corrig. (Smith 1894) Weldin 1927 (Approved Lists 1980)</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>authority</ClassCDE>
+                    <DispName>Salmonella enterica (ex Kauffmann and Edwards 1952) Le Minor and Popoff 1987</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>ATCC 13076</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>ATCC 13312</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>ATCC 43971</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>ATCC 700720</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>ATCC-13076</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>ATCC13076</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>ATCC:13076</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>ATCC:13076</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>ATCC:13312</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>ATCC:43971</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>ATCC:700720</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>CCUG 42060</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>CCUG:42060</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>CECT 915</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>CECT:915</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>CIP 55-133</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>CIP 55.133</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>CIP 58.57</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>CIP 60.62</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>CIP:55-133</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>CIP:55.133</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>CIP:58.57</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>CIP:60.62</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>DSM 14846</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>DSM 17058</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>DSM:14846</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>DSM:17058</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>JCM 1651</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>JCM:1651</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>NBRC 105684</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>NBRC 13245</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>NBRC:105684</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>NBRC:13245</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>NCIMB 11450</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>NCIMB:11450</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>NCTC 12416</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>NCTC 12694</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>NCTC 5735</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>NCTC-12694</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>NCTC12694</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>NCTC:12416</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>NCTC:12694</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>NCTC:12694</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>NCTC:5735</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>SGSC 1412</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>SGSC:1412</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>personal::LT2</DispName>
+                </Name>
+                <Name>
+                    <ClassCDE>type material</ClassCDE>
+                    <DispName>strain LT2</DispName>
+                </Name>
+            </OtherNames>
+            <ParentTaxId>590</ParentTaxId>
+            <Rank>species</Rank>
+            <Division>Bacteria</Division>
+            <GeneticCode>
+                <GCId>11</GCId>
+                <GCName>Bacterial, Archaeal and Plant Plastid</GCName>
+            </GeneticCode>
+            <MitoGeneticCode>
+                <MGCId>0</MGCId>
+                <MGCName>Unspecified</MGCName>
+            </MitoGeneticCode>
+            <Lineage>cellular organisms; Bacteria; Pseudomonadati; Pseudomonadota; Gammaproteobacteria; Enterobacterales; Enterobacteriaceae; Salmonella</Lineage>
+            <LineageEx>
+                <Taxon>
+                    <TaxId>131567</TaxId>
+                    <ScientificName>cellular organisms</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>2</TaxId>
+                    <ScientificName>Bacteria</ScientificName>
+                    <Rank>superkingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>3379134</TaxId>
+                    <ScientificName>Pseudomonadati</ScientificName>
+                    <Rank>kingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1224</TaxId>
+                    <ScientificName>Pseudomonadota</ScientificName>
+                    <Rank>phylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1236</TaxId>
+                    <ScientificName>Gammaproteobacteria</ScientificName>
+                    <Rank>class</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>91347</TaxId>
+                    <ScientificName>Enterobacterales</ScientificName>
+                    <Rank>order</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>543</TaxId>
+                    <ScientificName>Enterobacteriaceae</ScientificName>
+                    <Rank>family</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>590</TaxId>
+                    <ScientificName>Salmonella</ScientificName>
+                    <Rank>genus</Rank>
+                </Taxon>
+            </LineageEx>
+            <CreateDate>1995/02/27 09:24:00</CreateDate>
+            <UpdateDate>2024/03/08 14:07:06</UpdateDate>
+            <PubDate>1993/04/21 01:00:00</PubDate>
+        </Taxon>
+
+        </TaxaSet>
+  recorded_at: 2025-01-16 22:38:40 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Salmonella%20enterica%5BNext%20Level%5D%20AND%20Salmonella%5Bsubtree%5D&RetMax=1000&RetStart=0&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 16 Jan 2025 22:38:38 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: 8AC7B35D7D2103D2_4777SID
+      ncbi-phid: 939B0852ECD83E85000041CA95D31FE5.1.1.m_1
+      content-type: text/xml; charset=UTF-8
+      cache-control: private
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '6'
+      access-control-allow-origin: '*'
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=8AC7B35D7D2103D2_4777SID; domain=.nih.gov; path=/; expires=Fri,
+        16 Jan 2026 22:38:39 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: |
+        <?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
+        <eSearchResult><Count>7</Count><RetMax>7</RetMax><RetStart>0</RetStart><IdList>
+        <Id>59208</Id>
+        <Id>59207</Id>
+        <Id>59205</Id>
+        <Id>59204</Id>
+        <Id>59203</Id>
+        <Id>59202</Id>
+        <Id>59201</Id>
+        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Salmonella enterica[Next Level]</Term>    <Field>Next Level</Field>    <Count>7</Count>    <Explode>N</Explode>   </TermSet>   <TermSet>    <Term>Salmonella[subtree]</Term>    <Field>subtree</Field>    <Count>6147</Count>    <Explode>N</Explode>   </TermSet>   <OP>AND</OP>  </TranslationStack><QueryTranslation>Salmonella enterica[Next Level] AND Salmonella[subtree]</QueryTranslation></eSearchResult>
+  recorded_at: 2025-01-16 22:38:40 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&id=59208%2B59207%2B59205%2B59204%2B59203%2B59202%2B59201&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 16 Jan 2025 22:38:39 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: 11FC26D8FABB75C6_0442SID
+      ncbi-phid: 939B0852ECD83E85000039CA95FA7897.1.1.m_1
+      content-type: text/xml; charset=UTF-8
+      cache-control: private
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '5'
+      access-control-allow-origin: '*'
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=11FC26D8FABB75C6_0442SID; domain=.nih.gov; path=/; expires=Fri,
+        16 Jan 2026 22:38:39 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!DOCTYPE eSummaryResult
+        PUBLIC \"-//NLM//DTD esummary v1 20041029//EN\" \"https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20041029/esummary-v1.dtd\">\n<eSummaryResult>\n<DocSum>\n\t<Id>59208</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">subspecies</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">enterobacteria</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmonella enterica subsp. VII</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">59208</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmonella</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">enterica</Item>\n\t<Item Name=\"Subsp\" Type=\"String\">VII</Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2019/10/16 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>59207</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">subspecies</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">enterobacteria</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmonella enterica subsp. indica</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">59207</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmonella</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">enterica</Item>\n\t<Item Name=\"Subsp\" Type=\"String\">indica</Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2019/10/16 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>59205</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">subspecies</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">enterobacteria</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmonella enterica subsp. houtenae</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">59205</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmonella</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">enterica</Item>\n\t<Item Name=\"Subsp\" Type=\"String\">houtenae</Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2022/03/22 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>59204</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">subspecies</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">enterobacteria</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmonella enterica subsp. diarizonae</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">59204</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmonella</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">enterica</Item>\n\t<Item Name=\"Subsp\" Type=\"String\">diarizonae</Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2019/10/16 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>59203</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">subspecies</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">enterobacteria</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmonella enterica subsp. arizonae</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">59203</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmonella</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">enterica</Item>\n\t<Item Name=\"Subsp\" Type=\"String\">arizonae</Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2020/07/29 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>59202</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">subspecies</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">enterobacteria</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmonella enterica subsp. salamae</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">59202</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmonella</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">enterica</Item>\n\t<Item Name=\"Subsp\" Type=\"String\">salamae</Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2019/10/16 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>59201</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">subspecies</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">enterobacteria</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Salmonella enterica subsp. enterica</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">59201</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Salmonella</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">enterica</Item>\n\t<Item Name=\"Subsp\" Type=\"String\">enterica</Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2021/05/11 00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
+  recorded_at: 2025-01-16 22:38:40 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=2508041&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.81.0 r-curl/6.1.0 crul/1.5.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 16 Jan 2025 22:38:39 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: EAEAC461583D3687_4A49SID
+      ncbi-phid: 939B0852ECD83E8500005DCA963885A1.1.1.m_3
+      content-type: text/xml; charset=UTF-8
+      cache-control: private
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '5'
+      access-control-allow-origin: '*'
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=EAEAC461583D3687_4A49SID; domain=.nih.gov; path=/; expires=Fri,
+        16 Jan 2026 22:38:39 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: |-
+        <?xml version="1.0" ?>
+        <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
+        <TaxaSet><Taxon>
+            <TaxId>2508041</TaxId>
+            <ScientificName>unclassified Helianthus</ScientificName>
+            <ParentTaxId>4231</ParentTaxId>
+            <Rank>no rank</Rank>
+            <Division>Plants and Fungi</Division>
+            <GeneticCode>
+                <GCId>1</GCId>
+                <GCName>Standard</GCName>
+            </GeneticCode>
+            <MitoGeneticCode>
+                <MGCId>1</MGCId>
+                <MGCName>Standard</MGCName>
+            </MitoGeneticCode>
+            <Lineage>cellular organisms; Eukaryota; Viridiplantae; Streptophyta; Streptophytina; Embryophyta; Tracheophyta; Euphyllophyta; Spermatophyta; Magnoliopsida; Mesangiospermae; eudicotyledons; Gunneridae; Pentapetalae; asterids; campanulids; Asterales; Asteraceae; Asteroideae; Heliantheae alliance; Heliantheae; Helianthus</Lineage>
+            <LineageEx>
+                <Taxon>
+                    <TaxId>131567</TaxId>
+                    <ScientificName>cellular organisms</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>2759</TaxId>
+                    <ScientificName>Eukaryota</ScientificName>
+                    <Rank>superkingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33090</TaxId>
+                    <ScientificName>Viridiplantae</ScientificName>
+                    <Rank>kingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>35493</TaxId>
+                    <ScientificName>Streptophyta</ScientificName>
+                    <Rank>phylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>131221</TaxId>
+                    <ScientificName>Streptophytina</ScientificName>
+                    <Rank>subphylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>3193</TaxId>
+                    <ScientificName>Embryophyta</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>58023</TaxId>
+                    <ScientificName>Tracheophyta</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>78536</TaxId>
+                    <ScientificName>Euphyllophyta</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>58024</TaxId>
+                    <ScientificName>Spermatophyta</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>3398</TaxId>
+                    <ScientificName>Magnoliopsida</ScientificName>
+                    <Rank>class</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1437183</TaxId>
+                    <ScientificName>Mesangiospermae</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>71240</TaxId>
+                    <ScientificName>eudicotyledons</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>91827</TaxId>
+                    <ScientificName>Gunneridae</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1437201</TaxId>
+                    <ScientificName>Pentapetalae</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>71274</TaxId>
+                    <ScientificName>asterids</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>91882</TaxId>
+                    <ScientificName>campanulids</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>4209</TaxId>
+                    <ScientificName>Asterales</ScientificName>
+                    <Rank>order</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>4210</TaxId>
+                    <ScientificName>Asteraceae</ScientificName>
+                    <Rank>family</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>102804</TaxId>
+                    <ScientificName>Asteroideae</ScientificName>
+                    <Rank>subfamily</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>911341</TaxId>
+                    <ScientificName>Heliantheae alliance</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>102814</TaxId>
+                    <ScientificName>Heliantheae</ScientificName>
+                    <Rank>tribe</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>4231</TaxId>
+                    <ScientificName>Helianthus</ScientificName>
+                    <Rank>genus</Rank>
+                </Taxon>
+            </LineageEx>
+            <Properties>
+                <Property>
+                    <PropName>pgcode</PropName>
+                    <PropValueInt>11</PropValueInt>
+                </Property>
+            </Properties>
+            <CreateDate>2019/01/18 15:50:05</CreateDate>
+            <UpdateDate>2019/01/18 15:57:04</UpdateDate>
+            <PubDate>2019/01/18 19:06:34</PubDate>
+        </Taxon>
+
+        </TaxaSet>
+  recorded_at: 2025-01-16 22:38:40 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=unclassified%20Helianthus%5BNext%20Level%5D%20AND%20Helianthus%5Bsubtree%5D&RetMax=1000&RetStart=0&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 16 Jan 2025 22:38:39 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: 3DB373F80906DC24_D7C6SID
+      ncbi-phid: 939B0852ECD83E85000031CA9697CF95.1.1.m_1
+      content-type: text/xml; charset=UTF-8
+      cache-control: private
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '6'
+      access-control-allow-origin: '*'
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=3DB373F80906DC24_D7C6SID; domain=.nih.gov; path=/; expires=Fri,
+        16 Jan 2026 22:38:40 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: |
+        <?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
+        <eSearchResult><Count>20</Count><RetMax>20</RetMax><RetStart>0</RetStart><IdList>
+        <Id>3373515</Id>
+        <Id>2977859</Id>
+        <Id>2977858</Id>
+        <Id>2508000</Id>
+        <Id>2507999</Id>
+        <Id>2507998</Id>
+        <Id>2507997</Id>
+        <Id>2507996</Id>
+        <Id>2507995</Id>
+        <Id>2507994</Id>
+        <Id>2507993</Id>
+        <Id>2507992</Id>
+        <Id>2507991</Id>
+        <Id>2507990</Id>
+        <Id>2507989</Id>
+        <Id>1720378</Id>
+        <Id>1577454</Id>
+        <Id>1261137</Id>
+        <Id>585498</Id>
+        <Id>50471</Id>
+        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>unclassified Helianthus[Next Level]</Term>    <Field>Next Level</Field>    <Count>20</Count>    <Explode>N</Explode>   </TermSet>   <TermSet>    <Term>Helianthus[subtree]</Term>    <Field>subtree</Field>    <Count>107</Count>    <Explode>N</Explode>   </TermSet>   <OP>AND</OP>  </TranslationStack><QueryTranslation>unclassified Helianthus[Next Level] AND Helianthus[subtree]</QueryTranslation></eSearchResult>
+  recorded_at: 2025-01-16 22:38:40 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&id=3373515%2B2977859%2B2977858%2B2508000%2B2507999%2B2507998%2B2507997%2B2507996%2B2507995%2B2507994%2B2507993%2B2507992%2B2507991%2B2507990%2B2507989%2B1720378%2B1577454%2B1261137%2B585498%2B50471&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Thu, 16 Jan 2025 22:38:39 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: BF26E24C0D48085A_BDBCSID
+      ncbi-phid: 939B0852ECD83E85000027CA96BEF74F.1.1.m_1
+      content-type: text/xml; charset=UTF-8
+      cache-control: private
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '5'
+      access-control-allow-origin: '*'
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=BF26E24C0D48085A_BDBCSID; domain=.nih.gov; path=/; expires=Fri,
+        16 Jan 2026 22:38:40 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!DOCTYPE eSummaryResult
+        PUBLIC \"-//NLM//DTD esummary v1 20041029//EN\" \"https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20041029/esummary-v1.dtd\">\n<eSummaryResult>\n<DocSum>\n\t<Id>3373515</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus sp. JH-2024a</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">3373515</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">sp. JH-2024a</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2024/11/06
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2977859</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus sp. 5A0-8SKS</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2977859</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">sp. 5A0-8SKS</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2022/09/27
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2977858</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus sp. 59F-8SKR</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2977858</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">sp. 59F-8SKR</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2022/09/27
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2508000</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus sp. 9 KS-2019</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2508000</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">sp. 9 KS-2019</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2019/02/04
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2507999</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus sp. 8 KS-2019</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2507999</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">sp. 8 KS-2019</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2019/02/04
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2507998</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus sp. 7 KS-2019</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2507998</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">sp. 7 KS-2019</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2019/02/04
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2507997</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus sp. 6 KS-2019</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2507997</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">sp. 6 KS-2019</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2019/02/04
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2507996</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus sp. 5 KS-2019</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2507996</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">sp. 5 KS-2019</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2019/02/04
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2507995</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus sp. 4 KS-2019</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2507995</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">sp. 4 KS-2019</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2019/02/04
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2507994</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus sp. 3 KS-2019</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2507994</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">sp. 3 KS-2019</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2019/02/04
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2507993</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus sp. 2 KS-2019</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2507993</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">sp. 2 KS-2019</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2019/02/04
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2507992</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus sp. 1 KS-20192</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2507992</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">sp. 1 KS-20192</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2019/02/04
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2507991</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus sp. 1 KS-20191</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2507991</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">sp. 1 KS-20191</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2019/02/04
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2507990</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus sp. 1 KS-20190</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2507990</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">sp. 1 KS-20190</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2019/02/04
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>2507989</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus sp. 1 KS-2019</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2507989</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">sp. 1 KS-2019</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2019/02/04
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>1720378</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus sp. BIOUG24048-D10</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">1720378</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">sp. BIOUG24048-D10</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2015/10/01
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>1577454</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus sp. ASM-2014</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">1577454</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">sp. ASM-2014</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2015/07/25
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>1261137</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus sp. DH-2012</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">1261137</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">sp. DH-2012</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2012/12/10
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>585498</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus sp. WO2008062049</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">585498</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">sp. WO2008062049</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2009/01/07
+        00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>50471</Id>\n\t<Item Name=\"Status\"
+        Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">eudicots</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Helianthus sp.</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">50471</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Helianthus</Item>\n\t<Item Name=\"Species\"
+        Type=\"String\">sp.</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2005/01/19 00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
+  recorded_at: 2025-01-16 22:38:40 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0

@@ -1,0 +1,166 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://data.canadensys.net/vascan/api/0.1/search.json?q=Crataegus
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx
+      date: Thu, 16 Jan 2025 22:39:04 GMT
+      content-type: application/json;charset=UTF-8
+      transfer-encoding: chunked
+      connection: keep-alive
+      permissions-policy: geolocation=(),midi=(),sync-xhr=(),microphone=(),camera=(),magnetometer=(),gyroscope=(),fullscreen=(self),payment=()
+      referrer-policy: strict-origin
+      x-content-type-options: nosniff
+      x-frame-options: SAMEORIGIN
+      x-xss-protection: 1; mode=block
+      content-security-policy: default-src 'self'  *.candensys.net *.gbif-staging.org
+        *.gbif.org *.ajax.googleapis.com; font-src *;img-src * data:; script-src 'self'
+        *.canadensys.net ; style-src * 'unsafe-inline' *.canadensys.net
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      access-control-allow-methods: GET
+    body:
+      encoding: ''
+      file: no
+      base64_string: eyJhcGlWZXJzaW9uIjoiMC4xIiwibGFzdFVwZGF0ZWREYXRlIjoiMjAyNC0xMi0xOCIsInJlc3VsdHMi
+        Olt7InNlYXJjaGVkVGVybSI6IkNyYXRhZWd1cyIsIm51bU1hdGNoZXMiOjEsIm1hdGNoZXMiOlt7InRh
+        eG9uSUQiOjEwNDcsInNjaWVudGlmaWNOYW1lIjoiQ3JhdGFlZ3VzIExpbm5hZXVzIG5vbS4gY29ucy4i
+        LCJzY2llbnRpZmljTmFtZUF1dGhvcnNoaXAiOiJMaW5uYWV1cyBub20uIGNvbnMuIiwiY2Fub25pY2Fs
+        TmFtZSI6IkNyYXRhZWd1cyIsInRheG9uUmFuayI6ImdlbnVzIiwidGF4b25vbWljQXNzZXJ0aW9ucyI6
+        W3siYWNjZXB0ZWROYW1lVXNhZ2UiOiJDcmF0YWVndXMgTGlubmFldXMgbm9tLiBjb25zLiIsImFjY2Vw
+        dGVkTmFtZVVzYWdlSUQiOjEwNDcsIm5hbWVBY2NvcmRpbmdUbyI6IkZOQSBFZGl0b3JpYWwgQ29tbWl0
+        dGVlLiAyMDE0LiBGbG9yYSBvZiBOb3J0aCBBbWVyaWNhIG5vcnRoIG9mIE1leGljby4gVm9sdW1lIDk6
+        IE1hZ25vbGlvcGh5dGE6IFBpY3JhbW5pYWNlYWUgdG8gUm9zYWNlYWUuIE94Zm9yZCBVbml2ZXJzaXR5
+        IFByZXNzLCBOZXcgWW9yay4iLCJuYW1lQWNjb3JkaW5nVG9JRCI6Imh0dHA6Ly93d3cuZWZsb3Jhcy5v
+        cmcvdm9sdW1lX3BhZ2UuYXNweD92b2x1bWVfaWQ9MTAwOSZmbG9yYV9pZD0xIiwidGF4b25vbWljU3Rh
+        dHVzIjoiYWNjZXB0ZWQiLCJwYXJlbnROYW1lVXNhZ2VJRCI6NDE2LCJoaWdoZXJDbGFzc2lmaWNhdGlv
+        biI6IkVxdWlzZXRvcHNpZGE7TWFnbm9saWlkYWU7Um9zYW5hZTtSb3NhbGVzO1Jvc2FjZWFlO0FteWdk
+        YWxvaWRlYWU7TWFsZWFlIn1dLCJ2ZXJuYWN1bGFyTmFtZXMiOlt7InZlcm5hY3VsYXJOYW1lIjoiaGF3
+        dGhvcm4iLCJsYW5ndWFnZSI6ImVuIiwic291cmNlIjoiRmFycmFyLCBKLkwuIDE5OTYuIExlcyBBcmJy
+        ZXMgZHUgQ2FuYWRhLiBGaWRlcyBldCBTZXJ2aWNlIGNhbmFkaWVuIGRlcyBmb3LDqnRzLiA1MDIgcHAu
+        IiwicHJlZmVycmVkTmFtZSI6dHJ1ZX1dfV19XX0=
+  recorded_at: 2025-01-16 22:39:04 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://data.canadensys.net/vascan/api/0.1/search.json?q=Crataegus
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx
+      date: Thu, 16 Jan 2025 22:39:04 GMT
+      content-type: application/json;charset=UTF-8
+      transfer-encoding: chunked
+      connection: keep-alive
+      permissions-policy: geolocation=(),midi=(),sync-xhr=(),microphone=(),camera=(),magnetometer=(),gyroscope=(),fullscreen=(self),payment=()
+      referrer-policy: strict-origin
+      x-content-type-options: nosniff
+      x-frame-options: SAMEORIGIN
+      x-xss-protection: 1; mode=block
+      content-security-policy: default-src 'self'  *.candensys.net *.gbif-staging.org
+        *.gbif.org *.ajax.googleapis.com; font-src *;img-src * data:; script-src 'self'
+        *.canadensys.net ; style-src * 'unsafe-inline' *.canadensys.net
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      access-control-allow-methods: GET
+    body:
+      encoding: ''
+      file: no
+      base64_string: eyJhcGlWZXJzaW9uIjoiMC4xIiwibGFzdFVwZGF0ZWREYXRlIjoiMjAyNC0xMi0xOCIsInJlc3VsdHMi
+        Olt7InNlYXJjaGVkVGVybSI6IkNyYXRhZWd1cyIsIm51bU1hdGNoZXMiOjEsIm1hdGNoZXMiOlt7InRh
+        eG9uSUQiOjEwNDcsInNjaWVudGlmaWNOYW1lIjoiQ3JhdGFlZ3VzIExpbm5hZXVzIG5vbS4gY29ucy4i
+        LCJzY2llbnRpZmljTmFtZUF1dGhvcnNoaXAiOiJMaW5uYWV1cyBub20uIGNvbnMuIiwiY2Fub25pY2Fs
+        TmFtZSI6IkNyYXRhZWd1cyIsInRheG9uUmFuayI6ImdlbnVzIiwidGF4b25vbWljQXNzZXJ0aW9ucyI6
+        W3siYWNjZXB0ZWROYW1lVXNhZ2UiOiJDcmF0YWVndXMgTGlubmFldXMgbm9tLiBjb25zLiIsImFjY2Vw
+        dGVkTmFtZVVzYWdlSUQiOjEwNDcsIm5hbWVBY2NvcmRpbmdUbyI6IkZOQSBFZGl0b3JpYWwgQ29tbWl0
+        dGVlLiAyMDE0LiBGbG9yYSBvZiBOb3J0aCBBbWVyaWNhIG5vcnRoIG9mIE1leGljby4gVm9sdW1lIDk6
+        IE1hZ25vbGlvcGh5dGE6IFBpY3JhbW5pYWNlYWUgdG8gUm9zYWNlYWUuIE94Zm9yZCBVbml2ZXJzaXR5
+        IFByZXNzLCBOZXcgWW9yay4iLCJuYW1lQWNjb3JkaW5nVG9JRCI6Imh0dHA6Ly93d3cuZWZsb3Jhcy5v
+        cmcvdm9sdW1lX3BhZ2UuYXNweD92b2x1bWVfaWQ9MTAwOSZmbG9yYV9pZD0xIiwidGF4b25vbWljU3Rh
+        dHVzIjoiYWNjZXB0ZWQiLCJwYXJlbnROYW1lVXNhZ2VJRCI6NDE2LCJoaWdoZXJDbGFzc2lmaWNhdGlv
+        biI6IkVxdWlzZXRvcHNpZGE7TWFnbm9saWlkYWU7Um9zYW5hZTtSb3NhbGVzO1Jvc2FjZWFlO0FteWdk
+        YWxvaWRlYWU7TWFsZWFlIn1dLCJ2ZXJuYWN1bGFyTmFtZXMiOlt7InZlcm5hY3VsYXJOYW1lIjoiaGF3
+        dGhvcm4iLCJsYW5ndWFnZSI6ImVuIiwic291cmNlIjoiRmFycmFyLCBKLkwuIDE5OTYuIExlcyBBcmJy
+        ZXMgZHUgQ2FuYWRhLiBGaWRlcyBldCBTZXJ2aWNlIGNhbmFkaWVuIGRlcyBmb3LDqnRzLiA1MDIgcHAu
+        IiwicHJlZmVycmVkTmFtZSI6dHJ1ZX1dfV19XX0=
+  recorded_at: 2025-01-16 22:39:04 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://data.canadensys.net/vascan/api/0.1/search.json?q=Crataegus
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      server: nginx
+      date: Thu, 16 Jan 2025 22:39:04 GMT
+      content-type: application/json;charset=UTF-8
+      transfer-encoding: chunked
+      connection: keep-alive
+      permissions-policy: geolocation=(),midi=(),sync-xhr=(),microphone=(),camera=(),magnetometer=(),gyroscope=(),fullscreen=(self),payment=()
+      referrer-policy: strict-origin
+      x-content-type-options: nosniff
+      x-frame-options: SAMEORIGIN
+      x-xss-protection: 1; mode=block
+      content-security-policy: default-src 'self'  *.candensys.net *.gbif-staging.org
+        *.gbif.org *.ajax.googleapis.com; font-src *;img-src * data:; script-src 'self'
+        *.canadensys.net ; style-src * 'unsafe-inline' *.canadensys.net
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      access-control-allow-methods: GET
+    body:
+      encoding: ''
+      file: no
+      base64_string: eyJhcGlWZXJzaW9uIjoiMC4xIiwibGFzdFVwZGF0ZWREYXRlIjoiMjAyNC0xMi0xOCIsInJlc3VsdHMi
+        Olt7InNlYXJjaGVkVGVybSI6IkNyYXRhZWd1cyIsIm51bU1hdGNoZXMiOjEsIm1hdGNoZXMiOlt7InRh
+        eG9uSUQiOjEwNDcsInNjaWVudGlmaWNOYW1lIjoiQ3JhdGFlZ3VzIExpbm5hZXVzIG5vbS4gY29ucy4i
+        LCJzY2llbnRpZmljTmFtZUF1dGhvcnNoaXAiOiJMaW5uYWV1cyBub20uIGNvbnMuIiwiY2Fub25pY2Fs
+        TmFtZSI6IkNyYXRhZWd1cyIsInRheG9uUmFuayI6ImdlbnVzIiwidGF4b25vbWljQXNzZXJ0aW9ucyI6
+        W3siYWNjZXB0ZWROYW1lVXNhZ2UiOiJDcmF0YWVndXMgTGlubmFldXMgbm9tLiBjb25zLiIsImFjY2Vw
+        dGVkTmFtZVVzYWdlSUQiOjEwNDcsIm5hbWVBY2NvcmRpbmdUbyI6IkZOQSBFZGl0b3JpYWwgQ29tbWl0
+        dGVlLiAyMDE0LiBGbG9yYSBvZiBOb3J0aCBBbWVyaWNhIG5vcnRoIG9mIE1leGljby4gVm9sdW1lIDk6
+        IE1hZ25vbGlvcGh5dGE6IFBpY3JhbW5pYWNlYWUgdG8gUm9zYWNlYWUuIE94Zm9yZCBVbml2ZXJzaXR5
+        IFByZXNzLCBOZXcgWW9yay4iLCJuYW1lQWNjb3JkaW5nVG9JRCI6Imh0dHA6Ly93d3cuZWZsb3Jhcy5v
+        cmcvdm9sdW1lX3BhZ2UuYXNweD92b2x1bWVfaWQ9MTAwOSZmbG9yYV9pZD0xIiwidGF4b25vbWljU3Rh
+        dHVzIjoiYWNjZXB0ZWQiLCJwYXJlbnROYW1lVXNhZ2VJRCI6NDE2LCJoaWdoZXJDbGFzc2lmaWNhdGlv
+        biI6IkVxdWlzZXRvcHNpZGE7TWFnbm9saWlkYWU7Um9zYW5hZTtSb3NhbGVzO1Jvc2FjZWFlO0FteWdk
+        YWxvaWRlYWU7TWFsZWFlIn1dLCJ2ZXJuYWN1bGFyTmFtZXMiOlt7InZlcm5hY3VsYXJOYW1lIjoiaGF3
+        dGhvcm4iLCJsYW5ndWFnZSI6ImVuIiwic291cmNlIjoiRmFycmFyLCBKLkwuIDE5OTYuIExlcyBBcmJy
+        ZXMgZHUgQ2FuYWRhLiBGaWRlcyBldCBTZXJ2aWNlIGNhbmFkaWVuIGRlcyBmb3LDqnRzLiA1MDIgcHAu
+        IiwicHJlZmVycmVkTmFtZSI6dHJ1ZX1dfV19XX0=
+  recorded_at: 2025-01-16 22:39:04 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0

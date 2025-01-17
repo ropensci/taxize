@@ -1,0 +1,34 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://verifier.globalnames.org/api/v1/search/n%3AB.%20bubo%20ds%3A1%2C2%20au%3ALinn.%20y%3A1700-
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/5.2.3 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      content-encoding: gzip
+      content-length: '1149'
+      content-type: application/json
+      date: Thu, 16 Jan 2025 19:20:34 GMT
+      server: nginx/1.24.0 (Ubuntu)
+      status: 'HTTP/2 200 '
+      vary:
+      - Accept-Encoding
+      - Origin
+    body:
+      encoding: ''
+      file: no
+      string: |
+        {"metadata":{"input":{"query":"ds:1,2 n:B. bubo","dataSources":[1,2],"nameString":"B. bubo","genus":"B.","species":"bubo","author":"Linn.","yearRange":{"YearStart":1700,"YearEnd":0}},"namesNumber":3},"names":[{"id":"4431a0f3-e901-519a-886f-9b97e0c99d8e","name":"Bubo bubo","cardinality":2,"matchType":"FacetedSearch","bestResult":{"dataSourceId":1,"dataSourceTitleShort":"Catalogue of Life","curation":"Curated","recordId":"NKSD","outlink":"https://www.catalogueoflife.org/data/taxon/NKSD","entryDate":"2024-10-08","sortScore":9.412152479890551,"matchedNameID":"","matchedName":"Bubo bubo (Linnaeus, 1758)","matchedCardinality":2,"currentRecordId":"NKSD","currentNameId":"","currentName":"Bubo bubo (Linnaeus, 1758)","currentCardinality":2,"currentCanonicalSimple":"Bubo bubo","currentCanonicalFull":"Bubo bubo","taxonomicStatus":"Accepted","isSynonym":false,"classificationPath":"Biota|Animalia|Chordata|Vertebrata|Gnathostomata|Osteichthyes|Tetrapoda|Aves|Strigiformes|Strigidae|Striginae|Bubo|Bubo bubo","classificationRanks":"unranked|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|subfamily|genus|species","classificationIds":"5T6MX|N|CH2|8V4V3|8V4V5|8VVWB|9CK8W|V2|466|GQX|KDK|3DQQ|NKSD","editDistance":0,"stemEditDistance":0,"matchType":"FacetedSearch","scoreDetails":{"cardinalityScore":1,"infraSpecificRankScore":0,"fuzzyLessScore":1,"curatedDataScore":1,"authorMatchScore":0.14285715,"acceptedNameScore":1,"parsingQualityScore":1}},"dataSourcesNum":1,"dataSourcesIds":[1],"curation":"Curated"},{"id":"bcf101e8-ff70-5a27-a40a-6bf58036934d","name":"Bubo bubo bubo","cardinality":3,"matchType":"FacetedSearch","bestResult":{"dataSourceId":1,"dataSourceTitleShort":"Catalogue of Life","curation":"Curated","recordId":"BMH68","outlink":"https://www.catalogueoflife.org/data/taxon/BMH68","entryDate":"2024-10-08","sortScore":9.494159867880436,"matchedNameID":"","matchedName":"Bubo bubo bubo (Linnaeus, 1758)","matchedCardinality":3,"currentRecordId":"BMH68","currentNameId":"","currentName":"Bubo bubo bubo (Linnaeus, 1758)","currentCardinality":3,"currentCanonicalSimple":"Bubo bubo bubo","currentCanonicalFull":"Bubo bubo bubo","taxonomicStatus":"Accepted","isSynonym":false,"classificationPath":"Biota|Animalia|Chordata|Vertebrata|Gnathostomata|Osteichthyes|Tetrapoda|Aves|Strigiformes|Strigidae|Striginae|Bubo|Bubo bubo|Bubo bubo bubo","classificationRanks":"unranked|kingdom|phylum|subphylum|infraphylum|parvphylum|megaclass|class|order|family|subfamily|genus|species|subspecies","classificationIds":"5T6MX|N|CH2|8V4V3|8V4V5|8VVWB|9CK8W|V2|466|GQX|KDK|3DQQ|NKSD|BMH68","editDistance":0,"stemEditDistance":0,"matchType":"FacetedSearch","scoreDetails":{"cardinalityScore":1,"infraSpecificRankScore":0.5,"fuzzyLessScore":1,"curatedDataScore":1,"authorMatchScore":0.14285715,"acceptedNameScore":1,"parsingQualityScore":1}},"dataSourcesNum":1,"dataSourcesIds":[1],"curation":"Curated"},{"id":"abe6f241-4756-546a-8f60-ee3284e4fc14","name":"Bursa bubo","cardinality":2,"matchType":"FacetedSearch","bestResult":{"dataSourceId":1,"dataSourceTitleShort":"Catalogue of Life","curation":"Curated","recordId":"NY6B","outlink":"https://www.catalogueoflife.org/data/taxon/NY6B","entryDate":"2024-10-08","sortScore":9.411799753388399,"matchedNameID":"","matchedName":"Bursa bubo (Linnaeus, 1758)","matchedCardinality":2,"currentRecordId":"59RC5","currentNameId":"","currentName":"Tutufa bubo (Linnaeus, 1758)","currentCardinality":2,"currentCanonicalSimple":"Tutufa bubo","currentCanonicalFull":"Tutufa bubo","taxonomicStatus":"Synonym","isSynonym":true,"classificationPath":"Biota|Animalia|Mollusca|Gastropoda|Caenogastropoda|Littorinimorpha|Tonnoidea|Bursidae|Tutufa|Tutufa bubo","classificationRanks":"unranked|kingdom|phylum|class|subclass|order|superfamily|family|genus|species","classificationIds":"5T6MX|N|M2L|BMGTT|9WLSP|B6L8B|7NH2Q|7NG76|7PKDH|59RC5","editDistance":0,"stemEditDistance":0,"matchType":"FacetedSearch","scoreDetails":{"cardinalityScore":1,"infraSpecificRankScore":0,"fuzzyLessScore":1,"curatedDataScore":1,"authorMatchScore":0.14285715,"acceptedNameScore":0,"parsingQualityScore":1}},"dataSourcesNum":1,"dataSourcesIds":[1],"curation":"Curated"}]}
+  recorded_at: 2025-01-16 19:20:34 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0

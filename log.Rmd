@@ -10,6 +10,11 @@ clipr::write_clip(paste0('## ', format(Sys.time(), "%F (%A %B %e)\n\n")))
 # Date and time:
 clipr::write_clip(paste0('## ', format(Sys.time(), "%F %X %Z (%A %B %e)\n\n")))
 ```
+
+## 2024-12-02
+
+Global Names Verifier is the new version of Global Names Resolver, according to Matthias Grenie.
+
 ## 2024-10-16 (Wednesday October 16)
 
 Working on updating `scrapenames`.

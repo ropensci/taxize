@@ -2,7 +2,7 @@ context("eubon_search")
 
 test_that("eubon_search works", {
   skip_on_cran()
-  vcr::use_cassette("eubon_search", {
+  vcr::use_cassette("eubon_search", match_requests_on = c('method', 'path'), {
     aa <- eubon_search("Prionus")
     # bb <- eubon_search("Salmo", providers = 'worms') # The worms data source for Eubon does not seem to be working 
     cc <- eubon_search("Salmo", providers = c('pesi', 'worms'))
