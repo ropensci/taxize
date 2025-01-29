@@ -17,13 +17,13 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Thu, 16 Jan 2025 22:39:42 GMT
+      date: Wed, 29 Jan 2025 22:48:00 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
       referrer-policy: origin-when-cross-origin
-      ncbi-sid: DCEF3A9CC94C3FDD_4CE2SID
-      ncbi-phid: 322CDAF63A8875A5000037EA8D39864A.1.1.m_1
+      ncbi-sid: A91E14CB46EEED1D_C940SID
+      ncbi-phid: D0BDE222A35BF0F50000539BC6E672EA.1.1.m_1
       content-type: text/xml; charset=UTF-8
       cache-control: private
       content-encoding: gzip
@@ -31,8 +31,8 @@ http_interactions:
       x-ratelimit-remaining: '9'
       access-control-allow-origin: '*'
       access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
-      set-cookie: ncbi_sid=DCEF3A9CC94C3FDD_4CE2SID; domain=.nih.gov; path=/; expires=Fri,
-        16 Jan 2026 22:39:42 GMT
+      set-cookie: ncbi_sid=A91E14CB46EEED1D_C940SID; domain=.nih.gov; path=/; expires=Thu,
+        29 Jan 2026 22:48:00 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -45,7 +45,7 @@ http_interactions:
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>4232</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Helianthus+annuus[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Helianthus+annuus[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2025-01-16 22:39:49 GMT
+  recorded_at: 2025-01-29 22:48:07 GMT
   recorded_with: vcr/1.6.0.91, webmockr/1.0.0
 - request:
     method: get
@@ -65,13 +65,13 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Thu, 16 Jan 2025 22:39:42 GMT
+      date: Wed, 29 Jan 2025 22:48:00 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
       referrer-policy: origin-when-cross-origin
-      ncbi-sid: 41D2D2DC320A02E7_D4A4SID
-      ncbi-phid: 322CDAF63A8875A500003CEA8D906EDB.1.1.m_1
+      ncbi-sid: 55E3B745FA375DB1_2946SID
+      ncbi-phid: D0BDE222A35BF0F500004A9BC75DA0E9.1.1.m_1
       content-type: text/xml; charset=UTF-8
       cache-control: private
       content-encoding: gzip
@@ -79,8 +79,8 @@ http_interactions:
       x-ratelimit-remaining: '8'
       access-control-allow-origin: '*'
       access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
-      set-cookie: ncbi_sid=41D2D2DC320A02E7_D4A4SID; domain=.nih.gov; path=/; expires=Fri,
-        16 Jan 2026 22:39:43 GMT
+      set-cookie: ncbi_sid=55E3B745FA375DB1_2946SID; domain=.nih.gov; path=/; expires=Thu,
+        29 Jan 2026 22:48:01 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -93,7 +93,7 @@ http_interactions:
         <eSearchResult><Count>1</Count><RetMax>1</RetMax><RetStart>0</RetStart><IdList>
         <Id>189838</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Baetis[All Names]</Term>    <Field>All Names</Field>    <Count>1</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Baetis[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2025-01-16 22:39:49 GMT
+  recorded_at: 2025-01-29 22:48:07 GMT
   recorded_with: vcr/1.6.0.91, webmockr/1.0.0
 - request:
     method: get
@@ -112,13 +112,13 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Thu, 16 Jan 2025 22:39:42 GMT
+      date: Wed, 29 Jan 2025 22:48:01 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
       referrer-policy: origin-when-cross-origin
-      ncbi-sid: 9FB4E440276CE136_2458SID
-      ncbi-phid: 322CDAF63A8875A500004DEA8DF326EF.1.1.m_3
+      ncbi-sid: 1F1E47F13DC2EFA7_1FE9SID
+      ncbi-phid: D0BDE222A35BF0F500003D9BC7CAF6F3.1.1.m_3
       content-type: text/xml; charset=UTF-8
       cache-control: private
       content-encoding: gzip
@@ -126,8 +126,8 @@ http_interactions:
       x-ratelimit-remaining: '7'
       access-control-allow-origin: '*'
       access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
-      set-cookie: ncbi_sid=9FB4E440276CE136_2458SID; domain=.nih.gov; path=/; expires=Fri,
-        16 Jan 2026 22:39:43 GMT
+      set-cookie: ncbi_sid=1F1E47F13DC2EFA7_1FE9SID; domain=.nih.gov; path=/; expires=Thu,
+        29 Jan 2026 22:48:01 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -295,7 +295,7 @@ http_interactions:
         </Taxon>
 
         </TaxaSet>
-  recorded_at: 2025-01-16 22:39:49 GMT
+  recorded_at: 2025-01-29 22:48:07 GMT
   recorded_with: vcr/1.6.0.91, webmockr/1.0.0
 - request:
     method: get
@@ -314,13 +314,13 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Thu, 16 Jan 2025 22:39:43 GMT
+      date: Wed, 29 Jan 2025 22:48:01 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
       referrer-policy: origin-when-cross-origin
-      ncbi-sid: 27A5209BF264ED49_AFD1SID
-      ncbi-phid: 322CDAF63A8875A500003BEA8E6C0B99.1.1.m_5
+      ncbi-sid: 93BCCD910025B55A_DADFSID
+      ncbi-phid: D0BDE222A35BF0F50000509BC84CDBF7.1.1.m_3
       content-type: text/xml; charset=UTF-8
       cache-control: private
       content-encoding: gzip
@@ -328,8 +328,8 @@ http_interactions:
       x-ratelimit-remaining: '6'
       access-control-allow-origin: '*'
       access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
-      set-cookie: ncbi_sid=27A5209BF264ED49_AFD1SID; domain=.nih.gov; path=/; expires=Fri,
-        16 Jan 2026 22:39:43 GMT
+      set-cookie: ncbi_sid=93BCCD910025B55A_DADFSID; domain=.nih.gov; path=/; expires=Thu,
+        29 Jan 2026 22:48:01 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -465,5 +465,5 @@ http_interactions:
         </Taxon>
 
         </TaxaSet>
-  recorded_at: 2025-01-16 22:39:49 GMT
+  recorded_at: 2025-01-29 22:48:07 GMT
   recorded_with: vcr/1.6.0.91, webmockr/1.0.0

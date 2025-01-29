@@ -5,12 +5,10 @@ test_that("iucn_summary returns the correct value", {
   }
   skip_on_cran()
 
-  vcr::use_cassette("iucn_summary", {
-    temp <- iucn_summary(c("Panthera uncia", "Lynx lynx"))
-  }, 
-    preserve_exact_body_bytes = TRUE,
-    match_requests_on = c("method", "query")
-  )
+  # vcr::use_cassette("iucn_summary", {
+  #   temp <- iucn_summary(c("Panthera uncia", "Lynx lynx"))
+  # }, preserve_exact_body_bytes = TRUE, match_requests_on = c("method", "query"))
+  temp <- iucn_summary(c("Panthera uncia", "Lynx lynx"))
 
   expect_is(temp, "iucn_summary")
   expect_equal(length(iucn_status(temp)), 2)
@@ -23,20 +21,28 @@ test_that("iucn_summary gives expected result for lots of names", {
   }
   skip_on_cran()
 
-  vcr::use_cassette("iucn_summary_other_egs", {
-    aa <- iucn_summary("Abies koreana")
-    bb <- iucn_summary("Xylopia collina")
-    cc <- iucn_summary("Brugmansia versicolor")
-    dd <- iucn_summary("Achatinella buddii")
-    ee <- iucn_summary("Annona hystricoides")
-    ff <- iucn_summary("Chamaecrista onusta")
-    gg <- iucn_summary("Cyornis lemprieri")
-    hh <- iucn_summary("Frailea pumila")
-  }, 
-    preserve_exact_body_bytes = TRUE, 
-    match_requests_on = c("method", "query")
-  )
-
+  # vcr::use_cassette("iucn_summary_other_egs", {
+  #   aa <- iucn_summary("Abies koreana")
+  #   bb <- iucn_summary("Xylopia collina")
+  #   cc <- iucn_summary("Brugmansia versicolor")
+  #   dd <- iucn_summary("Achatinella buddii")
+  #   ee <- iucn_summary("Annona hystricoides")
+  #   ff <- iucn_summary("Chamaecrista onusta")
+  #   gg <- iucn_summary("Cyornis lemprieri")
+  #   hh <- iucn_summary("Frailea pumila")
+  # }, 
+  #   preserve_exact_body_bytes = TRUE, 
+  #   match_requests_on = c("method", "query")
+  # )
+  aa <- iucn_summary("Abies koreana")
+  bb <- iucn_summary("Xylopia collina")
+  cc <- iucn_summary("Brugmansia versicolor")
+  dd <- iucn_summary("Achatinella buddii")
+  ee <- iucn_summary("Annona hystricoides")
+  ff <- iucn_summary("Chamaecrista onusta")
+  gg <- iucn_summary("Cyornis lemprieri")
+  hh <- iucn_summary("Frailea pumila")
+  
   expect_equal(aa$`Abies koreana`$red_list_category$code, "EN")
   expect_equal(bb$`Xylopia collina`$red_list_category$code, "NT")
   expect_equal(cc$`Brugmansia versicolor`$red_list_category$code, "EW")

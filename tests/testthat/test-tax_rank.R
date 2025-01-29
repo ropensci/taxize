@@ -2,15 +2,21 @@ context("tax_rank")
 
 test_that("tax_rank returns the correct class", {
   skip_on_cran() # uses secrets
-  vcr::use_cassette("tax_rank", {
-    A <- suppressMessages(tax_rank(c("Helianthus annuus", "Baetis"),
-      db = "ncbi", messages = FALSE))
-    B <- suppressMessages(sw(tax_rank("Helianthus", db = "itis",
-      messages = FALSE, rows = 1)))
-    C <- suppressMessages(sw(tax_rank(c("Helianthus annuus", "xxxxxx"),
-      db = "ncbi", messages = FALSE)))
-  })
-
+  # vcr::use_cassette("tax_rank", {
+  #   A <- suppressMessages(tax_rank(c("Helianthus annuus", "Baetis"),
+  #     db = "ncbi", messages = FALSE))
+  #   B <- suppressMessages(sw(tax_rank("Helianthus", db = "itis",
+  #     messages = FALSE, rows = 1)))
+  #   C <- suppressMessages(sw(tax_rank(c("Helianthus annuus", "xxxxxx"),
+  #     db = "ncbi", messages = FALSE)))
+  # }, preserve_exact_body_bytes = TRUE, match_requests_on = c("method", "query"))
+  A <- suppressMessages(tax_rank(c("Helianthus annuus", "Baetis"),
+                                 db = "ncbi", messages = FALSE))
+  B <- suppressMessages(sw(tax_rank("Helianthus", db = "itis",
+                                    messages = FALSE, rows = 1)))
+  C <- suppressMessages(sw(tax_rank(c("Helianthus annuus", "xxxxxx"),
+                                    db = "ncbi", messages = FALSE)))
+  
   expect_is(A, "list")
   expect_is(B, "list")
   expect_is(C, "list")
@@ -31,7 +37,7 @@ test_that("works with get_*() input", {
 
   expect_is(aa, "list")
   expect_equal(names(aa), "421377")
-  expect_equal(aa$`421377`, "genus")
+  expect_equal(aa$`421377`, "species")
 })
 
 test_that("tax_rank fails well", {

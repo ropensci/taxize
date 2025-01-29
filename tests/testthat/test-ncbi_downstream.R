@@ -38,7 +38,7 @@ test_that("ncbi_downstream handles when taxa searches return themselves", {
   # and remove any duplicate records resulting
   vcr::use_cassette("ncbi_downstream_handles_self_ids", {
     tt <- downstream("Euchloe", downto = "species", db = "ncbi",
-      rank_filter="genus", messages = FALSE)
+                     row = 2, messages = FALSE)
   })
 
   expect_named(tt, "Euchloe")

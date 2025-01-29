@@ -44,7 +44,7 @@ test_that("bold_ping returns the correct value", {
     expect_true(bold_ping())
     expect_false(bold_ping(503))
     expect_true(bold_ping("content"))
-  })
+  }, match_requests_on = c("method", "query"))
 })
 
 # test_that("ipni_ping returns the correct value", {
@@ -61,5 +61,5 @@ test_that("vascan_ping returns the correct value", {
     expect_true(vascan_ping())
     expect_false(vascan_ping(503))
     expect_true(vascan_ping("content"))
-  }, preserve_exact_body_bytes = TRUE)
+  }, preserve_exact_body_bytes = TRUE, match_requests_on = c("method", "query"))
 })

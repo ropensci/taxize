@@ -17,25 +17,24 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Thu, 16 Jan 2025 22:38:45 GMT
+      date: Wed, 29 Jan 2025 22:47:43 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
       referrer-policy: origin-when-cross-origin
-      ncbi-sid: 1D30178365FD96BB_DAD8SID
-      ncbi-phid: 322CDAF63A8875A500003DEA2EE65DDA.1.1.m_1
+      ncbi-sid: 479630C20E2356D5_CE23SID
+      ncbi-phid: 939BAEF40F73350500004A84ECE5BDAD.1.1.m_1
       content-type: text/xml; charset=UTF-8
       cache-control: private
       content-encoding: gzip
       x-ratelimit-limit: '10'
-      x-ratelimit-remaining: '6'
+      x-ratelimit-remaining: '9'
       access-control-allow-origin: '*'
       access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
-      set-cookie: ncbi_sid=1D30178365FD96BB_DAD8SID; domain=.nih.gov; path=/; expires=Fri,
-        16 Jan 2026 22:38:46 GMT
+      set-cookie: ncbi_sid=479630C20E2356D5_CE23SID; domain=.nih.gov; path=/; expires=Thu,
+        29 Jan 2026 22:47:44 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
-      connection: close
       transfer-encoding: chunked
     body:
       encoding: ''
@@ -47,7 +46,7 @@ http_interactions:
         <Id>415320</Id>
         <Id>72254</Id>
         </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Euchloe[All Names]</Term>    <Field>All Names</Field>    <Count>2</Count>    <Explode>N</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>Euchloe[All Names]</QueryTranslation></eSearchResult>
-  recorded_at: 2025-01-16 22:38:46 GMT
+  recorded_at: 2025-01-29 22:47:46 GMT
   recorded_with: vcr/1.6.0.91, webmockr/1.0.0
 - request:
     method: get
@@ -67,22 +66,22 @@ http_interactions:
       explanation: Request fulfilled, document follows
     headers:
       status: HTTP/1.1 200 OK
-      date: Thu, 16 Jan 2025 22:38:46 GMT
+      date: Wed, 29 Jan 2025 22:47:43 GMT
       server: Finatra
       strict-transport-security: max-age=31536000; includeSubDomains; preload
       content-security-policy: upgrade-insecure-requests
       referrer-policy: origin-when-cross-origin
-      ncbi-sid: 1A8715FC651C838A_1FCESID
-      ncbi-phid: 322CDAF63A8875A5000024EA2FF1099B.1.1.m_1
+      ncbi-sid: CBB25CF1E822333C_0EEFSID
+      ncbi-phid: 939BAEF40F73350500006084ED48DACC.1.1.m_1
       content-type: text/xml; charset=UTF-8
       cache-control: private
       content-encoding: gzip
       x-ratelimit-limit: '10'
-      x-ratelimit-remaining: '6'
+      x-ratelimit-remaining: '8'
       access-control-allow-origin: '*'
       access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
-      set-cookie: ncbi_sid=1A8715FC651C838A_1FCESID; domain=.nih.gov; path=/; expires=Fri,
-        16 Jan 2026 22:38:46 GMT
+      set-cookie: ncbi_sid=CBB25CF1E822333C_0EEFSID; domain=.nih.gov; path=/; expires=Thu,
+        29 Jan 2026 22:47:44 GMT
       x-ua-compatible: IE=Edge
       x-xss-protection: 1; mode=block
       transfer-encoding: chunked
@@ -105,5 +104,1269 @@ http_interactions:
         Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\"></Item>\n\t<Item
         Name=\"Species\" Type=\"String\"></Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
         Name=\"ModificationDate\" Type=\"Date\">2017/06/14 00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
-  recorded_at: 2025-01-16 22:38:46 GMT
+  recorded_at: 2025-01-29 22:47:46 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=72254&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.81.0 r-curl/6.1.0 crul/1.5.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Wed, 29 Jan 2025 22:47:44 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: ED08F373507BF076_DF8BSID
+      ncbi-phid: 939BAEF40F73350500002484ED73897D.1.1.m_3
+      content-type: text/xml; charset=UTF-8
+      cache-control: private
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '7'
+      access-control-allow-origin: '*'
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=ED08F373507BF076_DF8BSID; domain=.nih.gov; path=/; expires=Thu,
+        29 Jan 2026 22:47:44 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: |-
+        <?xml version="1.0" ?>
+        <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
+        <TaxaSet><Taxon>
+            <TaxId>72254</TaxId>
+            <ScientificName>Euchloe</ScientificName>
+            <OtherNames>
+                <CommonName>little whites</CommonName>
+            </OtherNames>
+            <ParentTaxId>152601</ParentTaxId>
+            <Rank>genus</Rank>
+            <Division>Invertebrates</Division>
+            <GeneticCode>
+                <GCId>1</GCId>
+                <GCName>Standard</GCName>
+            </GeneticCode>
+            <MitoGeneticCode>
+                <MGCId>5</MGCId>
+                <MGCName>Invertebrate Mitochondrial</MGCName>
+            </MitoGeneticCode>
+            <Lineage>cellular organisms; Eukaryota; Opisthokonta; Metazoa; Eumetazoa; Bilateria; Protostomia; Ecdysozoa; Panarthropoda; Arthropoda; Mandibulata; Pancrustacea; Hexapoda; Insecta; Dicondylia; Pterygota; Neoptera; Endopterygota; Amphiesmenoptera; Lepidoptera; Glossata; Neolepidoptera; Heteroneura; Ditrysia; Obtectomera; Papilionoidea; Pieridae; Pierinae; Pierini</Lineage>
+            <LineageEx>
+                <Taxon>
+                    <TaxId>131567</TaxId>
+                    <ScientificName>cellular organisms</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>2759</TaxId>
+                    <ScientificName>Eukaryota</ScientificName>
+                    <Rank>superkingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33154</TaxId>
+                    <ScientificName>Opisthokonta</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33208</TaxId>
+                    <ScientificName>Metazoa</ScientificName>
+                    <Rank>kingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6072</TaxId>
+                    <ScientificName>Eumetazoa</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33213</TaxId>
+                    <ScientificName>Bilateria</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33317</TaxId>
+                    <ScientificName>Protostomia</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1206794</TaxId>
+                    <ScientificName>Ecdysozoa</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>88770</TaxId>
+                    <ScientificName>Panarthropoda</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6656</TaxId>
+                    <ScientificName>Arthropoda</ScientificName>
+                    <Rank>phylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>197563</TaxId>
+                    <ScientificName>Mandibulata</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>197562</TaxId>
+                    <ScientificName>Pancrustacea</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6960</TaxId>
+                    <ScientificName>Hexapoda</ScientificName>
+                    <Rank>subphylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>50557</TaxId>
+                    <ScientificName>Insecta</ScientificName>
+                    <Rank>class</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>85512</TaxId>
+                    <ScientificName>Dicondylia</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>7496</TaxId>
+                    <ScientificName>Pterygota</ScientificName>
+                    <Rank>subclass</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33340</TaxId>
+                    <ScientificName>Neoptera</ScientificName>
+                    <Rank>infraclass</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33392</TaxId>
+                    <ScientificName>Endopterygota</ScientificName>
+                    <Rank>cohort</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>85604</TaxId>
+                    <ScientificName>Amphiesmenoptera</ScientificName>
+                    <Rank>superorder</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>7088</TaxId>
+                    <ScientificName>Lepidoptera</ScientificName>
+                    <Rank>order</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>41191</TaxId>
+                    <ScientificName>Glossata</ScientificName>
+                    <Rank>suborder</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>41196</TaxId>
+                    <ScientificName>Neolepidoptera</ScientificName>
+                    <Rank>infraorder</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>41197</TaxId>
+                    <ScientificName>Heteroneura</ScientificName>
+                    <Rank>parvorder</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>37567</TaxId>
+                    <ScientificName>Ditrysia</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>104431</TaxId>
+                    <ScientificName>Obtectomera</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>37572</TaxId>
+                    <ScientificName>Papilionoidea</ScientificName>
+                    <Rank>superfamily</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>7114</TaxId>
+                    <ScientificName>Pieridae</ScientificName>
+                    <Rank>family</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>42449</TaxId>
+                    <ScientificName>Pierinae</ScientificName>
+                    <Rank>subfamily</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>152601</TaxId>
+                    <ScientificName>Pierini</ScientificName>
+                    <Rank>tribe</Rank>
+                </Taxon>
+            </LineageEx>
+            <CreateDate>1998/01/29 14:18:00</CreateDate>
+            <UpdateDate>2017/06/14 10:56:24</UpdateDate>
+            <PubDate>1998/02/13 00:00:00</PubDate>
+        </Taxon>
+
+        </TaxaSet>
+  recorded_at: 2025-01-29 22:47:46 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Euchloe%5BNext%20Level%5D%20AND%20Pierini%5Bsubtree%5D&RetMax=1000&RetStart=0&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Wed, 29 Jan 2025 22:47:44 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: 6406BC1587D39147_A16DSID
+      ncbi-phid: 939BAEF40F73350500005484EDD695D3.1.1.m_1
+      content-type: text/xml; charset=UTF-8
+      cache-control: private
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '6'
+      access-control-allow-origin: '*'
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=6406BC1587D39147_A16DSID; domain=.nih.gov; path=/; expires=Thu,
+        29 Jan 2026 22:47:44 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: |
+        <?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
+        <eSearchResult><Count>17</Count><RetMax>17</RetMax><RetStart>0</RetStart><IdList>
+        <Id>2691568</Id>
+        <Id>548133</Id>
+        <Id>547770</Id>
+        <Id>547769</Id>
+        <Id>547767</Id>
+        <Id>547760</Id>
+        <Id>547582</Id>
+        <Id>547581</Id>
+        <Id>547578</Id>
+        <Id>535721</Id>
+        <Id>535715</Id>
+        <Id>415341</Id>
+        <Id>415331</Id>
+        <Id>415322</Id>
+        <Id>415321</Id>
+        <Id>415320</Id>
+        <Id>72255</Id>
+        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Euchloe[Next Level]</Term>    <Field>Next Level</Field>    <Count>17</Count>    <Explode>N</Explode>   </TermSet>   <TermSet>    <Term>Pierini[subtree]</Term>    <Field>subtree</Field>    <Count>887</Count>    <Explode>N</Explode>   </TermSet>   <OP>AND</OP>  </TranslationStack><QueryTranslation>Euchloe[Next Level] AND Pierini[subtree]</QueryTranslation></eSearchResult>
+  recorded_at: 2025-01-29 22:47:46 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&id=2691568%2B548133%2B547770%2B547769%2B547767%2B547760%2B547582%2B547581%2B547578%2B535721%2B535715%2B415341%2B415331%2B415322%2B415321%2B415320%2B72255&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Wed, 29 Jan 2025 22:47:43 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: 7EE2524DFEEC32C9_E04BSID
+      ncbi-phid: 939BAEF40F73350500004084EDF66A73.1.1.m_1
+      content-type: text/xml; charset=UTF-8
+      cache-control: private
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '5'
+      access-control-allow-origin: '*'
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=7EE2524DFEEC32C9_E04BSID; domain=.nih.gov; path=/; expires=Thu,
+        29 Jan 2026 22:47:44 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!DOCTYPE eSummaryResult
+        PUBLIC \"-//NLM//DTD esummary v1 20041029//EN\" \"https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20041029/esummary-v1.dtd\">\n<eSummaryResult>\n<DocSum>\n\t<Id>2691568</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\"></Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">butterflies</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Euchloe incertae sedis</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2691568</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\"></Item>\n\t<Item
+        Name=\"Species\" Type=\"String\"></Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2019/12/21 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>548133</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">butterflies</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Euchloe persica</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">548133</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Euchloe</Item>\n\t<Item Name=\"Species\" Type=\"String\">persica</Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2008/08/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>547770</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">butterflies</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Euchloe naina</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">547770</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Euchloe</Item>\n\t<Item Name=\"Species\" Type=\"String\">naina</Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2008/08/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>547769</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">butterflies</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Euchloe ogilvia</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">547769</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Euchloe</Item>\n\t<Item Name=\"Species\" Type=\"String\">ogilvia</Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2008/08/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>547767</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">butterflies</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Euchloe orientalis</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">547767</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Euchloe</Item>\n\t<Item Name=\"Species\" Type=\"String\">orientalis</Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2018/10/31 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>547760</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">butterflies</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Euchloe pulverata</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">547760</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Euchloe</Item>\n\t<Item Name=\"Species\" Type=\"String\">pulverata</Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2008/08/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>547582</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">butterflies</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Euchloe simplonia</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">547582</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Euchloe</Item>\n\t<Item Name=\"Species\" Type=\"String\">simplonia</Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2008/08/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>547581</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">butterflies</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Euchloe insularis</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">547581</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Euchloe</Item>\n\t<Item Name=\"Species\" Type=\"String\">insularis</Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2008/08/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>547578</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">butterflies</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Euchloe daphalis</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">547578</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Euchloe</Item>\n\t<Item Name=\"Species\" Type=\"String\">daphalis</Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2008/08/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>535721</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">butterflies</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Euchloe crameri</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">535721</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Euchloe</Item>\n\t<Item Name=\"Species\" Type=\"String\">crameri</Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2016/08/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>535715</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">butterflies</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Euchloe belemia</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">535715</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Euchloe</Item>\n\t<Item Name=\"Species\" Type=\"String\">belemia</Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2016/08/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>415341</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">butterflies</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Euchloe tagis</Item>\n\t<Item Name=\"CommonName\" Type=\"String\">Portugese
+        dappled white</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">415341</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Euchloe</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">tagis</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2018/10/29 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>415331</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">butterflies</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Euchloe ausonia</Item>\n\t<Item Name=\"CommonName\" Type=\"String\">dappled
+        white</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">415331</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Euchloe</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">ausonia</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2018/10/29 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>415322</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">subgenus</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">butterflies</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Elphinstonia</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">415322</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\"></Item>\n\t<Item Name=\"Species\" Type=\"String\"></Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2007/11/24 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>415321</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\"></Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">butterflies</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">unclassified Euchloe</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">415321</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\"></Item>\n\t<Item Name=\"Species\" Type=\"String\"></Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2006/12/07 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>415320</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">subgenus</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">butterflies</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Euchloe</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">415320</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\"></Item>\n\t<Item Name=\"Species\" Type=\"String\"></Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2021/04/21 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>72255</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">butterflies</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Euchloe ausonides</Item>\n\t<Item Name=\"CommonName\" Type=\"String\">creamy
+        marblewing</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">72255</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Euchloe</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">ausonides</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2018/10/29
+        00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
+  recorded_at: 2025-01-29 22:47:46 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=415322&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.81.0 r-curl/6.1.0 crul/1.5.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Wed, 29 Jan 2025 22:47:44 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: B5E6125AC3E21FDF_2DEFSID
+      ncbi-phid: 939BAEF40F73350500003C84EE45A319.1.1.m_3
+      content-type: text/xml; charset=UTF-8
+      cache-control: private
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '4'
+      access-control-allow-origin: '*'
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=B5E6125AC3E21FDF_2DEFSID; domain=.nih.gov; path=/; expires=Thu,
+        29 Jan 2026 22:47:44 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: |-
+        <?xml version="1.0" ?>
+        <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
+        <TaxaSet><Taxon>
+            <TaxId>415322</TaxId>
+            <ScientificName>Elphinstonia</ScientificName>
+            <OtherNames>
+                <Synonym>Euchloe (Elphinstonia)</Synonym>
+            </OtherNames>
+            <ParentTaxId>72254</ParentTaxId>
+            <Rank>subgenus</Rank>
+            <Division>Invertebrates</Division>
+            <GeneticCode>
+                <GCId>1</GCId>
+                <GCName>Standard</GCName>
+            </GeneticCode>
+            <MitoGeneticCode>
+                <MGCId>5</MGCId>
+                <MGCName>Invertebrate Mitochondrial</MGCName>
+            </MitoGeneticCode>
+            <Lineage>cellular organisms; Eukaryota; Opisthokonta; Metazoa; Eumetazoa; Bilateria; Protostomia; Ecdysozoa; Panarthropoda; Arthropoda; Mandibulata; Pancrustacea; Hexapoda; Insecta; Dicondylia; Pterygota; Neoptera; Endopterygota; Amphiesmenoptera; Lepidoptera; Glossata; Neolepidoptera; Heteroneura; Ditrysia; Obtectomera; Papilionoidea; Pieridae; Pierinae; Pierini; Euchloe</Lineage>
+            <LineageEx>
+                <Taxon>
+                    <TaxId>131567</TaxId>
+                    <ScientificName>cellular organisms</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>2759</TaxId>
+                    <ScientificName>Eukaryota</ScientificName>
+                    <Rank>superkingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33154</TaxId>
+                    <ScientificName>Opisthokonta</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33208</TaxId>
+                    <ScientificName>Metazoa</ScientificName>
+                    <Rank>kingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6072</TaxId>
+                    <ScientificName>Eumetazoa</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33213</TaxId>
+                    <ScientificName>Bilateria</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33317</TaxId>
+                    <ScientificName>Protostomia</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1206794</TaxId>
+                    <ScientificName>Ecdysozoa</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>88770</TaxId>
+                    <ScientificName>Panarthropoda</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6656</TaxId>
+                    <ScientificName>Arthropoda</ScientificName>
+                    <Rank>phylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>197563</TaxId>
+                    <ScientificName>Mandibulata</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>197562</TaxId>
+                    <ScientificName>Pancrustacea</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6960</TaxId>
+                    <ScientificName>Hexapoda</ScientificName>
+                    <Rank>subphylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>50557</TaxId>
+                    <ScientificName>Insecta</ScientificName>
+                    <Rank>class</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>85512</TaxId>
+                    <ScientificName>Dicondylia</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>7496</TaxId>
+                    <ScientificName>Pterygota</ScientificName>
+                    <Rank>subclass</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33340</TaxId>
+                    <ScientificName>Neoptera</ScientificName>
+                    <Rank>infraclass</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33392</TaxId>
+                    <ScientificName>Endopterygota</ScientificName>
+                    <Rank>cohort</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>85604</TaxId>
+                    <ScientificName>Amphiesmenoptera</ScientificName>
+                    <Rank>superorder</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>7088</TaxId>
+                    <ScientificName>Lepidoptera</ScientificName>
+                    <Rank>order</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>41191</TaxId>
+                    <ScientificName>Glossata</ScientificName>
+                    <Rank>suborder</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>41196</TaxId>
+                    <ScientificName>Neolepidoptera</ScientificName>
+                    <Rank>infraorder</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>41197</TaxId>
+                    <ScientificName>Heteroneura</ScientificName>
+                    <Rank>parvorder</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>37567</TaxId>
+                    <ScientificName>Ditrysia</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>104431</TaxId>
+                    <ScientificName>Obtectomera</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>37572</TaxId>
+                    <ScientificName>Papilionoidea</ScientificName>
+                    <Rank>superfamily</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>7114</TaxId>
+                    <ScientificName>Pieridae</ScientificName>
+                    <Rank>family</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>42449</TaxId>
+                    <ScientificName>Pierinae</ScientificName>
+                    <Rank>subfamily</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>152601</TaxId>
+                    <ScientificName>Pierini</ScientificName>
+                    <Rank>tribe</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>72254</TaxId>
+                    <ScientificName>Euchloe</ScientificName>
+                    <Rank>genus</Rank>
+                </Taxon>
+            </LineageEx>
+            <CreateDate>2006/12/06 08:21:07</CreateDate>
+            <UpdateDate>2007/11/23 20:49:58</UpdateDate>
+            <PubDate>2007/11/23 18:00:31</PubDate>
+        </Taxon>
+
+        </TaxaSet>
+  recorded_at: 2025-01-29 22:47:46 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Elphinstonia%5BNext%20Level%5D%20AND%20Euchloe%5Bsubtree%5D&RetMax=1000&RetStart=0&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Wed, 29 Jan 2025 22:47:44 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: F581559FFA7B4908_51D4SID
+      ncbi-phid: 939BAEF40F73350500003884EEB8C083.1.1.m_1
+      content-type: text/xml; charset=UTF-8
+      cache-control: private
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '5'
+      access-control-allow-origin: '*'
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=F581559FFA7B4908_51D4SID; domain=.nih.gov; path=/; expires=Thu,
+        29 Jan 2026 22:47:45 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: |
+        <?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
+        <eSearchResult><Count>8</Count><RetMax>8</RetMax><RetStart>0</RetStart><IdList>
+        <Id>415343</Id>
+        <Id>415339</Id>
+        <Id>415336</Id>
+        <Id>415334</Id>
+        <Id>415329</Id>
+        <Id>415327</Id>
+        <Id>415325</Id>
+        <Id>415323</Id>
+        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Elphinstonia[Next Level]</Term>    <Field>Next Level</Field>    <Count>8</Count>    <Explode>N</Explode>   </TermSet>   <TermSet>    <Term>Euchloe[subtree]</Term>    <Field>subtree</Field>    <Count>92</Count>    <Explode>N</Explode>   </TermSet>   <OP>AND</OP>  </TranslationStack><QueryTranslation>Elphinstonia[Next Level] AND Euchloe[subtree]</QueryTranslation></eSearchResult>
+  recorded_at: 2025-01-29 22:47:46 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&id=415343%2B415339%2B415336%2B415334%2B415329%2B415327%2B415325%2B415323&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Wed, 29 Jan 2025 22:47:44 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: 4A5B5BFE63103503_73C6SID
+      ncbi-phid: 939BAEF40F73350500003384EEDA0213.1.1.m_1
+      content-type: text/xml; charset=UTF-8
+      cache-control: private
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '4'
+      access-control-allow-origin: '*'
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=4A5B5BFE63103503_73C6SID; domain=.nih.gov; path=/; expires=Thu,
+        29 Jan 2026 22:47:45 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!DOCTYPE eSummaryResult
+        PUBLIC \"-//NLM//DTD esummary v1 20041029//EN\" \"https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20041029/esummary-v1.dtd\">\n<eSummaryResult>\n<DocSum>\n\t<Id>415343</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">butterflies</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Euchloe lucilla</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">415343</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Euchloe</Item>\n\t<Item Name=\"Species\" Type=\"String\">lucilla</Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2018/10/29 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>415339</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">butterflies</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Euchloe tomyris</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">415339</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Euchloe</Item>\n\t<Item Name=\"Species\" Type=\"String\">tomyris</Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2018/10/29 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>415336</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">butterflies</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Euchloe transcaspica</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">415336</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Euchloe</Item>\n\t<Item Name=\"Species\" Type=\"String\">transcaspica</Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2018/10/29 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>415334</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">butterflies</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Euchloe ziayani</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">415334</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Euchloe</Item>\n\t<Item Name=\"Species\" Type=\"String\">ziayani</Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2018/10/29 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>415329</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">butterflies</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Euchloe bazae</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">415329</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Euchloe</Item>\n\t<Item Name=\"Species\" Type=\"String\">bazae</Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2018/11/26 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>415327</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">butterflies</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Euchloe penia</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">415327</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Euchloe</Item>\n\t<Item Name=\"Species\" Type=\"String\">penia</Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2018/10/29 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>415325</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">butterflies</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Euchloe lessei</Item>\n\t<Item Name=\"CommonName\" Type=\"String\">Lesse's
+        greenish black tip</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">415325</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Euchloe</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">lessei</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2018/10/29 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>415323</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">butterflies</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Euchloe charlonia</Item>\n\t<Item Name=\"CommonName\" Type=\"String\">greenish
+        black-tip</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">415323</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Euchloe</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">charlonia</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2018/10/29
+        00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
+  recorded_at: 2025-01-29 22:47:46 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=taxonomy&ID=415320&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.81.0 r-curl/6.1.0 crul/1.5.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Wed, 29 Jan 2025 22:47:45 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: 8220B7335A20B822_84F7SID
+      ncbi-phid: 939BAEF40F73350500003F84EF351DE9.1.1.m_5
+      content-type: text/xml; charset=UTF-8
+      cache-control: private
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '4'
+      access-control-allow-origin: '*'
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=8220B7335A20B822_84F7SID; domain=.nih.gov; path=/; expires=Thu,
+        29 Jan 2026 22:47:45 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: |-
+        <?xml version="1.0" ?>
+        <!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
+        <TaxaSet><Taxon>
+            <TaxId>415320</TaxId>
+            <ScientificName>Euchloe</ScientificName>
+            <ParentTaxId>72254</ParentTaxId>
+            <Rank>subgenus</Rank>
+            <Division>Invertebrates</Division>
+            <GeneticCode>
+                <GCId>1</GCId>
+                <GCName>Standard</GCName>
+            </GeneticCode>
+            <MitoGeneticCode>
+                <MGCId>5</MGCId>
+                <MGCName>Invertebrate Mitochondrial</MGCName>
+            </MitoGeneticCode>
+            <Lineage>cellular organisms; Eukaryota; Opisthokonta; Metazoa; Eumetazoa; Bilateria; Protostomia; Ecdysozoa; Panarthropoda; Arthropoda; Mandibulata; Pancrustacea; Hexapoda; Insecta; Dicondylia; Pterygota; Neoptera; Endopterygota; Amphiesmenoptera; Lepidoptera; Glossata; Neolepidoptera; Heteroneura; Ditrysia; Obtectomera; Papilionoidea; Pieridae; Pierinae; Pierini; Euchloe</Lineage>
+            <LineageEx>
+                <Taxon>
+                    <TaxId>131567</TaxId>
+                    <ScientificName>cellular organisms</ScientificName>
+                    <Rank>no rank</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>2759</TaxId>
+                    <ScientificName>Eukaryota</ScientificName>
+                    <Rank>superkingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33154</TaxId>
+                    <ScientificName>Opisthokonta</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33208</TaxId>
+                    <ScientificName>Metazoa</ScientificName>
+                    <Rank>kingdom</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6072</TaxId>
+                    <ScientificName>Eumetazoa</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33213</TaxId>
+                    <ScientificName>Bilateria</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33317</TaxId>
+                    <ScientificName>Protostomia</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>1206794</TaxId>
+                    <ScientificName>Ecdysozoa</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>88770</TaxId>
+                    <ScientificName>Panarthropoda</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6656</TaxId>
+                    <ScientificName>Arthropoda</ScientificName>
+                    <Rank>phylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>197563</TaxId>
+                    <ScientificName>Mandibulata</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>197562</TaxId>
+                    <ScientificName>Pancrustacea</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>6960</TaxId>
+                    <ScientificName>Hexapoda</ScientificName>
+                    <Rank>subphylum</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>50557</TaxId>
+                    <ScientificName>Insecta</ScientificName>
+                    <Rank>class</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>85512</TaxId>
+                    <ScientificName>Dicondylia</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>7496</TaxId>
+                    <ScientificName>Pterygota</ScientificName>
+                    <Rank>subclass</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33340</TaxId>
+                    <ScientificName>Neoptera</ScientificName>
+                    <Rank>infraclass</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>33392</TaxId>
+                    <ScientificName>Endopterygota</ScientificName>
+                    <Rank>cohort</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>85604</TaxId>
+                    <ScientificName>Amphiesmenoptera</ScientificName>
+                    <Rank>superorder</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>7088</TaxId>
+                    <ScientificName>Lepidoptera</ScientificName>
+                    <Rank>order</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>41191</TaxId>
+                    <ScientificName>Glossata</ScientificName>
+                    <Rank>suborder</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>41196</TaxId>
+                    <ScientificName>Neolepidoptera</ScientificName>
+                    <Rank>infraorder</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>41197</TaxId>
+                    <ScientificName>Heteroneura</ScientificName>
+                    <Rank>parvorder</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>37567</TaxId>
+                    <ScientificName>Ditrysia</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>104431</TaxId>
+                    <ScientificName>Obtectomera</ScientificName>
+                    <Rank>clade</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>37572</TaxId>
+                    <ScientificName>Papilionoidea</ScientificName>
+                    <Rank>superfamily</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>7114</TaxId>
+                    <ScientificName>Pieridae</ScientificName>
+                    <Rank>family</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>42449</TaxId>
+                    <ScientificName>Pierinae</ScientificName>
+                    <Rank>subfamily</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>152601</TaxId>
+                    <ScientificName>Pierini</ScientificName>
+                    <Rank>tribe</Rank>
+                </Taxon>
+                <Taxon>
+                    <TaxId>72254</TaxId>
+                    <ScientificName>Euchloe</ScientificName>
+                    <Rank>genus</Rank>
+                </Taxon>
+            </LineageEx>
+            <CreateDate>2006/12/06 08:21:07</CreateDate>
+            <UpdateDate>2021/04/21 18:18:08</UpdateDate>
+            <PubDate>2006/12/06 18:00:15</PubDate>
+        </Taxon>
+
+        </TaxaSet>
+  recorded_at: 2025-01-29 22:47:46 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=taxonomy&term=Euchloe%5BNext%20Level%5D%20AND%20Euchloe%5Bsubtree%5D&RetMax=1000&RetStart=0&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Wed, 29 Jan 2025 22:47:45 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: FC02B942BFE2FB20_4541SID
+      ncbi-phid: 939BAEF40F73350500003584EFA518DA.1.1.m_1
+      content-type: text/xml; charset=UTF-8
+      cache-control: private
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '5'
+      access-control-allow-origin: '*'
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=FC02B942BFE2FB20_4541SID; domain=.nih.gov; path=/; expires=Thu,
+        29 Jan 2026 22:47:45 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: |
+        <?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD esearch 20060628//EN" "https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20060628/esearch.dtd">
+        <eSearchResult><Count>17</Count><RetMax>17</RetMax><RetStart>0</RetStart><IdList>
+        <Id>2691568</Id>
+        <Id>548133</Id>
+        <Id>547770</Id>
+        <Id>547769</Id>
+        <Id>547767</Id>
+        <Id>547760</Id>
+        <Id>547582</Id>
+        <Id>547581</Id>
+        <Id>547578</Id>
+        <Id>535721</Id>
+        <Id>535715</Id>
+        <Id>415341</Id>
+        <Id>415331</Id>
+        <Id>415322</Id>
+        <Id>415321</Id>
+        <Id>415320</Id>
+        <Id>72255</Id>
+        </IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>Euchloe[Next Level]</Term>    <Field>Next Level</Field>    <Count>17</Count>    <Explode>N</Explode>   </TermSet>   <TermSet>    <Term>Euchloe[subtree]</Term>    <Field>subtree</Field>    <Count>92</Count>    <Explode>N</Explode>   </TermSet>   <OP>AND</OP>  </TranslationStack><QueryTranslation>Euchloe[Next Level] AND Euchloe[subtree]</QueryTranslation></eSearchResult>
+  recorded_at: 2025-01-29 22:47:46 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=taxonomy&id=2691568%2B548133%2B547770%2B547769%2B547767%2B547760%2B547582%2B547581%2B547578%2B535721%2B535715%2B415341%2B415331%2B415322%2B415321%2B415320%2B72255&api_key=<<entrez_api_token>>
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Wed, 29 Jan 2025 22:47:45 GMT
+      server: Finatra
+      strict-transport-security: max-age=31536000; includeSubDomains; preload
+      content-security-policy: upgrade-insecure-requests
+      referrer-policy: origin-when-cross-origin
+      ncbi-sid: 43A572C4BE069F0D_BD35SID
+      ncbi-phid: 939BAEF40F73350500003484EFCC4C4E.1.1.m_1
+      content-type: text/xml; charset=UTF-8
+      cache-control: private
+      content-encoding: gzip
+      x-ratelimit-limit: '10'
+      x-ratelimit-remaining: '5'
+      access-control-allow-origin: '*'
+      access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+      set-cookie: ncbi_sid=43A572C4BE069F0D_BD35SID; domain=.nih.gov; path=/; expires=Thu,
+        29 Jan 2026 22:47:46 GMT
+      x-ua-compatible: IE=Edge
+      x-xss-protection: 1; mode=block
+      transfer-encoding: chunked
+    body:
+      encoding: ''
+      file: no
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!DOCTYPE eSummaryResult
+        PUBLIC \"-//NLM//DTD esummary v1 20041029//EN\" \"https://eutils.ncbi.nlm.nih.gov/eutils/dtd/20041029/esummary-v1.dtd\">\n<eSummaryResult>\n<DocSum>\n\t<Id>2691568</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\"></Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">butterflies</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Euchloe incertae sedis</Item>\n\t<Item Name=\"CommonName\"
+        Type=\"String\"></Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">2691568</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\"></Item>\n\t<Item
+        Name=\"Species\" Type=\"String\"></Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2019/12/21 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>548133</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">butterflies</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Euchloe persica</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">548133</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Euchloe</Item>\n\t<Item Name=\"Species\" Type=\"String\">persica</Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2008/08/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>547770</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">butterflies</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Euchloe naina</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">547770</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Euchloe</Item>\n\t<Item Name=\"Species\" Type=\"String\">naina</Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2008/08/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>547769</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">butterflies</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Euchloe ogilvia</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">547769</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Euchloe</Item>\n\t<Item Name=\"Species\" Type=\"String\">ogilvia</Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2008/08/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>547767</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">butterflies</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Euchloe orientalis</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">547767</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Euchloe</Item>\n\t<Item Name=\"Species\" Type=\"String\">orientalis</Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2018/10/31 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>547760</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">butterflies</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Euchloe pulverata</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">547760</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Euchloe</Item>\n\t<Item Name=\"Species\" Type=\"String\">pulverata</Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2008/08/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>547582</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">butterflies</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Euchloe simplonia</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">547582</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Euchloe</Item>\n\t<Item Name=\"Species\" Type=\"String\">simplonia</Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2008/08/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>547581</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">butterflies</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Euchloe insularis</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">547581</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Euchloe</Item>\n\t<Item Name=\"Species\" Type=\"String\">insularis</Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2008/08/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>547578</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">butterflies</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Euchloe daphalis</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">547578</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Euchloe</Item>\n\t<Item Name=\"Species\" Type=\"String\">daphalis</Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2008/08/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>535721</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">butterflies</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Euchloe crameri</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">535721</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Euchloe</Item>\n\t<Item Name=\"Species\" Type=\"String\">crameri</Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2016/08/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>535715</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">butterflies</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Euchloe belemia</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">535715</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\">Euchloe</Item>\n\t<Item Name=\"Species\" Type=\"String\">belemia</Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2016/08/18 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>415341</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">butterflies</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Euchloe tagis</Item>\n\t<Item Name=\"CommonName\" Type=\"String\">Portugese
+        dappled white</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">415341</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Euchloe</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">tagis</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2018/10/29 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>415331</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">butterflies</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Euchloe ausonia</Item>\n\t<Item Name=\"CommonName\" Type=\"String\">dappled
+        white</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">415331</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Euchloe</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">ausonia</Item>\n\t<Item Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item
+        Name=\"ModificationDate\" Type=\"Date\">2018/10/29 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>415322</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">subgenus</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">butterflies</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Elphinstonia</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">415322</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\"></Item>\n\t<Item Name=\"Species\" Type=\"String\"></Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2007/11/24 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>415321</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\"></Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">butterflies</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">unclassified Euchloe</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">415321</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\"></Item>\n\t<Item Name=\"Species\" Type=\"String\"></Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2006/12/07 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>415320</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">subgenus</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">butterflies</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Euchloe</Item>\n\t<Item Name=\"CommonName\" Type=\"String\"></Item>\n\t<Item
+        Name=\"TaxId\" Type=\"Integer\">415320</Item>\n\t<Item Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item
+        Name=\"Genus\" Type=\"String\"></Item>\n\t<Item Name=\"Species\" Type=\"String\"></Item>\n\t<Item
+        Name=\"Subsp\" Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\"
+        Type=\"Date\">2021/04/21 00:00</Item>\n</DocSum>\n\n<DocSum>\n\t<Id>72255</Id>\n\t<Item
+        Name=\"Status\" Type=\"String\">active</Item>\n\t<Item Name=\"Rank\" Type=\"String\">species</Item>\n\t<Item
+        Name=\"Division\" Type=\"String\">butterflies</Item>\n\t<Item Name=\"ScientificName\"
+        Type=\"String\">Euchloe ausonides</Item>\n\t<Item Name=\"CommonName\" Type=\"String\">creamy
+        marblewing</Item>\n\t<Item Name=\"TaxId\" Type=\"Integer\">72255</Item>\n\t<Item
+        Name=\"AkaTaxId\" Type=\"Integer\">0</Item>\n\t<Item Name=\"Genus\" Type=\"String\">Euchloe</Item>\n\t<Item
+        Name=\"Species\" Type=\"String\">ausonides</Item>\n\t<Item Name=\"Subsp\"
+        Type=\"String\"></Item>\n\t<Item Name=\"ModificationDate\" Type=\"Date\">2018/10/29
+        00:00</Item>\n</DocSum>\n\n</eSummaryResult>\n"
+  recorded_at: 2025-01-29 22:47:46 GMT
   recorded_with: vcr/1.6.0.91, webmockr/1.0.0

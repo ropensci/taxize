@@ -96,7 +96,7 @@ tax_rank_ <- function(id, ...) {
     } else {
       if (NROW(res[[1]]) > 0) {
         tt <- res[[1]]
-        out <- tt[nrow(tt), "rank"][[1]]
+        out <- tt[tt$id == x, "rank"][[1]]
         if (length(out) == 0) NA_character_ else tolower(out)
       } else {
         NA_character_
