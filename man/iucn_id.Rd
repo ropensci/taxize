@@ -7,7 +7,7 @@
 iucn_id(sciname, key = NULL, ...)
 }
 \arguments{
-\item{sciname}{character; Scientific name. Should be cleand and in the
+\item{sciname}{character; Scientific name. Should be cleaned and in the
 format \verb{*<Genus> <Species>*}. One or more.}
 
 \item{key}{(character) required. you IUCN Redlist API key. See
@@ -34,7 +34,7 @@ iucn_id("Lynx lynx")
 iucn_id(c("Panthera uncia", "Lynx lynx"))
 
 # many names, some not found
-iucn_id(c("Panthera uncia", "Lynx lynx", "foo bar", "hello world"))
+iucn_id(c("Panthera uncia", "Lynx lynx", "foo bar", "Gorilla gorilla gorilla"))
 
 # a name not found
 iucn_id("Foo bar")

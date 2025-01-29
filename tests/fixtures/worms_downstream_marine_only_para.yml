@@ -1,0 +1,295 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://www.marinespecies.org/rest/AphiaChildrenByAphiaID/1837?marine_only=true&offset=1
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.81.0 r-curl/6.1.0 crul/1.5.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: 'HTTP/2 200 '
+      date: Wed, 29 Jan 2025 19:14:22 GMT
+      server: Apache/2.4.62 (Win64)
+      content-security-policy: upgrade-insecure-requests; script-src * 'unsafe-inline'
+        'unsafe-eval' blob:; object-src *; frame-ancestors 'self' www.vliz.be vliz.be
+        form.vliz.be www.omes-monitoring.be omes-monitoring.be;
+      cross-origin-opener-policy: same-origin
+      access-control-allow-origin: '*'
+      access-control-allow-headers: X-Requested-With, Content-Type, Accept, Origin,
+        Authorization
+      access-control-allow-methods: GET, POST, OPTIONS
+      content-length: '1498'
+      content-type: application/json
+      set-cookie: vliz_webc=vliz_webc1; path=/
+    body:
+      encoding: ''
+      file: no
+      string: '[{"AphiaID":1451682,"url":"https:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=1451682","scientificname":"Didelphimorphia","authority":null,"status":"accepted","unacceptreason":null,"taxonRankID":100,"rank":"Order","valid_AphiaID":1451682,"valid_name":"Didelphimorphia","valid_authority":null,"parentNameUsageID":1837,"kingdom":"Animalia","phylum":"Chordata","class":"Mammalia","order":"Didelphimorphia","family":null,"genus":null,"citation":"WoRMS
+        (2025). Didelphimorphia. Accessed at: https:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=1451682
+        on 2025-01-29","lsid":"urn:lsid:marinespecies.org:taxname:1451682","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":1,"isExtinct":null,"match_type":"exact","modified":"2020-08-04T07:26:30.613Z"},{"AphiaID":380416,"url":"https:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=380416","scientificname":"Theria","authority":null,"status":"accepted","unacceptreason":null,"taxonRankID":70,"rank":"Subclass","valid_AphiaID":380416,"valid_name":"Theria","valid_authority":null,"parentNameUsageID":1837,"kingdom":"Animalia","phylum":"Chordata","class":"Mammalia","order":null,"family":null,"genus":null,"citation":"WoRMS
+        (2025). Theria. Accessed at: https:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=380416
+        on 2025-01-29","lsid":"urn:lsid:marinespecies.org:taxname:380416","isMarine":1,"isBrackish":1,"isFreshwater":1,"isTerrestrial":1,"isExtinct":null,"match_type":"exact","modified":"2009-01-15T06:47:06.863Z"}]'
+  recorded_at: 2025-01-29 19:14:23 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://www.marinespecies.org/rest/AphiaChildrenByAphiaID/380416?marine_only=true&offset=1
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.81.0 r-curl/6.1.0 crul/1.5.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: 'HTTP/2 200 '
+      date: Wed, 29 Jan 2025 19:14:22 GMT
+      server: Apache/2.4.62 (Win64)
+      content-security-policy: upgrade-insecure-requests; script-src * 'unsafe-inline'
+        'unsafe-eval' blob:; object-src *; frame-ancestors 'self' www.vliz.be vliz.be
+        form.vliz.be www.omes-monitoring.be omes-monitoring.be;
+      cross-origin-opener-policy: same-origin
+      access-control-allow-origin: '*'
+      access-control-allow-headers: X-Requested-With, Content-Type, Accept, Origin,
+        Authorization
+      access-control-allow-methods: GET, POST, OPTIONS
+      content-length: '3836'
+      content-type: application/json
+      set-cookie: vliz_webc=vliz_webc1; path=/
+    body:
+      encoding: ''
+      file: no
+      string: '[{"AphiaID":2687,"url":"https:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=2687","scientificname":"Carnivora","authority":null,"status":"accepted","unacceptreason":null,"taxonRankID":100,"rank":"Order","valid_AphiaID":2687,"valid_name":"Carnivora","valid_authority":null,"parentNameUsageID":380416,"kingdom":"Animalia","phylum":"Chordata","class":"Mammalia","order":"Carnivora","family":null,"genus":null,"citation":"WoRMS
+        (2025). Carnivora. Accessed at: https:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=2687
+        on 2025-01-29","lsid":"urn:lsid:marinespecies.org:taxname:2687","isMarine":1,"isBrackish":1,"isFreshwater":1,"isTerrestrial":1,"isExtinct":null,"match_type":"exact","modified":"2004-12-21T15:54:05.437Z"},{"AphiaID":370511,"url":"https:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=370511","scientificname":"Cetartiodactyla","authority":"Montgelard,
+        Catzeflis & Douzery, 1997","status":"accepted","unacceptreason":null,"taxonRankID":100,"rank":"Order","valid_AphiaID":370511,"valid_name":"Cetartiodactyla","valid_authority":"Montgelard,
+        Catzeflis & Douzery, 1997","parentNameUsageID":380416,"kingdom":"Animalia","phylum":"Chordata","class":"Mammalia","order":"Cetartiodactyla","family":null,"genus":null,"citation":"WoRMS
+        (2025). Cetartiodactyla. Accessed at: https:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=370511
+        on 2025-01-29","lsid":"urn:lsid:marinespecies.org:taxname:370511","isMarine":1,"isBrackish":1,"isFreshwater":1,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2008-11-21T08:39:46.327Z"},{"AphiaID":1603274,"url":"https:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=1603274","scientificname":"Eutheria","authority":"Huxley,
+        1880","status":"accepted","unacceptreason":null,"taxonRankID":80,"rank":"Infraclass","valid_AphiaID":1603274,"valid_name":"Eutheria","valid_authority":"Huxley,
+        1880","parentNameUsageID":380416,"kingdom":"Animalia","phylum":"Chordata","class":"Mammalia","order":null,"family":null,"genus":null,"citation":"WoRMS
+        (2025). Eutheria. Accessed at: https:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=1603274
+        on 2025-01-29","lsid":"urn:lsid:marinespecies.org:taxname:1603274","isMarine":1,"isBrackish":1,"isFreshwater":1,"isTerrestrial":1,"isExtinct":null,"match_type":"exact","modified":"2022-09-28T11:53:54.617Z"},{"AphiaID":404079,"url":"https:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=404079","scientificname":"Rodentia","authority":"Bowdich,
+        1821","status":"accepted","unacceptreason":null,"taxonRankID":100,"rank":"Order","valid_AphiaID":404079,"valid_name":"Rodentia","valid_authority":"Bowdich,
+        1821","parentNameUsageID":380416,"kingdom":"Animalia","phylum":"Chordata","class":"Mammalia","order":"Rodentia","family":null,"genus":null,"citation":"WoRMS
+        (2025). Rodentia. Accessed at: https:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=404079
+        on 2025-01-29","lsid":"urn:lsid:marinespecies.org:taxname:404079","isMarine":0,"isBrackish":1,"isFreshwater":1,"isTerrestrial":1,"isExtinct":null,"match_type":"exact","modified":"2020-09-30T20:42:47.990Z"},{"AphiaID":159502,"url":"https:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=159502","scientificname":"Sirenia","authority":"Illiger,
+        1811","status":"accepted","unacceptreason":null,"taxonRankID":100,"rank":"Order","valid_AphiaID":159502,"valid_name":"Sirenia","valid_authority":"Illiger,
+        1811","parentNameUsageID":380416,"kingdom":"Animalia","phylum":"Chordata","class":"Mammalia","order":"Sirenia","family":null,"genus":null,"citation":"WoRMS
+        (2025). Sirenia. Accessed at: https:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=159502
+        on 2025-01-29","lsid":"urn:lsid:marinespecies.org:taxname:159502","isMarine":1,"isBrackish":1,"isFreshwater":1,"isTerrestrial":1,"isExtinct":null,"match_type":"exact","modified":"2010-02-05T17:38:18.927Z"}]'
+  recorded_at: 2025-01-29 19:14:23 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://www.marinespecies.org/rest/AphiaChildrenByAphiaID/1603274?marine_only=true&offset=1
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.81.0 r-curl/6.1.0 crul/1.5.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '204'
+      message: No Content
+      explanation: Request fulfilled, nothing follows
+    headers:
+      status: 'HTTP/2 204 '
+      date: Wed, 29 Jan 2025 19:14:22 GMT
+      server: Apache/2.4.62 (Win64)
+      content-security-policy: upgrade-insecure-requests; script-src * 'unsafe-inline'
+        'unsafe-eval' blob:; object-src *; frame-ancestors 'self' www.vliz.be vliz.be
+        form.vliz.be www.omes-monitoring.be omes-monitoring.be;
+      cross-origin-opener-policy: same-origin
+      access-control-allow-origin: '*'
+      access-control-allow-headers: X-Requested-With, Content-Type, Accept, Origin,
+        Authorization
+      access-control-allow-methods: GET, POST, OPTIONS
+      set-cookie: vliz_webc=vliz_webc1; path=/
+    body:
+      encoding: ''
+      file: no
+      string: ''
+  recorded_at: 2025-01-29 19:14:23 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://www.marinespecies.org/rest/AphiaChildrenByAphiaID/1837?marine_only=false&offset=1
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.81.0 r-curl/6.1.0 crul/1.5.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: 'HTTP/2 200 '
+      date: Wed, 29 Jan 2025 19:14:23 GMT
+      server: Apache/2.4.62 (Win64)
+      content-security-policy: upgrade-insecure-requests; script-src * 'unsafe-inline'
+        'unsafe-eval' blob:; object-src *; frame-ancestors 'self' www.vliz.be vliz.be
+        form.vliz.be www.omes-monitoring.be omes-monitoring.be;
+      cross-origin-opener-policy: same-origin
+      access-control-allow-origin: '*'
+      access-control-allow-headers: X-Requested-With, Content-Type, Accept, Origin,
+        Authorization
+      access-control-allow-methods: GET, POST, OPTIONS
+      content-length: '6945'
+      content-type: application/json
+      set-cookie: vliz_webc=vliz_webc2; path=/
+    body:
+      encoding: ''
+      file: no
+      string: '[{"AphiaID":1037271,"url":"https:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=1037271","scientificname":"Chiroptera","authority":"Blumenbach,
+        1779","status":"accepted","unacceptreason":null,"taxonRankID":100,"rank":"Order","valid_AphiaID":1037271,"valid_name":"Chiroptera","valid_authority":"Blumenbach,
+        1779","parentNameUsageID":1837,"kingdom":"Animalia","phylum":"Chordata","class":"Mammalia","order":"Chiroptera","family":null,"genus":null,"citation":"WoRMS
+        (2025). Chiroptera. Accessed at: https:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=1037271
+        on 2025-01-29","lsid":"urn:lsid:marinespecies.org:taxname:1037271","isMarine":null,"isBrackish":null,"isFreshwater":1,"isTerrestrial":1,"isExtinct":null,"match_type":"exact","modified":"2017-10-02T05:26:55.467Z"},{"AphiaID":1566231,"url":"https:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=1566231","scientificname":"Dasyuromorphia","authority":"Gill,
+        1872","status":"accepted","unacceptreason":null,"taxonRankID":100,"rank":"Order","valid_AphiaID":1566231,"valid_name":"Dasyuromorphia","valid_authority":"Gill,
+        1872","parentNameUsageID":1837,"kingdom":"Animalia","phylum":"Chordata","class":"Mammalia","order":"Dasyuromorphia","family":null,"genus":null,"citation":"WoRMS
+        (2025). Dasyuromorphia. Accessed at: https:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=1566231
+        on 2025-01-29","lsid":"urn:lsid:marinespecies.org:taxname:1566231","isMarine":null,"isBrackish":null,"isFreshwater":null,"isTerrestrial":1,"isExtinct":null,"match_type":"exact","modified":"2022-03-01T08:06:44.883Z"},{"AphiaID":1451682,"url":"https:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=1451682","scientificname":"Didelphimorphia","authority":null,"status":"accepted","unacceptreason":null,"taxonRankID":100,"rank":"Order","valid_AphiaID":1451682,"valid_name":"Didelphimorphia","valid_authority":null,"parentNameUsageID":1837,"kingdom":"Animalia","phylum":"Chordata","class":"Mammalia","order":"Didelphimorphia","family":null,"genus":null,"citation":"WoRMS
+        (2025). Didelphimorphia. Accessed at: https:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=1451682
+        on 2025-01-29","lsid":"urn:lsid:marinespecies.org:taxname:1451682","isMarine":1,"isBrackish":null,"isFreshwater":null,"isTerrestrial":1,"isExtinct":null,"match_type":"exact","modified":"2020-08-04T07:26:30.613Z"},{"AphiaID":1465485,"url":"https:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=1465485","scientificname":"Erinaceomorpha","authority":null,"status":"accepted","unacceptreason":null,"taxonRankID":100,"rank":"Order","valid_AphiaID":1465485,"valid_name":"Erinaceomorpha","valid_authority":null,"parentNameUsageID":1837,"kingdom":"Animalia","phylum":"Chordata","class":"Mammalia","order":"Erinaceomorpha","family":null,"genus":null,"citation":"WoRMS
+        (2025). Erinaceomorpha. Accessed at: https:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=1465485
+        on 2025-01-29","lsid":"urn:lsid:marinespecies.org:taxname:1465485","isMarine":null,"isBrackish":null,"isFreshwater":null,"isTerrestrial":1,"isExtinct":null,"match_type":"exact","modified":"2020-11-09T13:13:53.570Z"},{"AphiaID":1349986,"url":"https:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=1349986","scientificname":"Insectivora","authority":null,"status":"accepted","unacceptreason":null,"taxonRankID":100,"rank":"Order","valid_AphiaID":1349986,"valid_name":"Insectivora","valid_authority":null,"parentNameUsageID":1837,"kingdom":"Animalia","phylum":"Chordata","class":"Mammalia","order":"Insectivora","family":null,"genus":null,"citation":"WoRMS
+        (2025). Insectivora. Accessed at: https:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=1349986
+        on 2025-01-29","lsid":"urn:lsid:marinespecies.org:taxname:1349986","isMarine":0,"isBrackish":0,"isFreshwater":1,"isTerrestrial":1,"isExtinct":null,"match_type":"exact","modified":"2019-06-08T18:58:50.587Z"},{"AphiaID":1566236,"url":"https:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=1566236","scientificname":"Monotremata","authority":"Bonaparte,
+        1837","status":"accepted","unacceptreason":null,"taxonRankID":100,"rank":"Order","valid_AphiaID":1566236,"valid_name":"Monotremata","valid_authority":"Bonaparte,
+        1837","parentNameUsageID":1837,"kingdom":"Animalia","phylum":"Chordata","class":"Mammalia","order":"Monotremata","family":null,"genus":null,"citation":"WoRMS
+        (2025). Monotremata. Accessed at: https:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=1566236
+        on 2025-01-29","lsid":"urn:lsid:marinespecies.org:taxname:1566236","isMarine":null,"isBrackish":null,"isFreshwater":1,"isTerrestrial":1,"isExtinct":null,"match_type":"exact","modified":"2022-03-01T08:06:44.883Z"},{"AphiaID":1516503,"url":"https:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=1516503","scientificname":"Peramelemorphia","authority":"Ameghino,
+        1889","status":"accepted","unacceptreason":null,"taxonRankID":100,"rank":"Order","valid_AphiaID":1516503,"valid_name":"Peramelemorphia","valid_authority":"Ameghino,
+        1889","parentNameUsageID":1837,"kingdom":"Animalia","phylum":"Chordata","class":"Mammalia","order":"Peramelemorphia","family":null,"genus":null,"citation":"WoRMS
+        (2025). Peramelemorphia. Accessed at: https:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=1516503
+        on 2025-01-29","lsid":"urn:lsid:marinespecies.org:taxname:1516503","isMarine":null,"isBrackish":null,"isFreshwater":null,"isTerrestrial":1,"isExtinct":null,"match_type":"exact","modified":"2021-06-21T08:28:20.097Z"},{"AphiaID":1455974,"url":"https:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=1455974","scientificname":"Primates","authority":"Linnaeus,
+        1758","status":"accepted","unacceptreason":null,"taxonRankID":100,"rank":"Order","valid_AphiaID":1455974,"valid_name":"Primates","valid_authority":"Linnaeus,
+        1758","parentNameUsageID":1837,"kingdom":"Animalia","phylum":"Chordata","class":"Mammalia","order":"Primates","family":null,"genus":null,"citation":"WoRMS
+        (2025). Primates. Accessed at: https:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=1455974
+        on 2025-01-29","lsid":"urn:lsid:marinespecies.org:taxname:1455974","isMarine":null,"isBrackish":null,"isFreshwater":null,"isTerrestrial":1,"isExtinct":null,"match_type":"exact","modified":"2020-08-24T10:23:45.377Z"},{"AphiaID":380416,"url":"https:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=380416","scientificname":"Theria","authority":null,"status":"accepted","unacceptreason":null,"taxonRankID":70,"rank":"Subclass","valid_AphiaID":380416,"valid_name":"Theria","valid_authority":null,"parentNameUsageID":1837,"kingdom":"Animalia","phylum":"Chordata","class":"Mammalia","order":null,"family":null,"genus":null,"citation":"WoRMS
+        (2025). Theria. Accessed at: https:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=380416
+        on 2025-01-29","lsid":"urn:lsid:marinespecies.org:taxname:380416","isMarine":1,"isBrackish":1,"isFreshwater":1,"isTerrestrial":1,"isExtinct":null,"match_type":"exact","modified":"2009-01-15T06:47:06.863Z"}]'
+  recorded_at: 2025-01-29 19:14:23 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://www.marinespecies.org/rest/AphiaChildrenByAphiaID/380416?marine_only=false&offset=1
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.81.0 r-curl/6.1.0 crul/1.5.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: 'HTTP/2 200 '
+      date: Wed, 29 Jan 2025 19:14:23 GMT
+      server: Apache/2.4.62 (Win64)
+      content-security-policy: upgrade-insecure-requests; script-src * 'unsafe-inline'
+        'unsafe-eval' blob:; object-src *; frame-ancestors 'self' www.vliz.be vliz.be
+        form.vliz.be www.omes-monitoring.be omes-monitoring.be;
+      cross-origin-opener-policy: same-origin
+      access-control-allow-origin: '*'
+      access-control-allow-headers: X-Requested-With, Content-Type, Accept, Origin,
+        Authorization
+      access-control-allow-methods: GET, POST, OPTIONS
+      content-length: '5332'
+      content-type: application/json
+      set-cookie: vliz_webc=vliz_webc2; path=/
+    body:
+      encoding: ''
+      file: no
+      string: '[{"AphiaID":993623,"url":"https:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=993623","scientificname":"Artiodactyla","authority":null,"status":"accepted","unacceptreason":null,"taxonRankID":100,"rank":"Order","valid_AphiaID":993623,"valid_name":"Artiodactyla","valid_authority":null,"parentNameUsageID":380416,"kingdom":"Animalia","phylum":"Chordata","class":"Mammalia","order":"Artiodactyla","family":null,"genus":null,"citation":"WoRMS
+        (2025). Artiodactyla. Accessed at: https:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=993623
+        on 2025-01-29","lsid":"urn:lsid:marinespecies.org:taxname:993623","isMarine":0,"isBrackish":0,"isFreshwater":0,"isTerrestrial":1,"isExtinct":null,"match_type":"exact","modified":"2017-05-30T13:14:47.327Z"},{"AphiaID":2687,"url":"https:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=2687","scientificname":"Carnivora","authority":null,"status":"accepted","unacceptreason":null,"taxonRankID":100,"rank":"Order","valid_AphiaID":2687,"valid_name":"Carnivora","valid_authority":null,"parentNameUsageID":380416,"kingdom":"Animalia","phylum":"Chordata","class":"Mammalia","order":"Carnivora","family":null,"genus":null,"citation":"WoRMS
+        (2025). Carnivora. Accessed at: https:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=2687
+        on 2025-01-29","lsid":"urn:lsid:marinespecies.org:taxname:2687","isMarine":1,"isBrackish":1,"isFreshwater":1,"isTerrestrial":1,"isExtinct":null,"match_type":"exact","modified":"2004-12-21T15:54:05.437Z"},{"AphiaID":370511,"url":"https:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=370511","scientificname":"Cetartiodactyla","authority":"Montgelard,
+        Catzeflis & Douzery, 1997","status":"accepted","unacceptreason":null,"taxonRankID":100,"rank":"Order","valid_AphiaID":370511,"valid_name":"Cetartiodactyla","valid_authority":"Montgelard,
+        Catzeflis & Douzery, 1997","parentNameUsageID":380416,"kingdom":"Animalia","phylum":"Chordata","class":"Mammalia","order":"Cetartiodactyla","family":null,"genus":null,"citation":"WoRMS
+        (2025). Cetartiodactyla. Accessed at: https:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=370511
+        on 2025-01-29","lsid":"urn:lsid:marinespecies.org:taxname:370511","isMarine":1,"isBrackish":1,"isFreshwater":1,"isTerrestrial":0,"isExtinct":null,"match_type":"exact","modified":"2008-11-21T08:39:46.327Z"},{"AphiaID":1603274,"url":"https:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=1603274","scientificname":"Eutheria","authority":"Huxley,
+        1880","status":"accepted","unacceptreason":null,"taxonRankID":80,"rank":"Infraclass","valid_AphiaID":1603274,"valid_name":"Eutheria","valid_authority":"Huxley,
+        1880","parentNameUsageID":380416,"kingdom":"Animalia","phylum":"Chordata","class":"Mammalia","order":null,"family":null,"genus":null,"citation":"WoRMS
+        (2025). Eutheria. Accessed at: https:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=1603274
+        on 2025-01-29","lsid":"urn:lsid:marinespecies.org:taxname:1603274","isMarine":1,"isBrackish":1,"isFreshwater":1,"isTerrestrial":1,"isExtinct":null,"match_type":"exact","modified":"2022-09-28T11:53:54.617Z"},{"AphiaID":993617,"url":"https:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=993617","scientificname":"Lagomorpha","authority":null,"status":"accepted","unacceptreason":null,"taxonRankID":100,"rank":"Order","valid_AphiaID":993617,"valid_name":"Lagomorpha","valid_authority":null,"parentNameUsageID":380416,"kingdom":"Animalia","phylum":"Chordata","class":"Mammalia","order":"Lagomorpha","family":null,"genus":null,"citation":"WoRMS
+        (2025). Lagomorpha. Accessed at: https:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=993617
+        on 2025-01-29","lsid":"urn:lsid:marinespecies.org:taxname:993617","isMarine":0,"isBrackish":0,"isFreshwater":0,"isTerrestrial":1,"isExtinct":null,"match_type":"exact","modified":"2017-05-30T13:14:47.327Z"},{"AphiaID":404079,"url":"https:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=404079","scientificname":"Rodentia","authority":"Bowdich,
+        1821","status":"accepted","unacceptreason":null,"taxonRankID":100,"rank":"Order","valid_AphiaID":404079,"valid_name":"Rodentia","valid_authority":"Bowdich,
+        1821","parentNameUsageID":380416,"kingdom":"Animalia","phylum":"Chordata","class":"Mammalia","order":"Rodentia","family":null,"genus":null,"citation":"WoRMS
+        (2025). Rodentia. Accessed at: https:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=404079
+        on 2025-01-29","lsid":"urn:lsid:marinespecies.org:taxname:404079","isMarine":0,"isBrackish":1,"isFreshwater":1,"isTerrestrial":1,"isExtinct":null,"match_type":"exact","modified":"2020-09-30T20:42:47.990Z"},{"AphiaID":159502,"url":"https:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=159502","scientificname":"Sirenia","authority":"Illiger,
+        1811","status":"accepted","unacceptreason":null,"taxonRankID":100,"rank":"Order","valid_AphiaID":159502,"valid_name":"Sirenia","valid_authority":"Illiger,
+        1811","parentNameUsageID":380416,"kingdom":"Animalia","phylum":"Chordata","class":"Mammalia","order":"Sirenia","family":null,"genus":null,"citation":"WoRMS
+        (2025). Sirenia. Accessed at: https:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=159502
+        on 2025-01-29","lsid":"urn:lsid:marinespecies.org:taxname:159502","isMarine":1,"isBrackish":1,"isFreshwater":1,"isTerrestrial":1,"isExtinct":null,"match_type":"exact","modified":"2010-02-05T17:38:18.927Z"}]'
+  recorded_at: 2025-01-29 19:14:23 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+- request:
+    method: get
+    uri: https://www.marinespecies.org/rest/AphiaChildrenByAphiaID/1603274?marine_only=false&offset=1
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: libcurl/7.81.0 r-curl/6.1.0 crul/1.5.0
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: 'HTTP/2 200 '
+      date: Wed, 29 Jan 2025 19:14:23 GMT
+      server: Apache/2.4.62 (Win64)
+      content-security-policy: upgrade-insecure-requests; script-src * 'unsafe-inline'
+        'unsafe-eval' blob:; object-src *; frame-ancestors 'self' www.vliz.be vliz.be
+        form.vliz.be www.omes-monitoring.be omes-monitoring.be;
+      cross-origin-opener-policy: same-origin
+      access-control-allow-origin: '*'
+      access-control-allow-headers: X-Requested-With, Content-Type, Accept, Origin,
+        Authorization
+      access-control-allow-methods: GET, POST, OPTIONS
+      content-length: '1556'
+      content-type: application/json
+      set-cookie: vliz_webc=vliz_webc1; path=/
+    body:
+      encoding: ''
+      file: no
+      string: '[{"AphiaID":1603275,"url":"https:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=1603275","scientificname":"Perissodactyla","authority":"Owen,
+        1848","status":"accepted","unacceptreason":null,"taxonRankID":100,"rank":"Order","valid_AphiaID":1603275,"valid_name":"Perissodactyla","valid_authority":"Owen,
+        1848","parentNameUsageID":1603274,"kingdom":"Animalia","phylum":"Chordata","class":"Mammalia","order":"Perissodactyla","family":null,"genus":null,"citation":"WoRMS
+        (2025). Perissodactyla. Accessed at: https:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=1603275
+        on 2025-01-29","lsid":"urn:lsid:marinespecies.org:taxname:1603275","isMarine":0,"isBrackish":0,"isFreshwater":0,"isTerrestrial":1,"isExtinct":null,"match_type":"exact","modified":"2022-09-28T11:53:54.617Z"},{"AphiaID":1649157,"url":"https:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=1649157","scientificname":"Proboscidea","authority":"Illiger,
+        1811","status":"accepted","unacceptreason":null,"taxonRankID":100,"rank":"Order","valid_AphiaID":1649157,"valid_name":"Proboscidea","valid_authority":"Illiger,
+        1811","parentNameUsageID":1603274,"kingdom":"Animalia","phylum":"Chordata","class":"Mammalia","order":"Proboscidea","family":null,"genus":null,"citation":"WoRMS
+        (2025). Proboscidea. Accessed at: https:\/\/www.marinespecies.org\/aphia.php?p=taxdetails&id=1649157
+        on 2025-01-29","lsid":"urn:lsid:marinespecies.org:taxname:1649157","isMarine":0,"isBrackish":0,"isFreshwater":0,"isTerrestrial":1,"isExtinct":0,"match_type":"exact","modified":"2023-03-22T08:28:04.660Z"}]'
+  recorded_at: 2025-01-29 19:14:23 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0

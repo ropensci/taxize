@@ -7,64 +7,55 @@
 iucn_summary(x, distr_detail = FALSE, key = NULL, ...)
 }
 \arguments{
-\item{x}{character; Scientific name. Should be cleaned and in the
-format \verb{*<Genus> <Species>*}.}
+\item{x}{character; Scientific name. Should be cleaned and in the format
+\verb{*<Genus> <Species>*}.}
 
 \item{distr_detail}{logical; If \code{TRUE}, the geographic distribution is
 returned as a list of vectors corresponding to the different range types:
 native, introduced, etc.}
 
 \item{key}{a Redlist API key, get one from
-https://apiv3.iucnredlist.org/api/v3/token Required for
-\code{iucn_summary}. Defaults to \code{NULL} in case you have your key
-stored (see \verb{Redlist Authentication} below).}
+https://apiv3.iucnredlist.org/api/v3/token Required for \code{iucn_summary}.
+Defaults to \code{NULL} in case you have your key stored (see \verb{Redlist Authentication} below).}
 
 \item{...}{curl options passed on to \link[crul:verb-GET]{crul::verb-GET}}
 }
 \value{
-A list (for every species one entry) of lists with the following
-items:
-\itemize{
-\item \code{status} Red List Category.
-\item \code{history} History of status, if available.
-\item \code{distr} Geographic distribution, if available.
-\item \code{trend} Trend of population size, if available.
-}
+A list (for every species one entry) of data returned by
+\code{\link[rredlist:rl_species_latest]{rredlist::rl_species_latest()}}.
 }
 \description{
-Get a summary from the IUCN Red List (https://www.iucnredlist.org/).
+Get a summary from the IUCN Red List
+(https://www.iucnredlist.org/).
 }
 \details{
-Beware: IUCN functions can give back incorrect data. This isn't our fault.
-We do our best to get you the correct data quickly, but sometimes IUCN gives
-back the wrong data, and sometimes Global Names gives back the wrong data.
-We will fix these as soon as possible. In the meantime, just make sure that
-the data you get back is correct.
+Beware: IUCN functions can give back incorrect data. This isn't our
+fault. We do our best to get you the correct data quickly, but sometimes
+IUCN gives back the wrong data, and sometimes Global Names gives back the
+wrong data. We will fix these as soon as possible. In the meantime, just
+make sure that the data you get back is correct.
 
-\code{iucn_summary} has a default method that errors when anything's
-passed in that's not \code{character} or \code{iucn} class - a
-\code{iucn_summary.character} method for when you pass in taxon names -
-and a \code{iucn_summary.iucn} method so you can pass in iucn class objects
-as output from \code{\link[=get_iucn]{get_iucn()}} or \code{\link[=as.iucn]{as.iucn()}}. If you
-already have IUCN IDs, coerce them to \code{iucn} class via
-\code{as.iucn(..., check = FALSE)}
+\code{iucn_summary} has a default method that errors when anything's passed in
+that's not \code{character} or \code{iucn} class - a \code{iucn_summary.character} method
+for when you pass in taxon names - and a \code{iucn_summary.iucn} method so you
+can pass in iucn class objects as output from \code{\link[=get_iucn]{get_iucn()}} or \code{\link[=as.iucn]{as.iucn()}}.
+If you already have IUCN IDs, coerce them to \code{iucn} class via \code{as.iucn(..., check = FALSE)}
 }
 \note{
-Not all entries (history, distr, trend) are available for every species
-and NA is returned.
-\code{\link[=iucn_status]{iucn_status()}} is an extractor function to easily extract
-status into a vector.
+Not all data types are available for every species
+and NA is returned. \code{\link[=iucn_status]{iucn_status()}} is an extractor function to easily
+extract status into a vector.
 }
 \section{Redlist Authentication}{
-
-\code{iucn_summary} uses the new Redlist API for searching for a IUCN ID, so we
-use the \code{\link[=rl_search]{rl_search()}} function internally. This function
-requires an API key. Get the key at https://apiv3.iucnredlist.org/api/v3/token,
-and pass it to the \code{key} parameter, or store in your \code{.Renviron} file like
+ \code{iucn_summary} uses the new Redlist API for
+searching for a IUCN ID, so we use the \code{\link[=rl_search]{rl_search()}} function internally.
+This function requires an API key. Get the key at
+https://apiv3.iucnredlist.org/api/v3/token, and pass it to the \code{key}
+parameter, or store in your \code{.Renviron} file like
 \code{IUCN_REDLIST_KEY=yourkey} or in your \code{.Rprofile} file like
-\code{options(iucn_redlist_key="yourkey")}. We strongly encourage you to not pass
-the key in the function call but rather store it in one of those two files.
-This key will also set you up to use the \pkg{rredlist} package.
+\code{options(iucn_redlist_key="yourkey")}. We strongly encourage you to not
+pass the key in the function call but rather store it in one of those two
+files. This key will also set you up to use the \pkg{rredlist} package.
 }
 
 \examples{
@@ -98,4 +89,6 @@ Eduard Szoecs, \email{eduardszoecs@gmail.com}
 Philippe Marchand, \email{marchand.philippe@gmail.com}
 
 Scott Chamberlain,
+
+Zachary S.L. Foster
 }

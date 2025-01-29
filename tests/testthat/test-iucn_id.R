@@ -35,6 +35,6 @@ test_that("iucn_id fails well", {
   expect_error(iucn_id(), "argument \"sciname\" is missing")
   
   vcr::use_cassette("iucn_id_fail", {
-    expect_equal(suppressWarnings(iucn_id("foo bar")), NA)
+    expect_equal(suppressWarnings(iucn_id("foo bar")), NA_integer_)
   }, match_requests_on = c("method", "query"))
 })

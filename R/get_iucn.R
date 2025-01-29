@@ -45,12 +45,6 @@
 #' get_iucn("Branta bernicla")
 #' get_iucn("Panthera uncia")
 #'
-#' # as coercion
-#' as.iucn(22732)
-#' as.iucn("22732")
-#' (res <- as.iucn(c(22679946, 22732, 22679935)))
-#' data.frame(res)
-#' as.iucn(data.frame(res))
 #' }
 get_iucn <- function(sci, messages = TRUE, key = NULL, x = NULL, ...) {
 
@@ -61,7 +55,37 @@ get_iucn <- function(sci, messages = TRUE, key = NULL, x = NULL, ...) {
     sci <- x
   }
   
+  raw_data <- get_iucn_data(sci = sci, messages = messages, key = key, ...)
+  
+  out <- lapply(names(raw_data), function(input_name) {
+    result <- raw_data[[input_name]]
+    if (length(result) == 1 && is.na(result)) {
+      id <- NA_character_
+      att <- "not found"
+    } else {
+      id <- result$taxon$sis_id
+      direct <- tolower(result$taxon$scientific_name) == tolower(input_name)
+      att <- "found"
+    }
+    list(id = id, name = input_name, att = att, direct = direct)
+  })
 
+  ids <- structure(as.character(unlist(pluck(out, "id"))), class = "iucn",
+                   match = pluck_un(out, "att", ""),
+                   name = pluck_un(out, "name", ""))
+  add_uri(ids, get_url_templates$iucn)
+}
+
+
+#' Get a IUCN Redlist taxon data
+#' 
+#' Used to get IUCN data for other functions to use.
+#' 
+#' @param If `TRUE`, latest use [rredlist::rl_species_latest()] instead of [rredlist::rl_species()]
+#' 
+#' @keywords internal
+get_iucn_data <- function(sci, messages = TRUE, key = NULL, latest = FALSE, ...) {
+  
   if (inherits(sci, "character")) {
     tstate <- taxon_state$new(class = "iucn", names = sci)
     items <- sci
@@ -71,58 +95,52 @@ get_iucn <- function(sci, messages = TRUE, key = NULL, x = NULL, ...) {
     sci <- tstate$taxa_remaining()
     items <- c(sci, tstate$taxa_completed())
   }
-
+  
   prog <- progressor$new(items = items, suppress = !messages)
   done <- tstate$get()
   for (i in seq_along(done)) prog$completed(names(done)[i], done[[i]]$att)
   prog$prog_start()
-
+  
+  if (latest) {
+    rl_func_to_use <- rredlist::rl_species_latest
+  } else {
+    rl_func_to_use <- rredlist::rl_species
+  }
+  
   for (i in seq_along(sci)) {
     direct <- FALSE
     mssg(messages, "\nRetrieving data for taxon '", sci[i], "'\n")
-    df <- rredlist::rl_search(sci[i], key = key, ...)
-
-    if (!inherits(df$result, "data.frame") || NROW(df$result) == 0) {
-      id <- NA_character_
+    parts <- strsplit(sci[i], split = ' +')[[1]]
+    result <- tryCatch(
+      {
+        if (length(parts) == 2) {
+          tmp <- rl_func_to_use(genus = parts[1], species = parts[2], key = key, ...)
+        } else {
+          tmp <- rl_func_to_use(genus = parts[1], species = parts[2], infra = parts[3], key = key, ...)
+        }
+        tmp
+      },
+      error = function(e) {
+        NA_integer_
+      }
+    ) 
+    
+    if (length(result) == 1 && is.na(result)) {
       att <- "not found"
     } else {
-      df <- df$result[, c("taxonid", "scientific_name", "kingdom",
-                   "phylum", "order", "family", "genus", "authority")]
-
-      # should return NA if species not found
-      if (NROW(df) == 0) {
-        mssg(messages, tx_msg_not_found)
-        id <- NA_character_
-        att <- "not found"
-      }
-
-      # check for direct match
-      direct <- match(tolower(df$scientific_name), tolower(sci[i]))
-
-      if (!all(is.na(direct))) {
-        id <- df$taxonid[!is.na(direct)]
-        direct <- TRUE
-        att <- "found"
-      } else {
-        direct <- FALSE
-        id <- df$taxonid
-        att <- "found"
-      }
-      # multiple matches not possible because no real search
+      att <- "found"
     }
-    res <- list(id = id, name = sci[i], att = att, direct = direct)
     prog$completed(sci[i], att)
     prog$prog(att)
-    tstate$add(sci[i], res)
+    tstate$add(sci[i], result)
   }
   out <- tstate$get()
-  ids <- structure(as.character(unlist(pluck(out, "id"))), class = "iucn",
-                   match = pluck_un(out, "att", ""),
-                   name = pluck_un(out, "name", ""))
   on.exit(prog$prog_summary(), add = TRUE)
   on.exit(tstate$exit, add = TRUE)
-  add_uri(ids, get_url_templates$iucn)
+  return(out)
 }
+
+
 
 #' @export
 #' @rdname get_iucn

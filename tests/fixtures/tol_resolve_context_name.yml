@@ -1,0 +1,330 @@
+http_interactions:
+- request:
+    method: post
+    uri: https://api.opentreeoflife.org/v3/tnrs/contexts
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-Type: ''
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      date: Wed, 29 Jan 2025 19:13:40 GMT
+      server: waitress
+      access-control-allow-credentials: 'true'
+      access-control-allow-origin: '*'
+      access-control-max-age: '86400'
+      cache-control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      content-length: '807'
+      content-type: application/json;
+      expires: Wed, 29 Jan 2025 19:13:40 GMT
+      pragma: no-cache
+      vary: Accept-Encoding
+      x-powered-by: otc-tol-ws
+    body:
+      encoding: ''
+      file: no
+      string: |-
+        {
+         "ANIMALS": [
+          "Animals",
+          "Birds",
+          "Tetrapods",
+          "Mammals",
+          "Amphibians",
+          "Vertebrates",
+          "Arthropods",
+          "Molluscs",
+          "Nematodes",
+          "Platyhelminthes",
+          "Annelids",
+          "Cnidarians",
+          "Arachnids",
+          "Insects"
+         ],
+         "FUNGI": [
+          "Fungi",
+          "Basidiomycetes",
+          "Ascomycetes"
+         ],
+         "LIFE": [
+          "All life"
+         ],
+         "MICROBES": [
+          "Bacteria",
+          "SAR group",
+          "Archaea",
+          "Excavata",
+          "Amoebozoa",
+          "Centrohelida",
+          "Haptophyta",
+          "Apusozoa",
+          "Diatoms",
+          "Ciliates",
+          "Forams"
+         ],
+         "PLANTS": [
+          "Land plants",
+          "Hornworts",
+          "Mosses",
+          "Liverworts",
+          "Vascular plants",
+          "Club mosses",
+          "Ferns",
+          "Seed plants",
+          "Flowering plants",
+          "Monocots",
+          "Eudicots",
+          "Rosids",
+          "Asterids",
+          "Asterales",
+          "Asteraceae",
+          "Aster",
+          "Symphyotrichum",
+          "Campanulaceae",
+          "Lobelia"
+         ]
+        }
+  recorded_at: 2025-01-29 19:13:40 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+- request:
+    method: post
+    uri: https://api.opentreeoflife.org/v3/tnrs/match_names
+    body:
+      encoding: ''
+      string: '{"names":["Hyla","Salmo","Diadema","Nautilus"],"context_name":"Animals","do_approximate_matching":true,"include_suppressed":false}'
+    headers:
+      Accept: application/json, text/xml, application/xml, */*
+      Content-Type: ''
+  response:
+    status:
+      status_code: 200
+      category: Success
+      reason: OK
+      message: 'Success: (200) OK'
+    headers:
+      date: Wed, 29 Jan 2025 19:13:40 GMT
+      server: waitress
+      access-control-allow-credentials: 'true'
+      access-control-allow-origin: '*'
+      access-control-max-age: '86400'
+      cache-control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      content-length: '4153'
+      content-type: application/json;
+      expires: Wed, 29 Jan 2025 19:13:40 GMT
+      pragma: no-cache
+      vary: Accept-Encoding
+      x-powered-by: otc-tol-ws
+    body:
+      encoding: ''
+      file: no
+      string: |-
+        {
+         "context": "Animals",
+         "governing_code": "ICZN",
+         "includes_approximate_matches": true,
+         "includes_deprecated_taxa": false,
+         "includes_suppressed_names": false,
+         "matched_names": [
+          "Hyla",
+          "Salmo",
+          "Diadema",
+          "Nautilus"
+         ],
+         "results": [
+          {
+           "matches": [
+            {
+             "is_approximate_match": false,
+             "is_synonym": false,
+             "matched_name": "Hyla",
+             "nomenclature_code": "ICZN",
+             "score": 1.0,
+             "search_string": "hyla",
+             "taxon": {
+              "flags": [],
+              "is_suppressed": false,
+              "is_suppressed_from_synth": false,
+              "name": "Hyla",
+              "ott_id": 1062216,
+              "rank": "genus",
+              "source": "ott3.7draft2",
+              "synonyms": [
+               "Hylaria"
+              ],
+              "tax_sources": [
+               "ncbi:8421",
+               "gbif:2423589",
+               "irmng:1282051"
+              ],
+              "unique_name": "Hyla"
+             }
+            }
+           ],
+           "name": "Hyla"
+          },
+          {
+           "matches": [
+            {
+             "is_approximate_match": false,
+             "is_synonym": false,
+             "matched_name": "Salmo",
+             "nomenclature_code": "ICZN",
+             "score": 1.0,
+             "search_string": "salmo",
+             "taxon": {
+              "flags": [],
+              "is_suppressed": false,
+              "is_suppressed_from_synth": false,
+              "name": "Salmo",
+              "ott_id": 982359,
+              "rank": "genus",
+              "source": "ott3.7draft2",
+              "synonyms": [
+               "Acantholingua",
+               "Fario",
+               "Platysalmo",
+               "Salar",
+               "Salmothymus",
+               "Salmus",
+               "Saluco",
+               "Trutta",
+               "Truttae"
+              ],
+              "tax_sources": [
+               "ncbi:8028",
+               "worms:126141",
+               "gbif:2347608",
+               "gbif:6759108",
+               "irmng:1384765",
+               "irmng:1258069"
+              ],
+              "unique_name": "Salmo"
+             }
+            }
+           ],
+           "name": "Salmo"
+          },
+          {
+           "matches": [
+            {
+             "is_approximate_match": false,
+             "is_synonym": true,
+             "matched_name": "Diadema",
+             "nomenclature_code": "ICZN",
+             "score": 1.0,
+             "search_string": "diadema",
+             "taxon": {
+              "flags": [],
+              "is_suppressed": false,
+              "is_suppressed_from_synth": false,
+              "name": "Garrettia",
+              "ott_id": 631176,
+              "rank": "genus",
+              "source": "ott3.7draft2",
+              "synonyms": [
+               "Centrechinus",
+               "Diadema",
+               "Diamema"
+              ],
+              "tax_sources": [
+               "worms:817715",
+               "ncbi:31174",
+               "worms:123395",
+               "gbif:2279021",
+               "gbif:7234925",
+               "irmng:1268954"
+              ],
+              "unique_name": "Garrettia (genus in Opisthokonta)"
+             }
+            },
+            {
+             "is_approximate_match": false,
+             "is_synonym": true,
+             "matched_name": "Diadema",
+             "nomenclature_code": "ICZN",
+             "score": 1.0,
+             "search_string": "diadema",
+             "taxon": {
+              "flags": [],
+              "is_suppressed": false,
+              "is_suppressed_from_synth": false,
+              "name": "Hypolimnas",
+              "ott_id": 643831,
+              "rank": "genus",
+              "source": "ott3.7draft2",
+              "synonyms": [
+               "Diadema",
+               "Esoptria",
+               "Eucalia",
+               "Euralia",
+               "Hypolimnus"
+              ],
+              "tax_sources": [
+               "ncbi:76214",
+               "gbif:7733971",
+               "irmng:1016108"
+              ],
+              "unique_name": "Hypolimnas"
+             }
+            }
+           ],
+           "name": "Diadema"
+          },
+          {
+           "matches": [
+            {
+             "is_approximate_match": false,
+             "is_synonym": false,
+             "matched_name": "Nautilus",
+             "nomenclature_code": "ICZN",
+             "score": 1.0,
+             "search_string": "nautilus",
+             "taxon": {
+              "flags": [],
+              "is_suppressed": false,
+              "is_suppressed_from_synth": false,
+              "name": "Nautilus",
+              "ott_id": 616358,
+              "rank": "genus",
+              "source": "ott3.7draft2",
+              "synonyms": [
+               "Nantilus",
+               "Nautarius",
+               "Nauticus"
+              ],
+              "tax_sources": [
+               "worms:204549",
+               "ncbi:34572",
+               "gbif:2289060",
+               "irmng:1286821"
+              ],
+              "unique_name": "Nautilus"
+             }
+            }
+           ],
+           "name": "Nautilus"
+          }
+         ],
+         "taxonomy": {
+          "author": "open tree of life project",
+          "name": "ott",
+          "source": "ott3.7draft2",
+          "version": "3.7",
+          "weburl": "https://tree.opentreeoflife.org/about/taxonomy-version/ott3.7"
+         },
+         "unambiguous_names": [
+          "Hyla",
+          "Salmo",
+          "Nautilus"
+         ],
+         "unmatched_names": []
+        }
+  recorded_at: 2025-01-29 19:13:40 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0

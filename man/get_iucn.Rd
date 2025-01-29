@@ -82,12 +82,6 @@ get_iucn("Branta canadensis")
 get_iucn("Branta bernicla")
 get_iucn("Panthera uncia")
 
-# as coercion
-as.iucn(22732)
-as.iucn("22732")
-(res <- as.iucn(c(22679946, 22732, 22679935)))
-data.frame(res)
-as.iucn(data.frame(res))
 }
 }
 \seealso{

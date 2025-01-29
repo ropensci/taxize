@@ -1,67 +1,72 @@
 #' Resolve names using Global Names Resolver
 #'
+#' NOTE: this function is depreciated and will be removed in a future version.
+#' The service this function interacts with is no longer maintained and has been
+#' replaced by GNA Verifier, which can be used with the [gna_verifier()]
+#' function.
+#' 
 #' See section **Age of datasets in the Global Names Resolver**
 #'
 #' @export
 #' @param sci character; taxonomic names to be resolved. Doesn't work for
-#' vernacular/common names.
-#' @param data_source_ids character; IDs to specify what data source
-#'     is searched. See [gnr_datasources()].
+#'   vernacular/common names.
+#' @param data_source_ids character; IDs to specify what data source is
+#'   searched. See [gnr_datasources()].
 #' @param resolve_once logical; Find the first available match instead of
-#'    matches across all data sources with all possible renderings of a name.
-#'    When `TRUE`, response is rapid but incomplete.
+#'   matches across all data sources with all possible renderings of a name.
+#'   When `TRUE`, response is rapid but incomplete.
 #' @param with_context logical; Reduce the likelihood of matches to taxonomic
-#'    homonyms. When `TRUE` a common taxonomic context is calculated for
-#'    all supplied names from matches in data sources that have classification
-#'    tree paths. Names out of determined context are penalized during score
-#'    calculation.
+#'   homonyms. When `TRUE` a common taxonomic context is calculated for all
+#'   supplied names from matches in data sources that have classification tree
+#'   paths. Names out of determined context are penalized during score
+#'   calculation.
 #' @param canonical logical; If `FALSE` (default), gives back names with
-#'    taxonomic authorities. If `TRUE`, returns canocial names
-#'    (without tax. authorities and abbreviations).
+#'   taxonomic authorities. If `TRUE`, returns canocial names (without tax.
+#'   authorities and abbreviations).
 #' @param highestscore logical; Return those names with the highest score for
-#'    each searched name? Defunct
+#'   each searched name? Defunct
 #' @param best_match_only (logical) If `TRUE`, best match only returned.
-#' Default: `FALSE`
-#' @param preferred_data_sources (character) A vector of one or more data
-#' source IDs.
-#' @param with_canonical_ranks (logical) Returns names with infraspecific
-#' ranks, if present. If `TRUE`, we force `canonical=TRUE`, otherwise
-#' this parameter would have no effect. Default: `FALSE`
+#'   Default: `FALSE`
+#' @param preferred_data_sources (character) A vector of one or more data source
+#'   IDs.
+#' @param with_canonical_ranks (logical) Returns names with infraspecific ranks,
+#'   if present. If `TRUE`, we force `canonical=TRUE`, otherwise this parameter
+#'   would have no effect. Default: `FALSE`
 #' @param http The HTTP method to use, one of "get" or "post". Default: "get".
-#' Use `http="post"` with large queries. Queries with > 300 records
-#' use "post" automatically because "get" would fail
+#'   Use `http="post"` with large queries. Queries with > 300 records use "post"
+#'   automatically because "get" would fail
 #' @param names Deprecated, see `sci`
 #' @param ... Curl options passed on to [crul::HttpClient]
 #' @param cap_first (logical) For each name, fix so that the first name part is
-#' capitalized, while others are not. This web service is sensitive to
-#' capitalization, so you'll get different results depending on capitalization.
-#' First name capitalized is likely what you'll want and is the default.
-#' If `FALSE`, names are not modified. Default: `TRUE`
-#' @param fields (character) One of minimal (default) or all. Minimal gives
-#' back just four fields, whereas all gives all fields back.
+#'   capitalized, while others are not. This web service is sensitive to
+#'   capitalization, so you'll get different results depending on
+#'   capitalization. First name capitalized is likely what you'll want and is
+#'   the default. If `FALSE`, names are not modified. Default: `TRUE`
+#' @param fields (character) One of minimal (default) or all. Minimal gives back
+#'   just four fields, whereas all gives all fields back.
 #'
-#' @author Scott Chamberlain 
-#' @return A data.frame with one attribute `not_known`: a character
-#' vector of taxa unknown to the Global Names Index. Access like
-#' `attr(output, "not_known")`, or `attributes(output)$not_known`.
+#' @author Scott Chamberlain
+#' @return A data.frame with one attribute `not_known`: a character vector of
+#'   taxa unknown to the Global Names Index. Access like `attr(output,
+#'   "not_known")`, or `attributes(output)$not_known`.
 #'
-#' Columns of the output data.frame:
+#'   Columns of the output data.frame:
 #' * user_supplied_name (character) - the name you passed in to the
-#'  `names` parameter, unchanged.
+#'   `names` parameter, unchanged.
 #' * submitted_name (character) - the actual name submitted to the GNR
-#'  service
+#'   service
 #' * data_source_id (integer/numeric) - data source ID
 #' * data_source_title (character) - data source name
 #' * gni_uuid (character) - Global Names Index UUID (aka identifier)
 #' * matched_name (character) - the matched name in the GNR service
 #' * matched_name2 (character) - returned if `canonical=TRUE`, in
-#'  which case **matched_name** is not returned
+#'   which case **matched_name** is not returned
 #' * classification_path (character) - names of the taxonomic
-#'  classification tree, with names separated by pipes (`|`)
+#'   classification tree, with names separated by pipes (`|`)
 #' * classification_path_ranks (character) - ranks of the taxonomic
-#'  classification tree, with names separated by pipes (`|`)
+#'   classification tree, with names separated by pipes (`|`)
 #' * classification_path_ids (character) - identifiers of the taxonomic
-#'  classification tree, with names separated by pipes (`|`)
+#'   classification tree, with names separated by pipes (`|`)
 #' * taxon_id (character) - taxon identifier
 #' * edit_distance (integer/numeric) - edit distance
 #' * imported_at (character) - date imported
@@ -75,23 +80,20 @@
 #' * current_taxon_id (character) - current taxon id
 #' * current_name_string (character) - current name string
 #'
-#' Note that names (i.e. rows) are dropped that are NA, are zero length
-#' strings, are not character vectors, or are not found by the API.
+#'   Note that names (i.e. rows) are dropped that are NA, are zero length
+#'   strings, are not character vectors, or are not found by the API.
 #'
-#' @section Age of datasets in the Global Names Resolver:
-#' IMPORTANT: Datasets used in the Global Names Resolver vary in how recently
-#' they've been updated. See the `updated_at` field in the
-#' output of [gnr_datasources()] for dates when each dataset
-#' was last updated.
+#' @section Age of datasets in the Global Names Resolver: IMPORTANT: Datasets
+#'   used in the Global Names Resolver vary in how recently they've been
+#'   updated. See the `updated_at` field in the output of [gnr_datasources()]
+#'   for dates when each dataset was last updated.
 #'
-#' @section preferred_data_sources:
-#' If `preferred_data_sources` is used, only the preferred data
-#' is returned - if it has any results.
+#' @section preferred_data_sources: If `preferred_data_sources` is used, only
+#'   the preferred data is returned - if it has any results.
 #'
 #' @seealso [gnr_datasources()]
 #' @keywords resolve names taxonomy
-#' @references http://gnrd.globalnames.org/api
-#' http://gnrd.globalnames.org/
+#' @references http://gnrd.globalnames.org/api http://gnrd.globalnames.org/
 #' @examples \dontrun{
 #' gnr_resolve(sci = c("Helianthus annuus", "Homo sapiens"))
 #' gnr_resolve(sci = c("Asteraceae", "Plantae"))
@@ -131,6 +133,8 @@ gnr_resolve <- function(sci, data_source_ids = NULL, resolve_once = FALSE,
   with_canonical_ranks = FALSE, http = "get", cap_first = TRUE,
   fields = "minimal", names = NULL, ...) {
 
+  lifecycle::deprecate_warn(what = "taxize::gnr_resolve()", with = "taxize::gna_verifier()", when = "v0.9.103")
+  
   if (!is.null(names)) {
     lifecycle::deprecate_warn(when = "v0.9.97", what = "gnr_resolve(names)", with = "gnr_resolve(sci)")
     sci <- names

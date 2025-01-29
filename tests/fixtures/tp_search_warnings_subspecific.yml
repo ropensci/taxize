@@ -1,0 +1,187 @@
+http_interactions:
+- request:
+    method: get
+    uri: http://services.tropicos.org/Name/Search?format=json&name=Poa%20annua%20var%20annua&apikey=00ca3d6a-cbcc-4924-b882-c26b16d54446
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      cache-control: private
+      content-type: application/json; charset=utf-8
+      server: Microsoft-IIS/10.0
+      x-aspnet-version: 4.0.30319
+      x-powered-by: ASP.NET
+      date: Wed, 29 Jan 2025 19:13:41 GMT
+      content-length: '33'
+    body:
+      encoding: ''
+      file: no
+      string: '[{"Error":"No names were found"}]'
+  recorded_at: 2025-01-29 19:13:49 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+- request:
+    method: get
+    uri: http://services.tropicos.org/Name/Search?format=json&name=Poa%20annua%20var%252E%20annua&apikey=00ca3d6a-cbcc-4924-b882-c26b16d54446
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      cache-control: private
+      content-type: application/json; charset=utf-8
+      server: Microsoft-IIS/10.0
+      x-aspnet-version: 4.0.30319
+      x-powered-by: ASP.NET
+      date: Wed, 29 Jan 2025 19:13:41 GMT
+      content-length: '33'
+    body:
+      encoding: ''
+      file: no
+      string: '[{"Error":"No names were found"}]'
+  recorded_at: 2025-01-29 19:13:49 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+- request:
+    method: get
+    uri: http://services.tropicos.org/Name/Search?format=json&name=Poa%20annua%20sp%252E%20annua&apikey=00ca3d6a-cbcc-4924-b882-c26b16d54446
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      cache-control: private
+      content-type: application/json; charset=utf-8
+      server: Microsoft-IIS/10.0
+      x-aspnet-version: 4.0.30319
+      x-powered-by: ASP.NET
+      date: Wed, 29 Jan 2025 19:13:41 GMT
+      content-length: '33'
+    body:
+      encoding: ''
+      file: no
+      string: '[{"Error":"No names were found"}]'
+  recorded_at: 2025-01-29 19:13:49 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+- request:
+    method: get
+    uri: http://services.tropicos.org/Name/Search?format=json&name=Poa%20annua%20ssp%252E%20annua&apikey=00ca3d6a-cbcc-4924-b882-c26b16d54446
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      cache-control: private
+      content-type: application/json; charset=utf-8
+      server: Microsoft-IIS/10.0
+      x-aspnet-version: 4.0.30319
+      x-powered-by: ASP.NET
+      date: Wed, 29 Jan 2025 19:13:42 GMT
+      content-length: '33'
+    body:
+      encoding: ''
+      file: no
+      string: '[{"Error":"No names were found"}]'
+  recorded_at: 2025-01-29 19:13:49 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+- request:
+    method: get
+    uri: http://services.tropicos.org/Name/Search?format=json&name=Poa%20annua%20subspecies%20annua&apikey=00ca3d6a-cbcc-4924-b882-c26b16d54446
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      cache-control: private
+      content-type: application/json; charset=utf-8
+      server: Microsoft-IIS/10.0
+      x-aspnet-version: 4.0.30319
+      x-powered-by: ASP.NET
+      date: Wed, 29 Jan 2025 19:13:42 GMT
+      content-length: '33'
+    body:
+      encoding: ''
+      file: no
+      string: '[{"Error":"No names were found"}]'
+  recorded_at: 2025-01-29 19:13:49 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0
+- request:
+    method: get
+    uri: http://services.tropicos.org/Name/Search?format=json&name=Poa%20annua%20foo%20bar%20annua&apikey=00ca3d6a-cbcc-4924-b882-c26b16d54446
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      cache-control: private
+      content-type: application/json; charset=utf-8
+      server: Microsoft-IIS/10.0
+      x-aspnet-version: 4.0.30319
+      x-powered-by: ASP.NET
+      date: Wed, 29 Jan 2025 19:13:42 GMT
+      content-length: '33'
+    body:
+      encoding: ''
+      file: no
+      string: '[{"Error":"No names were found"}]'
+  recorded_at: 2025-01-29 19:13:49 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0

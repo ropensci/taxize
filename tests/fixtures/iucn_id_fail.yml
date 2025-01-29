@@ -1,0 +1,31 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://api.iucnredlist.org/api/v4/taxa/scientific_name?genus_name=foo&species_name=bar
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      User-Agent: r-curl/6.1.0 crul/1.5.0 rOpenSci(rredlist/0.7.1.9000)
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      Authorization: <<rredlist_api_token>>
+  response:
+    status:
+      status_code: '404'
+      message: Not Found
+      explanation: Nothing matches the given URI
+    headers:
+      status: 'HTTP/2 404 '
+      cache-control: no-cache
+      content-type: application/json
+      x-request-id: c574e49f-f7eb-445c-a581-57c4ef9cdc6f
+      x-runtime: '0.216959'
+      content-length: '21'
+      date: Fri, 17 Jan 2025 18:47:55 GMT
+    body:
+      encoding: ''
+      file: no
+      string: '{"error":"Not found"}'
+  recorded_at: 2025-01-17 18:47:55 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0

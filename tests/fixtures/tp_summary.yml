@@ -1,0 +1,50 @@
+http_interactions:
+- request:
+    method: get
+    uri: http://services.tropicos.org/Name/25509881?apikey=00ca3d6a-cbcc-4924-b882-c26b16d54446&format=json
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+      X-USER-AGENT: r-curl/6.1.0 crul/1.5.0 rOpenSci(taxize/0.9.102)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      cache-control: private
+      content-type: application/json; charset=utf-8
+      server: Microsoft-IIS/10.0
+      x-aspnet-version: 4.0.30319
+      x-powered-by: ASP.NET
+      date: Wed, 29 Jan 2025 19:13:44 GMT
+      content-length: '1092'
+    body:
+      encoding: ''
+      file: no
+      base64_string: eyJOYW1lSWQiOjI1NTA5ODgxLCJTY2llbnRpZmljTmFtZSI6IlBvYSBhbm51YSIsIlNjaWVudGlmaWNO
+        YW1lV2l0aEF1dGhvcnMiOiJQb2EgYW5udWEgTC4iLCJGYW1pbHkiOiJQb2FjZWFlIiwiU3lub255bUNv
+        dW50IjoiMTA3IiwiQWNjZXB0ZWROYW1lQ291bnQiOiIwIiwiUmFuayI6InNwZWNpZXMiLCJSYW5rQWJi
+        cmV2aWF0aW9uIjoic3AuIiwiTm9tZW5jbGF0dXJlU3RhdHVzSUQiOjEsIk5vbWVuY2xhdHVyZVN0YXR1
+        c05hbWUiOiJMZWdpdGltYXRlIiwiU3ltYm9sIjoiISIsIkdlbnVzIjoiUG9hIiwiU3BlY2llc0VwaXRo
+        ZXQiOiJhbm51YSIsIlNvdXJjZSI6Imh0dHA6XC9cL3d3dy50cm9waWNvcy5vcmdcL05hbWVcLzI1NTA5
+        ODgxIiwiQ2l0YXRpb24iOiJUcm9waWNvcy5vcmcuIE1pc3NvdXJpIEJvdGFuaWNhbCBHYXJkZW4uIDI5
+        IEphbiAyMDI1ICZsdDtodHRwOlwvXC93d3cudHJvcGljb3Mub3JnXC9OYW1lXC8yNTUwOTg4MSZndDsi
+        LCJDb3B5cmlnaHQiOiLCqSAyMDI1IE1pc3NvdXJpIEJvdGFuaWNhbCBHYXJkZW4gLSA0MzQ0IFNoYXcg
+        Qm91bGV2YXJkIC0gU2FpbnQgTG91aXMsIE1pc3NvdXJpIDYzMTEwIiwiQXV0aG9yIjoiTC4iLCJOYW1l
+        UHVibGlzaGVkQ2l0YXRpb24iOiJTcGVjaWVzIFBsYW50YXJ1bSAxOiA2OC4gMTc1My4gKDEgTWF5IDE3
+        NTMpIChTcC4gUGwuKSAiLCJUeXBlU3BlY2ltZW5zIjpbeyJLaW5kT2ZUeXBlQWJicmV2IjoiTFQiLCJL
+        aW5kT2ZUeXBlTmFtZSI6IkxlY3RvdHlwZSIsIkNvbGxlY3Rpb25OdW1iZXIiOiI4Ny4xNyIsIkNvbGxl
+        Y3Rvck5hbWUiOiJIZXJiLiBMaW5uLiIsIkluc3RpdHV0aW9uIjoiTElOTiJ9LHsiS2luZE9mVHlwZUFi
+        YnJldiI6IkxUIiwiS2luZE9mVHlwZU5hbWUiOiJMZWN0b3R5cGUiLCJJbnN0aXR1dGlvbiI6IkxJTk4t
+        ODcuMTcgKHJpZ2h0LWhhbmQgcGxhbnQpIiwiVHlwZU5vdGUiOiJMVCBkZXNpZ25hdGVkIGJ5IFNvcmVu
+        ZyBpbiBDYWZmZXJ0eSBldCBhbC4sIFRheG9uIDQ5KDIpOiAyNTQgKDIwMDApOyBzYW1lIHNwZWNpbWVu
+        IGluZGljYXRlZCB3aXRoIHVuY2VydGFpbnR5IGFzIEhUIGJ5IFZlbGRrYW1wLCBCbHVtZWEgMzg6IDQy
+        MSAoMTk5NCkifV19
+  recorded_at: 2025-01-29 19:13:49 GMT
+  recorded_with: vcr/1.6.0.91, webmockr/1.0.0

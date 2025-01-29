@@ -25,22 +25,22 @@ gnr_resolve(
 \item{sci}{character; taxonomic names to be resolved. Doesn't work for
 vernacular/common names.}
 
-\item{data_source_ids}{character; IDs to specify what data source
-is searched. See \code{\link[=gnr_datasources]{gnr_datasources()}}.}
+\item{data_source_ids}{character; IDs to specify what data source is
+searched. See \code{\link[=gnr_datasources]{gnr_datasources()}}.}
 
 \item{resolve_once}{logical; Find the first available match instead of
 matches across all data sources with all possible renderings of a name.
 When \code{TRUE}, response is rapid but incomplete.}
 
 \item{with_context}{logical; Reduce the likelihood of matches to taxonomic
-homonyms. When \code{TRUE} a common taxonomic context is calculated for
-all supplied names from matches in data sources that have classification
-tree paths. Names out of determined context are penalized during score
+homonyms. When \code{TRUE} a common taxonomic context is calculated for all
+supplied names from matches in data sources that have classification tree
+paths. Names out of determined context are penalized during score
 calculation.}
 
 \item{canonical}{logical; If \code{FALSE} (default), gives back names with
-taxonomic authorities. If \code{TRUE}, returns canocial names
-(without tax. authorities and abbreviations).}
+taxonomic authorities. If \code{TRUE}, returns canocial names (without tax.
+authorities and abbreviations).}
 
 \item{highestscore}{logical; Return those names with the highest score for
 each searched name? Defunct}
@@ -48,34 +48,33 @@ each searched name? Defunct}
 \item{best_match_only}{(logical) If \code{TRUE}, best match only returned.
 Default: \code{FALSE}}
 
-\item{preferred_data_sources}{(character) A vector of one or more data
-source IDs.}
+\item{preferred_data_sources}{(character) A vector of one or more data source
+IDs.}
 
-\item{with_canonical_ranks}{(logical) Returns names with infraspecific
-ranks, if present. If \code{TRUE}, we force \code{canonical=TRUE}, otherwise
-this parameter would have no effect. Default: \code{FALSE}}
+\item{with_canonical_ranks}{(logical) Returns names with infraspecific ranks,
+if present. If \code{TRUE}, we force \code{canonical=TRUE}, otherwise this parameter
+would have no effect. Default: \code{FALSE}}
 
 \item{http}{The HTTP method to use, one of "get" or "post". Default: "get".
-Use \code{http="post"} with large queries. Queries with > 300 records
-use "post" automatically because "get" would fail}
+Use \code{http="post"} with large queries. Queries with > 300 records use "post"
+automatically because "get" would fail}
 
 \item{cap_first}{(logical) For each name, fix so that the first name part is
 capitalized, while others are not. This web service is sensitive to
-capitalization, so you'll get different results depending on capitalization.
-First name capitalized is likely what you'll want and is the default.
-If \code{FALSE}, names are not modified. Default: \code{TRUE}}
+capitalization, so you'll get different results depending on
+capitalization. First name capitalized is likely what you'll want and is
+the default. If \code{FALSE}, names are not modified. Default: \code{TRUE}}
 
-\item{fields}{(character) One of minimal (default) or all. Minimal gives
-back just four fields, whereas all gives all fields back.}
+\item{fields}{(character) One of minimal (default) or all. Minimal gives back
+just four fields, whereas all gives all fields back.}
 
 \item{names}{Deprecated, see \code{sci}}
 
 \item{...}{Curl options passed on to \link[crul:HttpClient]{crul::HttpClient}}
 }
 \value{
-A data.frame with one attribute \code{not_known}: a character
-vector of taxa unknown to the Global Names Index. Access like
-\code{attr(output, "not_known")}, or \code{attributes(output)$not_known}.
+A data.frame with one attribute \code{not_known}: a character vector of
+taxa unknown to the Global Names Index. Access like \code{attr(output, "not_known")}, or \code{attributes(output)$not_known}.
 
 Columns of the output data.frame:
 \itemize{
@@ -107,26 +106,30 @@ classification tree, with names separated by pipes (\code{|})
 \item global_id (character) - global identifier
 \item current_taxon_id (character) - current taxon id
 \item current_name_string (character) - current name string
-}
 
 Note that names (i.e. rows) are dropped that are NA, are zero length
 strings, are not character vectors, or are not found by the API.
 }
+}
 \description{
+NOTE: this function is depreciated and will be removed in a future version.
+The service this function interacts with is no longer maintained and has been
+replaced by GNA Verifier, which can be used with the \code{\link[=gna_verifier]{gna_verifier()}}
+function.
+}
+\details{
 See section \strong{Age of datasets in the Global Names Resolver}
 }
 \section{Age of datasets in the Global Names Resolver}{
-
-IMPORTANT: Datasets used in the Global Names Resolver vary in how recently
-they've been updated. See the \code{updated_at} field in the
-output of \code{\link[=gnr_datasources]{gnr_datasources()}} for dates when each dataset
-was last updated.
+ IMPORTANT: Datasets
+used in the Global Names Resolver vary in how recently they've been
+updated. See the \code{updated_at} field in the output of \code{\link[=gnr_datasources]{gnr_datasources()}}
+for dates when each dataset was last updated.
 }
 
 \section{preferred_data_sources}{
-
-If \code{preferred_data_sources} is used, only the preferred data
-is returned - if it has any results.
+ If \code{preferred_data_sources} is used, only
+the preferred data is returned - if it has any results.
 }
 
 \examples{
@@ -164,8 +167,7 @@ gnr_resolve("Scorzonera hispanica L. subsp. asphodeloides Wallr.",
 }
 }
 \references{
-http://gnrd.globalnames.org/api
-http://gnrd.globalnames.org/
+http://gnrd.globalnames.org/api http://gnrd.globalnames.org/
 }
 \seealso{
 \code{\link[=gnr_datasources]{gnr_datasources()}}
