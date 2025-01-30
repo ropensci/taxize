@@ -25,15 +25,14 @@ plantminer <- function(plants, from = "tpl", messages = TRUE, ...) {
   if (!from %in% c("tpl", "flora")) {
     stop("'from' must be one of 'tpl' or 'flora'")
   }
-  i <- NULL
-  foreach(i = seq_along(plants), .combine = rbind) %do% {
+  do.call(rbind, lapply(seq_along(plants), function(i) {
     mssg(messages, paste(plants[i], collapse = " "))
     cli <- crul::HttpClient$new(url = pmbase(), headers = tx_ual,
-      opts = list(...))
+                                opts = list(...))
     sp <- cli$get(from, query = list(taxon = plants[i]))
     sp$raise_for_status()
     jsonlite::fromJSON(sp$parse("UTF-8"))
-  }
+  }))
 }
 
 pmbase <- function() "http://www.plantminer.com"

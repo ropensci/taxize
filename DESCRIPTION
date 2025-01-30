@@ -80,7 +80,6 @@ Imports:
     crul (>= 0.7.0),
     xml2 (>= 1.2.0),
     jsonlite,
-    foreach,
     ape,
     zoo,
     data.table,
