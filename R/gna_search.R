@@ -17,6 +17,8 @@
 #' * `y`: year - Search by year (e.g. `y:2005`)
 #'
 #' @param justtotal Return only the total results found.
+#' @param parse_names If `TRUE` use [gni_parse()] on the outputs.
+#' 
 #' @param ... Curl options passed on to [crul::verb-GET]
 #' @author Scott Chamberlain, Zachary Foster
 #' @return data.frame of results.
@@ -28,8 +30,7 @@
 #' @examples \dontrun{
 #' gna_search('n:B. bubo ds:1,2 au:Linn. y:1700-')
 #' }
-gna_search <- function(sci, justtotal = FALSE, parse_names = FALSE, 
-                       per_page = NULL, page = NULL, search_term = NULL, ...) {
+gna_search <- function(sci, justtotal = FALSE, parse_names = FALSE, ...) {
   
   query <- tc(list(search_term = sci))
   cli <- crul::HttpClient$new('https://verifier.globalnames.org',

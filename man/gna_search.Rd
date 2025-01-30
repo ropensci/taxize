@@ -4,15 +4,7 @@
 \alias{gna_search}
 \title{Search for taxonomic names using the Global Names Architecture}
 \usage{
-gna_search(
-  sci,
-  justtotal = FALSE,
-  parse_names = FALSE,
-  per_page = NULL,
-  page = NULL,
-  search_term = NULL,
-  ...
-)
+gna_search(sci, justtotal = FALSE, parse_names = FALSE, ...)
 }
 \arguments{
 \item{sci}{(character) required. Name pattern you want to search
@@ -30,6 +22,8 @@ following options:
 }}
 
 \item{justtotal}{Return only the total results found.}
+
+\item{parse_names}{If \code{TRUE} use \code{\link[=gni_parse]{gni_parse()}} on the outputs.}
 
 \item{...}{Curl options passed on to \link[crul:verb-GET]{crul::verb-GET}}
 }

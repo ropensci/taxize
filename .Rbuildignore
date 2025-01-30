@@ -27,7 +27,7 @@ colp_search.R
 notes-email-question.R
 log.Rmd
 ^CRAN-SUBMISSION$
-
+scratch
 node_modules$
 package-lock\.json$
 package\.json$

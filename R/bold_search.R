@@ -74,8 +74,8 @@ bold_search <- function(sci = NULL, id = NULL, fuzzy = FALSE,
   type <- if (is.null(sci)) "id" else "sci"
   tmp <- switch(type,
          sci = bold_tax_name(name = sci, fuzzy = fuzzy, response = response, ...),
-         id = bold::bold_tax_id2(id = id, dataTypes = dataTypes, includeTree = includeTree,
-                          response = response, ...)
+         id = bold_tax_id2(id = id, dataTypes = dataTypes, includeTree = includeTree,
+                           response = response, ...)
   )
   return(tmp)
 }

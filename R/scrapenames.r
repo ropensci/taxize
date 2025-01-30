@@ -29,7 +29,7 @@
 #' @param unique_names (logical) If this is `TRUE`, the output returns a list of
 #'   unique names, instead of a list of all name occurrences. Unique list of
 #'   names does not provide position information of a name in the text.
-#' @param ambiguousNames (logical) If this is `TRUE`, strings which are
+#' @param ambiguous_names (logical) If this is `TRUE`, strings which are
 #'   simultaneously scientific names and "normal" words are not filtered out
 #'   from the results. For example, generic names like America, Cancer,
 #'   Cafeteria will be returned in the results.
@@ -56,15 +56,16 @@
 #' @param sources Pipe separated list of data source ids to resolve found names
 #'   against. See list of Data Sources
 #'   http://resolver.globalnames.org/data_sources
+#' @param all_matches When this option is true all found results are returned,
+#'   not only the bestResults. The bestResult field in this case is null, and
+#'   results field should contain found results of the matches.
 #' @param ... Further args passed to [crul::verb-GET]
 #' @param detect_language Defunct. See the `language` option.
-#' @param all_data_sources Defunct. The API used no longer supports this option.
 #' @param data_source_ids Defunct. See the `sources` option.
 #' @param file Defunct. If you feel this is important functionality submit an
 #'   issue at "https://github.com/ropensci/taxize"
 #' @param unique Defunct. See the `unique_names` option.
 #' @param engine Defunct. The API used no longer supports this option.
-#' @param verbatim Defunct. The API used no longer supports this option.
 #'
 #' @author Scott Chamberlain, Zachary Foster
 #'
@@ -106,8 +107,7 @@ scrapenames <- function(
     unique = NULL,
     engine = NULL,
     detect_language = NULL,
-    data_source_ids = NULL,
-    method = NULL
+    data_source_ids = NULL
 ) {
   
   # Error if defunct parameters are used.
@@ -122,9 +122,6 @@ scrapenames <- function(
   }
   if (!is.null(data_source_ids)) {
     stop(call. = FALSE, 'The `data_source_ids` option is defunct. See the `source` option. ')
-  }
-  if (!is.null(file) || !is.null(method)) {
-    stop(call. = FALSE, 'This function can no longer submit files. If you feel this is important functionality submit an issue at "https://github.com/ropensci/taxize".')
   }
   
   # Validate parameters
@@ -162,8 +159,8 @@ scrapenames <- function(
   # Parse and return results
   raw_output <- response$parse("UTF-8")
   switch (format,
-    csv = tibble::as_tibble(read.csv(text = raw_output)),
-    tsv = tibble::as_tibble(read.csv(text = raw_output, sep = '\t')),
+    csv = tibble::as_tibble(utils::read.csv(text = raw_output)),
+    tsv = tibble::as_tibble(utils::read.csv(text = raw_output, sep = '\t')),
     json = jsonlite::fromJSON(raw_output),
     other = stop("Invalid 'format' option.")
   )

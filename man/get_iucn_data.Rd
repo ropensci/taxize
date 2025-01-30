@@ -4,10 +4,10 @@
 \alias{get_iucn_data}
 \title{Get a IUCN Redlist taxon data}
 \usage{
-get_iucn_data(sci, messages = TRUE, key = NULL, latest = FALSE, ...)
+get_iucn_data(names_or_ids, messages = TRUE, key = NULL, latest = FALSE, ...)
 }
 \arguments{
-\item{If}{\code{TRUE}, latest use \code{\link[rredlist:rl_species_latest]{rredlist::rl_species_latest()}} instead of \code{\link[rredlist:rl_species]{rredlist::rl_species()}}}
+\item{latest}{If \code{TRUE}, latest use \code{\link[rredlist:rl_species_latest]{rredlist::rl_species_latest()}} instead of \code{\link[rredlist:rl_species]{rredlist::rl_species()}}}
 }
 \description{
 Used to get IUCN data for other functions to use.

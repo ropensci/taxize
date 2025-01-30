@@ -1,6 +1,5 @@
 #' Get the BOLD (Barcode of Life) code for a search term.
 #'
-#' @importFrom bold bold_tax_name bold_tax_id
 #' @export
 #' @param sci character; A vector of scientific names. Or,
 #' a `taxon_state` object (see [taxon-state])

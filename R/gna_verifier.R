@@ -8,8 +8,8 @@
 #'
 #' @param names A `character` vector of taxon names to verify.
 #' @param data_sources A `character` or `integer` vector with numbers
-#'   corresponding to data sources. See [gna_data_sources()] for a list of
-#'   available options.
+#'   corresponding to data sources. See the Global Names Architecture
+#'   documentation for a list of available options.
 #' @param all_matches When `TRUE`, return all found matches, not only the best
 #'   one. Multiple results are returned in results. These results are sorted by
 #'   matching quality, the first result is the same as bestResult.
@@ -35,7 +35,7 @@
 #' @return Depends on the value of the `output_type` option
 #'
 #' @author Zachary S.L. Foster
-#' 
+#'
 #' @examples \dontrun{
 #' gna_verifier(c("Helianthus annuus", "Homo saapiens"))
 #' gna_verifier(c("Helianthus annuus", "Homo saapiens"), all_matches = TRUE)

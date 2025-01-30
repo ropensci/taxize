@@ -85,7 +85,6 @@ Imports:
     zoo,
     data.table,
     tibble (>= 1.2),
-    bold (>= 0.8.6),
     rredlist,
     rotl (>= 3.0.0),
     ritis (>= 0.7.6),
@@ -96,7 +95,9 @@ Imports:
     crayon,
     cli,
     phangorn,
-    lifecycle
+    lifecycle,
+    curl,
+    stringi
 Suggests:
     testthat,
     vegan,

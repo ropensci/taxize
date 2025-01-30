@@ -48,7 +48,7 @@ extract status into a vector.
 }
 \section{Redlist Authentication}{
  \code{iucn_summary} uses the new Redlist API for
-searching for a IUCN ID, so we use the \code{\link[=rl_search]{rl_search()}} function internally.
+searching for a IUCN ID, so we use the \code{\link[rredlist:rl_species]{rredlist::rl_species()}} function internally.
 This function requires an API key. Get the key at
 https://apiv3.iucnredlist.org/api/v3/token, and pass it to the \code{key}
 parameter, or store in your \code{.Renviron} file like

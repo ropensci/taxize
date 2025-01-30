@@ -43,7 +43,7 @@
 #' @author Zachary S.L. Foster
 #'
 #' @section Redlist Authentication: `iucn_summary` uses the new Redlist API for
-#'   searching for a IUCN ID, so we use the [rl_search()] function internally.
+#'   searching for a IUCN ID, so we use the [rredlist::rl_species()] function internally.
 #'   This function requires an API key. Get the key at
 #'   https://apiv3.iucnredlist.org/api/v3/token, and pass it to the `key`
 #'   parameter, or store in your `.Renviron` file like

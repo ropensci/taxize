@@ -24,8 +24,7 @@ scrapenames(
   unique = NULL,
   engine = NULL,
   detect_language = NULL,
-  data_source_ids = NULL,
-  method = NULL
+  data_source_ids = NULL
 )
 }
 \arguments{
@@ -56,6 +55,11 @@ name-strings to locate the strings in the text.}
 unique names, instead of a list of all name occurrences. Unique list of
 names does not provide position information of a name in the text.}
 
+\item{ambiguous_names}{(logical) If this is \code{TRUE}, strings which are
+simultaneously scientific names and "normal" words are not filtered out
+from the results. For example, generic names like America, Cancer,
+Cafeteria will be returned in the results.}
+
 \item{no_bayes}{(logical) If this is \code{TRUE}, only heuristic algorithms are
 used for name detection.}
 
@@ -85,6 +89,10 @@ verification queries.}
 against. See list of Data Sources
 http://resolver.globalnames.org/data_sources}
 
+\item{all_matches}{When this option is true all found results are returned,
+not only the bestResults. The bestResult field in this case is null, and
+results field should contain found results of the matches.}
+
 \item{...}{Further args passed to \link[crul:verb-GET]{crul::verb-GET}}
 
 \item{file}{Defunct. If you feel this is important functionality submit an
@@ -97,15 +105,6 @@ issue at "https://github.com/ropensci/taxize"}
 \item{detect_language}{Defunct. See the \code{language} option.}
 
 \item{data_source_ids}{Defunct. See the \code{sources} option.}
-
-\item{ambiguousNames}{(logical) If this is \code{TRUE}, strings which are
-simultaneously scientific names and "normal" words are not filtered out
-from the results. For example, generic names like America, Cancer,
-Cafeteria will be returned in the results.}
-
-\item{all_data_sources}{Defunct. The API used no longer supports this option.}
-
-\item{verbatim}{Defunct. The API used no longer supports this option.}
 }
 \value{
 A \code{\link[tibble:tibble]{tibble::tibble()}} or list representing parsed JSON output

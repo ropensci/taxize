@@ -21,8 +21,8 @@ gna_verifier(
 \item{names}{A \code{character} vector of taxon names to verify.}
 
 \item{data_sources}{A \code{character} or \code{integer} vector with numbers
-corresponding to data sources. See \code{\link[=gna_data_sources]{gna_data_sources()}} for a list of
-available options.}
+corresponding to data sources. See the Global Names Architecture
+documentation for a list of available options.}
 
 \item{all_matches}{When \code{TRUE}, return all found matches, not only the best
 one. Multiple results are returned in results. These results are sorted by

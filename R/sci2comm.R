@@ -106,7 +106,7 @@ sci2comm.iucn <- function(id, simplify=TRUE, ...) {
   warn_db(list(...), "iucn")
   out <- vector("list", length(id))
   for (i in seq_along(id)) {
-    out[[i]] <- iucn_foo(attr(id, "name")[i], simplify, ...)
+    out[[i]] <- iucn2comm(attr(id, "name")[i], simplify = simplify, ...)
   }
   names(out) <- id
   return(out)
@@ -152,8 +152,19 @@ worms2comm <- function(x, simplify, ...){
 }
 
 iucn2comm <- function(x, simplify, ...){
-  id <- get_iucn(x, ...)
-  iucn_foo(attr(id, "name"), simplify = simplify, ...)
+  # if id is not found
+  if (is.na(x)) {
+    return(character(0))
+  } else {
+    out <- get_iucn_data(x)[[1]]
+    # if common name is not found
+    if (NROW(out$taxon$common_names) == 0) return(character(0))
+  }
+  if (simplify) {
+    return(as.character(out$taxon$common_names$name))
+  } else{
+    return(out)
+  }
 }
 
 getsci <- function(nn, db, simplify, ...){
@@ -215,25 +226,5 @@ worms_foo <- function(x, simplify=TRUE, ...){
     if (!inherits(out, "tbl_df")) out else as.character(out$vernacular)
   } else{
     out
-  }
-}
-
-iucn_foo <- function(x, simplify=TRUE, ...){
-  # if id is not found
-  if (is.na(x)) {
-    return(character(0))
-  } else {
-    out <- rredlist::rl_common_names(name = x, ...)
-    # if common name is not found
-    if (NROW(out$result) == 0) return(character(0))
-  }
-  if (simplify) {
-    if (!inherits(out$result, "data.frame")) {
-      out$result
-    } else {
-      as.character(out$result$taxonname)
-    }
-  } else{
-    out$result
   }
 }

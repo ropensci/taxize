@@ -1,3 +1,6 @@
+iucn_base_url <- "https://www.iucnredlist.org/details/%s/0"
+
+
 #' Get a IUCN Redlist taxon
 #'
 #' @export
@@ -48,19 +51,20 @@
 #' }
 get_iucn <- function(sci, messages = TRUE, key = NULL, x = NULL, ...) {
 
-  assert(sci, c("character", "taxon_state"))
+  assert(sci, c("character", "taxon_state", "numeric"))
   assert(messages, "logical")
   if (!is.null(x)) {
     lifecycle::deprecate_warn(when = "v0.9.97", what = "get_iucn(x)", with = "get_iucn(sci)")
     sci <- x
   }
   
-  raw_data <- get_iucn_data(sci = sci, messages = messages, key = key, ...)
+  raw_data <- get_iucn_data(names_or_ids = sci, messages = messages, key = key, ...)
   
   out <- lapply(names(raw_data), function(input_name) {
     result <- raw_data[[input_name]]
     if (length(result) == 1 && is.na(result)) {
       id <- NA_character_
+      direct <- NA
       att <- "not found"
     } else {
       id <- result$taxon$sis_id
@@ -81,19 +85,19 @@ get_iucn <- function(sci, messages = TRUE, key = NULL, x = NULL, ...) {
 #' 
 #' Used to get IUCN data for other functions to use.
 #' 
-#' @param If `TRUE`, latest use [rredlist::rl_species_latest()] instead of [rredlist::rl_species()]
+#' @param latest If `TRUE`, latest use [rredlist::rl_species_latest()] instead of [rredlist::rl_species()]
 #' 
 #' @keywords internal
-get_iucn_data <- function(sci, messages = TRUE, key = NULL, latest = FALSE, ...) {
+get_iucn_data <- function(names_or_ids, messages = TRUE, key = NULL, latest = FALSE, ...) {
   
-  if (inherits(sci, "character")) {
-    tstate <- taxon_state$new(class = "iucn", names = sci)
-    items <- sci
+  if (inherits(names_or_ids, "character") || inherits(names_or_ids, "numeric")) {
+    tstate <- taxon_state$new(class = "iucn", names = names_or_ids)
+    items <- names_or_ids
   } else {
-    assert_state(sci, "iucn")
-    tstate <- sci
-    sci <- tstate$taxa_remaining()
-    items <- c(sci, tstate$taxa_completed())
+    assert_state(names_or_ids, "iucn")
+    tstate <- names_or_ids
+    names_or_ids <- tstate$taxa_remaining()
+    items <- c(names_or_ids, tstate$taxa_completed())
   }
   
   prog <- progressor$new(items = items, suppress = !messages)
@@ -101,22 +105,30 @@ get_iucn_data <- function(sci, messages = TRUE, key = NULL, latest = FALSE, ...)
   for (i in seq_along(done)) prog$completed(names(done)[i], done[[i]]$att)
   prog$prog_start()
   
-  if (latest) {
-    rl_func_to_use <- rredlist::rl_species_latest
-  } else {
-    rl_func_to_use <- rredlist::rl_species
-  }
   
-  for (i in seq_along(sci)) {
+  for (i in seq_along(names_or_ids)) {
     direct <- FALSE
-    mssg(messages, "\nRetrieving data for taxon '", sci[i], "'\n")
-    parts <- strsplit(sci[i], split = ' +')[[1]]
+    mssg(messages, "\nRetrieving data for taxon '", names_or_ids[i], "'\n")
     result <- tryCatch(
       {
-        if (length(parts) == 2) {
-          tmp <- rl_func_to_use(genus = parts[1], species = parts[2], key = key, ...)
+        if (is.numeric(names_or_ids[i]) || grepl(names_or_ids[i], pattern = '^[0-9]+$')) {
+          if (latest) {
+            tmp <- rredlist::rl_sis_latest(names_or_ids[i], key = key, ...)
+          } else {
+            tmp <- rredlist::rl_sis(as.numeric(names_or_ids[i]), key = key, ...)
+          }
         } else {
-          tmp <- rl_func_to_use(genus = parts[1], species = parts[2], infra = parts[3], key = key, ...)
+          parts <- strsplit(names_or_ids[i], split = ' +')[[1]]
+          if (latest) {
+            rl_func_to_use <- rredlist::rl_species_latest
+          } else {
+            rl_func_to_use <- rredlist::rl_species
+          }
+          if (length(parts) == 2) {
+            tmp <- rl_func_to_use(genus = parts[1], species = parts[2], key = key, ...)
+          } else {
+            tmp <- rl_func_to_use(genus = parts[1], species = parts[2], infra = parts[3], key = key, ...)
+          }
         }
         tmp
       },
@@ -130,9 +142,9 @@ get_iucn_data <- function(sci, messages = TRUE, key = NULL, latest = FALSE, ...)
     } else {
       att <- "found"
     }
-    prog$completed(sci[i], att)
+    prog$completed(names_or_ids[i], att)
     prog$prog(att)
-    tstate$add(sci[i], result)
+    tstate$add(as.character(names_or_ids[i]), result)
   }
   out <- tstate$get()
   on.exit(prog$prog_summary(), add = TRUE)
@@ -155,34 +167,25 @@ as.iucn.iucn <- function(x, check = TRUE, key = NULL) x
 #' @export
 #' @rdname get_iucn
 as.iucn.character <- function(x, check = TRUE, key = NULL) {
-  if (length(x) == 1) {
-    make_iucn(x, check, key = key)
-  } else {
-    collapse(x, make_iucn, "iucn", check = check, key = key)
-  }
+  make_iucn(x, check = check, key = key)
 }
 
 #' @export
 #' @rdname get_iucn
 as.iucn.list <- function(x, check = TRUE, key = NULL) {
-  if (length(x) == 1) {
-    make_iucn(x, check)
-  } else {
-    collapse(x, make_iucn, "iucn", check = check)
-  }
+  as.list(make_iucn(unlist(x), check = check, key = key))
 }
 
 #' @export
 #' @rdname get_iucn
 as.iucn.numeric <- function(x, check=TRUE, key = NULL) {
-  as.iucn(as.character(x), check, key = key)
+  make_iucn(x, check = check, key = key)
 }
 
 #' @export
 #' @rdname get_iucn
 as.iucn.data.frame <- function(x, check=TRUE, key = NULL) {
-  structure(x$ids, class = "iucn", match = x$match,
-            name = x$name, uri = x$uri)
+  make_iucn(x$ids, check = check, key = key)
 }
 
 #' @export
@@ -196,18 +199,11 @@ as.data.frame.iucn <- function(x, ...){
              stringsAsFactors = FALSE)
 }
 
-make_iucn <- function(x, check = TRUE, key = NULL) {
-  make_iucn_generic(x, uu = iucn_base_url, clz = "iucn", check, key)
+#' @keywords internal
+make_iucn <- function(x, uu = iucn_base_url, clz = "iucn", check = TRUE, key = NULL) {
+  if (check) {
+    res <- get_iucn(x, key = key)
+  } else {
+    toid(x, uu, clz)
+  }
 }
-
-check_iucn <- function(x) {
-  cli <- crul::HttpClient$new(sprintf(iucn_base_url, x), headers = tx_ual)
-  tt <- cli$get()
-  tt$status_code == 200
-}
-
-check_iucn_getname <- function(x, key = NULL) {
-  rredlist::rl_search(id = as.numeric(x), key = key)
-}
-
-iucn_base_url <- "https://www.iucnredlist.org/details/%s/0"

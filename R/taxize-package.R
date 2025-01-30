@@ -280,7 +280,6 @@ NULL
 #'  `phylomatic` in the package \pkg{brranching}
 #' * [phylomatic_format()]: This function is defunct. See
 #'  `phylomatic_names` in the package \pkg{brranching}
-#' * [iucn_summary_id()]: This function is defunct. Use [iucn_summary()]
 #' * [eubon()]: This function is defunct. Use [eubon_search()]
 #' * [tnrs()]: This function is defunct. Was too unreliable
 #' * [tnrs_sources()]: This function is defunct. Was too unreliable
