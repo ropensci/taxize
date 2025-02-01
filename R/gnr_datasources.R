@@ -22,6 +22,9 @@
 #' out[agrep("zoo", out$title, ignore.case = TRUE), ]
 #' }
 gnr_datasources <- function(..., todf) {
+  
+  lifecycle::deprecate_warn(when = "v0.9.102", what = "gnr_datasources()", with = "gna_data_sources()")
+  
   if (!missing(todf)) stop("todf is defunct", call. = FALSE)
   cli <- crul::HttpClient$new(
     url = "https://resolver.globalnames.org/data_sources.json",
