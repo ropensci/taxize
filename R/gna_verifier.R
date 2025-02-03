@@ -117,7 +117,6 @@ gna_verifier <- function(
     'dataSourceTitleShort',
     'curation',
     'recordId',
-    'outlink',
     'entryDate', 
     'sortScore',
     'matchedNameID',
@@ -145,8 +144,14 @@ gna_verifier <- function(
     'parsingQualityScore'
   )
   convert_entry_to_row <- function(x, input_name) {
-    output <- c(input_name, unlist(x))
-    names(output)[1] <- 'submittedName'
+    if (is.null(x)) { # If there was no match
+      output <- c(input_name, rep(NA, length(used_cols)))
+      names(output) <- c('submittedName', used_cols)
+      output['matchType'] <- 'NoMatch'
+    } else {
+      output <- c(input_name, unlist(x))
+      names(output)[1] <- 'submittedName'
+    }
     parsed_names <- vapply(strsplit(names(output), split = '\\.'),
                            function(y) y[length(y)], FUN.VALUE = character(1))
     names(output) <- parsed_names
