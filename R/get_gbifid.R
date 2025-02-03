@@ -141,9 +141,6 @@ get_gbifid <- function(sci, ask = TRUE, messages = TRUE, rows = NA,
   assert(method, "character")
   assert_rows(rows)
   
-  # Escape problematic characters
-  sci <- gsub(sci, pattern = "[^\\]?'", replacement = "\\\\'")
-  
   if (!is.null(sciname)) {
     lifecycle::deprecate_warn(when = "v0.9.97", what = "get_gbifid(sciname)", with = "get_gbifid(sci)")
     sci <- sciname
@@ -159,6 +156,9 @@ get_gbifid <- function(sci, ask = TRUE, messages = TRUE, rows = NA,
     items <- c(sci, tstate$taxa_completed())
   }
 
+  # Escape problematic characters
+  sci <- gsub(sci, pattern = "[^\\]?'", replacement = "\\\\'")
+  
   prog <- progressor$new(items = items, suppress = !messages)
   done <- tstate$get()
   for (i in seq_along(done)) prog$completed(names(done)[i], done[[i]]$att)
