@@ -59,9 +59,9 @@ reference:
       - tol_resolve
   - title: "Name Parsers"
     contents:
-      - gn_parse
       - gni_parse
       - gbif_parse
+      - gna_verifier
   - title: "NCBI Taxonomy"
     contents:
       - starts_with("ncbi_")
