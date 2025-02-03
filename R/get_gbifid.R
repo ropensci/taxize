@@ -140,6 +140,10 @@ get_gbifid <- function(sci, ask = TRUE, messages = TRUE, rows = NA,
   assert(rank, "character")
   assert(method, "character")
   assert_rows(rows)
+  
+  # Escape problematic characters
+  sci <- gsub(sci, pattern = "[^\\]?'", replacement = "\\\\'")
+  
   if (!is.null(sciname)) {
     lifecycle::deprecate_warn(when = "v0.9.97", what = "get_gbifid(sciname)", with = "get_gbifid(sci)")
     sci <- sciname

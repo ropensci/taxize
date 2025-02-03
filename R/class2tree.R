@@ -66,10 +66,12 @@
 #' }
 #' 
 class2tree <- function(input, varstep = TRUE, check = TRUE, remove_shared = FALSE, ...) {
+  
   if (any(is.na(input))) {
     message('Removed species without classification')
     input <- input[!is.na(input)]
   }
+  
 
   # Check that there is more than 2 taxon
   if (length(input) < 3)
@@ -78,6 +80,9 @@ class2tree <- function(input, varstep = TRUE, check = TRUE, remove_shared = FALS
   if (length(unique(names(input))) < length(names(input)))
     stop("Input list of classifications contains duplicates")
 
+  # Convert tibbles to data.frames
+  input <- lapply(input, as.data.frame)
+  
   # Get rank and ID list
   message('Get all ranks and their taxIDs')
   rankList <- dt2df(lapply(input, get_rank), idcol = FALSE)
