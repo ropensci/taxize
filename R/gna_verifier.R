@@ -24,12 +24,12 @@
 #'   is not included in data-sources.
 #' @param main_taxon_threshold A `numeric` vector from 0.5 to 1. This sets the
 #'   minimal percentage for the main taxon discovery.
-#' @param output_type A `character` vector of length 1, one of `table`, `list`,
-#'   `json`, indicating the format of the output. The tabular output only
-#'   contains values that consistently appear in all results, so `list` or
-#'   `json` output can have additional information. For `list` and `json`
-#'   outputs, only values for unique taxon names are returned, but the `table`
-#'   output has rows that correspond 1-1 with the input data.
+#' @param output_type A `character` vector of length 1, either `table` or
+#'   `list`, indicating the format of the output. The tabular output only
+#'   contains values that consistently appear in all results, so `list` output
+#'   can have additional information. For `list` and `json` outputs, only values
+#'   for unique taxon names are returned, but the `table` output has rows that
+#'   correspond 1-1 with the input data.
 #' @param ... Curl options passed on to [crul::HttpClient]
 #'
 #' @return Depends on the value of the `output_type` option
@@ -52,6 +52,8 @@ gna_verifier <- function(
     output_type = 'table',
     ...
 ) {
+  batch_size <- 100 # How many names to lookup with each api call
+  
   # Parse and verify input options
   data_sources <- as.character(data_sources)
   is_number <- grepl(data_sources, pattern = '[0-9]+')
@@ -79,33 +81,38 @@ gna_verifier <- function(
   
   # Convert input to unique values to avoid redundant API wprk
   unique_names <- unique(names)
+  name_batches <- split(unique_names, ceiling(seq_along(unique_names) / batch_size)) 
   
-  # Format the API GET request
-  base_url <- 'https://verifier.globalnames.org/'
-  args <- c(
-    data_sources = paste0(data_sources, collapse = '|'),
-    all_matches = tolower(as.character(all_matches)),
-    capitalize = tolower(as.character(capitalize)),
-    species_group = tolower(as.character(species_group)),
-    fuzzy_uninomial = tolower(as.character(fuzzy_uninomial)),
-    stats = tolower(as.character(stats))
-  )
-  formatted_args <- paste0(paste0(names(args), '=', args), collapse = '&')
-  formatted_path <- paste0(
-    'api/v1/verifications/',
-    paste0(unique_names, collapse = '|'),
-    '?', formatted_args
-  )
-  
-  # Make and parse API call
-  api <- crul::HttpClient$new(base_url, headers = tx_ual, opts = list(...))
-  response <- api$get(path = formatted_path)
-  response$raise_for_status()
-  response_json <- response$parse("UTF-8")
-  if (output_type == 'json') {
-    return(response_json)
-  }
-  response_data <- jsonlite::fromJSON(response_json, FALSE)
+  batch_data <- lapply(name_batches, function(batch) {
+    # Format the API GET request
+    base_url <- 'https://verifier.globalnames.org/'
+    args <- c(
+      data_sources = paste0(data_sources, collapse = '|'),
+      all_matches = tolower(as.character(all_matches)),
+      capitalize = tolower(as.character(capitalize)),
+      species_group = tolower(as.character(species_group)),
+      fuzzy_uninomial = tolower(as.character(fuzzy_uninomial)),
+      stats = tolower(as.character(stats))
+    )
+    formatted_args <- paste0(paste0(names(args), '=', args), collapse = '&')
+    formatted_path <- paste0(
+      'api/v1/verifications/',
+      paste0(batch, collapse = '|'),
+      '?', formatted_args
+    )
+    
+    # Make and parse API call
+    api <- crul::HttpClient$new(base_url, headers = tx_ual, opts = list(...))
+    response <- api$get(path = formatted_path)
+    response$raise_for_status()
+    response_json <- response$parse("UTF-8")
+    response_data <- jsonlite::fromJSON(response_json, FALSE)
+    return(response_data$names)
+  })
+ 
+  # Combine batch data to a single list
+  response_data <- unlist(batch_data, recursive = FALSE)
+  names(response_data) <- unique_names
   if (output_type == 'list') {
     return(response_data)
   }
@@ -158,11 +165,11 @@ gna_verifier <- function(
     return(as.data.frame(as.list(output[used_cols])))
   }
   if (all_matches) {
-    response_table <- do.call(rbind, lapply(response_data$names, function(x) {
+    response_table <- do.call(rbind, lapply(response_data, function(x) {
       do.call(rbind, lapply(x$results, function(y) convert_entry_to_row(y, x$name)))
     }))    
   } else {
-    response_table <- do.call(rbind, lapply(response_data$names, function(x) {
+    response_table <- do.call(rbind, lapply(response_data, function(x) {
       convert_entry_to_row(x$bestResult, x$name)
     }))
   }
