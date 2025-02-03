@@ -54,7 +54,6 @@ reference:
   - title: "Name Resolution Services"
     contents:
       - gni_details
-      - gni_search
       - starts_with("gnr_")
       - iplant_resolve
       - tol_resolve
