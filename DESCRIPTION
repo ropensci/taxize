@@ -98,6 +98,7 @@ Imports:
     curl,
     stringi
 Suggests:
+    knitr,
     testthat,
     vegan,
     vcr
