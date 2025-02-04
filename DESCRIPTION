@@ -65,7 +65,7 @@ Authors@R:
              role = "ctb"),
       person(given = "rOpenSci",
              role = "fnd",
-             comment = "https://ropensci.org/"))
+             comment = c(ROR = "019jywm96")))
 LazyLoad: yes
 LazyData: true
 Encoding: UTF-8
