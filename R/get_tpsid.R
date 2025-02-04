@@ -192,7 +192,7 @@ get_tpsid <- function(sci, ask = TRUE, messages = TRUE, key = NULL,
             message("\nMore than one tpsid found for taxon '", sci[i], "'!\n
           Enter rownumber of taxon (other inputs will return 'NA'):\n")
             rownames(df) <- 1:nrow(df)
-            message(paste0(capture.output(df), collapse = "\n"))
+            message(paste0(utils::capture.output(df), collapse = "\n"))
             take <- scan(n = 1, quiet = TRUE, what = 'raw')
 
             if (length(take) == 0) {

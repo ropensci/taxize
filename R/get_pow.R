@@ -192,7 +192,7 @@ get_pow <- function(sci_com, accepted = FALSE, ask = TRUE, messages = TRUE,
           if (length(pow) > 1 || NROW(pow_df) > 1) {
             # prompt
             message("\n\n")
-            message(paste0(capture.output(pow_df), collapse = "\n"))
+            message(paste0(utils::capture.output(pow_df), collapse = "\n"))
             message("\nMore than one pow found for taxon '", sci_com[i], "'!\n
           Enter rownumber of taxon (other inputs will return 'NA'):\n") # prompt
             take <- scan(n = 1, quiet = TRUE, what = 'raw')

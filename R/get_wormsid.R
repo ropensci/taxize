@@ -208,7 +208,7 @@ get_wormsid <- function(sci_com, searchtype = "scientific", marine_only = TRUE,
 
           # prompt
           message("\n\n")
-          message(paste0(capture.output(wmdf), collapse = "\n"))
+          message(paste0(utils::capture.output(wmdf), collapse = "\n"))
           message("\nMore than one WORMS ID found for taxon '", sci_com[i], "'!\n
                   Enter rownumber of taxon (other inputs will return 'NA'):\n") # prompt
           take <- scan(n = 1, quiet = TRUE, what = 'raw')

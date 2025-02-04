@@ -60,7 +60,7 @@ limited_print <- function(chars, prefix = "",
   } else if (type == "cat") {
     cat(output)
   } else if (type == "print") {
-    message(paste0(capture.output(output), collapse = "\n"))
+    message(paste0(utils::capture.output(output), collapse = "\n"))
   } else if (type != "silent") {
     stop("invalid type option")
   }

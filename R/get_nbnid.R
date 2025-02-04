@@ -162,7 +162,7 @@ get_nbnid <- function(sci_com, ask = TRUE, messages = TRUE, rec_only = FALSE,
         message("\n\n")
         message("\nMore than one NBN ID found for taxon '", sci_com[i], "'!\n
             Enter rownumber of taxon (other inputs will return 'NA'):\n")
-        message(paste0(capture.output(df), collapse = "\n"))
+        message(paste0(utils::capture.output(df), collapse = "\n"))
         take <- scan(n = 1, quiet = TRUE, what = 'raw')
 
         if (length(take) == 0) {

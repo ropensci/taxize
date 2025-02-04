@@ -155,7 +155,7 @@ get_tolid <- function(sci, ask = TRUE, messages = TRUE, rows = NA,
               message("\nMore than one ToL ID found for taxon '", sci[i], "'!\n
                       Enter rownumber of taxon (other inputs will return 'NA'):\n")
               rownames(tol_df) <- 1:nrow(tol_df)
-              message(paste0(capture.output(tol_df), collapse = "\n"))
+              message(paste0(utils::capture.output(tol_df), collapse = "\n"))
               take <- scan(n = 1, quiet = TRUE, what = 'raw')
 
               if (length(take) == 0) {
