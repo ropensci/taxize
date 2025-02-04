@@ -3,7 +3,7 @@
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]--></head><body data-spy="scroll" data-target="#toc">
-    
+
 
     <div class="container template-reference-topic">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">taxize</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.9.101</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.10.0</span>
       </span>
     </div>
 
@@ -31,7 +31,7 @@
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
-     
+
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu"><li>
@@ -56,20 +56,20 @@
       </ul><ul class="nav navbar-nav navbar-right"><li>
   <a href="https://github.com/ropensci/taxize/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
-     
+
   </a>
 </li>
       </ul></div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-      
+
 
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Parse taxon names using the GBIF name parser.</h1>
-    <small class="dont-index">Source: <a href="https://github.com/ropensci/taxize/blob/HEAD/R/gbif_parse.R" class="external-link"><code>R/gbif_parse.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/ropensci/taxize/blob/master/R/gbif_parse.R" class="external-link"><code>R/gbif_parse.R</code></a></small>
     <div class="hidden name"><code>gbif_parse.Rd</code></div>
     </div>
 
@@ -83,19 +83,19 @@
 
     <div id="arguments">
     <h2>Arguments</h2>
-    <dl><dt>scientificname</dt>
+
+
+<dl><dt id="arg-scientificname">scientificname<a class="anchor" aria-label="anchor" href="#arg-scientificname"></a></dt>
 <dd><p>(character) scientific names</p></dd>
 
 
-<dt>...</dt>
+<dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
 <dd><p>Further args passed on to <a href="https://docs.ropensci.org/crul/reference/verb-POST.html" class="external-link">crul::verb-POST</a></p></dd>
 
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    
-
-<p>A <code>data.frame</code> containing fields extracted from parsed
+    <p>A <code>data.frame</code> containing fields extracted from parsed
 taxon names. Fields returned are the union of fields extracted from
 all species names in <code>scientificname</code>.</p>
     </div>
@@ -105,7 +105,7 @@ all species names in <code>scientificname</code>.</p>
     </div>
     <div id="see-also">
     <h2>See also</h2>
-    <div class="dont-index"><p><code><a href="gni_parse.html">gni_parse()</a></code>, <code><a href="gn_parse.html">gn_parse()</a></code></p></div>
+    <div class="dont-index"><p><code><a href="gni_parse.html">gni_parse()</a></code>, <code><a href="gna_parse.html">gna_parse()</a></code></p></div>
     </div>
     <div id="author">
     <h2>Author</h2>
@@ -114,12 +114,12 @@ all species names in <code>scientificname</code>.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
 <span class="r-in"><span><span class="fu">gbif_parse</span><span class="op">(</span>scientificname<span class="op">=</span><span class="st">'x Agropogon littoralis'</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">gbif_parse</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'Arrhenatherum elatius var. elatius'</span>,</span></span>
 <span class="r-in"><span>             <span class="st">'Secale cereale subsp. cereale'</span>, <span class="st">'Secale cereale ssp. cereale'</span>,</span></span>
 <span class="r-in"><span>             <span class="st">'Vanessa atalanta (Linnaeus, 1758)'</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -134,15 +134,15 @@ all species names in <code>scientificname</code>.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.9.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
 </div>
 
       </footer></div>
 
-  
 
 
-  
+
+
 
   </body></html>
 

@@ -3,7 +3,7 @@
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]--></head><body data-spy="scroll" data-target="#toc">
-    
+
 
     <div class="container template-reference-topic">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">taxize</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.9.101</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.10.0</span>
       </span>
     </div>
 
@@ -31,7 +31,7 @@
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
-     
+
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu"><li>
@@ -56,20 +56,20 @@
       </ul><ul class="nav navbar-nav navbar-right"><li>
   <a href="https://github.com/ropensci/taxize/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
-     
+
   </a>
 </li>
       </ul></div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-      
+
 
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Get NatureServe taxonomic ID for a taxon name</h1>
-    <small class="dont-index">Source: <a href="https://github.com/ropensci/taxize/blob/HEAD/R/get_natservid.R" class="external-link"><code>R/get_natservid.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/ropensci/taxize/blob/master/R/get_natservid.R" class="external-link"><code>R/get_natservid.R</code></a></small>
     <div class="hidden name"><code>get_natservid.Rd</code></div>
     </div>
 
@@ -90,22 +90,22 @@
 <span></span>
 <span><span class="fu">as.natservid</span><span class="op">(</span><span class="va">x</span>, check <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># S3 method for natservid</span></span>
+<span><span class="co"># S3 method for class 'natservid'</span></span>
 <span><span class="fu">as.natservid</span><span class="op">(</span><span class="va">x</span>, check <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># S3 method for character</span></span>
+<span><span class="co"># S3 method for class 'character'</span></span>
 <span><span class="fu">as.natservid</span><span class="op">(</span><span class="va">x</span>, check <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># S3 method for list</span></span>
+<span><span class="co"># S3 method for class 'list'</span></span>
 <span><span class="fu">as.natservid</span><span class="op">(</span><span class="va">x</span>, check <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># S3 method for numeric</span></span>
+<span><span class="co"># S3 method for class 'numeric'</span></span>
 <span><span class="fu">as.natservid</span><span class="op">(</span><span class="va">x</span>, check <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># S3 method for data.frame</span></span>
+<span><span class="co"># S3 method for class 'data.frame'</span></span>
 <span><span class="fu">as.natservid</span><span class="op">(</span><span class="va">x</span>, check <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># S3 method for natservid</span></span>
+<span><span class="co"># S3 method for class 'natservid'</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">get_natservid_</span><span class="op">(</span></span>
@@ -120,29 +120,31 @@
 
     <div id="arguments">
     <h2>Arguments</h2>
-    <dl><dt>sci_com</dt>
+
+
+<dl><dt id="arg-sci-com">sci_com<a class="anchor" aria-label="anchor" href="#arg-sci-com"></a></dt>
 <dd><p>character; A vector of common or scientific names. Or, a
 <code>taxon_state</code> object (see <a href="taxon-state.html">taxon-state</a>)</p></dd>
 
 
-<dt>searchtype</dt>
+<dt id="arg-searchtype">searchtype<a class="anchor" aria-label="anchor" href="#arg-searchtype"></a></dt>
 <dd><p>character; One of 'scientific' (default) or 'common'.
 This doesn't affect the query to NatureServe - but rather affects what
 column of data is targeted in name filtering post data request.</p></dd>
 
 
-<dt>ask</dt>
+<dt id="arg-ask">ask<a class="anchor" aria-label="anchor" href="#arg-ask"></a></dt>
 <dd><p>logical; should get_natservid be run in interactive mode?
 If <code>TRUE</code> and more than one wormsid is found for the species, the
 user is asked for input. If <code>FALSE</code> NA is returned for
 multiple matches. default: <code>TRUE</code></p></dd>
 
 
-<dt>messages</dt>
+<dt id="arg-messages">messages<a class="anchor" aria-label="anchor" href="#arg-messages"></a></dt>
 <dd><p>logical; should progress be printed? default: <code>TRUE</code></p></dd>
 
 
-<dt>rows</dt>
+<dt id="arg-rows">rows<a class="anchor" aria-label="anchor" href="#arg-rows"></a></dt>
 <dd><p>numeric; Any number from 1 to infinity. If the default NaN, all
 rows are considered. Note that this function still only gives back a
 natservid class object with one to many identifiers. See
@@ -150,35 +152,31 @@ natservid class object with one to many identifiers. See
 data that you are presented during the ask process.</p></dd>
 
 
-<dt>query</dt>
+<dt id="arg-query">query<a class="anchor" aria-label="anchor" href="#arg-query"></a></dt>
 <dd><p>Deprecated, see <code>sci_com</code></p></dd>
 
 
-<dt>...</dt>
+<dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
 <dd><p>curl options passed on to <a href="https://docs.ropensci.org/crul/reference/verb-POST.html" class="external-link">crul::verb-POST</a></p></dd>
 
 
-<dt>x</dt>
+<dt id="arg-x">x<a class="anchor" aria-label="anchor" href="#arg-x"></a></dt>
 <dd><p>Input to <code>as.natservid</code></p></dd>
 
 
-<dt>check</dt>
+<dt id="arg-check">check<a class="anchor" aria-label="anchor" href="#arg-check"></a></dt>
 <dd><p>logical; Check if ID matches any existing on the DB, only
 used in <code>as.natservid()</code></p></dd>
 
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    
-
-<p>A vector of taxonomic identifiers as an S3 class.
+    <p>A vector of taxonomic identifiers as an S3 class.
 If a taxon is not found an <code>NA</code> is given. If more than one identifier
 is found the function asks for user input if <code>ask = TRUE</code>, otherwise
 returns <code>NA</code>. If <code>ask=FALSE</code> and <code>rows</code> does not equal
 <code>NA</code>, then a data.frame is given back, but not of the uid class, which
 you can't pass on to other functions as you normally can.</p>
-
-
 <p>See <code><a href="get_id_details.html">get_id_details</a></code> for further details including
 attributes and exceptions</p>
     </div>
@@ -189,7 +187,7 @@ attributes and exceptions</p>
     <div id="see-also">
     <h2>See also</h2>
     <div class="dont-index"><p><code><a href="classification.html">classification()</a></code></p>
-<p>Other taxonomic-ids: 
+<p>Other taxonomic-ids:
 <code><a href="get_boldid.html">get_boldid</a>()</code>,
 <code><a href="get_eolid.html">get_eolid</a>()</code>,
 <code><a href="get_gbifid.html">get_gbifid</a>()</code>,
@@ -207,7 +205,7 @@ attributes and exceptions</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
 <span class="r-in"><span><span class="op">(</span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu">get_natservid</span><span class="op">(</span><span class="st">"Helianthus annuus"</span>, verbose <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/attributes.html" class="external-link">attributes</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"match"</span><span class="op">)</span></span></span>
@@ -252,7 +250,7 @@ attributes and exceptions</p>
 <span class="r-in"><span><span class="fu">get_natservid_</span><span class="op">(</span><span class="st">"Helianthus"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">get_natservid_</span><span class="op">(</span><span class="st">"Ruby*"</span>, searchtype <span class="op">=</span> <span class="st">"common"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">get_natservid_</span><span class="op">(</span><span class="st">"Ruby*"</span>, searchtype <span class="op">=</span> <span class="st">"common"</span>, rows<span class="op">=</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -267,15 +265,15 @@ attributes and exceptions</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.9.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
 </div>
 
       </footer></div>
 
-  
 
 
-  
+
+
 
   </body></html>
 

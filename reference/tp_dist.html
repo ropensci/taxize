@@ -3,7 +3,7 @@
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]--></head><body data-spy="scroll" data-target="#toc">
-    
+
 
     <div class="container template-reference-topic">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">taxize</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.9.101</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.10.0</span>
       </span>
     </div>
 
@@ -31,7 +31,7 @@
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
-     
+
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu"><li>
@@ -56,20 +56,20 @@
       </ul><ul class="nav navbar-nav navbar-right"><li>
   <a href="https://github.com/ropensci/taxize/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
-     
+
   </a>
 </li>
       </ul></div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-      
+
 
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Return all distribution records for for a taxon name with a given id.</h1>
-    <small class="dont-index">Source: <a href="https://github.com/ropensci/taxize/blob/HEAD/R/tp_dist.R" class="external-link"><code>R/tp_dist.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/ropensci/taxize/blob/master/R/tp_dist.R" class="external-link"><code>R/tp_dist.R</code></a></small>
     <div class="hidden name"><code>tp_dist.Rd</code></div>
     </div>
 
@@ -83,24 +83,24 @@
 
     <div id="arguments">
     <h2>Arguments</h2>
-    <dl><dt>id</dt>
+
+
+<dl><dt id="arg-id">id<a class="anchor" aria-label="anchor" href="#arg-id"></a></dt>
 <dd><p>the taxon identifier code</p></dd>
 
 
-<dt>key</dt>
+<dt id="arg-key">key<a class="anchor" aria-label="anchor" href="#arg-key"></a></dt>
 <dd><p>Your Tropicos API key; See <a href="taxize-authentication.html">taxize-authentication</a>
 for help on authentication</p></dd>
 
 
-<dt>...</dt>
+<dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
 <dd><p>Curl options passed on to <a href="https://docs.ropensci.org/crul/reference/HttpClient.html" class="external-link">crul::HttpClient</a></p></dd>
 
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    
-
-<p>List of two data.frame's, one named "location", and one "reference".</p>
+    <p>List of two data.frame's, one named "location", and one "reference".</p>
     </div>
     <div id="references">
     <h2>References</h2>
@@ -109,14 +109,14 @@ for help on authentication</p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
 <span class="r-in"><span><span class="co"># Query using a taxon name Id</span></span></span>
 <span class="r-in"><span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">tp_dist</span><span class="op">(</span>id <span class="op">=</span> <span class="fl">25509881</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="co">## just location data</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">out</span><span class="op">[[</span><span class="st">'location'</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="co">## just reference data</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">out</span><span class="op">[[</span><span class="st">'reference'</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -131,15 +131,15 @@ for help on authentication</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.9.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
 </div>
 
       </footer></div>
 
-  
 
 
-  
+
+
 
   </body></html>
 
