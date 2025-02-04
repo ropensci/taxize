@@ -3,6 +3,7 @@ gbif_name_backbone <- function(name, rank = NULL, kingdom = NULL, phylum = NULL,
   class = NULL, order = NULL, family = NULL, genus = NULL, strict = FALSE,
   start = NULL, limit = 500, ...) {
 
+
   url = 'https://api.gbif.org/v1/species/match'
   args <- tc(list(name = name, rank = rank, kingdom = kingdom,
                   phylum = phylum, class = class, order = order, family = family,
@@ -13,7 +14,7 @@ gbif_name_backbone <- function(name, rank = NULL, kingdom = NULL, phylum = NULL,
   temp$raise_for_status()
   tt <- jsonlite::fromJSON(temp$parse("UTF-8"), FALSE)
 
-  if (all(names(tt) %in% c('confidence', 'synonym', 'matchType'))) {
+  if (all(names(tt) %in% c('confidence', 'synonym', 'matchType', "note"))) {
     data.frame(NULL)
   } else {
     dd <- data.table::setDF(

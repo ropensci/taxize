@@ -44,12 +44,12 @@ is not included in data-sources.}
 \item{main_taxon_threshold}{A \code{numeric} vector from 0.5 to 1. This sets the
 minimal percentage for the main taxon discovery.}
 
-\item{output_type}{A \code{character} vector of length 1, one of \code{table}, \code{list},
-\code{json}, indicating the format of the output. The tabular output only
-contains values that consistently appear in all results, so \code{list} or
-\code{json} output can have additional information. For \code{list} and \code{json}
-outputs, only values for unique taxon names are returned, but the \code{table}
-output has rows that correspond 1-1 with the input data.}
+\item{output_type}{A \code{character} vector of length 1, either \code{table} or
+\code{list}, indicating the format of the output. The tabular output only
+contains values that consistently appear in all results, so \code{list} output
+can have additional information. For \code{list} and \code{json} outputs, only values
+for unique taxon names are returned, but the \code{table} output has rows that
+correspond 1-1 with the input data.}
 
 \item{...}{Curl options passed on to \link[crul:HttpClient]{crul::HttpClient}}
 }

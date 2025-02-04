@@ -1,4 +1,14 @@
+taxize 0.10.0
+=============
+
+* Replaced depreciated GNR functions with analogous GNA functions such as `gna_verifier` and `gna_parse`
+* Rewrote `scrapenames` for the new API
+* Updated use of `rredlist` to reflect new API changes
+* Many bug fixes
+
+
 taxize 0.9.101
+=============
 
 * Add `rworkflows`.
   - Update *.Rbuildignore* for `rworkflows`.

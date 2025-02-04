@@ -11,7 +11,7 @@ Description: Interacts with a suite of web APIs for taxonomic tasks,
     Integrated Taxonomic Information System (<https://itis.gov/web_service.html>),
     and many more. Links to the API documentation for other supported APIs are
     available in the documentaion for their respective functions in this package.
-Version: 0.9.102
+Version: 0.10.0
 License: MIT + file LICENSE
 URL: https://docs.ropensci.org/taxize/ (website),
     https://github.com/ropensci/taxize (devel),
@@ -71,7 +71,7 @@ Authors@R:
              role = "ctb"),
       person(given = "rOpenSci",
              role = "fnd",
-             comment = "https://ropensci.org/"))
+             comment = c(ROR = "019jywm96")))
 LazyLoad: yes
 LazyData: true
 Encoding: UTF-8
@@ -104,7 +104,6 @@ Imports:
     curl,
     stringi
 Suggests:
-    knitr,
     testthat,
     vegan,
     vcr
@@ -113,4 +112,3 @@ Roxygen: list(markdown = TRUE)
 X-schema.org-applicationCategory: Taxonomy
 X-schema.org-keywords: taxonomy, biology, nomenclature, JSON, API, web, api-client, identifiers, species, names
 X-schema.org-isPartOf: https://ropensci.org
-VignetteBuilder: knitr
