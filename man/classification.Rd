@@ -311,11 +311,6 @@ ids <- c("13083", "2650392", "1547764", "230054", "353934", "656984",
 "577055", "697062", "231660", "648380", "554953", "746496", "2602969")
 result <- classification(ids, db = 'ncbi')
 }
-
-\dontrun{
-# Fails without db param set
-# classification(315576)
-}
 }
 \seealso{
 \code{\link[=get_tsn]{get_tsn()}}, \code{\link[=get_uid]{get_uid()}}, \code{\link[=get_eolid]{get_eolid()}},

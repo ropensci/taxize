@@ -103,7 +103,6 @@
 #' get_wormsid_("Plat", rows=1)
 #' get_wormsid_("Plat", rows=1:2)
 #' get_wormsid_("Plat", rows=1:75)
-#' # get_wormsid_(c("asdfadfasd","Plat"), rows=1:5)
 #' }
 get_wormsid <- function(sci_com, searchtype = "scientific", marine_only = TRUE,
   fuzzy = NULL, accepted = FALSE, ask = TRUE, messages = TRUE,
@@ -209,7 +208,7 @@ get_wormsid <- function(sci_com, searchtype = "scientific", marine_only = TRUE,
 
           # prompt
           message("\n\n")
-          print(wmdf)
+          message(paste0(capture.output(wmdf), collapse = "\n"))
           message("\nMore than one WORMS ID found for taxon '", sci_com[i], "'!\n
                   Enter rownumber of taxon (other inputs will return 'NA'):\n") # prompt
           take <- scan(n = 1, quiet = TRUE, what = 'raw')

@@ -230,7 +230,7 @@ get_gbifid <- function(sci, ask = TRUE, messages = TRUE, rows = NA,
             message("\nMore than one GBIF ID found for taxon '", sci[i], "'!\n
             Enter rownumber of taxon (other inputs will return 'NA'):\n")
             rownames(df) <- 1:nrow(df)
-            print(df)
+            message(paste0(capture.output(df), collapse = "\n"))
             take <- scan(n = 1, quiet = TRUE, what = 'raw')
 
             if (length(take) == 0) {

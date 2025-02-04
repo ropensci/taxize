@@ -93,11 +93,6 @@
 #' nms <- c("Angraecum sesquipedale", "Dracula vampira", "Masdevallia coccinea")
 #' lowest_common(x = nms, db = "ncbi")
 #' lowest_common(x = nms, db = "gbif")
-#' # lowest_common(x = nms, db = "itis")
-#'
-#' ## NAs due to taxon not found, stops with error message
-#' # lowest_common(orchid_itis, db = "itis")
-#' # lowest_common(get_tsn(cool_orchid))
 #' }
 lowest_common <- function(...){
   UseMethod("lowest_common")

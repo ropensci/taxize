@@ -139,7 +139,7 @@ get_wiki <- function(sci_com, wiki_site = "species", wiki = "en", ask = TRUE,
 
           # prompt
           message("\n\n")
-          print(df)
+          message(paste0(capture.output(df), collapse = "\n"))
           message("\nMore than one wiki ID found for taxon '", sci_com[i], "'!\n
                   Enter rownumber of taxon (other inputs will return 'NA'):\n")
           take <- scan(n = 1, quiet = TRUE, what = 'raw')

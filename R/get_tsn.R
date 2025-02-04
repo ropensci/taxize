@@ -172,7 +172,7 @@ get_tsn <- function(sci_com, searchtype = "scientific", accepted = FALSE,
 
           # prompt
           message("\n\n")
-          print(tsn_df)
+          message(paste0(capture.output(tsn_df), collapse = "\n"))
           message("\nMore than one TSN found for taxon '", sci_com[i], "'!\n
             Enter rownumber of taxon (other inputs will return 'NA'):\n")
           take <- scan(n = 1, quiet = TRUE, what = "raw")

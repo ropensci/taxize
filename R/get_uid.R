@@ -285,7 +285,7 @@ get_uid <- function(sci_com, ask = TRUE, messages = TRUE, rows = NA,
           message("\n\n")
           message("\nMore than one UID found for taxon '", sci_com[i], "'!\n
             Enter rownumber of taxon (other inputs will return 'NA'):\n")
-          print(df)
+          message(paste0(capture.output(df), collapse = "\n"))
           take <- scan(n = 1, quiet = TRUE, what = 'raw')
 
           if (length(take) == 0) {

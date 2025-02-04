@@ -30,33 +30,35 @@ taxize_cite <- function(fxn = "itis", what = 'citation'){
   if (what == "citation") {
     out <- data_citations(fxn)
     if (is.null(out)) {
-      cat("Nothing found, try different inputs", "\n\n")
-      cat("Can this citation be improved? https://github.com/ropensci/taxize/issues", "\n")
-      cat("Please cite taxize in your paper: citation(package = 'taxize')")
+      message(paste0(
+        "Nothing found, try different inputs\n\n",
+        "Can this citation be improved? https://github.com/ropensci/taxize/issues\n",
+        "Please cite taxize in your paper: citation(package = 'taxize')"
+      ))
     } else {
       if (fxn == 'taxize') {
-        cat("The paper: ","\n")
-        print(out[[1]])
-        cat("\n")
-        cat("The software: ","\n")
-        print(out[[2]])
+        message("The paper:")
+        message(format(out[[1]]))
+        message("\n")
+        message("The software:")
+        message(format(out[[2]]))
       } else {
         for (i in seq_along(out)) {
-          cat(sprintf("Source: %s", names(out)[i]), "\n")
-          cat(sprintf("  Home page: %s", out[[i]]$url_home), "\n")
-          cat(sprintf("  API help: %s", out[[i]]$apidocs), "\n")
-          cat(sprintf("  Citation: %s", out[[i]]$citation), "\n\n")
+          message(sprintf("Source: %s", names(out)[i]), "\n")
+          message(sprintf("  Home page: %s", out[[i]]$url_home), "\n")
+          message(sprintf("  API help: %s", out[[i]]$apidocs), "\n")
+          message(sprintf("  Citation: %s", out[[i]]$citation), "\n\n")
         }
-        cat("Can any of these citations be improved? https://github.com/ropensci/taxize/issues")
+        message("Can any of these citations be improved? https://github.com/ropensci/taxize/issues")
       }
     }
   } else if (what == "license") {
     out <- data_licenses(fxn)
     if (is.null(out)) {
-      cat("Unknown...")
+      message("Unknown...")
     } else{
-      cat(sprintf("License: %s", out$license), "\n")
-      cat(sprintf("URL:     %s", out$url))
+      message(sprintf("License: %s", out$license), "\n")
+      message(sprintf("URL:     %s", out$url))
     }
   }
 }

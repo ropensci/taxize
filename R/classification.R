@@ -214,11 +214,6 @@
 #' "577055", "697062", "231660", "648380", "554953", "746496", "2602969")
 #' result <- classification(ids, db = 'ncbi')
 #' }
-#'
-#' @examples \dontrun{
-#' # Fails without db param set
-#' # classification(315576)
-#' }
 classification <- function(...){
   UseMethod("classification")
 }

@@ -171,7 +171,7 @@ get_natservid <- function(sci_com, searchtype = "scientific", ask = TRUE,
           # prompt
           message("\n\n")
           rownames(nsdf) <- seq_len(NROW(nsdf))
-          print(nsdf)
+          message(paste0(capture.output(nsdf), collapse = "\n"))
           message("\nMore than one NatureServe ID found for taxon '", sci_com[i], "'!\n
                   Enter rownumber of taxon (other inputs will return 'NA'):\n") # prompt
           take <- scan(n = 1, quiet = TRUE, what = 'raw')

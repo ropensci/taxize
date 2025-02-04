@@ -241,7 +241,7 @@ get_boldid <- function(sci, fuzzy = FALSE, dataTypes = 'basic',
             if (length(boldid) > 1 || NROW(bold_df) > 1) {
               # prompt
               message("\n\n")
-              print(bold_df)
+              message(paste0(capture.output(bold_df), collapse = "\n"))
               message("\nMore than one TSN found for taxon '", sci[i], "'!\n
             Enter rownumber of taxon (other inputs will return 'NA'):\n") # prompt
               take <- scan(n = 1, quiet = TRUE, what = 'raw')

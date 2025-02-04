@@ -16,9 +16,6 @@
 #' iucn_getname(name = "Cyanistes caeruleus")
 #' iucn_getname(name = "Panthera uncia")
 #'
-#' # not found in global names
-#' # iucn_getname(name = "Abronia pinsapo")
-#'
 #' # not found in IUCN search
 #' iucn_getname(name = "Acacia allenii")
 #' }

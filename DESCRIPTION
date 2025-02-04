@@ -1,10 +1,16 @@
 Package: taxize
 Title: Taxonomic Information from Around the Web
-Description: Interacts with a suite of web 'APIs' for taxonomic tasks,
+Description: Interacts with a suite of web APIs for taxonomic tasks,
     such as getting database specific taxonomic identifiers, verifying
     species names, getting taxonomic hierarchies, fetching downstream and
     upstream taxonomic names, getting taxonomic synonyms, converting
-    scientific to common names and vice versa, and more.
+    scientific to common names and vice versa, and more. Some of the APIs
+    supported include NCBI eutils (<https://www.ncbi.nlm.nih.gov/books/NBK25501/>),
+    Encyclopedia of Life (<https://eol.org/docs/what-is-eol/data-services>),
+    Global Biodiversity Information Facility (<https://techdocs.gbif.org/en/openapi/>),
+    Integrated Taxonomic Information System (<https://itis.gov/web_service.html>),
+    and many more. Links to the API documentation for other supported APIs are
+    available in the documentaion for their respective functions in this package.
 Version: 0.9.102
 License: MIT + file LICENSE
 URL: https://docs.ropensci.org/taxize/ (website),

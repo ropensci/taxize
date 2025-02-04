@@ -34,7 +34,7 @@ tax_error_handle <- function(x) {
   json <- tryCatch(jsonlite::fromJSON(txt), error = function(e) e)
   if (x$success() && !inherits(json, "error")) return(json)
   if (inherits(xml, "error")) {
-    cat("running xml cntrl char replacment", sep = "\n")
+    message("running xml cntrl char replacement")
     strg <- "[[:cntrl:]]" # control characters
     xml <- tryCatch(xml2::read_xml(gsub(strg, "", txt)),
       error = function(e) e)

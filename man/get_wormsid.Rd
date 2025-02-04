@@ -174,7 +174,6 @@ get_wormsid_("Plat")
 get_wormsid_("Plat", rows=1)
 get_wormsid_("Plat", rows=1:2)
 get_wormsid_("Plat", rows=1:75)
-# get_wormsid_(c("asdfadfasd","Plat"), rows=1:5)
 }
 }
 \seealso{
