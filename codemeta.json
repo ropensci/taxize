@@ -8,19 +8,13 @@
   "codeRepository": "https://github.com/ropensci/taxize",
   "issueTracker": "https://github.com/ropensci/taxize/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.9.100",
+  "version": "0.10.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.2.2 Patched (2022-11-10 r83330)",
-  "provider": {
-    "@id": "https://cran.r-project.org",
-    "@type": "Organization",
-    "name": "Comprehensive R Archive Network (CRAN)",
-    "url": "https://cran.r-project.org"
-  },
+  "runtimePlatform": "R version 4.4.2 (2024-10-31)",
   "author": [
     {
       "@type": "Person",
@@ -227,18 +221,6 @@
     },
     "9": {
       "@type": "SoftwareApplication",
-      "identifier": "foreach",
-      "name": "foreach",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=foreach"
-    },
-    "10": {
-      "@type": "SoftwareApplication",
       "identifier": "ape",
       "name": "ape",
       "provider": {
@@ -249,7 +231,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=ape"
     },
-    "11": {
+    "10": {
       "@type": "SoftwareApplication",
       "identifier": "zoo",
       "name": "zoo",
@@ -261,7 +243,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=zoo"
     },
-    "12": {
+    "11": {
       "@type": "SoftwareApplication",
       "identifier": "data.table",
       "name": "data.table",
@@ -273,7 +255,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=data.table"
     },
-    "13": {
+    "12": {
       "@type": "SoftwareApplication",
       "identifier": "tibble",
       "name": "tibble",
@@ -286,20 +268,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=tibble"
     },
-    "14": {
-      "@type": "SoftwareApplication",
-      "identifier": "bold",
-      "name": "bold",
-      "version": ">= 0.8.6",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=bold"
-    },
-    "15": {
+    "13": {
       "@type": "SoftwareApplication",
       "identifier": "rredlist",
       "name": "rredlist",
@@ -311,7 +280,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=rredlist"
     },
-    "16": {
+    "14": {
       "@type": "SoftwareApplication",
       "identifier": "rotl",
       "name": "rotl",
@@ -324,7 +293,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=rotl"
     },
-    "17": {
+    "15": {
       "@type": "SoftwareApplication",
       "identifier": "ritis",
       "name": "ritis",
@@ -337,7 +306,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=ritis"
     },
-    "18": {
+    "16": {
       "@type": "SoftwareApplication",
       "identifier": "worrms",
       "name": "worrms",
@@ -350,7 +319,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=worrms"
     },
-    "19": {
+    "17": {
       "@type": "SoftwareApplication",
       "identifier": "natserv",
       "name": "natserv",
@@ -363,7 +332,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=natserv"
     },
-    "20": {
+    "18": {
       "@type": "SoftwareApplication",
       "identifier": "wikitaxa",
       "name": "wikitaxa",
@@ -376,7 +345,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=wikitaxa"
     },
-    "21": {
+    "19": {
       "@type": "SoftwareApplication",
       "identifier": "R6",
       "name": "R6",
@@ -388,7 +357,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=R6"
     },
-    "22": {
+    "20": {
       "@type": "SoftwareApplication",
       "identifier": "crayon",
       "name": "crayon",
@@ -400,7 +369,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=crayon"
     },
-    "23": {
+    "21": {
       "@type": "SoftwareApplication",
       "identifier": "cli",
       "name": "cli",
@@ -412,7 +381,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=cli"
     },
-    "24": {
+    "22": {
       "@type": "SoftwareApplication",
       "identifier": "phangorn",
       "name": "phangorn",
@@ -424,7 +393,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=phangorn"
     },
-    "25": {
+    "23": {
       "@type": "SoftwareApplication",
       "identifier": "lifecycle",
       "name": "lifecycle",
@@ -436,12 +405,36 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=lifecycle"
     },
+    "24": {
+      "@type": "SoftwareApplication",
+      "identifier": "curl",
+      "name": "curl",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=curl"
+    },
+    "25": {
+      "@type": "SoftwareApplication",
+      "identifier": "stringi",
+      "name": "stringi",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=stringi"
+    },
     "SystemRequirements": null
   },
   "applicationCategory": "Taxonomy",
   "isPartOf": "https://ropensci.org",
   "keywords": ["taxonomy", "biology", "nomenclature", "JSON", "API", "web", "api-client", "identifiers", "species", "names", "data", "api", "biodiversity", "rstats", "darwincore", "taxize", "api-wrapper", "r", "r-package"],
-  "fileSize": "11368.156KB",
+  "fileSize": "13511.892KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",
