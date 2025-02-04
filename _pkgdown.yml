@@ -57,11 +57,14 @@ reference:
       - starts_with("gnr_")
       - iplant_resolve
       - tol_resolve
+      - gna_search
+      - gna_data_sources
   - title: "Name Parsers"
     contents:
       - gni_parse
       - gbif_parse
       - gna_verifier
+      - gna_parse
   - title: "NCBI Taxonomy"
     contents:
       - starts_with("ncbi_")
