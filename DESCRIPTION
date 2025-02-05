@@ -69,8 +69,7 @@ Authors@R:
              family = "Grenié",
              role = "ctb"),
       person(given = "rOpenSci",
-             role = "fnd",
-             comment = c(ROR = "019jywm96")))
+             role = "fnd"))
 LazyLoad: yes
 LazyData: true
 Encoding: UTF-8
