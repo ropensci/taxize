@@ -4,8 +4,6 @@
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-[![cran
-checks](https://badges.cranchecks.info/worst/taxize.svg)](https://cran.r-project.org/web/checks/check_results_taxize.html)
 [![rworkflows](https://github.com/ropensci/taxize/workflows/rworkflows/badge.svg)](https://github.com/ropensci/taxize/actions/)
 [![codecov](https://codecov.io/gh/ropensci/taxize/branch/master/graph/badge.svg)](https://app.codecov.io/gh/ropensci/taxize)
 [![rstudio mirror
