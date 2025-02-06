@@ -8,7 +8,6 @@ Description: Interacts with a suite of web application programming interfaces
     supported include 'NCBI E-utilities' (<https://www.ncbi.nlm.nih.gov/books/NBK25501/>),
     'Encyclopedia of Life' (<https://eol.org/docs/what-is-eol/data-services>),
     'Global Biodiversity Information Facility' (<https://techdocs.gbif.org/en/openapi/>),
-    'Integrated Taxonomic Information System' (<https://itis.gov/web_service.html>),
     and many more. Links to the API documentation for other supported services are
     available in the documentation for their respective functions in this package.
 Version: 0.10.0
