@@ -73,7 +73,7 @@
     </div>
 
     <div class="section level2">
-<h2 class="page-header" data-toc-text="0.10.0" id="taxize-0100">taxize 0.10.0<a class="anchor" aria-label="anchor" href="#taxize-0100"></a></h2>
+<h2 class="page-header" data-toc-text="0.10.0" id="taxize-0100">taxize 0.10.0<small>2025-02-07</small><a class="anchor" aria-label="anchor" href="#taxize-0100"></a></h2>
 <ul><li>Replaced depreciated GNR functions with analogous GNA functions such as <code>gna_verifier</code> and <code>gna_parse</code>
 </li>
 <li>Rewrote <code>scrapenames</code> for the new API</li>
@@ -89,7 +89,9 @@
 <li>Bump <code>taxize</code> version.</li>
 <li>Add <code>rworkflows</code> status badge to <em>README</em>.</li>
 </ul></li>
-</ul><p>============= taxize 0.9.100 =============</p>
+</ul></div>
+    <div class="section level2">
+<h2 class="page-header" data-toc-text="0.9.100" id="taxize-09100">taxize 0.9.100<small>2022-04-22</small><a class="anchor" aria-label="anchor" href="#taxize-09100"></a></h2>
 <p>Minor release to fix failing tests on CRAN.</p>
 <p>Zachary Foster is now the maintainer of <code>taxize</code>.</p>
 </div>
@@ -406,7 +408,7 @@
 <ul><li>
 <code><a href="../reference/get_eolid.html">get_eolid()</a></code> was erroring when no results found for a query due to not assigning an internal variable (<a href="https://github.com/ropensci/taxize/issues/701" class="external-link">#701</a>) (<a href="https://github.com/ropensci/taxize/issues/709" class="external-link">#709</a>) thanks for the fix <a href="https://github.com/taddallas" class="external-link">@taddallas</a></li>
 <li>
-<code><a href="../reference/get_tolid.html">get_tolid()</a></code> was erroring when values were <code>NULL</code> - now replacing all <code>NULLL</code> with <code>NA_character_</code> to make <code><a href="https://rdrr.io/pkg/data.table/man/rbindlist.html" class="external-link">data.table::rbindlist()</a></code> happy (<a href="https://github.com/ropensci/taxize/issues/710" class="external-link">#710</a>) (<a href="https://github.com/ropensci/taxize/issues/711" class="external-link">#711</a>) thanks <a href="https://github.com/gpli" class="external-link">@gpli</a> for the fix</li>
+<code><a href="../reference/get_tolid.html">get_tolid()</a></code> was erroring when values were <code>NULL</code> - now replacing all <code>NULLL</code> with <code>NA_character_</code> to make <code><a href="https://rdatatable.gitlab.io/data.table/reference/rbindlist.html" class="external-link">data.table::rbindlist()</a></code> happy (<a href="https://github.com/ropensci/taxize/issues/710" class="external-link">#710</a>) (<a href="https://github.com/ropensci/taxize/issues/711" class="external-link">#711</a>) thanks <a href="https://github.com/gpli" class="external-link">@gpli</a> for the fix</li>
 <li>add additional rows to the <code>rank_ref</code> data.frame of taxonomic ranks: species subgroup, forma, varietas, clade, megacohort, supercohort, cohort, subcohort, infracohort. when there’s no matched rank errors can result in many of the downstream functions. The data.frame now has 43 rows. (<a href="https://github.com/ropensci/taxize/issues/720" class="external-link">#720</a>) (<a href="https://github.com/ropensci/taxize/issues/727" class="external-link">#727</a>)</li>
 <li>fix to <code><a href="../reference/downstream.html">downstream()</a></code> and <code><a href="../reference/ncbi_get_taxon_summary.html">ncbi_get_taxon_summary()</a></code>: change in <code>ncbi_get_taxon_summary</code> to break up queries into smaller chunks to avoid HTTP 414 errors (“URI too long”) (<a href="https://github.com/ropensci/taxize/issues/727" class="external-link">#727</a>) (<a href="https://github.com/ropensci/taxize/issues/730" class="external-link">#730</a>) thanks for reporting <a href="https://github.com/fischhoff" class="external-link">@fischhoff</a> and <a href="https://github.com/benjaminschwetz" class="external-link">@benjaminschwetz</a></li>
 <li>a number of fixes internally (not user facing) to comply with upcoming R-devel changes for checking length greater than 1 in logical statements (<a href="https://github.com/ropensci/taxize/issues/731" class="external-link">#731</a>)</li>
@@ -605,7 +607,7 @@
 <li>EUBON has a new API (v1.2). We now interact with that new API version. In addition, <code><a href="../reference/eubon-defunct.html">eubon()</a></code> fxn is now <code><a href="../reference/eubon_search.html">eubon_search()</a></code>, although either still work - though <code><a href="../reference/eubon-defunct.html">eubon()</a></code> will be made defunct in the next version of this package. Additional new functions were added: <code><a href="../reference/eubon_capabilities.html">eubon_capabilities()</a></code>, <code><a href="../reference/eubon_children.html">eubon_children()</a></code>, and <code><a href="../reference/eubon_hierarchy.html">eubon_hierarchy()</a></code> (<a href="https://github.com/ropensci/taxize/issues/567" class="external-link">#567</a>)</li>
 <li>
 <code><a href="../reference/lowest_common.html">lowest_common()</a></code> function gains two new data source options: COL (Catalogue of Life) and TOL (Tree of Life) (<a href="https://github.com/ropensci/taxize/issues/505" class="external-link">#505</a>)</li>
-<li>Addded new function <code><a href="../reference/synonyms.html">synonyms_df()</a></code> as a slim wrapper around <code><a href="https://rdrr.io/pkg/data.table/man/rbindlist.html" class="external-link">data.table::rbindlist()</a></code> to make it easy to combine many outputs from <code><a href="../reference/synonyms.html">synonyms()</a></code> for a single data source - there is a lot of heterogeneity among data sources in how they report synonyms data, so we don’t attempt to combine data across sources (<a href="https://github.com/ropensci/taxize/issues/533" class="external-link">#533</a>)</li>
+<li>Addded new function <code><a href="../reference/synonyms.html">synonyms_df()</a></code> as a slim wrapper around <code><a href="https://rdatatable.gitlab.io/data.table/reference/rbindlist.html" class="external-link">data.table::rbindlist()</a></code> to make it easy to combine many outputs from <code><a href="../reference/synonyms.html">synonyms()</a></code> for a single data source - there is a lot of heterogeneity among data sources in how they report synonyms data, so we don’t attempt to combine data across sources (<a href="https://github.com/ropensci/taxize/issues/533" class="external-link">#533</a>)</li>
 </ul></div>
 <div class="section level4">
 <h4 id="minor-improvements-0-8-0">MINOR IMPROVEMENTS<a class="anchor" aria-label="anchor" href="#minor-improvements-0-8-0"></a></h4>

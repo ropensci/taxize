@@ -1,4 +1,4 @@
-pandoc: 3.6.2
+pandoc: 3.6.3
 pkgdown: 2.1.1
 pkgdown_sha: ~
 articles:
@@ -8,4 +8,4 @@ articles:
   name_cleaning: name_cleaning.html
   taxize: taxize.html
   taxonomic_ranks: taxonomic_ranks.html
-last_built: 2025-02-06T19:48Z
+last_built: 2025-03-04T17:55Z
