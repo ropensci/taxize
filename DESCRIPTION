@@ -13,8 +13,7 @@ Description: Interacts with a suite of web application programming interfaces
 Version: 0.10.0
 License: MIT + file LICENSE
 URL: https://docs.ropensci.org/taxize/ (website),
-    https://github.com/ropensci/taxize (devel),
-    https://taxize.dev (user manual)
+    https://github.com/ropensci/taxize (devel)
 BugReports: https://github.com/ropensci/taxize/issues
 Authors@R:
     c(person(given = "Scott",
