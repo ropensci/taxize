@@ -433,27 +433,7 @@
   },
   "applicationCategory": "Taxonomy",
   "isPartOf": "https://ropensci.org",
-  "keywords": [
-    "taxonomy",
-    "biology",
-    "nomenclature",
-    "JSON",
-    "API",
-    "web",
-    "api-client",
-    "identifiers",
-    "species",
-    "names",
-    "data",
-    "api",
-    "biodiversity",
-    "rstats",
-    "darwincore",
-    "taxize",
-    "api-wrapper",
-    "r",
-    "r-package"
-  ],
+  "keywords": ["taxonomy", "biology", "nomenclature", "JSON", "API", "web", "api-client", "identifiers", "species", "names", "data", "api", "biodiversity", "rstats", "darwincore", "taxize", "api-wrapper", "r", "r-package"],
   "fileSize": "13511.892KB",
   "citation": [
     {
@@ -572,9 +552,6 @@
   ],
   "releaseNotes": "https://github.com/ropensci/taxize/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/taxize/blob/master/README.md",
-  "contIntegration": [
-    "https://github.com/ropensci/taxize/actions/",
-    "https://app.codecov.io/gh/ropensci/taxize"
-  ],
+  "contIntegration": ["https://github.com/ropensci/taxize/actions/", "https://app.codecov.io/gh/ropensci/taxize"],
   "developmentStatus": "https://www.repostatus.org/#active"
 }
