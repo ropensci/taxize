@@ -58,8 +58,8 @@ Data sources currently implemented in taxize
 <tr>
   <td style="text-align:left;">IUCN Red List</td>
   <td style="text-align:left;"><code>iucn</code></td>
-  <td style="text-align:left;"><a href="https://apiv3.iucnredlist.org/api/v3/docs">link</a></td>
-  <td style="text-align:left;"><a href="https://apiv3.iucnredlist.org/api/v3/token">link</a></td>
+  <td style="text-align:left;"><a href="https://api.iucnredlist.org/">link</a></td>
+  <td style="text-align:left;"><a href="https://api.iucnredlist.org/">link</a></td>
 </tr>
 <tr>
   <td style="text-align:left;">Tropicos</td>
@@ -94,7 +94,7 @@ Data sources currently implemented in taxize
 <tr>
   <td style="text-align:left;">Barcode of Life Data Systems (BOLD)</td>
   <td style="text-align:left;"><code>bold</code></td>
-  <td style="text-align:left;"><a href="http://www.boldsystems.org/index.php/Resources">link</a></td>
+  <td style="text-align:left;"><a href="https://boldsystems.org/data/api/">link</a></td>
   <td style="text-align:left;">none</td>
 </tr>
 <tr>
