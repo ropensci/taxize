@@ -1,3 +1,8 @@
+taxize 0.10.1
+=============
+
+* Adjusted batch size of `gna_verifier` to 50 [issue #953](https://github.com/ropensci/taxize/issues/953#issuecomment-3844371540)
+
 taxize 0.10.0
 =============
 

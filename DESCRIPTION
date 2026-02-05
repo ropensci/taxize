@@ -10,7 +10,7 @@ Description: Interacts with a suite of web application programming interfaces
     'Global Biodiversity Information Facility' (<https://techdocs.gbif.org/en/openapi/>),
     and many more. Links to the API documentation for other supported services are
     available in the documentation for their respective functions in this package.
-Version: 0.10.0
+Version: 0.10.1
 License: MIT + file LICENSE
 URL: https://docs.ropensci.org/taxize/ (website),
     https://github.com/ropensci/taxize (devel)
@@ -103,7 +103,7 @@ Suggests:
     testthat,
     vegan,
     vcr
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
 Roxygen: list(markdown = TRUE)
 X-schema.org-applicationCategory: Taxonomy
 X-schema.org-keywords: taxonomy, biology, nomenclature, JSON, API, web, api-client, identifiers, species, names

@@ -52,7 +52,7 @@ gna_verifier <- function(
     output_type = 'table',
     ...
 ) {
-  batch_size <- 100 # How many names to lookup with each api call
+  batch_size <- 50 # How many names to lookup with each api call
   
   # Parse and verify input options
   data_sources <- as.character(data_sources)
