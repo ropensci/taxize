@@ -41,7 +41,8 @@
 #' @export
 #' @examples \dontrun{
 #' # Plug in taxon IDs
-#' synonyms(183327, db="itis")
+#' synonyms(526852, db="itis")
+#' synonyms(183327, db="itis") # ID with no synonyms
 #' synonyms("25509881", db="tropicos")
 #' synonyms("NBNSYS0000004629", db='nbn')
 #' synonyms(105706, db='worms')

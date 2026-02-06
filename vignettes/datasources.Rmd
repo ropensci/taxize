@@ -1,7 +1,7 @@
 ---
 title: taxize data sources
 author: Scott Chamberlain
-date: "2020-09-23"
+date: "2026-02-05"
 output: rmarkdown::html_vignette
 vignette: >
     %\VignetteIndexEntry{taxize data sources}
