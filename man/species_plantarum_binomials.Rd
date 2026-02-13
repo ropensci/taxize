@@ -25,7 +25,7 @@ replacement (as in the 1957-1959 facsimile edition.
 }
 }
 \source{
-\href{http://fmhibd.library.cmu.edu/HIBD-DB/Species/home.php}{Hunt Institute for Botanical Documentation}
+Hunt Institute for Botanical Documentation
 }
 \description{
 These names have been compiled from

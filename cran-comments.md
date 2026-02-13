@@ -1,6 +1,6 @@
 ## Test environments and check results
 
-### Local computer: Pop!_OS 22.04 LTS, R version 4.4.2
+### Local computer: Pop!_OS 22.04 LTS, R version 4.5.2
 
 0 errors | 0 warnings | 0 notes
 
@@ -10,15 +10,21 @@ linux, macos, windows (all R-devel)
 
 0 errors | 0 warnings | 0 notes
 
-### Winbuilder
+### `devtools::check_win_devel`
 
 0 errors | 0 warnings | 1 notes
 
-I get a lot of messages like below but I assume this is a limitation of the testing service:
+```
+* checking CRAN incoming feasibility ... [53s] NOTE
+Maintainer: 'Zachary Foster <zacharyfoster1989@gmail.com>'
 
+New submission
+
+Package was archived on CRAN
+
+CRAN repository db overrides:
+  X-CRAN-Comment: Archived on 2026-02-08 as requires archived package
+    'wikitaxa'
 ```
-  URL: https://github.com/zachary-foster
-    From: README.md
-    Status: 429
-    Message: Too Many Requests
-```
+
+wikitaxa is now back on CRAN

@@ -318,7 +318,7 @@ NULL
 #'       on the cancelled version of that page and does not appear on its
 #'       replacement (as in the 1957-1959 facsimile edition.
 #' 
-#' @source [Hunt Institute for Botanical Documentation](http://fmhibd.library.cmu.edu/HIBD-DB/Species/home.php)
+#' @source Hunt Institute for Botanical Documentation
 #' @name species_plantarum_binomials
 #' @references Linnaeus, C. 1753. Species Plantarum. 2 vols. Salvius, Stockholm.
 #'   \[Facsimile edition, 1957-1959, Ray Society, London.\]

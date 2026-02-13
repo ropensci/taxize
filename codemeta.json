@@ -2,26 +2,25 @@
   "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
   "identifier": "taxize",
-  "description": "Interacts with a suite of web 'APIs' for taxonomic tasks, such as getting database specific taxonomic identifiers, verifying species names, getting taxonomic hierarchies, fetching downstream and upstream taxonomic names, getting taxonomic synonyms, converting scientific to common names and vice versa, and more.",
+  "description": "Interacts with a suite of web application programming interfaces (API) for taxonomic tasks, such as getting database specific taxonomic identifiers, verifying species names, getting taxonomic hierarchies, fetching downstream and upstream taxonomic names, getting taxonomic synonyms, converting scientific to common names and vice versa, and more. Some of the services supported include 'NCBI E-utilities' (<https://www.ncbi.nlm.nih.gov/books/NBK25501/>), 'Encyclopedia of Life' (<https://eol.org/docs/what-is-eol/data-services>), 'Global Biodiversity Information Facility' (<https://techdocs.gbif.org/en/openapi/>), and many more. Links to the API documentation for other supported services are available in the documentation for their respective functions in this package.",
   "name": "taxize: Taxonomic Information from Around the Web",
-  "relatedLink": ["https://docs.ropensci.org/taxize/"],
+  "relatedLink": "https://docs.ropensci.org/taxize/",
   "codeRepository": "https://github.com/ropensci/taxize",
   "issueTracker": "https://github.com/ropensci/taxize/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.10.0",
+  "version": "0.10.1",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.4.2 (2024-10-31)",
+  "runtimePlatform": "R version 4.5.2 (2025-10-31)",
   "author": [
     {
       "@type": "Person",
       "givenName": "Scott",
       "familyName": "Chamberlain",
-      "email": "myrmecocystus@gmail.com",
-      "@id": "https://orcid.org/0000-0003-1444-9135"
+      "email": "myrmecocystus@gmail.com"
     },
     {
       "@type": "Person",
@@ -434,7 +433,7 @@
   "applicationCategory": "Taxonomy",
   "isPartOf": "https://ropensci.org",
   "keywords": ["taxonomy", "biology", "nomenclature", "JSON", "API", "web", "api-client", "identifiers", "species", "names", "data", "api", "biodiversity", "rstats", "darwincore", "taxize", "api-wrapper", "r", "r-package"],
-  "fileSize": "13511.892KB",
+  "fileSize": "13508.052KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",
@@ -550,7 +549,7 @@
       "description": "R package version 0.9.98"
     }
   ],
-  "releaseNotes": "https://github.com/ropensci/taxize/blob/master/NEWS.md",
+  "releaseNotes": "https://github.com/ropensci/taxize/blob/main/NEWS.md",
   "readme": "https://github.com/ropensci/taxize/blob/master/README.md",
   "contIntegration": ["https://github.com/ropensci/taxize/actions/", "https://app.codecov.io/gh/ropensci/taxize"],
   "developmentStatus": "https://www.repostatus.org/#active"
