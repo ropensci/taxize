@@ -11,7 +11,7 @@ vignette: >
 
 
 
-`taxize` is a taxonomic toolbelt for R. `taxize` wraps APIs for a large suite of taxonomic databases availab on the web.
+`taxize` is a taxonomic toolbelt for R. `taxize` wraps APIs for a large suite of taxonomic databases available on the web.
 
 ## Installation
 
