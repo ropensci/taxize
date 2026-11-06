@@ -3,19 +3,19 @@
 #' Retrieve the Unique Identifier (UID) of a taxon from NCBI taxonomy browser.
 #'
 #' @export
-#' @param sci_com character; scientific or common name. Or, a `taxon_state`
+#' @param sci_com character; scientific or common name. Or, a  `taxon_state` 
 #' object (see [taxon-state])
 #' @param ask logical; should get_uid be run in interactive mode? If TRUE and
 #' more than one TSN is found for the species, the user is asked for input. If
 #' FALSE NA is returned for multiple matches.
-#' @param messages logical; If `TRUE` (default) the actual taxon queried is
+#' @param messages logical; If  `TRUE`  (default) the actual taxon queried is
 #' printed on the console.
 #' @param rows numeric; Any number from 1 to infinity. If the default NA, all
 #' rows are considered. Note that this function still only gives back a uid
 #' class object with one to many identifiers. See [get_uid_()] to get back
 #' all, or a subset, of the raw data that you are presented during the ask
 #' process.
-#' @param modifier (character) A modifier to the `sci_com` given. Options
+#' @param modifier (character) A modifier to the  `sci_com`  given. Options
 #' include: Organism, Scientific Name, Common Name, All Names, Division,
 #' Filter, Lineage, GC, MGC, Name Tokens, Next Level, PGC, Properties, Rank,
 #' Subtree, Synonym, Text Word. These are not checked, so make sure they are
@@ -23,56 +23,56 @@
 #' @param rank_query (character) A taxonomic rank name to modify the query sent
 #' to NCBI. See [rank_ref] for possible options. Though note that
 #' some data sources use atypical ranks, so inspect the data itself for
-#' options. Optional. See `Querying` below.
+#' options. Optional. See  `Querying`  below.
 #' @param division_filter (character) A division (aka phylum) name to filter
-#' data after retrieved from NCBI. Optional. See `Filtering` below.
+#' data after retrieved from NCBI. Optional. See  `Filtering`  below.
 #' @param rank_filter (character) A taxonomic rank name to filter data after
 #' retrieved from NCBI. See [rank_ref] for possible options.
 #' Though note that some data sources use atypical ranks, so inspect the data
-#' itself for options. Optional. See `Filtering` below.
+#' itself for options. Optional. See  `Filtering`  below.
 #' @param key (character) NCBI Entrez API key. optional. See Details.
 #' @param x Input to [as.uid()]
-#' @param sciname Deprecated, see `sci_com`
+#' @param sciname Deprecated, see  `sci_com` 
 #' @param ... Ignored
 #' @param check logical; Check if ID matches any existing on the DB, only used
 #'   in [as.uid()]
 #' @template getreturn
-#' 
+#'
 #' @section Rate limits:
 #' In case you run into errors due to your rate limit being exceeded, see
-#' [taxize_options()], where you can set `ncbi_sleep`.
+#' [taxize_options()], where you can set  `ncbi_sleep` .
 #'
-#' @section Querying: The parameter `rank_query` is used in the search sent
-#'   to NCBI, whereas `rank_filter` filters data after it comes back. The
-#'   parameter `modifier` adds modifiers to the name. For example,
-#'   `modifier="Organism"` adds that to the name, giving e.g.,
-#'   `Helianthus[Organism]`.
+#' @section Querying: The parameter  `rank_query`  is used in the search sent
+#'   to NCBI, whereas  `rank_filter`  filters data after it comes back. The
+#'   parameter  `modifier`  adds modifiers to the name. For example,
+#'    `modifier="Organism"`  adds that to the name, giving e.g.,
+#'    `Helianthus[Organism]` .
 #'
-#' @section Filtering: The parameters `division_filter` and
-#'   `rank_filter` are not used in the search to the data provider, but are
+#' @section Filtering: The parameters  `division_filter`  and
+#'    `rank_filter`  are not used in the search to the data provider, but are
 #'   used in filtering the data down to a subset that is closer to the target
-#'   you want. For all these parameters, you can use regex strings since we use
+#'   you want. For all these parameters, you  can use regex strings since we use
 #'   [grep()] internally to match. Filtering narrows down to the set
 #'   that matches your query, and removes the rest.
 #'
-#' @section Beware: NCBI does funny things sometimes. E.g., if you search on
+#' @section Beware:  NCBI does funny things sometimes. E.g., if you search on
 #'   Fringella morel, a slight misspelling of the genus name, and a non-existent
 #'   epithet, NCBI gives back a morel fungal species. In addition, NCBI doesn't
 #'   really do fuzzy searching very well, so if there is a slight mis-spelling
-#'   in your names, you likely won't get what you are expecting. The lesson:
+#'   in your names, you likely won't get what you are expecting . The lesson:
 #'   clean your names before using this function. Other data sources are better
 #'   about fuzzy matching.
 #'
 #' @section Authentication:
 #' See [taxize-authentication] for help on authentication
 #'
-#' Note that even though you can't pass in your key to `as.uid` functions,
+#' Note that even though you can't pass in your key to  `as.uid`  functions,
 #' we still use your Entrez API key if you have it saved as an R option
 #' or environment variable.
-#' 
+#'
 #' @section HTTP version:
-#' We hard code `http_version = 2L` to use HTTP/1.1 in HTTP requests to
-#' the Entrez API. See `curl::curl_symbols('CURL_HTTP_VERSION')`
+#' We hard code  `http_version = 2L`  to use HTTP/1.1 in HTTP requests to
+#' the Entrez API. See  `curl::curl_symbols('CURL_HTTP_VERSION')` 
 #'
 #' @family taxonomic-ids
 #' @seealso [classification()]
@@ -128,24 +128,24 @@
 #' get_uid('Dugesia', ask = FALSE) # returns NA for multiple matches
 #'
 #' # Go to a website with more info on the taxon
-#' res <- get_uid("Chironomus riparius")
+#' res  <- get_uid("Chironomus riparius")
 #' browseURL(attr(res, "uri"))
 #'
 #' # Convert a uid without class information to a uid class
 #' as.uid(get_uid("Chironomus riparius")) # already a uid, returns the same
-#' as.uid(get_uid(c("Chironomus riparius","Pinus contorta"))) # same
+#' as.uid(get_uid(c("Chironomus riparius", "Pinus contorta"))) # same
 #' as.uid(315567) # numeric
-#' as.uid(c(315567,3339,9696)) # numeric vector, length > 1
+#' as.uid(c(315567,3339,9696)) # numeric vector, length  > 1
 #' as.uid("315567") # character
-#' as.uid(c("315567","3339","9696")) # character vector, length > 1
-#' as.uid(list("315567","3339","9696")) # list, either numeric or character
+#' as.uid(c("315567", "3339", "9696")) # character vector, length  > 1
+#' as.uid(list("315567", "3339", "9696")) # list, either numeric or character
 #' ## dont check, much faster
 #' as.uid("315567", check=FALSE)
 #' as.uid(315567, check=FALSE)
-#' as.uid(c("315567","3339","9696"), check=FALSE)
-#' as.uid(list("315567","3339","9696"), check=FALSE)
+#' as.uid(c("315567", "3339", "9696"), check=FALSE)
+#' as.uid(list("315567", "3339", "9696"), check=FALSE)
 #'
-#' (out <- as.uid(c(315567,3339,9696)))
+#' (out  <- as.uid(c(315567,3339,9696)))
 #' data.frame(out)
 #' as.uid( data.frame(out) )
 #'
@@ -154,17 +154,15 @@
 #' get_uid_("Dugesia")
 #' get_uid_("Dugesia", rows=2)
 #' get_uid_("Dugesia", rows=1:2)
-#' get_uid_(c("asdfadfasd","Pinus contorta"))
+#' get_uid_(c("asdfadfasd", "Pinus contorta"))
 #'
 #' # use curl options
 #' get_uid("Quercus douglasii", verbose = TRUE)
 #' }
-
 get_uid <- function(sci_com, ask = TRUE, messages = TRUE, rows = NA,
                     modifier = NULL, rank_query = NULL,
                     division_filter = NULL, rank_filter = NULL,
                     key = NULL, sciname = NULL, ...) {
-
   assert(sci_com, c("character", "taxon_state"))
   assert(ask, "logical")
   assert(messages, "logical")
@@ -178,8 +176,6 @@ get_uid <- function(sci_com, ask = TRUE, messages = TRUE, rows = NA,
     lifecycle::deprecate_warn(when = "v0.9.97", what = "get_uid(sciname)", with = "get_uid(sci_com)")
     sci_com <- sciname
   }
-  
-
   if (inherits(sci_com, "character")) {
     tstate <- taxon_state$new(class = "uid", names = sci_com)
     items <- sci_com
@@ -189,12 +185,10 @@ get_uid <- function(sci_com, ask = TRUE, messages = TRUE, rows = NA,
     sci_com <- tstate$taxa_remaining()
     items <- c(sci_com, tstate$taxa_completed())
   }
-
   prog <- progressor$new(items = items, suppress = !messages)
   done <- tstate$get()
   for (i in seq_along(done)) prog$completed(names(done)[i], done[[i]]$att)
   prog$prog_start()
-
   for (i in seq_along(sci_com)) {
     direct <- FALSE
     mssg(messages, "\nRetrieving data for taxon '", sci_com[i], "'\n")
@@ -212,18 +206,15 @@ get_uid <- function(sci_com, ask = TRUE, messages = TRUE, rows = NA,
                                             ...)
     if (grepl("error", raw_xml_result)) stop(raw_xml_result, call.=FALSE)
     xml_result <- xml2::read_xml(raw_xml_result)
-
     # NCBI limits requests to three per second
     ncbi_rate_limit_pause(key)
     uid <- xml2::xml_text(xml2::xml_find_all(xml_result, "//IdList/Id"))
     mm <- length(uid) > 1
-
     if (length(uid) == 0) { # if taxon name is not found
       uid <- NA_character_
     } else {
       att <- 'found'
     }
-
     # not found on ncbi
     if (length(uid) == 0 || all(is.na(uid))) {
       mssg(messages, m_not_found_sp_altclass)
@@ -232,7 +223,7 @@ get_uid <- function(sci_com, ask = TRUE, messages = TRUE, rows = NA,
     }
     # more than one found on ncbi -> user input
     if (length(uid) > 1) {
-      ID <- paste(uid, collapse = ",")
+      ID <- paste(uid, collapse=",")
       try_again_errors <- c("Could not resolve host: eutils.ncbi.nlm.nih.gov")
       query_args <- tc(list(db = "taxonomy", ID = ID, api_key = key))
       tt <- repeat_until_it_works(try_again_errors, "esummary",
@@ -240,12 +231,10 @@ get_uid <- function(sci_com, ask = TRUE, messages = TRUE, rows = NA,
       ttp <- xml2::read_xml(tt)
       df <- parse_ncbi(ttp)
       rownames(df) <- 1:nrow(df)
-
       if (!is.null(division_filter) || !is.null(rank_filter)) {
         df <- filt(df, "division", division_filter)
         df <- filt(df, "rank", rank_filter)
       }
-
       df <- sub_rows(df, rows)
       uid <- df$uid
       if (length(uid) == 1) {
@@ -255,18 +244,15 @@ get_uid <- function(sci_com, ask = TRUE, messages = TRUE, rows = NA,
       if (length(uid) == 0) {
         uid <- NA_character_
       }
-
       if (length(uid) > 1) {
         # check for exact match
         matchtmp <- df[
-          tolower(
-            as.character(df$scientificname)) %in% tolower(sci_com[i]), "uid"]
+          tolower(as.character(df$scientificname)) %in% tolower(sci_com[i]), "uid"]
         if (length(matchtmp) == 1) {
           uid <- as.character(matchtmp)
           direct <- TRUE
         }
       }
-
       if (length(uid) > 1) {
         if (!ask) {
           if (length(uid) == 1) {
@@ -287,7 +273,6 @@ get_uid <- function(sci_com, ask = TRUE, messages = TRUE, rows = NA,
             Enter rownumber of taxon (other inputs will return 'NA'):\n")
           message(paste0(utils::capture.output(df), collapse = "\n"))
           take <- scan(n = 1, quiet = TRUE, what = 'raw')
-
           if (length(take) == 0) {
             take <- "notake"
             att <- "nothing chosen"
@@ -307,16 +292,16 @@ get_uid <- function(sci_com, ask = TRUE, messages = TRUE, rows = NA,
       }
     }
     res <- list(id = as.character(uid), att = att, multiple = mm,
-      direct = direct)
+                direct = direct)
     prog$completed(sci_com[i], att)
     prog$prog(att)
     tstate$add(sci_com[i], res)
   }
   out <- tstate$get()
-  ids <- structure(pluck_un(out, "id", ""), class = "uid",
-    match = pluck_un(out, "att", ""),
-    multiple_matches = pluck_un(out, "multiple", logical(1)),
-    pattern_match = pluck_un(out, "direct", logical(1))
+  ids <- structure(pluck_un(out, "id", " "), class = "uid",
+                   match = pluck_un(out, "att", " "),
+                   multiple_matches = pluck_un(out, "multiple", logical(1)),
+                   pattern_match = pluck_un(out, "direct", logical(1))
   )
   on.exit(prog$prog_summary(), add = TRUE)
   on.exit(tstate$exit, add = TRUE)
@@ -324,8 +309,7 @@ get_uid <- function(sci_com, ask = TRUE, messages = TRUE, rows = NA,
 }
 
 repeat_until_it_works <- function(catch, path, query, max_tries = 3,
-  wait_time = 10, messages = TRUE, ...) {
-
+                                  wait_time = 10, messages = TRUE, ...) {
   error_handler <- function(e) {
     if (e$message %in% catch) {
       if (messages) warning(paste("Caught error:", e$message))
@@ -336,14 +320,24 @@ repeat_until_it_works <- function(catch, path, query, max_tries = 3,
   }
   for (count in 1:max_tries) {
     cli <- crul::HttpClient$new(url = ncbi_base(),
-      headers = tx_ual, opts = list(http_version = 2L, ...))
+                                headers = tx_ual, opts = list(http_version = 2L, ...))
     res <- cli$get(sprintf("entrez/eutils/%s.fcgi", path),
-      query = tc(query))
+                   query = tc(query))
+    
+    # NEW: Check for HTTP errors (like 400 Bad Request or 500 Server Error)
+    # If the API returns an error status, wait and retry instead of crashing.
+    if (res$status_code >= 400) {
+      if (messages) message("HTTP ", res$status_code, " received from NCBI. Retrying in ", wait_time * count, " seconds...")
+      Sys.sleep(wait_time * count)
+      next
+    }
+    
     output <- tryCatch(res$parse("UTF-8"), error = error_handler)
     if (!is.na(output)) return(output)
     Sys.sleep(wait_time * count)
   }
-  return(output)
+  # If all retries fail, return the last parsed output (which will likely trigger the downstream error handler gracefully)
+  return(tryCatch(res$parse("UTF-8"), error = function(e) NA))
 }
 
 #' @export
@@ -388,13 +382,13 @@ as.data.frame.uid <- function(x, ...){
 
 make_uid <- function(x, check=TRUE) {
   make_generic(x, 'https://www.ncbi.nlm.nih.gov/taxonomy/%s',
-    "uid", check)
+               "uid", check)
 }
 
 check_uid <- function(x){
   key <- getkey(NULL, "ENTREZ_KEY")
   cli <- crul::HttpClient$new(url = ncbi_base(), headers = tx_ual,
-    opts = list(http_version = 2L))
+                              opts = list(http_version = 2L))
   args <- tc(list(db = "taxonomy", id = x, api_key = key))
   res <- cli$get("entrez/eutils/esummary.fcgi", query = args)
   res$raise_for_status()
@@ -403,30 +397,27 @@ check_uid <- function(x){
   identical(as.character(x), tryid)
 }
 
-
 #' @export
 #' @rdname get_uid
 get_uid_ <- function(sci_com, messages = TRUE, rows = NA, key = NULL,
-  sciname = NULL, ...) {
-  
+                     sciname = NULL, ...) {
   key <- getkey(key, "ENTREZ_KEY")
   if (!is.null(sciname)) {
-  lifecycle::deprecate_warn(when = "v0.9.97", what = "get_uid_(sciname)", with = "get_uid_(sci_com)")
+    lifecycle::deprecate_warn(when = "v0.9.97", what = "get_uid_(sciname)", with = "get_uid_(sci_com)")
     sci_com <- sciname
   }
-  
   stats::setNames(lapply(sci_com, get_uid_help, messages = messages,
-    rows = rows, key = key, ...), sci_com)
+                         rows = rows, key = key, ...), sci_com)
 }
 
 get_uid_help <- function(sci_com, messages, rows, key, ...) {
   mssg(messages, "\nRetrieving data for taxon '", sci_com, "'\n")
   cli <- crul::HttpClient$new(url = ncbi_base(), headers = tx_ual,
-    opts = list(http_version = 2L, ...))
+                              opts = list(http_version = 2L, ...))
   res <- cli$get(
     "entrez/eutils/esearch.fcgi",
     query = tc(list(api_key = key,
-      db = "taxonomy", term = gsub(" ", "+", sci_com))))
+                    db = "taxonomy", term = gsub(" ", "+", sci_com))))
   res$raise_for_status()
   xml_result <- xml2::read_xml(res$parse("UTF-8"))
   Sys.sleep(0.33)
@@ -435,8 +426,8 @@ get_uid_help <- function(sci_com, messages, rows, key, ...) {
     NULL
   } else {
     res <- cli$get("entrez/eutils/esummary.fcgi",
-      query = tc(list(api_key = key, db = "taxonomy",
-        ID = paste(uid, collapse = ","))))
+                   query = tc(list(api_key = key, db = "taxonomy",
+                                   ID = paste(uid, collapse = ", "))))
     res$raise_for_status()
     ttp <- xml2::read_xml(res$parse("UTF-8"))
     df <- parse_ncbi(ttp)
@@ -448,7 +439,7 @@ parse_ncbi <- function(x) {
   mget <- c("Status", "Rank", "Division", "ScientificName",
             "CommonName", "TaxId", "Genus", "Species", "Subsp",
             "ModificationDate")
-  nget <- paste0('Item[@Name="', mget, "\"]")
+  nget <- paste0('Item[@Name="', mget, '"]')
   nodes <- xml_find_all(x, "//DocSum")
   tmp <- taxize_ldfast(lapply(nodes, function(z) {
     data.frame(as.list(
